@@ -2,3 +2,7 @@
 # formatting change.
 /docs/m4/NATP00087_normalized.html -diff
 /docs/m4/NATP00087_diplomatic.html -diff
+/docs/m1/NATP00075_*.html -diff
+/docs/m1/NATP00076_*.html -diff
+/docs/m1/NATP00080_*.html -diff
+/docs/m1/NATP00081_*.html -diff

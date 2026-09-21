@@ -12,10 +12,10 @@ Primary witnesses: 9; selected XML anchors: 173; exact generated-extract matches
 | NATP00090 | NATP00090 | Manuscript | 15 | 11/11 | 11/11 |
 | NATP00077 | 1687 | Printed | 210 | 33/33 | 33/33 |
 | NATP00082 | 1713 | Printed | 187 | 47/47 | 47/47 |
-| NATP00075 | 1687 | Printed | 11 | 0/8 | 0/8 |
-| NATP00076 | 1687 | Printed | 14 | 0/5 | 0/5 |
-| NATP00080 | 1713 | Printed | 11 | 0/8 | 0/8 |
-| NATP00081 | 1713 | Printed | 13 | 0/5 | 0/5 |
+| NATP00075 | 1687 | Printed | 11 | 8/8 | 8/8 |
+| NATP00076 | 1687 | Printed | 14 | 5/5 | 5/5 |
+| NATP00080 | 1713 | Printed | 11 | 8/8 | 8/8 |
+| NATP00081 | 1713 | Printed | 13 | 5/5 | 5/5 |
 | NATP00087 | 1726 | Printed | 202 | 46/46 | 46/46 |
 
 A missing local HTML view is reported as absent; its official URL remains in the JSON record. XML is the machine-readable authority for exact revision markup.
@@ -175,14 +175,14 @@ Library/facsimile record: none encoded
 
 | Anchor | Page | Facsimile target | Revision tags | Extract | Normalized | Diplomatic |
 |---|---:|---|---|---|---|---|
-| par1 | 1 | — | none | match | view missing | view missing |
-| par3 | 2 | — | none | match | view missing | view missing |
-| par5 | 2 | — | choice:1, orig:1, reg:1 | match | view missing | view missing |
-| par7 | 2 | — | none | match | view missing | view missing |
-| par9 | 3 | — | choice:1, orig:1, reg:1 | match | view missing | view missing |
-| par13 | 3 | — | none | match | view missing | view missing |
-| par15 | 3 | — | none | match | view missing | view missing |
-| par18 | 4 | — | choice:1, orig:1, reg:1 | match | view missing | view missing |
+| par1 | 1 | — | none | match | present | present |
+| par3 | 2 | — | none | match | present | present |
+| par5 | 2 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par7 | 2 | — | none | match | present | present |
+| par9 | 3 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par13 | 3 | — | none | match | present | present |
+| par15 | 3 | — | none | match | present | present |
+| par18 | 4 | — | choice:1, orig:1, reg:1 | match | present | present |
 
 ## NATP00076 — Axiomata Sive Leges Motus (1687)
 
@@ -194,11 +194,11 @@ Library/facsimile record: none encoded
 
 | Anchor | Page | Facsimile target | Revision tags | Extract | Normalized | Diplomatic |
 |---|---:|---|---|---|---|---|
-| par1 | 12 | — | none | match | view missing | view missing |
-| par3 | 12 | — | none | match | view missing | view missing |
-| par4 | 12 | — | choice:1, orig:1, reg:1 | match | view missing | view missing |
-| par7 | 13 | — | none | match | view missing | view missing |
-| par8 | 13 | — | choice:2, orig:2, reg:2 | match | view missing | view missing |
+| par1 | 12 | — | none | match | present | present |
+| par3 | 12 | — | none | match | present | present |
+| par4 | 12 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par7 | 13 | — | none | match | present | present |
+| par8 | 13 | — | choice:2, orig:2, reg:2 | match | present | present |
 
 ## NATP00080 — Definitiones (1713)
 
@@ -210,14 +210,14 @@ Library/facsimile record: none encoded
 
 | Anchor | Page | Facsimile target | Revision tags | Extract | Normalized | Diplomatic |
 |---|---:|---|---|---|---|---|
-| par1 | 1 | — | none | match | view missing | view missing |
-| par3 | 1 | — | none | match | view missing | view missing |
-| par5 | 2 | — | none | match | view missing | view missing |
-| par7 | 2 | — | none | match | view missing | view missing |
-| par9 | 2 | — | choice:1, orig:1, reg:1 | match | view missing | view missing |
-| par13 | 4 | — | none | match | view missing | view missing |
-| par15 | 4 | — | none | match | view missing | view missing |
-| par18 | 5 | — | choice:1, orig:1, reg:1 | match | view missing | view missing |
+| par1 | 1 | — | none | match | present | present |
+| par3 | 1 | — | none | match | present | present |
+| par5 | 2 | — | none | match | present | present |
+| par7 | 2 | — | none | match | present | present |
+| par9 | 2 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par13 | 4 | — | none | match | present | present |
+| par15 | 4 | — | none | match | present | present |
+| par18 | 5 | — | choice:1, orig:1, reg:1 | match | present | present |
 
 ## NATP00081 — Axiomata Sive Leges Motus (1713)
 
@@ -229,11 +229,11 @@ Library/facsimile record: none encoded
 
 | Anchor | Page | Facsimile target | Revision tags | Extract | Normalized | Diplomatic |
 |---|---:|---|---|---|---|---|
-| par1 | 12 | — | none | match | view missing | view missing |
-| par3 | 12 | — | none | match | view missing | view missing |
-| par4 | 12 | — | none | match | view missing | view missing |
-| par7 | 13 | — | none | match | view missing | view missing |
-| par8 | 13 | — | none | match | view missing | view missing |
+| par1 | 12 | — | none | match | present | present |
+| par3 | 12 | — | none | match | present | present |
+| par4 | 12 | — | none | match | present | present |
+| par7 | 13 | — | none | match | present | present |
+| par8 | 13 | — | none | match | present | present |
 
 ## NATP00087 — De Motu Corporum (Liber Primus) (1726)
 

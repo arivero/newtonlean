@@ -17,10 +17,10 @@
 - `collate_sources.py`: nine witnesses and 173 selected XML anchors collated;
   all generated extracts matched the TEI anchors, 38 anchors retained revision
   markup, and page/facsimile metadata was recorded. Local HTML anchor presence
-  is reported separately (142 normalized and 147 diplomatic matches); three PDF
+  is reported separately (168 normalized and 173 diplomatic matches); three PDF
   or secondary records remain supplementary and unanchored. No image was
   downloaded or read.
-- `sha256sum -c docs/SHA256SUMS`: all fourteen listed source artifacts passed.
+- `sha256sum -c docs/SHA256SUMS`: all twenty-two listed source artifacts passed.
 - `git diff --check`: passed. The manifest's external package list stays empty.
 
 PDF verification was selective: Royal Society reprint p.36 (H4), Gregory p.336
