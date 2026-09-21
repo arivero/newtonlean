@@ -153,5 +153,39 @@
     "formal_refs": [
       "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction"
     ]
+  },
+  "NATP00077.par32": {
+    "translation": "For normal contact subtense BD, circle geometry gives AB squared = AG times BD. The limiting intercept AI is approached as the points coalesce.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Contact.normal_subtense_bound"
+    ]
+  },
+  "NATP00077.par39": {
+    "translation": "The contact angle is neither infinitely smaller nor infinitely greater than circular contact: the intercept AI is finite. Powers above or below the quadratic order are counterexamples to omitting this restriction.",
+    "formal_refs": []
+  },
+  "NATP00077.par37": {
+    "translation": "By the nature of the parabola, the curvilinear area is two thirds of the triangle and the segment one third; these areas are therefore cubic in tangent, chord or arc.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Contact.cubic_rectangle_bound",
+      "NewtonLimitDynamics.Contact.quadratic_rectangles"
+    ]
+  },
+  "NATP00082.par37": {
+    "translation": "For normal contact subtense BD, circle geometry gives AB squared = AG times BD. The limiting intercept AI is approached as the points coalesce.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Contact.normal_subtense_bound"
+    ]
+  },
+  "NATP00082.par45": {
+    "translation": "The contact angle is neither infinitely smaller nor infinitely greater than circular contact: the intercept AI is finite. Powers above or below the quadratic order are counterexamples to omitting this restriction.",
+    "formal_refs": []
+  },
+  "NATP00082.par44": {
+    "translation": "By the nature of the parabola, the curvilinear area is two thirds of the triangle and the segment one third; these areas are therefore cubic in tangent, chord or arc.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Contact.cubic_rectangle_bound",
+      "NewtonLimitDynamics.Contact.quadratic_rectangles"
+    ]
   }
 }

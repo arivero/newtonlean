@@ -402,6 +402,96 @@ Corol. 2. Errores autem qui viribus proportionalibus similiter applicatis genera
 
 Translation status: not_translated.
 
+## NATP00077.par31
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par31
+
+Subtensa evanescens anguli contactus est ultimo in ratione duplicata subtensæ arcus contermini.
+
+Translation status: not_translated.
+
+## NATP00077.par32
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par32
+
+Cas. 1. Sit arcus ille AB, tangens ejus AD, subtensa anguli contactus ad tangentem perpendicularis BD, subtensa arcus AB. Huic subtensæ AB & tangenti AD perpendiculares erigantur AG, BG, concurrentes in G; dein accedant puncta D, B, G, ad puncta d, b, g, sitq; I intersectio linearum BG, AG ultimo facta ubi puncta D, B accedunt usq; ad A. Manifestum est quod distantia G I minor esse potest quam assignata quævis. Est autem (ex natura circulorum per puncta ABG, Abg transeuntium) AB quad. æquale AG×BD& Abquad. æquale Ag×bd, adeoq; ratio AB quad. ad Ab quad. componitur ex rationibus AG ad Ag & BD ad bd. Sed quoniam IG assumi potest minor longitudine quavis assignata, fieri potest ut ratio AG ad Ag minus differat a ratione æqualitatis quam pro differentia quavis assignata, adeoq; ut ratio AB quad. ad Ab quad. minus differat a ratione BD ad bd quam pro differentia quavis assignata. Est ergo, per Lemma I, ratio ultima AB quad. ad Ab quad. æqualis rationi ultimæ BD ad bd. Q.E.D.
+
+Translation status: identifying_translation_not_full. For normal contact subtense BD, circle geometry gives AB squared = AG times BD. The limiting intercept AI is approached as the points coalesce.
+
+## NATP00077.par33
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par33
+
+Cas. 2. Inclinetur jam BD ad AD in angulo quovis dato, & eadem semper erit ratio ultima BD ad bd quæ prius, adeoq; eadem ac AB quad. ad Ab quad. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00077.par34
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par34
+
+Cas. 3. Et quamvis angulus D non detur, tamen anguli D,d ad æqualitatem semper vergent & propius accedent ad invicem quam pro differentia quavis assignata, adeoq; ultimo æquales erunt, per Lem. I. & propterea lineæ BD, bd in eadem ratione ad invicem ac prius. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00077.par35
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par35
+
+Corol. 1. Unde cum tangentes AD, Ad, arcus AB, Ab & eorum sinus BC, bc fiant ultimo chordis AB, Ab æquales; erunt etiam illorum quadrata ultimo ut subtensæ BD, bd.
+
+Translation status: not_translated.
+
+## NATP00077.par36
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par36
+
+Corol. 2. Triangula rectilinea ADB, Adb sunt ultimo in triplicata ratione laterum AD, Ad, inq; sesquiplicata laterum DB, db: Utpote in composita ratione laterum AD & DB, Ad & db existentia. Sic & triangula ABC, Abc sunt ultimo in triplicata ratione laterum BC, bc.
+
+Translation status: not_translated.
+
+## NATP00077.par37
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par37
+
+Corol. 3. Et quoniam DB, db sunt ultimo parallela & in duplicata ratione ipsarum AD, Ad; erunt areæ ultimæ curvilineæ ADB, Adb (ex natura Parabolæ) duæ tertiæ partes triangulorum rectilineorum ADB, Adb, & segmenta AB, Ab partes tertiæ eorundem triangulorum. Et inde hæ areæ & hæc segmenta erunt in triplicata ratione tum tangentium AD, Ad; tum chordarum & arcuum AB, Ab.
+
+Translation status: identifying_translation_not_full. By the nature of the parabola, the curvilinear area is two thirds of the triangle and the segment one third; these areas are therefore cubic in tangent, chord or arc.
+
+## NATP00077.par38
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par38
+
+Scholium.
+
+Translation status: not_translated.
+
+## NATP00077.par39
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par39
+
+Cæterum in his omnibus supponimus angulum contactus nec infinite majorem esse angulis contactuum, quos circuli continent cum tangentibus suis, nec iisdem infinite minorem; hoc est curvaturam ad punctum A, nec infinite parvam esse nec infinite magnam, seu intervallum AI finitæ esse magnitudinis. Capi enim potest DB ut AD3: quo in casu circulus nullus per punctum A inter tangentem AD & curvam AB duci potest, proindeq; angulus contactus erit infinite minor circularibus. Et simili argumento si fiat DB successive ut AD4, AD5, AD6, AD7, &c., habebitur series angulorum contactus pergens in infinitum, quorum quilibet posterior est infinite minor priore. Et si fiat DB successive ut AD2, AD32, AD43, AD54, AD65, AD76, &c. habebitur alia series infinita angulorum contactus, quorum primus est ejusdem generis cum circularibus, secundus infinite major, & quilibet posterior infinite major priore. Sed & inter duos quosvis ex his angulis potest series utrinq; in infinitum pergens angulorum intermediorum inseri, quorum quilibet posterior erit infinite major priore. Ut si inter terminos AD2 &AD3 inseratur series AD136, AD115, AD94, AD73, AD52, AD83, AD114, AD145, AD176, &c. Et rursus inter binos quosvis angulos hujus seriei inseri potest series nova angulorum intermediorum ab invicem infinitis intervallis differentium. Neq; novit natura limitem.
+
+Translation status: identifying_translation_not_full. The contact angle is neither infinitely smaller nor infinitely greater than circular contact: the intercept AI is finite. Powers above or below the quadratic order are counterexamples to omitting this restriction.
+
 ## NATP00077.par44
 
 Witness: De Motu Corporum (Liber Primus) (1687)
@@ -651,6 +741,106 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par35
 Si quantitates indeterminatæ diversorum generum conferantur inter se, & earum aliqua dicatur esse ut est alia quævis directe vel inverse: sensus est, quod prior augetur vel diminuitur in eadem ratione cum posteriore, vel cum ejus reciproca. Et si earum aliqua dicatur esse ut sunt aliæ duæ vel plures directe vel inverse: sensus est, quod prima augetur vel diminuitur in ratione quæ componitur ex rationibus in quibus aliæ vel aliarum reciprocæ augentur vel diminuuntur. Ut si A dicatur esse ut B directe & C directe & D inverse: sensus est, quod A augetur vel diminuitur in eadem ratione cum B×C× 1D, hoc est, A & BCD sunt ad invicem in ratione data.
 
 Translation status: not_translated.
+
+## NATP00082.par36
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par36
+
+Subtensa evanescens anguli contactus, in curvis omnibus curvaturam finitam ad punctum contactus habentibus, est ultimo in ratione duplicata subtensæ arcus contermini.
+
+Translation status: not_translated.
+
+## NATP00082.par37
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par37
+
+Cas. 1. Sit arcus ille AB, tangens ejus AD, subtensa anguli contactus ad tangentem perpendicularis BD, subtensa arcus AB. Huic subtensæ AB & tangenti AD perpendiculares erigantur AG, BG, concurrentes in G; dein accedant puncta D, B, G, ad puncta d, b, g, sitque I intersectio linearum BG, AG ultimo facta ubi puncta D, B accedunt usque ad A. Manifestum est quod distantia G I minor esse potest quam assignata quævis. Est autem (ex natura circulorum per puncta ABG, Abg transeuntium) AB quad. æquale AG × BD, & Ab quad. æquale Ag × bd, adeoque ratio AB quad. ad Ab quad. componitur ex rationibus AG ad Ag & BD ad bd. Sed quoniam GI assumi potest minor longitudine quavis assignata, fieri potest ut ratio AG ad Ag minus differat a ratione æqualitatis quam pro differentia quavis assignata, adeoque ut ratio AB quad. ad Ab quad. minus differat a ratione BD ad bd quam pro differentia quavis assignata. Est ergo, per Lemma I, ratio ultima AB quad. ad Ab quad. æqualis rationi ultimæ BD ad bd. Q.E.D.
+
+Translation status: identifying_translation_not_full. For normal contact subtense BD, circle geometry gives AB squared = AG times BD. The limiting intercept AI is approached as the points coalesce.
+
+## NATP00082.par38
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par38
+
+Cas. 2. Inclinetur jam BD ad AD in angulo quovis dato, & eadem semper erit ratio ultima BD ad bd quæ prius, adeoque eadem ac AB quad. ad Ab quad. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00082.par39
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par39
+
+Cas. 3. Et quamvis angulus D non detur, sed recta BD ad datum punctum convergente, vel alia quacunque lege constituatur; tamen anguli D,d communi lege constitui ad æqualitatem semper vergent & propius accedent ad invicem quam pro differentia quavis assignata, adeoque ultimo æquales erunt, per Lem. I. & propterea lineæ BD, bd sunt in eadem ratione ad invicem ac prius. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00082.par40
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par40
+
+Corol. 1. Unde cum tangentes AD, Ad, arcus AB, Ab & eorum sinus BC, bc fiant ultimo chordis AB, Ab æquales; erunt etiam illorum quadrata ultimo ut subtensæ BD, bd.
+
+Translation status: not_translated.
+
+## NATP00082.par41
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par41
+
+Corol. 2. Eorundum quadrata sunt etiam ultimo ut sunt arcuum sagitte quæ chordas bisecant & ad datum punctum convergunt. Nam saggitæ illæ sunt ut subtensæ BD, bd.
+
+Translation status: not_translated.
+
+## NATP00082.par42
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par42
+
+Corol. 3. Ideoque saggita est in duplicata ratione temporis quo corpus data velocitate describit arcum.
+
+Translation status: not_translated.
+
+## NATP00082.par43
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par43
+
+Corol. 4. Triangula rectilinea ADB, Adb sunt ultimo in triplicata ratione laterum AD, Ad, inque sesquiplicata laterum DB, db; utpote in composita ratione laterum AD, & DB, Ad & db existentia. Sic & triangula ABC, Abc sunt ultimo in triplicata ratione laterum BC, bc. Rationem vero Sesquiplicatam voco triplicatæ subduplicatam, quæ nempe ex simplici & subduplicata componitur, quamque alias Sesquialteram dicunt.
+
+Translation status: not_translated.
+
+## NATP00082.par44
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par44
+
+Corol. 5. Et quoniam DB, db sunt ultimo parallelæ & in duplicata ratione ipsarum AD, Ad: erunt areæ ultimæ curvilineæ ADB, Adb (ex natura Parabolæ) duæ tertiæ partes triangulorum rectilineorum ADB, Adb; & segmenta AB, Ab partes tertiæ eorundem triangulorum. Et inde hæ areæ & hæc segmenta erunt in triplicata ratione tum tangentium AD, Ad; tum chordarum & arcuum AB, Ab.
+
+Translation status: identifying_translation_not_full. By the nature of the parabola, the curvilinear area is two thirds of the triangle and the segment one third; these areas are therefore cubic in tangent, chord or arc.
+
+## NATP00082.par45
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par45
+
+Cæterum in his omnibus supponimus angulum contactus nec infinite majorem esse angulis contactuum, quos Circuli continent cum tangentibus suis, nec iisdem infinite minorem; hoc est, curvaturam ad punctum A, nec infinite parvam esse nec infinite magnam, seu intervallum AI finitæ esse magnitudinis. Capi enim potest DB ut AD3: quo in casu Circulus nullus per punctum A inter tangentem AD & curvam AB duci potest, proindeque angulus contactus erit infinite minor Circularibus. Et simili argumento si fiat DB successive ut AD4,AD5,AD6,AD7,&c., habebitur series angulorum contactus pergens in infinitum, quorum quilibet posterior est infinite minor priore. Et si fiat DB successive ut AD2,AD32,AD43,AD54,AD65,AD76,&c. habebitur alia series infinita angulorum contactus, quorum primus est ejusdem generis cum Circularibus, secundus infinite major, & quilibet posterior infinite major priore. Sed & inter duos quosvis ex his angulis potest series utrinque in infinitum pergens angulorum intermediorum inseri, quorum quilibet posterior erit infinite major minorve priore. Ut si inter terminos AD2&AD3 inseratur series AD136,AD115,AD94,AD73,AD52,AD83,AD114,AD145,AD176, &c. Et rursus inter binos quosvis angulos hujus seriei inseri potest series nova angulorum intermediorum ab invicem infinitis intervallis differentium. Neque novit natura limitem.
+
+Translation status: identifying_translation_not_full. The contact angle is neither infinitely smaller nor infinitely greater than circular contact: the intercept AI is finite. Powers above or below the quadratic order are counterexamples to omitting this restriction.
 
 ## NATP00082.par50
 

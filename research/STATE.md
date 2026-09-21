@@ -12,7 +12,9 @@ remaining contact, mechanical and chronology gaps. M1 is not declared complete.
 M2 advanced: recursive finite central-impulse polygons, equal-area sums,
 maximum-width rectangle estimate and conditional sector-ratio transfer compile.
 See M2.md: curve enclosure and trajectory existence remain open.
-M3 follows: finite-curvature contact premises, cubic enclosure and uniform sums.
+M3 advanced: conditional quadratic/cubic bounds, exact finite sums, rational
+reciprocal error convergence and uniform N^-2 partition bound compile.
+See M3.md: general contact geometry and assembled area coefficients remain open.
 M4 follows: proposed-revision evidence distinct from actual edition comparison.
 
 Unrelated conversation-export deletion/new file remain untouched.

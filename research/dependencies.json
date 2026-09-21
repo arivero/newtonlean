@@ -153,6 +153,48 @@
       "type": "theorem",
       "statement": "Polygonal equal areas; infinitely many infinitesimal triangles asserted",
       "passage": "NATP00090.par16"
+    },
+    {
+      "id": "P1687.L11",
+      "stage": "1687",
+      "type": "lemma",
+      "statement": "Contact subtense ultimately quadratic in arc chord",
+      "passage": "NATP00077.par31"
+    },
+    {
+      "id": "P1687.L11Cubic",
+      "stage": "1687",
+      "type": "corollary",
+      "statement": "Cubic curvilinear areas and segments via the parabola",
+      "passage": "NATP00077.par37"
+    },
+    {
+      "id": "P1687.L11Restriction",
+      "stage": "1687",
+      "type": "restriction",
+      "statement": "Finite nonzero curvature restriction; higher/lower orders excluded",
+      "passage": "NATP00077.par39"
+    },
+    {
+      "id": "P1713.L11",
+      "stage": "1713",
+      "type": "lemma",
+      "statement": "Contact subtense ultimately quadratic in arc chord",
+      "passage": "NATP00082.par36"
+    },
+    {
+      "id": "P1713.L11Cubic",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Cubic curvilinear areas and segments via the parabola",
+      "passage": "NATP00082.par44"
+    },
+    {
+      "id": "P1713.L11Restriction",
+      "stage": "1713",
+      "type": "restriction",
+      "statement": "Finite nonzero curvature restriction; higher/lower orders excluded",
+      "passage": "NATP00082.par45"
     }
   ],
   "edges": [
@@ -299,6 +341,51 @@
       "status": "editorial_interpretation",
       "confidence": "high",
       "notes": "Compare limiting justification and explicit citations; no inter-edition proof dependency."
+    },
+    {
+      "from": "P1687.L11",
+      "to": "P1687.L11Cubic",
+      "passage": "NATP00077.par37",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et quoniam: quadratic contact plus the nature of the parabola; the conic import is not discharged."
+    },
+    {
+      "from": "P1687.L11Restriction",
+      "to": "P1687.L11",
+      "passage": "NATP00077.par39",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "In his omnibus supponimus: explicit restriction applies to the preceding contact claims."
+    },
+    {
+      "from": "P1713.L11",
+      "to": "P1713.L11Cubic",
+      "passage": "NATP00082.par44",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et quoniam: quadratic contact plus the nature of the parabola; the conic import is not discharged."
+    },
+    {
+      "from": "P1713.L11Restriction",
+      "to": "P1713.L11",
+      "passage": "NATP00082.par45",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "In his omnibus supponimus: explicit restriction applies to the preceding contact claims."
+    },
+    {
+      "from": "P1687.L11",
+      "to": "P1713.L11",
+      "passage": "NATP00082.par36",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "high",
+      "notes": "Finite-curvature restriction promoted into the 1713 statement; already explicit in 1687 scholium."
     }
   ],
   "open_questions": [

@@ -13,11 +13,16 @@ flowchart LR
   n12["P1687.L3C4"]
   n13["P1687.Law1"]
   n14["P1687.Composition"]
+  n22["P1687.L11"]
+  n23["P1687.L11Cubic"]
+  n24["P1687.L11Restriction"]
   n3 -->|explicit_dependency| n4
   n13 -->|explicit_dependency| n10
   n14 -->|explicit_dependency| n10
   n12 -->|explicit_dependency| n10
   n11 -->|implicit_dependency| n12
+  n22 -->|implicit_dependency| n23
+  n24 -->|explicit_dependency| n22
 ```
 
 ## 1713
@@ -33,12 +38,17 @@ flowchart LR
   n17["P1713.L3C4"]
   n18["P1713.Law1"]
   n19["P1713.Composition"]
+  n25["P1713.L11"]
+  n26["P1713.L11Cubic"]
+  n27["P1713.L11Restriction"]
   n5 -->|explicit_dependency| n6
   n7 -->|explicit_dependency| n8
   n18 -->|explicit_dependency| n15
   n19 -->|explicit_dependency| n15
   n17 -->|explicit_dependency| n15
   n16 -->|implicit_dependency| n17
+  n25 -->|implicit_dependency| n26
+  n27 -->|explicit_dependency| n25
 ```
 
 ## NATP00089
@@ -92,8 +102,15 @@ flowchart LR
   n19["P1713.Composition"]
   n20["NATP00089.T1"]
   n21["NATP00090.T1"]
+  n22["P1687.L11"]
+  n23["P1687.L11Cubic"]
+  n24["P1687.L11Restriction"]
+  n25["P1713.L11"]
+  n26["P1713.L11Cubic"]
+  n27["P1713.L11Restriction"]
   n4 -->|editorial_interpretation| n6
   n9 -->|editorial_interpretation| n1
   n20 -->|editorial_interpretation| n10
   n10 -->|editorial_interpretation| n15
+  n22 -->|editorial_interpretation| n25
 ```
