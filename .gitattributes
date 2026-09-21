@@ -1,0 +1,4 @@
+# Official HTML mirrors are byte-preserved; upstream whitespace is not a local
+# formatting change.
+/docs/m4/NATP00087_normalized.html -diff
+/docs/m4/NATP00087_diplomatic.html -diff

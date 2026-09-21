@@ -19,6 +19,7 @@ lake build
 lake build NewtonLimitDynamics
 python3 scripts/catalogue_m1.py
 python3 scripts/catalogue_formal.py
+python3 scripts/collate_sources.py
 python3 scripts/check_graph.py
 python3 scripts/compare_editions.py
 lake env lean research/CheckReferences.lean
@@ -26,9 +27,12 @@ git diff --check
 ```
 
 The historical extraction command name is retained; selections.json now covers
-all milestones. Graph validation checks local TEI anchors, source identity,
-edge metadata and acyclicity. Generated Lean reference checks inspect actual
-types and axioms. These checks do not establish an unproved historical premise.
+all milestones. `collate_sources.py` checks selected TEI anchors, page/facsimile
+metadata, revision tags, and local normalized/diplomatic anchor presence. It is
+not a facsimile or palaeographic audit. Graph validation checks local TEI
+anchors, source identity, edge metadata and acyclicity. Generated Lean
+reference checks inspect actual types and axioms. These checks do not establish
+an unproved historical premise.
 No post-Newtonian theorem supplies a missing historical construction.
 
 Additional integrity checks:
