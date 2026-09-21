@@ -1,5 +1,8 @@
 # Research state
 
+Resume instructions: [22 September handoff](HANDOFF-2026-09-22.md), including
+the user's defect-area correction and one bounded next comparison.
+
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,
 Propositions I–IV: see [goals](GOALS.md). M1–M4 below are supporting work.
