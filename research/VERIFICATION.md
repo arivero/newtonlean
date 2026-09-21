@@ -1,11 +1,11 @@
-# Verification record — 2026-09-21
+# Verification record — 2026-09-22
 
 - Lean: 4.19.0, declared by lean-toolchain; default target is the library.
 - `lake build` and `lake build NewtonLimitDynamics`: passed. The expanded
   library actually compiled; this is not the previous empty-default-build error.
-- `catalogue_formal.py`: 68 theorem declarations inventoried, including private
+- `catalogue_formal.py`: 89 theorem declarations inventoried, including private
   helpers, with actual signatures, source correspondence and premise boundaries.
-- `check_graph.py`: 57 nodes, 43 classified edges, 176 passage records; source
+- `check_graph.py`: 77 nodes, 68 classified edges, 234 passage records; source
   identity, TEI anchor/extract agreement and proof/proposed DAG acyclicity passed.
 - `lake env lean research/CheckReferences.lean`: 65 public/reference declarations
   elaborated, with axiom inspection. Only standard Lean logical axioms
@@ -14,10 +14,10 @@
   cross-stage proof edge, proof cycle and missing anchor were rejected.
 - `compare_editions.py`: seven explicit passage alignments generated the report.
   Recorded incoming-edge changes are scoped to those proof passages.
-- `collate_sources.py`: nine witnesses and 173 selected XML anchors collated;
-  all generated extracts matched the TEI anchors, 38 anchors retained revision
+- `collate_sources.py`: nine witnesses and 231 selected XML anchors collated;
+  all generated extracts matched the TEI anchors, 51 anchors retained revision
   markup, and page/facsimile metadata was recorded. Local HTML anchor presence
-  is reported separately (168 normalized and 173 diplomatic matches); three PDF
+  is reported separately (226 normalized and 231 diplomatic matches); three PDF
   or secondary records remain supplementary and unanchored. No image was
   downloaded or read.
 - `sha256sum -c docs/SHA256SUMS`: all twenty-two listed source artifacts passed.

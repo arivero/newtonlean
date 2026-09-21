@@ -92,6 +92,26 @@ Dividatur tempus in partes æquales, et prima temporis parte describat corpus vi
 
 Translation status: identifying_translation_not_full. Equal time cells and central impulses yield equal triangles; infinitely many infinitely small triangles are asserted to give uninterrupted force. No numbered limiting lemma is cited in this passage.
 
+## NATP00089.par10
+
+Witness: 'De motu corporum in gyrum'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par10
+
+Theorem. 2. Corporibus in circumferentijs circulorum uniformiter gyrantibus vires centripetas esse ut [add: [del: celeritatum sive] ] arcuum simul descriptorum quadrata applicata ad radios circulorum.
+
+Translation status: identifying_translation_not_full. Bodies moving uniformly on circles have centripetal forces jointly as the squares of simultaneously described arcs and inversely as the radii.
+
+## NATP00089.par11
+
+Witness: 'De motu corporum in gyrum'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par11
+
+Corpora B, b in circumferentijs circulorum BD, bd gyrantia simul describant arcus BD, bd. Sola vi insita describerent tangentes BC, bc his arcubus æquales. Vires centripetæ sunt quæ perpetuò retrahunt corpora de tangentibus ad circumferentias, atq adeo hæ sunt ad invicem ut spatia ipsis superata CD, cd, id est productis CD, cd ad F et f ut BCquadCF ad bcquadcf sive ut BDquad.12CF ad bdquad.12cf. Loquor de spatijs BD, bd minutissimi [unclear: s] inq infinitum diminuendis sic ut pro 12CF, 12cf scribere liceat [del: [unclear: AB,Cd] ] [add: circulorum radios] SB, sb. Quo facto constat Propositio.
+
+Translation status: identifying_translation_not_full. The proof compares tangent departures for vanishing arcs and substitutes the circle radii for the limiting geometric denominators; it cites no numbered lemma.
+
 ## NATP00089.par19
 
 Witness: 'De motu corporum in gyrum'
@@ -201,6 +221,26 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17
 Dividatur tempus in partes æquales, et prima temporis parte describat corpus vi insita rectam AB. Idem secunda temporis parte si nil impediret [del: ] a [note: a [del: Hypoth.] [add: Lex] 1.] rectà pergeret ad c describens42 describens lineam Bc æqualem ipsi AB adeo ut radijs AS, BS, cS ad centrum actis confectæ forent æquales areæ ASB, BSc. Verum ubi corpus venit ad B agat vis centripeta impulsu unico sed magno, faciat corpus a recta Bc deflectere et pergere in recta BC. Ipsi BS parallela agatur cC occurrens BC in C et completa secunda temporis parte [del: ] b [note: b Lem. 1.] corpus reperietur in C. Iunge SC et triangulum SBC ob parallelas SB, Cc æquale erit triangulo SBc at adeo etiam triangulo SAB. Simili argumento si vis centripeta successivè agat in C, D, E &c faciens corpus singulis temporis momentis singulas describere rectas CD, DE, EF &c triangulum SCD triangulo SBC et SDE ipsi SCD et SEF ipsi SDE æquale erit. Æqualibus igitur temporibus æquales areæ describuntur. Sunto jam hæc triangula numero infinita et infinitè parva, sic, ut singulis temporis momentis singula respondeant triangula, agente vi centripeta sine intermissione, et constabit propositio.
 
 Translation status: identifying_translation_not_full. Equal time cells and central impulses yield equal triangles; infinitely many infinitely small triangles are asserted to give uninterrupted force. No numbered limiting lemma is cited in this passage.
+
+## NATP00090.par18
+
+Witness: 'De motu sphæricorum corporum in fluidis'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par18
+
+Theorem. 2. Corporibus in circumferentijs circulorum uniformiter gyrantibus vires centripetas esse ut arcuum simul descriptorum quadrata applicata ad radios circulorum.
+
+Translation status: identifying_translation_not_full. Bodies moving uniformly on circles have centripetal forces jointly as the squares of simultaneously described arcs and inversely as the radii.
+
+## NATP00090.par19
+
+Witness: 'De motu sphæricorum corporum in fluidis'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par19
+
+Corpora B, b in circumferentijs circulorum BD, bd gyrantia simul describant arcus BD, bd. [add: [del: Eodem] ] Sola vi insita describerent [add: ur] tangentes BC, bc his arcubus æquales. Vires centripetæ sunt quæ perpetuò retrahunt corpora de tangentibus ad circumferentias, at adeo hæ sunt ad invicem ut spatia ipsis superata CD, cd, id est productis CD, cd ad F et f ut BCquadCF ad bcquadcf sive ut BDquad.12CF ad bdquad.12cf. Loquor de spatijs BD, bd minutissimis in infinitum diminuendis sic ut pro 12CF, 12cf scribere liceat circulorum radios SB, sb. Quo facto constat Propositio.
+
+Translation status: identifying_translation_not_full. The proof compares tangent departures for vanishing arcs and substitutes the circle radii for the limiting geometric denominators; it cites no numbered lemma.
 
 ## NATP00090.par27
 
@@ -320,7 +360,17 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par14
 
 Similium figurarum latera omnia, quæ sibi mutuo respondent, sunt proportionalia, tam curvilinea quam rectilinea, & areæ sunt in duplicata ratione laterum.
 
-Translation status: not_translated.
+Translation status: identifying_translation_not_full. Corresponding sides of similar figures are proportional, and their areas are in the duplicate ratio of the sides.
+
+## NATP00077.par17
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par17
+
+Iisdem positis, dico quod ultima ratio arcus, chordæ & tangentis ad invicem est ratio æqualitatis. Vide Fig. Lem. 6 & 8 vi.
+
+Translation status: identifying_translation_not_full. A vanishing arc, its chord and its tangent have the ultimate ratio of equality.
 
 ## NATP00077.par15
 
@@ -512,6 +562,206 @@ Dividatur tempus in partes æquales, & prima temporis parte describat corpus vi 
 
 Translation status: identifying_translation_not_full. Divide time equally. Inertia gives equal successive unforced segments; parallel central impulse preserves triangle area. Increase triangle number and decrease width; Lemma III corollary 4 is cited for a curved limiting perimeter. Newton then asserts uninterrupted central action.
 
+## NATP00077.par46
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par46
+
+Corol. 1. In mediis non resistentibus, si areæ non sunt temporibus proportionales, vires non tendunt ad concursum radiorum.
+
+Translation status: not_translated.
+
+## NATP00077.par47
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par47
+
+Corol. 2. In mediis omnibus, si arearum descriptio acceleratur, vires non tendunt ad concursum radiorum, sed inde declinant in consequentia.
+
+Translation status: not_translated.
+
+## NATP00077.par48
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par48
+
+Corpus omne quod, cum movetur in linea aliqua curva, & radio ducto ad punctum vel immobile, vel motu rectilineo uniformiter progrediens, describit areas circa punctum illud temporibus proportionales, urgetur a vi centripeta tendente ad idem punctum
+
+Translation status: identifying_translation_not_full. A body describing a curved line and areas proportional to times about a fixed or uniformly translating point is urged by a centripetal force toward that point.
+
+## NATP00077.par49
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par49
+
+Cas. 1. Nam corpus omne quod movetur in linea curva, detorquetur de cursu rectilineo per vim aliquam in ipsum agentem. (per Leg. 1.) Et vis illa qua corpus de cursu rectilineo detorquetur & cogitur triangula quam minima SAB, SBC, SCD &c. circa punctum immobile S, temporibus æqualibus æqualia describere, agit in loco B secundum lineam parallelam ipsi cC (per Prop. 40 Lib. I Elem. & Leg. II.) hoc est secundum lineam BS, & in loco C secundum lineam ipsi dD parallelam, hoc est secundum lineam CS, &c. Agit ergo semper secundum lineas tendentes ad punctum illud immobile S. Q.E.D.
+
+Translation status: identifying_translation_not_full. Case 1 infers the direction of the deflecting force from Law I, Euclid I.40 and Law II for an immobile point.
+
+## NATP00077.par50
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par50
+
+Cas. 2. Et, per Legum Corollarium quintum, perinde est sive quiescat superficies in qua corpus describit figuram curvilineam, sive moveatur eadem una cum corpore, figura descripta & puncto suo S uniformiter in directum.
+
+Translation status: identifying_translation_not_full. Case 2 invokes corollary 5 of the laws to transfer the result to a point and figure moving uniformly in a straight line.
+
+## NATP00077.par53
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par53
+
+Corpus omne quod, radio ad centrum corporis alterius utcunq; moti ducto, describit areas circa centrum illud temporibus proportionales, urgetur vi composita ex vi centripeta tendente ad corpus alterum & ex vi omni acceleratrice, qua corpus alterum urgetur.
+
+Translation status: identifying_translation_not_full. For areas about another moving body, the first body's force is composed from a centripetal force toward the second body and the second body's whole accelerative force.
+
+## NATP00077.par54
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par54
+
+Nam (per Legum Corol. 6.) si vi nova, quæ æqualis & contraria sit illi qua corpus alterum urgetur, urgeatur corpus utrumq; secundum lineas parallelas, perget corpus primum describere circa corpus alterum areas easdem ac prius: vis autem qua corpus alterum urgebatur, jam destruetur per vim sibi æqualem & contrariam, & propterea (per Leg. 1.) corpus illud alterum vel quiescet vel movebitur uniformiter in directum, & corpus primum, urgente differentia virium, perget areas temporibus proportionales circa corpus alterum describere. Tendit igitur (per Theor. 2.) differentia virium ad corpus illud alterum ut centrum. Q.E.D.
+
+Translation status: identifying_translation_not_full. Using corollary 6 of the laws, add equal contrary parallel acceleration to both bodies; Law I fixes the reference body's resulting motion and Proposition II identifies the remaining force as central.
+
+## NATP00077.par55
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par55
+
+Corol. 1. Hinc si corpus unum radio ad alterum ducto describit areas temporibus proportionales, atq; de vi tota (sive simplici, sive ex viribus pluribus, juxta Legum Corollarium secundum, composita,) qua corpus prius urgetur, subducatur (per idem Legum Corollarium) vis tota acceleratrix qua corpus alterum urgetur; vis omnis reliqua qua corpus prius urgetur tendet ad corpus alterum ut centrum.
+
+Translation status: not_translated.
+
+## NATP00077.par56
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par56
+
+Corol. 2. Et si areæ illæ sunt temporibus quamproxime proportionales, vis reliqua tendet ad corpus alterum quamproxime.
+
+Translation status: not_translated.
+
+## NATP00077.par57
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par57
+
+Corol. 3. Et vice versa, si vis reliqua tendit quamproxime ad corpus alterum, erunt areæ illæ temporibus quamproxime proportionales.
+
+Translation status: not_translated.
+
+## NATP00077.par58
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par58
+
+Corol. 4. Si corpus radio ad alterum corpus ducto describit areas quæ, cum temporibus collatæ, sunt valde inæquales, & corpus illud alterum vel quiescit vel movetur uniformiter in directum; actio vis centripetæ ad corpus illud alterum tendentis, vel nulla est, vel miscetur & componitur cum actionibus admodum potentibus aliarum virium: Visq; tota ex omnibus, si plures sunt vires, composita, ad aliud (sive immobile sive mobile) centrum dirigitur, circum quod æquabilis est arearum descriptio. Idem obtinet ubi corpus alterum motu quocunq; movetur, si modo vis centripeta sumatur, quæ restat post subductionem vis totius agentis in corpus illud alterum.
+
+Translation status: not_translated.
+
+## NATP00077.par60
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par60
+
+Corporum quæ diversos circalos æquabili motu describunt, vires centripetas ad centra eorundem circulorum tendere, & esse inter se ut arcuum simul descriptorum quadrata applicata ad circulorum radios.
+
+Translation status: identifying_translation_not_full. For uniform motions on different circles, centripetal forces tend to the circle centres and are jointly as squared simultaneously described arcs and inversely as radii.
+
+## NATP00077.par61
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par61
+
+Corpora B, b in circumferentiis circulorum BD, bd gyrantia, simul describant arcus BD, bd. Quoniam sola vi insita describerent tangentes BC, bc his arcubus æquales, manifestum est quod vires centripetæ sunt quæ perpetuo retrahunt corpora de tangentibus ad circumferentias circulorum, atq; adeo hæ sunt ad invicem in ratione prima spatiorum nascentium CD, cd: tendunt vero ad centra circulorum per Theor. II, propterea quod areæ radiis descriptæ ponuntur temporibus proportionales. Fiat figura tkb figuræ DCB similis, & per Lemma V, lineola CD erit ad lineolam kt ut arcus BD ad arcum bt: nec non, per Lemma XI; lineola nascens tk ad lineolam nascentem dc ut bt quad. ad bd quad. & ex æquo lineola nascens DC ad lineolam nascentem dc ut BD×bt ad bd quad. seu quod perinde est, ut BD×btSb ad bd quad.Sb adeoq; (ob æquales rationes btSb&BDSB) ut BD quad.SB ad bd quad.Sb Q.E.D.
+
+Translation status: identifying_translation_not_full. The proof cites Proposition II for direction and Lemmas V and XI for the limiting tangent-departure ratio.
+
+## NATP00077.par62
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par62
+
+Corol. 1. Hinc vires centripetæ sunt ut velocitatum quadrata applicata ad radios circulorum.
+
+Translation status: not_translated.
+
+## NATP00077.par63
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par63
+
+Corol. 2. Et reciproce ut quadrata temporum periodicorum applicata ad radios ita sunt hæ vires inter se. Id est (ut cum Geometris loquar) hæ vires sunt in ratione composita ex duplicata ratione velocitatum directe & ratione simplici radiorum inverse: necnon in ratione composita ex ratione simplici radiorum directe & ratione duplicata temporum periodicorum inverse.
+
+Translation status: not_translated.
+
+## NATP00077.par64
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par64
+
+Corol. 3. Unde si tempora periodica æquantur, erunt tum vires centripetæ tum velocitates ut radii, & vice versa.
+
+Translation status: not_translated.
+
+## NATP00077.par65
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par65
+
+Corol. 4. Si quadrata temporum periodicorum sunt ut radii, vires centripetæ sunt æquales, & velocitates in dimidiata ratione radiorum: Et vice versa.
+
+Translation status: not_translated.
+
+## NATP00077.par66
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par66
+
+Corol. 5. Si quadrata temporum periodicorum sunt ut quadrata radiorum, vires centripetæ sunt reciproce ut radii, & velocitates æquales: Et vice versa.
+
+Translation status: not_translated.
+
+## NATP00077.par67
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par67
+
+Corol. 6. Si quadrata temporum periodicorum sunt ut cubi radiorum, vires centripetæ sunt reciproce ut quadrata radiorum; velocitates autem in radiorum dimidiata ratione: Et vice versa.
+
+Translation status: not_translated.
+
+## NATP00077.par68
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par68
+
+Corol. 7. Eadem omnia de temporibus, velocitatibus & viribus, quibus corpora similes figurarum quarumcunq; similium, centraq; similiter posita habentium, partes describunt, consequuntur ex Demonstratione præcedentium ad hosce casus applicata.
+
+Translation status: not_translated.
+
 ## NATP00077.par76
 
 Witness: De Motu Corporum (Liber Primus) (1687)
@@ -671,6 +921,16 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par17
 Nam si angulus ille non evanescit, continebit arcus AB cum tangente AD angulum rectilineo æqualem, & propterea curvatura ad ad punctum A non erit continua, contra hypothesin.
 
 Translation status: not_translated.
+
+## NATP00082.par18
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par18
+
+Iisdem positis; dico quod ultima ratio arcus, chordæ, & tangentis ad invicem est ratio æqualitatis.
+
+Translation status: identifying_translation_not_full. A vanishing arc, its chord and its tangent have the ultimate ratio of equality.
 
 ## NATP00082.par26
 
@@ -892,6 +1152,16 @@ Dividatur tempus in partes æquales, & prima temporis parte describat corpus vi 
 
 Translation status: identifying_translation_not_full. Divide time equally. Inertia gives equal successive unforced segments; parallel central impulse preserves triangle area. Increase triangle number and decrease width; Lemma III corollary 4 is cited for a curved limiting perimeter. Newton then asserts uninterrupted central action.
 
+## NATP00082.par52
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par52
+
+Corol. 1. Velocitas corporis in centrum immobile attracti est in spatiis non resistentibus reciproce ut perpendiculum a centro illo in Orbis tangentem rectilineam demissum. Est enim velocitas in locis illis A, B, C, D, E, ut sunt bases æqualium triangulorum AB, BC, CD, DE, EF; & hæ bases sunt reciproce ut perpendicula in ipsas demissa.
+
+Translation status: not_translated.
+
 ## NATP00082.par53
 
 Witness: De Motu Corporum (Liber Primus) (1713)
@@ -929,6 +1199,256 @@ Witness: De Motu Corporum (Liber Primus) (1713)
 https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par56
 
 Corol. 5. Ideoque vires eædem sunt ad vim gravitatis, ut hæ sagittæ ad sagittas horizonti perpendiculares arcuum Parabolicorum quos projectilia eodem tempore describunt.
+
+Translation status: not_translated.
+
+## NATP00082.par57
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par57
+
+Corol. 6. Eadem omnia obtinent per Legum Corol. IV, ubi plana in quibus corpora moventur, una cum centris virium quæ in ipsis sita sunt, non quiescunt, sed moventur uniformiter in directum.
+
+Translation status: not_translated.
+
+## NATP00082.par58
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par58
+
+Corpus omne, quod movetur in linea aliqua curva in plano descripta, & radio ducto ad punctum vel immobile, vel motu rectilineo uniformiter progrediens, describit areas circa punctum illud temporibus proportionales, urgetur a vi centripeta tendente ad idem punctum
+
+Translation status: identifying_translation_not_full. A body describing a plane curve and areas proportional to times about a fixed or uniformly translating point is urged by a centripetal force toward that point.
+
+## NATP00082.par59
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par59
+
+Cas. 1. Nam corpus omne quod movetur in linea curva, detorquetur de cursu rectilineo per vim aliquam in ipsum agentem. (per Leg. 1.) Et vis illa qua corpus de cursu rectilineo detorquetur, & cogitur triangula quam minima SAB, SBC, SCD &c. circa punctum immobile S temporibus æqualibus æqualia describere, agit in loco B secundum lineam parallelam ipsi cC (per Prop. XL Lib. I Elem. & Leg. II.) hoc est, secundum lineam BS; & in loco C secundum lineam ipsi dD parallelam, hoc est, secundum lineam SC, &c. Agit ergo semper secundum lineas tendentes ad punctum illud immobile S. Q.E.D.
+
+Translation status: identifying_translation_not_full. Case 1 infers the direction of the deflecting force from Law I, Euclid I.40 and Law II for an immobile point.
+
+## NATP00082.par60
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par60
+
+Cas. 2. Et, per Legum Corollarium quintum, perinde est sive quiescat superficies in qua corpus describit figuram curvilineam, sive moveatur eadem una cum corpore, figura descripta & puncto suo S uniformiter in directum.
+
+Translation status: identifying_translation_not_full. Case 2 invokes corollary 5 of the laws to transfer the result to a point and figure moving uniformly in a straight line.
+
+## NATP00082.par61
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par61
+
+Corol. 1. In Spatiis vel Mediis non resistentibus, si areæ non sunt temporibus proportionales, vires non tendunt ad concursum rediorum; sed inde declinant in consequentia seu versus plagam in quam fit motus, si modo arearum descriptio accelaratur: sin retardatur, declinant in antecedentia.
+
+Translation status: not_translated.
+
+## NATP00082.par62
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par62
+
+Corol. 2. In Mediis etiam resistentibus, si arearum descriptio acceleratur, virium directiones declinant a concursu radiorum versus plagam in quam fit motus
+
+Translation status: not_translated.
+
+## NATP00082.par63
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par63
+
+Urgeri potest corpus a vi centripeta composita ex pluribus viribus. In hoc casu sensus Propositionis est, quod vis illa quæ ex omnibus componitur, tendit ad punctum S. Porro si vis aliqua agat perpetuo secundum lineam superficiei descriptæ perpendicularem; hæc faciet corpus deflectere a plano sui motus: sed quantitatem superficiei descriptæ nec augebit nec minuet, & propterea in compositione virium negligenda est.
+
+Translation status: not_translated.
+
+## NATP00082.par64
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par64
+
+Corpus omne, quod radio ad centrum corporis alterius utcunque moti ducto describit areas circa centrum illud temporibus proportionales, urgetur vi composita ex vi centripeta tendente ad corpus illud alterum, & ex vi omni acceleratrice qua corpus illud alterum urgetur.
+
+Translation status: identifying_translation_not_full. For areas about another moving body, the first body's force is composed from a centripetal force toward the second body and the second body's whole accelerative force.
+
+## NATP00082.par65
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par65
+
+Sit corpus primum L & corpus alterum T: & (per Legum Corol. VI.) si vi nova, quæ æqualis & contraria sit illi qua corpus alterum T urgetur, urgeatur corpus utrumque secundum lineas parallelas; perget corpus primum L describere circa corpus alterum T areas easdem ac prius: vis autem, qua corpus alterum T urgebatur, jam destruetur per vim sibi æqualem & contrariam; & propterea (per Leg. 1.) corpus illud alterum T sibimet ipsi jam relictum vel quiescet vel movebitur uniformiter in directum: & corpus primum L urgente differentia virium, id est, urgente vi reliqua perget areas temporibus proportionales circa corpus alterum T describere. Tendit igitur (per Theor. II.) differentia virium ad corpus illud alterum T ut centrum. Q.E.D.
+
+Translation status: identifying_translation_not_full. Using corollary 6 of the laws, add equal contrary parallel acceleration to both bodies; Law I fixes the reference body's resulting motion and Proposition II identifies the remaining force as central.
+
+## NATP00082.par66
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par66
+
+Corol. 1. Hinc si corpus unum L radio ad alterum T ducto describit areas temporibus proportionales; atque de vi tota (sive simplici, sive ex viribus pluribus, juxta Legum Corollarium secundum, composita,) qua corpus prius L urgetur, subducatur (per idem Legum Corollarium) vis tota acceleratrix qua corpus alterum urgetur: vis omnis reliqua qua corpus prius urgetur tendet ad corpus alterum T ut centrum.
+
+Translation status: not_translated.
+
+## NATP00082.par67
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par67
+
+Corol. 2. Et, si areæ illæ sunt temporibus quamproxime proportionales, vis reliqua tendet ad corpus alterum T quamproxime.
+
+Translation status: not_translated.
+
+## NATP00082.par68
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par68
+
+Corol. 3. Et vice versa, si vis reliqua tendit quamproxime ad corpus alterum T, erunt areæ illæ temporibus quamproxime proportionales.
+
+Translation status: not_translated.
+
+## NATP00082.par69
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par69
+
+Corol. 4. Si corpus L radio ad alterum corpus T ducto describit areas quæ, cum temporibus collatæ, sunt valde inæquales; & corpus illud alterum T vel quiescit vel movetur uniformiter in directum: actio vis centripetæ ad corpus illud alterum T tendentis, vel nulla est, vel miscetur & componitur cum actionibus admodum potentibus aliarum virium: Visque tota ex omnibus, si plures sunt vires, composita, ad aliud (sive immobile sive mobile) centrum dirigitur. Idem obtinet, ubi corpus alterum motu quocunque movetur; si modo vis centripeta sumatur, quæ restat post subductionem vis totius agentis in corpus illud alterum T agentis.
+
+Translation status: not_translated.
+
+## NATP00082.par70
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par70
+
+Quoniam æquabilis arearum descriptio Index est Centri, quod vis illa respicit qua corpus maxime afficitur, quaque retrahitur a motu rectilineo & in orbita sua retinetur: quidni usurpemus in sequentibus æquabilem arearum descriptionem, ut Indicem Centri circum quod motus omnis circularis in spatiis liberis peragitur?
+
+Translation status: not_translated.
+
+## NATP00082.par71
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par71
+
+Corporum, quæ diversos circalos æquabili motu describunt, vires centripetas ad centra eorundem circulorum tendere; & esse inter se, ut sunt arcuum simul descriptorum quadrata applicata ad circulorum radios.
+
+Translation status: identifying_translation_not_full. For uniform motions on different circles, centripetal forces tend to the circle centres and are jointly as squared simultaneously described arcs and inversely as radii.
+
+## NATP00082.par72
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par72
+
+Tendunt hæ vires ad centra circulorum per Prop. II. & Corol. II. Prop. I; & sunt inter se ut arcuum æqualibus temporibus quam minimis descriptorum sinus versi per Corol. IV. Prop. I; hoc est, ut quadrata arcuum eorundem ad diametros circulorum applicata per Lem. VII: & propterea, cum hi arcus sint ut arcus temporibus quibusvis æqualibus descripti, & diamteri sint ut eorum radii; vires erunt ut arcuum quorumvis simul descriptorum quadrata applicata ad radios circulorum. Q.E.D.
+
+Translation status: identifying_translation_not_full. The proof explicitly cites Proposition II, Proposition I corollaries 2 and 4, and Lemma VII.
+
+## NATP00082.par73
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par73
+
+Corol. 1. Igitur, cum arcus illi sint ut velocitates corporum, vires centripetæ sunt ut velocitatum quadrata applicata ad radios circulorum: hoc est, ut cum Geometris loquar, vires sunt in ratione composita ex duplicata ratione velocitatum directe & ratione simplici radiorum inverse.
+
+Translation status: not_translated.
+
+## NATP00082.par74
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par74
+
+Corol. 2. Et, cum tempora periodica sint in ratione composita ex ratione radiorum directe & ratione velocitatum inverse, vires centrepetæ sunt reciproce ut quadrata temporum periodicorum applicata ad circulorum radios; hoc est, in ratione composita ex ratione radiorum directe & ratione duplicata temporum periodicorum inverse.
+
+Translation status: not_translated.
+
+## NATP00082.par75
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par75
+
+Corol. 3. Unde, si tempora periodica æquantur & propterea velocitates sint ut radii; erunt etiam vires centripetæ ut radii: & contra.
+
+Translation status: not_translated.
+
+## NATP00082.par76
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par76
+
+Corol. 4. Si & tempora periodica & velocitates sint in ratione subduplicata radiorum; æquales erunt vires centripetæ inter se: & contra.
+
+Translation status: not_translated.
+
+## NATP00082.par77
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par77
+
+Corol. 5. Si tempora periodica sint ut radii & propterea velocitates æquales; vires centripetæ erunt reciproce ut radii: & contra.
+
+Translation status: not_translated.
+
+## NATP00082.par78
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par78
+
+Corol. 6. Si tempora periodica sint in ratione sesquiplicata radiorum & propterea velocitates reciproce in radiorum ratione subduplicata; vires centripetæ erunt reciproce ut quadrata radiorum: & contra.
+
+Translation status: not_translated.
+
+## NATP00082.par79
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par79
+
+Corol. 7. Et universaliter, si tempus periodicum sit ut Radii R potestas quælibet Rn, & propterea velocitas reciproce ut Radii potestas Rn-1; erit vis centripeta reciproce ut Radii potestas R2n-1: & contra.
+
+Translation status: not_translated.
+
+## NATP00082.par80
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par80
+
+Corol. 8. Eadem omnia de temporibus, velocitatibus, & viribus, quibus corpora similes figurarum quarumcunque similium, centraque in figuris illis similiter posita habentium, partes describunt, consequuntur ex Demonstratione præcedentium ad hosce casus applicata. Applicatur autem substituendo æquabilem arearum descriptionem pro æquabili motu, & distantias corporum a centris pro radiis usurpando.
+
+Translation status: not_translated.
+
+## NATP00082.par81
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par81
+
+Corol. 9. Ex eadem demonstratione consequitur etiam; quod arcus, quem corpus in circulo data vi centripeta uniformiter revolvendo tempore quovis describit, medius proportionalis inter diametrum circuli, & descensum corporis eadem data vi eodemque tempore cadendo confectum.
 
 Translation status: not_translated.
 
@@ -1142,6 +1662,36 @@ Si corpus dato tempore, vi sola M, ferretur ab A ad B, & vi sola N, ab A ad C, c
 
 Translation status: identifying_translation_not_full. Construct the parallelogram; each force leaves the approach to the parallel opposite side unchanged, so the body reaches their intersection.
 
+## NATP00076.par20
+
+Witness: Axiomata Sive Leges Motus (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par20
+
+Corporum dato spatio inclusorum ijdem sunt motus inter se, sive spatium illud quiescat, sive moveatur idem uniformiter in directum absq; motu circulari.
+
+Translation status: identifying_translation_not_full. Motions relative to one another are unchanged when the enclosing space is at rest or moves uniformly in a straight line.
+
+## NATP00076.par22
+
+Witness: Axiomata Sive Leges Motus (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par22
+
+Si corpora moveantur quomodocunq; inter se & a viribus acceleratricibus æqualibus secundum lineas parallelas urgeantur; pergent omnia eodem modo moveri inter se ac si viribus illis non essent incitata.
+
+Translation status: identifying_translation_not_full. Equal accelerative forces applied along parallel lines to all bodies leave their relative motions unchanged.
+
+## NATP00076.par23
+
+Witness: Axiomata Sive Leges Motus (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par23
+
+Nam vires illæ æqualiter (pro quantitatibus movendorum corporum) & secundum lineas parallelas agendo, corpora omnia æqualiter (quoad velocitatem) movebunt per Legem 2.) adeoq; nunquam mutabunt positiones & motus eorum inter se.
+
+Translation status: identifying_translation_not_full. Law II is given as the reason: equal parallel accelerations do not change relative positions and motions.
+
 ## NATP00080.par1
 
 Witness: Definitiones (1713)
@@ -1271,6 +1821,36 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8
 Si corpus dato tempore, vi sola M in loco A impressa, ferretur uniformi cum motu ab A ad B; & vi sola N in eodem loco impressa, ferretur ab A ad C: compleatur parallelogrammum ABDC, & vi utraque feretur id eodem tempore in diagonali ab A ad D. Nam quoniam vis N agit secundum lineam AC ipsi BD parallelam, hæc vis per Legem II nihil mutabit velocitatem accedendi ad lineam illam BD a vi altera genitam. Accedet igitur corpus eodem tempore ad lineam BD; sive vis N imprimatur, sive non; atque adeo in fine illius temporis reperietur alicubi in linea illa BD. Eodem argumento in fine temporis ejusdem reperietur alicubi in linea CD, & idcirco in utriusque lineae concursu D reperiri necesse est. Perget autem motu rectilineo ab A ad D per Legem I.
 
 Translation status: identifying_translation_not_full. Construct the parallelogram; each force leaves the approach to the parallel opposite side unchanged, so the body reaches their intersection.
+
+## NATP00081.par20
+
+Witness: Axiomata Sive Leges Motus (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par20
+
+Corporum dato spatio inclusorum iidem sunt motus inter se, sive spatium illud quiescat, sive moveatur idem uniformiter in directum absque motu circulari.
+
+Translation status: identifying_translation_not_full. Motions relative to one another are unchanged when the enclosing space is at rest or moves uniformly in a straight line.
+
+## NATP00081.par22
+
+Witness: Axiomata Sive Leges Motus (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par22
+
+Si corpora moveatur quomodocunq; inter se, & a viribus acceleratricibus æqualibus secundum lineas parallelas urgeantur; pergent omnia eodem modo moveri inter se, ac si viribus illis non essent incitata.
+
+Translation status: identifying_translation_not_full. Equal accelerative forces applied along parallel lines to all bodies leave their relative motions unchanged.
+
+## NATP00081.par23
+
+Witness: Axiomata Sive Leges Motus (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par23
+
+Nam vires illæ æqualiter (pro quantitatibus movendorum corporum) & secundum lineas parallelas agendo, corpora omnia æqualiter (quoad velocitatem) movebunt per Legem II.) adeoque nunquam mutabunt positiones & motus eorum inter se.
+
+Translation status: identifying_translation_not_full. Law II is given as the reason: equal parallel accelerations do not change relative positions and motions.
 
 ## NATP00087.par1
 

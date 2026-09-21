@@ -1,5 +1,28 @@
 # Research state
 
+The approved governing target is now the three-stage formalization of
+De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,
+Propositions I–IV: see [goals](GOALS.md). M1–M4 below are supporting work.
+The first new obligation is finite joining versus trajectory realization;
+the action-constant hypothesis remains separate and unproved.
+
+New finite diagnostic: `Polygon/Contact.lean` now compiles with explicit
+position/velocity/impulse contact, restriction of supplied samples, and finite
+gluing results. `motion_restart` proves exact continuation from the current
+vertex pair with shifted impulses. The lattice construction derives the
+velocity jump and zero-impulse velocity contact, rather than assuming them.
+Its counterexample gives equal swept sums and unequal next vertices under
+two different inward impulse histories (-1 and -2). It establishes insufficiency
+of area data for identification, not failure of existence or fixed-force
+uniqueness. Continuous-time refinement and mechanical realization remain open.
+
+The [Section II source map](SECTION_II.md) now identifies printed I–IV
+dependencies and De Motu antecedents for I and IV. Counterparts of II/III
+were not found in the inspected De Motu ranges; this is not an edition-wide
+absence claim. Proposition IV's explicit route differs between 1687
+(Proposition II, Lemmas V/XI) and 1713 (Proposition II, Proposition I corollaries
+2/4, Lemma VII). See the [ordered obligations](TASKS.md) for continuation.
+
 The implementation request authorizes M1–M4 beyond the earlier M1-only boundary.
 Scope stays within the requested changing proof architecture. Lean 4.19.0,
 core/Std only; external dependencies remain empty.

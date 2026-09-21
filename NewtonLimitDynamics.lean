@@ -6,6 +6,7 @@ import NewtonLimitDynamics.Principia1713.ForceComparison
 import NewtonLimitDynamics.Principia1687.ConstructedRatio
 import NewtonLimitDynamics.Polygon.Finite
 import NewtonLimitDynamics.Polygon.Enclosure
+import NewtonLimitDynamics.Polygon.Contact
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
 import NewtonLimitDynamics.Comparison.Routes

@@ -18,6 +18,24 @@ flowchart LR
   n24["P1687.L11Restriction"]
   n50["P1687.P6"]
   n51["P1687.Law2"]
+  n56["P1687.P2"]
+  n57["P1687.P3"]
+  n58["P1687.P4"]
+  n59["P1687.L5"]
+  n60["P1687.LawCor5"]
+  n61["P1687.LawCor6"]
+  n62["P1687.EuclidI40"]
+  n13 -->|explicit_dependency| n56
+  n51 -->|explicit_dependency| n56
+  n62 -->|explicit_dependency| n56
+  n60 -->|explicit_dependency| n56
+  n51 -->|explicit_dependency| n61
+  n61 -->|explicit_dependency| n57
+  n13 -->|explicit_dependency| n57
+  n56 -->|explicit_dependency| n57
+  n56 -->|explicit_dependency| n58
+  n59 -->|explicit_dependency| n58
+  n22 -->|explicit_dependency| n58
   n3 -->|explicit_dependency| n4
   n13 -->|explicit_dependency| n10
   n14 -->|explicit_dependency| n10
@@ -53,6 +71,27 @@ flowchart LR
   n32["P1713.P6C1"]
   n33["P1713.P6C3"]
   n34["P1713.P7C3"]
+  n63["P1713.P2"]
+  n64["P1713.P3"]
+  n65["P1713.P4"]
+  n66["P1713.L7"]
+  n67["P1713.P1C2"]
+  n68["P1713.Law2"]
+  n69["P1713.LawCor5"]
+  n70["P1713.LawCor6"]
+  n71["P1713.EuclidI40"]
+  n18 -->|explicit_dependency| n63
+  n68 -->|explicit_dependency| n63
+  n71 -->|explicit_dependency| n63
+  n69 -->|explicit_dependency| n63
+  n68 -->|explicit_dependency| n70
+  n70 -->|explicit_dependency| n64
+  n18 -->|explicit_dependency| n64
+  n63 -->|explicit_dependency| n64
+  n63 -->|explicit_dependency| n65
+  n67 -->|explicit_dependency| n65
+  n29 -->|explicit_dependency| n65
+  n66 -->|explicit_dependency| n65
   n5 -->|explicit_dependency| n6
   n7 -->|explicit_dependency| n8
   n18 -->|explicit_dependency| n15
@@ -102,6 +141,7 @@ flowchart LR
 flowchart LR
   n0["DM89.local"]
   n20["NATP00089.T1"]
+  n52["NATP00089.T2"]
 ```
 
 ## NATP00090
@@ -111,6 +151,11 @@ flowchart LR
   n1["DM90.L2"]
   n2["DM90.local"]
   n21["NATP00090.T1"]
+  n53["NATP00090.Law1"]
+  n54["NATP00090.L1"]
+  n55["NATP00090.T2"]
+  n53 -->|explicit_dependency| n21
+  n54 -->|explicit_dependency| n21
   n1 -->|explicit_dependency| n2
 ```
 
@@ -125,13 +170,13 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  n52["Draft.comparison"]
-  n53["Draft.sagitta"]
-  n54["Draft.conic"]
-  n55["Draft.sections"]
-  n56["Draft.booklet"]
-  n55 -.->|proposed_reordering| n56
-  n53 -.->|proposed_dependency| n54
+  n72["Draft.comparison"]
+  n73["Draft.sagitta"]
+  n74["Draft.conic"]
+  n75["Draft.sections"]
+  n76["Draft.booklet"]
+  n75 -.->|proposed_reordering| n76
+  n73 -.->|proposed_dependency| n74
 ```
 
 ## comparison
@@ -190,11 +235,31 @@ flowchart LR
   n49["P1726.L3C4"]
   n50["P1687.P6"]
   n51["P1687.Law2"]
-  n52["Draft.comparison"]
-  n53["Draft.sagitta"]
-  n54["Draft.conic"]
-  n55["Draft.sections"]
-  n56["Draft.booklet"]
+  n52["NATP00089.T2"]
+  n53["NATP00090.Law1"]
+  n54["NATP00090.L1"]
+  n55["NATP00090.T2"]
+  n56["P1687.P2"]
+  n57["P1687.P3"]
+  n58["P1687.P4"]
+  n59["P1687.L5"]
+  n60["P1687.LawCor5"]
+  n61["P1687.LawCor6"]
+  n62["P1687.EuclidI40"]
+  n63["P1713.P2"]
+  n64["P1713.P3"]
+  n65["P1713.P4"]
+  n66["P1713.L7"]
+  n67["P1713.P1C2"]
+  n68["P1713.Law2"]
+  n69["P1713.LawCor5"]
+  n70["P1713.LawCor6"]
+  n71["P1713.EuclidI40"]
+  n72["Draft.comparison"]
+  n73["Draft.sagitta"]
+  n74["Draft.conic"]
+  n75["Draft.sections"]
+  n76["Draft.booklet"]
   n4 -.->|editorial_interpretation| n6
   n9 -.->|editorial_interpretation| n1
   n20 -.->|editorial_interpretation| n10
@@ -204,5 +269,5 @@ flowchart LR
   n28 -.->|editorial_interpretation| n35
   n33 -.->|editorial_interpretation| n40
   n26 -.->|editorial_interpretation| n46
-  n52 -.->|editorial_interpretation| n34
+  n72 -.->|editorial_interpretation| n34
 ```

@@ -1,5 +1,13 @@
 # Newton's changing proof architecture
 
+The [approved goals](research/GOALS.md) target Book I, Section II,
+Propositions I–IV in 1687 and 1713 and their De Motu antecedents, with explicit
+joining, refinement and trajectory-existence obligations. A universal action
+constant is a separate research hypothesis, not a premise of these proofs.
+The [three-stage source map](research/SECTION_II.md) records the actual
+dependencies; the [obligation queue](research/TASKS.md) separates finite
+mechanics, refinement, realization and force identification.
+
 Source-linked reconstructions of quadratic deflection, central-impulse polygons,
 contact-area bounds and proposed revisions, with separate De Motu, 1687,
 proposed-1694, 1713 and 1726 witnesses. Lean 4.19.0 core/Std only; no mathlib.

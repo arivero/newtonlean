@@ -222,5 +222,86 @@
   },
   "NATP00077.par77": {
     "translation": "Generated QR at fixed time follows force by law II; at fixed force follows squared time by lemma X. Sector area supplies elapsed time."
+  },
+  "NATP00089.par10": {
+    "translation": "Bodies moving uniformly on circles have centripetal forces jointly as the squares of simultaneously described arcs and inversely as the radii."
+  },
+  "NATP00089.par11": {
+    "translation": "The proof compares tangent departures for vanishing arcs and substitutes the circle radii for the limiting geometric denominators; it cites no numbered lemma."
+  },
+  "NATP00090.par18": {
+    "translation": "Bodies moving uniformly on circles have centripetal forces jointly as the squares of simultaneously described arcs and inversely as the radii."
+  },
+  "NATP00090.par19": {
+    "translation": "The proof compares tangent departures for vanishing arcs and substitutes the circle radii for the limiting geometric denominators; it cites no numbered lemma."
+  },
+  "NATP00076.par20": {
+    "translation": "Motions relative to one another are unchanged when the enclosing space is at rest or moves uniformly in a straight line."
+  },
+  "NATP00076.par22": {
+    "translation": "Equal accelerative forces applied along parallel lines to all bodies leave their relative motions unchanged."
+  },
+  "NATP00076.par23": {
+    "translation": "Law II is given as the reason: equal parallel accelerations do not change relative positions and motions."
+  },
+  "NATP00081.par20": {
+    "translation": "Motions relative to one another are unchanged when the enclosing space is at rest or moves uniformly in a straight line."
+  },
+  "NATP00081.par22": {
+    "translation": "Equal accelerative forces applied along parallel lines to all bodies leave their relative motions unchanged."
+  },
+  "NATP00081.par23": {
+    "translation": "Law II is given as the reason: equal parallel accelerations do not change relative positions and motions."
+  },
+  "NATP00077.par14": {
+    "translation": "Corresponding sides of similar figures are proportional, and their areas are in the duplicate ratio of the sides."
+  },
+  "NATP00077.par17": {
+    "translation": "A vanishing arc, its chord and its tangent have the ultimate ratio of equality."
+  },
+  "NATP00077.par48": {
+    "translation": "A body describing a curved line and areas proportional to times about a fixed or uniformly translating point is urged by a centripetal force toward that point."
+  },
+  "NATP00077.par49": {
+    "translation": "Case 1 infers the direction of the deflecting force from Law I, Euclid I.40 and Law II for an immobile point."
+  },
+  "NATP00077.par50": {
+    "translation": "Case 2 invokes corollary 5 of the laws to transfer the result to a point and figure moving uniformly in a straight line."
+  },
+  "NATP00077.par53": {
+    "translation": "For areas about another moving body, the first body's force is composed from a centripetal force toward the second body and the second body's whole accelerative force."
+  },
+  "NATP00077.par54": {
+    "translation": "Using corollary 6 of the laws, add equal contrary parallel acceleration to both bodies; Law I fixes the reference body's resulting motion and Proposition II identifies the remaining force as central."
+  },
+  "NATP00077.par60": {
+    "translation": "For uniform motions on different circles, centripetal forces tend to the circle centres and are jointly as squared simultaneously described arcs and inversely as radii."
+  },
+  "NATP00077.par61": {
+    "translation": "The proof cites Proposition II for direction and Lemmas V and XI for the limiting tangent-departure ratio."
+  },
+  "NATP00082.par18": {
+    "translation": "A vanishing arc, its chord and its tangent have the ultimate ratio of equality."
+  },
+  "NATP00082.par58": {
+    "translation": "A body describing a plane curve and areas proportional to times about a fixed or uniformly translating point is urged by a centripetal force toward that point."
+  },
+  "NATP00082.par59": {
+    "translation": "Case 1 infers the direction of the deflecting force from Law I, Euclid I.40 and Law II for an immobile point."
+  },
+  "NATP00082.par60": {
+    "translation": "Case 2 invokes corollary 5 of the laws to transfer the result to a point and figure moving uniformly in a straight line."
+  },
+  "NATP00082.par64": {
+    "translation": "For areas about another moving body, the first body's force is composed from a centripetal force toward the second body and the second body's whole accelerative force."
+  },
+  "NATP00082.par65": {
+    "translation": "Using corollary 6 of the laws, add equal contrary parallel acceleration to both bodies; Law I fixes the reference body's resulting motion and Proposition II identifies the remaining force as central."
+  },
+  "NATP00082.par71": {
+    "translation": "For uniform motions on different circles, centripetal forces tend to the circle centres and are jointly as squared simultaneously described arcs and inversely as radii."
+  },
+  "NATP00082.par72": {
+    "translation": "The proof explicitly cites Proposition II, Proposition I corollaries 2 and 4, and Lemma VII."
   }
 }

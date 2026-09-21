@@ -727,6 +727,66 @@
           }
         },
         {
+          "id": "NATP00089.par10",
+          "anchor": "par10",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "55r",
+          "page_xml_id": "p055r",
+          "page_facs": "#MS-ADD-03965-007-00031.jpg",
+          "page_folio": "55r",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00031.jpg",
+          "revision_tags": {
+            "add": 1,
+            "del": 1
+          },
+          "revision_tag_total": 2,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 168,
+            "sha256": "1cb3caa88df8e55bf1c831bca1d56fabdd7d8dfbc9a29614a28bc1a31be5a402"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 189,
+            "sha256": "956deeb26dea90d3b0a899c7099b610171ac9bc18945a162977f23cff206821c"
+          }
+        },
+        {
+          "id": "NATP00089.par11",
+          "anchor": "par11",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "55r",
+          "page_xml_id": "p055r",
+          "page_facs": "#MS-ADD-03965-007-00031.jpg",
+          "page_folio": "55r",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00031.jpg",
+          "revision_tags": {
+            "add": 1,
+            "choice": 2,
+            "del": 1,
+            "orig": 2,
+            "reg": 2,
+            "unclear": 2
+          },
+          "revision_tag_total": 10,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 591,
+            "sha256": "666f8f84a72dd4a33c82dd80ad5c6d5fb162adf8f7349735390aee294a4afb32"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 601,
+            "sha256": "82a2d2c5b30675dbf9a9fffff779db861f7c878d5c8431eeb41f7f8fe1966482"
+          }
+        },
+        {
           "id": "NATP00089.par19",
           "anchor": "par19",
           "xml_present": true,
@@ -1663,6 +1723,62 @@
             "anchor_present": true,
             "chars": 1129,
             "sha256": "2a7678187e7c500567c80eace710cf6b1e0b16b46824d827339b9426efcd5104"
+          }
+        },
+        {
+          "id": "NATP00090.par18",
+          "anchor": "par18",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "42r",
+          "page_xml_id": "p042",
+          "page_facs": "#MS-ADD-03965-007-00005.jpg",
+          "page_folio": "42r",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00005.jpg",
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 168,
+            "sha256": "1cb3caa88df8e55bf1c831bca1d56fabdd7d8dfbc9a29614a28bc1a31be5a402"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 168,
+            "sha256": "1cb3caa88df8e55bf1c831bca1d56fabdd7d8dfbc9a29614a28bc1a31be5a402"
+          }
+        },
+        {
+          "id": "NATP00090.par19",
+          "anchor": "par19",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "42r",
+          "page_xml_id": "p042",
+          "page_facs": "#MS-ADD-03965-007-00005.jpg",
+          "page_folio": "42r",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00005.jpg",
+          "revision_tags": {
+            "add": 2,
+            "choice": 2,
+            "del": 1,
+            "orig": 2,
+            "reg": 2
+          },
+          "revision_tag_total": 9,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 585,
+            "sha256": "17436a9b382a8c8c202d6620555a13a24d6d6f7f4f78af05ba32a976c2b8b430"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 596,
+            "sha256": "ef336f13809cb4bc4005c6cbaca0129ff0358737c97a205fc1bc3e88e79b75ed"
           }
         },
         {
@@ -8036,6 +8152,31 @@
           }
         },
         {
+          "id": "NATP00077.par17",
+          "anchor": "par17",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "30",
+          "page_xml_id": "p30",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 123,
+            "sha256": "4444062bda454b63bbcbe51fc26d69cf8cc551e575501ca76b0cf707167dc3ec"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 123,
+            "sha256": "4444062bda454b63bbcbe51fc26d69cf8cc551e575501ca76b0cf707167dc3ec"
+          }
+        },
+        {
           "id": "NATP00077.par15",
           "anchor": "par15",
           "xml_present": true,
@@ -8552,6 +8693,530 @@
             "anchor_present": true,
             "chars": 1559,
             "sha256": "4008c2443c44857dbb1e2b45fede3a18a45900c6158b67326da21e0edead78d8"
+          }
+        },
+        {
+          "id": "NATP00077.par46",
+          "anchor": "par46",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 123,
+            "sha256": "113509e2e64ae5b3306d5c947c47a2a74fc3f98824bda9e7122f061c50226377"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 123,
+            "sha256": "113509e2e64ae5b3306d5c947c47a2a74fc3f98824bda9e7122f061c50226377"
+          }
+        },
+        {
+          "id": "NATP00077.par47",
+          "anchor": "par47",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 140,
+            "sha256": "3fb593d442f4b1c3666f1b06113c6af15632e8fbb15331d5c89c89429fe87e13"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 140,
+            "sha256": "3fb593d442f4b1c3666f1b06113c6af15632e8fbb15331d5c89c89429fe87e13"
+          }
+        },
+        {
+          "id": "NATP00077.par48",
+          "anchor": "par48",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 248,
+            "sha256": "b190c2f018ddf1bd28306f7d84d469bd40399843968efabaa1fefd0b7d0443ec"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 248,
+            "sha256": "b190c2f018ddf1bd28306f7d84d469bd40399843968efabaa1fefd0b7d0443ec"
+          }
+        },
+        {
+          "id": "NATP00077.par49",
+          "anchor": "par49",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 589,
+            "sha256": "163192349215d49251bfa2ef41ea73622c8ab33f15f8462d8d346962616360bf"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 589,
+            "sha256": "163192349215d49251bfa2ef41ea73622c8ab33f15f8462d8d346962616360bf"
+          }
+        },
+        {
+          "id": "NATP00077.par50",
+          "anchor": "par50",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 219,
+            "sha256": "5538f00e9249fc3bd17b2a8ff9b3fa60eb62a4a0175f978f4458f6662c786ae1"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 219,
+            "sha256": "5538f00e9249fc3bd17b2a8ff9b3fa60eb62a4a0175f978f4458f6662c786ae1"
+          }
+        },
+        {
+          "id": "NATP00077.par53",
+          "anchor": "par53",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 1,
+            "orig": 1,
+            "reg": 1
+          },
+          "revision_tag_total": 3,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 257,
+            "sha256": "25458acdb036ed7c5ff0e3fcf12f37c9c88de93c77da55938a68a9c8009a4071"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 256,
+            "sha256": "512bf4653d2686214d3e3fc3035dcf80a9f2ea87586b38dbbbc3b8c71fd3bef5"
+          }
+        },
+        {
+          "id": "NATP00077.par54",
+          "anchor": "par54",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 1,
+            "orig": 1,
+            "reg": 1
+          },
+          "revision_tag_total": 3,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 625,
+            "sha256": "3935cf7c22622d0e6c3478eb82b0d387f8c0915c8566e62080e3f8aa53ccc26f"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 624,
+            "sha256": "720636c947b18b352772496cf619a81606864109e0d9fc6643fbc1b6ee325df4"
+          }
+        },
+        {
+          "id": "NATP00077.par55",
+          "anchor": "par55",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "40",
+          "page_xml_id": "p40",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 1,
+            "orig": 1,
+            "reg": 1
+          },
+          "revision_tag_total": 3,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 396,
+            "sha256": "9b6713d87dbb1b56e1af81e2677a2923a8b9542db4b9f041d5f5f4d46998f51a"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 395,
+            "sha256": "3a239c40792a8c920d7ab9e34ddd76d7d30de50f55c573ecc6347199ce337192"
+          }
+        },
+        {
+          "id": "NATP00077.par56",
+          "anchor": "par56",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "40",
+          "page_xml_id": "p40",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 119,
+            "sha256": "bdf6a587095ad4c4a808c785b117ef439b850b14b32b0bf2e31e3a1f79740a95"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 119,
+            "sha256": "bdf6a587095ad4c4a808c785b117ef439b850b14b32b0bf2e31e3a1f79740a95"
+          }
+        },
+        {
+          "id": "NATP00077.par57",
+          "anchor": "par57",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "40",
+          "page_xml_id": "p40",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 132,
+            "sha256": "cd5d70eb1e1cf812da34a2ac15349abfc33a544431fb3205068a09abce6346e9"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 132,
+            "sha256": "cd5d70eb1e1cf812da34a2ac15349abfc33a544431fb3205068a09abce6346e9"
+          }
+        },
+        {
+          "id": "NATP00077.par58",
+          "anchor": "par58",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "40",
+          "page_xml_id": "p40",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 2,
+            "orig": 2,
+            "reg": 2
+          },
+          "revision_tag_total": 6,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 656,
+            "sha256": "41bbe1da2c915cf3caa090b0cae2bbe33b657eeda84ba4a8f907e0b383b4049b"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 654,
+            "sha256": "ecd4f0ae4cdfc0588b85bb7ff10cfc348ce6d1d4cf8f7d775647e03fc4ddf790"
+          }
+        },
+        {
+          "id": "NATP00077.par60",
+          "anchor": "par60",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "41",
+          "page_xml_id": "p41",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 199,
+            "sha256": "43b2eee4843d347e32bee2d014dd94b6e1e34833f6e2d83700a2050621eb3f9a"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 199,
+            "sha256": "43b2eee4843d347e32bee2d014dd94b6e1e34833f6e2d83700a2050621eb3f9a"
+          }
+        },
+        {
+          "id": "NATP00077.par61",
+          "anchor": "par61",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "41",
+          "page_xml_id": "p41",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 2,
+            "orig": 2,
+            "reg": 2
+          },
+          "revision_tag_total": 6,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 892,
+            "sha256": "61ef552c28937418e3b7c9348c545156c0df747783431014b0f19cf0bb4354fd"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 890,
+            "sha256": "4dae2aadbe43eb26fc1fcdc134f4e76c5bb2f209dfe2f21f447105d800262839"
+          }
+        },
+        {
+          "id": "NATP00077.par62",
+          "anchor": "par62",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "41",
+          "page_xml_id": "p41",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 92,
+            "sha256": "392d70408d1b282b5aefbd5dfecbc233a42c65f78040e0a08bc9229adee72591"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 92,
+            "sha256": "392d70408d1b282b5aefbd5dfecbc233a42c65f78040e0a08bc9229adee72591"
+          }
+        },
+        {
+          "id": "NATP00077.par63",
+          "anchor": "par63",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "41",
+          "page_xml_id": "p41",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 372,
+            "sha256": "7c695ec37cd230814487be529eb16b238999eb3c303fae9012613dea55a6063c"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 372,
+            "sha256": "7c695ec37cd230814487be529eb16b238999eb3c303fae9012613dea55a6063c"
+          }
+        },
+        {
+          "id": "NATP00077.par64",
+          "anchor": "par64",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "42",
+          "page_xml_id": "p42",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 112,
+            "sha256": "08176dd9b928c897f4f618ad79e1ff7b6b4bf1395530b2d7dc07b036dc77ed79"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 112,
+            "sha256": "08176dd9b928c897f4f618ad79e1ff7b6b4bf1395530b2d7dc07b036dc77ed79"
+          }
+        },
+        {
+          "id": "NATP00077.par65",
+          "anchor": "par65",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "42",
+          "page_xml_id": "p42",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 149,
+            "sha256": "e3194debe38b36320e110e6e63155cc1518827f49029149d0fa59710475722a6"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 149,
+            "sha256": "e3194debe38b36320e110e6e63155cc1518827f49029149d0fa59710475722a6"
+          }
+        },
+        {
+          "id": "NATP00077.par66",
+          "anchor": "par66",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "42",
+          "page_xml_id": "p42",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 150,
+            "sha256": "5363bcca78685c12e06e668c5c90185689cfb4ef2ebe5b3486bad7889da2f290"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 150,
+            "sha256": "5363bcca78685c12e06e668c5c90185689cfb4ef2ebe5b3486bad7889da2f290"
+          }
+        },
+        {
+          "id": "NATP00077.par67",
+          "anchor": "par67",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "42",
+          "page_xml_id": "p42",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 184,
+            "sha256": "cbcdfd5b2fbb332753af8a9596e216eed2f70bccc132b89fed57b5834ba3975a"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 184,
+            "sha256": "cbcdfd5b2fbb332753af8a9596e216eed2f70bccc132b89fed57b5834ba3975a"
+          }
+        },
+        {
+          "id": "NATP00077.par68",
+          "anchor": "par68",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "42",
+          "page_xml_id": "p42",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 2,
+            "orig": 2,
+            "reg": 2
+          },
+          "revision_tag_total": 6,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 244,
+            "sha256": "c3572d66046c50fec4980c70e20cca8e33e1e441e21899dffa6849cd8db985c4"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 242,
+            "sha256": "194c64f3e679aef7e1b94f6616f96b23f49110c80bb6ad119980b3ebf821a5a2"
           }
         },
         {
@@ -15033,6 +15698,31 @@
           }
         },
         {
+          "id": "NATP00082.par18",
+          "anchor": "par18",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "27",
+          "page_xml_id": "p27",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 99,
+            "sha256": "77050dfb91ace81feb34587fc97ce992cc15c63ac3e1ad4f7bd128ddb4394a10"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 99,
+            "sha256": "77050dfb91ace81feb34587fc97ce992cc15c63ac3e1ad4f7bd128ddb4394a10"
+          }
+        },
+        {
           "id": "NATP00082.par26",
           "anchor": "par26",
           "xml_present": true,
@@ -15587,6 +16277,31 @@
           }
         },
         {
+          "id": "NATP00082.par52",
+          "anchor": "par52",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "35",
+          "page_xml_id": "p35",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 339,
+            "sha256": "d8e35a854815d37c435587cc43c2595a3181b1552c0f25503393244ab316d06c"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 339,
+            "sha256": "d8e35a854815d37c435587cc43c2595a3181b1552c0f25503393244ab316d06c"
+          }
+        },
+        {
           "id": "NATP00082.par53",
           "anchor": "par53",
           "xml_present": true,
@@ -15684,6 +16399,631 @@
             "anchor_present": true,
             "chars": 169,
             "sha256": "b464f2df890466a6c5b219b654eabc39f82ea6c582298ae10457cb794710511e"
+          }
+        },
+        {
+          "id": "NATP00082.par57",
+          "anchor": "par57",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "36",
+          "page_xml_id": "p36",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 189,
+            "sha256": "2282952fcacd3c09b8b21a6e36219b3cb8721e2e537e900b791d1880e88c1547"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 189,
+            "sha256": "2282952fcacd3c09b8b21a6e36219b3cb8721e2e537e900b791d1880e88c1547"
+          }
+        },
+        {
+          "id": "NATP00082.par58",
+          "anchor": "par58",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "36",
+          "page_xml_id": "p36",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 263,
+            "sha256": "4a1c9b2eee1d40b7336bb2f7a941936ea318a7b985b2da1e1962dfe95bebc143"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 263,
+            "sha256": "4a1c9b2eee1d40b7336bb2f7a941936ea318a7b985b2da1e1962dfe95bebc143"
+          }
+        },
+        {
+          "id": "NATP00082.par59",
+          "anchor": "par59",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "36",
+          "page_xml_id": "p36",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 585,
+            "sha256": "e6715621e81629f745dd6853b633d39d48e95fa6ad00d48b1d3629b1e68e9652"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 585,
+            "sha256": "e6715621e81629f745dd6853b633d39d48e95fa6ad00d48b1d3629b1e68e9652"
+          }
+        },
+        {
+          "id": "NATP00082.par60",
+          "anchor": "par60",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "36",
+          "page_xml_id": "p36",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 219,
+            "sha256": "5538f00e9249fc3bd17b2a8ff9b3fa60eb62a4a0175f978f4458f6662c786ae1"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 219,
+            "sha256": "5538f00e9249fc3bd17b2a8ff9b3fa60eb62a4a0175f978f4458f6662c786ae1"
+          }
+        },
+        {
+          "id": "NATP00082.par61",
+          "anchor": "par61",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "36",
+          "page_xml_id": "p36",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 290,
+            "sha256": "350f6d4c464db5b0a74f2e3fbe3da2f76327e9030327d1397b190277a57b732a"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 290,
+            "sha256": "350f6d4c464db5b0a74f2e3fbe3da2f76327e9030327d1397b190277a57b732a"
+          }
+        },
+        {
+          "id": "NATP00082.par62",
+          "anchor": "par62",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "36",
+          "page_xml_id": "p36",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 156,
+            "sha256": "0d2033cb107f5974c6ca2b3aa5003ca7b14215a6a6d1e776db7a9606952a8849"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 156,
+            "sha256": "0d2033cb107f5974c6ca2b3aa5003ca7b14215a6a6d1e776db7a9606952a8849"
+          }
+        },
+        {
+          "id": "NATP00082.par63",
+          "anchor": "par63",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "37",
+          "page_xml_id": "p37",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 418,
+            "sha256": "183ae71fa819f895f7279bd8c5c96f63a3e3f56da985bb87ba28f4fd52213e88"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 418,
+            "sha256": "183ae71fa819f895f7279bd8c5c96f63a3e3f56da985bb87ba28f4fd52213e88"
+          }
+        },
+        {
+          "id": "NATP00082.par64",
+          "anchor": "par64",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "37",
+          "page_xml_id": "p37",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 268,
+            "sha256": "6dec12cc076cdd65c3ad0c48c26fc09c03cdd59a586dfd9a3dc91286e5248de4"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 268,
+            "sha256": "6dec12cc076cdd65c3ad0c48c26fc09c03cdd59a586dfd9a3dc91286e5248de4"
+          }
+        },
+        {
+          "id": "NATP00082.par65",
+          "anchor": "par65",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "37",
+          "page_xml_id": "p37",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 735,
+            "sha256": "86b6a3e1a0b1c346373f3ce9b2ca1beced9c4263869b0a58275c28e5ba6d9114"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 735,
+            "sha256": "86b6a3e1a0b1c346373f3ce9b2ca1beced9c4263869b0a58275c28e5ba6d9114"
+          }
+        },
+        {
+          "id": "NATP00082.par66",
+          "anchor": "par66",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "37",
+          "page_xml_id": "p37",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 404,
+            "sha256": "a406ceb6166bf3b48388a08f64ca05e7f989b6e36c8eef5c78d4f18ba519ff8e"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 404,
+            "sha256": "a406ceb6166bf3b48388a08f64ca05e7f989b6e36c8eef5c78d4f18ba519ff8e"
+          }
+        },
+        {
+          "id": "NATP00082.par67",
+          "anchor": "par67",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "37",
+          "page_xml_id": "p37",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 122,
+            "sha256": "15983539993c44b863cf2b5615d9813793024ed24345fd5b0fff5aa099b3c8b5"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 122,
+            "sha256": "15983539993c44b863cf2b5615d9813793024ed24345fd5b0fff5aa099b3c8b5"
+          }
+        },
+        {
+          "id": "NATP00082.par68",
+          "anchor": "par68",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "37",
+          "page_xml_id": "p37",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 140,
+            "sha256": "b43aa81aead4d3e230348a59cf6fca9015a08c99a2d58c8a126957f62f05fb85"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 140,
+            "sha256": "b43aa81aead4d3e230348a59cf6fca9015a08c99a2d58c8a126957f62f05fb85"
+          }
+        },
+        {
+          "id": "NATP00082.par69",
+          "anchor": "par69",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 629,
+            "sha256": "509cd2ed97a779811af1b2f96d2fb96abf358a71813a8bd7369055a190406f42"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 629,
+            "sha256": "509cd2ed97a779811af1b2f96d2fb96abf358a71813a8bd7369055a190406f42"
+          }
+        },
+        {
+          "id": "NATP00082.par70",
+          "anchor": "par70",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 317,
+            "sha256": "4c943dde8b478e25280c77ba3296016ab731cb8545e2dfdad7d3c78896870dde"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 317,
+            "sha256": "4c943dde8b478e25280c77ba3296016ab731cb8545e2dfdad7d3c78896870dde"
+          }
+        },
+        {
+          "id": "NATP00082.par71",
+          "anchor": "par71",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 206,
+            "sha256": "87e8c8448cafb8fdbc43f417a5d5e02bb39c4195df0f6cd0277a9f442b2d840a"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 206,
+            "sha256": "87e8c8448cafb8fdbc43f417a5d5e02bb39c4195df0f6cd0277a9f442b2d840a"
+          }
+        },
+        {
+          "id": "NATP00082.par72",
+          "anchor": "par72",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 480,
+            "sha256": "33fccb621eb7ab2f5f85eb1be3d08f397e5310057a211f404dcac6af0d336ba4"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 480,
+            "sha256": "33fccb621eb7ab2f5f85eb1be3d08f397e5310057a211f404dcac6af0d336ba4"
+          }
+        },
+        {
+          "id": "NATP00082.par73",
+          "anchor": "par73",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "38",
+          "page_xml_id": "p38",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 284,
+            "sha256": "b664b7b73d65daf7866823113c965cf0260d3bbb467238d5425287e0d396809c"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 284,
+            "sha256": "b664b7b73d65daf7866823113c965cf0260d3bbb467238d5425287e0d396809c"
+          }
+        },
+        {
+          "id": "NATP00082.par74",
+          "anchor": "par74",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 327,
+            "sha256": "94aab9f057be69b33833c07981e3ee248a89292b5a494549a3d975e5f70e6c38"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 327,
+            "sha256": "94aab9f057be69b33833c07981e3ee248a89292b5a494549a3d975e5f70e6c38"
+          }
+        },
+        {
+          "id": "NATP00082.par75",
+          "anchor": "par75",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 133,
+            "sha256": "2734167bfba02628e2332f77f1e23c9723bd09fa1d667f58c425ff0352e7ce14"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 133,
+            "sha256": "2734167bfba02628e2332f77f1e23c9723bd09fa1d667f58c425ff0352e7ce14"
+          }
+        },
+        {
+          "id": "NATP00082.par76",
+          "anchor": "par76",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 136,
+            "sha256": "f308c98ae7bc036870c12f132c4b7f10f3450734996d61fcdd687084e4470adc"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 136,
+            "sha256": "f308c98ae7bc036870c12f132c4b7f10f3450734996d61fcdd687084e4470adc"
+          }
+        },
+        {
+          "id": "NATP00082.par77",
+          "anchor": "par77",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 130,
+            "sha256": "096da9fa6bc10fa1cd718c14d49d2f03f1dcc8fc7acfd9f2f4d8c9d2ddcb547b"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 130,
+            "sha256": "096da9fa6bc10fa1cd718c14d49d2f03f1dcc8fc7acfd9f2f4d8c9d2ddcb547b"
+          }
+        },
+        {
+          "id": "NATP00082.par78",
+          "anchor": "par78",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 202,
+            "sha256": "f4f6d1fa7ee55f3cc6cda19b3ceb026d3f10a4c376ce63118e38c40e5f72fb4a"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 202,
+            "sha256": "f4f6d1fa7ee55f3cc6cda19b3ceb026d3f10a4c376ce63118e38c40e5f72fb4a"
+          }
+        },
+        {
+          "id": "NATP00082.par79",
+          "anchor": "par79",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 217,
+            "sha256": "4aa7c5d4080b043497a010d4d9ed56aefeb9e34c8a538ad1e441e85befee30ac"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 217,
+            "sha256": "4aa7c5d4080b043497a010d4d9ed56aefeb9e34c8a538ad1e441e85befee30ac"
+          }
+        },
+        {
+          "id": "NATP00082.par80",
+          "anchor": "par80",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 397,
+            "sha256": "fc7db462580feaa595884dfd0ef8b7d6bb17486a1ca698b007a5d3cc2f6905e6"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 397,
+            "sha256": "fc7db462580feaa595884dfd0ef8b7d6bb17486a1ca698b007a5d3cc2f6905e6"
+          }
+        },
+        {
+          "id": "NATP00082.par81",
+          "anchor": "par81",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "39",
+          "page_xml_id": "p39",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 273,
+            "sha256": "09d9e066aaf22c4e389213fc5af1a1fbad47e7c9cae2e0b3f18e4ad2de66c504"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 273,
+            "sha256": "09d9e066aaf22c4e389213fc5af1a1fbad47e7c9cae2e0b3f18e4ad2de66c504"
           }
         },
         {
@@ -16975,6 +18315,93 @@
             "chars": 618,
             "sha256": "b596fed9e97b50ef63a7fc920775190a5ca598538be207ae923a8d62c1188755"
           }
+        },
+        {
+          "id": "NATP00076.par20",
+          "anchor": "par20",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "19",
+          "page_xml_id": "p19",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 1,
+            "orig": 1,
+            "reg": 1
+          },
+          "revision_tag_total": 3,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 153,
+            "sha256": "00a211d799866125f3053107fcf7ed3724e6c66d24d6e74b49f24ac9c29c8343"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 152,
+            "sha256": "60b5d8300d0793eb8f25c5d1371fdec80cccf330c831fd23916834db689375e6"
+          }
+        },
+        {
+          "id": "NATP00076.par22",
+          "anchor": "par22",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "20",
+          "page_xml_id": "p20",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 1,
+            "orig": 1,
+            "reg": 1
+          },
+          "revision_tag_total": 3,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 202,
+            "sha256": "2d637cf7f4332fbd969ff9b8ab0a50c8570672d171306fa29c408aa959045b98"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 201,
+            "sha256": "4e65c1791948f68492df69d46fb4eb5673925c85dc8951a15e3e4209a206849d"
+          }
+        },
+        {
+          "id": "NATP00076.par23",
+          "anchor": "par23",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "20",
+          "page_xml_id": "p20",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 1,
+            "orig": 1,
+            "reg": 1
+          },
+          "revision_tag_total": 3,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 228,
+            "sha256": "f9b026a74caf4c21732eb33bbb92075d66149c2f547f1370d03efbb9f5a102c8"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 227,
+            "sha256": "00a8735574c2789d078356fab3b2425afe96696b6f20462d23e49f3fc6423879"
+          }
         }
       ]
     },
@@ -18053,6 +19480,85 @@
             "anchor_present": true,
             "chars": 773,
             "sha256": "28f9e206a692141961ced947c101580a6e60937c66c34130ab51c0a25f142989"
+          }
+        },
+        {
+          "id": "NATP00081.par20",
+          "anchor": "par20",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "18",
+          "page_xml_id": "p18",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 153,
+            "sha256": "0d30a936683f553c6ca9b951b69ec4e5d586cc2826d9bdc469a808b1b73893ce"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 153,
+            "sha256": "0d30a936683f553c6ca9b951b69ec4e5d586cc2826d9bdc469a808b1b73893ce"
+          }
+        },
+        {
+          "id": "NATP00081.par22",
+          "anchor": "par22",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "18",
+          "page_xml_id": "p18",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {
+            "choice": 1,
+            "orig": 1,
+            "reg": 1
+          },
+          "revision_tag_total": 3,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 203,
+            "sha256": "7fdae2dd45f33491457969d01c25edb1a6d095d0e4a396680130d9a4d8d3458f"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 202,
+            "sha256": "606eb57e0d10ab9974fc362107dc4f981c8157bb255096995d34207b91acccac"
+          }
+        },
+        {
+          "id": "NATP00081.par23",
+          "anchor": "par23",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "18",
+          "page_xml_id": "p18",
+          "page_facs": null,
+          "page_folio": null,
+          "facsimile_url": null,
+          "revision_tags": {},
+          "revision_tag_total": 0,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 235,
+            "sha256": "2b224d4c50d23a54adab8ed3228e0001c60e00ad44b621bafb6f32fb73f83a37"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 235,
+            "sha256": "2b224d4c50d23a54adab8ed3228e0001c60e00ad44b621bafb6f32fb73f83a37"
           }
         }
       ]
@@ -25099,11 +26605,11 @@
   ],
   "summary": {
     "primary_witnesses": 9,
-    "primary_anchors": 173,
-    "generated_extract_matches": 173,
-    "revision_tagged_anchors": 38,
-    "normalized_anchor_matches": 168,
-    "diplomatic_anchor_matches": 173,
+    "primary_anchors": 231,
+    "generated_extract_matches": 231,
+    "revision_tagged_anchors": 51,
+    "normalized_anchor_matches": 226,
+    "diplomatic_anchor_matches": 231,
     "supplementary_records": 3
   }
 }

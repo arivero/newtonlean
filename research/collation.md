@@ -2,20 +2,20 @@
 
 Generated 2026-09-21 by `scripts/collate_sources.py`. This report checks the local TEI/XML transcription against selected passage extracts and the presence of corresponding anchors in normalized and diplomatic HTML. It records page and facsimile metadata but does not inspect or download manuscript images, and it does not establish historical proof dependency.
 
-Primary witnesses: 9; selected XML anchors: 173; exact generated-extract matches: 173; revision-tagged anchors: 38.
+Primary witnesses: 9; selected XML anchors: 231; exact generated-extract matches: 231; revision-tagged anchors: 51.
 
 ## Witness layers
 
 | Witness | Stage | Kind | Pages | Normalized anchors | Diplomatic anchors |
 |---|---|---:|---:|---:|---:|
-| NATP00089 | NATP00089 | Manuscript | 9 | 5/10 | 10/10 |
-| NATP00090 | NATP00090 | Manuscript | 15 | 11/11 | 11/11 |
-| NATP00077 | 1687 | Printed | 210 | 33/33 | 33/33 |
-| NATP00082 | 1713 | Printed | 187 | 47/47 | 47/47 |
+| NATP00089 | NATP00089 | Manuscript | 9 | 7/12 | 12/12 |
+| NATP00090 | NATP00090 | Manuscript | 15 | 13/13 | 13/13 |
+| NATP00077 | 1687 | Printed | 210 | 54/54 | 54/54 |
+| NATP00082 | 1713 | Printed | 187 | 74/74 | 74/74 |
 | NATP00075 | 1687 | Printed | 11 | 8/8 | 8/8 |
-| NATP00076 | 1687 | Printed | 14 | 5/5 | 5/5 |
+| NATP00076 | 1687 | Printed | 14 | 8/8 | 8/8 |
 | NATP00080 | 1713 | Printed | 11 | 8/8 | 8/8 |
-| NATP00081 | 1713 | Printed | 13 | 5/5 | 5/5 |
+| NATP00081 | 1713 | Printed | 13 | 8/8 | 8/8 |
 | NATP00087 | 1726 | Printed | 202 | 46/46 | 46/46 |
 
 A missing local HTML view is reported as absent; its official URL remains in the JSON record. XML is the machine-readable authority for exact revision markup.
@@ -39,6 +39,8 @@ Library/facsimile record: https://cudl.lib.cam.ac.uk/view/MS-ADD-03965/109
 | par7 | 55r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00031.jpg | add:1, del:1 | match | present | present |
 | par8 | 55r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00031.jpg | none | match | present | present |
 | par9 | 55r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00031.jpg | add:4, choice:2, del:7, gap:3, note:2, orig:2, reg:2, unclear:1 | match | present | present |
+| par10 | 55r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00031.jpg | add:1, del:1 | match | present | present |
+| par11 | 55r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00031.jpg | add:1, choice:2, del:1, orig:2, reg:2, unclear:2 | match | present | present |
 | par19 | 56r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00033.jpg | add:3, choice:3, del:5, note:1, orig:3, reg:3 | match | present | present |
 
 ## NATP00090 — 'De motu sphæricorum corporum in fluidis'
@@ -61,6 +63,8 @@ Library/facsimile record: https://cudl.lib.cam.ac.uk/view/MS-ADD-03965/79
 | par13 | 41r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00003.jpg | add:5, choice:2, del:7, gap:2, orig:2, reg:2 | match | present | present |
 | par16 | 41r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00003.jpg | none | match | present | present |
 | par17 | 41r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00003.jpg | add:1, choice:2, del:3, gap:2, note:2, orig:2, reg:2 | match | present | present |
+| par18 | 42r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00005.jpg | none | match | present | present |
+| par19 | 42r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00005.jpg | add:2, choice:2, del:1, orig:2, reg:2 | match | present | present |
 | par27 | 43r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-007-00007.jpg | add:3, choice:3, del:2, note:1, orig:3, reg:3 | match | present | present |
 
 ## NATP00077 — De Motu Corporum (Liber Primus) (1687)
@@ -84,6 +88,7 @@ Library/facsimile record: none encoded
 | par9 | 28 | — | none | match | present | present |
 | par10 | 28 | — | none | match | present | present |
 | par14 | 29 | — | none | match | present | present |
+| par17 | 30 | — | none | match | present | present |
 | par15 | 29 | — | choice:1, orig:1, reg:1 | match | present | present |
 | par16 | 29 | — | choice:1, orig:1, reg:1 | match | present | present |
 | par25 | 31 | — | none | match | present | present |
@@ -103,6 +108,26 @@ Library/facsimile record: none encoded
 | par39 | 34 | — | choice:3, orig:3, reg:3 | match | present | present |
 | par44 | 37 | — | none | match | present | present |
 | par45 | 37 | — | choice:3, orig:3, reg:3 | match | present | present |
+| par46 | 38 | — | none | match | present | present |
+| par47 | 38 | — | none | match | present | present |
+| par48 | 38 | — | none | match | present | present |
+| par49 | 38 | — | none | match | present | present |
+| par50 | 39 | — | none | match | present | present |
+| par53 | 39 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par54 | 39 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par55 | 40 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par56 | 40 | — | none | match | present | present |
+| par57 | 40 | — | none | match | present | present |
+| par58 | 40 | — | choice:2, orig:2, reg:2 | match | present | present |
+| par60 | 41 | — | none | match | present | present |
+| par61 | 41 | — | choice:2, orig:2, reg:2 | match | present | present |
+| par62 | 41 | — | none | match | present | present |
+| par63 | 41 | — | none | match | present | present |
+| par64 | 42 | — | none | match | present | present |
+| par65 | 42 | — | none | match | present | present |
+| par66 | 42 | — | none | match | present | present |
+| par67 | 42 | — | none | match | present | present |
+| par68 | 42 | — | choice:2, orig:2, reg:2 | match | present | present |
 | par76 | 44 | — | none | match | present | present |
 | par77 | 44 | — | choice:5, orig:5, reg:5 | match | present | present |
 | par78 | 45 | — | none | match | present | present |
@@ -130,6 +155,7 @@ Library/facsimile record: none encoded
 | par15 | 27 | — | none | match | present | present |
 | par16 | 27 | — | none | match | present | present |
 | par17 | 27 | — | none | match | present | present |
+| par18 | 27 | — | none | match | present | present |
 | par26 | 29 | — | none | match | present | present |
 | par27 | 29 | — | none | match | present | present |
 | par28 | 29 | — | none | match | present | present |
@@ -152,10 +178,36 @@ Library/facsimile record: none encoded
 | par45 | 32 | — | none | match | present | present |
 | par50 | 34 | — | none | match | present | present |
 | par51 | 34 | — | none | match | present | present |
+| par52 | 35 | — | none | match | present | present |
 | par53 | 35 | — | none | match | present | present |
 | par54 | 35 | — | none | match | present | present |
 | par55 | 35 | — | none | match | present | present |
 | par56 | 36 | — | none | match | present | present |
+| par57 | 36 | — | none | match | present | present |
+| par58 | 36 | — | none | match | present | present |
+| par59 | 36 | — | none | match | present | present |
+| par60 | 36 | — | none | match | present | present |
+| par61 | 36 | — | none | match | present | present |
+| par62 | 36 | — | none | match | present | present |
+| par63 | 37 | — | none | match | present | present |
+| par64 | 37 | — | none | match | present | present |
+| par65 | 37 | — | none | match | present | present |
+| par66 | 37 | — | none | match | present | present |
+| par67 | 37 | — | none | match | present | present |
+| par68 | 37 | — | none | match | present | present |
+| par69 | 38 | — | none | match | present | present |
+| par70 | 38 | — | none | match | present | present |
+| par71 | 38 | — | none | match | present | present |
+| par72 | 38 | — | none | match | present | present |
+| par73 | 38 | — | none | match | present | present |
+| par74 | 39 | — | none | match | present | present |
+| par75 | 39 | — | none | match | present | present |
+| par76 | 39 | — | none | match | present | present |
+| par77 | 39 | — | none | match | present | present |
+| par78 | 39 | — | none | match | present | present |
+| par79 | 39 | — | none | match | present | present |
+| par80 | 39 | — | none | match | present | present |
+| par81 | 39 | — | none | match | present | present |
 | par88 | 41 | — | none | match | present | present |
 | par89 | 41 | — | none | match | present | present |
 | par90 | 41 | — | none | match | present | present |
@@ -199,6 +251,9 @@ Library/facsimile record: none encoded
 | par4 | 12 | — | choice:1, orig:1, reg:1 | match | present | present |
 | par7 | 13 | — | none | match | present | present |
 | par8 | 13 | — | choice:2, orig:2, reg:2 | match | present | present |
+| par20 | 19 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par22 | 20 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par23 | 20 | — | choice:1, orig:1, reg:1 | match | present | present |
 
 ## NATP00080 — Definitiones (1713)
 
@@ -234,6 +289,9 @@ Library/facsimile record: none encoded
 | par4 | 12 | — | none | match | present | present |
 | par7 | 13 | — | none | match | present | present |
 | par8 | 13 | — | none | match | present | present |
+| par20 | 18 | — | none | match | present | present |
+| par22 | 18 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par23 | 18 | — | none | match | present | present |
 
 ## NATP00087 — De Motu Corporum (Liber Primus) (1726)
 

@@ -8,8 +8,13 @@
 - A source that merely places one result after another does not establish a
   proof dependency. Historical Lean theorems must be named separately from
   modern consequences.
-- M1 is the current boundary: quadratic deflection genealogy only. Do not drift
-  into quantum mechanics, action scales, or the rest of the *Principia*.
+- The approved programme is Book I, Section II, Propositions I–IV in
+  De Motu (corresponding arguments, without retrospective numbering), 1687,
+  and 1713. See research/GOALS.md. Proposed 1694 and 1726 are supporting
+  comparisons. M1–M4 remain supporting work, not certified complete proofs.
+- Keep the boundary/action-constant hypothesis in a separate diagnostic layer.
+  Do not use quantum or later mechanical premises to close historical proofs;
+  a failed tactic does not establish a mathematical obstruction.
 - Prefer normalized and diplomatic Newton Project transcriptions, with TEI/XML
   as the machine-readable authority where available.
 - Do not claim a Lean proof until it compiles with the declared Lean/mathlib
@@ -21,3 +26,7 @@
 - Use `lake build NewtonLimitDynamics` as well as the default build. A successful
   command that does not compile the library is not proof verification.
 - Preserve unrelated conversation-export edits and avoid full cache downloads.
+- Delegate implementation/checking with Luna for routine verification, Terra
+  for technical implementation, and Sol for bounded reasoning. Run at most one
+  subagent at a time, with concise reports; no Astra subagents. This is the
+  user's approved resource policy. Do not launch parallel agent work.

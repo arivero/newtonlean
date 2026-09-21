@@ -592,6 +592,300 @@
     "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.velocityContact_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(left right : FiniteSegment Point Velocity)\n    (h : velocityContact left right) : positionContact left right",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.impulseContact_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(advance : Velocity → Impulse → Velocity)\n    (left right : FiniteSegment Point Velocity) (j : Impulse)\n    (h : impulseContact advance left right j) : positionContact left right",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.glue_first",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(left right : FiniteSegment Point Velocity)\n    (h : positionContact left right) : (glue left right h).firstPoint = left.first",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.glue_last",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(left right : FiniteSegment Point Velocity)\n    (h : positionContact left right) : (glue left right h).lastPoint = right.last",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.glue_middle_from_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(left right : FiniteSegment Point Velocity)\n    (h : positionContact left right) : (glue left right h).middlePoint = left.last",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.glue_middle_from_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(left right : FiniteSegment Point Velocity)\n    (h : positionContact left right) : (glue left right h).middlePoint = right.first",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.glued_position_contact",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(left right : FiniteSegment Point Velocity)\n    (h : positionContact left right) :\n    positionContact (glue left right h).left (glue left right h).right",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.restriction_cell",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(path : SampledPath Point Velocity) (offset i : Nat) :\n    (path.restrict offset).cell i = path.cell (offset+i)",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.adjacent_position_contact",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(path : SampledPath Point Velocity) (i : Nat) :\n    positionContact (path.cell i) (path.cell (i+1))",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.adjacent_velocityContact_iff",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(path : SampledPath Point Velocity) (i : Nat) :\n    velocityContact (path.cell i) (path.cell (i+1)) ↔\n      path.arriving (i+1) = path.departing (i+1)",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.adjacent_impulseContact_iff",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(advance : Velocity → Impulse → Velocity)\n    (path : SampledPath Point Velocity) (i : Nat) (j : Impulse) :\n    impulseContact advance (path.cell i) (path.cell (i+1)) j ↔\n      path.departing (i+1) = advance (path.arriving (i+1)) j",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.motion_restart",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point)\n    (impulse : Nat → Impulse) (k n : Nat) :\n    motion g (motion g p q impulse k).1 (motion g p q impulse k).2\n      (fun i => impulse (k+i)) n = motion g p q impulse (k+n)",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.motion_adjacent_pair_position_contact",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point)\n    (impulse : Nat → Impulse) (n : Nat) :\n    (motion g p q impulse n).2 = (motion g p q impulse (n+1)).1",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.lattice_step_velocity_jump",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : LatticePoint) (j : Int) :\n    latticeVelocity q (step lattice p q j) =\n      latticeAdd (latticeVelocity p q) (latticeScale j q)",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.motion_lattice_velocity_jump",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : LatticePoint)\n    (impulse : Nat → Int) (n : Nat) :\n    latticeVelocity (motion lattice p q impulse n).2\n      (motion lattice p q impulse (n+1)).2 =\n      latticeAdd\n        (latticeVelocity (motion lattice p q impulse n).1\n          (motion lattice p q impulse n).2)\n        (latticeScale (impulse n) (motion lattice p q impulse n).2)",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.latticeMotionCell_adjacent_position_contact",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : LatticePoint)\n    (impulse : Nat → Int) (n : Nat) :\n    positionContact (latticeMotionCell p q impulse n)\n      (latticeMotionCell p q impulse (n+1))",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.latticeMotionCell_impulseContact",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : LatticePoint)\n    (impulse : Nat → Int) (n : Nat) :\n    impulseContact latticeAdd (latticeMotionCell p q impulse n)\n      (latticeMotionCell p q impulse (n+1))\n      (latticeScale (impulse n) (motion lattice p q impulse n).2)",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.latticeMotionCell_zero_impulse_velocityContact",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : LatticePoint)\n    (impulse : Nat → Int) (n : Nat) (hzero : impulse n = 0) :\n    velocityContact (latticeMotionCell p q impulse n)\n      (latticeMotionCell p q impulse (n+1))",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.inward_impulses_same_swept",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(n : Nat) :\n    swept lattice (1, 0) (1, 1) inwardOneRadialImpulse n =\n      swept lattice (1, 0) (1, 1) inwardTwoRadialImpulse n",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.inward_impulses_distinct_next_vertex",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 ≠\n      (motion lattice (1, 0) (1, 1) inwardTwoRadialImpulse 1).2",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.equal_swept_area_does_not_identify_next_vertex",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Contact.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    (∀ n, swept lattice (1, 0) (1, 1) inwardOneRadialImpulse n =\n      swept lattice (1, 0) (1, 1) inwardTwoRadialImpulse n) ∧\n    (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 ≠\n      (motion lattice (1, 0) (1, 1) inwardTwoRadialImpulse 1).2",
+    "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.isum_mono",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",

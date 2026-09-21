@@ -85,24 +85,64 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.triangle_normalized_limit
 #check NewtonLimitDynamics.Fraction.ultimate_congr
 #print axioms NewtonLimitDynamics.Fraction.ultimate_congr
+#check NewtonLimitDynamics.Polygon.adjacent_impulseContact_iff
+#print axioms NewtonLimitDynamics.Polygon.adjacent_impulseContact_iff
+#check NewtonLimitDynamics.Polygon.adjacent_position_contact
+#print axioms NewtonLimitDynamics.Polygon.adjacent_position_contact
+#check NewtonLimitDynamics.Polygon.adjacent_velocityContact_iff
+#print axioms NewtonLimitDynamics.Polygon.adjacent_velocityContact_iff
 #check NewtonLimitDynamics.Polygon.all_cell_areas
 #print axioms NewtonLimitDynamics.Polygon.all_cell_areas
 #check NewtonLimitDynamics.Polygon.central_step_area
 #print axioms NewtonLimitDynamics.Polygon.central_step_area
 #check NewtonLimitDynamics.Polygon.enclosed_gap_vanishes
 #print axioms NewtonLimitDynamics.Polygon.enclosed_gap_vanishes
+#check NewtonLimitDynamics.Polygon.equal_swept_area_does_not_identify_next_vertex
+#print axioms NewtonLimitDynamics.Polygon.equal_swept_area_does_not_identify_next_vertex
 #check NewtonLimitDynamics.Polygon.equal_time_area_reconstruction
 #print axioms NewtonLimitDynamics.Polygon.equal_time_area_reconstruction
 #check NewtonLimitDynamics.Polygon.extension_identity
 #print axioms NewtonLimitDynamics.Polygon.extension_identity
+#check NewtonLimitDynamics.Polygon.glue_first
+#print axioms NewtonLimitDynamics.Polygon.glue_first
+#check NewtonLimitDynamics.Polygon.glue_last
+#print axioms NewtonLimitDynamics.Polygon.glue_last
+#check NewtonLimitDynamics.Polygon.glue_middle_from_left
+#print axioms NewtonLimitDynamics.Polygon.glue_middle_from_left
+#check NewtonLimitDynamics.Polygon.glue_middle_from_right
+#print axioms NewtonLimitDynamics.Polygon.glue_middle_from_right
+#check NewtonLimitDynamics.Polygon.glued_position_contact
+#print axioms NewtonLimitDynamics.Polygon.glued_position_contact
+#check NewtonLimitDynamics.Polygon.impulseContact_position
+#print axioms NewtonLimitDynamics.Polygon.impulseContact_position
+#check NewtonLimitDynamics.Polygon.inward_impulses_distinct_next_vertex
+#print axioms NewtonLimitDynamics.Polygon.inward_impulses_distinct_next_vertex
+#check NewtonLimitDynamics.Polygon.inward_impulses_same_swept
+#print axioms NewtonLimitDynamics.Polygon.inward_impulses_same_swept
 #check NewtonLimitDynamics.Polygon.isum_mono
 #print axioms NewtonLimitDynamics.Polygon.isum_mono
 #check NewtonLimitDynamics.Polygon.isum_mul
 #print axioms NewtonLimitDynamics.Polygon.isum_mul
+#check NewtonLimitDynamics.Polygon.latticeMotionCell_adjacent_position_contact
+#print axioms NewtonLimitDynamics.Polygon.latticeMotionCell_adjacent_position_contact
+#check NewtonLimitDynamics.Polygon.latticeMotionCell_impulseContact
+#print axioms NewtonLimitDynamics.Polygon.latticeMotionCell_impulseContact
+#check NewtonLimitDynamics.Polygon.latticeMotionCell_zero_impulse_velocityContact
+#print axioms NewtonLimitDynamics.Polygon.latticeMotionCell_zero_impulse_velocityContact
+#check NewtonLimitDynamics.Polygon.lattice_step_velocity_jump
+#print axioms NewtonLimitDynamics.Polygon.lattice_step_velocity_jump
+#check NewtonLimitDynamics.Polygon.motion_adjacent_pair_position_contact
+#print axioms NewtonLimitDynamics.Polygon.motion_adjacent_pair_position_contact
+#check NewtonLimitDynamics.Polygon.motion_lattice_velocity_jump
+#print axioms NewtonLimitDynamics.Polygon.motion_lattice_velocity_jump
+#check NewtonLimitDynamics.Polygon.motion_restart
+#print axioms NewtonLimitDynamics.Polygon.motion_restart
 #check NewtonLimitDynamics.Polygon.parallel_identity
 #print axioms NewtonLimitDynamics.Polygon.parallel_identity
 #check NewtonLimitDynamics.Polygon.rectangle_gap_bound
 #print axioms NewtonLimitDynamics.Polygon.rectangle_gap_bound
+#check NewtonLimitDynamics.Polygon.restriction_cell
+#print axioms NewtonLimitDynamics.Polygon.restriction_cell
 #check NewtonLimitDynamics.Polygon.sector_ratio_reconstruction
 #print axioms NewtonLimitDynamics.Polygon.sector_ratio_reconstruction
 #check NewtonLimitDynamics.Polygon.sum_constant
@@ -111,6 +151,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.swept_eq
 #check NewtonLimitDynamics.Polygon.telescoping
 #print axioms NewtonLimitDynamics.Polygon.telescoping
+#check NewtonLimitDynamics.Polygon.velocityContact_position
+#print axioms NewtonLimitDynamics.Polygon.velocityContact_position
 #check NewtonLimitDynamics.enclosure_reconstruction
 #print axioms NewtonLimitDynamics.enclosure_reconstruction
 #check NewtonLimitDynamics.near_and

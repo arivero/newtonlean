@@ -365,6 +365,146 @@
       "passage": "NATP00076.par3"
     },
     {
+      "id": "NATP00089.T2",
+      "stage": "NATP00089",
+      "type": "theorem",
+      "statement": "Uniform circular-force comparison by squared simultaneous arcs divided by radii",
+      "passage": "NATP00089.par10"
+    },
+    {
+      "id": "NATP00090.Law1",
+      "stage": "NATP00090",
+      "type": "mechanical_premise",
+      "statement": "Rectilinear inertia",
+      "passage": "NATP00090.par5"
+    },
+    {
+      "id": "NATP00090.L1",
+      "stage": "NATP00090",
+      "type": "lemma",
+      "statement": "Parallelogram composition of motions produced in the same time",
+      "passage": "NATP00090.par10"
+    },
+    {
+      "id": "NATP00090.T2",
+      "stage": "NATP00090",
+      "type": "theorem",
+      "statement": "Uniform circular-force comparison by squared simultaneous arcs divided by radii",
+      "passage": "NATP00090.par18"
+    },
+    {
+      "id": "P1687.P2",
+      "stage": "1687",
+      "type": "theorem",
+      "statement": "Area-time proportionality about a fixed or uniformly translating point implies centripetal force toward it",
+      "passage": "NATP00077.par48"
+    },
+    {
+      "id": "P1687.P3",
+      "stage": "1687",
+      "type": "theorem",
+      "statement": "Relative area law about a moving body identifies the difference of accelerative forces as centripetal",
+      "passage": "NATP00077.par53"
+    },
+    {
+      "id": "P1687.P4",
+      "stage": "1687",
+      "type": "theorem",
+      "statement": "Uniform circular-force comparison by squared simultaneous arcs divided by radii",
+      "passage": "NATP00077.par60"
+    },
+    {
+      "id": "P1687.L5",
+      "stage": "1687",
+      "type": "lemma",
+      "statement": "Corresponding sides and duplicate area ratios for similar figures",
+      "passage": "NATP00077.par14"
+    },
+    {
+      "id": "P1687.LawCor5",
+      "stage": "1687",
+      "type": "mechanical_premise",
+      "statement": "Uniform translation leaves relative motions unchanged",
+      "passage": "NATP00076.par20"
+    },
+    {
+      "id": "P1687.LawCor6",
+      "stage": "1687",
+      "type": "mechanical_premise",
+      "statement": "Equal parallel accelerations leave relative motions unchanged",
+      "passage": "NATP00076.par22"
+    },
+    {
+      "id": "P1687.EuclidI40",
+      "stage": "1687",
+      "type": "imported_geometry",
+      "statement": "Euclid I.40, equal triangles on equal bases and in the same parallels",
+      "passage": "NATP00077.par49"
+    },
+    {
+      "id": "P1713.P2",
+      "stage": "1713",
+      "type": "theorem",
+      "statement": "Area-time proportionality about a fixed or uniformly translating point implies centripetal force toward it",
+      "passage": "NATP00082.par58"
+    },
+    {
+      "id": "P1713.P3",
+      "stage": "1713",
+      "type": "theorem",
+      "statement": "Relative area law about a moving body identifies the difference of accelerative forces as centripetal",
+      "passage": "NATP00082.par64"
+    },
+    {
+      "id": "P1713.P4",
+      "stage": "1713",
+      "type": "theorem",
+      "statement": "Uniform circular-force comparison by squared simultaneous arcs divided by radii",
+      "passage": "NATP00082.par71"
+    },
+    {
+      "id": "P1713.L7",
+      "stage": "1713",
+      "type": "lemma",
+      "statement": "Vanishing arc, chord and tangent have the ultimate ratio of equality",
+      "passage": "NATP00082.par18"
+    },
+    {
+      "id": "P1713.P1C2",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "The limiting diagonal from two equal-time chords passes through the force centre",
+      "passage": "NATP00082.par53"
+    },
+    {
+      "id": "P1713.Law2",
+      "stage": "1713",
+      "type": "mechanical_premise",
+      "statement": "Impressed force and generated motion",
+      "passage": "NATP00081.par3"
+    },
+    {
+      "id": "P1713.LawCor5",
+      "stage": "1713",
+      "type": "mechanical_premise",
+      "statement": "Uniform translation leaves relative motions unchanged",
+      "passage": "NATP00081.par20"
+    },
+    {
+      "id": "P1713.LawCor6",
+      "stage": "1713",
+      "type": "mechanical_premise",
+      "statement": "Equal parallel accelerations leave relative motions unchanged",
+      "passage": "NATP00081.par22"
+    },
+    {
+      "id": "P1713.EuclidI40",
+      "stage": "1713",
+      "type": "imported_geometry",
+      "statement": "Euclid I.40, equal triangles on equal bases and in the same parallels",
+      "passage": "NATP00082.par59"
+    },
+    {
       "id": "Draft.comparison",
       "stage": "proposed1694",
       "type": "proposal",
@@ -411,6 +551,360 @@
     }
   ],
   "edges": [
+    {
+      "from": "NATP00090.Law1",
+      "to": "NATP00090.T1",
+      "passage": "NATP00090.par17",
+      "notes": "Marginal Law 1 citation in the finite polygon construction.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "'De motu sphæricorum corporum in fluidis'",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17",
+      "revision_layer": "all marked additions and deletions retained; relative chronology unresolved",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction"
+      ],
+      "source_stage": "NATP00090"
+    },
+    {
+      "from": "NATP00090.L1",
+      "to": "NATP00090.T1",
+      "passage": "NATP00090.par17",
+      "notes": "Marginal Lemma 1 citation for composition at the impulse.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "'De motu sphæricorum corporum in fluidis'",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17",
+      "revision_layer": "all marked additions and deletions retained; relative chronology unresolved",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction"
+      ],
+      "source_stage": "NATP00090"
+    },
+    {
+      "from": "P1687.Law1",
+      "to": "P1687.P2",
+      "passage": "NATP00077.par49",
+      "notes": "Explicit per Leg. I in case 1.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par49",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.Law2",
+      "to": "P1687.P2",
+      "passage": "NATP00077.par49",
+      "notes": "Explicit Law II citation for the line of impressed force.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par49",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.EuclidI40",
+      "to": "P1687.P2",
+      "passage": "NATP00077.par49",
+      "notes": "Explicit Prop. 40 Lib. I Elem. citation for the parallel direction inference.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par49",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.LawCor5",
+      "to": "P1687.P2",
+      "passage": "NATP00077.par50",
+      "notes": "Explicit corollary 5 of the laws citation for uniform translation of figure and centre.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par50",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.Law2",
+      "to": "P1687.LawCor6",
+      "passage": "NATP00076.par23",
+      "notes": "Corollary VI proof explicitly invokes Law II.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "Axiomata Sive Leges Motus (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par23",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.LawCor6",
+      "to": "P1687.P3",
+      "passage": "NATP00077.par54",
+      "notes": "Explicit corollary 6 of the laws citation for equal contrary parallel acceleration.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par54",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.Law1",
+      "to": "P1687.P3",
+      "passage": "NATP00077.par54",
+      "notes": "Explicit Law I citation after cancelling the second body's acceleration.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par54",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.P2",
+      "to": "P1687.P3",
+      "passage": "NATP00077.par54",
+      "notes": "Explicit per Theor. 2 citation for the remaining central force.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par54",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.P2",
+      "to": "P1687.P4",
+      "passage": "NATP00077.par61",
+      "notes": "Explicit Theorem II citation for direction toward the circle centres.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par61",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L5",
+      "to": "P1687.P4",
+      "passage": "NATP00077.par61",
+      "notes": "Explicit Lemma V citation in the tangent-departure ratio chain.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par61",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L11",
+      "to": "P1687.P4",
+      "passage": "NATP00077.par61",
+      "notes": "Explicit Lemma XI citation for the quadratic ratio of nascent tangent departures.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par61",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1713.Law1",
+      "to": "P1713.P2",
+      "passage": "NATP00082.par59",
+      "notes": "Explicit per Leg. I in case 1.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par59",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.Law2",
+      "to": "P1713.P2",
+      "passage": "NATP00082.par59",
+      "notes": "Explicit Law II citation for the line of impressed force.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par59",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.EuclidI40",
+      "to": "P1713.P2",
+      "passage": "NATP00082.par59",
+      "notes": "Explicit Prop. XL Lib. I Elem. citation for the parallel direction inference.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par59",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.LawCor5",
+      "to": "P1713.P2",
+      "passage": "NATP00082.par60",
+      "notes": "Explicit corollary 5 of the laws citation for uniform translation of figure and centre.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par60",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.Law2",
+      "to": "P1713.LawCor6",
+      "passage": "NATP00081.par23",
+      "notes": "Corollary VI proof explicitly invokes Law II.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "Axiomata Sive Leges Motus (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par23",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.LawCor6",
+      "to": "P1713.P3",
+      "passage": "NATP00082.par65",
+      "notes": "Explicit corollary VI citation for equal contrary parallel acceleration.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par65",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.Law1",
+      "to": "P1713.P3",
+      "passage": "NATP00082.par65",
+      "notes": "Explicit Law I citation after cancelling the second body's acceleration.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par65",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.P2",
+      "to": "P1713.P3",
+      "passage": "NATP00082.par65",
+      "notes": "Explicit per Theor. II citation for the remaining central force.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par65",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.P2",
+      "to": "P1713.P4",
+      "passage": "NATP00082.par72",
+      "notes": "Explicit Proposition II citation for direction toward the circle centres.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par72",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.P1C2",
+      "to": "P1713.P4",
+      "passage": "NATP00082.par72",
+      "notes": "Explicit corollary II of Proposition I citation for the force-centre line.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par72",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.P1C4",
+      "to": "P1713.P4",
+      "passage": "NATP00082.par72",
+      "notes": "Explicit corollary IV of Proposition I citation for force comparison by equal-time sagittae.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par72",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L7",
+      "to": "P1713.P4",
+      "passage": "NATP00082.par72",
+      "notes": "Explicit Lemma VII citation for replacing versed sines by squared arcs over diameters in the ultimate ratio.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par72",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
     {
       "from": "DM90.L2",
       "to": "DM90.local",
