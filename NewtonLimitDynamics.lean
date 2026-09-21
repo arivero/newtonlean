@@ -4,3 +4,5 @@ import NewtonLimitDynamics.Principia1713.LemmaX
 import NewtonLimitDynamics.Common.RationalMagnitudes
 import NewtonLimitDynamics.Principia1713.ForceComparison
 import NewtonLimitDynamics.Principia1687.ConstructedRatio
+import NewtonLimitDynamics.Polygon.Finite
+import NewtonLimitDynamics.Polygon.Enclosure

@@ -69,6 +69,90 @@
       "type": "hypothesis",
       "statement": "Quadratic initial displacement, numbered 4 in edited Royal Society copy",
       "passage": "RSreprint.H4"
+    },
+    {
+      "id": "P1687.P1",
+      "stage": "1687",
+      "type": "theorem",
+      "statement": "Equal-time areas from central impulses and polygon limit",
+      "passage": "NATP00077.par44"
+    },
+    {
+      "id": "P1687.L3",
+      "stage": "1687",
+      "type": "lemma",
+      "statement": "Unequal-width enclosure and maximum-width refinement",
+      "passage": "NATP00077.par5"
+    },
+    {
+      "id": "P1687.L3C4",
+      "stage": "1687",
+      "type": "corollary",
+      "statement": "Curvilinear limit of polygon perimeters",
+      "passage": "NATP00077.par10"
+    },
+    {
+      "id": "P1687.Law1",
+      "stage": "1687",
+      "type": "mechanical_premise",
+      "statement": "Rectilinear inertia",
+      "passage": "NATP00076.par1"
+    },
+    {
+      "id": "P1687.Composition",
+      "stage": "1687",
+      "type": "mechanical_premise",
+      "statement": "Parallelogram composition",
+      "passage": "NATP00076.par7"
+    },
+    {
+      "id": "P1713.P1",
+      "stage": "1713",
+      "type": "theorem",
+      "statement": "Equal-time areas from central impulses and polygon limit",
+      "passage": "NATP00082.par50"
+    },
+    {
+      "id": "P1713.L3",
+      "stage": "1713",
+      "type": "lemma",
+      "statement": "Unequal-width enclosure and maximum-width refinement",
+      "passage": "NATP00082.par6"
+    },
+    {
+      "id": "P1713.L3C4",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Curvilinear limit of polygon perimeters",
+      "passage": "NATP00082.par11"
+    },
+    {
+      "id": "P1713.Law1",
+      "stage": "1713",
+      "type": "mechanical_premise",
+      "statement": "Rectilinear inertia",
+      "passage": "NATP00081.par1"
+    },
+    {
+      "id": "P1713.Composition",
+      "stage": "1713",
+      "type": "mechanical_premise",
+      "statement": "Parallelogram composition",
+      "passage": "NATP00081.par7"
+    },
+    {
+      "id": "NATP00089.T1",
+      "stage": "NATP00089",
+      "type": "theorem",
+      "statement": "Polygonal equal areas; infinitely many infinitesimal triangles asserted",
+      "passage": "NATP00089.par8"
+    },
+    {
+      "id": "NATP00090.T1",
+      "stage": "NATP00090",
+      "type": "theorem",
+      "statement": "Polygonal equal areas; infinitely many infinitesimal triangles asserted",
+      "passage": "NATP00090.par16"
     }
   ],
   "edges": [
@@ -125,6 +209,96 @@
       "relation": "textual_comparison",
       "status": "editorial_interpretation",
       "confidence": "medium"
+    },
+    {
+      "from": "P1687.Law1",
+      "to": "P1687.P1",
+      "passage": "NATP00077.par45",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Leg. I"
+    },
+    {
+      "from": "P1687.Composition",
+      "to": "P1687.P1",
+      "passage": "NATP00077.par45",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Legum Corol. 1"
+    },
+    {
+      "from": "P1687.L3C4",
+      "to": "P1687.P1",
+      "passage": "NATP00077.par45",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit citation of Lemma III corollary 4, not Lemma X."
+    },
+    {
+      "from": "P1687.L3",
+      "to": "P1687.L3C4",
+      "passage": "NATP00077.par10",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et propterea: inference through the preceding enclosure corollaries, not mere ordering."
+    },
+    {
+      "from": "P1713.Law1",
+      "to": "P1713.P1",
+      "passage": "NATP00082.par51",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Leg. I"
+    },
+    {
+      "from": "P1713.Composition",
+      "to": "P1713.P1",
+      "passage": "NATP00082.par51",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Legum Corol. 1"
+    },
+    {
+      "from": "P1713.L3C4",
+      "to": "P1713.P1",
+      "passage": "NATP00082.par51",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit citation of Lemma III corollary 4, not Lemma X."
+    },
+    {
+      "from": "P1713.L3",
+      "to": "P1713.L3C4",
+      "passage": "NATP00082.par11",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et propterea: inference through the preceding enclosure corollaries, not mere ordering."
+    },
+    {
+      "from": "NATP00089.T1",
+      "to": "P1687.P1",
+      "passage": "NATP00077.par45",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "high",
+      "notes": "Compare limiting justification and explicit citations; no inter-edition proof dependency."
+    },
+    {
+      "from": "P1687.P1",
+      "to": "P1713.P1",
+      "passage": "NATP00082.par51",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "high",
+      "notes": "Compare limiting justification and explicit citations; no inter-edition proof dependency."
     }
   ],
   "open_questions": [

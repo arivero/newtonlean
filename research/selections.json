@@ -10,6 +10,7 @@
       "par5",
       "par6",
       "par7",
+      "par8",
       "par9",
       "par19"
     ],
@@ -27,6 +28,8 @@
       "par11",
       "par12",
       "par13",
+      "par16",
+      "par17",
       "par27"
     ],
     "revision_layer": "all marked additions and deletions retained; relative chronology unresolved"
@@ -35,6 +38,16 @@
     "stage": "1687",
     "path": "docs/m1/NATP00077.xml",
     "anchors": [
+      "par1",
+      "par2",
+      "par3",
+      "par4",
+      "par5",
+      "par6",
+      "par7",
+      "par8",
+      "par9",
+      "par10",
       "par14",
       "par15",
       "par16",
@@ -43,7 +56,9 @@
       "par27",
       "par28",
       "par29",
-      "par30"
+      "par30",
+      "par44",
+      "par45"
     ],
     "revision_layer": "printed edition; transcription corrections retained"
   },
@@ -51,6 +66,16 @@
     "stage": "1713",
     "path": "docs/m1/NATP00082.xml",
     "anchors": [
+      "par2",
+      "par3",
+      "par4",
+      "par5",
+      "par6",
+      "par7",
+      "par8",
+      "par9",
+      "par10",
+      "par11",
       "par15",
       "par16",
       "par17",
@@ -63,7 +88,9 @@
       "par32",
       "par33",
       "par34",
-      "par35"
+      "par35",
+      "par50",
+      "par51"
     ],
     "revision_layer": "printed edition; transcription corrections retained"
   },

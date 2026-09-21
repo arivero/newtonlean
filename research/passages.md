@@ -72,6 +72,16 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par7
 
 Translation status: not_translated.
 
+## NATP00089.par8
+
+Witness: 'De motu corporum in gyrum'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par8
+
+Theorema 1. Gyrantia omnia radijs ad centrum ductis areas temporibus proportionales describere.
+
+Translation status: not_translated.
+
 ## NATP00089.par9
 
 Witness: 'De motu corporum in gyrum'
@@ -80,7 +90,7 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par9
 
 Dividatur tempus in partes æquales, et prima temporis parte describat corpus vi insita rectam AB. Idem secunda temporis parte si nil impedireta [note: a Hyp. 1.] rectà pergeret ad [del: [unclear: C] ] c describens lineam Bc æqualem ipsi AB adeo ut radijs AS, BS, cS ad centrum actis confectæ forent æquales areæ ASB, BSc. Verum ubi corpus venit ad B agat vis centripeta impulsu unico sed magno, faciat corpus [del: ] a recta Bc deflectere et pergere in recta BC. Ipsi BS parallela agatur cC occurrens BC in C et completa secunda temporis parte b [note: [del: b Hyp 3] [add: b Lem. 1.] ] corpus reperietur in C. Iunge SC et triangulum SBC ob parallelas SB, Cc æquale erit triangulo SBc atqu adeo etiam triangulo S [del: C] [add: A] B. Simili argumento si vis centripeta successivè agat in C, D, E &c, faciens corpus singulis temporis momentis singulas describere rectas CD, DE, EF &c triangulum S [del: B] CD triangulo SBC et SDE ipsi SCD et SEF ipsi SDE æquale erit. Æqualibus igitur te [del: ] [add: mp] oribus æquales areæ describuntur. Sunto jam hæc triangula numero infinita et infinitè parva, sic, ut singulis temporis momentis singula respondeant triangula, agente vi centripeta sine intermissione, & constabit proposit [del: ] [add: io] .
 
-Translation status: not_translated.
+Translation status: identifying_translation_not_full. Equal time cells and central impulses yield equal triangles; infinitely many infinitely small triangles are asserted to give uninterrupted force. No numbered limiting lemma is cited in this passage.
 
 ## NATP00089.par19
 
@@ -172,6 +182,26 @@ Exponantur tempora per lineas AB, AD datis Ab Ad proportionales, et urgente vi c
 
 Translation status: not_translated.
 
+## NATP00090.par16
+
+Witness: 'De motu sphæricorum corporum in fluidis'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par16
+
+Theorema 1. Gyrantia omnia radijs ad centrum ductis areas temporibus proportionales describere.
+
+Translation status: not_translated.
+
+## NATP00090.par17
+
+Witness: 'De motu sphæricorum corporum in fluidis'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17
+
+Dividatur tempus in partes æquales, et prima temporis parte describat corpus vi insita rectam AB. Idem secunda temporis parte si nil impediret [del: ] a [note: a [del: Hypoth.] [add: Lex] 1.] rectà pergeret ad c describens42 describens lineam Bc æqualem ipsi AB adeo ut radijs AS, BS, cS ad centrum actis confectæ forent æquales areæ ASB, BSc. Verum ubi corpus venit ad B agat vis centripeta impulsu unico sed magno, faciat corpus a recta Bc deflectere et pergere in recta BC. Ipsi BS parallela agatur cC occurrens BC in C et completa secunda temporis parte [del: ] b [note: b Lem. 1.] corpus reperietur in C. Iunge SC et triangulum SBC ob parallelas SB, Cc æquale erit triangulo SBc at adeo etiam triangulo SAB. Simili argumento si vis centripeta successivè agat in C, D, E &c faciens corpus singulis temporis momentis singulas describere rectas CD, DE, EF &c triangulum SCD triangulo SBC et SDE ipsi SCD et SEF ipsi SDE æquale erit. Æqualibus igitur temporibus æquales areæ describuntur. Sunto jam hæc triangula numero infinita et infinitè parva, sic, ut singulis temporis momentis singula respondeant triangula, agente vi centripeta sine intermissione, et constabit propositio.
+
+Translation status: identifying_translation_not_full. Equal time cells and central impulses yield equal triangles; infinitely many infinitely small triangles are asserted to give uninterrupted force. No numbered limiting lemma is cited in this passage.
+
 ## NATP00090.par27
 
 Witness: 'De motu sphæricorum corporum in fluidis'
@@ -179,6 +209,106 @@ Witness: 'De motu sphæricorum corporum in fluidis'
 https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par27
 
 Nam in figura indefinitè parva QRPT lineola [add: nascens] QR dato tempore [del: ut] [add: es] t ut vis centripeta et data vi ut a [note: a Lem. 2.] quadratum temporis at adeo neutro dato ut vis centripeta et quadratum temporis conjunctim, id est ut vis centripeta semel et area SQ [del: R] [add: P] tempori proportionalis (vel duplum ejus SP×QT) bis. Applicetur hujus proportionalitatis pars utra ad lineolam QR et fiet unitas ut vis centripeta et SPq×QTqQR conjunctim, hoc est vis centripeta reciprocè ut SPq×QTqQR Q. E. D.
+
+Translation status: not_translated.
+
+## NATP00077.par1
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par1
+
+QVantitates, ut & quantitatum rationes, quæ ad æqualitatem dato tempore constanter tendunt & eo pacto propius ad invicem accedere possunt quam pro data quavis differentia; fiunt ultimo æquales.
+
+Translation status: not_translated.
+
+## NATP00077.par2
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par2
+
+Si negas, sit earum ultima differentia D. Ergo nequeunt propius ad æqualitatem accedere quam pro data differentia D: contra hypothesin.
+
+Translation status: not_translated.
+
+## NATP00077.par3
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par3
+
+Si in figura quavis Aa cE rectis Aa, AE, & curva AcE comprehensa, inscribentur parallelogramma quotcunq; Ab, Bc, Cd, &c. sub basibus AB, BC, CD, &c. æqualibus, & lateribus Bb, Cc, Dd, &c. figuræ lateri Aa parallelis comenta; & compleantur parallelogramma aKbl, bLcm, cMdn, &c, Dein horum parallelogrammorum latitudo minuatur, & numerus augeatur in infinitum: dico quod ultimæ rationes, quas habent ad se invicem figura inscripta AKbLcMdD, circumscripta AalbmcndoE, & curvilinea AabcdE, sunt rationes æqualitatis.
+
+Translation status: not_translated.
+
+## NATP00077.par4
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4
+
+Nam figuræ inscriptæ & circumscriptæ differentia est summa parallelogrammorum Kl+Lm+Mn+Do, hoc est (ob æquales omnium bases) rectangulum sub unius basi Kb & altitudinum summa Aa, id est rectangulum ABla. Sed hoc rectangulum, eo quod latitudo ejus AB in infinitum minuitur, sit minus quovis dato. Ergo, per Lemma I, figura inscripta & circumscripta & multo magis figura curvilinea intermedia fiunt ultimo æquales. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00077.par5
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par5
+
+Eædem rationes ultimæ sunt etiam æqualitatis, ubi parallelogramomrum latitudines AB, BC, CD, &c. sunt inæquales, & omnes minuuntur in infinitum.
+
+Translation status: not_translated.
+
+## NATP00077.par6
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par6
+
+Sit enim AF æqualis latitudini maximæ, & compleatur parallelogrammum FAaf. Hoc erit majus quam differentia figuræ inscriptæ & figuræ circumscriptæ, at latitudine sua AF in infinitum diminuta, minus fiet quam datum quodvis rectangulum.
+
+Translation status: identifying_translation_not_full. Take AF equal to the greatest width. Its rectangle exceeds the difference of enclosing figures and becomes smaller than any given rectangle as that width diminishes.
+
+## NATP00077.par7
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7
+
+Corol. 1. Hinc summa ultima parallelogrammorum evanescentium coincidit omni ex parte cum figura curvilinea.
+
+Translation status: not_translated.
+
+## NATP00077.par8
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par8
+
+Corol. 2. Et multo magis figura rectilinea, quæ chordis evanescentium arcuum ab, bc, cd, &c. comprehenditur, coincidit ultimo cum figura curvilinea.
+
+Translation status: not_translated.
+
+## NATP00077.par9
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9
+
+Corol. 3. Ut & figura rectilinea quæ tangentibus eorundem arcuum circumscribitur.
+
+Translation status: not_translated.
+
+## NATP00077.par10
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10
+
+Corol. 4. Et propterea hæ figuræ ultimæ (quoad perimetros acE,) non sunt rectilineæ, sed rectilinearum limites curvilinci.
 
 Translation status: not_translated.
 
@@ -269,6 +399,126 @@ Witness: De Motu Corporum (Liber Primus) (1687)
 https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par30
 
 Corol. 2. Errores autem qui viribus proportionalibus similiter applicatis generantur, sunt ut vires & quadrata temporum conjunctim.
+
+Translation status: not_translated.
+
+## NATP00077.par44
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44
+
+Areas quas corpora in gyros acta radiis ad immobile centrum virium ductis describunt, & in planis immobilibus consistere, & esse temporibus proportionales.
+
+Translation status: not_translated.
+
+## NATP00077.par45
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45
+
+Dividatur tempus in partes æquales, & prima temporis parte describat corpus vi insita rectam AB. Idem secunda temporis parte, si nil impediret, recta pergeret ad c, (per Leg. I) describens lineam Bc æqualem ipsi AB, adeo ut radiis AS, BS, cS ad centrum actis, confectæ forent æquales areæ ASB, BSc. Verum ubi corpus venit ad B, agat viscentripeta impulsu unico sed magno, faciatq; corpus a recta Bc deflectere & pergere in recta BC. Ipsi BS parallela agatur cC occurrens BC in C, & completa secunda temporis parte, corpus (per Legum Corol. 1) reperietur in C, in eodem plano cum triangulo ASB. Junge SC, & triangulum SBC, ob parallelas SB, Cc, æquale erit triangulo SBc, atq; adeo etiam triangulo SAB. Simili argumento si vis centripeta successive agat in C, D, E, &c. faciens ut corpus singulis temporis particulis singulas describat rectas CD, DE EF, &c. jacebunt hæ in eodem plano, & triangulum SCD triangulo SBC & SDE ipsi SCD & SEF ipsi SDE æquale erit. Æqualibus igitur temporibus æquales areæ in plano immoto describuntur: & componendo, sunt arearum summæ quævis SADS, SAFS inter se, ut sunt tempora descriptionum. Augeatur jam numerus & minuatur latitudo triangulorum in infinitum, & eorum ultima perimeter ADF, (per Corollarium quartum Lemmatis tertii) erit linea curva; adeoq; vis centripeta qua corpus de tangente hujus curvæ perpetuo retrahitur, aget indesinenter; areæ vero quævis descriptæ SADS, SAFS temporibus descriptionum semper proportionales, erunt iisdem temporibus in hoc casu proportionales. Q.E.D.
+
+Translation status: identifying_translation_not_full. Divide time equally. Inertia gives equal successive unforced segments; parallel central impulse preserves triangle area. Increase triangle number and decrease width; Lemma III corollary 4 is cited for a curved limiting perimeter. Newton then asserts uninterrupted central action.
+
+## NATP00082.par2
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par2
+
+QUantitates, ut & quantitatum rationes, quæ ad æqualitatem tempore quovis finito constanter tendunt, & ante finem temporis illius propius ad invicem accedunt quam pro data quavis differentia, fiunt ultimo æquales.
+
+Translation status: not_translated.
+
+## NATP00082.par3
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par3
+
+Si negas; fiant ultimo inequales, & sit earum ultima differentia D. Ergo nequeunt propius ad æqualitatem accedere quam pro data differentia D: contra hypothesin.
+
+Translation status: not_translated.
+
+## NATP00082.par4
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par4
+
+Si in Figura quavis AacE rectis Aa, AE, & curva AcE comprehensa, inscribentur parallelogramma quotcunque Ab, Bc, Cd, &c. sub basibus AB, BC, CD, &c. æqualibus, & lateribus Bb, Cc, Dd, &c. Figuræ lateri Aa parallelis comenta; & compleantur parallelogramma aKbl, bLcm, cMdn, &c. Dein horum parallelogrammorum latitudo minuatur, & numerus augeatur in infinitum: dico quod ultimæ rationes, quas habent ad se invicem Figura inscripta AKbLcMdD, circumscripta AalbmcndoE, & curvilinea AabcdE, sunt rationes æqualitatis.
+
+Translation status: not_translated.
+
+## NATP00082.par5
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5
+
+Nam figuræ inscriptæ & circumscriptæ differentia est summa parallelogrammorum Kl, Lm, Mn, Do, hoc est (ob æquales omnium bases) rectangulum sub unius basi Kb & altitudinum summa Aa, id est rectangulum ABla. Sed hoc rectangulum, eo quod latitudo ejus AB in infinitum minuitur, sit minus quovis dato. Ergo (per Lemma I) Figura inscripta & circumscripta & multo magis Figura curvilinea intermedia fiunt ultimo æquales. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00082.par6
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6
+
+Eædem rationes ultimæ sunt etiam æqualitatis, ubi parallelogramomrum latitudines AB, BC, CD &c. sunt inæquales, & omnes minuuntur in infinitum.
+
+Translation status: not_translated.
+
+## NATP00082.par7
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par7
+
+Sit enim AF æqualis latitudini maximæ, & compleatur parallelogrammum FAaf. Hoc erit majus quam differentia Figuræ inscriptæ & Figuræ circumscriptæ; at latitudine sua AF in infinitum diminuta, minus fiet quam datum quodvis rectangulum. Q.E.D.
+
+Translation status: identifying_translation_not_full. Take AF equal to the greatest width. Its rectangle exceeds the difference of enclosing figures and becomes smaller than any given rectangle as that width diminishes.
+
+## NATP00082.par8
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8
+
+Corol. 1. Hinc summa ultima parallelogrammorum evanescentium coincidit omni ex parte cum Figura curvilinea.
+
+Translation status: not_translated.
+
+## NATP00082.par9
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par9
+
+Corol. 2. Et multo magis Figura rectilinea, quæ chordis evanescentium arcuum ab, bc, cd, &c. comprehenditur, coincidit ultimo cum Figura curvilinea.
+
+Translation status: not_translated.
+
+## NATP00082.par10
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10
+
+Corol. 3. Ut & Figura rectilinea circumscripta quæ tangentibus eorundem arcuum comprehenditur.
+
+Translation status: not_translated.
+
+## NATP00082.par11
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11
+
+Corol. 4. Et propterea hæ Figuræ ultimæ (quoad perimetros acE,) non sunt rectilineæ, sed rectilinearum limites curvilinei.
 
 Translation status: not_translated.
 
@@ -401,6 +651,26 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par35
 Si quantitates indeterminatæ diversorum generum conferantur inter se, & earum aliqua dicatur esse ut est alia quævis directe vel inverse: sensus est, quod prior augetur vel diminuitur in eadem ratione cum posteriore, vel cum ejus reciproca. Et si earum aliqua dicatur esse ut sunt aliæ duæ vel plures directe vel inverse: sensus est, quod prima augetur vel diminuitur in ratione quæ componitur ex rationibus in quibus aliæ vel aliarum reciprocæ augentur vel diminuuntur. Ut si A dicatur esse ut B directe & C directe & D inverse: sensus est, quod A augetur vel diminuitur in eadem ratione cum B×C× 1D, hoc est, A & BCD sunt ad invicem in ratione data.
 
 Translation status: not_translated.
+
+## NATP00082.par50
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50
+
+Areas, quas corpora in gyros acta radiis ad immobile centrum virium ductis describunt, & in planis immobilibus consistere, & esse temporibus proportionales.
+
+Translation status: not_translated.
+
+## NATP00082.par51
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51
+
+Dividatur tempus in partes æquales, & prima temporis parte describat corpus vi insita rectam AB. Idem secunda temporis parte, si nil impediret, recta pergeret ad c, (per Leg. I.) describens lineam Bc æqualem ipsi AB; adeo ut radiis AS, BS, cS ad centrum actis, confectæ forent æquales areæ ASB, BSc. Verum ubi corpus venit ad B, agat viscentripeta impulsu unico sed magno, effaciatque corpus a recta Bc declinet & pergat in recta BC. Ipsi S BS parallela agatur cC, occurrens BC in C; & completa secunda temporis parte, corpus (per Legum Corol. 1.) reperietur in C, in eodem plano cum triangulo ASB. Junge SC; & triangulum SBC, ob parallelas SB, Cc, æquale erit triangulo SBc, atque adeo etiam triangulo SAB. Simili argumento si vis centripeta successive agat in C, D, E, &c. faciens ut corpus singulis temporis particulis singulas describat rectas CD, DE, EF, &c. jacebunt hæ in eodem plano; & triangulum SCD triangulo SBC & SDE ipsi SCD & SEF ipsi SDE æquale erit. Æqualibus igitur temporibus æquales areæ in plano immoto describuntur: & componendo, sunt arearum summæ quævis SADS, SAFS inter se, ut sunt tempora descriptionum. Augeatur jam numerus & minuatur latitudo triangulorum in infinitum, & eorum ultima perimeter ADF, (per Corollarium quartum Lemmatis tertii) erit linea curva: adeoque vis centripeta, qua corpus de tangente hujus curvæ perpetuo retrahitur, aget indesinenter; areæ vero quævis descriptæ SADS, SAFS temporibus descriptionum semper proportionales, erunt iisdem temporibus in hoc casu proportionales. Q.E.D.
+
+Translation status: identifying_translation_not_full. Divide time equally. Inertia gives equal successive unforced segments; parallel central impulse preserves triangle area. Increase triangle number and decrease width; Lemma III corollary 4 is cited for a curved limiting perimeter. Newton then asserts uninterrupted central action.
 
 ## NATP00075.par1
 

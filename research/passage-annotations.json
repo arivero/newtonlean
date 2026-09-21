@@ -115,5 +115,43 @@
     "formal_refs": [
       "Principia1713.corollary5_coefficient_reconstruction"
     ]
+  },
+  "NATP00077.par45": {
+    "translation": "Divide time equally. Inertia gives equal successive unforced segments; parallel central impulse preserves triangle area. Increase triangle number and decrease width; Lemma III corollary 4 is cited for a curved limiting perimeter. Newton then asserts uninterrupted central action.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+      "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+    ]
+  },
+  "NATP00077.par6": {
+    "translation": "Take AF equal to the greatest width. Its rectangle exceeds the difference of enclosing figures and becomes smaller than any given rectangle as that width diminishes.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Polygon.rectangle_gap_bound"
+    ]
+  },
+  "NATP00082.par51": {
+    "translation": "Divide time equally. Inertia gives equal successive unforced segments; parallel central impulse preserves triangle area. Increase triangle number and decrease width; Lemma III corollary 4 is cited for a curved limiting perimeter. Newton then asserts uninterrupted central action.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+      "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+    ]
+  },
+  "NATP00082.par7": {
+    "translation": "Take AF equal to the greatest width. Its rectangle exceeds the difference of enclosing figures and becomes smaller than any given rectangle as that width diminishes.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Polygon.rectangle_gap_bound"
+    ]
+  },
+  "NATP00089.par9": {
+    "translation": "Equal time cells and central impulses yield equal triangles; infinitely many infinitely small triangles are asserted to give uninterrupted force. No numbered limiting lemma is cited in this passage.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction"
+    ]
+  },
+  "NATP00090.par17": {
+    "translation": "Equal time cells and central impulses yield equal triangles; infinitely many infinitely small triangles are asserted to give uninterrupted force. No numbered limiting lemma is cited in this passage.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction"
+    ]
   }
 }
