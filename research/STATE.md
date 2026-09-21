@@ -1,24 +1,38 @@
 # Research state
 
-## Current milestone
+M1 — Quadratic Deflection Genealogy remains active. M2–M4 are deferred.
 
-**M1 — Quadratic Deflection Genealogy.** The question is how the status of
-`s ∝ t^2` changes from the 1684 *De motu* hypothesis to the 1687 Lemma X
-architecture and the 1713 strengthening.
+## Verified now
 
-## Completed in this initial skeleton
+- Lean 4.19.0 core-only library compiles through both default and explicit builds.
+- No mathlib dependency. Manifest has an empty package list.
+- Source table and marked TEI extracts distinguish NATP00089, NATP00090,
+  Principia 1687 (NATP00077), and Principia 1713 (NATP00082).
+- Nine evidence nodes and five classified edges validate; proof and comparison
+  graphs are separate.
+- Conditional enclosure reconstruction and quadratic-premise bridge compile.
+  Bounding-triangle limits, velocity-area identification, and positive
+  coefficient remain explicit premises.
 
-- Archived Newton Project NATP00089 diplomatic, normalized, and TEI/XML sources.
-- Indexed the 1846 Motte opening material and the Motte/Wilkins Section I
-  excerpt already available in `../navstokgap/docs/`.
-- Added a machine-readable M1 dependency DAG.
-- Added minimal Lean 4 statements for the historical hypothesis and a modern
-  constant-force consequence.
+## Corrections
 
-## Boundary and next stop
+The earlier successful plain lake build compiled no library. The claim that
+the old real-valued files were verified was false. The former global polynomial
+predicate did not match an initial limiting assertion. Unsupported H4 -> area
+theorem and Lemma X -> Proposition I edges have been removed.
 
-Lean 4.19.0 and Lake 5.0.0 are installed through `elan`; `lake build` succeeds
-for the current skeleton. Mathlib is not yet a project dependency because M1's
-initial statements use only core Lean. Next, extract the exact 1687 and 1713
-Lemma X witnesses and add their passage-level comparison before expanding the
-formal model.
+The former conversation archive contained only five rendered messages. The
+replacement user export is preserved; see conversation-audit.md.
+
+## Next bounded task
+
+Identify the complete earliest quadratic hypothesis witness and construct the
+Lemma IX bounding geometry using Newtonian results only. No modern calculus
+may supply the missing argument. Do not describe the conditional bridge as a
+completed historical discharge. Detailed discrepancies: M1.md.
+
+## Disk
+
+Removed the unused 4.34.0 toolchain and all downloaded mathlib packages/caches
+after the user's minimal-dependency instruction. Free space returned to about
+6.7 GB. These generated resources can be re-downloaded; source work was preserved.

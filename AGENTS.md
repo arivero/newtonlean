@@ -14,3 +14,10 @@
   as the machine-readable authority where available.
 - Do not claim a Lean proof until it compiles with the declared Lean/mathlib
   version. The current environment may lack Lean; record that fact explicitly.
+- M1 uses Lean core only. Do not download mathlib or use post-Newtonian
+  theorems to fill historical proof gaps. Ratios, geometric constructions,
+  and limiting premises must be explicit; name conditional reconstructions
+  honestly. Any later dependency expansion requires reconsideration with the user.
+- Use `lake build NewtonLimitDynamics` as well as the default build. A successful
+  command that does not compile the library is not proof verification.
+- Preserve unrelated conversation-export edits and avoid full cache downloads.

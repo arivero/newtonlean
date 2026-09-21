@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "id": "DM89.local",
+      "stage": "NATP00089",
+      "type": "theorem",
+      "statement": "Local force quadratic premise; Hyp 1 revised to Lem 2",
+      "passage": "NATP00089.par19"
+    },
+    {
+      "id": "DM90.L2",
+      "stage": "NATP00090",
+      "type": "lemma",
+      "statement": "Initial quadratic displacement",
+      "passage": "NATP00090.par12"
+    },
+    {
+      "id": "DM90.local",
+      "stage": "NATP00090",
+      "type": "theorem",
+      "statement": "Local force proof",
+      "passage": "NATP00090.par27"
+    },
+    {
+      "id": "P1687.L9",
+      "stage": "1687",
+      "type": "lemma",
+      "statement": "Limiting area ratios",
+      "passage": "NATP00077.par25"
+    },
+    {
+      "id": "P1687.L10",
+      "stage": "1687",
+      "type": "lemma",
+      "statement": "Initial displacement under regular force",
+      "passage": "NATP00077.par27"
+    },
+    {
+      "id": "P1713.L9",
+      "stage": "1713",
+      "type": "lemma",
+      "statement": "Limiting area ratios",
+      "passage": "NATP00082.par26"
+    },
+    {
+      "id": "P1713.L10",
+      "stage": "1713",
+      "type": "lemma",
+      "statement": "Initial displacement under finite force",
+      "passage": "NATP00082.par28"
+    },
+    {
+      "id": "P1713.C3",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Spaces jointly as force and time squared",
+      "passage": "NATP00082.par32"
+    },
+    {
+      "id": "P1713.C4",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Force as space divided by time squared",
+      "passage": "NATP00082.par33"
+    }
+  ],
+  "edges": [
+    {
+      "from": "DM90.L2",
+      "to": "DM90.local",
+      "passage": "NATP00090.par27",
+      "notes": "Marginal Lem. 2 citation.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high"
+    },
+    {
+      "from": "P1687.L9",
+      "to": "P1687.L10",
+      "passage": "NATP00077.par28",
+      "notes": "per Lemma IX.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high"
+    },
+    {
+      "from": "P1713.L9",
+      "to": "P1713.L10",
+      "passage": "NATP00082.par29",
+      "notes": "per Lemma IX.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high"
+    },
+    {
+      "from": "P1713.C3",
+      "to": "P1713.C4",
+      "passage": "NATP00082.par33",
+      "notes": "Ideoque: inverse rearrangement.",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high"
+    },
+    {
+      "from": "P1687.L10",
+      "to": "P1713.L10",
+      "passage": "NATP00082.par28",
+      "notes": "Expanded force wording; not a proof citation.",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "high"
+    }
+  ],
+  "open_questions": [
+    "Locate complete first-state quadratic hypothesis; numbering is unverified.",
+    "H4 -> Theorem 1 and Lemma X -> Proposition I removed as unsupported.",
+    "NATP00089 Hyp 1 -> Lem 2 annotation does not date all manuscript revisions."
+  ]
+}

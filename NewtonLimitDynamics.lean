@@ -1,2 +1,3 @@
 import NewtonLimitDynamics.DeMotu1684.QuadraticDeflection
 import NewtonLimitDynamics.Principia1687.LemmaX
+import NewtonLimitDynamics.Principia1713.LemmaX

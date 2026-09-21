@@ -1,12 +1,12 @@
+import NewtonLimitDynamics.Common.Quadratic
+
 namespace DeMotu1684
+open NewtonLimitDynamics
 
-/- Historical statement: this is the quadratic-deflection premise isolated for
-   M1. It deliberately does not encode Newton's surrounding geometry. -/
-def QuadraticInitialDeflection (s : ℝ → ℝ) : Prop :=
-  ∃ c : ℝ, ∀ t : ℝ, s t = c * t ^ 2
-
-theorem quadratic_deflection_historical
-    (s : ℝ → ℝ) (h : QuadraticInitialDeflection s) :
-    ∃ c : ℝ, ∀ t : ℝ, s t = c * t ^ 2 := h
+/-- ratio denotes the geometrically constructed deflection/time-square ratio.
+    Its construction is a separate obligation. First-state numbering unverified. -/
+def QuadraticInitialDeflection {Q : Type} (g : Magnitudes Q)
+    (ratio : Q → Q) (coefficient : Q) : Prop :=
+  g.positive coefficient ∧ Ultimate g ratio coefficient
 
 end DeMotu1684
