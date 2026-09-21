@@ -17,8 +17,8 @@ architecture and the 1713 strengthening.
 
 ## Boundary and next stop
 
-The local environment currently has no `lean` or `lake` executable, so the
-statements are syntactically minimal but not yet compiler-verified here. Install
-or provide Lean 4 plus mathlib before treating compilation as complete. Next,
-extract the exact 1687 and 1713 Lemma X witnesses and add their passage-level
-comparison before expanding the formal model.
+Lean 4.19.0 and Lake 5.0.0 are installed through `elan`; `lake build` succeeds
+for the current skeleton. Mathlib is not yet a project dependency because M1's
+initial statements use only core Lean. Next, extract the exact 1687 and 1713
+Lemma X witnesses and add their passage-level comparison before expanding the
+formal model.
