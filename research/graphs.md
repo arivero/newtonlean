@@ -39,6 +39,13 @@ flowchart LR
   n1 -->|explicit_dependency| n2
 ```
 
+## RS-copy-reprint
+
+```mermaid
+flowchart LR
+  n9["RS.H4"]
+```
+
 ## comparison
 
 ```mermaid
@@ -52,5 +59,7 @@ flowchart LR
   n6["P1713.L10"]
   n7["P1713.C3"]
   n8["P1713.C4"]
+  n9["RS.H4"]
   n4 -->|editorial_interpretation| n6
+  n9 -->|editorial_interpretation| n1
 ```

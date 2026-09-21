@@ -1,0 +1,18 @@
+[
+  {
+    "id": "RSreprint.H4",
+    "witness": "Royal Society copy as edited by W. W. Rouse Ball, An Essay on Newton’s Principia (1893), p. 36",
+    "stage": "RS-copy-reprint",
+    "source_path": "docs/m1/rouse-ball-demotu-pp35-37.pdf",
+    "anchor": "printed p.36, Hypotheses 4; original PDF page 50",
+    "url": "https://rcin.org.pl/impan/Content/235304/6087.pdf#page=50",
+    "revision_layer": "1893 edited reprint; not the manuscript and not proof of earliest chronology",
+    "latin": "4. Spatium quod corpus, urgente quacunque vi centripeta, ipso motus initio describit, esse in duplicata ratione temporis.",
+    "translation": "The space a body describes under any centripetal force at the very beginning of motion is in the duplicate ratio of time.",
+    "translation_status": "translation_of_quoted_passage",
+    "formal_refs": [
+      "DeMotu1684.QuadraticInitialDeflection"
+    ],
+    "verification": "Hypothesis number and wording visually checked on extracted page 2; editorial interventions declared on printed p.35."
+  }
+]

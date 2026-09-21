@@ -1,0 +1,123 @@
+                       THE TRACT DE MOTU.                          35
+
+
+ Society are mentioned below. Two of them are incomplete
+ drafts in Newton’s handwriting, and made, I conjecture, prior
+to the memoir being sent to London. The third, probably also
+ holograph, is carefully written out, and is somewhat fuller
+than that in the archives of the Royal Society; it may have
+been written subsequently to the copy sent to London, but
+ I think it is of a date not later than the spring of 1685 ; at
+any rate, it contains a remark (see below, p. 56) which implies
+that though Newton knew that, at a considerable distance from
+ the earth’s centre, gravity might be taken for purposes of
+ calculation to vary inversely as the square of the distance from
+that point, yet he was then uncertain whether the same law
+held for points near the earth’s surface. As, however, the date
+ and history of the Royal Society’s copy are accurately known,
+I have printed the tract in the form there written except in
+three respects : in the first place I have corrected the diagrams,
+and all purely clerical blunders, by Newton’s own copy; in the
+second place I have inserted punctuation, and in some cases
+have altered the initial letters of words to capitals or small
+letters as the case may be, so as to make the practice uniform
+(in these respects Rigaud has not followed the manuscript
+exactly); and in the third place I have written the symbol ×
+instead of +, and instead of et, when + and et are used (as in
+these manuscripts they not infrequently are) to indicate
+multiplication. I have also replaced any symbol like ABC by
+AB × BC when it is used to denote the product of AB and
+BC. I need hardly add that in the writings of mathematicians
+of the seventeenth century expressions like xq, xc, xqq, χqc stand
+for what we usually write as z2, jk3, x4, x5.
+     The tract is as follows :
+               Isaaci Newtoni Proposγπones de Motu.
+                              Definitiones.
+   1. Vim centripetam appello, qua corpus impellitur vel attrahitur
+versus aliquod punctum, quod ut centrum spectatur.
+   2. Et vim corporis, seu corpori insitam, qua id conatur perseverare
+in motu suo secundum lineam rectam.
+   3. Et resistentiam, quae est medii regulariter impedientis.
+
+                   www.rcin.org.pl
+                                                            D 2
+36                    INVESTIGATIONS IN 1684.
+
+                                Hypotheses.
+    1. Resistentiam in proximis novem propositionibus nullam esse, in
+sequentibus esse ut medii densitas et celeritas conjunctim.
+    2. Corpus omne sola vi insita uniformiter secundum lineam rectam
+in infinitum progredi, nisi aliquid extrinsecus impediat.
+    3. Corpus in dato tempore, viribus conjunctis, eo ferri quo viribus
+divisis in temporibus aequalibus successive.
+    4. Spatium quod corpus, urgente quacunque vi centripeta, ipso
+motus initio describit, esse in duplicata ratione temporis.
+                                Lemmata.
+    1. Parallelogramma omnia, circa datam ellipsin descripta, esse
+aequalia inter se. Patet ex conicis.
+    2. Quantitates differentiis suis proportionales sunt continue pro­
+portionales. Ponatur A ad A-B ut B ad B-C, et C ad C-D, &c.
+dividendo fiet A ad B, ut B ad C, ut C ad D, &c.
+                              Propositiones.
+    Theor. I. Gyrantia omnia radiis ad centrum ductis areas temporibus
+proportionales describere.
+    Dividatur tempus in partes aequales, et prima temporis parte describat
+corpus vi insita rectam AB; idem secunda temporis parte, si nihil im­
+pediet, recta pergeret ad c, describens rectam Bc aequalem ipsi AB,
+
+
+
+
+adeo ut radii AS, BS, cS ad centrum actis, confectae forent areae aequaleB
+ASB, BSc. Verum ubi corpus venit ad B, agat vis centripeta impulsu
+unico at magno, faciatque corpus a recta Bc deflectere et pergere in
+recta BC. Ipsi BS parallela agatur cC occurrens BC in C, et, completa
+secunda temporis parte, corpus reperietur in C. Junge SC, et
+triangulum SBC ob parallelas SB, Cc aequale erit triangulo SBc, atque
+adeo etiam triangulo SAB. Simili argumento, si vis centripeta suc­
+cessive agat in C, D, E, &c. faciens corpus singulis temporis momentis
+singulas describere rectas CD, DE, EF, &c., triangulum SDC triangulo
+SBC, et SDE ipsi SCD, et SEF ipsi SDE aequale erit. 2Equalibus
+
+
+                 www.rcin.org.pl
+                        THE TRACT DE MOTU.                            37
+igitur temporibus aequales areae describuntur. Sunto jam haec
+triangula numero infinita, et infinite parva, sic ut singulis temporis
+momentis singula respondeant triangula, cogente vi centripeta sine
+remissione, et constabit propositio.
+    Theor. II.    Corporibus in circumferentiis circulorum uniformiter
+gyrantibus, vires centripetas esse ut arcuum simul descriptorum quadrata
+applicata ad radios circulorum.
+    Corpora B, b, in circumferentiis circulorum BD, Bd gyrantia, simul
+describant arcus BD, bd. Sola vi insita describerent tangentes BC, bc,
+
+
+
+
+his arcubus aequales; vires centripetae sunt quae perpetuo retrahunt
+corpora de tangentibus ad circumferentias, atque adeo hae sunt ad
+invicem ut spatia ipsis superata CD, cd: id est productis CD. cd ad F
+                                                       Loquor de spatiis
+BD, bd minutissimus, inque infinitum diminuendis, sic ut pro ⅛CF, Icf,
+scribere liceat circulorum radios SB, sb, quo facto constabit propositio.
+    Cor. 1. Vires centripetae sunt ut celeritatum quadrata applicata
+ad radios.
+    Cor. 2. Et reciproce ut quadrata temporum periodicorum applicata
+ad radios.
+    Cor. 3. Unde si quadrata temporum periodicorum sunt ut radii
+circulorum, vires centripetae sunt aequales; et vice versa.
+    Cor. 4. Si quadrata temporum periodicorum sunt ut quadrata
+radiorum, vires centripetae sunt reciproce ut radii.
+    Cor. 5. Si quadrata temporum periodicorum sunt ut cubi radiorum,
+vires centripetae sunt reciproce ut quadrata radiorum.
+    Theor. III. Si corpus circa centrum S gyrando describat lineam quam,
+vis curvam APQ ; et si tangat recta PR curvam illam in puncto quovis P,
+et ad tangentem ab alio quovis puncto Q agatur QR distantiae SP paral­
+lela, ac demittatur QT perpendicularis ad distantiam SP; dico quod vis
+centripeta sit reciproce ut solidum                     si modo solidi
+illius ea semper sumatur quantitas, ubi coeunt puncta P et Q.
+
+
+                   www.rcin.org.pl
+

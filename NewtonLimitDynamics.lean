@@ -1,3 +1,6 @@
 import NewtonLimitDynamics.DeMotu1684.QuadraticDeflection
 import NewtonLimitDynamics.Principia1687.LemmaX
 import NewtonLimitDynamics.Principia1713.LemmaX
+import NewtonLimitDynamics.Common.RationalMagnitudes
+import NewtonLimitDynamics.Principia1713.ForceComparison
+import NewtonLimitDynamics.Principia1687.ConstructedRatio

@@ -62,6 +62,13 @@
       "type": "corollary",
       "statement": "Force as space divided by time squared",
       "passage": "NATP00082.par33"
+    },
+    {
+      "id": "RS.H4",
+      "stage": "RS-copy-reprint",
+      "type": "hypothesis",
+      "statement": "Quadratic initial displacement, numbered 4 in edited Royal Society copy",
+      "passage": "RSreprint.H4"
     }
   ],
   "edges": [
@@ -109,10 +116,19 @@
       "relation": "textual_comparison",
       "status": "editorial_interpretation",
       "confidence": "high"
+    },
+    {
+      "from": "RS.H4",
+      "to": "DM90.L2",
+      "passage": "NATP00090.par12",
+      "notes": "Comparison of statement status across witnesses; relative dating not inferred from this edge.",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "medium"
     }
   ],
   "open_questions": [
-    "Locate complete first-state quadratic hypothesis; numbering is unverified.",
+    "Royal Society edited reprint H4 located and visually checked; earliest manuscript chronology and direct manuscript collation remain open.",
     "H4 -> Theorem 1 and Lemma X -> Proposition I removed as unsupported.",
     "NATP00089 Hyp 1 -> Lem 2 annotation does not date all manuscript revisions."
   ]

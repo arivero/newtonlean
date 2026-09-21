@@ -1,0 +1,119 @@
+{
+  "NATP00075.par1": {
+    "translation": "Quantity of matter is measured jointly by density and volume."
+  },
+  "NATP00075.par3": {
+    "translation": "Quantity of motion is measured jointly by velocity and quantity of matter."
+  },
+  "NATP00075.par5": {
+    "translation": "Inherent force resists alteration of rest or uniform rectilinear motion."
+  },
+  "NATP00075.par7": {
+    "translation": "Impressed force is an action changing rest or uniform rectilinear motion."
+  },
+  "NATP00075.par9": {
+    "translation": "Centripetal force draws, impels or directs a body toward a point as centre."
+  },
+  "NATP00075.par13": {
+    "translation": "Accelerative force is measured in proportion to velocity generated in a given time."
+  },
+  "NATP00075.par15": {
+    "translation": "Motive force is measured in proportion to motion generated in a given time."
+  },
+  "NATP00075.par18": {
+    "translation": "Motive force is accelerative force multiplied by quantity of matter."
+  },
+  "NATP00080.par1": {
+    "translation": "Quantity of matter is measured jointly by density and volume."
+  },
+  "NATP00080.par3": {
+    "translation": "Quantity of motion is measured jointly by velocity and quantity of matter."
+  },
+  "NATP00080.par5": {
+    "translation": "Inherent force resists alteration of rest or uniform rectilinear motion."
+  },
+  "NATP00080.par7": {
+    "translation": "Impressed force is an action changing rest or uniform rectilinear motion."
+  },
+  "NATP00080.par9": {
+    "translation": "Centripetal force draws, impels or directs a body toward a point as centre."
+  },
+  "NATP00080.par13": {
+    "translation": "Accelerative force is measured in proportion to velocity generated in a given time."
+  },
+  "NATP00080.par15": {
+    "translation": "Motive force is measured in proportion to motion generated in a given time."
+  },
+  "NATP00080.par18": {
+    "translation": "Motive force is accelerative force multiplied by quantity of matter."
+  },
+  "NATP00076.par1": {
+    "translation": "A body persists in rest or uniform rectilinear motion except as impressed forces change that state."
+  },
+  "NATP00076.par3": {
+    "translation": "Change of motion is proportional to impressed motive force and directed along its line."
+  },
+  "NATP00076.par4": {
+    "translation": "Doubling or tripling the force doubles or triples generated motion; existing motion is composed with it."
+  },
+  "NATP00076.par7": {
+    "translation": "A body under combined forces describes the diagonal in the time in which it would describe the sides separately."
+  },
+  "NATP00076.par8": {
+    "translation": "Construct the parallelogram; each force leaves the approach to the parallel opposite side unchanged, so the body reaches their intersection."
+  },
+  "NATP00081.par1": {
+    "translation": "A body persists in rest or uniform rectilinear motion except as impressed forces change that state."
+  },
+  "NATP00081.par3": {
+    "translation": "Change of motion is proportional to impressed motive force and directed along its line."
+  },
+  "NATP00081.par4": {
+    "translation": "Doubling or tripling the force doubles or triples generated motion; existing motion is composed with it."
+  },
+  "NATP00081.par7": {
+    "translation": "A body under combined forces describes the diagonal in the time in which it would describe the sides separately."
+  },
+  "NATP00081.par8": {
+    "translation": "Construct the parallelogram; each force leaves the approach to the parallel opposite side unchanged, so the body reaches their intersection."
+  },
+  "NATP00077.par25": {
+    "translation": "With a fixed angle of intersection and ordinate angle, the vanishing areas have the duplicate ratio of corresponding sides. The statement says triangles; the proof treats curvilinear areas."
+  },
+  "NATP00077.par26": {
+    "translation": "Extend and rescale the ordinates; the tangent and limiting secant coincide, and similar areas have the duplicate side ratio."
+  },
+  "NATP00077.par27": {
+    "translation": "Spaces described at the beginning of motion have the duplicate ratio of times. The force wording is edition-specific."
+  },
+  "NATP00077.par28": {
+    "translation": "Represent times by abscissae and generated velocities by ordinates: spaces correspond to the swept areas, invoking Lemma IX."
+  },
+  "NATP00082.par26": {
+    "translation": "With a fixed angle of intersection and ordinate angle, the vanishing areas have the duplicate ratio of corresponding sides. The statement says triangles; the proof treats curvilinear areas."
+  },
+  "NATP00082.par27": {
+    "translation": "Extend and rescale the ordinates; the tangent and limiting secant coincide, and similar areas have the duplicate side ratio."
+  },
+  "NATP00082.par28": {
+    "translation": "Spaces described at the beginning of motion have the duplicate ratio of times. The force wording is edition-specific."
+  },
+  "NATP00082.par29": {
+    "translation": "Represent times by abscissae and generated velocities by ordinates: spaces correspond to the swept areas, invoking Lemma IX."
+  },
+  "NATP00082.par32": {
+    "translation": "Initially described spaces vary jointly as forces and squares of times."
+  },
+  "NATP00082.par33": {
+    "translation": "Hence forces vary directly as initially described spaces and inversely as squares of times.",
+    "formal_refs": [
+      "Principia1713.corollary4_coefficient_reconstruction"
+    ]
+  },
+  "NATP00082.par34": {
+    "translation": "Squares of times vary directly as described spaces and inversely as forces.",
+    "formal_refs": [
+      "Principia1713.corollary5_coefficient_reconstruction"
+    ]
+  }
+}

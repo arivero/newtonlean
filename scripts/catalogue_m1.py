@@ -6,10 +6,8 @@ import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
 NS = '{http://www.w3.org/XML/1998/namespace}'
-SELECT = {'NATP00077': ['par25', 'par26', 'par27', 'par28'],
-          'NATP00082': ['par26', 'par27', 'par28', 'par29', 'par30', 'par31', 'par32', 'par33', 'par34'],
-          'NATP00089': ['par7', 'par9', 'par19'],
-          'NATP00090': ['par12', 'par13', 'par27']}
+SELECT = json.loads((ROOT/'research/selections.json').read_text())
+ANNOTATIONS = json.loads((ROOT/'research/passage-annotations.json').read_text())
 
 def render(e):
     tag = e.tag.split('}')[-1]
@@ -24,8 +22,9 @@ def render(e):
 
 def main():
     passages = []
-    for ident, ids in SELECT.items():
-        path = ROOT / 'docs/m1' / (ident + '.xml')
+    for ident, selection in SELECT.items():
+        ids = selection['anchors']
+        path = ROOT / selection['path']
         tree = ET.parse(path)
         elements = {e.get(NS+'id'): e for e in tree.iter() if e.get(NS+'id')}
         title = ''.join(tree.find('.//{*}titleStmt/{*}title').itertext())
@@ -52,14 +51,21 @@ def main():
         for pid in ids:
             e = elements[pid]
             passages.append({'id': ident+'.'+pid, 'witness': title,
+                'stage': selection['stage'], 'source_path': selection['path'],
+                'anchor': pid, 'revision_layer': selection['revision_layer'],
+                'translation': ANNOTATIONS.get(ident+'.'+pid, {}).get('translation'),
+                'translation_status': 'identifying_translation_not_full' if ident+'.'+pid in ANNOTATIONS else 'not_translated',
+                'formal_refs': ANNOTATIONS.get(ident+'.'+pid, {}).get('formal_refs', []),
+                'tei': ET.tostring(e, encoding='unicode'),
                 'url': f'https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/{ident}#{pid}',
                 'latin': ' '.join(render(e).split())})
+    passages.extend(json.loads((ROOT/'research/extra-passages.json').read_text()))
     dest = ROOT / 'research/passages.json'
     dest.write_text(json.dumps(passages, ensure_ascii=False, indent=2)+'\n')
-    text = '# M1 primary passages\n\nMechanical TEI extraction: [del], [add], [note], [unclear] retain revision boundaries; spelling follows orig. Formula layout requires consultation of the original.\n\n'
+    text = '# Primary passages: separate witnesses\n\nMechanical TEI extraction: [del], [add], [note], [unclear] retain revision boundaries; spelling follows orig. Formula layout requires consultation of the original.\n\n'
     for p in passages:
-        text += f'## {p["id"]}\n\nWitness: {p["witness"]}\n\n{p["url"]}\n\n{p["latin"]}\n\n'
-    (ROOT/'research/passages.md').write_text(text)
+        text += f'## {p["id"]}\n\nWitness: {p["witness"]}\n\n{p["url"]}\n\n{p["latin"]}\n\nTranslation status: {p.get("translation_status", "not_translated")}. {p.get("translation") or ""}\n\n'
+    (ROOT/'research/passages.md').write_text('\n'.join(line.rstrip() for line in text.splitlines())+'\n')
 
 if __name__ == '__main__':
     main()
