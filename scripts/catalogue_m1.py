@@ -32,7 +32,7 @@ def main():
         companion += f'Original: [{ident}.xml]({ident}.xml). Source: https://www.newtonproject.ox.ac.uk/view/texts/xml/{ident}\n\n'
         companion += 'Electronic transcription: CC BY-NC-ND 3.0 (TEI availability statement). '
         companion += 'XML parsed successfully; selected passages extracted, not a facsimile audit. '
-        companion += 'Historical interpretation and formal discrepancies: ../../research/M1.md.\n\n'
+        companion += 'Historical interpretation and formal discrepancies: ../../research/STATE.md and milestone reports.\n\n'
         companion += 'SHA-256: `' + hashlib.sha256(path.read_bytes()).hexdigest() + '`\n'
         (path.with_suffix('.md')).write_text(companion)
         for view in ['normalized', 'diplomatic']:
@@ -44,7 +44,7 @@ def main():
                     f'Source: https://www.newtonproject.ox.ac.uk/view/texts/{view}/{ident}\n\n'
                     f'Local original: [{html.name}]({html.name}).\n\n'
                     'CC BY-NC-ND 3.0 per associated TEI. See the XML companion for '
-                    'coverage and research/M1.md for proof obligations. Normalization '
+                    'coverage and research/STATE.md for proof obligations. Normalization '
                     'hides deletions; diplomatic markup and XML are required for revisions. '
                     'Page assets remain upstream; this is not an offline facsimile.\n\n'
                     f'SHA-256: `{hashlib.sha256(html.read_bytes()).hexdigest()}`\n')
@@ -64,7 +64,7 @@ def main():
     dest.write_text(json.dumps(passages, ensure_ascii=False, indent=2)+'\n')
     text = '# Primary passages: separate witnesses\n\nMechanical TEI extraction: [del], [add], [note], [unclear] retain revision boundaries; spelling follows orig. Formula layout requires consultation of the original.\n\n'
     for p in passages:
-        text += f'## {p["id"]}\n\nWitness: {p["witness"]}\n\n{p["url"]}\n\n{p["latin"]}\n\nTranslation status: {p.get("translation_status", "not_translated")}. {p.get("translation") or ""}\n\n'
+        text += f'## {p["id"]}\n\nWitness: {p["witness"]}\n\n{p["url"]}\n\n{p.get("text", p["latin"])}\n\nTranslation status: {p.get("translation_status", "not_translated")}. {p.get("translation") or ""}\n\n'
     (ROOT/'research/passages.md').write_text('\n'.join(line.rstrip() for line in text.splitlines())+'\n')
 
 if __name__ == '__main__':

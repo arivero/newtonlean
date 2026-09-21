@@ -187,5 +187,40 @@
       "NewtonLimitDynamics.Contact.cubic_rectangle_bound",
       "NewtonLimitDynamics.Contact.quadratic_rectangles"
     ]
+  },
+  "NATP00082.par89": {
+    "translation": "At fixed time sagitta varies with force by proposition I corollary 4; its quadratic time scaling invokes lemma XI corollaries 2 and 3."
+  },
+  "NATP00082.par90": {
+    "translation": "The same is also easily demonstrated by corollary 4 of lemma X."
+  },
+  "NATP00082.par91": {
+    "translation": "QR equals the sagitta of the doubled arc whose midpoint is P; the doubled triangle supplies the corresponding time measure.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Comparison.generated_sagitta_commute",
+      "NewtonLimitDynamics.Comparison.symmetric_parabola_sagitta"
+    ]
+  },
+  "NATP00082.par93": {
+    "translation": "The force ratio uses the curvature-circle chord through the force centre and the squared perpendicular from centre to tangent. The 1726 wording additionally admits concentric crossing."
+  },
+  "NATP00087.par87": {
+    "translation": "At fixed time sagitta varies with force by proposition I corollary 4; its quadratic time scaling invokes lemma XI corollaries 2 and 3."
+  },
+  "NATP00087.par88": {
+    "translation": "The same is also easily demonstrated by corollary 4 of lemma X."
+  },
+  "NATP00087.par89": {
+    "translation": "QR equals the sagitta of the doubled arc whose midpoint is P; the doubled triangle supplies the corresponding time measure.",
+    "formal_refs": [
+      "NewtonLimitDynamics.Comparison.generated_sagitta_commute",
+      "NewtonLimitDynamics.Comparison.symmetric_parabola_sagitta"
+    ]
+  },
+  "NATP00087.par91": {
+    "translation": "The force ratio uses the curvature-circle chord through the force centre and the squared perpendicular from centre to tangent. The 1726 wording additionally admits concentric crossing."
+  },
+  "NATP00077.par77": {
+    "translation": "Generated QR at fixed time follows force by law II; at fixed force follows squared time by lemma X. Sector area supplies elapsed time."
   }
 }

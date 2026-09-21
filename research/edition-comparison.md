@@ -1,0 +1,25 @@
+# Supported edition comparison
+
+Generated from edition-alignments.json and dependencies.json. Coverage is the selected chain, not whole editions. Proposed numbers never identify actual-edition propositions.
+
+| Item | 1687 | 1713 | 1726 | Supported change |
+| --- | --- | --- | --- | --- |
+| Lemma X force premise | [NATP00077.par27](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par27) | [NATP00082.par28](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par28) | [NATP00087.par27](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par27) | Regular force becomes an explicit finite-force formulation in 1713, retained in 1726. |
+| Lemma XI restriction | [NATP00077.par31](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par31), [NATP00077.par39](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par39) | [NATP00082.par36](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par36), [NATP00082.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par45) | [NATP00087.par35](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par35), [NATP00087.par44](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par44) | Finite curvature moves into the statement in 1713; the scholium restriction already exists in 1687. |
+| Polygon limiting citation | [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45) | [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51) | [NATP00087.par49](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par49) | Lemma III corollary 4 remains explicitly cited; no Lemma X to Proposition I proof edge. |
+| Main local-force proof | [NATP00077.par76](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par76), [NATP00077.par77](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par77) | [NATP00082.par88](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par88), [NATP00082.par89](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par89), [NATP00082.par90](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par90) | [NATP00087.par86](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par86), [NATP00087.par87](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par87), [NATP00087.par88](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par88) | Generated-motion main proof is reorganized around sagitta; Lemma X corollary 4 remains an alternative. |
+| Tangent-departure result | [NATP00077.par76](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par76) | [NATP00082.par91](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par91) | [NATP00087.par89](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par89) | 1687 main Proposition VI becomes corollary 1 in the later editions; this is relocation, not deletion of its content. |
+| Curvature machinery | [NATP00077.par32](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par32) | [NATP00082.par93](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par93) | [NATP00087.par91](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par91) | 1687 contact-circle geometry differs from the later force corollary; 1726 explicitly adds concentric crossing to the 1713 touching wording. |
+| Cubic-area conic import | [NATP00077.par37](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par37) | [NATP00082.par44](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par44) | [NATP00087.par43](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par43) | Parabola-based two-thirds/one-third area statement retained; not an automatically established coefficient in Lean. |
+
+## Recorded incoming dependencies of Proposition VI
+
+Only the cited proof paragraphs are compared; an absent edge here is not a claim of global logical independence.
+
+- 1687: P1687.Law2 (explicit_dependency; NATP00077.par77); P1687.L10 (explicit_dependency; NATP00077.par77); P1687.P1 (implicit_dependency; NATP00077.par77).
+- 1713: P1713.P1C4 (explicit_dependency; NATP00082.par89); P1713.L11C2 (explicit_dependency; NATP00082.par89); P1713.L11C3 (explicit_dependency; NATP00082.par89); P1713.L10C4 (explicit_dependency; NATP00082.par90).
+- 1726: P1726.P1C4 (explicit_dependency; NATP00087.par87); P1726.L11C2 (explicit_dependency; NATP00087.par87); P1726.L11C3 (explicit_dependency; NATP00087.par87); P1726.L10C4 (explicit_dependency; NATP00087.par88).
+
+1687 → 1713, recorded incoming labels: added L10C4, L11C2, L11C3, P1C4; removed L10, Law2, P1. This records the new proof organization; the generated-motion alternative is retained through Lemma X corollary 4.
+
+1713 → 1726, recorded incoming labels: added none; removed none. This records the new proof organization; the generated-motion alternative is retained through Lemma X corollary 4.

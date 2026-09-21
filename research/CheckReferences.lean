@@ -1,0 +1,133 @@
+import NewtonLimitDynamics
+
+-- Generated; compile with lake env lean research/CheckReferences.lean.
+#check DeMotu1684.QuadraticInitialDeflection
+#print axioms DeMotu1684.QuadraticInitialDeflection
+#check NewtonLimitDynamics.Comparison.constant_force_generated
+#print axioms NewtonLimitDynamics.Comparison.constant_force_generated
+#check NewtonLimitDynamics.Comparison.generated_sagitta_commute
+#print axioms NewtonLimitDynamics.Comparison.generated_sagitta_commute
+#check NewtonLimitDynamics.Comparison.symmetric_parabola_sagitta
+#print axioms NewtonLimitDynamics.Comparison.symmetric_parabola_sagitta
+#check NewtonLimitDynamics.Comparison.twice_positive
+#print axioms NewtonLimitDynamics.Comparison.twice_positive
+#check NewtonLimitDynamics.Contact.circle_identity_from_perpendicular
+#print axioms NewtonLimitDynamics.Contact.circle_identity_from_perpendicular
+#check NewtonLimitDynamics.Contact.constant_force_area_coefficients
+#print axioms NewtonLimitDynamics.Contact.constant_force_area_coefficients
+#check NewtonLimitDynamics.Contact.cubic_rectangle_bound
+#print axioms NewtonLimitDynamics.Contact.cubic_rectangle_bound
+#check NewtonLimitDynamics.Contact.le_quotient_iff
+#print axioms NewtonLimitDynamics.Contact.le_quotient_iff
+#check NewtonLimitDynamics.Contact.linear_area_coefficient
+#print axioms NewtonLimitDynamics.Contact.linear_area_coefficient
+#check NewtonLimitDynamics.Contact.linear_rectangles
+#print axioms NewtonLimitDynamics.Contact.linear_rectangles
+#check NewtonLimitDynamics.Contact.normal_subtense_bound
+#print axioms NewtonLimitDynamics.Contact.normal_subtense_bound
+#check NewtonLimitDynamics.Contact.nsum_mul
+#print axioms NewtonLimitDynamics.Contact.nsum_mul
+#check NewtonLimitDynamics.Contact.parabolic_area_coefficient
+#print axioms NewtonLimitDynamics.Contact.parabolic_area_coefficient
+#check NewtonLimitDynamics.Contact.quadratic_lower_error
+#print axioms NewtonLimitDynamics.Contact.quadratic_lower_error
+#check NewtonLimitDynamics.Contact.quadratic_rectangles
+#print axioms NewtonLimitDynamics.Contact.quadratic_rectangles
+#check NewtonLimitDynamics.Contact.rational_uniform_partition_error
+#print axioms NewtonLimitDynamics.Contact.rational_uniform_partition_error
+#check NewtonLimitDynamics.Contact.reciprocal_budget_vanishes
+#print axioms NewtonLimitDynamics.Contact.reciprocal_budget_vanishes
+#check NewtonLimitDynamics.Contact.sum_bound
+#print axioms NewtonLimitDynamics.Contact.sum_bound
+#check NewtonLimitDynamics.Contact.uniform_partition_error
+#print axioms NewtonLimitDynamics.Contact.uniform_partition_error
+#check NewtonLimitDynamics.Contact.upper_lower_gap
+#print axioms NewtonLimitDynamics.Contact.upper_lower_gap
+#check NewtonLimitDynamics.Fraction.add_assoc
+#print axioms NewtonLimitDynamics.Fraction.add_assoc
+#check NewtonLimitDynamics.Fraction.add_comm
+#print axioms NewtonLimitDynamics.Fraction.add_comm
+#check NewtonLimitDynamics.Fraction.add_equiv_right
+#print axioms NewtonLimitDynamics.Fraction.add_equiv_right
+#check NewtonLimitDynamics.Fraction.add_le_add_right
+#print axioms NewtonLimitDynamics.Fraction.add_le_add_right
+#check NewtonLimitDynamics.Fraction.constructed_triangle_limit
+#print axioms NewtonLimitDynamics.Fraction.constructed_triangle_limit
+#check NewtonLimitDynamics.Fraction.equiv_iff_mutual_le
+#print axioms NewtonLimitDynamics.Fraction.equiv_iff_mutual_le
+#check NewtonLimitDynamics.Fraction.equiv_refl
+#print axioms NewtonLimitDynamics.Fraction.equiv_refl
+#check NewtonLimitDynamics.Fraction.equiv_symm
+#print axioms NewtonLimitDynamics.Fraction.equiv_symm
+#check NewtonLimitDynamics.Fraction.equiv_trans
+#print axioms NewtonLimitDynamics.Fraction.equiv_trans
+#check NewtonLimitDynamics.Fraction.half_lt
+#print axioms NewtonLimitDynamics.Fraction.half_lt
+#check NewtonLimitDynamics.Fraction.mul_add
+#print axioms NewtonLimitDynamics.Fraction.mul_add
+#check NewtonLimitDynamics.Fraction.mul_assoc
+#print axioms NewtonLimitDynamics.Fraction.mul_assoc
+#check NewtonLimitDynamics.Fraction.mul_comm
+#print axioms NewtonLimitDynamics.Fraction.mul_comm
+#check NewtonLimitDynamics.Fraction.mul_equiv_left
+#print axioms NewtonLimitDynamics.Fraction.mul_equiv_left
+#check NewtonLimitDynamics.Fraction.mul_le_mul_positive
+#print axioms NewtonLimitDynamics.Fraction.mul_le_mul_positive
+#check NewtonLimitDynamics.Fraction.positive_iff_zero_lt
+#print axioms NewtonLimitDynamics.Fraction.positive_iff_zero_lt
+#check NewtonLimitDynamics.Fraction.positive_mul
+#print axioms NewtonLimitDynamics.Fraction.positive_mul
+#check NewtonLimitDynamics.Fraction.square_ratio
+#print axioms NewtonLimitDynamics.Fraction.square_ratio
+#check NewtonLimitDynamics.Fraction.triangle_area_ratio
+#print axioms NewtonLimitDynamics.Fraction.triangle_area_ratio
+#check NewtonLimitDynamics.Fraction.triangle_normalized_limit
+#print axioms NewtonLimitDynamics.Fraction.triangle_normalized_limit
+#check NewtonLimitDynamics.Fraction.ultimate_congr
+#print axioms NewtonLimitDynamics.Fraction.ultimate_congr
+#check NewtonLimitDynamics.Polygon.all_cell_areas
+#print axioms NewtonLimitDynamics.Polygon.all_cell_areas
+#check NewtonLimitDynamics.Polygon.central_step_area
+#print axioms NewtonLimitDynamics.Polygon.central_step_area
+#check NewtonLimitDynamics.Polygon.enclosed_gap_vanishes
+#print axioms NewtonLimitDynamics.Polygon.enclosed_gap_vanishes
+#check NewtonLimitDynamics.Polygon.equal_time_area_reconstruction
+#print axioms NewtonLimitDynamics.Polygon.equal_time_area_reconstruction
+#check NewtonLimitDynamics.Polygon.extension_identity
+#print axioms NewtonLimitDynamics.Polygon.extension_identity
+#check NewtonLimitDynamics.Polygon.isum_mono
+#print axioms NewtonLimitDynamics.Polygon.isum_mono
+#check NewtonLimitDynamics.Polygon.isum_mul
+#print axioms NewtonLimitDynamics.Polygon.isum_mul
+#check NewtonLimitDynamics.Polygon.parallel_identity
+#print axioms NewtonLimitDynamics.Polygon.parallel_identity
+#check NewtonLimitDynamics.Polygon.rectangle_gap_bound
+#print axioms NewtonLimitDynamics.Polygon.rectangle_gap_bound
+#check NewtonLimitDynamics.Polygon.sector_ratio_reconstruction
+#print axioms NewtonLimitDynamics.Polygon.sector_ratio_reconstruction
+#check NewtonLimitDynamics.Polygon.sum_constant
+#print axioms NewtonLimitDynamics.Polygon.sum_constant
+#check NewtonLimitDynamics.Polygon.swept_eq
+#print axioms NewtonLimitDynamics.Polygon.swept_eq
+#check NewtonLimitDynamics.Polygon.telescoping
+#print axioms NewtonLimitDynamics.Polygon.telescoping
+#check NewtonLimitDynamics.enclosure_reconstruction
+#print axioms NewtonLimitDynamics.enclosure_reconstruction
+#check NewtonLimitDynamics.near_and
+#print axioms NewtonLimitDynamics.near_and
+#check NewtonLimitDynamics.near_has_witness
+#print axioms NewtonLimitDynamics.near_has_witness
+#check NewtonLimitDynamics.not_near_false
+#print axioms NewtonLimitDynamics.not_near_false
+#check Principia1687.constructed_quadratic_bridge
+#print axioms Principia1687.constructed_quadratic_bridge
+#check Principia1687.discharges_quadraticPremise_reconstruction
+#print axioms Principia1687.discharges_quadraticPremise_reconstruction
+#check Principia1687.lemmaX_reconstruction
+#print axioms Principia1687.lemmaX_reconstruction
+#check Principia1713.corollary4_coefficient_reconstruction
+#print axioms Principia1713.corollary4_coefficient_reconstruction
+#check Principia1713.corollary5_coefficient_reconstruction
+#print axioms Principia1713.corollary5_coefficient_reconstruction
+#check Principia1713.lemmaX_reconstruction
+#print axioms Principia1713.lemmaX_reconstruction

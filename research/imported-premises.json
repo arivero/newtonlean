@@ -1,0 +1,53 @@
+[
+  {
+    "id": "Euclid.I37",
+    "kind": "imported_geometry",
+    "url": "https://mathcs.clarku.edu/~djoyce/elements/bookI/propI37.html",
+    "passage": "Book I proposition 37, statement and proof",
+    "formal_field": "NewtonLimitDynamics.Polygon.EuclideanConstruction.same_base_parallels",
+    "boundary": "Specialized signed-area identity; signed/degenerate extension is reconstruction. A lattice realization is proved by parallel_identity."
+  },
+  {
+    "id": "Euclid.I38",
+    "kind": "imported_geometry",
+    "url": "https://mathcs.clarku.edu/~djoyce/elements/bookI/propI38.html",
+    "passage": "Book I proposition 38, statement and proof",
+    "formal_field": "NewtonLimitDynamics.Polygon.EuclideanConstruction.equal_base_altitude",
+    "boundary": "Specialized identity for equal inertial segments. A lattice realization is proved by extension_identity."
+  },
+  {
+    "id": "Newton.contact_circle",
+    "kind": "imported_geometry",
+    "passages": ["NATP00077.par32", "NATP00082.par37", "NATP00087.par36"],
+    "formal_field": "circle argument of Contact.normal_subtense_bound",
+    "boundary": "AB squared = AG times BD. Coordinate consequence of perpendicularity is checked separately; existence and limiting intercept remain geometric obligations."
+  },
+  {
+    "id": "Newton.contact_limit",
+    "kind": "limiting_premise",
+    "passages": ["NATP00077.par26", "NATP00082.par27"],
+    "formal_field": "Principia1687.ContactEnclosure.lower_contact / upper_contact",
+    "boundary": "The secant approaches the tangent with nondegenerate slope. Triangle ratios are derived, but the actual curve/contact construction remains open."
+  },
+  {
+    "id": "Newton.velocity_area",
+    "kind": "mechanical_assumption",
+    "passages": ["NATP00077.par28", "NATP00082.par29"],
+    "formal_field": "Principia1687.ContactEnclosure.mechanical_enclosure",
+    "boundary": "Mechanical generated displacement is enclosed by the constructed velocity-diagram areas. Not derived from arithmetic or source ordering."
+  },
+  {
+    "id": "Newton.parabola_area",
+    "kind": "source_named_conic_import",
+    "passages": ["NATP00077.par37", "NATP00082.par44", "NATP00087.par43"],
+    "formal_field": null,
+    "boundary": "Newton invokes the nature of the parabola. The code does not import its target area coefficient: AreaCoefficient derives 1/3 by finite sums and rectangle enclosure."
+  },
+  {
+    "id": "Area.rectangle_enclosure",
+    "kind": "imported_geometry",
+    "passages": ["NATP00077.par3", "NATP00077.par4", "NATP00082.par4", "NATP00082.par5"],
+    "formal_field": "enclosed arguments of Contact.linear_area_coefficient / parabolic_area_coefficient",
+    "boundary": "The selected area's every lower and upper finite rectangle sum encloses it. Rational order and finite sums then uniquely determine the coefficient."
+  }
+]

@@ -8,3 +8,5 @@ import NewtonLimitDynamics.Polygon.Finite
 import NewtonLimitDynamics.Polygon.Enclosure
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
+import NewtonLimitDynamics.Comparison.Routes
+import NewtonLimitDynamics.Contact.AreaCoefficient

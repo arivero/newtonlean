@@ -512,6 +512,36 @@ Dividatur tempus in partes æquales, & prima temporis parte describat corpus vi 
 
 Translation status: identifying_translation_not_full. Divide time equally. Inertia gives equal successive unforced segments; parallel central impulse preserves triangle area. Increase triangle number and decrease width; Lemma III corollary 4 is cited for a curved limiting perimeter. Newton then asserts uninterrupted central action.
 
+## NATP00077.par76
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par76
+
+Si corpus P revolvendo circa centrum S, describat lineam quamvis curvam APQ, tangat vero recta ZPR curvam illam in puncto quovis P, & ad tangentem ab alio quovis curvæ puncto Q agatur QR distantiæ SP parallela, ac demittatur QT perpendicularis ad distantiam SP: Dico quod vis centripeta sit reciproce ut solidum SP quad.×QT quad.QR, si modo solidi illius ea semper sumatur quantilas quæ ultimo fit ubi coeunt puncta P & Q.
+
+Translation status: not_translated.
+
+## NATP00077.par77
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par77
+
+Namq; in figura indefinite parva QRPT lineola nascens QR, data tempore, est ut vis centripeta (per Leg. II.) & data vi, ut quadratum temporis (per Lem. X.) atq; adeo, neutro dato, ut vis centripeta & quadratum temporis conjunctim, adeoq; vis centripeta ut lineola QR directe & quadratum temporis inverse. Est autem tempus ut area SPQ, ejusve dupla SP×QT, id est ut SP & QT conjunctim, adeoq; vis centripeta ut QR directe atq; SP quad. in QT quad. inverse, id est ut SP quad.×QT quad.QR inverse. Q.E.D.
+
+Translation status: identifying_translation_not_full. Generated QR at fixed time follows force by law II; at fixed force follows squared time by lemma X. Sector area supplies elapsed time.
+
+## NATP00077.par78
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par78
+
+Corol. Hinc si detur figura quævis, & in ea punctum ad quod vis centripeta dirigitur; inveniri potest lex vis centripetæ quæ corpus in figuræ illius perimetro gyrari faciet. Nimirum computandum est solidum SP quad.×QT quad.QR huic vi reciproce proportionale. Ejus rei dabimus exempla in problematis sequentibus.
+
+Translation status: not_translated.
+
 ## NATP00082.par2
 
 Witness: De Motu Corporum (Liber Primus) (1713)
@@ -862,6 +892,126 @@ Dividatur tempus in partes æquales, & prima temporis parte describat corpus vi 
 
 Translation status: identifying_translation_not_full. Divide time equally. Inertia gives equal successive unforced segments; parallel central impulse preserves triangle area. Increase triangle number and decrease width; Lemma III corollary 4 is cited for a curved limiting perimeter. Newton then asserts uninterrupted central action.
 
+## NATP00082.par53
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par53
+
+Corol. 2. Si arcuum duorum æqualibus temporibus in spatiis non resistentibus ab eodem corpore successive descriptorum chordæ AB, BC compleantur in parallelogrammum ABCU, & hujus diagonalis BU in ea positione quam ultimo habet ubi arcus illi infinitum diminuuntur, producator utrinque; transibit eadem per centrum virium.
+
+Translation status: not_translated.
+
+## NATP00082.par54
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par54
+
+Corol. 3. Si arcuum æqualibus temporibus in spatiis non resistentibus descriptorum chordæ AB, BC ac DE, EF compleantur in parallelogramma ABCU, DEFZ; vires in B & E sunt ad invicem in ultima ratione diagonalium BU, EZ, ubi arcus isti in infinitum diminuuntur. Nam corporis motus BC & EF componuntur (per Legum Corol. 1.) ex motibus Bc, BU & Ef, EZ: atqui BU & EZ, ipsis Cc & Ff æquales, in Demonstratione Propositionis hujus generabantur ab impulsibus vis centripetæ in B & E, ideoque sunt his impulsibus proportionales.
+
+Translation status: not_translated.
+
+## NATP00082.par55
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par55
+
+Corol. 4. Vires quibus corpora quælibet in spatiis non resistentibus a motus rectilineis retrahuntur ac detorquentur in orbes curvos sunt inter se ut arcuum æqualibus temporibus descriptorum sagittæ illæ quæ convergunt ad centrum virium, & chordas bisecant ubi arcus illi in infinitum diminuuntur. Nam hæ sagittæ sunt semisses diagonalium de quibus egimus in Corollario tertio.
+
+Translation status: not_translated.
+
+## NATP00082.par56
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par56
+
+Corol. 5. Ideoque vires eædem sunt ad vim gravitatis, ut hæ sagittæ ad sagittas horizonti perpendiculares arcuum Parabolicorum quos projectilia eodem tempore describunt.
+
+Translation status: not_translated.
+
+## NATP00082.par88
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par88
+
+Si corpus in spatio non resistente circa centrum immobile in Orbe quocunque revolvatur, & arcum quemvis jamjam nascentem tempore quàm minimo describat, & sagitta arcus duci intelligatur quæ chordam bisecet, & producta transeat per centrum virium: erit vis centrepeta in medio arcus, ut sagitta directe & tempus bis inverse.
+
+Translation status: not_translated.
+
+## NATP00082.par89
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par89
+
+Nam sagitta dato tempore est ut vis (per Corol. 4 Prop. I,) & augendo tempus in ratione quavis, ob auctum arcum in eadem ratione sagitta augetur in ratione illa duplicata (per Corol. 2 & 3, Lem. XI,) adeoque est ut vis semel & tempus bis.Subducatur duplicata ratio temporis utrinque, & fiet vis ut sagitta directe & tempus bis inverse. Q.E.D.
+
+Translation status: identifying_translation_not_full. At fixed time sagitta varies with force by proposition I corollary 4; its quadratic time scaling invokes lemma XI corollaries 2 and 3.
+
+## NATP00082.par90
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par90
+
+Idem facile demonstratur etiam per Corol. 4 Lem. X.
+
+Translation status: identifying_translation_not_full. The same is also easily demonstrated by corollary 4 of lemma X.
+
+## NATP00082.par91
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par91
+
+Corol.1.Si corpus P revolvendo circa centrum S describat lineam curvam APQ, tangat verò recta ZPR curvam illam in puncto quovis P, & ad tangentem ab alio quovis Curvæ puncto Q agatur QR distantiæ SP parallela, ac demittatur QT perpendicularis ad distantiam illam SP: vis centripeta erit reciproce ut solidum SP quad.×QT quad.QR si modo solidi illius ea semper sumatur quantitas, quæ ultimò fit ubi coeunt puncta P & Q. Nam QR æqualis est sagittæ dupli arcus QP, in cusjus medio est P, & duplum trianguli SQP sive SP×QT, tempori quo arcus iste duplus describitur proportionale est, ideoque pro temporis exponente scribi potest.
+
+Translation status: identifying_translation_not_full. QR equals the sagitta of the doubled arc whose midpoint is P; the doubled triangle supplies the corresponding time measure.
+
+## NATP00082.par92
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par92
+
+Corol. 2. Eodem argumento vis centripeta est reciprocè ut solidum SYq×QPqQR, si modo SY perpendiculum sit a centro virium in Orbis tangentem P R demissum. Nam rectangula SP×QP & SP×QT æquantur.
+
+Translation status: not_translated.
+
+## NATP00082.par93
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par93
+
+Corol. 3. Si Orbis vel circulus est, vel angulum contactus cum circulo quam minimum continet, eandem habens curvaturam eundemque radium curvaturæ ad punctum contactus P; & si PV chorda sit circuli hujus a corpore per centrum virium acta: erit vis centripeta reciproce ut solidum SYq×PV. Nam PV est QPqQR.
+
+Translation status: identifying_translation_not_full. The force ratio uses the curvature-circle chord through the force centre and the squared perpendicular from centre to tangent. The 1726 wording additionally admits concentric crossing.
+
+## NATP00082.par94
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par94
+
+Corol. 4. Iisdem positis, est vis centripeta ut velocitas bis directe, & chorda illa inverse. Nam velocitas est reciproce ut perpendiculum SY per Corol. 1 Prop. 1.
+
+Translation status: not_translated.
+
+## NATP00082.par102
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par102
+
+Corol. 3. Vis, qua corpus P in Orbe quocunque circum virium centrum S revolvitur, est ad vim qua corpus idem P in eodem orbe eodemque tempore periodico circum aliud quodvis virium centrum R revolvi potest, ut SP×RPq contentum utique sub distantia corporis a primo virium centro S & quadrato distantiæ ejus a secundo virium centro R ad cubum rectæ SG quæ a primo virium centro S ad orbis tangentem PG ducitur, & corporis a secundo virium centro distantiæ RP parallela est. Nam vires in hoc Orbe, ad ejus punctum quodvis P, eædem sunt ac in Circulo ejusdem curvaturæ.
+
+Translation status: not_translated.
+
 ## NATP00075.par1
 
 Witness: Definitiones (1687)
@@ -1122,6 +1272,466 @@ Si corpus dato tempore, vi sola M in loco A impressa, ferretur uniformi cum motu
 
 Translation status: identifying_translation_not_full. Construct the parallelogram; each force leaves the approach to the parallel opposite side unchanged, so the body reaches their intersection.
 
+## NATP00087.par1
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par1
+
+Quantitates, ut & quantitatum rationes, quæ ad æqualitatem tempore quovis finito constanter tendunt, & ante finem temporis illius propius ad invicem accedunt quam pro data quavis differentia, fiunt ultimo æquales.
+
+Translation status: not_translated.
+
+## NATP00087.par2
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par2
+
+SI negas; fiant ultimo inæquales, & sit earum ultima differentia D. Ergo nequeunt propius ad æqualitatem accedere quam pro data differentia D: contra hypothesin.
+
+Translation status: not_translated.
+
+## NATP00087.par3
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par3
+
+Si in figura quavis AacE, rectis Aa, AE & curva acE comprehensa, inscribantur parallelogramma quotcunque Ab, Bc, Cd, &c. sub basibus AB, BC, CD, &c. æqualibus, & lateribus Bb, Cc, Dd, &c. figuræ lateri Aa parallelis contenta; & compleantur parallelogramma aKbl, bLcm, cMdn, &c. Dein horum parallelogrammorum latitudo minuatur, & numerus augeatur in infinitum: dico quod ultimæ rationes quas habent ad se invicem figura inscripta AKbLcMdD, circumscripta AalbmcndoE, & curvilinea AabcdE, sunt rationes æqualitatis.
+
+Translation status: not_translated.
+
+## NATP00087.par4
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par4
+
+Nam figuræ inscriptæ & circumscriptæ differentia est summa parallelogrammorum Kl, Lm, Mn, Do, hoc est (ob æquales omnium bases) rectangulum sub unius basi Kb & altitudinum summa Aa, id est, rectangulum ABla. Sed hoc rectangulum, eo quod latitudo ejus AB in infinitum minuitur, fit minus quovis dato. Ergo (per lemma i) figura inscripta & circumscripta & multo magis figura curvilinea intermedia fiunt ultimo æquales. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00087.par5
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par5
+
+Eædem rationes ultimæ sunt etiam rationes æqualitatis, ubi parallelogrammorum latitudines AB, BC, CD &c. sunt inæquales, & omnes minuuntur in infinitum.
+
+Translation status: not_translated.
+
+## NATP00087.par6
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par6
+
+Sit enim AF æqualis latitudini maximæ, & compleatur parallelogrammum FAaf. Hoc erit majus quam differentia figuræ inscriptæ & figuræ circumscriptæ; at latitudine sua AF in infinitum diminuta, minus fiet dato quovis rectangulo. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00087.par7
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par7
+
+Corol. 1. Hinc summa ultima parallelogrammorum evanescentium coincidit omni ex parte cum figura curvilinea.
+
+Translation status: not_translated.
+
+## NATP00087.par8
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par8
+
+Corol. 2. Et multo magis figura rectilinea, quæ chordis evanescentium arcuum ab, bc, cd, &c. comprehenditur, coincidit ultimo cum figura curvilinea.
+
+Translation status: not_translated.
+
+## NATP00087.par9
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par9
+
+Corol. 3. Ut & figura rectilinea circumscripta quæ tangentibus eorundem arcuum comprehenditur.
+
+Translation status: not_translated.
+
+## NATP00087.par10
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par10
+
+Corol. 4. Et propterea hæ figuræ ultimæ (quoad perimetros acE;) non sunt rectilineæ, sed rectilinearum limites curvilinei.
+
+Translation status: not_translated.
+
+## NATP00087.par25
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par25
+
+Si recta AE & curva ABC positione datæ se mutuo secent in angulo dato A, & ad rectam illam in alio dato angulo ordinatim applicentur BD, CE, curvæ occurrentes in B, C, dein puncta B, C simul accedant ad punctum A: dico quod areæ triangulorum ABD, ACE erunt ultimo ad invicem in duplicata ratione laterum.
+
+Translation status: not_translated.
+
+## NATP00087.par26
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par26
+
+Etenim dum puncta B, C accedunt ad punctum A, intelligatur semper AD produci ad puncta longinqua d & e, ut sint Ad, Ae ipsis AD, AE proportionales, & erigantur ordinatæ db, ec ordinatis DB, EC parallelæ quæ occurant ipsis AB, AC productis in b & c. Duci intelligatur, tum curva Abc ipsi ABC similis, tum recta Ag, quæ tangat curvam utramque in A, & secet ordinatim applicatas DB, EC, db, ec in F, G, f, g. Tum manente longitudine Ae coeant puncta B, C cum puncto A; & angulo cAg evanescente, coincident areæ curvilineæ Abd, Ace cum rectilineis Afd, Age; ideoque (per lemma v.) erunt in duplicata ratione laterum Ad, Ae: Sed his areis proportionales semper sunt areæ ABD, ACE, & his lateribus latera AD, AE. Ergo & areæ ABD, ACE sunt ultimo in duplicata ratione laterum AD, AE. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00087.par27
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par27
+
+Spatia quæ corpus urgente quacunque vi finita describit, sive vis illa determinata & immutabilis sit, sive eadem continuo augetur vel continuo diminuatur, sunt ipso motus initio in duplicata ratione temporum.
+
+Translation status: not_translated.
+
+## NATP00087.par28
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par28
+
+Exponantur tempora per lineas AD, AE, & velocitates genitæ per ordinatas DB, EC; & spatia his velocitatibus descripta, erunt ut areæ ABD, ACE his ordinatis descriptæ, hoc est, ipso motus initio (per lemma ix) in duplicata ratione temporum AD, AE. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00087.par29
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par29
+
+Corol. 1. Et hinc facile colligitur, quod corporum similes similium figurarum partes temporibus proportionalibus describentium errores, qui viribus quibusvis æqualibus ad corpora similiter applicatis generantur, & mensurantur per distantias corporum a figurarum similium locis illis, ad quæ corpora eadem temporibus iisdem proportionalibus sine viribus istis pervenirent, sunt ut quadrata temporum in quibus generantur quam proxime.
+
+Translation status: not_translated.
+
+## NATP00087.par30
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par30
+
+Corol. 2. Errores autem qui viribus proportionalibus ad similes figurarum similium partes similiter applicatis generantur, sunt ut vires & quadrata temporum conjunctim.
+
+Translation status: not_translated.
+
+## NATP00087.par31
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par31
+
+Corol. 3. Idem intelligendum est de spatiis quibusvis quæ corpora urgentibus diversis viribus describunt. Hæc sunt, ipso motus initio, ut vires & quadrata temporum conjunctim.
+
+Translation status: not_translated.
+
+## NATP00087.par32
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par32
+
+Corol. 4. Ideoque vires sunt ut spatia, ipso motus initio, descripta directe & quadrata temporum inverse.
+
+Translation status: not_translated.
+
+## NATP00087.par33
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par33
+
+Corol. 5. Et quadrata temporum sunt ut descripta spatia directe & vires inverse.
+
+Translation status: not_translated.
+
+## NATP00087.par34
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par34
+
+Si quantitates indeterminatæ diversorum generum conferantur inter se, & earum aliqua dicatur esse ut est alia quævis directe vel inverse: sensus est, quod prior augetur vel diminuitur in eadem ratione cum posteriore, vel cum ejus reciproca. Et si earum aliqua dicatur esse ut sunt aliæ duæ vel plures directe vel inverse: sensus est, quod prima augetur vel diminuitur in ratione quæ componitur ex rationibus in quibus aliæ vel aliarum reciprocæ augentur vel diminuuntur. Ut si A dicatur esse ut B directe & C directe & D inverse: sensus est, quod A augetur vel diminuitur in eadem ratione cum B×C× 1D, hoc est, A & BCD sunt ad invicem in ratione data.
+
+Translation status: not_translated.
+
+## NATP00087.par35
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par35
+
+Subtensa evanescens anguli contactus, in curvis omnibus curvaturam finitam ad punctum contactus habentibus, est ultimo in ratione duplicata subtensæ arcus contermini.
+
+Translation status: not_translated.
+
+## NATP00087.par36
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par36
+
+Cas. 1. Sit arcus ille AB, tangens ejus AD, subtensa anguli contactus ad tangentem perpendicularis BD, subtensa arcus AB. Huic subtensæ AB & tangenti AD perpendiculares erigantur AG, BG, concurrentes in G; dein accedant puncta D, B, G, ad puncta d, b, g, sitque J intersectio linearum BG, AG ultimo facta ubi puncta D, B accedunt usque ad A. Manifestum est quod distantia GJ minor esse potest quam assignata quævis. Est autem (ex natura circulorum per puncta ABG, Abg transeuntium) AB quad. æquale AG×BD,& Abquad. æquale Ag×bd, ideoque ratio AB quad. ad Ab quad. componitur ex rationibus AG ad Ag & BD ad bd. Sed quoniam GJ assumi potest minor longitudine quavis assignata, fieri potest ut ratio AG ad Ag minus differat a ratione æqualitatis quam pro differentia quavis assignata, ideoque ut ratio AB quad. ad Ab quad. minus differat a ratione BD ad bd quam pro differentia quavis assignata. Est ergo, per lemma i, ratio ultima AB quad. ad Ab quad. eadem cum ratione ultima BD ad bd. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00087.par37
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par37
+
+Cas. 2. Inclinetur jam BD ad AD in angulo quovis dato, & eadem semper erit ratio ultima BD ad bd quæ prius, ideoque eadem ac AB quad. ad Ab quad. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00087.par38
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par38
+
+Cas. 3. Et quamvis angulus D non detur, sed recta BD ad datum punctum convergat, vel alia quacunque lege constituatur; tamen anguli D, d communi lege constitui ad æqualitatem semper vergent & propius accedent ad invicem quam pro differentia quavis assignata, ideoque ultimo æquales erunt, per lem. i., & propterea lineæ BD, bd sunt in eadem ratione ad invicem ac prius. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00087.par39
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par39
+
+Corol. 1. Unde cum tangentes AD, Ad, arcus AB, Ab, & eorum sinus BC, bc fiant ultimo chordis AB, Ab æquales; erunt etiam illorum quadrata ultimo ut subtensæ BD, bd.
+
+Translation status: not_translated.
+
+## NATP00087.par40
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par40
+
+Corol. 2. Eorundem quadrata sunt etiam ultimo ut sunt arcuum sagittæ, quæ chordas bisecant & ad datum punctum convergunt. Nam saggitæ illæ sunt ut subtensæ BD, bd.
+
+Translation status: not_translated.
+
+## NATP00087.par41
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par41
+
+Corol. 3. Ideoque saggita est in duplicata ratione temporis quo corpus data velocitate describit arcum.
+
+Translation status: not_translated.
+
+## NATP00087.par42
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par42
+
+Corol. 4. Triangula rectilinea ADB, Adb sunt ultimo in triplicata ratione laterum AD, Ad, inque sesquiplicata laterum DB, db; utpote in composita ratione laterum AD & DB, Ad & db existentia. Sic & triangula ABC, Abc sunt ultimo in triplicata ratione laterum BC, bc. Rationem vero sesquiplicatam voco triplicatæ subduplicatam, quæ nempe ex simplici & subduplicata componitur.
+
+Translation status: not_translated.
+
+## NATP00087.par43
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par43
+
+Corol. 5. Et quoniam DB, db sunt ultimo parallelæ & in duplicata ratione ipsarum AD, Ad: erunt areæ ultimæ curvilineæ ADB, Adb (ex natura parabolæ) duæ tertiæ partes triangulorum rectilineorum ADB, Adb; & segmenta AB, Ab partes tertiæ eorundem triangulorum. Et inde hæ areæ & hæc segmenta erunt in triplicata ratione tum tangentium AD, Ad; tum chordarum & arcuum AB, Ab.
+
+Translation status: not_translated.
+
+## NATP00087.par44
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par44
+
+Cæterum in his omnibus supponimus angulum contactus nec infinite majorem esse angulis contactuum, quos circuli continent cum tangentibus suis, nec iisdem infinite minorem; hoc est, curvaturam ad punctum A, nec infinite parvam esse nec infinite magnam, seu intervallum AJ finitæ esse magnitudinis. Capi enim potest DB ut AD3: quo in casu circulus nullus per punctum A inter tangentem AD & curvam AB duci potest, proindeque angulus contactus erit infinite minor circularibus. Et simili argumento si fiat DB successive ut AD4,AD5,AD6,AD7, &c. habebitur series angulorum contactus pergens in infinitum, quorum quilibet posterior est infinite minor priore. Et si fiat DB successive ut AD2,AD32,AD43,AD54,AD65,AD76, &c. habebitur alia series infinita angulorum contactus, quorum primus est ejusdem generis cum circularibus, secundus infinite major, & quilibet posterior infinite major priore. Sed & inter duos quosvis ex his angulis potest series utrinque in infinitum pergens angulorum intermediorum inseri, quorum quilibet posterior erit infinite major minorve priore. Ut si inter terminos AD2&AD3 inseratur series AD136,AD115,AD94, AD73,AD52,AD83,AD114,AD145,AD176, &c. Et rursus inter binos quosvis angulos hujus seriei inseri potest series nova angulorum intermediorum ab invicem infinitis intervallis differentium. Neque novit natura limitem.
+
+Translation status: not_translated.
+
+## NATP00087.par48
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par48
+
+Areas, quas corpora in gyros acta radiis ad immobile centrum virium ductis describunt, & in planis immobilibus consistere, & esse temporibus proportionales.
+
+Translation status: not_translated.
+
+## NATP00087.par49
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par49
+
+Dividatur tempus in partes æquales, & prima temporis parte describat corpus vi insita rectam AB. Idem secunda temporis parte, si nil impediret, recta pergeret ad c, (per leg. i.) describens lineam Bc æqualem ipsi AB; adeo ut radiis AS, BS, cS ad centrum actis, confectæ forent æquales areæ ASB, BSc. Verum ubi corpus venit ad B, agat vis centripeta impulsu unico sed magno, efficiatque ut corpus de recta Bc declinet & pergat in recta BC. Ipsi BS parallela agatur cC, occurrens BC in C; & completa secunda temporis parte, corpus (per legum corol. 1.) reperietur in C, in eodem plano cum triangulo ASB. Junge SC; & triangulum SBC, ob parallelas SB, Cc, æquale erit triangulo SBc, atque ideo etiam triangulo SAB. Simili argumento si vis centripeta successive agat in C, D, E, &c. faciens ut corpus singulis temporis particulis singulas describat rectas CD, DE, EF, &c. jacebunt hæ omnes in eodem plano; & triangulum SCD triangulo SBC, & SDE ipsi SCD, & SEF ipsi SDE æquale erit. Æqualibus igitur temporibus æquales areæ in plano immoto describuntur: & componendo, sunt arearum summæ quævis SADS, SAFS inter se, ut sunt tempora descriptionum. Augeatur jam numerus & minuatur latitudo triangulorum in infinitum; & eorum ultima perimeter ADF, (per corollarium quartum lemmatis tertii) erit linea curva: ideoque vis centripeta, qua corpus a tangente hujus curvæ perpetuo retrahitur, aget indesinenter; areæ vero quævis descriptæ SADS, SAFS temporibus descriptionum semper proportionales, erunt iisdem temporibus in hoc casu proportionales. Q.E.D.
+
+Translation status: not_translated.
+
+## NATP00087.par50
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par50
+
+Corol. 1. Velocitas corporis in centrum immobile attracti est in spatiis non resistentibus reciproce ut perpendiculum a centro illo in orbis tangentem rectilineam demissum. Est enim velocitas in locis illis A, B, C, D, E, ut sunt bases æqualium triangulorum AB, BC, CD, DE, EF; & hæ bases sunt reciproce ut perpendicula in ipsas demissa.
+
+Translation status: not_translated.
+
+## NATP00087.par51
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par51
+
+Corol. 2. Si arcuum duorum æqualibus temporibus in spatiis non resistentibus ab eodem corpore successive descriptorum chordæ AB, BC compleantur in parallelogrammum ABCU, & hujus diagonalis BU in ea positione quam ultimo habet ubi arcus illi infinitum diminuuntur, producator utrinque; transibit eadem per centrum virium.
+
+Translation status: not_translated.
+
+## NATP00087.par52
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par52
+
+Corol. 3. Si arcuum æqualibus temporibus in spatiis non resistentibus descriptorum chordæ AB, BC ac DE, EF compleantur in parallelogramma ABCU, DEFZ; vires in B & E sunt ad invicem in ultima ratione diagonalium BU, EZ, ubi arcus isti in infinitum diminuuntur. Nam corporis motus BC & EF componuntur (per legum corol. 1.) ex motibus Bc, BU & Ef, EZ: atqui BU & EZ, ipsis Cc & Ff æquales, in demonstratione propositionis hujus generabantur ab impulsibus vis centripetæ in B & E, ideoque sunt his impulsibus proportionales.
+
+Translation status: not_translated.
+
+## NATP00087.par53
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par53
+
+Corol. 4. Vires quibus corpora quælibet in spatiis non resistentibus a motibus rectilineis retrahuntur ac detorquentur in orbes curvos sunt inter se ut arcuum æqualibus temporibus descriptorum sagittæ illæ quæ convergunt ad centrum virium, & chordas bisecant ubi arcus illi in infinitum diminuuntur. Nam hæ sagittæ sunt semisses diagonalium, de quibus egimus in corollario tertio.
+
+Translation status: not_translated.
+
+## NATP00087.par54
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par54
+
+Corol. 5. Ideoque vires eædem sunt ad vim gravitatis, ut hæ sagittæ ad sagittas horizonti perpendiculares arcuum parabolicorum, quos projectilia eodem tempore describunt.
+
+Translation status: not_translated.
+
+## NATP00087.par86
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par86
+
+Si corpus in spatio non resistente circa centrum immobile in orbe quocunque revolvatur, & arcum quemvis jamjam nascentem tempore quam minimo describat, & sagitta arcus duci intelligatur, quæ chordam bisecet, & producta transeat per centrum virium: erit vis centripeta in medio arcus, ut sagitta directe & tempus bis inverse.
+
+Translation status: not_translated.
+
+## NATP00087.par87
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par87
+
+Nam sagitta dato tempore est ut vis (per corol. 4 prop. i.) & augendo tempus in ratione quavis, ob auctum arcum in eadem ratione sagitta augetur in ratione illa duplicata (per corol. 2 & 3, lem. xi.) ideoque est ut vis semel & tempus bis. Subducatur duplicata ratio temporis utrinque, & fiet vis ut sagitta directe & tempus bis inverse. Q.E.D.
+
+Translation status: identifying_translation_not_full. At fixed time sagitta varies with force by proposition I corollary 4; its quadratic time scaling invokes lemma XI corollaries 2 and 3.
+
+## NATP00087.par88
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par88
+
+Idem facile demonstratur etiam per corol. 4 lem. x.
+
+Translation status: identifying_translation_not_full. The same is also easily demonstrated by corollary 4 of lemma X.
+
+## NATP00087.par89
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par89
+
+Corol. 1. Si corpus P revolvendo circa centrum S describat lineam curvam APQ; tangat vero recta ZPR curvam illam in puncto quovis P, & ad tangentem ab alio quovis curvæ puncto Q agatur QR distantiæ SP parallela, ac demittatur QT perpendicularis ad distantiam illam SP: vis centripeta erit reciproce ut solidum SP quad.×QT quad.QR; si modo solidi illius ea semper sumatur quantitas, quæ ultimo fit, ubi coeunt puncta P & Q. Nam QR æqualis est sagittæ dupli arcus QP, in cujus medio est P, & duplum trianguli SQP sive SP×QT, tempori quo arcus iste duplus describitur proportionale est; ideoque pro temporis exponente scribi potest.
+
+Translation status: identifying_translation_not_full. QR equals the sagitta of the doubled arc whose midpoint is P; the doubled triangle supplies the corresponding time measure.
+
+## NATP00087.par90
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par90
+
+Corol. 2. Eodem argumento vis centripeta est reciproce ut solidum SYq×QPqQR, si modo SY perpendiculum sit a centro virium in orbis tangentem PR demissum. Nam rectangula SY×QP & SP×QT æquantur.
+
+Translation status: not_translated.
+
+## NATP00087.par91
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par91
+
+Corol. 3. Si orbis vel circulus est, vel circulum concentrice tangit, aut concentrice secat, id est, angulum contactus aut sectionis cum circulo quam minimum continet, eandem habens curvaturam eundemque radium curvaturæ ad punctum contactus P; & si PV chorda sit circuli hujus a corpore per centrum virium acta: erit vis centripeta reciproce ut solidum SYq×PV. Nam PV est QPqQR.
+
+Translation status: identifying_translation_not_full. The force ratio uses the curvature-circle chord through the force centre and the squared perpendicular from centre to tangent. The 1726 wording additionally admits concentric crossing.
+
+## NATP00087.par92
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par92
+
+Corol. 4. Iisdem positis, est vis centripeta ut velocitas bis directe, & chorda illa inverse. Nam velocitas est reciproce ut perpendiculum SY per corol. 1 prop. i.
+
+Translation status: not_translated.
+
+## NATP00087.par93
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par93
+
+Corol. 5. Hinc si detur figura quævis curvilinea APQ, & in ea detur etiam punctum S, ad quod vis centripeta perpetuo dirigitur, inveniri potest lex vis centripetæ, qua corpus quodvis P a cursu rectilineo perpetuò retractum in figuræ illius perimetro detinebitur, eamque revolvendo describet. Nimirum computandum est vel solidum SPq×QTqQR vel solidum SYq×PV huic vi reciproce proportionale. Ejus rei dabimus exempla in problematis sequentibus.
+
+Translation status: not_translated.
+
+## NATP00087.par99
+
+Witness: De Motu Corporum (Liber Primus) (1726)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par99
+
+Corol. 3. Vis, qua corpus P in orbe quocunque circum virium centrum S revolvitur, est ad vim, qua corpus idem P in eodem orbe eodemque tempore periodico circum aliud quodvis virium centrum R revolvi potest, ut SP×RPq, contentum utique sub distantia corporis a primo virium centro S & quadrato distantiæ ejus a secundo virium centro R, ad cubum rectæ SG, quæ a primo virium centro S ad orbis tangentem PG ducitur, & corporis a secundo virium centro distantiæ RP parallela est. Nam vires in hoc orbe ad ejus punctum quodvis P eædem sunt ac in circulo ejusdem curvaturæ.
+
+Translation status: not_translated.
+
 ## RSreprint.H4
 
 Witness: Royal Society copy as edited by W. W. Rouse Ball, An Essay on Newton’s Principia (1893), p. 36
@@ -1131,4 +1741,24 @@ https://rcin.org.pl/impan/Content/235304/6087.pdf#page=50
 4. Spatium quod corpus, urgente quacunque vi centripeta, ipso motus initio describit, esse in duplicata ratione temporis.
 
 Translation status: translation_of_quoted_passage. The space a body describes under any centripetal force at the very beginning of motion is in the duplicate ratio of time.
+
+## Gregory.C44.sections
+
+Witness: Gregory memoranda 5-7 May 1694; Correspondence III, no.446, p.336
+
+https://gwern.net/doc/history/1694-gregory.pdf#page=3
+
+Sectionem IV et V cum Quadraturis Curvarum tractatu (quem vidi) 3 aut 4 foliorum (si ab utraque parte scriberetur) simul in uno libello at post principia editurus est.
+
+Translation status: translation_of_quoted_passage. He intends to publish Sections IV and V with the quadrature treatise, which I saw, together in a separate booklet after the Principia.
+
+## Brackenridge.ch8.plan
+
+Witness: J. Bruce Brackenridge (1995), The Key to Newton’s Dynamics, chapter 8, pp.167-169 and notes 3-9
+
+https://publishing.cdlib.org/ucpressebooks/view?docId=ft4489n8zn#d0e19174
+
+the order of the propositions is changed and some of them are omitted and deleted
+
+Translation status: English excerpt of Gregory as quoted by Brackenridge; not original Latin.
 

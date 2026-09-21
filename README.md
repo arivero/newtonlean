@@ -1,22 +1,41 @@
-# Formal Genealogy of Newton's Limit Dynamics
+# Newton's changing proof architecture
 
-This project reconstructs the changing dependency graph from Newton's *De motu*
-(1684) through the *Principia* (1687, proposed 1694 revisions, 1713 and selected
-1726 changes), and formalizes the mathematical content in Lean 4.
+Source-linked reconstructions of quadratic deflection, central-impulse polygons,
+contact-area bounds and proposed revisions, with separate De Motu, 1687,
+proposed-1694, 1713 and 1726 witnesses. Lean 4.19.0 core/Std only; no mathlib.
 
-The first milestone, M1, is deliberately narrow: track the logical status of
-the quadratic initial deflection `s ∝ t^2`. Historical statements, modern
-consequences, and editorial reconstructions remain separate.
+The implementation advances all four milestones but **does not certify them
+complete**. Geometric, mechanical and manuscript gaps remain explicit in
+[research state](research/STATE.md), [M1](research/M1.md), [M2](research/M2.md),
+[M3](research/M3.md), and [M4](research/M4.md). Historical results are distinct
+from conditional reconstructions and coordinate consistency examples.
 
-See [`research/STATE.md`](research/STATE.md), [`research/sources.md`](research/sources.md),
-and [`research/dependency-schema.yaml`](research/dependency-schema.yaml).
+Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
+[edition comparison](research/edition-comparison.md), and
+[formal result ledger](research/formal-results.json).
 
-Current result: [M1 evidence and proof boundary](research/M1.md),
-[primary passages](research/passages.md), and [generated graphs](research/graphs.md).
-M1 remains open: the compiled enclosure reconstruction is conditional on
-the geometric limits and mechanical area identification.
+```sh
+lake build
+lake build NewtonLimitDynamics
+python3 scripts/catalogue_m1.py
+python3 scripts/catalogue_formal.py
+python3 scripts/check_graph.py
+python3 scripts/compare_editions.py
+lake env lean research/CheckReferences.lean
+git diff --check
+```
 
-Build with `lake build` (Lean 4.19.0, core only, no external packages).
-Validate source-linked graphs with `python3 scripts/check_graph.py`.
-Re-extract marked primary passages with `python3 scripts/catalogue_m1.py`.
-No post-Newtonian theorem is used to bridge historical gaps.
+The historical extraction command name is retained; selections.json now covers
+all milestones. Graph validation checks local TEI anchors, source identity,
+edge metadata and acyclicity. Generated Lean reference checks inspect actual
+types and axioms. These checks do not establish an unproved historical premise.
+No post-Newtonian theorem supplies a missing historical construction.
+
+Additional integrity checks:
+
+```sh
+python3 scripts/test_evidence_validation.py
+sha256sum -c docs/SHA256SUMS
+```
+
+See [verification record](research/VERIFICATION.md) for observed results and limits.

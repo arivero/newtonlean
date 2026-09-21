@@ -14,5 +14,32 @@
       "DeMotu1684.QuadraticInitialDeflection"
     ],
     "verification": "Hypothesis number and wording visually checked on extracted page 2; editorial interventions declared on printed p.35."
+  },
+  {
+    "id": "Gregory.C44.sections",
+    "witness": "Gregory memoranda 5-7 May 1694; Correspondence III, no.446, p.336",
+    "stage": "proposed1694",
+    "source_path": "docs/m4/gregory-1694.pdf",
+    "anchor": "PDF p.3 / printed p.336, Sectionem IV et V",
+    "url": "https://gwern.net/doc/history/1694-gregory.pdf#page=3",
+    "revision_layer": "Edited Latin of C44, not C42; identity checked in p.339 note 1",
+    "latin": "Sectionem IV et V cum Quadraturis Curvarum tractatu (quem vidi) 3 aut 4 foliorum (si ab utraque parte scriberetur) simul in uno libello at post principia editurus est.",
+    "translation": "He intends to publish Sections IV and V with the quadrature treatise, which I saw, together in a separate booklet after the Principia.",
+    "translation_status": "translation_of_quoted_passage",
+    "formal_refs": []
+  },
+  {
+    "id": "Brackenridge.ch8.plan",
+    "witness": "J. Bruce Brackenridge (1995), The Key to Newton’s Dynamics, chapter 8, pp.167-169 and notes 3-9",
+    "stage": "proposed1694",
+    "source_path": "docs/m4/brackenridge-1995-locators.md",
+    "anchor": "chapter 8 pp.167-169; notes 3-9 cite Correspondence III p.384 and Mathematical Papers VI pp.573-589",
+    "url": "https://publishing.cdlib.org/ucpressebooks/view?docId=ft4489n8zn#d0e19174",
+    "revision_layer": "Secondary reconstruction with reproduced translations; original draft folios not collated",
+    "latin": "",
+    "text": "the order of the propositions is changed and some of them are omitted and deleted",
+    "translation": null,
+    "translation_status": "English excerpt of Gregory as quoted by Brackenridge; not original Latin",
+    "formal_refs": []
   }
 ]

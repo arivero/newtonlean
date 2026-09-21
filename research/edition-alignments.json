@@ -1,0 +1,115 @@
+[
+  {
+    "item": "Lemma X force premise",
+    "passages": {
+      "1687": [
+        "NATP00077.par27"
+      ],
+      "1713": [
+        "NATP00082.par28"
+      ],
+      "1726": [
+        "NATP00087.par27"
+      ]
+    },
+    "change": "Regular force becomes an explicit finite-force formulation in 1713, retained in 1726."
+  },
+  {
+    "item": "Lemma XI restriction",
+    "passages": {
+      "1687": [
+        "NATP00077.par31",
+        "NATP00077.par39"
+      ],
+      "1713": [
+        "NATP00082.par36",
+        "NATP00082.par45"
+      ],
+      "1726": [
+        "NATP00087.par35",
+        "NATP00087.par44"
+      ]
+    },
+    "change": "Finite curvature moves into the statement in 1713; the scholium restriction already exists in 1687."
+  },
+  {
+    "item": "Polygon limiting citation",
+    "passages": {
+      "1687": [
+        "NATP00077.par45"
+      ],
+      "1713": [
+        "NATP00082.par51"
+      ],
+      "1726": [
+        "NATP00087.par49"
+      ]
+    },
+    "change": "Lemma III corollary 4 remains explicitly cited; no Lemma X to Proposition I proof edge."
+  },
+  {
+    "item": "Main local-force proof",
+    "passages": {
+      "1687": [
+        "NATP00077.par76",
+        "NATP00077.par77"
+      ],
+      "1713": [
+        "NATP00082.par88",
+        "NATP00082.par89",
+        "NATP00082.par90"
+      ],
+      "1726": [
+        "NATP00087.par86",
+        "NATP00087.par87",
+        "NATP00087.par88"
+      ]
+    },
+    "change": "Generated-motion main proof is reorganized around sagitta; Lemma X corollary 4 remains an alternative."
+  },
+  {
+    "item": "Tangent-departure result",
+    "passages": {
+      "1687": [
+        "NATP00077.par76"
+      ],
+      "1713": [
+        "NATP00082.par91"
+      ],
+      "1726": [
+        "NATP00087.par89"
+      ]
+    },
+    "change": "1687 main Proposition VI becomes corollary 1 in the later editions; this is relocation, not deletion of its content."
+  },
+  {
+    "item": "Curvature machinery",
+    "passages": {
+      "1687": [
+        "NATP00077.par32"
+      ],
+      "1713": [
+        "NATP00082.par93"
+      ],
+      "1726": [
+        "NATP00087.par91"
+      ]
+    },
+    "change": "1687 contact-circle geometry differs from the later force corollary; 1726 explicitly adds concentric crossing to the 1713 touching wording."
+  },
+  {
+    "item": "Cubic-area conic import",
+    "passages": {
+      "1687": [
+        "NATP00077.par37"
+      ],
+      "1713": [
+        "NATP00082.par44"
+      ],
+      "1726": [
+        "NATP00087.par43"
+      ]
+    },
+    "change": "Parabola-based two-thirds/one-third area statement retained; not an automatically established coefficient in Lean."
+  }
+]

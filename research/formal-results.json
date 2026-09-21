@@ -1,0 +1,847 @@
+[
+  {
+    "name": "NewtonLimitDynamics.near_and",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/Quadratic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Magnitudes Q) (P R : Q → Prop)\n    (hp : Near g P) (hr : Near g R) : Near g (fun h => P h ∧ R h)",
+    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
+  },
+  {
+    "name": "NewtonLimitDynamics.enclosure_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/Quadratic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Magnitudes Q)\n    (ratio lower upper : Q → Q) (c : Q)\n    (hl : Ultimate g lower c) (hu : Ultimate g upper c)\n    (hb : Near g (fun h => g.le (lower h) (ratio h) ∧\n      g.le (ratio h) (upper h))) : Ultimate g ratio c",
+    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
+  },
+  {
+    "name": "NewtonLimitDynamics.near_has_witness",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/Quadratic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Magnitudes Q) (P : Q → Prop)\n    (h : Near g P) : ∃ x, g.positive x ∧ P x",
+    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
+  },
+  {
+    "name": "NewtonLimitDynamics.not_near_false",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/Quadratic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Magnitudes Q) : ¬ Near g (fun _ => False)",
+    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.transfer",
+    "private": true,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : le a b) (k : le b c) : le a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mixed",
+    "private": true,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : lt a b) (k : le b c) : lt a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mixed",
+    "private": true,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : lt a b) (k : le b c) : lt a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.half_lt",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (h : positive a) : lt a.half a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.equiv_iff_mutual_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : equiv a b ↔ le a b ∧ le b a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.equiv_refl",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : equiv a a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.equiv_symm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : equiv a b) : equiv b a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.equiv_trans",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : equiv a b) (k : equiv b c) : equiv a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_le_add_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction) :\n    le (add a c) (add b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : positive c) : le (mul a c) (mul b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_comm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : equiv (add a b) (add b a)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_comm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : equiv (mul a b) (mul b a)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.square_ratio",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(k t : Fraction) (ht : positive t) :\n    equiv (deflectionRatio (mul k (mul t t)) t ht) k",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_assoc",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) : equiv (add (add a b) c) (add a (add b c))",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_assoc",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) : equiv (mul (mul a b) c) (mul a (mul b c))",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_add",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) : equiv (mul a (add b c)) (add (mul a b) (mul a c))",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.positive_mul",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : positive a) (hb : positive b) :\n    positive (mul a b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.positive_iff_zero_lt",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : positive a ↔ lt (ofInt 0) a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.ultimate_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f k : Fraction → Fraction) (c : Fraction)\n    (he : ∀ t, positive t → equiv (f t) (k t))\n    (hk : Ultimate magnitudes k c) : Ultimate magnitudes f c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.triangle_normalized_limit",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(slope : Fraction → Fraction) (c : Fraction)\n    (hs : Ultimate magnitudes slope c) :\n    Ultimate magnitudes (ratio (fun t => mul (slope t) (mul t t))) c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.triangle_area_ratio",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(slope time : Fraction) (ht : positive time) :\n    equiv (deflectionRatio (triangleArea time (mul slope time)) time ht) (half slope)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.constructed_triangle_limit",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(slope : Fraction → Fraction) (c : Fraction)\n    (hs : Ultimate magnitudes (fun t => half (slope t)) c) :\n    Ultimate magnitudes (ratio (fun t => triangleArea t (mul (slope t) t))) c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_equiv_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(k : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (mul k a) (mul k b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_equiv_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(k : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (add a k) (add b k)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Comparison.twice_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Comparison/Routes.lean",
+    "source_passages": [
+      "NATP00082.par91",
+      "NATP00087.par89"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(t : Fraction) (ht : positive t) : positive (twice t)",
+    "interpretation_and_remaining_premises": "Constant-force coordinate example and matched-duration algebra; general orbit correspondence remains conditional."
+  },
+  {
+    "name": "NewtonLimitDynamics.Comparison.symmetric_parabola_sagitta",
+    "private": false,
+    "file": "NewtonLimitDynamics/Comparison/Routes.lean",
+    "source_passages": [
+      "NATP00082.par91",
+      "NATP00087.par89"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(acc time : Fraction) :\n    equiv (midpointHeight (parabolaHeight acc (negate time)) (parabolaHeight acc time))\n      (parabolaHeight acc time)",
+    "interpretation_and_remaining_premises": "Constant-force coordinate example and matched-duration algebra; general orbit correspondence remains conditional."
+  },
+  {
+    "name": "NewtonLimitDynamics.Comparison.generated_sagitta_commute",
+    "private": false,
+    "file": "NewtonLimitDynamics/Comparison/Routes.lean",
+    "source_passages": [
+      "NATP00082.par91",
+      "NATP00087.par89"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(displacement time : Fraction) (ht : positive time) :\n    equiv\n      (mul (ofInt 8) (deflectionRatio displacement (twice time) (twice_positive time ht)))\n      (mul (ofInt 2) (deflectionRatio displacement time ht))",
+    "interpretation_and_remaining_premises": "Constant-force coordinate example and matched-duration algebra; general orbit correspondence remains conditional."
+  },
+  {
+    "name": "NewtonLimitDynamics.Comparison.constant_force_generated",
+    "private": false,
+    "file": "NewtonLimitDynamics/Comparison/Routes.lean",
+    "source_passages": [
+      "NATP00082.par91",
+      "NATP00087.par89"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(acc time : Fraction) (ht : positive time) :\n    equiv (mul (ofInt 2) (deflectionRatio (parabolaHeight acc time) time ht)) acc",
+    "interpretation_and_remaining_premises": "Constant-force coordinate example and matched-duration algebra; general orbit correspondence remains conditional."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.zero_of_scaled_bounds",
+    "private": true,
+    "file": "NewtonLimitDynamics/Contact/AreaCoefficient.lean",
+    "source_passages": [
+      "NATP00077.par28",
+      "NATP00077.par37",
+      "NATP00082.par29",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(delta C : Int)\n    (h : ∀ n : Nat, 0 < n → (n : Int)*delta ≤ C ∧ (n : Int)*(-delta) ≤ C) : delta = 0",
+    "interpretation_and_remaining_premises": "Normalized linear/parabolic coefficients and scaled constant-force example from all finite rectangle enclosures; geometric enclosure and mechanical area identification remain distinct premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.parabolic_area_coefficient",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/AreaCoefficient.lean",
+    "source_passages": [
+      "NATP00077.par28",
+      "NATP00077.par37",
+      "NATP00082.par29",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(area : Fraction)\n    (enclosed : ∀ n : Nat, (hn : 0 < n) →\n      Fraction.le (lowerParabola n hn) area ∧ Fraction.le area (upperParabola n hn)) :\n    Fraction.equiv area ⟨1, 3, by decide⟩",
+    "interpretation_and_remaining_premises": "Normalized linear/parabolic coefficients and scaled constant-force example from all finite rectangle enclosures; geometric enclosure and mechanical area identification remain distinct premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.linear_area_coefficient",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/AreaCoefficient.lean",
+    "source_passages": [
+      "NATP00077.par28",
+      "NATP00077.par37",
+      "NATP00082.par29",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(area : Fraction)\n    (enclosed : ∀ n : Nat, (hn : 0 < n) →\n      Fraction.le (lowerLinear n hn) area ∧ Fraction.le area (upperLinear n hn)) :\n    Fraction.equiv area ⟨1, 2, by decide⟩",
+    "interpretation_and_remaining_premises": "Normalized linear/parabolic coefficients and scaled constant-force example from all finite rectangle enclosures; geometric enclosure and mechanical area identification remain distinct premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.constant_force_area_coefficients",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/AreaCoefficient.lean",
+    "source_passages": [
+      "NATP00077.par28",
+      "NATP00077.par37",
+      "NATP00082.par29",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(acc time linearArea parabolaArea : Fraction)\n    (hlinear : ∀ n : Nat, (hn : 0 < n) →\n      Fraction.le (lowerLinear n hn) linearArea ∧ Fraction.le linearArea (upperLinear n hn))\n    (hparabola : ∀ n : Nat, (hn : 0 < n) →\n      Fraction.le (lowerParabola n hn) parabolaArea ∧ Fraction.le parabolaArea (upperParabola n hn)) :\n    Fraction.equiv (Fraction.mul (Fraction.mul acc (Fraction.mul time time)) linearArea)\n      (Fraction.half (Fraction.mul acc (Fraction.mul time time))) ∧\n    Fraction.equiv (Fraction.mul (Fraction.half (Fraction.mul acc (Fraction.mul time (Fraction.mul time time)))) parabolaArea)\n      (Fraction.mul ⟨1, 6, by decide⟩ (Fraction.mul acc (Fraction.mul time (Fraction.mul time time))))",
+    "interpretation_and_remaining_premises": "Normalized linear/parabolic coefficients and scaled constant-force example from all finite rectangle enclosures; geometric enclosure and mechanical area identification remain distinct premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.le_quotient_iff",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/Bounds.lean",
+    "source_passages": [
+      "NATP00077.par32",
+      "NATP00077.par37",
+      "NATP00082.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) (hc : positive c) :\n    le a (Principia1713.quotient b c hc) ↔ le (mul a c) b",
+    "interpretation_and_remaining_premises": "Circle identity and positive diameter lower bound, or quadratic departure and rectangle enclosure, are explicit premises; no curved configuration is constructed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.normal_subtense_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/Bounds.lean",
+    "source_passages": [
+      "NATP00077.par32",
+      "NATP00077.par37",
+      "NATP00082.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(chord subtense diameter minDiameter : Fraction)\n    (hs : positive subtense) (hd : positive minDiameter)\n    (hmin : le minDiameter diameter)\n    (circle : equiv (mul diameter subtense) (mul chord chord)) :\n    le subtense (Principia1713.quotient (mul chord chord) minDiameter hd)",
+    "interpretation_and_remaining_premises": "Circle identity and positive diameter lower bound, or quadratic departure and rectangle enclosure, are explicit premises; no curved configuration is constructed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.cubic_rectangle_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/Bounds.lean",
+    "source_passages": [
+      "NATP00077.par32",
+      "NATP00077.par37",
+      "NATP00082.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(base departure defect K : Fraction)\n    (hb : positive base)\n    (hquad : le departure (mul K (mul base base)))\n    (henclose : le defect (mul departure base)) :\n    le defect (mul K (mul base (mul base base)))",
+    "interpretation_and_remaining_premises": "Circle identity and positive diameter lower bound, or quadratic departure and rectangle enclosure, are explicit premises; no curved configuration is constructed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.circle_identity_from_perpendicular",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/Bounds.lean",
+    "source_passages": [
+      "NATP00077.par32",
+      "NATP00077.par37",
+      "NATP00082.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y D : Int)\n    (perpendicular : x*x + y*(y-D) = 0) : x*x+y*y = D*y",
+    "interpretation_and_remaining_premises": "Circle identity and positive diameter lower bound, or quadratic departure and rectangle enclosure, are explicit premises; no curved configuration is constructed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.linear_rectangles",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(n : Nat) : 2 * nsum (fun i => i) n + n = n*n",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.quadratic_rectangles",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(n : Nat) :\n    6 * nsum (fun i => i*i) n + 3*(n*n) = 2*(n*n*n)+n",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.upper_lower_gap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(n : Nat) :\n    nsum (fun i => (i+1)*(i+1)) n = nsum (fun i => i*i) n + n*n",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.quadratic_lower_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(n : Nat) :\n    2*(n*n*n) ≤ 6*nsum (fun i => i*i) n + 3*(n*n)",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.sum_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Nat → Nat) (C n : Nat) (hf : ∀ i, i < n → f i ≤ C) :\n    nsum f n ≤ n*C",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.uniform_partition_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(error : Nat → Nat) (C n : Nat) (hn : 0 < n)\n    (hlocal : ∀ i, i < n → n*n*n*error i ≤ C) :\n    n*n*nsum error n ≤ C",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.nsum_mul",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Nat → Nat) (k n : Nat) :\n    nsum (fun i => f i*k) n = nsum f n*k",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.rational_uniform_partition_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(error : Nat → Nat)\n    (Knum Kden D n : Nat) (hk : 0 < Kden) (hd : 0 < D) (hn : 0 < n)\n    (hlocal : ∀ i, i < n → n*n*n*(error i*Kden) ≤ Knum*D) :\n    Fraction.le\n      ⟨(nsum error n : Int), (D : Int), Int.ofNat_lt.mpr hd⟩\n      ⟨(Knum : Int), (Kden*(n*n) : Nat),\n        Int.ofNat_lt.mpr (Nat.mul_pos hk (Nat.mul_pos hn hn))⟩",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Contact.reciprocal_budget_vanishes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Contact/FiniteSums.lean",
+    "source_passages": [
+      "NATP00077.par37",
+      "NATP00082.par44"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(error : Nat → Fraction) (C : Nat)\n    (hbound : ∀ n, (hn : 0 < n) → Fraction.le (error n)\n      ⟨(C : Int), (n : Int), Int.ofNat_lt.mpr hn⟩) : SeqVanishes error",
+    "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.isum_mono",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
+    "source_passages": [
+      "NATP00077.par6",
+      "NATP00082.par7",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f g : Nat → Int) (n : Nat) (h : ∀ i, i < n → f i ≤ g i) :\n    isum f n ≤ isum g n",
+    "interpretation_and_remaining_premises": "Rectangle arithmetic is proved. Curve enclosure, vanishing budget and inner/outer ratio limits are supplied where present in the signature."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.isum_mul",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
+    "source_passages": [
+      "NATP00077.par6",
+      "NATP00082.par7",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Nat → Int) (c : Int) (n : Nat) :\n    isum (fun i => c * f i) n = c * isum f n",
+    "interpretation_and_remaining_premises": "Rectangle arithmetic is proved. Curve enclosure, vanishing budget and inner/outer ratio limits are supplied where present in the signature."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.telescoping",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
+    "source_passages": [
+      "NATP00077.par6",
+      "NATP00082.par7",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(height : Nat → Int) (n : Nat) :\n    isum (fun i => height (i+1) - height i) n = height n - height 0",
+    "interpretation_and_remaining_premises": "Rectangle arithmetic is proved. Curve enclosure, vanishing budget and inner/outer ratio limits are supplied where present in the signature."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.rectangle_gap_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
+    "source_passages": [
+      "NATP00077.par6",
+      "NATP00082.par7",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(width height : Nat → Int) (maxWidth : Int) (n : Nat)\n    (hw : ∀ i, i < n → width i ≤ maxWidth)\n    (hh : ∀ i, i < n → height i ≤ height (i+1)) :\n    isum (fun i => width i * (height (i+1)-height i)) n ≤\n      maxWidth * (height n - height 0)",
+    "interpretation_and_remaining_premises": "Rectangle arithmetic is proved. Curve enclosure, vanishing budget and inner/outer ratio limits are supplied where present in the signature."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.enclosed_gap_vanishes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
+    "source_passages": [
+      "NATP00077.par6",
+      "NATP00082.par7",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(gap budget : Fraction → Fraction)\n    (hbudget : Vanishes budget)\n    (henclose : Near Fraction.magnitudes (fun mesh => Fraction.le (gap mesh) (budget mesh))) :\n    Vanishes gap",
+    "interpretation_and_remaining_premises": "Rectangle arithmetic is proved. Curve enclosure, vanishing budget and inner/outer ratio limits are supplied where present in the signature."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
+    "source_passages": [
+      "NATP00077.par6",
+      "NATP00082.par7",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(sector inner outer : Fraction → Fraction)\n    (c : Fraction) (hin : Ultimate Fraction.magnitudes inner c)\n    (hout : Ultimate Fraction.magnitudes outer c)\n    (henclose : Near Fraction.magnitudes (fun mesh =>\n      Fraction.le (inner mesh) (sector mesh) ∧ Fraction.le (sector mesh) (outer mesh))) :\n    Ultimate Fraction.magnitudes sector c",
+    "interpretation_and_remaining_premises": "Rectangle arithmetic is proved. Curve enclosure, vanishing budget and inner/outer ratio limits are supplied where present in the signature."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.central_step_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (j : Impulse) : g.area q (step g p q j) = g.area p q",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.all_cell_areas",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point)\n    (impulse : Nat → Impulse) (n : Nat) :\n    g.area (motion g p q impulse n).1 (motion g p q impulse n).2 = g.area p q",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.sum_constant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Nat → Int) (c : Int) (hf : ∀ i, f i = c) (n : Nat) :\n    isum f n = (n : Int) * c",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.swept_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point)\n    (impulse : Nat → Impulse) (n : Nat) : swept g p q impulse n = (n : Int) * g.area p q",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (dt : Int) (_hdt : 0 < dt) (m n : Nat) :\n    swept g p q impulse m * ((n : Int) * dt) =\n    swept g p q impulse n * ((m : Int) * dt)",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.extension_identity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : LatticePoint) : det q (extend p q) = det p q",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.parallel_identity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q x : LatticePoint) (j : Int) : det q (kick q x j) = det q x",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "Principia1687.constructed_quadratic_bridge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/ConstructedRatio.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00077.par28"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Fraction → Fraction) (c : Fraction)\n    (hc : positive c) (p : ContactEnclosure s c) :\n    DeMotu1684.QuadraticInitialDeflection magnitudes (ratio s) c",
+    "interpretation_and_remaining_premises": "Constructed ratio and triangle cancellation; contact limits, mechanical enclosure and positive coefficient remain premises."
+  },
+  {
+    "name": "Principia1687.lemmaX_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/LemmaX.lean",
+    "source_passages": [
+      "NATP00077.par28"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{Q : Type} (g : Magnitudes Q)\n    (ratio : Q → Q) (c : Q) (p : LemmaXPremises g ratio c) :\n    Ultimate g ratio c",
+    "interpretation_and_remaining_premises": "Legacy conditional squeeze: supplied triangle limits and mechanical velocity-area identification."
+  },
+  {
+    "name": "Principia1687.discharges_quadraticPremise_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/LemmaX.lean",
+    "source_passages": [
+      "NATP00077.par28"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{Q : Type}\n    (g : Magnitudes Q) (ratio : Q → Q) (c : Q)\n    (hc : g.positive c) (p : LemmaXPremises g ratio c) :\n    DeMotu1684.QuadraticInitialDeflection g ratio c",
+    "interpretation_and_remaining_premises": "Legacy conditional squeeze: supplied triangle limits and mechanical velocity-area identification."
+  },
+  {
+    "name": "Principia1713.corollary4_coefficient_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/ForceComparison.lean",
+    "source_passages": [
+      "NATP00082.par32",
+      "NATP00082.par33",
+      "NATP00082.par34"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(k f t : Fraction)\n    (hk : positive k) (ht : positive t) :\n    equiv (quotient (generated k f t) (mul k (mul t t))\n      (positive_mul k _ hk (positive_mul t t ht ht))) f",
+    "interpretation_and_remaining_premises": "Exact coefficient algebra only; common calibration, comparable force and positive denominators. Variable-force initial comparison not proved."
+  },
+  {
+    "name": "Principia1713.corollary5_coefficient_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/ForceComparison.lean",
+    "source_passages": [
+      "NATP00082.par32",
+      "NATP00082.par33",
+      "NATP00082.par34"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(k f t : Fraction)\n    (hk : positive k) (hf : positive f) :\n    equiv (quotient (generated k f t) (mul k f) (positive_mul k f hk hf))\n      (mul t t)",
+    "interpretation_and_remaining_premises": "Exact coefficient algebra only; common calibration, comparable force and positive denominators. Variable-force initial comparison not proved."
+  },
+  {
+    "name": "Principia1713.lemmaX_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/LemmaX.lean",
+    "source_passages": [
+      "NATP00082.par29"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{Q : Type} (g : Magnitudes Q)\n    (ratio : Q → Q) (c : Q) (p : LemmaXPremises g ratio c) :\n    Ultimate g ratio c",
+    "interpretation_and_remaining_premises": "Shared conditional geometry, not identification of edition-specific mechanical hypotheses."
+  }
+]

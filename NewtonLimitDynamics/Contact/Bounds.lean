@@ -51,4 +51,14 @@ theorem cubic_rectangle_bound (base departure defect K : Fraction)
     ac_rfl
   exact magnitudes.le_trans henclose (magnitudes.le_trans hm ((equiv_iff_mutual_le _ _).mp he).1)
 
+/-- Coordinate construction for Lemma XI case 1: A=(0,0), B=(x,y),
+    G=(0,D), with AB perpendicular to BG. The corresponding right-triangle
+    relation yields AB²=AG*BD; existence of G and its limiting position is
+    deliberately not inferred. This is a reconstruction of circle geometry. -/
+theorem circle_identity_from_perpendicular (x y D : Int)
+    (perpendicular : x*x + y*(y-D) = 0) : x*x+y*y = D*y := by
+  rw [Int.mul_sub] at perpendicular
+  have h : y*D = D*y := Int.mul_comm _ _
+  omega
+
 end NewtonLimitDynamics.Contact

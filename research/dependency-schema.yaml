@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "required_node_fields": [
     "id",
     "stage",
@@ -14,11 +14,18 @@
     "status",
     "passage",
     "confidence",
-    "notes"
+    "notes",
+    "witness",
+    "url",
+    "source_stage",
+    "revision_layer",
+    "formal_refs"
   ],
   "relations": [
     "proof_dependency",
-    "textual_comparison"
+    "textual_comparison",
+    "proposed_dependency",
+    "proposed_reordering"
   ],
   "statuses": [
     "explicit_dependency",
@@ -30,5 +37,17 @@
     "high",
     "medium",
     "low"
+  ],
+  "required_passage_fields": [
+    "id",
+    "witness",
+    "stage",
+    "source_path",
+    "anchor",
+    "url",
+    "revision_layer",
+    "translation",
+    "translation_status",
+    "formal_refs"
   ]
 }

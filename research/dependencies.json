@@ -50,14 +50,14 @@
       "passage": "NATP00082.par28"
     },
     {
-      "id": "P1713.C3",
+      "id": "P1713.L10C3",
       "stage": "1713",
       "type": "corollary",
       "statement": "Spaces jointly as force and time squared",
       "passage": "NATP00082.par32"
     },
     {
-      "id": "P1713.C4",
+      "id": "P1713.L10C4",
       "stage": "1713",
       "type": "corollary",
       "statement": "Force as space divided by time squared",
@@ -195,6 +195,219 @@
       "type": "restriction",
       "statement": "Finite nonzero curvature restriction; higher/lower orders excluded",
       "passage": "NATP00082.par45"
+    },
+    {
+      "id": "P1713.P6",
+      "stage": "1713",
+      "type": "theorem",
+      "statement": "Mid-arc force as sagitta over time squared",
+      "passage": "NATP00082.par88"
+    },
+    {
+      "id": "P1713.P1C4",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Force comparison by equal-time sagittae",
+      "passage": "NATP00082.par55"
+    },
+    {
+      "id": "P1713.L11C2",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Quadratic sagittae",
+      "passage": "NATP00082.par41"
+    },
+    {
+      "id": "P1713.L11C3",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Sagitta quadratic in time at given velocity",
+      "passage": "NATP00082.par42"
+    },
+    {
+      "id": "P1713.P6C1",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Tangent-departure force ratio",
+      "passage": "NATP00082.par91"
+    },
+    {
+      "id": "P1713.P6C3",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Curvature-chord force ratio",
+      "passage": "NATP00082.par93"
+    },
+    {
+      "id": "P1713.P7C3",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Force-centre comparison in same orbit and period",
+      "passage": "NATP00082.par102"
+    },
+    {
+      "id": "P1726.P6",
+      "stage": "1726",
+      "type": "theorem",
+      "statement": "Mid-arc force as sagitta over time squared",
+      "passage": "NATP00087.par86"
+    },
+    {
+      "id": "P1726.P1C4",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Force comparison by equal-time sagittae",
+      "passage": "NATP00087.par53"
+    },
+    {
+      "id": "P1726.L11C2",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Quadratic sagittae",
+      "passage": "NATP00087.par40"
+    },
+    {
+      "id": "P1726.L11C3",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Sagitta quadratic in time at given velocity",
+      "passage": "NATP00087.par41"
+    },
+    {
+      "id": "P1726.P6C1",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Tangent-departure force ratio",
+      "passage": "NATP00087.par89"
+    },
+    {
+      "id": "P1726.P6C3",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Curvature-chord force ratio",
+      "passage": "NATP00087.par91"
+    },
+    {
+      "id": "P1726.P7C3",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Force-centre comparison in same orbit and period",
+      "passage": "NATP00087.par99"
+    },
+    {
+      "id": "P1726.L9",
+      "stage": "1726",
+      "type": "lemma",
+      "statement": "Initial area ratios",
+      "passage": "NATP00087.par25"
+    },
+    {
+      "id": "P1726.L10",
+      "stage": "1726",
+      "type": "lemma",
+      "statement": "Initial generated displacement",
+      "passage": "NATP00087.par27"
+    },
+    {
+      "id": "P1726.L10C4",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Generated-displacement force ratio",
+      "passage": "NATP00087.par32"
+    },
+    {
+      "id": "P1726.L11",
+      "stage": "1726",
+      "type": "lemma",
+      "statement": "Finite-curvature contact",
+      "passage": "NATP00087.par35"
+    },
+    {
+      "id": "P1726.L11Cubic",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Cubic contact areas",
+      "passage": "NATP00087.par43"
+    },
+    {
+      "id": "P1726.L11Restriction",
+      "stage": "1726",
+      "type": "restriction",
+      "statement": "Finite nonzero curvature",
+      "passage": "NATP00087.par44"
+    },
+    {
+      "id": "P1726.P1",
+      "stage": "1726",
+      "type": "theorem",
+      "statement": "Central equal-area motion",
+      "passage": "NATP00087.par48"
+    },
+    {
+      "id": "P1726.L3C4",
+      "stage": "1726",
+      "type": "corollary",
+      "statement": "Curvilinear perimeter limit",
+      "passage": "NATP00087.par10"
+    },
+    {
+      "id": "P1687.P6",
+      "stage": "1687",
+      "type": "theorem",
+      "statement": "Force through tangent departure and time squared",
+      "passage": "NATP00077.par76"
+    },
+    {
+      "id": "P1687.Law2",
+      "stage": "1687",
+      "type": "mechanical_premise",
+      "statement": "Impressed force and generated motion",
+      "passage": "NATP00076.par3"
+    },
+    {
+      "id": "Draft.comparison",
+      "stage": "proposed1694",
+      "type": "proposal",
+      "statement": "Comparison route",
+      "passage": "Brackenridge.ch8.plan",
+      "manuscript_identity": "CUL Add.3965.6; exact folio unresolved",
+      "proposed_number": "8"
+    },
+    {
+      "id": "Draft.sagitta",
+      "stage": "proposed1694",
+      "type": "proposal",
+      "statement": "Sagitta and curvature route",
+      "passage": "Brackenridge.ch8.plan",
+      "manuscript_identity": "CUL Add.3965.6; exact folio unresolved",
+      "proposed_number": "9"
+    },
+    {
+      "id": "Draft.conic",
+      "stage": "proposed1694",
+      "type": "proposal",
+      "statement": "Proposed conic application",
+      "passage": "Brackenridge.ch8.plan",
+      "manuscript_identity": "CUL Add.3965.6; exact folio unresolved",
+      "proposed_number": "10"
+    },
+    {
+      "id": "Draft.sections",
+      "stage": "proposed1694",
+      "type": "proposal",
+      "statement": "Sections IV and V",
+      "passage": "Gregory.C44.sections",
+      "manuscript_identity": "Gregory C44 / RS fols.68-69",
+      "proposed_number": null
+    },
+    {
+      "id": "Draft.booklet",
+      "stage": "proposed1694",
+      "type": "proposal",
+      "statement": "Separate proposed booklet",
+      "passage": "Gregory.C44.sections",
+      "manuscript_identity": "Gregory C44 / RS fols.68-69",
+      "proposed_number": null
     }
   ],
   "edges": [
@@ -205,7 +418,12 @@
       "notes": "Marginal Lem. 2 citation.",
       "relation": "proof_dependency",
       "status": "explicit_dependency",
-      "confidence": "high"
+      "confidence": "high",
+      "witness": "'De motu sphæricorum corporum in fluidis'",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par27",
+      "revision_layer": "all marked additions and deletions retained; relative chronology unresolved",
+      "formal_refs": [],
+      "source_stage": "NATP00090"
     },
     {
       "from": "P1687.L9",
@@ -214,7 +432,12 @@
       "notes": "per Lemma IX.",
       "relation": "proof_dependency",
       "status": "explicit_dependency",
-      "confidence": "high"
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par28",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
     },
     {
       "from": "P1713.L9",
@@ -223,16 +446,28 @@
       "notes": "per Lemma IX.",
       "relation": "proof_dependency",
       "status": "explicit_dependency",
-      "confidence": "high"
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par29",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
     },
     {
-      "from": "P1713.C3",
-      "to": "P1713.C4",
+      "from": "P1713.L10C3",
+      "to": "P1713.L10C4",
       "passage": "NATP00082.par33",
       "notes": "Ideoque: inverse rearrangement.",
       "relation": "proof_dependency",
       "status": "explicit_dependency",
-      "confidence": "high"
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par33",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "Principia1713.corollary4_coefficient_reconstruction"
+      ],
+      "source_stage": "1713"
     },
     {
       "from": "P1687.L10",
@@ -241,7 +476,12 @@
       "notes": "Expanded force wording; not a proof citation.",
       "relation": "textual_comparison",
       "status": "editorial_interpretation",
-      "confidence": "high"
+      "confidence": "high",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par28",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
     },
     {
       "from": "RS.H4",
@@ -250,7 +490,12 @@
       "notes": "Comparison of statement status across witnesses; relative dating not inferred from this edge.",
       "relation": "textual_comparison",
       "status": "editorial_interpretation",
-      "confidence": "medium"
+      "confidence": "medium",
+      "witness": "'De motu sphæricorum corporum in fluidis'",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par12",
+      "revision_layer": "all marked additions and deletions retained; relative chronology unresolved",
+      "formal_refs": [],
+      "source_stage": "NATP00090"
     },
     {
       "from": "P1687.Law1",
@@ -259,7 +504,15 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "per Leg. I"
+      "notes": "per Leg. I",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+      ],
+      "source_stage": "1687"
     },
     {
       "from": "P1687.Composition",
@@ -268,7 +521,15 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "per Legum Corol. 1"
+      "notes": "per Legum Corol. 1",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+      ],
+      "source_stage": "1687"
     },
     {
       "from": "P1687.L3C4",
@@ -277,7 +538,15 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "Explicit citation of Lemma III corollary 4, not Lemma X."
+      "notes": "Explicit citation of Lemma III corollary 4, not Lemma X.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+      ],
+      "source_stage": "1687"
     },
     {
       "from": "P1687.L3",
@@ -286,7 +555,12 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Et propterea: inference through the preceding enclosure corollaries, not mere ordering."
+      "notes": "Et propterea: inference through the preceding enclosure corollaries, not mere ordering.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
     },
     {
       "from": "P1713.Law1",
@@ -295,7 +569,15 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "per Leg. I"
+      "notes": "per Leg. I",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+      ],
+      "source_stage": "1713"
     },
     {
       "from": "P1713.Composition",
@@ -304,7 +586,15 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "per Legum Corol. 1"
+      "notes": "per Legum Corol. 1",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+      ],
+      "source_stage": "1713"
     },
     {
       "from": "P1713.L3C4",
@@ -313,7 +603,15 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "Explicit citation of Lemma III corollary 4, not Lemma X."
+      "notes": "Explicit citation of Lemma III corollary 4, not Lemma X.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+      ],
+      "source_stage": "1713"
     },
     {
       "from": "P1713.L3",
@@ -322,7 +620,12 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Et propterea: inference through the preceding enclosure corollaries, not mere ordering."
+      "notes": "Et propterea: inference through the preceding enclosure corollaries, not mere ordering.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
     },
     {
       "from": "NATP00089.T1",
@@ -331,7 +634,15 @@
       "relation": "textual_comparison",
       "status": "editorial_interpretation",
       "confidence": "high",
-      "notes": "Compare limiting justification and explicit citations; no inter-edition proof dependency."
+      "notes": "Compare limiting justification and explicit citations; no inter-edition proof dependency.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+      ],
+      "source_stage": "1687"
     },
     {
       "from": "P1687.P1",
@@ -340,7 +651,15 @@
       "relation": "textual_comparison",
       "status": "editorial_interpretation",
       "confidence": "high",
-      "notes": "Compare limiting justification and explicit citations; no inter-edition proof dependency."
+      "notes": "Compare limiting justification and explicit citations; no inter-edition proof dependency.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
+        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+      ],
+      "source_stage": "1713"
     },
     {
       "from": "P1687.L11",
@@ -349,7 +668,15 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Et quoniam: quadratic contact plus the nature of the parabola; the conic import is not discharged."
+      "notes": "Et quoniam: quadratic contact plus the nature of the parabola; the conic import is not discharged.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par37",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Contact.cubic_rectangle_bound",
+        "NewtonLimitDynamics.Contact.quadratic_rectangles"
+      ],
+      "source_stage": "1687"
     },
     {
       "from": "P1687.L11Restriction",
@@ -358,7 +685,12 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "In his omnibus supponimus: explicit restriction applies to the preceding contact claims."
+      "notes": "In his omnibus supponimus: explicit restriction applies to the preceding contact claims.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par39",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
     },
     {
       "from": "P1713.L11",
@@ -367,7 +699,15 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Et quoniam: quadratic contact plus the nature of the parabola; the conic import is not discharged."
+      "notes": "Et quoniam: quadratic contact plus the nature of the parabola; the conic import is not discharged.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par44",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Contact.cubic_rectangle_bound",
+        "NewtonLimitDynamics.Contact.quadratic_rectangles"
+      ],
+      "source_stage": "1713"
     },
     {
       "from": "P1713.L11Restriction",
@@ -376,7 +716,12 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "In his omnibus supponimus: explicit restriction applies to the preceding contact claims."
+      "notes": "In his omnibus supponimus: explicit restriction applies to the preceding contact claims.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par45",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
     },
     {
       "from": "P1687.L11",
@@ -385,12 +730,331 @@
       "relation": "textual_comparison",
       "status": "editorial_interpretation",
       "confidence": "high",
-      "notes": "Finite-curvature restriction promoted into the 1713 statement; already explicit in 1687 scholium."
+      "notes": "Finite-curvature restriction promoted into the 1713 statement; already explicit in 1687 scholium.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par36",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.P1C4",
+      "to": "P1713.P6",
+      "passage": "NATP00082.par89",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit corollary 4 proposition I citation",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par89",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L11C2",
+      "to": "P1713.P6",
+      "passage": "NATP00082.par89",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit corollaries 2 and 3 lemma XI citation",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par89",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L11C3",
+      "to": "P1713.P6",
+      "passage": "NATP00082.par89",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit corollaries 2 and 3 lemma XI citation",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par89",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L10C4",
+      "to": "P1713.P6",
+      "passage": "NATP00082.par90",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit alternative proof, not removed by sagitta route",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par90",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1726.P1C4",
+      "to": "P1726.P6",
+      "passage": "NATP00087.par87",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit corollary 4 proposition I citation",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par87",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1726.L11C2",
+      "to": "P1726.P6",
+      "passage": "NATP00087.par87",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit corollaries 2 and 3 lemma XI citation",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par87",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1726.L11C3",
+      "to": "P1726.P6",
+      "passage": "NATP00087.par87",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit corollaries 2 and 3 lemma XI citation",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par87",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1726.L10C4",
+      "to": "P1726.P6",
+      "passage": "NATP00087.par88",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Explicit alternative proof, not removed by sagitta route",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par88",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1726.L9",
+      "to": "P1726.L10",
+      "passage": "NATP00087.par28",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per lemma ix",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par28",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1726.L3C4",
+      "to": "P1726.P1",
+      "passage": "NATP00087.par49",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per corollarium quartum lemmatis tertii",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par49",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1726.L11Restriction",
+      "to": "P1726.L11",
+      "passage": "NATP00087.par44",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "in his omnibus supponimus",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par44",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1726.L11",
+      "to": "P1726.L11Cubic",
+      "passage": "NATP00087.par43",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Quadratic subtense with explicit parabola import",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par43",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1687.Law2",
+      "to": "P1687.P6",
+      "passage": "NATP00077.par77",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Leg. II.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par77",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L10",
+      "to": "P1687.P6",
+      "passage": "NATP00077.par77",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Lem. X.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par77",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.P1",
+      "to": "P1687.P6",
+      "passage": "NATP00077.par77",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Time proportional to sector area; no proposition number in this sentence.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par77",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.P6",
+      "to": "P1713.P6C1",
+      "passage": "NATP00082.par91",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "high",
+      "notes": "Old main tangent-departure result appears as corollary 1 to new sagitta proposition.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par91",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "NewtonLimitDynamics.Comparison.generated_sagitta_commute",
+        "NewtonLimitDynamics.Comparison.symmetric_parabola_sagitta"
+      ],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.P6",
+      "to": "P1726.P6",
+      "passage": "NATP00087.par87",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "high",
+      "notes": "Main cited sagitta route retained; alternative Lemma X route also retained.",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par87",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1713.P6C3",
+      "to": "P1726.P6C3",
+      "passage": "NATP00087.par91",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "high",
+      "notes": "1726 adds concentric touching or crossing to curvature-circle wording.",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par91",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "P1713.L11Cubic",
+      "to": "P1726.L11Cubic",
+      "passage": "NATP00087.par43",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "high",
+      "notes": "Cubic-area parabola import retained.",
+      "witness": "De Motu Corporum (Liber Primus) (1726)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00087#par43",
+      "revision_layer": "printed 1726 edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1726"
+    },
+    {
+      "from": "Draft.sections",
+      "to": "Draft.booklet",
+      "passage": "Gregory.C44.sections",
+      "relation": "proposed_reordering",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Documented relocation proposal; not proof dependence or an implemented edition change.",
+      "witness": "Gregory memoranda 5-7 May 1694; Correspondence III, no.446, p.336",
+      "url": "https://gwern.net/doc/history/1694-gregory.pdf#page=3",
+      "revision_layer": "Edited Latin of C44, not C42; identity checked in p.339 note 1",
+      "formal_refs": [],
+      "source_stage": "proposed1694"
+    },
+    {
+      "from": "Draft.sagitta",
+      "to": "Draft.conic",
+      "passage": "Brackenridge.ch8.plan",
+      "relation": "proposed_dependency",
+      "status": "editorial_interpretation",
+      "confidence": "medium",
+      "notes": "Secondary reconstruction only; proposed 9 and curvature lemma support proposed 10; missing lemma node not implied absent.",
+      "witness": "J. Bruce Brackenridge (1995), The Key to Newton’s Dynamics, chapter 8, pp.167-169 and notes 3-9",
+      "url": "https://publishing.cdlib.org/ucpressebooks/view?docId=ft4489n8zn#d0e19174",
+      "revision_layer": "Secondary reconstruction with reproduced translations; original draft folios not collated",
+      "formal_refs": [],
+      "source_stage": "proposed1694"
+    },
+    {
+      "from": "Draft.comparison",
+      "to": "P1713.P7C3",
+      "passage": "NATP00082.par102",
+      "relation": "textual_comparison",
+      "status": "editorial_interpretation",
+      "confidence": "medium",
+      "notes": "Proposed comparison material appears as actual corollary; manuscript-to-print collation unresolved.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par102",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
     }
   ],
   "open_questions": [
     "Royal Society edited reprint H4 located and visually checked; earliest manuscript chronology and direct manuscript collation remain open.",
     "H4 -> Theorem 1 and Lemma X -> Proposition I removed as unsupported.",
-    "NATP00089 Hyp 1 -> Lem 2 annotation does not date all manuscript revisions."
+    "NATP00089 Hyp 1 -> Lem 2 annotation does not date all manuscript revisions.",
+    "Gregory C42 / Correspondence III no.461 pp.384-386 is not the archived C44; direct C42 and Newton draft folio collation remain open.",
+    "Proposed proposition numbers are edition-plan labels, not manuscript identities.",
+    "General generated/sagitta limiting coefficient match remains unproved outside the symmetric constant-force example."
   ]
 }

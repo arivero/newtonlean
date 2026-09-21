@@ -211,5 +211,40 @@ theorem triangle_normalized_limit (slope : Fraction → Fraction) (c : Fraction)
     exact square_ratio (slope t) t ht
   · exact hs
 
+/-- Euclidean triangle area from base and corresponding perpendicular height. -/
+def triangleArea (base height : Fraction) : Fraction := half (mul base height)
+
+theorem triangle_area_ratio (slope time : Fraction) (ht : positive time) :
+    equiv (deflectionRatio (triangleArea time (mul slope time)) time ht) (half slope) := by
+  unfold equiv deflectionRatio triangleArea half mul
+  dsimp
+  ac_rfl
+
+/-- Actual half-base-times-height triangles, with the contact limit displayed
+    as the limit of half the secant slope. -/
+theorem constructed_triangle_limit (slope : Fraction → Fraction) (c : Fraction)
+    (hs : Ultimate magnitudes (fun t => half (slope t)) c) :
+    Ultimate magnitudes (ratio (fun t => triangleArea t (mul (slope t) t))) c := by
+  apply ultimate_congr _ (fun t => half (slope t)) c
+  · intro t ht
+    simp only [ratio, dif_pos ht]
+    exact triangle_area_ratio (slope t) t ht
+  · exact hs
+
+/-- Arithmetic respects equality of represented magnitudes. -/
+theorem mul_equiv_left (k : Fraction) {a b : Fraction} (h : equiv a b) :
+    equiv (mul k a) (mul k b) := by
+  unfold equiv mul at *
+  dsimp
+  calc
+    k.num*a.num*(k.den*b.den) = (k.num*k.den)*(a.num*b.den) := by ac_rfl
+    _ = (k.num*k.den)*(b.num*a.den) := by rw [h]
+    _ = k.num*b.num*(k.den*a.den) := by ac_rfl
+
+theorem add_equiv_right (k : Fraction) {a b : Fraction} (h : equiv a b) :
+    equiv (add a k) (add b k) := by
+  obtain ⟨hab, hba⟩ := (equiv_iff_mutual_le a b).mp h
+  exact (equiv_iff_mutual_le _ _).mpr ⟨add_le_add_right hab k, add_le_add_right hba k⟩
+
 end Fraction
 end NewtonLimitDynamics
