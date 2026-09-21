@@ -6,14 +6,16 @@ diagnostic is not completion of the corresponding historical proposition.
 Current progress: the bounded source map (1) is recorded in SECTION_II.md,
 with unresolved De Motu counterparts explicitly retained. The equal-cell
 finite recurrence now satisfies restart and contact (2), including the
-constructed lattice velocity-jump law. General time subdivision (3) is next;
-no continuous-time realization is inferred from the finite restart theorem.
+constructed lattice velocity-jump law. A one-cell closed strip between
+spatially compatible coarse/fine polygons is now exact finite triangle
+algebra. General time subdivision (3) must still derive that compatibility
+from common force/time data; no continuous-time realization is inferred.
 
 | Order | Obligation | Acceptance criterion |
 | --- | --- | --- |
 | 1 | Stage-local I–IV source map | Exact passages and supported dependencies for 1687/1713; De Motu counterparts qualified witness by witness |
 | 2 | Finite contact and restart | Contact of actual recursively constructed cells, with any velocity jump derived from the displayed impulse; restart from the matching state |
-| 3 | Time subdivision | Positive cell durations and consistent positions under actual refinement; distinguish restriction from constructing new intermediate positions |
+| 3 | Time subdivision | Derive compatible coarse/fine endpoints from common force and time data; sum finite polygon-strip defects and distinguish this from constructing new intermediate positions |
 | 4 | Proposition I realization | Identify the precise permitted premises that give a curve and the required area-time law; prove or isolate each implication |
 | 5 | Proposition II converse | Formalize the finite converse before any continuous-force identification; list nondegeneracy and limiting conditions separately |
 | 6 | Proposition III relative motion | Derive relative-force composition from each edition's stated laws and corollaries; state admissible moving-center data |

@@ -16,6 +16,17 @@ two different inward impulse histories (-1 and -2). It establishes insufficiency
 of area data for identification, not failure of existence or fixed-force
 uniqueness. Continuous-time refinement and mechanical realization remain open.
 
+New finite refinement diagnostic: `Polygon/RefinementStrip.lean` constructs
+the closed area between a coarse lattice edge and a spatially compatible
+two-edge fine polygon. Its determinant identity reduces that signed doubled
+strip to the Euclidean triangle on the three vertices; its `Nat` defect is zero
+exactly when that signed strip is zero. The compatibility condition compares
+finite `motion` endpoints explicitly, and the inward example has a nonzero
+strip. This is not a swept-sector claim, a common-force time-refinement law,
+or a limiting-curve construction. The next gap is to derive compatible
+successive polygons from common time and force data, then obtain a position
+estimate sufficient for trajectory realization.
+
 The [Section II source map](SECTION_II.md) now identifies printed I–IV
 dependencies and De Motu antecedents for I and IV. Counterparts of II/III
 were not found in the inspected De Motu ranges; this is not an edition-wide

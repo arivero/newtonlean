@@ -95,6 +95,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.all_cell_areas
 #check NewtonLimitDynamics.Polygon.central_step_area
 #print axioms NewtonLimitDynamics.Polygon.central_step_area
+#check NewtonLimitDynamics.Polygon.det_translation
+#print axioms NewtonLimitDynamics.Polygon.det_translation
 #check NewtonLimitDynamics.Polygon.enclosed_gap_vanishes
 #print axioms NewtonLimitDynamics.Polygon.enclosed_gap_vanishes
 #check NewtonLimitDynamics.Polygon.equal_swept_area_does_not_identify_next_vertex
@@ -119,6 +121,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.inward_impulses_distinct_next_vertex
 #check NewtonLimitDynamics.Polygon.inward_impulses_same_swept
 #print axioms NewtonLimitDynamics.Polygon.inward_impulses_same_swept
+#check NewtonLimitDynamics.Polygon.inward_oneCell_refinement_compatible
+#print axioms NewtonLimitDynamics.Polygon.inward_oneCell_refinement_compatible
+#check NewtonLimitDynamics.Polygon.inward_oneCell_refinement_defect
+#print axioms NewtonLimitDynamics.Polygon.inward_oneCell_refinement_defect
 #check NewtonLimitDynamics.Polygon.isum_mono
 #print axioms NewtonLimitDynamics.Polygon.isum_mono
 #check NewtonLimitDynamics.Polygon.isum_mul
@@ -137,10 +143,20 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.motion_lattice_velocity_jump
 #check NewtonLimitDynamics.Polygon.motion_restart
 #print axioms NewtonLimitDynamics.Polygon.motion_restart
+#check NewtonLimitDynamics.Polygon.oneCellMotionRefinementCompatible_end
+#print axioms NewtonLimitDynamics.Polygon.oneCellMotionRefinementCompatible_end
+#check NewtonLimitDynamics.Polygon.oneCellMotionRefinementCompatible_start
+#print axioms NewtonLimitDynamics.Polygon.oneCellMotionRefinementCompatible_start
 #check NewtonLimitDynamics.Polygon.parallel_identity
 #print axioms NewtonLimitDynamics.Polygon.parallel_identity
 #check NewtonLimitDynamics.Polygon.rectangle_gap_bound
 #print axioms NewtonLimitDynamics.Polygon.rectangle_gap_bound
+#check NewtonLimitDynamics.Polygon.refinementDefect_eq_zero_iff
+#print axioms NewtonLimitDynamics.Polygon.refinementDefect_eq_zero_iff
+#check NewtonLimitDynamics.Polygon.refinementStripTwice_eq_triangle
+#print axioms NewtonLimitDynamics.Polygon.refinementStripTwice_eq_triangle
+#check NewtonLimitDynamics.Polygon.refinementStripTwice_translation
+#print axioms NewtonLimitDynamics.Polygon.refinementStripTwice_translation
 #check NewtonLimitDynamics.Polygon.restriction_cell
 #print axioms NewtonLimitDynamics.Polygon.restriction_cell
 #check NewtonLimitDynamics.Polygon.sector_ratio_reconstruction

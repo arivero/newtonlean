@@ -3,11 +3,11 @@
 - Lean: 4.19.0, declared by lean-toolchain; default target is the library.
 - `lake build` and `lake build NewtonLimitDynamics`: passed. The expanded
   library actually compiled; this is not the previous empty-default-build error.
-- `catalogue_formal.py`: 89 theorem declarations inventoried, including private
+- `catalogue_formal.py`: 97 theorem declarations inventoried, including private
   helpers, with actual signatures, source correspondence and premise boundaries.
 - `check_graph.py`: 77 nodes, 68 classified edges, 234 passage records; source
   identity, TEI anchor/extract agreement and proof/proposed DAG acyclicity passed.
-- `lake env lean research/CheckReferences.lean`: 65 public/reference declarations
+- `lake env lean research/CheckReferences.lean`: 94 public/reference declarations
   elaborated, with axiom inspection. Only standard Lean logical axioms
   `propext`, `Classical.choice`, `Quot.sound` occur; no project axiom or sorryAx.
 - `test_evidence_validation.py`: valid baseline passed; stale edge URL,
@@ -30,3 +30,12 @@ not manuscript-image verification. C42 and exact Newton draft folios remain gaps
 These checks certify the stated Lean implications and data consistency. They do
 not turn contact limits, mechanical area identification, curve existence or
 secondary-supported manuscript mappings into discharged historical proofs.
+
+Finite refinement-strip follow-up: Terra reran both builds, the formal
+catalogue, graph/reference generation, Lean reference/axiom inspection and
+whitespace check successfully. The new results use finite determinant and
+triangle arithmetic only, with no integral calculus or limiting theorem.
+They establish a spatially compatible one-cell strip, not a common-force time
+refinement or an existing limiting curve. Source collation, archive hashes and
+evidence regression results above are retained from the preceding validation;
+unchanged sources were not revalidated for this code-only follow-up.
