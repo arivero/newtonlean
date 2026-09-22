@@ -99,8 +99,13 @@ premise. Both editions cite Euclid I.40. In Heath's numbering I.39 is the
 same-base statement and I.40 concerns equal bases, while Newton's triangles
 SBc, SBC share the base SB. The citation is recorded as printed, and the
 numbering of the Euclid edition Newton used was not investigated
-(`editorial_interpretation`, low confidence). Case 2, unequal cells and the
-vanishing-triangle passage from a realized curve remain open.
+(`editorial_interpretation`, low confidence). For Case 2 (par50, par60),
+`extend_relative` proves that inertial continuation commutes with uniform
+translation of the centre, and `moving_centre_equal_areas_central` transfers the
+finite step to a uniformly moving centre. This is a finite coordinate
+counterpart of the use of Corollary V, which itself concerns motions within a
+uniformly moving space. Unequal cells and the vanishing-triangle passage from
+a realized curve remain open.
 
 ## Confidence and stopping point
 

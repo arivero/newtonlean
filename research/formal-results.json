@@ -931,12 +931,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(q x y : LatticePoint) : det q (sub x y) = det q x - det q y",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.det_deflection",
@@ -945,12 +947,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q C : LatticePoint) :\n    det q (deflection p q C) = det q C - det p q",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.equal_area_parallel",
@@ -959,12 +963,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q C : LatticePoint) (h : det q C = det p q) :\n    det q (deflection p q C) = 0",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.parallel_equal_area",
@@ -973,12 +979,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q C : LatticePoint) (h : det q (deflection p q C) = 0) :\n    det q C = det p q",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.parallel_is_multiple",
@@ -987,12 +995,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(q d : LatticePoint) (hq : q ≠ (0, 0)) (h : det q d = 0) :\n    ∃ a b : Int, b ≠ 0 ∧ b * d.1 = a * q.1 ∧ b * d.2 = a * q.2",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.equal_area_central_step",
@@ -1001,12 +1011,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q C : LatticePoint) (hq : q ≠ (0, 0))\n    (h : det q C = det p q) :\n    ∃ a b : Int, b ≠ 0 ∧\n      b * C.1 = b * (extend p q).1 + a * q.1 ∧ b * C.2 = b * (extend p q).2 + a * q.2",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.equal_areas_all_central",
@@ -1015,12 +1027,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(v : Nat → LatticePoint)\n    (h : ∀ n, det (v (n + 1)) (v (n + 2)) = det (v n) (v (n + 1))) (n : Nat) :\n    det (v (n + 1)) (deflection (v n) (v (n + 1)) (v (n + 2))) = 0",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.unsigned_equal_area_not_central",
@@ -1029,12 +1043,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": ":\n    det (1, 1) (2, 1) = -det (1, 0) (1, 1) ∧\n      det (1, 1) (deflection (1, 0) (1, 1) (2, 1)) ≠ 0",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate",
@@ -1043,12 +1059,14 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(p C : LatticePoint) :\n    det (0, 0) C = det p (0, 0)",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.Converse.outward_kick_equal_area",
@@ -1057,12 +1075,46 @@
     "source_passages": [
       "NATP00077.par48",
       "NATP00077.par49",
+      "NATP00077.par50",
       "NATP00082.par58",
-      "NATP00082.par59"
+      "NATP00082.par59",
+      "NATP00082.par60"
     ],
     "classification": "modern_reconstruction",
     "premise_signature": ":\n    det (1, 1) (kick (1, 1) (extend (1, 0) (1, 1)) 1) = det (1, 0) (1, 1) ∧\n      det (1, 1) (kick (1, 1) (extend (1, 0) (1, 1)) (-1)) = det (1, 0) (1, 1)",
-    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.extend_relative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00077.par50",
+      "NATP00082.par58",
+      "NATP00082.par59",
+      "NATP00082.par60"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s0 w p q : LatticePoint) (n : Nat) :\n    sub (extend p q) (centreAt s0 w (n + 2)) =\n      extend (sub p (centreAt s0 w n)) (sub q (centreAt s0 w (n + 1)))",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.moving_centre_equal_areas_central",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00077.par50",
+      "NATP00082.par58",
+      "NATP00082.par59",
+      "NATP00082.par60"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s0 w : LatticePoint) (v : Nat → LatticePoint)\n    (h : ∀ n, det (sub (v (n + 1)) (centreAt s0 w (n + 1))) (sub (v (n + 2)) (centreAt s0 w (n + 2))) =\n      det (sub (v n) (centreAt s0 w n)) (sub (v (n + 1)) (centreAt s0 w (n + 1)))) (n : Nat) :\n    det (sub (v (n + 1)) (centreAt s0 w (n + 1)))\n      (sub (v (n + 2)) (extend (v n) (v (n + 1)))) = 0",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.isum_mono",

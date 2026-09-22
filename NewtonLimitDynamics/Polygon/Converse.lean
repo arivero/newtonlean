@@ -107,4 +107,35 @@ theorem outward_kick_equal_area :
       det (1, 1) (kick (1, 1) (extend (1, 0) (1, 1)) (-1)) = det (1, 0) (1, 1) := by
   decide
 
+/-- Position of a uniformly translating centre at cell `n`. -/
+def centreAt (s0 w : LatticePoint) (n : Nat) : LatticePoint :=
+  (s0.1 + (n : Int) * w.1, s0.2 + (n : Int) * w.2)
+
+/-- Finite Case-2 fact (motivated by the laws' Corollary V, cited in 1687 par50
+    and 1713 par60): inertial continuation commutes with uniform translation of
+    the reference centre, so relative vertices obey the same continuation. -/
+theorem extend_relative (s0 w p q : LatticePoint) (n : Nat) :
+    sub (extend p q) (centreAt s0 w (n + 2)) =
+      extend (sub p (centreAt s0 w n)) (sub q (centreAt s0 w (n + 1))) := by
+  simp only [sub, extend, centreAt]
+  apply Prod.ext <;> dsimp <;> simp only [Int.ofNat_add, Int.add_mul] <;> omega
+
+/-- Case 2, finite step: equal oriented areas about a uniformly moving centre
+    make each deflection parallel to the current radius from that centre. -/
+theorem moving_centre_equal_areas_central (s0 w : LatticePoint) (v : Nat → LatticePoint)
+    (h : ∀ n, det (sub (v (n + 1)) (centreAt s0 w (n + 1))) (sub (v (n + 2)) (centreAt s0 w (n + 2))) =
+      det (sub (v n) (centreAt s0 w n)) (sub (v (n + 1)) (centreAt s0 w (n + 1)))) (n : Nat) :
+    det (sub (v (n + 1)) (centreAt s0 w (n + 1)))
+      (sub (v (n + 2)) (extend (v n) (v (n + 1)))) = 0 := by
+  have hpar := equal_area_parallel (sub (v n) (centreAt s0 w n))
+    (sub (v (n + 1)) (centreAt s0 w (n + 1))) (sub (v (n + 2)) (centreAt s0 w (n + 2))) (h n)
+  unfold deflection at hpar
+  rw [← extend_relative] at hpar
+  have hd : sub (sub (v (n + 2)) (centreAt s0 w (n + 2))) (sub (extend (v n) (v (n + 1))) (centreAt s0 w (n + 2))) =
+      sub (v (n + 2)) (extend (v n) (v (n + 1))) := by
+    simp only [sub]
+    apply Prod.ext <;> dsimp <;> omega
+  rw [hd] at hpar
+  exact hpar
+
 end NewtonLimitDynamics.Polygon.Converse

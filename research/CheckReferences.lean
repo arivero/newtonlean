@@ -101,6 +101,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.Converse.equal_area_parallel
 #check NewtonLimitDynamics.Polygon.Converse.equal_areas_all_central
 #print axioms NewtonLimitDynamics.Polygon.Converse.equal_areas_all_central
+#check NewtonLimitDynamics.Polygon.Converse.extend_relative
+#print axioms NewtonLimitDynamics.Polygon.Converse.extend_relative
+#check NewtonLimitDynamics.Polygon.Converse.moving_centre_equal_areas_central
+#print axioms NewtonLimitDynamics.Polygon.Converse.moving_centre_equal_areas_central
 #check NewtonLimitDynamics.Polygon.Converse.outward_kick_equal_area
 #print axioms NewtonLimitDynamics.Polygon.Converse.outward_kick_equal_area
 #check NewtonLimitDynamics.Polygon.Converse.parallel_equal_area

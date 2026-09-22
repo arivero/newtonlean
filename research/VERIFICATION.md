@@ -183,3 +183,11 @@ references, all elaborated by `CheckReferences.lean` with only `propext`,
 passed. `partition_gap` packages the two-partition comparison.
 `Polygon/Converse.lean` proves the finite Case-1 equivalence and its
 counterexamples; it treats no realized curve, limit or moving centre.
+
+Proposition II Case-2 finite step (2026-09-22, Claude Code): both builds passed
+without warnings; 232 catalogued theorem declarations; 182 references
+elaborated with only `propext`, `Classical.choice` and `Quot.sound`, no
+`sorryAx`; graph validation (77 nodes, 68 edges, 234 passages) and
+`git diff --check` passed. `extend_relative` and
+`moving_centre_equal_areas_central` transfer the finite converse step to a
+uniformly moving centre.
