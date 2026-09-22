@@ -1146,6 +1146,175 @@
     "interpretation_and_remaining_premises": "Modern rational small-time estimate for zero impressed acceleration. An explicit positive radius controls both coordinate drifts for every rational base time and an actual zero-force end-kick cell. It is a finite algebraic estimate, not an all-Euclidean-time trajectory, curve existence theorem, or historical proof dependency."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.inertialEdge_compose",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v : Point) (s t u : Fraction) :\n    Fraction.equiv\n      (Fraction.add (inertialEdge p v s t) (inertialEdge p v t u))\n      (inertialEdge p v s u)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.inertialEdge_self",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v : Point) (s : Fraction) :\n    Fraction.equiv (inertialEdge p v s s) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.add_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.inertialWalk_eq_edge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v : Point) (a b : Fraction) (times : List Fraction) :\n    Fraction.equiv (inertialWalk p v a b times) (inertialEdge p v a b)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.inertialWalk_closed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v : Point) (a : Fraction) (times : List Fraction) :\n    Fraction.equiv (inertialWalk p v a a times) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.inertial_closedBoundaryTwice",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v : Point) (a b c d : Fraction) :\n    Fraction.equiv\n      (closedBoundaryTwice (inertialAt p v a) (inertialAt p v b)\n        (inertialAt p v c) (inertialAt p v d)) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.fracNeg_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (fracNeg a) (fracNeg b)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.mul_equiv_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.det_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a a' b b' : Point} (ha : pointEquiv a a')\n    (hb : pointEquiv b b') : Fraction.equiv (det a b) (det a' b')",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.closedBoundaryTwice_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a a' b b' c c' d d' : Point}\n    (ha : pointEquiv a a') (hb : pointEquiv b b')\n    (hc : pointEquiv c c') (hd : pointEquiv d d') :\n    Fraction.equiv (closedBoundaryTwice a b c d) (closedBoundaryTwice a' b' c' d')",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialDefect.partitionMotion_closedBoundaryTwice",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D)\n    (p v : Point) (w₀ w₁ w₂ w₃ : List Nat) :\n    Fraction.equiv\n      (closedBoundaryTwice\n        (partitionMotion D hD p v zeroPoint w₀).1\n        (partitionMotion D hD p v zeroPoint w₁).1\n        (partitionMotion D hD p v zeroPoint w₂).1\n        (partitionMotion D hD p v zeroPoint w₃).1)\n      (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.PartitionControl.next_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",

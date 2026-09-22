@@ -95,6 +95,22 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.InertialControl.inertialAt_small_increment
 #check NewtonLimitDynamics.Polygon.InertialControl.radius_positive
 #print axioms NewtonLimitDynamics.Polygon.InertialControl.radius_positive
+#check NewtonLimitDynamics.Polygon.InertialDefect.closedBoundaryTwice_congr
+#print axioms NewtonLimitDynamics.Polygon.InertialDefect.closedBoundaryTwice_congr
+#check NewtonLimitDynamics.Polygon.InertialDefect.det_congr
+#print axioms NewtonLimitDynamics.Polygon.InertialDefect.det_congr
+#check NewtonLimitDynamics.Polygon.InertialDefect.inertialEdge_compose
+#print axioms NewtonLimitDynamics.Polygon.InertialDefect.inertialEdge_compose
+#check NewtonLimitDynamics.Polygon.InertialDefect.inertialEdge_self
+#print axioms NewtonLimitDynamics.Polygon.InertialDefect.inertialEdge_self
+#check NewtonLimitDynamics.Polygon.InertialDefect.inertialWalk_closed
+#print axioms NewtonLimitDynamics.Polygon.InertialDefect.inertialWalk_closed
+#check NewtonLimitDynamics.Polygon.InertialDefect.inertialWalk_eq_edge
+#print axioms NewtonLimitDynamics.Polygon.InertialDefect.inertialWalk_eq_edge
+#check NewtonLimitDynamics.Polygon.InertialDefect.inertial_closedBoundaryTwice
+#print axioms NewtonLimitDynamics.Polygon.InertialDefect.inertial_closedBoundaryTwice
+#check NewtonLimitDynamics.Polygon.InertialDefect.partitionMotion_closedBoundaryTwice
+#print axioms NewtonLimitDynamics.Polygon.InertialDefect.partitionMotion_closedBoundaryTwice
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #print axioms NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual

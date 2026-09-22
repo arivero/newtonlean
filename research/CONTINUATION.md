@@ -1,5 +1,9 @@
 # Autonomous continuation: completion criteria
 
+Next executor: **Claude Code**, explicitly authorized by the user to take the
+next bounded task and make its own commit. Read HANDOFF-CLAUDE-CODE.md.
+Codex stops after committing the current inertial-defect result and handoff.
+
 The user authorized continued work across the approved milestones on
 22 September 2026. Updated model policy: use `gpt-6-sol` for bounded reasoning
 and implementation, and `gpt-6-luna` for compilation and checking. Earlier

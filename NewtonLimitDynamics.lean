@@ -12,6 +12,7 @@ import NewtonLimitDynamics.Polygon.TimeSubdivision
 import NewtonLimitDynamics.Polygon.PartitionControl
 import NewtonLimitDynamics.Polygon.ZeroForce
 import NewtonLimitDynamics.Polygon.InertialControl
+import NewtonLimitDynamics.Polygon.InertialDefect
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
 import NewtonLimitDynamics.Comparison.Routes

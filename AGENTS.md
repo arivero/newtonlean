@@ -33,3 +33,8 @@
   Do not silently fall back to a v5 model. Run at most one
   subagent at a time, with concise reports; no Astra subagents. This is the
   user's approved resource policy. Do not launch parallel agent work.
+- User-authorized handoff exception: the next bounded task and its commit are
+  assigned to the upgraded Claude Code. This supersedes the old handoff's
+  prohibition on Claude for that task. Claude Code may implement and verify
+  the task itself; the Codex-specific model assignments above do not prevent
+  this handoff. Keep execution sequential and all proof/source constraints.

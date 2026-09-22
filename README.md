@@ -87,6 +87,9 @@ General geometric defect and full Euclidean-time claims remain separate.
 The explicit inertial small-time bound is now implemented: a positive rational
 time radius controls both displacement coordinates for any positive rational
 tolerance, uniformly in base time. See [the bound](research/ZERO_FORCE.md#small-time-estimate).
+Signed inertial defect cancellation is also checked: any finite closed walk of
+rational-time inertial samples has zero signed doubled determinant sum. See
+[general finite signed defect](research/ZERO_FORCE.md#general-finite-signed-defect).
 No result so far establishes a universal nonzero action constant.
 
 ## Verification

@@ -95,3 +95,15 @@ rational increments of the constructed inertial map; it does not extend the
 map to all Euclidean times or establish a continuum curve or a historical
 proof dependency. The generated formal-result ledger and reference checks were
 regenerated; unrelated conversation-export edits were preserved.
+
+Inertial-defect follow-up (2026-09-22): implemented by Codex; catalogue entry
+and verification completed by Claude Code. `lake build` and `lake build
+NewtonLimitDynamics` passed under Lean 4.19.0. The regenerated formal catalogue
+contains 184 theorem declarations; `check_graph.py` validated 77 nodes, 68
+classified edges, 234 passages, and emitted 146 Lean references.
+`CheckReferences.lean` elaborated all 146 declarations. The aggregate axiom set
+is `propext`, `Classical.choice`, and `Quot.sound`; no `sorryAx` or project
+axiom occurs. `git diff --check` passed. The result is signed determinant
+cancellation for finite closed walks of rational-time inertial samples and for
+four actual zero-force schedules; it gives no unsigned enclosure bound, timing
+identification, or continuum curve.

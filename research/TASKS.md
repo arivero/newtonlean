@@ -10,8 +10,9 @@ positions from the constructed recurrence. Its zero-area timing example uses
 different initial velocities, not nonuniqueness for fixed data. See ZERO_FORCE.md.
 InertialControl.lean now supplies an explicit positive time radius controlling
 both coordinates of inertial displacement, uniformly in rational base time,
-including actual zero-force cells. Next settle general finite defect cancellation
-and make the extension beyond rational times precise before claiming a complete inertial case.
+including actual zero-force cells. InertialDefect.lean proves signed finite
+defect cancellation for arbitrary closed inertial walks. Next make the extension
+beyond rational times precise before claiming a complete inertial case.
 Then continue the nonzero-force within-cell extension below.
 
 Current progress: the bounded source map (1) is recorded in SECTION_II.md,

@@ -18,8 +18,13 @@ and additional geometric/area obligations remain separate.
 `Polygon/InertialControl.lean` adds the explicit small-time bound: each positive
 rational tolerance has a constructed positive radius that controls both drift
 coordinates uniformly in position and rational base time, including an actual
-zero-force cell. This closes the pending inertial estimate; general defect
-cancellation and extension beyond rational times remain open.
+zero-force cell. This closes the pending inertial estimate.
+`Polygon/InertialDefect.lean` adds signed defect cancellation: directed
+determinants of inertial samples compose additively, so every finite closed
+walk (explicit connector included, sample times unordered) has zero signed
+doubled area, and four actual zero-force schedules with arbitrary partitions
+give a vanishing boundary. Unsigned enclosure estimates and extension beyond
+rational times remain open.
 
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,

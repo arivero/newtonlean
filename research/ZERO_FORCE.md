@@ -89,3 +89,17 @@ rational-time uniform control of the constructed inertial
 map, without extending its domain to arbitrary Euclidean times. The separate
 nonzero-force increment and within-cell residual estimates remain subsequent
 obligations.
+
+## General finite signed defect
+
+`Polygon/InertialDefect.lean` proves that directed determinants of samples on
+one translated inertial line compose additively. Its finite-list walk includes
+the final connector explicitly and telescopes to the determinant of its two
+endpoints. Closing the walk therefore gives zero signed doubled area for
+arbitrary rational sample times and any velocity, including rest.
+
+This extends the earlier concrete collinearity example to arbitrary finite
+walks. Sample times need not be ordered. The conclusion concerns signed
+determinant sums; it is not an unsigned enclosure estimate for arbitrary
+noncollinear polygons, nor does it identify time parametrization from area.
+See HANDOFF-CLAUDE-CODE.md for the next constructed within-cell estimate.
