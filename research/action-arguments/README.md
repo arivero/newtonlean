@@ -29,7 +29,7 @@ and action-rescaling freedom.
 | File | Proposer | Verdict | Summary |
 | --- | --- | --- | --- |
 | [260922opus5.5v1Arg001.md](260922opus5.5v1Arg001.md) | Claude Opus 5.5 | against (for the routes checked) | Every checked finite refinement residual vanishes linearly with the mesh; the constructions select no action floor |
-| [260922opus5.5v1Arg002.md](260922opus5.5v1Arg002.md) | Claude Opus 5.5 | inconclusive; fails system independence | Proposition IV Cor. 7 (1713): the inverse-cube circular family is the unique power law with one common areal velocity, giving a system-fixed action |
+| [260922opus5.5v1Arg002.md](260922opus5.5v1Arg002.md) | Claude Opus 5.5 | inconclusive; fails system independence | Proposition IV Cor. 1 (with 1713 Cor. 7): inverse-cube circles are the one power law with a common areal velocity, `√(m*k)`, which also bounds the Prop. IX spirals; the action is system-fixed |
 
 Status on 22 September 2026: **no argument here establishes a nonzero
 universal action constant.**
