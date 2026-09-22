@@ -2,7 +2,7 @@
 
 Generated 2026-09-21 by `scripts/collate_sources.py`. This report checks the local TEI/XML transcription against selected passage extracts and the presence of corresponding anchors in normalized and diplomatic HTML. It records page and facsimile metadata but does not inspect or download manuscript images, and it does not establish historical proof dependency.
 
-Primary witnesses: 9; selected XML anchors: 231; exact generated-extract matches: 231; revision-tagged anchors: 51.
+Primary witnesses: 9; selected XML anchors: 243; exact generated-extract matches: 243; revision-tagged anchors: 56.
 
 ## Witness layers
 
@@ -10,8 +10,8 @@ Primary witnesses: 9; selected XML anchors: 231; exact generated-extract matches
 |---|---|---:|---:|---:|---:|
 | NATP00089 | NATP00089 | Manuscript | 9 | 7/12 | 12/12 |
 | NATP00090 | NATP00090 | Manuscript | 15 | 13/13 | 13/13 |
-| NATP00077 | 1687 | Printed | 210 | 54/54 | 54/54 |
-| NATP00082 | 1713 | Printed | 187 | 74/74 | 74/74 |
+| NATP00077 | 1687 | Printed | 210 | 60/60 | 60/60 |
+| NATP00082 | 1713 | Printed | 187 | 80/80 | 80/80 |
 | NATP00075 | 1687 | Printed | 11 | 8/8 | 8/8 |
 | NATP00076 | 1687 | Printed | 14 | 8/8 | 8/8 |
 | NATP00080 | 1713 | Printed | 11 | 8/8 | 8/8 |
@@ -131,6 +131,12 @@ Library/facsimile record: none encoded
 | par76 | 44 | — | none | match | present | present |
 | par77 | 44 | — | choice:5, orig:5, reg:5 | match | present | present |
 | par78 | 45 | — | none | match | present | present |
+| par40 | 34 | — | choice:3, orig:3, reg:3 | match | present | present |
+| par42 | 36 | — | choice:1, orig:1, reg:1 | match | present | present |
+| par84 | 47 | — | none | match | present | present |
+| par85 | 47 | — | choice:2, orig:2, reg:2 | match | present | present |
+| par305 | 130 | — | choice:3, orig:3, reg:3 | match | present | present |
+| par325 | 142 | — | choice:12, orig:12, reg:12 | match | present | present |
 
 ## NATP00082 — De Motu Corporum (Liber Primus) (1713)
 
@@ -216,6 +222,12 @@ Library/facsimile record: none encoded
 | par93 | 42 | — | none | match | present | present |
 | par94 | 42 | — | none | match | present | present |
 | par102 | 44 | — | none | match | present | present |
+| par46 | 32 | — | none | match | present | present |
+| par48 | 33 | — | none | match | present | present |
+| par108 | 45 | — | none | match | present | present |
+| par109 | 45 | — | none | match | present | present |
+| par335 | 118 | — | none | match | present | present |
+| par355 | 129 | — | none | match | present | present |
 
 ## NATP00075 — Definitiones (1687)
 

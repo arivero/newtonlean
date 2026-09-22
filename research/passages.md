@@ -792,6 +792,66 @@ Corol. Hinc si detur figura quævis, & in ea punctum ad quod vis centripeta diri
 
 Translation status: not_translated.
 
+## NATP00077.par40
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par40
+
+Quæ de curvis lineis deq; superficiebus comprehensis demonstrata sunt, facile applicantur ad solidorum superficies curvas & contenta. Præmisi vero hæc Lemmata ut effugerem tædium deducendi perplexas demonstrationes, more veterum Geometrarum, ad absurdum. Contractiores enim redduntur demonstrationes per methodum indivisibilium. Sed quoniam durior est indivisibilium Hypothesis; & propterea Methodus illa minus Geometrica censetur, malui demonstrationes rerum sequentium ad ultimas quantitatum evanescentium summas & rationes, primasq; nascentium, id est, ad limites summarum & rationum deducere, & propterea limitum illorum demonstrationes qua potui breuitate præmittere. His enim idem præstatur quod per methodum indivisibilium, & principiis demonstratis jam tutius utemur. Proinde in sequentibus, siquando quantitates tanquam ex particulis constantes consideravero, vel si pro rectis usurpavero lineolas curvas, nolim indivisibilia sed evanescentia divisibilia, non summas & rationes partium determinatarum, sed summarum & rationum limites semper intelligi, vimq; talium demonstrationum ad methodum præcedentium Lemmatum semper revocari.
+
+Translation status: identifying_translation_not_full. Section I Scholium: the lemmas replace the method of indivisibles by ultimate sums and ratios; where quantities are later treated as made of particles, or small curves as straight, evanescent divisible quantities and limits of sums and ratios are meant.
+
+## NATP00077.par42
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par42
+
+Contendi etiam potest, quod si dentur ultimæ quantitatum evanescentium rationes, dabuntur & ultimæ magnatudines; & sic quantitas omnis constabit ex indivisibilibus, contra quam Euclides de incommensurabilibus, in libro decimo Elementorum, demonstravit. Verum hæc Objectio falsæ innititur hypothesi. Ultimæ rationes illæ quibuscum quantitates evanescunt, revera non sunt rationes quantitatum ultimarum, sed limites ad quos quantitatum sine limite decrescentium rationes semper appropinquant, & quas propius assequi possunt quam pro data quavis differentia, nunquam vero transgredi, neq; prius attingere quam quantitates diminuuntur in infinitum. Res clarius intelligetur in infinite magnis. Si quantitates duæ quarum data est differentia augeantur in infinitum, dabitur harum ultima ratio, nimirum ratio æqualitatis, nec tamen ideo dabuntur quantitates ultimæ seu maximæ quarum ista est ratio. Igitur in sequentibus, siquando facili rerum imaginationi consulens, dixero quantitates quam minimas, vel evanescentes vel ultimas, cave intelligas quantitates magnitudine determinatas, sed cogita semper diminuendas sine limite.
+
+Translation status: identifying_translation_not_full. Objection: ultimate ratios would imply ultimate magnitudes and indivisibles. Reply: ultimate ratios are limits which the ratios of quantities decreasing without limit approach closer than any given difference, never exceed, and do not attain before the quantities are diminished in infinitum.
+
+## NATP00077.par84
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par84
+
+Gyretur corpus in spirali PQS secante radios omnes SP SQ, &c. in angulo dato: Requiritur lex vis centripetæ tendentis ad centrum spiralis.
+
+Translation status: identifying_translation_not_full. Proposition IX statement: a body revolves in a spiral cutting all radii at a given angle; the law of centripetal force toward the centre of the spiral is required.
+
+## NATP00077.par85
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par85
+
+Detur angulus indefinite parvus PSQ, & ob datos omnes angulos dabitur specie figura SQRT. Ergo datur ratio QTRQ, estq; QT quad.QR ut QT, hoc est ut SP. Mutetur jam utcunq; angulus PSQ, & recta QR angulum contactus QPR subtendens mutabitur (per Lemma XI.) in duplicata ratione ipsius PR vel QT. Ergo manebit QT quad.QR eadem quæ prius, hoc est ut SP. Quare QT q×SP qQR est ut SP cub. id est (per Corol. Theor. V.) vis centripeta ut cubus distantiæ SP.Q.E.I.
+
+Translation status: identifying_translation_not_full. Proposition IX solution (1687): by Lemma XI the ratio QT^2/QR is as SP, so QT^2*SP^2/QR is as SP^3; the conclusion is printed as "vis centripeta ut cubus distantiae SP", citing the corollary of Theorem V.
+
+## NATP00077.par305
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par305
+
+Corol. 3. Si centro C & vertice principali V describatur sectio quælibet Conica VRS, & a quovis ejus puncto R agatur Tangens RT occurrens axi infinite producto CV in puncto T; dein juncta CR ducatur recta CP, quæ æqualis sit abscissæ CT, angulumq; VCP Sectori VCR proportionalem constituat; tendat autem ad centrum C vis centripeta cubo distantiæ locorum a centro reciproce proportionalis, & exeat corpus de loco V justa cum velocitate secundum lineam rectæ CV perpendicularem: progredietur corpus illud in Trajectoria quam punctum P perpetuo tangit; adeoq; si conica sectio CVRS Hyperbola sit, descendet idem ad centrum: Sin ea Ellipsis sit, ascendet illud perpetuo & abibit in infinitum. Et contra, si corpus quacunq; cum velocitate exeat de loco V, & perinde ut incæperit vel oblique descendere ad centrum, vel ab eo oblique ascendere, figura CVRS vel Hyperbola sit vel Ellipsis, inveniri potest Trajectoria augendo vel minuendo angulum VCP in data aliqua ratione. Sed et vi centripeta in centrifugam versa, ascendet corpus oblique in Trajectoria VPQ quæ invenitur capiendo angulum VCP Sectori Elliptico CVRC proportionalem, & longitudinem CP longitudini CT æqualem: ut supra. Consequuntur hæc omnia ex Propositione præcedente, per Curvæ cujusdam quadraturam, cujus inventionem ut satis facilem brevitatis gratia missam facio.
+
+Translation status: identifying_translation_not_full. Proposition XLI corollary 3: under a centripetal force inversely as the cube of the distance, a body leaving V perpendicular to CV with the proper speed follows the constructed trajectory; in the hyperbola case it descends to the centre, in the ellipse case it ascends forever and goes off to infinity.
+
+## NATP00077.par325
+
+Witness: De Motu Corporum (Liber Primus) (1687)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par325
+
+Corol. 1. Hinc si vis centripeta sit ut aliqua altitudinis dignitas, inveniri potest dignitas illa ex motu Apsidum; & contra-Nimirum si motus totus angularis, quo corpus redit ad Apsidem eandem, sit ad motum angularem revolutionis unius, seu graduum 360, ut numerus aliquis m ad numerum alium n, & altitudo nominetur A: erit vis ut altitudinis dignitas illa Annmm−3, cujus Index est nnmm−3. Id quod per Exempla secunda manifestum est. Unde liquet vim illam in majore quam triplicata altitudinis ratione decrescere non posse: Corpus tali vi revolvens deq; Apside discedens, si cæperit descendere, nunquam perveniet ad Apsidem imam seu altitudinem minimam, sed descendet usq; ad centrum, describens curvam illam lineam de qua egimus in Corol. 3. Prop. XLI. Sin cæperit illud de Apside discedens vel minimum ascendere, ascendet in infinitum, neq; unquam perveniet ad Apsidem summam. Describet enim curvam illam lineam de qua actum est in eodem Corol. & in Corol. 6. Prop. XLIV. Sic & ubi vis in recessu a centro decrescit in majori quam triplicata ratione altitudinis, corpus de Apside discedens, perinde ut cæperit descendere vel ascendere, vel descendet ad centrum usq; vel ascendet in infinitum. At si vis in recessu a centro vel decrescat in minori quam triplicata ratione altitudinis, vel crescat in altitudinis ratione quacunq; Corpus nunquam descendet ad centrum usq; sed ad Apsidem imam aliquando perveniet: & contra, si corpus de Apside ad Apsidem alternis vicibus descendens & ascendens nunquam appellat ad centrum, Vis in recessu a centro aut augebitur, aut in minore quam triplicata altitudinis ratione decrescet: & quo citius corpus de Apside ad Apsidem redierit, eo longius ratio virium recedet a ratione illa triplicata. Ut si corpus revolutionibus 8 vel 4 vel 2 vel 112 de Apside summa ad Apsidem summam alterno descensu & ascensu redierit, hoc est, si fuerit m ad n ut 8 vel 4 vel 2 vel 112 ad 1, adeoq; nnmm−3 ualeat 164−3 vel 116−3 vel 14−3 vel 49−3, erit vis ut A164−3 vel A116−3 vel A14−3 vel A49−3, id est reciproce ut A3−164 vel A3−116 vel A3−14 vel A3−49. Si corpus singulis revolutionibus redierit ad Apsidem eandem immotam, erit, m ad n ut 1 ad 1, adeoq; Annmm−3 æqualis A−2 seu 1A3, & propterea decrementum virium in ratione duplicata altitudinis, ut in præcedentibus demonstratum est. Si corpus partibus revolutionis unius vel tribus quartis, vel duabus tertiis, vel una tertia, vel una quarta, ad Apsidem eandem redierit, erit m ad n ut 14 vel 25 vel 13 vel 14 ad 1, adeoq; Annmm−3 æqualis A169−3 vel A94−3 vel A9−3 vel A16−3, & propterea Vis aut reciproce ut A119 vel A14, aut directe ut A6 vel A13. Deniq; si Corpus pergendo ab Apside summa ad Apsidem summam confecerit revolutionem integram, & præterea gradus tres, adeoq; Apsis illa singulis corporis revolutionibus confecerit in Consequentia gradus tres, erit m ad n ut 363gr. ad 360gr. adeoq; Annmm−3 erit æquale A−265969134769, & propterea Vis centripeta reciproce ut A265969134769 seu A24243. Decrescit igitur Vis centripeta in ratione paulo majore quam duplicata, sed quæ vicibus 6014 propius ad duplicatam quam ad triplicatam accedit.
+
+Translation status: identifying_translation_not_full. Proposition XLV corollary 1: a power-law force can be found from the motion of the apsides. A force decreasing faster than the cube of the altitude: a body leaving an apsis descends to the centre or ascends to infinity. A force decreasing more slowly, or increasing: the body never descends to the centre and reaches a lower apsis.
+
 ## NATP00082.par2
 
 Witness: De Motu Corporum (Liber Primus) (1713)
@@ -1531,6 +1591,66 @@ https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par102
 Corol. 3. Vis, qua corpus P in Orbe quocunque circum virium centrum S revolvitur, est ad vim qua corpus idem P in eodem orbe eodemque tempore periodico circum aliud quodvis virium centrum R revolvi potest, ut SP×RPq contentum utique sub distantia corporis a primo virium centro S & quadrato distantiæ ejus a secundo virium centro R ad cubum rectæ SG quæ a primo virium centro S ad orbis tangentem PG ducitur, & corporis a secundo virium centro distantiæ RP parallela est. Nam vires in hoc Orbe, ad ejus punctum quodvis P, eædem sunt ac in Circulo ejusdem curvaturæ.
 
 Translation status: not_translated.
+
+## NATP00082.par46
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par46
+
+Quæ de curvis lineis deque superficiebus comprehensis demonstrata sunt, facile applicantur ad solidorum superficies curvas & contenta. Præmisi vero hæc Lemmata ut effugerem tædium deducendi perplexas demonstrationes, more veterum Geometrarum, ad absurdum. Contractiores enim redduntur demonstrationes per methodum Indivisibilium. Sed quoniam durior est Indivisibilium hypothesis; & propterea methodus illa minus Geometrica censetur; malui demonstrationes rerum sequentium ad ultimas quantitatum evanescentium summas & rationes, primasque nascentium, id est, ad limites summarum & rationum deducere; & propterea limitum illorum demonstrationes qua potui breuitate præmittere. His enim idem præstatur quod per methodum Indivisibilium; & principiis demonstratis jam tutius utemur. Proinde in sequentibus, siquando quantitates tanquam ex particulis constantes consideravero, vel si pro rectis usurpavero lineolas curvas; nolim indivisibilia sed evanescentia divisibilia, non summas & rationes partium determinatarum, sed summarum & rationum limites semper intelligi; vimque talium demonstrationum ad methodum præcedentium Lemmatum semper revocari.
+
+Translation status: identifying_translation_not_full. Section I Scholium: the lemmas replace the method of indivisibles by ultimate sums and ratios; where quantities are later treated as made of particles, or small curves as straight, evanescent divisible quantities and limits of sums and ratios are meant.
+
+## NATP00082.par48
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par48
+
+Contendi etiam potest, quod si dentur ultimæ quantitatum evanescentium rationes, dabuntur & ultimæ magnitudines: & sic quantitas omnis constabit ex Indivisibilibus, contra quam Euclides de Incommensurabilibus, in libro decimo Elementorum, demonstravit. Verum hæc Objectio falsæ innititur hypothesi. Ultimæ rationes illæ quibuscum quantitates evanescunt, revera non sunt rationes quantitatum ultimarum, sed limites ad quos quantitatum sine limite decrescentium rationes semper appropinquant, & quas propius assequi possunt quam pro data quavis differentia, nunquam vero transgredi, neque prius attingere quam quantitates diminuuntur in infinitum. Res clarius intelligetur in infinite magnis. Si quantitates duæ quarum data est differentia augeantur in infinitum, dabitur harum ultima ratio, nimirum ratio æqualitatis, nec tamen ideo dabuntur quantitates ultimæ seu maximæ quarum ista est ratio. Igitur in sequentibus, siquando facili rerum imaginationi consulens dixero quantitates quam minimas, vel evanescentes, vel ultimas; cave intelligas quantitates magnitudine determinatas, sed cogita semper diminuendas sine limite.
+
+Translation status: identifying_translation_not_full. Objection: ultimate ratios would imply ultimate magnitudes and indivisibles. Reply: ultimate ratios are limits which the ratios of quantities decreasing without limit approach closer than any given difference, never exceed, and do not attain before the quantities are diminished in infinitum.
+
+## NATP00082.par108
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par108
+
+Gyretur corpus in Spirali PQS secante radios omnes SP SQ, &c. in angulo dato: requiritur Lex vis centripetæ tendentis ad centrum Spiralis.
+
+Translation status: identifying_translation_not_full. Proposition IX statement: a body revolves in a spiral cutting all radii at a given angle; the law of centripetal force toward the centre of the spiral is required.
+
+## NATP00082.par109
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par109
+
+Detur angulus indefinite parvus PSQ, & ob datos omnes angulos dabitur specie figura SPQRT. Ergo datur ratio QTQR, estque QT quad.QR ut QT, hoc est ut SP. Mutetur jam utcunque angulus PSQ, & recta QR angulum contactus QPR subtendens mutabitur (per Lemma XI.) in duplicata ratione ipsius PR vel QT. Ergo manebit QT quad.QR eadem quæ prius, hoc est ut SP. Quare QT q.×SP qQR est ut SP cub. adeoque (per Corol. 1 & 5 Prop. VI.) vis centripeta est reciproce ut cubus distantiæ SP. Q.E.I.
+
+Translation status: identifying_translation_not_full. Proposition IX solution (1713): the same ratio argument; the conclusion reads "vis centripeta est reciproce ut cubus distantiae SP", citing Proposition VI corollaries 1 and 5.
+
+## NATP00082.par335
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par335
+
+Corol. 3. Si centro C & vertice principali V describatur Sectio quælibet Conica VRS, & a quovis ejus puncto R agatur Tangens RT occurrens axi infinite producto CV in puncto T; dein juncta CR ducatur recta CP, quæ æqualis sit abscissæ CT, angulumque VCP Sectori VCR proportionalem constituat; tendat autem ad centrum C Vis centripeta Cubo distantiæ locorum a centro reciproce proportionalis, & exeat corpus de loco V justa cum velocitate secundum lineam rectæ CV perpendicularem: progredietur corpus illud in Trajectoria quam punctum P perpetuo tangit; adeoque si Conica sectio CVRS Hyperbola sit, descendet idem ad centrum: Sin ea Ellipsis sit, ascendet illud perpetuo & abibit in infinitum. Et contra, si corpus quacunque cum velocitate exeat de loco V, & perinde ut incæperit vel oblique descendere ad centrum, vel ab eo oblique ascendere, Figura CVRS vel Hyperbola sit vel Ellipsis, inveniri potest Trajectoria augendo vel minuendo angulum VCP in data aliqua ratione. Sed &, Vi centripeta in centrifugam versa, ascendet corpus oblique in Trajectoria VPQ quæ invenitur capiendo angulum VCP Sectori Elliptico CVRC proportionalem, & longitudinem CP longitudini CT æqualem ut supra. Consequuntur hæc omnia ex Propositione præcedente, per Curvæ cujusdam quadraturam, cujus inventionem, ut satis facilem, brevitatis gratia missam facio.
+
+Translation status: identifying_translation_not_full. Proposition XLI corollary 3: under a centripetal force inversely as the cube of the distance, a body leaving V perpendicular to CV with the proper speed follows the constructed trajectory; in the hyperbola case it descends to the centre, in the ellipse case it ascends forever and goes off to infinity.
+
+## NATP00082.par355
+
+Witness: De Motu Corporum (Liber Primus) (1713)
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par355
+
+Corol. 1. Hinc si vis centripeta sit ut aliqua altitudinis dignitas, inveniri potest dignitas illa ex motu Apsidum; & contra. Nimirum si motus totus angularis, quo corpus redit ad Apsidem eandem, sit ad motum angularem revolutionis unius, seu graduum 360, ut numerus aliquis m ad numerum alium n, & altitudo nominetur A: erit vis ut altitudinis dignitas illa Annmm−3, cujus Index est nnmm−3. Id quod per Exempla secunda manifestum est. Unde liquet vim illam in majore quam triplicata altitudinis ratione, in recessu a centro, decrescere non posse: Corpus tali vi revolvens deque Apside discedens, si cæperit descendere nunquam perveniet ad Apsidem imam seu altitudinem minimam, sed descendet usque ad centrum, describens Curvam illam lineam de qua egimus in Corol. 3. Prop. XLI. Sin cæperit illud de Apside discedens, vel minimum ascendere; ascendet in infinitum, neque unquam perveniet ad Apsidem summam. Describet enim Curvam illam lineam de qua actum est in eodem Corol. & in Corol. 6, Prop. XLIV. Sic & ubi vis, in recessu a centro, decrescit in majore quam triplicata ratione altitudinis, corpus de Apside discedens, perinde ut cæperit descendere vel ascendere, vel descendet ad centrum usque vel ascendet in infinitum. At si vis, in recessu a centro, vel decrescat in minori quam triplicata ratione altitudinis, vel crescat in altitudinis ratione quacunque; Corpus nunquam descendet ad centrum usque, sed ad Apsidem imam aliquando perveniet: & contra, si corpus de Apside ad Apsidem alternis vicibus descendens & ascendens nunquam appellat ad centrum; vis in recessu a centro aut augebitur, aut in minore quam triplicata altitudinis ratione decrescet: & quo citius corpus de Apside ad Apsidem redierit, eo longius ratio virium recedet a ratione illa triplicata. Ut si corpus revolutionibus 8 vel 4 vel 2 vel 112 de Apside summa ad Apsidem summam alterno descensu & ascensu redierit; hoc est, si fuerit m ad n ut 8 vel 4 vel 2 vel 112 ad 1, adeoque nnmm−3 valeat 164−3 vel 116−3 vel 14−3 vel 49−3: erit vis ut A164−3 vel A116−3 vel A14−3 vel A49−3, id est, reciproce ut A3−164 vel A3−116 vel A3−14 vel A3−49. Si corpus singulis revolutionibus redierit ad Apsidem eandem immotam; erit m ad n ut 1 ad 1, adeoque Annmm−3 æqualis A−2 seu 1AA, & propterea decrementum virium in ratione duplicata altitudinis, ut in præcedentibus demonstratum est. Si corpus partibus revolutionis unius vel tribus quartis, vel duabus tertiis, vel una tertia, vel una quarta, ad Apsidem eandem redierit; erit m ad n ut 34 vel 23 vel 13 vel 14 ad 1, adeoque Annmm−3 æqualis A169−3 vel A94−3 vel A9−3 vel A16−3; & propterea vis aut reciproce ut A119 vel A34, aut directe ut A6 vel A13. Denique si Corpus pergendo ab Apside summa ad Apsidem summam confecerit revolutionem integram, & præterea gradus tres, adeoque Apsis illa singulis corporis revolutionibus confecerit in consequentia gradus tres; erit m ad n ut 363gr. ad 360gr. sive ut 121 ad 120, adeoque Annmm−3 erit æquale A−2952314641; & propterea vis centripeta reciproce ut A2952314641 seu reciproce ut A24243 proxime. Decrescit igitur vis centripeta in ratione paulo majore quam duplicata, sed quæ vicibus 5914 propius ad duplicatam quam ad triplicatam accedit.
+
+Translation status: identifying_translation_not_full. Proposition XLV corollary 1: a power-law force can be found from the motion of the apsides. A force decreasing faster than the cube of the altitude (1713 adds "in recessu a centro"): a body leaving an apsis descends to the centre or ascends to infinity. A force decreasing more slowly, or increasing: the body never descends to the centre and reaches a lower apsis.
 
 ## NATP00075.par1
 

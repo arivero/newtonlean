@@ -201,3 +201,13 @@ and `Quot.sound`, and no `sorryAx`. `git diff --check` passed.
 unequal rational cells, exact one-cell refinement identities for an arbitrary
 field, a harmonic example, and the unequal-cell converse. It proves no
 convergence, curve existence, or force identification; see PROP_I_REALIZATION.md.
+
+Passage-store extension (2026-09-22, Claude Code): twelve local TEI anchors
+were added to `selections.json` with identifying translations. They are the
+Section I Scholium (1687 par40/42, 1713 par46/48), Prop. IX (1687 par84–85,
+1713 par108–109), Prop. XLI Cor. 3 (1687 par305, 1713 par335) and Prop. XLV
+Cor. 1 (1687 par325, 1713 par355). They are comparison and diagnostic
+witnesses for the action arguments and add no proof edge. `catalogue_m1.py`,
+`collate_sources.py` (9 witnesses, 243 XML anchors), `compare_editions.py`,
+`check_graph.py` (77 nodes, 68 edges, 246 passages), `test_evidence_validation.py`
+and `sha256sum -c docs/SHA256SUMS` passed. Nothing was downloaded.

@@ -303,5 +303,41 @@
   },
   "NATP00082.par72": {
     "translation": "The proof explicitly cites Proposition II, Proposition I corollaries 2 and 4, and Lemma VII."
+  },
+  "NATP00077.par40": {
+    "translation": "Section I Scholium: the lemmas replace the method of indivisibles by ultimate sums and ratios; where quantities are later treated as made of particles, or small curves as straight, evanescent divisible quantities and limits of sums and ratios are meant."
+  },
+  "NATP00082.par46": {
+    "translation": "Section I Scholium: the lemmas replace the method of indivisibles by ultimate sums and ratios; where quantities are later treated as made of particles, or small curves as straight, evanescent divisible quantities and limits of sums and ratios are meant."
+  },
+  "NATP00077.par42": {
+    "translation": "Objection: ultimate ratios would imply ultimate magnitudes and indivisibles. Reply: ultimate ratios are limits which the ratios of quantities decreasing without limit approach closer than any given difference, never exceed, and do not attain before the quantities are diminished in infinitum."
+  },
+  "NATP00082.par48": {
+    "translation": "Objection: ultimate ratios would imply ultimate magnitudes and indivisibles. Reply: ultimate ratios are limits which the ratios of quantities decreasing without limit approach closer than any given difference, never exceed, and do not attain before the quantities are diminished in infinitum."
+  },
+  "NATP00077.par84": {
+    "translation": "Proposition IX statement: a body revolves in a spiral cutting all radii at a given angle; the law of centripetal force toward the centre of the spiral is required."
+  },
+  "NATP00082.par108": {
+    "translation": "Proposition IX statement: a body revolves in a spiral cutting all radii at a given angle; the law of centripetal force toward the centre of the spiral is required."
+  },
+  "NATP00077.par85": {
+    "translation": "Proposition IX solution (1687): by Lemma XI the ratio QT^2/QR is as SP, so QT^2*SP^2/QR is as SP^3; the conclusion is printed as \"vis centripeta ut cubus distantiae SP\", citing the corollary of Theorem V."
+  },
+  "NATP00082.par109": {
+    "translation": "Proposition IX solution (1713): the same ratio argument; the conclusion reads \"vis centripeta est reciproce ut cubus distantiae SP\", citing Proposition VI corollaries 1 and 5."
+  },
+  "NATP00077.par305": {
+    "translation": "Proposition XLI corollary 3: under a centripetal force inversely as the cube of the distance, a body leaving V perpendicular to CV with the proper speed follows the constructed trajectory; in the hyperbola case it descends to the centre, in the ellipse case it ascends forever and goes off to infinity."
+  },
+  "NATP00082.par335": {
+    "translation": "Proposition XLI corollary 3: under a centripetal force inversely as the cube of the distance, a body leaving V perpendicular to CV with the proper speed follows the constructed trajectory; in the hyperbola case it descends to the centre, in the ellipse case it ascends forever and goes off to infinity."
+  },
+  "NATP00077.par325": {
+    "translation": "Proposition XLV corollary 1: a power-law force can be found from the motion of the apsides. A force decreasing faster than the cube of the altitude: a body leaving an apsis descends to the centre or ascends to infinity. A force decreasing more slowly, or increasing: the body never descends to the centre and reaches a lower apsis."
+  },
+  "NATP00082.par355": {
+    "translation": "Proposition XLV corollary 1: a power-law force can be found from the motion of the apsides. A force decreasing faster than the cube of the altitude (1713 adds \"in recessu a centro\"): a body leaving an apsis descends to the centre or ascends to infinity. A force decreasing more slowly, or increasing: the body never descends to the centre and reaches a lower apsis."
   }
 }
