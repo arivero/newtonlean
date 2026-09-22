@@ -109,7 +109,11 @@ agree exactly, with no correction term.
 schedules may end with partial drifts `u/D` and `u'/E`, corrected by
 `((Q+u*u)/(2D²))*a` and `((Q'+u'*u')/(2E²))*a`.
 
-Next package the explicit difference bound and prove convergence
+`partition_gap` packages the result: the two positions differ only along `a`,
+through nonnegative coefficients each at most its own `M*T/(2D²)`. This
+closes the constant-force rational-time part of TASKS order 3.
+
+Next prove convergence
 to the constructed map as their largest durations decrease. A rational-time
 constant-force result must remain distinct from a general Euclidean-time
 trajectory, a varying central-force realization and the historical limiting

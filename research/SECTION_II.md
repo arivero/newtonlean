@@ -82,6 +82,26 @@ Newton's same-stage text supplies it. Any action-valued boundary residual or
 fixed-constant proposal belongs to the separate diagnostic layer in
 [GOALS.md](GOALS.md); it cannot close an edge in these proof maps.
 
+## Finite Proposition II step (22 September 2026)
+
+`Polygon/Converse.lean` reconstructs Case 1's finite step in integer
+coordinates with S at the origin (1687 par49, 1713 par59). With `c` the
+inertial continuation of AB and C the next vertex, `equal_area_parallel` and
+`parallel_equal_area` prove that equal **oriented** triangles SAB, SBC are
+equivalent to `cC` parallel to SB. `equal_area_central_step` then gives a
+rational central kick when B ≠ S, and `equal_areas_all_central` applies it to
+every cell of an equal-area vertex sequence. Three checked examples keep the
+remaining premises visible. Equal unsigned areas with opposite orientation
+admit a non-central deflection, which matches Euclid's "same side" condition.
+A vertex at S fixes no direction. Outward and inward kicks give equal areas
+alike, so "tendentes ad punctum S" (toward rather than away) needs a further
+premise. Both editions cite Euclid I.40. In Heath's numbering I.39 is the
+same-base statement and I.40 concerns equal bases, while Newton's triangles
+SBc, SBC share the base SB. The citation is recorded as printed, and the
+numbering of the Euclid edition Newton used was not investigated
+(`editorial_interpretation`, low confidence). Case 2, unequal cells and the
+vanishing-triangle passage from a realized curve remain open.
+
 ## Confidence and stopping point
 
 All accepted proof edges added for this map are explicit same-stage citations

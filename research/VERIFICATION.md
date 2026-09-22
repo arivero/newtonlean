@@ -174,3 +174,12 @@ elaborated with only `propext`, `Classical.choice` and `Quot.sound`, no
 `sorryAx`; graph validation (77 nodes, 68 edges, 234 passages) and
 `git diff --check` passed. `velocity_comparison` proves exact velocity
 agreement of two arbitrary schedules at equivalent rational times.
+
+Order-3 closure and Proposition II finite step (2026-09-22, Claude Code): both
+builds passed without warnings; 230 catalogued theorem declarations;
+`check_graph.py` validated 77 nodes, 68 edges, 234 passages and emitted 180
+references, all elaborated by `CheckReferences.lean` with only `propext`,
+`Classical.choice` and `Quot.sound`, and no `sorryAx`. `git diff --check`
+passed. `partition_gap` packages the two-partition comparison.
+`Polygon/Converse.lean` proves the finite Case-1 equivalence and its
+counterexamples; it treats no realized curve, limit or moving centre.

@@ -34,6 +34,11 @@ family) singles out inverse-cube circles as the one power law with a common
 areal velocity, checked for two circles in `Diagnostic/InverseCubeAreal.lean`.
 That action is system-dependent. No argument yet supports a universal constant.
 
+Order 3 (constant-force, rational times) is closed by `partition_gap`; order 5
+has its finite Case-1 step in `Polygon/Converse.lean`: equal oriented areas
+are equivalent to a deflection parallel to the radius, with orientation, a
+vertex distinct from S, and the inward sense kept as separate premises.
+
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,
 Propositions I–IV: see [goals](GOALS.md). M1–M4 below are supporting work.

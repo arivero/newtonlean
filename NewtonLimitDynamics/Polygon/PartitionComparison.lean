@@ -101,4 +101,20 @@ theorem partial_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
     PartialCell.partialState_position, PartialCell.partialState_position] at h
   exact h
 
+/-- Packaged gap statement: two schedules reaching one rational time differ
+    only along `a`, through two nonnegative coefficients each bounded by its
+    own largest-cell coefficient `M*T/(2D²)` (largest cell times elapsed time,
+    halved). -/
+theorem partition_gap (D E M M' : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
+    (ws ws' : List Nat) (hw : ∀ w ∈ ws, w ≤ M) (hw' : ∀ w ∈ ws', w ≤ M')
+    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
+    ∃ c c' : Fraction,
+      Fraction.le (Fraction.ofInt 0) c ∧ Fraction.le c (meshCoefficient D M (total ws) hD) ∧
+      Fraction.le (Fraction.ofInt 0) c' ∧ Fraction.le c' (meshCoefficient E M' (total ws') hE) ∧
+      pointEquiv (pointAdd (partitionMotion D hD p v a ws).1 (pointScale c a))
+        (pointAdd (partitionMotion E hE p v a ws').1 (pointScale c' a)) :=
+  ⟨_, _, residual_nonnegative D _ hD, residual_mesh_bound D M hD ws hw,
+    residual_nonnegative E _ hE, residual_mesh_bound E M' hE ws' hw',
+    partition_comparison D E hD hE p v a ws ws' ht⟩
+
 end NewtonLimitDynamics.Polygon.PartitionComparison

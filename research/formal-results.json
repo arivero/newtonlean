@@ -925,6 +925,146 @@
     "interpretation_and_remaining_premises": "Modern diagnostic of the finite polygon construction: restart of the actual recurrence, endpoint contact, discrete velocity jumps, and an inward lattice nonidentification example. The passages locate the motivation only; they do not attribute this interface or its counterexample to Newton, and no continuous trajectory follows."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.Converse.det_sub",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q x y : LatticePoint) : det q (sub x y) = det q x - det q y",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.det_deflection",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q C : LatticePoint) :\n    det q (deflection p q C) = det q C - det p q",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.equal_area_parallel",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q C : LatticePoint) (h : det q C = det p q) :\n    det q (deflection p q C) = 0",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.parallel_equal_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q C : LatticePoint) (h : det q (deflection p q C) = 0) :\n    det q C = det p q",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.parallel_is_multiple",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q d : LatticePoint) (hq : q ≠ (0, 0)) (h : det q d = 0) :\n    ∃ a b : Int, b ≠ 0 ∧ b * d.1 = a * q.1 ∧ b * d.2 = a * q.2",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.equal_area_central_step",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q C : LatticePoint) (hq : q ≠ (0, 0))\n    (h : det q C = det p q) :\n    ∃ a b : Int, b ≠ 0 ∧\n      b * C.1 = b * (extend p q).1 + a * q.1 ∧ b * C.2 = b * (extend p q).2 + a * q.2",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.equal_areas_all_central",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(v : Nat → LatticePoint)\n    (h : ∀ n, det (v (n + 1)) (v (n + 2)) = det (v n) (v (n + 1))) (n : Nat) :\n    det (v (n + 1)) (deflection (v n) (v (n + 1)) (v (n + 2))) = 0",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.unsigned_equal_area_not_central",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    det (1, 1) (2, 1) = -det (1, 0) (1, 1) ∧\n      det (1, 1) (deflection (1, 0) (1, 1) (2, 1)) ≠ 0",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p C : LatticePoint) :\n    det (0, 0) C = det p (0, 0)",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Converse.outward_kick_equal_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Converse.lean",
+    "source_passages": [
+      "NATP00077.par48",
+      "NATP00077.par49",
+      "NATP00082.par58",
+      "NATP00082.par59"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    det (1, 1) (kick (1, 1) (extend (1, 0) (1, 1)) 1) = det (1, 0) (1, 1) ∧\n      det (1, 1) (kick (1, 1) (extend (1, 0) (1, 1)) (-1)) = det (1, 0) (1, 1)",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. No realized curve, vanishing-triangle limit, force law, or Case 2 (moving centre) is treated."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.isum_mono",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
@@ -1715,6 +1855,20 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)\n    (ws ws' : List Nat) (u u' : Nat)\n    (ht : Fraction.equiv (duration D (total ws + u) hD) (duration E (total ws' + u') hE)) :\n    pointEquiv\n      (pointAdd (PartialCell.actualPartialPosition D hD p v a ws u)\n        (pointScale (residualCoefficient D (squares ws + u * u) hD) a))\n      (pointAdd (PartialCell.actualPartialPosition E hE p v a ws' u')\n        (pointScale (residualCoefficient E (squares ws' + u' * u') hE) a))",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`, also at partial-cell sample times, and their actual velocities agree exactly; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.partition_gap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D E M M' : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)\n    (ws ws' : List Nat) (hw : ∀ w ∈ ws, w ≤ M) (hw' : ∀ w ∈ ws', w ≤ M')\n    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :\n    ∃ c c' : Fraction,\n      Fraction.le (Fraction.ofInt 0) c ∧ Fraction.le c (meshCoefficient D M (total ws) hD) ∧\n      Fraction.le (Fraction.ofInt 0) c' ∧ Fraction.le c' (meshCoefficient E M' (total ws') hE) ∧\n      pointEquiv (pointAdd (partitionMotion D hD p v a ws).1 (pointScale c a))\n        (pointAdd (partitionMotion E hE p v a ws').1 (pointScale c' a))",
     "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`, also at partial-cell sample times, and their actual velocities agree exactly; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
   },
   {

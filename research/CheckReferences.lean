@@ -91,6 +91,26 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.triangle_normalized_limit
 #check NewtonLimitDynamics.Fraction.ultimate_congr
 #print axioms NewtonLimitDynamics.Fraction.ultimate_congr
+#check NewtonLimitDynamics.Polygon.Converse.det_deflection
+#print axioms NewtonLimitDynamics.Polygon.Converse.det_deflection
+#check NewtonLimitDynamics.Polygon.Converse.det_sub
+#print axioms NewtonLimitDynamics.Polygon.Converse.det_sub
+#check NewtonLimitDynamics.Polygon.Converse.equal_area_central_step
+#print axioms NewtonLimitDynamics.Polygon.Converse.equal_area_central_step
+#check NewtonLimitDynamics.Polygon.Converse.equal_area_parallel
+#print axioms NewtonLimitDynamics.Polygon.Converse.equal_area_parallel
+#check NewtonLimitDynamics.Polygon.Converse.equal_areas_all_central
+#print axioms NewtonLimitDynamics.Polygon.Converse.equal_areas_all_central
+#check NewtonLimitDynamics.Polygon.Converse.outward_kick_equal_area
+#print axioms NewtonLimitDynamics.Polygon.Converse.outward_kick_equal_area
+#check NewtonLimitDynamics.Polygon.Converse.parallel_equal_area
+#print axioms NewtonLimitDynamics.Polygon.Converse.parallel_equal_area
+#check NewtonLimitDynamics.Polygon.Converse.parallel_is_multiple
+#print axioms NewtonLimitDynamics.Polygon.Converse.parallel_is_multiple
+#check NewtonLimitDynamics.Polygon.Converse.unsigned_equal_area_not_central
+#print axioms NewtonLimitDynamics.Polygon.Converse.unsigned_equal_area_not_central
+#check NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
+#print axioms NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
 #check NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #print axioms NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #check NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment
@@ -147,6 +167,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PartitionComparison.partial_comparison
 #check NewtonLimitDynamics.Polygon.PartitionComparison.partition_comparison
 #print axioms NewtonLimitDynamics.Polygon.PartitionComparison.partition_comparison
+#check NewtonLimitDynamics.Polygon.PartitionComparison.partition_gap
+#print axioms NewtonLimitDynamics.Polygon.PartitionComparison.partition_gap
 #check NewtonLimitDynamics.Polygon.PartitionComparison.velocity_comparison
 #print axioms NewtonLimitDynamics.Polygon.PartitionComparison.velocity_comparison
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
