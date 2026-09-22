@@ -220,3 +220,8 @@ and `Quot.sound`, and no `sorryAx`. `git diff --check` passed.
 `HarmonicStability.lean` proves the exact equal-cell invariant for the linear
 central field and its completed-square form. The boundedness inequality chain
 and any convergence are not formalized.
+
+Harmonic-bound follow-up (2026-09-22, Claude Code): both builds and the
+reference/axiom check passed (only `propext`, `Classical.choice`,
+`Quot.sound`; no `sorryAx`). `schedule_speed_bound` and
+`schedule_position_bound` formalize the mesh-uniform stability inequalities.

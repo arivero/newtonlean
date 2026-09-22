@@ -145,12 +145,22 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
 #check NewtonLimitDynamics.Polygon.HarmonicStability.cell_invariant
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.cell_invariant
+#check NewtonLimitDynamics.Polygon.HarmonicStability.dot_self_num_nonneg
+#print axioms NewtonLimitDynamics.Polygon.HarmonicStability.dot_self_num_nonneg
 #check NewtonLimitDynamics.Polygon.HarmonicStability.invariant_square
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.invariant_square
 #check NewtonLimitDynamics.Polygon.HarmonicStability.linearField_central
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.linearField_central
+#check NewtonLimitDynamics.Polygon.HarmonicStability.position_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicStability.position_bound
 #check NewtonLimitDynamics.Polygon.HarmonicStability.schedule_invariant
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.schedule_invariant
+#check NewtonLimitDynamics.Polygon.HarmonicStability.schedule_position_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicStability.schedule_position_bound
+#check NewtonLimitDynamics.Polygon.HarmonicStability.schedule_speed_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicStability.schedule_speed_bound
+#check NewtonLimitDynamics.Polygon.HarmonicStability.speed_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicStability.speed_bound
 #check NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #print axioms NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #check NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment
