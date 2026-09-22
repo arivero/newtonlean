@@ -80,6 +80,16 @@ This is a finite position estimate at rational sample times inside a cell.
 It asserts no convergence and does not assume that old vertices survive
 refinement.
 
+## Small residual under explicit refinement
+
+`Polygon/UniformRefinement.lean` proves `uniform_refinement_small`: for each
+positive rational tolerance `ε` and rational time `N/E`, refining by
+`K = N*den(ε)+1` into unit cells over denominator `E*K` reaches the same time
+(`refined_time`) with residual coefficient `Q/(2D²) ≤ ε`. The witness is
+explicit. It is one refinement per tolerance; arbitrary partitions are covered
+by the earlier mesh bound, and a Cauchy comparison between two arbitrary
+partitions at the same time is not yet stated.
+
 Next derive quantitative agreement between partitions at the same rational
 time using these within-cell estimates, and prove convergence
 to the constructed map as their largest durations decrease. A rational-time

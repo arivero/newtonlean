@@ -14,6 +14,7 @@ import NewtonLimitDynamics.Polygon.ZeroForce
 import NewtonLimitDynamics.Polygon.InertialControl
 import NewtonLimitDynamics.Polygon.InertialDefect
 import NewtonLimitDynamics.Polygon.PartialCell
+import NewtonLimitDynamics.Polygon.UniformRefinement
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
 import NewtonLimitDynamics.Comparison.Routes

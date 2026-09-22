@@ -2250,6 +2250,90 @@
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.UniformRefinement.unitCells_T_from",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/UniformRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : PartitionStats) : (n : Nat) ->\n    ((unitCells n).foldl next s).T = s.T + n\n  | 0 => rfl\n  | n + 1 => by\n      show ((unitCells n).foldl next (next s 1)).T = s.T + (n + 1)\n      rw [unitCells_T_from (next s 1) n]\n      simp only [next]\n      omega\n\ntheorem unitCells_total (n : Nat) : total (unitCells n) = n",
+    "interpretation_and_remaining_premises": "Modern finite estimate: for each positive rational tolerance and rational time `N/E`, an explicit uniform refinement (`K = N*den+1` unit cells over `E*K`) reaches the same time with constant-force residual coefficient `Q/(2D^2)` at most the tolerance. It is one refinement per tolerance, with no sequence limit, Cauchy comparison of arbitrary partitions, Euclidean-time trajectory, or central-force theorem inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.UniformRefinement.unitCells_total",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/UniformRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(n : Nat) : total (unitCells n) = n",
+    "interpretation_and_remaining_premises": "Modern finite estimate: for each positive rational tolerance and rational time `N/E`, an explicit uniform refinement (`K = N*den+1` unit cells over `E*K`) reaches the same time with constant-force residual coefficient `Q/(2D^2)` at most the tolerance. It is one refinement per tolerance, with no sequence limit, Cauchy comparison of arbitrary partitions, Euclidean-time trajectory, or central-force theorem inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.UniformRefinement.unitCells_le_one",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/UniformRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(n : Nat) : ∀ w ∈ unitCells n, w ≤ 1",
+    "interpretation_and_remaining_premises": "Modern finite estimate: for each positive rational tolerance and rational time `N/E`, an explicit uniform refinement (`K = N*den+1` unit cells over `E*K`) reaches the same time with constant-force residual coefficient `Q/(2D^2)` at most the tolerance. It is one refinement per tolerance, with no sequence limit, Cauchy comparison of arbitrary partitions, Euclidean-time trajectory, or central-force theorem inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.UniformRefinement.refined_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/UniformRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(N E K : Nat) (hE : 0 < E) (hEK : 0 < E * K) :\n    Fraction.equiv (duration (E * K) (total (unitCells (N * K))) hEK) (duration E N hE)",
+    "interpretation_and_remaining_premises": "Modern finite estimate: for each positive rational tolerance and rational time `N/E`, an explicit uniform refinement (`K = N*den+1` unit cells over `E*K`) reaches the same time with constant-force residual coefficient `Q/(2D^2)` at most the tolerance. It is one refinement per tolerance, with no sequence limit, Cauchy comparison of arbitrary partitions, Euclidean-time trajectory, or central-force theorem inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.UniformRefinement.nat_bound",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/UniformRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(N E n d : Nat) (hE : 0 < E) (hn : 0 < n) :\n    N * (N * d + 1) * d ≤ n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1))))",
+    "interpretation_and_remaining_premises": "Modern finite estimate: for each positive rational tolerance and rational time `N/E`, an explicit uniform refinement (`K = N*den+1` unit cells over `E*K`) reaches the same time with constant-force residual coefficient `Q/(2D^2)` at most the tolerance. It is one refinement per tolerance, with no sequence limit, Cauchy comparison of arbitrary partitions, Euclidean-time trajectory, or central-force theorem inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.UniformRefinement.uniform_refinement_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/UniformRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(N E : Nat) (hE : 0 < E) (eps : Fraction)\n    (heps : Fraction.positive eps) :\n    ∃ K : Nat, ∃ hEK : 0 < E * K,\n      Fraction.equiv (duration (E * K) (total (unitCells (N * K))) hEK) (duration E N hE) ∧\n      Fraction.le (residualCoefficient (E * K) (squares (unitCells (N * K))) hEK) eps",
+    "interpretation_and_remaining_premises": "Modern finite estimate: for each positive rational tolerance and rational time `N/E`, an explicit uniform refinement (`K = N*den+1` unit cells over `E*K`) reaches the same time with constant-force residual coefficient `Q/(2D^2)` at most the tolerance. It is one refinement per tolerance, with no sequence limit, Cauchy comparison of arbitrary partitions, Euclidean-time trajectory, or central-force theorem inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointEquiv_refl",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",

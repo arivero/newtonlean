@@ -137,3 +137,14 @@ equivalent to equal squared areal velocity for two circles. It belongs to the
 action diagnostic layer and is no historical proof. The review found stale
 next-step notes (CONTINUATION, TIME_SUBDIVISION, ZERO_FORCE), now corrected,
 and no mathematical errors in the checked modules.
+
+Uniform-refinement follow-up (2026-09-22, Claude Code): `lake build` and `lake
+build NewtonLimitDynamics` passed under Lean 4.19.0. The regenerated formal
+catalogue contains 207 theorem declarations; `check_graph.py` validated 77
+nodes, 68 classified edges, 234 passages, and emitted 165 Lean references.
+`CheckReferences.lean` elaborated all 165 declarations. The aggregate axiom set
+is `propext`, `Classical.choice`, and `Quot.sound`; no `sorryAx` or project
+axiom occurs. `git diff --check` passed. `uniform_refinement_small` gives, for
+each positive rational tolerance and rational time `N/E`, an explicit unit-cell
+refinement reaching that time with constant-force residual coefficient at most
+the tolerance. It proves no sequence limit and no comparison of arbitrary partitions.

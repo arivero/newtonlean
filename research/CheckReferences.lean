@@ -189,6 +189,14 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.fine_velocity_eq_coarse
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
+#check NewtonLimitDynamics.Polygon.UniformRefinement.refined_time
+#print axioms NewtonLimitDynamics.Polygon.UniformRefinement.refined_time
+#check NewtonLimitDynamics.Polygon.UniformRefinement.uniform_refinement_small
+#print axioms NewtonLimitDynamics.Polygon.UniformRefinement.uniform_refinement_small
+#check NewtonLimitDynamics.Polygon.UniformRefinement.unitCells_le_one
+#print axioms NewtonLimitDynamics.Polygon.UniformRefinement.unitCells_le_one
+#check NewtonLimitDynamics.Polygon.UniformRefinement.unitCells_total
+#print axioms NewtonLimitDynamics.Polygon.UniformRefinement.unitCells_total
 #check NewtonLimitDynamics.Polygon.ZeroForce.duration_add
 #print axioms NewtonLimitDynamics.Polygon.ZeroForce.duration_add
 #check NewtonLimitDynamics.Polygon.ZeroForce.endKick_zero

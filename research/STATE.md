@@ -78,7 +78,9 @@ See [finite partition control](PARTITION_CONTROL.md).
 `Polygon/PartialCell.lean` adds within-cell positions: a partial final cell
 `u/D` drifted from the actual prefix state has exact residual
 `((Q+u*u)/(2D²))*a`, with `Q+u*u≤M*(T+u)` when `u≤w≤M`. The next step is
-rational-time convergence to that map across partitions,
+rational-time convergence to that map across partitions;
+`UniformRefinement.lean` already gives, per positive rational tolerance, an
+explicit refinement with residual coefficient below it,
 retaining absolute defect accounting and the general central-force existence
 obligation separately.
 
