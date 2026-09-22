@@ -631,6 +631,342 @@
     "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof: natural-number magnitudes of two uniform circles compared through the Proposition IV Cor. 1 proportion. An inverse-cube comparison is equivalent to equal squared areal velocity; an inverse-square instance has unequal areal velocities. The general power-law Cor. 7 is 1713 only. Supports research/action-arguments Arg002; it fixes a system-dependent action and gives no universal constant."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.det_drift",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v : Point) (d : Fraction) :\n    Fraction.equiv (det (pointAdd x (pointScale d v)) v) (det x v)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.det_kick_split",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v w : Point) (d : Fraction) :\n    Fraction.equiv (det x (pointAdd v (pointScale d w)))\n      (Fraction.add (det x v) (Fraction.mul d (det x w)))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.det_cell_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v : Point) (d : Fraction) :\n    Fraction.equiv (det x (pointAdd x (pointScale d v))) (Fraction.mul d (det x v))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.mul_equiv_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.mul_zero",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) :\n    Fraction.equiv (Fraction.mul d (Fraction.ofInt 0)) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_zero",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) :\n    Fraction.equiv (Fraction.add c (Fraction.ofInt 0)) c",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_mul",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) :\n    Fraction.equiv (Fraction.mul (Fraction.add a b) c)\n      (Fraction.add (Fraction.mul a c) (Fraction.mul b c))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.central_kick",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Field) (hc : central a) (x v : Point) (d : Fraction) :\n    Fraction.equiv (det x (pointAdd v (pointScale d (a x)))) (det x v)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.cell_momentum",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Field) (hc : central a) (d : Fraction) (s : Point × Point) :\n    Fraction.equiv (momentum (cell a d s)) (momentum s)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.schedule_momentum",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Field) (hc : central a) :\n    (ds : List Fraction) → (s : Point × Point) →\n    Fraction.equiv (momentum (schedule a ds s)) (momentum s)\n  | [], _ => Fraction.equiv_refl _\n  | d :: ds, s =>\n      Fraction.equiv_trans (schedule_momentum a hc ds (cell a d s)) (cell_momentum a hc d s)\n\n/-- Areas proportional to times, for arbitrary unequal rational cells and any\n    central field: the swept doubled area equals elapsed time times the initial\n    doubled areal velocity. -/\ntheorem swept_eq (a : Field) (hc : central a) :\n    (ds : List Fraction) → (s : Point × Point) →\n    Fraction.equiv (swept a ds s) (Fraction.mul (elapsed ds) (momentum s))\n  | [], _ => by\n      unfold swept elapsed Fraction.equiv Fraction.mul Fraction.ofInt\n      simp\n  | d :: ds, s => by\n      have hcell : Fraction.equiv (det s.1 (cell a d s).1) (Fraction.mul d (momentum s))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.swept_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Field) (hc : central a) :\n    (ds : List Fraction) → (s : Point × Point) →\n    Fraction.equiv (swept a ds s) (Fraction.mul (elapsed ds) (momentum s))\n  | [], _ => by\n      unfold swept elapsed Fraction.equiv Fraction.mul Fraction.ofInt\n      simp\n  | d :: ds, s => by\n      have hcell : Fraction.equiv (det s.1 (cell a d s).1) (Fraction.mul d (momentum s))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.refine_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Field) (h k : Fraction) (s : Point × Point) :\n    pointEquiv (cell a k (cell a h s)).1\n      (pointAdd (cell a (Fraction.add h k) s).1\n        (pointScale (Fraction.mul h k) (a (cell a h s).1)))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.velocity_scalar",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(v ay az aX h k : Fraction) :\n    Fraction.equiv\n      (Fraction.add (Fraction.add v (Fraction.mul h ay)) (Fraction.mul k az))\n      (Fraction.add (Fraction.add v (Fraction.mul (Fraction.add h k) aX))\n        (Fraction.add (Fraction.mul h (fsub ay aX)) (Fraction.mul k (fsub az aX))))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.refine_velocity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Field) (h k : Fraction) (s : Point × Point) :\n    pointEquiv (cell a k (cell a h s)).2\n      (pointAdd (cell a (Fraction.add h k) s).2\n        (pointAdd\n          (pointScale h (pointSub (a (cell a h s).1) (a (cell a (Fraction.add h k) s).1)))\n          (pointScale k (pointSub (a (cell a k (cell a h s)).1) (a (cell a (Fraction.add h k) s).1)))))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.det_add_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v w : Point) :\n    Fraction.equiv (det x (pointAdd v w)) (Fraction.add (det x v) (det x w))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.expand_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d d' L K : Fraction) :\n    Fraction.equiv (Fraction.mul d (Fraction.mul d' (Fraction.add L K)))\n      (Fraction.add (Fraction.mul (Fraction.mul d d') L) (Fraction.mul (Fraction.mul d d') K))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.expand_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d d' L : Fraction) :\n    Fraction.equiv (Fraction.mul d' (Fraction.mul d L)) (Fraction.mul (Fraction.mul d d') L)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_cancel_num",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{P Q : Fraction} (h : Fraction.equiv (Fraction.add P Q) P) :\n    Q.num = 0",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.unequal_cells_converse",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v J : Point) (d d' : Fraction)\n    (hd : d.num ≠ 0) (hd' : d'.num ≠ 0)\n    (h : Fraction.equiv\n      (Fraction.mul d (det (pointAdd x (pointScale d v))\n        (pointAdd (pointAdd x (pointScale d v)) (pointScale d' (pointAdd v J)))))\n      (Fraction.mul d' (det x (pointAdd x (pointScale d v))))) :\n    Fraction.equiv (det (pointAdd x (pointScale d v)) J) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_central",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": central harmonic",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_refinement_changes_velocity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ pointEquiv (cell harmonic half (cell harmonic half exampleState)).2\n        (cell harmonic (Fraction.add half half) exampleState).2 ∧\n    ¬ pointEquiv (cell harmonic half (cell harmonic half exampleState)).1\n        (cell harmonic (Fraction.add half half) exampleState).1",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_equal_swept",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
+    "source_passages": [
+      "NATP00077.par45",
+      "NATP00082.par51",
+      "NATP00077.par48",
+      "NATP00082.par58"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (swept harmonic [half, half] exampleState)\n      (swept harmonic [Fraction.add half half] exampleState)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.velocityContact_position",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/Contact.lean",

@@ -191,3 +191,13 @@ elaborated with only `propext`, `Classical.choice` and `Quot.sound`, no
 `git diff --check` passed. `extend_relative` and
 `moving_centre_equal_areas_central` transfer the finite converse step to a
 uniformly moving centre.
+
+Central-schedule follow-up (2026-09-22, Claude Code): both builds passed
+without warnings; 256 catalogued theorem declarations; `check_graph.py`
+validated 77 nodes, 68 edges, 234 passages and emitted 196 references, all
+elaborated by `CheckReferences.lean` with only `propext`, `Classical.choice`
+and `Quot.sound`, and no `sorryAx`. `git diff --check` passed.
+`CentralSchedule.lean` proves the finite area law for any central field with
+unequal rational cells, exact one-cell refinement identities for an arbitrary
+field, a harmonic example, and the unequal-cell converse. It proves no
+convergence, curve existence, or force identification; see PROP_I_REALIZATION.md.

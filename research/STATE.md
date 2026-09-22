@@ -39,6 +39,14 @@ has its finite Case-1 step in `Polygon/Converse.lean`: equal oriented areas
 are equivalent to a deflection parallel to the radius, with orientation, a
 vertex distinct from S, and the inward sense kept as separate premises.
 
+Order 4 is decomposed in [Proposition I realization](PROP_I_REALIZATION.md).
+`CentralSchedule.lean` proves the finite area law for any central field with
+unequal rational cells and gives the exact refinement identities for a varying
+force. The missing premise for the ultimate curve is control of force
+differences; Proposition I cites none, and Lemma X's force qualification
+(1687 *regularis*, 1713 *finita … continuo augetur vel diminuatur*) is the
+nearest same-stage candidate.
+
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,
 Propositions I–IV: see [goals](GOALS.md). M1–M4 below are supporting work.

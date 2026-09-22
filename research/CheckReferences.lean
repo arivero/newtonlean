@@ -91,6 +91,34 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.triangle_normalized_limit
 #check NewtonLimitDynamics.Fraction.ultimate_congr
 #print axioms NewtonLimitDynamics.Fraction.ultimate_congr
+#check NewtonLimitDynamics.Polygon.CentralSchedule.cell_momentum
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.cell_momentum
+#check NewtonLimitDynamics.Polygon.CentralSchedule.central_kick
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.central_kick
+#check NewtonLimitDynamics.Polygon.CentralSchedule.det_add_right
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.det_add_right
+#check NewtonLimitDynamics.Polygon.CentralSchedule.det_cell_area
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.det_cell_area
+#check NewtonLimitDynamics.Polygon.CentralSchedule.det_drift
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.det_drift
+#check NewtonLimitDynamics.Polygon.CentralSchedule.det_kick_split
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.det_kick_split
+#check NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_central
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_central
+#check NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_equal_swept
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_equal_swept
+#check NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_refinement_changes_velocity
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.harmonic_refinement_changes_velocity
+#check NewtonLimitDynamics.Polygon.CentralSchedule.refine_position
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.refine_position
+#check NewtonLimitDynamics.Polygon.CentralSchedule.refine_velocity
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.refine_velocity
+#check NewtonLimitDynamics.Polygon.CentralSchedule.schedule_momentum
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.schedule_momentum
+#check NewtonLimitDynamics.Polygon.CentralSchedule.swept_eq
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.swept_eq
+#check NewtonLimitDynamics.Polygon.CentralSchedule.unequal_cells_converse
+#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.unequal_cells_converse
 #check NewtonLimitDynamics.Polygon.Converse.det_deflection
 #print axioms NewtonLimitDynamics.Polygon.Converse.det_deflection
 #check NewtonLimitDynamics.Polygon.Converse.det_sub

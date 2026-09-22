@@ -17,6 +17,7 @@ import NewtonLimitDynamics.Polygon.PartialCell
 import NewtonLimitDynamics.Polygon.UniformRefinement
 import NewtonLimitDynamics.Polygon.PartitionComparison
 import NewtonLimitDynamics.Polygon.Converse
+import NewtonLimitDynamics.Polygon.CentralSchedule
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
 import NewtonLimitDynamics.Comparison.Routes
