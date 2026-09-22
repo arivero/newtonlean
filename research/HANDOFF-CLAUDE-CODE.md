@@ -1,7 +1,8 @@
 # Handoff to Claude Code
 
 Status: the bounded task below is implemented in `Polygon/PartialCell.lean`;
-see PARTITION_CONTROL.md, STATE.md and VERIFICATION.md.
+see PARTITION_CONTROL.md, STATE.md and VERIFICATION.md. Superseded by
+[HANDOFF-2026-09-22-NEXT.md](HANDOFF-2026-09-22-NEXT.md).
 
 ## Authority and read order
 

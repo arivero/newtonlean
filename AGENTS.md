@@ -38,3 +38,6 @@
   prohibition on Claude for that task. Claude Code may implement and verify
   the task itself; the Codex-specific model assignments above do not prevent
   this handoff. Keep execution sequential and all proof/source constraints.
+- Current handoff: research/HANDOFF-2026-09-22-NEXT.md, written by Claude Code
+  at the end of its 22 September session. The exception above covered that
+  session's tasks, which are complete.

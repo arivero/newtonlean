@@ -1,8 +1,9 @@
 # Autonomous continuation: completion criteria
 
-Executor since the Claude Code handoff (22 September 2026): **Claude Code**,
-which completed the handoff task (`PartialCell.lean`). Claude Code may delegate
-routine checks to smaller models, one subagent at a time.
+Latest handoff: [HANDOFF-2026-09-22-NEXT.md](HANDOFF-2026-09-22-NEXT.md),
+written by Claude Code at the end of its 22 September session. The next
+agent should start there. Claude Code may delegate routine checks to smaller
+models, one subagent at a time.
 
 The user authorized continued work across the approved milestones on
 22 September 2026. Updated model policy: use `gpt-6-sol` for bounded reasoning

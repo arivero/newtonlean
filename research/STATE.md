@@ -1,7 +1,9 @@
 # Research state
 
-Resume context: [22 September handoff](HANDOFF-2026-09-22.md), including
-the user's defect-area correction. Its bounded common-time/force comparison
+Resume context: start from the [latest handoff](HANDOFF-2026-09-22-NEXT.md)
+(end of the 22 September Claude Code session). The earlier
+[22 September handoff](HANDOFF-2026-09-22.md) records the user's defect-area
+correction. Its bounded common-time/force comparison
 is now recorded in [time subdivision](TIME_SUBDIVISION.md); follow the next
 obligation there and in TASKS.md rather than repeating the original task.
 Continued autonomous work across the programme is authorized; see
