@@ -631,6 +631,132 @@
     "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof: natural-number magnitudes of two uniform circles compared through the Proposition IV Cor. 1 proportion. An inverse-cube comparison is equivalent to equal squared areal velocity; an inverse-square instance has unequal areal velocities. The general power-law Cor. 7 is 1713 only. Supports research/action-arguments Arg002; it fixes a system-dependent action and gives no universal constant."
   },
   {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.drift_rigid",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d q q' v : Fraction) :\n    Fraction.equiv (fsub (drift d (q', v)).1 (drift d (q, v)).1) (fsub q' q)",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.kick_rigid",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(F : Fraction → Fraction) (d q v v' : Fraction) :\n    Fraction.equiv (fsub (kick F d (q, v')).2 (kick F d (q, v)).2) (fsub v' v)",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.drift_area2",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (z0 z1 z2 : Phase) :\n    Fraction.equiv (area2 (drift d z0) (drift d z1) (drift d z2)) (area2 z0 z1 z2)",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.kick_area2",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c w d : Fraction) (z0 z1 z2 : Phase) :\n    Fraction.equiv (area2 (kick (affine c w) d z0) (kick (affine c w) d z1) (kick (affine c w) d z2))\n      (area2 z0 z1 z2)",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.cell_area2",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c w d : Fraction) (z0 z1 z2 : Phase) :\n    Fraction.equiv\n      (area2 (cell (affine c w) d z0) (cell (affine c w) d z1) (cell (affine c w) d z2))\n      (area2 z0 z1 z2)",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.cells_area2",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c w d : Fraction) :\n    (n : Nat) → (z0 z1 z2 : Phase) →\n    Fraction.equiv\n      (area2 (cells (affine c w) d n z0) (cells (affine c w) d n z1) (cells (affine c w) d n z2))\n      (area2 z0 z1 z2)\n  | 0, _, _, _ => Fraction.equiv_refl _\n  | n + 1, z0, z1, z2 =>\n      Fraction.equiv_trans (cells_area2 c w d n _ _ _) (cell_area2 c w d z0 z1 z2)\n\n/-- The exact energy-type invariant of the constant-force cell,\n    `v² - 2*a*q - d*a*v`, involves the cell duration `d`. -/\ndef energyD (a d : Fraction) (z : Phase) : Fraction",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.cell_energyD",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a d : Fraction) (z : Phase) :\n    Fraction.equiv (energyD a d (cell (fun _ => a) d z)) (energyD a d z)",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.energyD_depends_on_mesh",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ Fraction.equiv (energyD one one (zero, one)) (energyD one half (zero, one))",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.PhaseArea.refinement_moves_points_keeps_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/PhaseArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ pointEquiv (cells (affine zero one) one 1 (one, zero))\n        (cells (affine zero one) half 2 (one, zero)) ∧\n    Fraction.equiv\n      (area2 (cells (affine zero one) one 1 (zero, zero)) (cells (affine zero one) one 1 (one, zero))\n        (cells (affine zero one) one 1 (zero, one))) one ∧\n    Fraction.equiv\n      (area2 (cells (affine zero one) half 2 (zero, zero)) (cells (affine zero one) half 2 (one, zero))\n        (cells (affine zero one) half 2 (zero, one))) one",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.CentralSchedule.det_drift",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
@@ -2062,6 +2188,90 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(D : Nat) (hD : 0 < D)\n    (p v : Point) (w₀ w₁ w₂ w₃ : List Nat) :\n    Fraction.equiv\n      (closedBoundaryTwice\n        (partitionMotion D hD p v zeroPoint w₀).1\n        (partitionMotion D hD p v zeroPoint w₁).1\n        (partitionMotion D hD p v zeroPoint w₂).1\n        (partitionMotion D hD p v zeroPoint w₃).1)\n      (Fraction.ofInt 0)",
     "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneEnclosure.pos_const",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/MonotoneEnclosure.lean",
+    "source_passages": [
+      "NATP00077.par27",
+      "NATP00077.par28",
+      "NATP00082.par28",
+      "NATP00082.par29"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Int) : (n : Nat) → pos (fun _ => c) n = c * tri n ∧ vel (fun _ => c) n = c * n\n  | 0 => by simp [pos, vel, tri]\n  | n + 1 => by\n      obtain ⟨hp, hv⟩",
+    "interpretation_and_remaining_premises": "Modern finite reconstruction of the enclosure behind Lemma X under the 1713 force clause (Vi finita, constant or continually increasing or decreasing; 1687 has vi regulari). Integer magnitudes, unit cells, start at rest: impulses between lo and hi enclose the space described between the constant-force spaces; monotone and antitone histories give the initial/final-force enclosure; a finite rising-and-falling history escapes it. No limit, continuous force, or velocity-area identification of a given curve is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneEnclosure.vel_bounds",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/MonotoneEnclosure.lean",
+    "source_passages": [
+      "NATP00077.par27",
+      "NATP00077.par28",
+      "NATP00082.par28",
+      "NATP00082.par29"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → Int) (lo hi : Int) (n : Nat)\n    (h : ∀ i, i < n → lo ≤ a i ∧ a i ≤ hi) :\n    ∀ k, k ≤ n → lo * k ≤ vel a k ∧ vel a k ≤ hi * k",
+    "interpretation_and_remaining_premises": "Modern finite reconstruction of the enclosure behind Lemma X under the 1713 force clause (Vi finita, constant or continually increasing or decreasing; 1687 has vi regulari). Integer magnitudes, unit cells, start at rest: impulses between lo and hi enclose the space described between the constant-force spaces; monotone and antitone histories give the initial/final-force enclosure; a finite rising-and-falling history escapes it. No limit, continuous force, or velocity-area identification of a given curve is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneEnclosure.enclosure",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/MonotoneEnclosure.lean",
+    "source_passages": [
+      "NATP00077.par27",
+      "NATP00077.par28",
+      "NATP00082.par28",
+      "NATP00082.par29"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → Int) (lo hi : Int) (n : Nat)\n    (h : ∀ i, i < n → lo ≤ a i ∧ a i ≤ hi) :\n    lo * tri n ≤ pos a n ∧ pos a n ≤ hi * tri n",
+    "interpretation_and_remaining_premises": "Modern finite reconstruction of the enclosure behind Lemma X under the 1713 force clause (Vi finita, constant or continually increasing or decreasing; 1687 has vi regulari). Integer magnitudes, unit cells, start at rest: impulses between lo and hi enclose the space described between the constant-force spaces; monotone and antitone histories give the initial/final-force enclosure; a finite rising-and-falling history escapes it. No limit, continuous force, or velocity-area identification of a given curve is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneEnclosure.monotone_enclosure",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/MonotoneEnclosure.lean",
+    "source_passages": [
+      "NATP00077.par27",
+      "NATP00077.par28",
+      "NATP00082.par28",
+      "NATP00082.par29"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → Int) (n : Nat)\n    (hmono : ∀ i j, i ≤ j → j ≤ n → a i ≤ a j) :\n    a 0 * tri (n + 1) ≤ pos a (n + 1) ∧ pos a (n + 1) ≤ a n * tri (n + 1)",
+    "interpretation_and_remaining_premises": "Modern finite reconstruction of the enclosure behind Lemma X under the 1713 force clause (Vi finita, constant or continually increasing or decreasing; 1687 has vi regulari). Integer magnitudes, unit cells, start at rest: impulses between lo and hi enclose the space described between the constant-force spaces; monotone and antitone histories give the initial/final-force enclosure; a finite rising-and-falling history escapes it. No limit, continuous force, or velocity-area identification of a given curve is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneEnclosure.antitone_enclosure",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/MonotoneEnclosure.lean",
+    "source_passages": [
+      "NATP00077.par27",
+      "NATP00077.par28",
+      "NATP00082.par28",
+      "NATP00082.par29"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → Int) (n : Nat)\n    (hanti : ∀ i j, i ≤ j → j ≤ n → a j ≤ a i) :\n    a n * tri (n + 1) ≤ pos a (n + 1) ∧ pos a (n + 1) ≤ a 0 * tri (n + 1)",
+    "interpretation_and_remaining_premises": "Modern finite reconstruction of the enclosure behind Lemma X under the 1713 force clause (Vi finita, constant or continually increasing or decreasing; 1687 has vi regulari). Integer magnitudes, unit cells, start at rest: impulses between lo and hi enclose the space described between the constant-force spaces; monotone and antitone histories give the initial/final-force enclosure; a finite rising-and-falling history escapes it. No limit, continuous force, or velocity-area identification of a given curve is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneEnclosure.nonmonotone_escapes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/MonotoneEnclosure.lean",
+    "source_passages": [
+      "NATP00077.par27",
+      "NATP00077.par28",
+      "NATP00082.par28",
+      "NATP00082.par29"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    pos (fun i => if i = 1 then 5 else 0) 3 = 5 ∧\n      (fun i => if i = 1 then (5 : Int) else 0) 0 * tri 3 = 0 ∧\n      (fun i => if i = 1 then (5 : Int) else 0) 2 * tri 3 = 0",
+    "interpretation_and_remaining_premises": "Modern finite reconstruction of the enclosure behind Lemma X under the 1713 force clause (Vi finita, constant or continually increasing or decreasing; 1687 has vi regulari). Integer magnitudes, unit cells, start at rest: impulses between lo and hi enclose the space described between the constant-force spaces; monotone and antitone histories give the initial/final-force enclosure; a finite rising-and-falling history escapes it. No limit, continuous force, or velocity-area identification of a given curve is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PartialCell.partialState_position",

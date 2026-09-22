@@ -225,3 +225,16 @@ Harmonic-bound follow-up (2026-09-22, Claude Code): both builds and the
 reference/axiom check passed (only `propext`, `Classical.choice`,
 `Quot.sound`; no `sorryAx`). `schedule_speed_bound` and
 `schedule_position_bound` formalize the mesh-uniform stability inequalities.
+
+Action arguments for a nonzero constant (2026-09-22, Claude Code, at the
+user's direction): both builds passed without warnings; 284 catalogued theorem
+declarations; `check_graph.py` validated 77 nodes, 68 edges, 246 passages and
+emitted 220 references, all elaborated by `CheckReferences.lean` with only
+`propext`, `Classical.choice` and `Quot.sound`, and no `sorryAx`.
+`git diff --check` passed. `Diagnostic/PhaseArea.lean` checks the rigid-shear
+structure of the construction's cell for every field, exact phase-triangle
+area for affine fields at every duration, and a duration-dependent
+energy-type invariant. `Polygon/MonotoneEnclosure.lean` checks the finite
+enclosure under the 1713 Lemma X clause and a non-monotone escape.
+Arg004–Arg006 cite only passages already in the store. No passage store
+change, download, or proof edge.

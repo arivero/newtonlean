@@ -19,8 +19,10 @@ import NewtonLimitDynamics.Polygon.PartitionComparison
 import NewtonLimitDynamics.Polygon.Converse
 import NewtonLimitDynamics.Polygon.CentralSchedule
 import NewtonLimitDynamics.Polygon.HarmonicStability
+import NewtonLimitDynamics.Polygon.MonotoneEnclosure
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
 import NewtonLimitDynamics.Comparison.Routes
 import NewtonLimitDynamics.Contact.AreaCoefficient
 import NewtonLimitDynamics.Diagnostic.InverseCubeAreal
+import NewtonLimitDynamics.Diagnostic.PhaseArea

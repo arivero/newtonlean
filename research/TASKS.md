@@ -37,7 +37,7 @@ end-kick recurrence in PartitionControl.lean; see PARTITION_CONTROL.md.
 | 5 | Proposition II converse | Finite Case-1 step checked (Converse.lean): equal oriented areas ⇔ deflection cC parallel to SB; rational central kick when B≠S; counterexamples for unsigned areas, vertex at S, and the undetermined sense. Case 2 finite step (uniformly moving centre) and the unequal-cell converse (CentralSchedule.lean) also checked. Next: and the vanishing-triangle passage from a given realized curve |
 | 6 | Proposition III relative motion | Derive relative-force composition from each edition's stated laws and corollaries; state admissible moving-center data |
 | 7 | Proposition IV circular comparison | Construct required circle geometry and ratios with positive radii/time denominators, then justify the force interpretation |
-| 8 | Boundary/action diagnostic (candidates in `action-arguments/`; none yet supports a universal constant) | For a substantive unresolved implication, derive a candidate residual and its dimension or produce a counterexample to the candidate; do not assume a universal constant |
+| 8 | Boundary/action diagnostic (arguments in `action-arguments/`; Arg004–Arg006 support action as the kind, location and scale of a constant, with no value fixed) | For a substantive unresolved implication, derive a candidate residual and its dimension or produce a counterexample to the candidate; do not assume a universal constant |
 
 For obligations 4–7, report a proved special case separately from the whole
 proposition. If a historical premise cannot be recovered, continue independent

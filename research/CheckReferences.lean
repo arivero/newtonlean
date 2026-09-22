@@ -49,6 +49,24 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseCube_equalAreal
 #check NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseSquare_areal_varies
 #print axioms NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseSquare_areal_varies
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.cell_area2
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.cell_area2
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.cell_energyD
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.cell_energyD
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.cells_area2
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.cells_area2
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.drift_area2
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.drift_area2
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.drift_rigid
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.drift_rigid
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.energyD_depends_on_mesh
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.energyD_depends_on_mesh
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.kick_area2
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.kick_area2
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.kick_rigid
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.kick_rigid
+#check NewtonLimitDynamics.Diagnostic.PhaseArea.refinement_moves_points_keeps_area
+#print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.refinement_moves_points_keeps_area
 #check NewtonLimitDynamics.Fraction.add_assoc
 #print axioms NewtonLimitDynamics.Fraction.add_assoc
 #check NewtonLimitDynamics.Fraction.add_comm
@@ -187,6 +205,18 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.InertialDefect.inertial_closedBoundaryTwice
 #check NewtonLimitDynamics.Polygon.InertialDefect.partitionMotion_closedBoundaryTwice
 #print axioms NewtonLimitDynamics.Polygon.InertialDefect.partitionMotion_closedBoundaryTwice
+#check NewtonLimitDynamics.Polygon.MonotoneEnclosure.antitone_enclosure
+#print axioms NewtonLimitDynamics.Polygon.MonotoneEnclosure.antitone_enclosure
+#check NewtonLimitDynamics.Polygon.MonotoneEnclosure.enclosure
+#print axioms NewtonLimitDynamics.Polygon.MonotoneEnclosure.enclosure
+#check NewtonLimitDynamics.Polygon.MonotoneEnclosure.monotone_enclosure
+#print axioms NewtonLimitDynamics.Polygon.MonotoneEnclosure.monotone_enclosure
+#check NewtonLimitDynamics.Polygon.MonotoneEnclosure.nonmonotone_escapes
+#print axioms NewtonLimitDynamics.Polygon.MonotoneEnclosure.nonmonotone_escapes
+#check NewtonLimitDynamics.Polygon.MonotoneEnclosure.pos_const
+#print axioms NewtonLimitDynamics.Polygon.MonotoneEnclosure.pos_const
+#check NewtonLimitDynamics.Polygon.MonotoneEnclosure.vel_bounds
+#print axioms NewtonLimitDynamics.Polygon.MonotoneEnclosure.vel_bounds
 #check NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual
 #print axioms NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual
 #check NewtonLimitDynamics.Polygon.PartialCell.endKick_position_kick_free

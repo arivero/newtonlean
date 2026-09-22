@@ -32,7 +32,14 @@ version. Arg001 records that every checked refinement residual vanishes with
 the mesh. Arg002 records that Proposition IV Cor. 1 (1713 Cor. 7 for the
 family) singles out inverse-cube circles as the one power law with a common
 areal velocity, checked for two circles in `Diagnostic/InverseCubeAreal.lean`.
-That action is system-dependent. No argument yet supports a universal constant.
+That action is system-dependent. At the user's direction the ledger now
+develops arguments *for* a nonzero constant from the Latin and Newton's
+revisions. Arg004 finds that the construction's exact invariants that survive
+every mesh and every force (phase area, checked in `Diagnostic/PhaseArea.lean`,
+and the areal product) are actions. Arg005 traces the short-time law from
+hypothesis to the 1713 force clause (finite enclosure in
+`Polygon/MonotoneEnclosure.lean`). Arg006 reads the two 1713 finiteness
+clauses as a bound on one local action. None fixes a value.
 
 Order 3 (constant-force, rational times) is closed by `partition_gap`; order 5
 has its finite Case-1 step in `Polygon/Converse.lean`: equal oriented areas
