@@ -64,3 +64,19 @@ coefficient bound. No convergence, limiting curve, integral calculus, or
 trajectory-existence claim is discharged. `git diff --check` passed; generated
 `research/formal-results.json` was regenerated and conversation-export changes
 remain preserved.
+
+Zero-force follow-up (2026-09-22): `lake build` and `lake build
+NewtonLimitDynamics` passed. `catalogue_formal.py` inventoried 165 theorem
+declarations, and `check_graph.py` validated 77 nodes, 68 classified edges,
+234 passage records and emitted 133 Lean references. `CheckReferences.lean`
+elaborated 133 checked declarations and printed their axiom dependencies;
+only standard logical axioms (`propext`, `Classical.choice`, `Quot.sound`)
+occurred, with no `sorryAx` or project axiom. `git diff --check` passed.
+The zero-force results are finite rational-time constructions: recurrence
+agreement with `p + t*v`, unchanged velocity, exact restart, independence of
+positive common denominators and finite partitions, rest, and the within-cell
+drift wrapper. The wrapper's bounds are explicit hypotheses and are not used
+by its algebraic conclusion. The slow/fast example has distinct initial
+velocities and therefore diagnoses insufficient identifying data rather than
+nonuniqueness for fixed initial data. No continuum curve, all-Euclidean-time
+realization, historical dependency, or action-constant conclusion is claimed.

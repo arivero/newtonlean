@@ -7,11 +7,14 @@ obligation there and in TASKS.md rather than repeating the original task.
 Continued autonomous work across the programme is authorized; see
 [completion criteria](CONTINUATION.md).
 
-Latest priority: the user requests **zero force and rectilinear motion** as the
-first case on resumption. Derive exact inertial subdivision/joining and the
-rational time-to-position construction, and investigate the limits of zero
-defect area as identifying data. This precedes the nonzero-force continuation
-described below; see TASKS.md.
+Latest priority: **zero force and rectilinear motion**. The first finite suite
+is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
+agreement with `p+t*v`, constant velocity, cross-denominator subdivision
+independence, exact restart, rest and within-cell positions. A zero-defect
+example distinguishes motions with different initial velocities; it is not
+fixed-data nonuniqueness. See [zero force](ZERO_FORCE.md). These are rational-time
+constructions with no presumed limiting curve; full Euclidean-time realization
+and additional geometric/area obligations remain separate.
 
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,

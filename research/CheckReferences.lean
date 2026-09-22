@@ -133,6 +133,36 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.fine_velocity_eq_coarse
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
+#check NewtonLimitDynamics.Polygon.ZeroForce.duration_add
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.duration_add
+#check NewtonLimitDynamics.Polygon.ZeroForce.endKick_zero
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.endKick_zero
+#check NewtonLimitDynamics.Polygon.ZeroForce.inertialAt_add
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.inertialAt_add
+#check NewtonLimitDynamics.Polygon.ZeroForce.inertialAt_time_congr
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.inertialAt_time_congr
+#check NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_append
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_append
+#check NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_cross_partition
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_cross_partition
+#check NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_cross_partition_state
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_cross_partition_state
+#check NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_rest
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_rest
+#check NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_zero_force
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_zero_force
+#check NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_collinear_closedBoundary
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_collinear_closedBoundary
+#check NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_different_half_time
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_different_half_time
+#check NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_equal_endpoint
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_equal_endpoint
+#check NewtonLimitDynamics.Polygon.ZeroForce.slow_two_cell_schedule
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.slow_two_cell_schedule
+#check NewtonLimitDynamics.Polygon.ZeroForce.withinCell_position
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.withinCell_position
+#check NewtonLimitDynamics.Polygon.ZeroForce.withinCell_position_bounded
+#print axioms NewtonLimitDynamics.Polygon.ZeroForce.withinCell_position_bounded
 #check NewtonLimitDynamics.Polygon.adjacent_impulseContact_iff
 #print axioms NewtonLimitDynamics.Polygon.adjacent_impulseContact_iff
 #check NewtonLimitDynamics.Polygon.adjacent_position_contact

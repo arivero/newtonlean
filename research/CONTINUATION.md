@@ -21,6 +21,9 @@ undischarged premises; a successful special case is not full completion.
    intermediate sample sets. Identify the remaining domain/continuity premises
    before claiming a full Euclidean-time motion. This priority was explicitly
    requested during the pause until 10:50 Madrid time on 22 September.
+   The finite recurrence/map, subdivision, restart, rest, and within-cell
+   results now compile in `Polygon/ZeroForce.lean`; see ZERO_FORCE.md for their
+   exact domain and the remaining defect/continuity obligations.
 1. Extend the constructed constant-force end-kick comparison to arbitrary
    finite rational partitions, with an exact displacement residual and a
    largest-cell bound. Derive these from the recurrence, not from an assumed

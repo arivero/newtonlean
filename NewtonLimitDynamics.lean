@@ -10,6 +10,7 @@ import NewtonLimitDynamics.Polygon.Contact
 import NewtonLimitDynamics.Polygon.RefinementStrip
 import NewtonLimitDynamics.Polygon.TimeSubdivision
 import NewtonLimitDynamics.Polygon.PartitionControl
+import NewtonLimitDynamics.Polygon.ZeroForce
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
 import NewtonLimitDynamics.Comparison.Routes

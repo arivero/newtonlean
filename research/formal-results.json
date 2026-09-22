@@ -1768,6 +1768,344 @@
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointEquiv_refl",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) : pointEquiv p p",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointEquiv_trans",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointAdd_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointScale_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) {p q : Point} (h : pointEquiv p q) :\n    pointEquiv (pointScale d p) (pointScale d q)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.add_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.inertial_add_scalar",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v s t : Fraction) :\n    Fraction.equiv\n      (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul t v))\n      (Fraction.add p (Fraction.mul (Fraction.add s t) v))",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.inertialAt_add",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v : Point) (s t : Fraction) :\n    pointEquiv (inertialAt (inertialAt p v s) v t) (inertialAt p v (Fraction.add s t))",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.zero_scale",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) : pointEquiv (pointScale d zeroPoint) zeroPoint",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointAdd_zero",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) : pointEquiv (pointAdd p zeroPoint) p",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.endKick_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (state : Point × Point) :\n    pointEquiv (endKick d state zeroPoint).1 (inertialAt state.1 state.2 d) ∧\n      pointEquiv (endKick d state zeroPoint).2 state.2",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.inertialAt_time_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v : Point) {s t : Fraction} (h : Fraction.equiv s t) :\n    pointEquiv (inertialAt p v s) (inertialAt p v t)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.encodedPosition_zero",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (s : PartitionStats) (p v : Point) :\n    pointEquiv (encodedPosition D hD s p v zeroPoint)\n      (inertialAt p v (duration D s.T hD))",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.encodedVelocity_zero",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (s : PartitionStats) (v : Point) :\n    pointEquiv (encodedVelocity D hD s v zeroPoint) v",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_zero_force",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v : Point) (weights : List Nat) :\n    pointEquiv (partitionMotion D hD p v zeroPoint weights).1\n      (inertialAt p v (duration D (total weights) hD)) ∧\n    pointEquiv (partitionMotion D hD p v zeroPoint weights).2 v",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.duration_add",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D a b : Nat) (hD : 0 < D) :\n    Fraction.equiv (Fraction.add (duration D a hD) (duration D b hD))\n      (duration D (a + b) hD)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_append",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v : Point)\n    (ws xs : List Nat) :\n    partitionMotion D hD p v zeroPoint (ws ++ xs) =\n      partitionMotion D hD (partitionMotion D hD p v zeroPoint ws).1\n        (partitionMotion D hD p v zeroPoint ws).2 zeroPoint xs",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.inertialAt_state_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' v v' : Point} (hp : pointEquiv p p')\n    (hv : pointEquiv v v') (t : Fraction) :\n    pointEquiv (inertialAt p v t) (inertialAt p' v' t)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.withinCell_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v : Point)\n    (pre : List Nat) (r : Fraction) :\n    pointEquiv (endKick r (partitionMotion D hD p v zeroPoint pre) zeroPoint).1\n      (inertialAt p v (Fraction.add (duration D (total pre) hD) r))",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.withinCell_position_bounded",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D w : Nat) (hD : 0 < D) (p v : Point)\n    (pre : List Nat) (r : Fraction)\n    (_hr0 : Fraction.le (Fraction.ofInt 0) r)\n    (_hrcell : Fraction.le r (duration D w hD)) :\n    pointEquiv (endKick r (partitionMotion D hD p v zeroPoint pre) zeroPoint).1\n      (inertialAt p v (Fraction.add (duration D (total pre) hD) r))",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_rest",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p : Point) (weights : List Nat) :\n    pointEquiv (partitionMotion D hD p zeroPoint zeroPoint weights).1 p ∧\n      pointEquiv (partitionMotion D hD p zeroPoint zeroPoint weights).2 zeroPoint",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_cross_partition",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D E : Nat) (hD : 0 < D) (hE : 0 < E)\n    (p v : Point) (ws xs : List Nat)\n    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total xs) hE)) :\n    pointEquiv (partitionMotion D hD p v zeroPoint ws).1\n      (partitionMotion E hE p v zeroPoint xs).1",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.partitionMotion_cross_partition_state",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D E : Nat) (hD : 0 < D) (hE : 0 < E)\n    (p v : Point) (ws xs : List Nat)\n    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total xs) hE)) :\n    pointEquiv (partitionMotion D hD p v zeroPoint ws).1\n      (partitionMotion E hE p v zeroPoint xs).1 ∧\n    pointEquiv (partitionMotion D hD p v zeroPoint ws).2\n      (partitionMotion E hE p v zeroPoint xs).2",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_equal_endpoint",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": pointEquiv (slow scalarOne) (fast scalarHalf)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_different_half_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ¬ pointEquiv (slow scalarHalf) (fast scalarHalf)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.slow_fast_collinear_closedBoundary",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (closedBoundaryTwice zeroPoint (slow scalarHalf) (slow scalarOne)\n      (fast scalarHalf)) scalarZero",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ZeroForce.slow_two_cell_schedule",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    pointEquiv (partitionMotion 2 (by decide) zeroPoint (slow scalarOne) zeroPoint [1, 1]).1\n      (slow scalarOne)",
+    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
+  },
+  {
     "name": "Principia1687.constructed_quadratic_bridge",
     "private": false,
     "file": "NewtonLimitDynamics/Principia1687/ConstructedRatio.lean",

@@ -75,14 +75,18 @@ the mismatch, not evidence of an irreparable inconsistency. Convergence and
 general central-force realization remain unproved.
 See [the constructed partition comparison](research/PARTITION_CONTROL.md).
 
-**Prioritized discriminator: zero force.** We will derive uniform rectilinear
-motion, exact subdivision independence and finite joining from the recurrence,
-including rest. Collinear paths can have zero geometric defect while different
+**Prioritized discriminator: zero force.** The [first inertial suite](research/ZERO_FORCE.md)
+now derives rational-time rectilinear motion, exact subdivision independence,
+restart and within-cell positions from the recurrence, including rest.
+Collinear paths can have zero geometric defect while different
 time parametrizations describe different motions; therefore zero area defect
-alone is insufficient identifying data. A difficulty here would first require
-checking our kinematic definitions and premises, not attributing an error to
-Newton. Success would isolate which further obligations enter with nonzero
-force. No result so far establishes a universal nonzero action constant.
+alone is insufficient identifying data. The successful finite inertial
+construction narrows the conjecture: no joining or subdivision obstruction
+appears here once the initial position, velocity and elapsed time are fixed.
+General geometric defect and full Euclidean-time claims remain separate.
+No result so far establishes a universal nonzero action constant.
+
+## Verification
 
 ```sh
 lake build
