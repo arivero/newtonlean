@@ -1,7 +1,9 @@
 # Research state
 
-Resume instructions: [22 September handoff](HANDOFF-2026-09-22.md), including
-the user's defect-area correction and one bounded next comparison.
+Resume context: [22 September handoff](HANDOFF-2026-09-22.md), including
+the user's defect-area correction. Its bounded common-time/force comparison
+is now recorded in [time subdivision](TIME_SUBDIVISION.md); follow the next
+obligation there and in TASKS.md rather than repeating the original task.
 
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,
@@ -26,9 +28,18 @@ strip to the Euclidean triangle on the three vertices; its `Nat` defect is zero
 exactly when that signed strip is zero. The compatibility condition compares
 finite `motion` endpoints explicitly, and the inward example has a nonzero
 strip. This is not a swept-sector claim, a common-force time-refinement law,
-or a limiting-curve construction. The next gap is to derive compatible
-successive polygons from common time and force data, then obtain a position
-estimate sufficient for trajectory realization.
+or a limiting-curve construction.
+
+The new rational `Polygon/TimeSubdivision.lean` comparison makes common
+initial position, velocity, constant accelerative force and positive time
+subdivision explicit. Under an end-of-cell impulse convention, the fine
+endpoint equals the coarse endpoint plus `h*k*a`, while terminal velocities
+agree. Exact nesting therefore fails in the constructed nonzero-force example.
+An explicit straight connector closes the finite polygon comparison; it is
+not a further mechanical cell. This is a modern constant-force diagnostic,
+not Newton's general central-force theorem. The next gap is finite position
+control for non-nested partition families, with absolute defect accounting
+separate from signed cancellation and from trajectory existence.
 
 The [Section II source map](SECTION_II.md) now identifies printed I–IV
 dependencies and De Motu antecedents for I and IV. Counterparts of II/III

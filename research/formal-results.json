@@ -1180,6 +1180,244 @@
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic motivated by the polygon constructions: exact Euclidean triangle area between a coarse edge and a compatible one-cell refinement. The passages locate motivation only; no limiting curve, common-force time refinement, integration, or trajectory existence is attributed or inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h k : Fraction)\n    (hh : positiveDuration h) (hk : positiveDuration k) :\n    positiveDuration (totalDuration h k)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.add_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.mul_equiv_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.fine_position_scalar",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h k p v a : Fraction) :\n    Fraction.equiv\n      (Fraction.add (Fraction.add p (Fraction.mul h v))\n        (Fraction.mul k (Fraction.add v (Fraction.mul h a))))\n      (Fraction.add (Fraction.add p (Fraction.mul (Fraction.add h k) v))\n        (Fraction.mul (Fraction.mul h k) a))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.fine_position_eq_coarse_plus",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h k : Fraction) (p v a : Point) :\n    pointEquiv (fine h k p v a).1\n      (pointAdd (coarse h k p v a).1 (pointScale (Fraction.mul h k) a))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.fine_velocity_scalar",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h k v a : Fraction) :\n    Fraction.equiv (Fraction.add (Fraction.add v (Fraction.mul h a)) (Fraction.mul k a))\n      (Fraction.add v (Fraction.mul (Fraction.add h k) a))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.fine_velocity_eq_coarse",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h k : Fraction) (p v a : Point) :\n    pointEquiv (fine h k p v a).2 (coarse h k p v a).2",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_half_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": positiveDuration half",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_total_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": positiveDuration (totalDuration half half)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_coarse_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": pointEquiv (coarse half half exampleP exampleV exampleA).1 exampleC",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_fine_middle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": pointEquiv (endKick half (exampleP, exampleV) exampleA).1 exampleB",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_fine_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": pointEquiv (fine half half exampleP exampleV exampleA).1 exampleD",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_endpoints_differ",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ¬ pointEquiv exampleD exampleC",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_fine_coarse_endpoints_differ",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ pointEquiv (fine half half exampleP exampleV exampleA).1\n      (coarse half half exampleP exampleV exampleA).1",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_connector",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": pointEquiv (directedConnector exampleD exampleC) (zero, negQuarter)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (closedBoundaryTwice exampleP exampleB exampleD exampleC) (⟨-1, 8, by decide⟩)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
     "name": "Principia1687.constructed_quadratic_bridge",
     "private": false,
     "file": "NewtonLimitDynamics/Principia1687/ConstructedRatio.lean",

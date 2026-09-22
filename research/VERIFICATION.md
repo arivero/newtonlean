@@ -39,3 +39,13 @@ They establish a spatially compatible one-cell strip, not a common-force time
 refinement or an existing limiting curve. Source collation, archive hashes and
 evidence regression results above are retained from the preceding validation;
 unchanged sources were not revalidated for this code-only follow-up.
+
+Time-subdivision follow-up: `lake build`, `lake build NewtonLimitDynamics`,
+`catalogue_formal.py` (114 theorem declarations), `check_graph.py` (77 nodes,
+68 edges, 234 passages, 106 Lean references), `CheckReferences.lean` (106
+declarations inspected), and `git diff --check` passed. The new finite rational
+diagnostic has no `sorryAx` or project axioms; only standard logical axioms
+(`propext`, `Classical.choice`, `Quot.sound`) occur in dependency reports.
+Its endpoint mismatch, equal terminal velocity, connector, and signed boundary
+example are finite constructions only; no limiting curve, integral calculus,
+or trajectory-existence claim is discharged.
