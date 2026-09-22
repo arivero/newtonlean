@@ -85,6 +85,30 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.triangle_normalized_limit
 #check NewtonLimitDynamics.Fraction.ultimate_congr
 #print axioms NewtonLimitDynamics.Fraction.ultimate_congr
+#check NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
+#check NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual
+#check NewtonLimitDynamics.Polygon.PartitionControl.duration_positive
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.duration_positive
+#check NewtonLimitDynamics.Polygon.PartitionControl.next_bound
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.next_bound
+#check NewtonLimitDynamics.Polygon.PartitionControl.next_identity
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.next_identity
+#check NewtonLimitDynamics.Polygon.PartitionControl.partitionMotion_formula
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.partitionMotion_formula
+#check NewtonLimitDynamics.Polygon.PartitionControl.residual_mesh_bound
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.residual_mesh_bound
+#check NewtonLimitDynamics.Polygon.PartitionControl.residual_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.residual_nonnegative
+#check NewtonLimitDynamics.Polygon.PartitionControl.stats_bound
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.stats_bound
+#check NewtonLimitDynamics.Polygon.PartitionControl.stats_bound_from
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.stats_bound_from
+#check NewtonLimitDynamics.Polygon.PartitionControl.stats_identity
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.stats_identity
+#check NewtonLimitDynamics.Polygon.PartitionControl.stats_identity_from
+#print axioms NewtonLimitDynamics.Polygon.PartitionControl.stats_identity_from
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.example_coarse_position

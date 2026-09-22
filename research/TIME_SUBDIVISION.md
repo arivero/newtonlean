@@ -44,9 +44,11 @@ unnormalized numerator/denominator records. Its algebraic mismatch and velocity
 identities hold for arbitrary rational inputs; positive-duration facts give
 the intended mechanical specialization.
 
-Next obligation: for finite partitions with this stated convention, derive
-position and endpoint comparison bounds from the constructed schedules,
+The finite-partition follow-up is now implemented in
+[PartitionControl](PARTITION_CONTROL.md): it derives exact endpoint formulas
+and a largest-cell coefficient bound from the constructed schedules. The next
+obligation is within-cell position control and rational-time convergence,
 tracking non-nested endpoints and connectors explicitly. Keep finite sums of
-absolute defects separate from signed cancellation. A justified limiting
+absolute defects separate from signed cancellation. A general justified limiting
 time-to-position map, partition independence and continuous-force
 identification remain later obligations. No action constant is selected here.

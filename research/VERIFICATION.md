@@ -49,3 +49,18 @@ diagnostic has no `sorryAx` or project axioms; only standard logical axioms
 Its endpoint mismatch, equal terminal velocity, connector, and signed boundary
 example are finite constructions only; no limiting curve, integral calculus,
 or trajectory-existence claim is discharged.
+
+Partition-control follow-up: `lake build` and `lake build NewtonLimitDynamics`
+passed, and the regenerated catalogue contains 139 theorem declarations.
+`check_graph.py` passed with 77 nodes, 68 classified edges, 234 passage
+records, and 118 Lean references. `CheckReferences.lean` elaborated all 118
+checked declarations; its axiom reports contain only `propext`,
+`Classical.choice`, and `Quot.sound`, with no `sorryAx` or project axiom. The
+new public results are finite: `partitionMotion_formula` explicitly unfolds
+the repeated `TimeSubdivision.endKick` recurrence,
+`candidate_partitionMotion_residual` gives the exact rational-time residual
+`(Q/(2D²))*a`, and `residual_mesh_bound` gives its nonnegative maximum-cell
+coefficient bound. No convergence, limiting curve, integral calculus, or
+trajectory-existence claim is discharged. `git diff --check` passed; generated
+`research/formal-results.json` was regenerated and conversation-export changes
+remain preserved.

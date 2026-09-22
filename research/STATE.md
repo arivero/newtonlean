@@ -4,6 +4,8 @@ Resume context: [22 September handoff](HANDOFF-2026-09-22.md), including
 the user's defect-area correction. Its bounded common-time/force comparison
 is now recorded in [time subdivision](TIME_SUBDIVISION.md); follow the next
 obligation there and in TASKS.md rather than repeating the original task.
+Continued autonomous work across the programme is authorized; see
+[completion criteria](CONTINUATION.md).
 
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,
@@ -37,9 +39,18 @@ endpoint equals the coarse endpoint plus `h*k*a`, while terminal velocities
 agree. Exact nesting therefore fails in the constructed nonzero-force example.
 An explicit straight connector closes the finite polygon comparison; it is
 not a further mechanical cell. This is a modern constant-force diagnostic,
-not Newton's general central-force theorem. The next gap is finite position
-control for non-nested partition families, with absolute defect accounting
-separate from signed cancellation and from trajectory existence.
+not Newton's general central-force theorem.
+
+`Polygon/PartitionControl.lean` now connects arbitrary finite common-denominator
+end-kick schedules to exact velocity and position formulas. It proves
+`2*A+Q=T²` and `Q≤M*T`, with `Q` the sum of squared duration numerators and
+`M` an upper bound on each. Against the explicitly constructed rational
+polynomial map, the endpoint residual is exactly `(Q/(2D²))*a`; its scalar
+coefficient is bounded by half the largest-cell bound times elapsed time.
+See [finite partition control](PARTITION_CONTROL.md). The next step is
+within-cell position control and convergence to that rational-time map,
+retaining absolute defect accounting and the general central-force existence
+obligation separately.
 
 The [Section II source map](SECTION_II.md) now identifies printed I–IV
 dependencies and De Motu antecedents for I and IV. Counterparts of II/III

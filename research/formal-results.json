@@ -1068,6 +1068,356 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.next_identity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : PartitionStats)\n    (h : 2 * s.A + s.Q = s.T * s.T) (w : Nat) :\n    2 * (next s w).A + (next s w).Q = (next s w).T * (next s w).T",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.stats_identity_from",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : PartitionStats)\n    (h : 2 * s.A + s.Q = s.T * s.T) : (weights : List Nat) ->\n    2 * (weights.foldl next s).A + (weights.foldl next s).Q =\n      (weights.foldl next s).T * (weights.foldl next s).T\n  | [] => h\n  | w :: ws => by\n      simp only [List.foldl]\n      exact stats_identity_from (next s w) (next_identity s h w) ws\n\n/-- The ordered-pair and square decomposition for every finite schedule. -/\ntheorem stats_identity (weights : List Nat) :\n    2 * cross weights + squares weights = total weights * total weights",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.stats_identity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(weights : List Nat) :\n    2 * cross weights + squares weights = total weights * total weights",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.next_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)\n    (w : Nat) (hw : w ≤ M) : (next s w).Q ≤ M * (next s w).T",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.stats_bound_from",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)\n    (weights : List Nat) (hw : ∀ w ∈ weights, w ≤ M) :\n    (weights.foldl next s).Q ≤ M * (weights.foldl next s).T",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.stats_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(M : Nat) (weights : List Nat) (hw : ∀ w ∈ weights, w ≤ M) :\n    squares weights ≤ M * total weights",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.natDen_pos",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) : (0 : Int) < D",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.duration_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D w : Nat) (hD : 0 < D) (hw : 0 < w) :\n    Fraction.positive (duration D w hD)",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.scalar_step_position",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D A T w : Nat) (hD : 0 < D) (p v a : Fraction) :\n    Fraction.equiv\n      (Fraction.add\n        (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))\n          (Fraction.mul (squareDuration D A hD) a))\n        (Fraction.mul (duration D w hD)\n          (Fraction.add v (Fraction.mul (duration D T hD) a))))\n      (Fraction.add\n        (Fraction.add p (Fraction.mul (duration D (T + w) hD) v))\n        (Fraction.mul (squareDuration D (A + w * T) hD) a))",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.scalar_step_velocity",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D T w : Nat) (hD : 0 < D) (v a : Fraction) :\n    Fraction.equiv\n      (Fraction.add (Fraction.add v (Fraction.mul (duration D T hD) a))\n        (Fraction.mul (duration D w hD) a))\n      (Fraction.add v (Fraction.mul (duration D (T + w) hD) a))",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.add_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.pointEquiv_trans",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.pointEquiv_symm",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (h : pointEquiv p q) : pointEquiv q p",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.pointAdd_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.pointScale_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) {p q : Point} (h : pointEquiv p q) :\n    pointEquiv (pointScale d p) (pointScale d q)",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.endKick_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) {x y : Point × Point} (a : Point)\n    (h : pointEquiv x.1 y.1 ∧ pointEquiv x.2 y.2) :\n    pointEquiv (endKick d x a).1 (endKick d y a).1 ∧\n      pointEquiv (endKick d x a).2 (endKick d y a).2",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.encoded_step",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (s : PartitionStats) (w : Nat)\n    (p v a : Point) :\n    pointEquiv (endKick (duration D w hD) (encodedState D hD s p v a) a).1\n      (encodedState D hD (next s w) p v a).1 ∧\n    pointEquiv (endKick (duration D w hD) (encodedState D hD s p v a) a).2\n      (encodedState D hD (next s w) p v a).2",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.fold_encoded",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (s : PartitionStats)\n    (state : Point × Point) (p v a : Point)\n    (hstate : pointEquiv state.1 (encodedState D hD s p v a).1 ∧\n      pointEquiv state.2 (encodedState D hD s p v a).2) : (weights : List Nat) ->\n    pointEquiv (weights.foldl (fun x w => endKick (duration D w hD) x a) state).1\n      (encodedState D hD (weights.foldl next s) p v a).1 ∧\n    pointEquiv (weights.foldl (fun x w => endKick (duration D w hD) x a) state).2\n      (encodedState D hD (weights.foldl next s) p v a).2\n  | [] => hstate\n  | w :: ws => by\n      simp only [List.foldl]\n      have hkick",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.initial_encoded",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v a : Point) :\n    pointEquiv p (encodedState D hD initial p v a).1 ∧\n      pointEquiv v (encodedState D hD initial p v a).2",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.partitionMotion_formula",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :\n    pointEquiv (partitionMotion D hD p v a weights).1\n      (encodedPosition D hD (stats weights) p v a) ∧\n    pointEquiv (partitionMotion D hD p v a weights).2\n      (encodedVelocity D hD (stats weights) v a)",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual_scalar",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D A Q T : Nat) (hD : 0 < D)\n    (h : 2 * A + Q = T * T) (p v a : Fraction) :\n    Fraction.equiv\n      (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))\n        (Fraction.mul (Fraction.half (Fraction.mul (duration D T hD) (duration D T hD))) a))\n      (Fraction.add\n        (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))\n          (Fraction.mul (squareDuration D A hD) a))\n        (Fraction.mul (residualCoefficient D Q hD) a))",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :\n    pointEquiv (candidate p v a (duration D (total weights) hD))\n      (pointAdd (encodedPosition D hD (stats weights) p v a)\n        (pointScale (residualCoefficient D (squares weights) hD) a))",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D)\n    (p v a : Point) (weights : List Nat) :\n    pointEquiv (candidate p v a (duration D (total weights) hD))\n      (pointAdd (partitionMotion D hD p v a weights).1\n        (pointScale (residualCoefficient D (squares weights) hD) a))",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.residual_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D Q : Nat) (hD : 0 < D) :\n    Fraction.le (Fraction.ofInt 0) (residualCoefficient D Q hD)",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionControl.residual_mesh_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D M : Nat) (hD : 0 < D) (weights : List Nat)\n    (hw : ∀ w ∈ weights, w ≤ M) :\n    Fraction.le (residualCoefficient D (squares weights) hD)\n      (meshCoefficient D M (total weights) hD)",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.refinementStripTwice_eq_triangle",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/RefinementStrip.lean",
