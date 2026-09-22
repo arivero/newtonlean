@@ -45,7 +45,10 @@ unequal rational cells and gives the exact refinement identities for a varying
 force. The missing premise for the ultimate curve is control of force
 differences; Proposition I cites none, and Lemma X's force qualification
 (1687 *regularis*, 1713 *finita … continuo augetur vel diminuatur*) is the
-nearest same-stage candidate.
+nearest same-stage candidate. For the harmonic field (Prop. IV Cor. 3 case),
+`HarmonicStability.lean` proves an exact equal-cell invariant and
+mesh-uniform bounds on speed and position: the first stability result for a
+varying central force. Convergence remains open.
 
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,
