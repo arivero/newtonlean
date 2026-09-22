@@ -85,6 +85,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.triangle_normalized_limit
 #check NewtonLimitDynamics.Fraction.ultimate_congr
 #print axioms NewtonLimitDynamics.Fraction.ultimate_congr
+#check NewtonLimitDynamics.Polygon.InertialControl.drift_small
+#print axioms NewtonLimitDynamics.Polygon.InertialControl.drift_small
+#check NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment
+#print axioms NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment
+#check NewtonLimitDynamics.Polygon.InertialControl.exists_uniform_inertial_radius
+#print axioms NewtonLimitDynamics.Polygon.InertialControl.exists_uniform_inertial_radius
+#check NewtonLimitDynamics.Polygon.InertialControl.inertialAt_small_increment
+#print axioms NewtonLimitDynamics.Polygon.InertialControl.inertialAt_small_increment
+#check NewtonLimitDynamics.Polygon.InertialControl.radius_positive
+#print axioms NewtonLimitDynamics.Polygon.InertialControl.radius_positive
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #print axioms NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual

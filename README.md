@@ -84,6 +84,9 @@ alone is insufficient identifying data. The successful finite inertial
 construction narrows the conjecture: no joining or subdivision obstruction
 appears here once the initial position, velocity and elapsed time are fixed.
 General geometric defect and full Euclidean-time claims remain separate.
+The explicit inertial small-time bound is now implemented: a positive rational
+time radius controls both displacement coordinates for any positive rational
+tolerance, uniformly in base time. See [the bound](research/ZERO_FORCE.md#small-time-estimate).
 No result so far establishes a universal nonzero action constant.
 
 ## Verification

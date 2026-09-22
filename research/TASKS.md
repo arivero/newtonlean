@@ -8,8 +8,10 @@ ZeroForce.lean now derives the inertial map, unchanged velocity, exact
 cross-denominator subdivision agreement, restart, rest and within-cell
 positions from the constructed recurrence. Its zero-area timing example uses
 different initial velocities, not nonuniqueness for fixed data. See ZERO_FORCE.md.
-Next settle general finite defect cancellation and make the rational-time
-domain/continuity boundary precise before claiming a complete inertial case.
+InertialControl.lean now supplies an explicit positive time radius controlling
+both coordinates of inertial displacement, uniformly in rational base time,
+including actual zero-force cells. Next settle general finite defect cancellation
+and make the extension beyond rational times precise before claiming a complete inertial case.
 Then continue the nonzero-force within-cell extension below.
 
 Current progress: the bounded source map (1) is recorded in SECTION_II.md,

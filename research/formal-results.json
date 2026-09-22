@@ -1068,6 +1068,84 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.InertialControl.radius_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialControl.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps : Fraction) (v : Point)\n    (heps : Fraction.positive eps) : Fraction.positive (radius eps v)",
+    "interpretation_and_remaining_premises": "Modern rational small-time estimate for zero impressed acceleration. An explicit positive radius controls both coordinate drifts for every rational base time and an actual zero-force end-kick cell. It is a finite algebraic estimate, not an all-Euclidean-time trajectory, curve existence theorem, or historical proof dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialControl.scalar_bound",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/InertialControl.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps h x : Fraction) (K : Nat)\n    (heps : Fraction.positive eps) (hK : x.num.natAbs < K)\n    (hh : absLt h ⟨eps.num, eps.den * (K : Int),\n      Int.mul_pos eps.den_pos (Int.ofNat_pos.mpr (by omega))⟩) :\n    absLt (Fraction.mul h x) eps",
+    "interpretation_and_remaining_premises": "Modern rational small-time estimate for zero impressed acceleration. An explicit positive radius controls both coordinate drifts for every rational base time and an actual zero-force end-kick cell. It is a finite algebraic estimate, not an all-Euclidean-time trajectory, curve existence theorem, or historical proof dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialControl.drift_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialControl.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps : Fraction) (v : Point)\n    (heps : Fraction.positive eps) (h : Fraction)\n    (hh : absLt h (radius eps v)) :\n    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps",
+    "interpretation_and_remaining_premises": "Modern rational small-time estimate for zero impressed acceleration. An explicit positive radius controls both coordinate drifts for every rational base time and an actual zero-force end-kick cell. It is a finite algebraic estimate, not an all-Euclidean-time trajectory, curve existence theorem, or historical proof dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialControl.inertialAt_small_increment",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialControl.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps : Fraction) (p v : Point)\n    (heps : Fraction.positive eps) (t h : Fraction)\n    (hh : absLt h (radius eps v)) :\n    pointEquiv (inertialAt (inertialAt p v t) v h)\n      (inertialAt p v (Fraction.add t h)) ∧\n    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps",
+    "interpretation_and_remaining_premises": "Modern rational small-time estimate for zero impressed acceleration. An explicit positive radius controls both coordinate drifts for every rational base time and an actual zero-force end-kick cell. It is a finite algebraic estimate, not an all-Euclidean-time trajectory, curve existence theorem, or historical proof dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialControl.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps : Fraction) (p v : Point)\n    (heps : Fraction.positive eps) (t h : Fraction)\n    (hh : absLt h (radius eps v)) :\n    pointEquiv (endKick h (inertialAt p v t, v) zeroPoint).1\n      (inertialAt p v (Fraction.add t h)) ∧\n    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps",
+    "interpretation_and_remaining_premises": "Modern rational small-time estimate for zero impressed acceleration. An explicit positive radius controls both coordinate drifts for every rational base time and an actual zero-force end-kick cell. It is a finite algebraic estimate, not an all-Euclidean-time trajectory, curve existence theorem, or historical proof dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.InertialControl.exists_uniform_inertial_radius",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/InertialControl.lean",
+    "source_passages": [
+      "NATP00076.par1",
+      "NATP00081.par1",
+      "NATP00090.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps : Fraction) (v : Point)\n    (heps : Fraction.positive eps) :\n    ∃ delta : Fraction, Fraction.positive delta ∧\n      ∀ (p : Point) (t h : Fraction), absLt h delta →\n        pointEquiv (inertialAt (inertialAt p v t) v h)\n          (inertialAt p v (Fraction.add t h)) ∧\n        absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps",
+    "interpretation_and_remaining_premises": "Modern rational small-time estimate for zero impressed acceleration. An explicit positive radius controls both coordinate drifts for every rational base time and an actual zero-force end-kick cell. It is a finite algebraic estimate, not an all-Euclidean-time trajectory, curve existence theorem, or historical proof dependency."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.PartitionControl.next_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",

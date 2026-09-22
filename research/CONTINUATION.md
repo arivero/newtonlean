@@ -26,6 +26,10 @@ undischarged premises; a successful special case is not full completion.
    The finite recurrence/map, subdivision, restart, rest, and within-cell
    results now compile in `Polygon/ZeroForce.lean`; see ZERO_FORCE.md for their
    exact domain and the remaining defect/continuity obligations.
+   `InertialControl.lean` now proves the explicit rational small-time radius,
+   uniform in initial position and rational base time, and applies it to an
+   actual zero-force cell. General collinear defect cancellation and extension
+   to arbitrary Euclidean times remain distinct next obligations.
 1. Extend the constructed constant-force end-kick comparison to arbitrary
    finite rational partitions, with an exact displacement residual and a
    largest-cell bound. Derive these from the recurrence, not from an assumed

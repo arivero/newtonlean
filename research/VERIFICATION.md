@@ -80,3 +80,18 @@ by its algebraic conclusion. The slow/fast example has distinct initial
 velocities and therefore diagnoses insufficient identifying data rather than
 nonuniqueness for fixed initial data. No continuum curve, all-Euclidean-time
 realization, historical dependency, or action-constant conclusion is claimed.
+
+
+Inertial-control follow-up (2026-09-22): `lake build` and `lake build
+NewtonLimitDynamics` passed under Lean 4.19.0. The regenerated formal catalogue
+contains 171 theorem declarations; `check_graph.py` validated 77 nodes, 68
+classified edges, 234 passages, and emitted 138 Lean references.
+`CheckReferences.lean` elaborated all 138 declarations. The aggregate axiom set
+is `propext`, `Classical.choice`, and `Quot.sound`; no `sorryAx` or project
+axiom occurs. `git diff --check` passed. The explicit positive rational radius
+controls both coordinate drifts for any rational base time and links the bound
+to the actual zero-force end-kick cell. The epsilon-delta estimate is about
+rational increments of the constructed inertial map; it does not extend the
+map to all Euclidean times or establish a continuum curve or a historical
+proof dependency. The generated formal-result ledger and reference checks were
+regenerated; unrelated conversation-export edits were preserved.

@@ -15,6 +15,11 @@ example distinguishes motions with different initial velocities; it is not
 fixed-data nonuniqueness. See [zero force](ZERO_FORCE.md). These are rational-time
 constructions with no presumed limiting curve; full Euclidean-time realization
 and additional geometric/area obligations remain separate.
+`Polygon/InertialControl.lean` adds the explicit small-time bound: each positive
+rational tolerance has a constructed positive radius that controls both drift
+coordinates uniformly in position and rational base time, including an actual
+zero-force cell. This closes the pending inertial estimate; general defect
+cancellation and extension beyond rational times remain open.
 
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,

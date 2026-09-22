@@ -59,3 +59,33 @@ Even a complete rational-time result does not by itself construct points at
 all Euclidean magnitudes of time. State that domain boundary explicitly;
 do not use a failure of a Lean tactic or an absent continuum representation
 as evidence of a physical obstruction or an action constant.
+
+## Small-time estimate
+
+`Polygon/InertialControl.lean` proves the local **zero-force** estimate. For any
+positive rational tolerance `epsilon` and fixed rational velocity `v`, construct
+a positive rational `delta` such that `|h| < delta` forces both coordinates
+of `h*v` to have magnitude less than `epsilon`. Connect that displacement to
+the actual inertial map by `q(t+h) = q(t) + h*v`, uniformly in rational `t`.
+This includes zero velocity and negative algebraic increments; a physical
+forward cell uses nonnegative increments.
+
+The checked explicit radius uses
+`K = |v.x.num| + |v.y.num| + 1` and
+`delta = epsilon.num / (epsilon.den*K)`. Each velocity denominator is a
+positive integer and hence at least one. This gives a conservative bound on
+both coordinate speeds without division by speed. The radius can depend on
+the chosen unnormalized fraction representatives; it need not be an optimal
+or representation-independent radius to certify the same rational motion.
+
+`drift_small` bounds both coordinates, `inertialAt_small_increment` ties the
+bound to the constructed map, and `endKick_zero_small_increment` applies it
+to an actual cell. `exists_uniform_inertial_radius` gives the positive radius
+uniformly over starting position and rational base time.
+
+The tolerance controls each coordinate in the chosen coordinate units. It is
+not an area estimate or a force-independent universal length. This establishes
+rational-time uniform control of the constructed inertial
+map, without extending its domain to arbitrary Euclidean times. The separate
+nonzero-force increment and within-cell residual estimates remain subsequent
+obligations.
