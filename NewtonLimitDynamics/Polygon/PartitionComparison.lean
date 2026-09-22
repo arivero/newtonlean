@@ -65,6 +65,23 @@ theorem partition_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Poin
     (pointEquiv_trans (candidate_time_congr p v a ht)
       (candidate_partitionMotion_residual E hE p v a ws'))
 
+private theorem velocity_scalar_congr {s t : Fraction} (h : Fraction.equiv s t) (v a : Fraction) :
+    Fraction.equiv (Fraction.add v (Fraction.mul s a)) (Fraction.add v (Fraction.mul t a)) :=
+  add_equiv_left v (mul_equiv_right a h)
+
+/-- Two arbitrary schedules reaching equivalent rational times have equivalent
+    actual velocities; no correction term is needed. -/
+theorem velocity_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
+    (ws ws' : List Nat)
+    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
+    pointEquiv (partitionMotion D hD p v a ws).2 (partitionMotion E hE p v a ws').2 :=
+  pointEquiv_trans (partitionMotion_formula D hD p v a ws).2
+    (pointEquiv_trans
+      (show pointEquiv (encodedVelocity D hD (stats ws) v a)
+          (encodedVelocity E hE (stats ws') v a) from
+        ⟨velocity_scalar_congr ht v.1 a.1, velocity_scalar_congr ht v.2 a.2⟩)
+      (pointEquiv_symm (partitionMotion_formula E hE p v a ws').2))
+
 /-- Sample times inside cells: two schedules, each followed by a partial final
     drift (`u/D` and `u'/E`), reaching equivalent rational times.  Their actual
     partial positions agree after each is corrected by its own residual

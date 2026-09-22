@@ -147,6 +147,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PartitionComparison.partial_comparison
 #check NewtonLimitDynamics.Polygon.PartitionComparison.partition_comparison
 #print axioms NewtonLimitDynamics.Polygon.PartitionComparison.partition_comparison
+#check NewtonLimitDynamics.Polygon.PartitionComparison.velocity_comparison
+#print axioms NewtonLimitDynamics.Polygon.PartitionComparison.velocity_comparison
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #print axioms NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual

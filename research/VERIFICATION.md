@@ -167,3 +167,10 @@ elaborated by `CheckReferences.lean` with only `propext`, `Classical.choice`
 and `Quot.sound`, and no `sorryAx`. `git diff --check` passed.
 `partial_comparison` extends the exact two-partition comparison to partial-cell
 sample times via the appended schedules.
+
+Velocity-comparison follow-up (2026-09-22, Claude Code): both builds passed
+without warnings; 219 catalogued theorem declarations; 169 references
+elaborated with only `propext`, `Classical.choice` and `Quot.sound`, no
+`sorryAx`; graph validation (77 nodes, 68 edges, 234 passages) and
+`git diff --check` passed. `velocity_comparison` proves exact velocity
+agreement of two arbitrary schedules at equivalent rational times.

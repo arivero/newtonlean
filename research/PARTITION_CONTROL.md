@@ -101,9 +101,9 @@ whose end times are equivalent rationals, satisfy
 `residual_mesh_bound` on each side, the two actual positions differ along `a`
 by a coefficient between zero and the larger mesh coefficient. Partition
 dependence at a common rational time is thus exact and controlled by the mesh.
-An explicit difference inequality is not yet packaged. Velocities have the
-form `v + (T/D)*a` by `partitionMotion_formula`, so they agree whenever the
-times agree; that corollary is also not yet packaged.
+An explicit difference inequality is not yet packaged.
+`velocity_comparison` proves that the actual velocities of the two schedules
+agree exactly, with no correction term.
 
 `partial_comparison` extends this to sample times inside cells: the two
 schedules may end with partial drifts `u/D` and `u'/E`, corrected by
