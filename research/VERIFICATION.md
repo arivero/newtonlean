@@ -107,3 +107,16 @@ axiom occurs. `git diff --check` passed. The result is signed determinant
 cancellation for finite closed walks of rational-time inertial samples and for
 four actual zero-force schedules; it gives no unsigned enclosure bound, timing
 identification, or continuum curve.
+
+Partial-cell follow-up (2026-09-22, Claude Code): `lake build` and `lake build
+NewtonLimitDynamics` passed under Lean 4.19.0. The regenerated formal catalogue
+contains 198 theorem declarations; `check_graph.py` validated 77 nodes, 68
+classified edges, 234 passages, and emitted 158 Lean references.
+`CheckReferences.lean` elaborated all 158 declarations. The aggregate axiom set
+is `propext`, `Classical.choice`, and `Quot.sound`; no `sorryAx` or project
+axiom occurs. `git diff --check` passed. `candidate_partial_residual` gives the
+exact residual `((Q+u*u)/(2D²))*a` at `(T+u)/D` against the actual partial
+drift position, derived through the appended schedule `weights ++ [u]`;
+`partial_squares_bound` and `partial_residual_mesh_bound` give the within-cell
+mesh bound for `u≤w≤M`. These are finite rational-time position estimates;
+no convergence, Euclidean-time realization, or central-force theorem is claimed.

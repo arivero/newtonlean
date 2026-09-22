@@ -32,7 +32,7 @@ end-kick recurrence in PartitionControl.lean; see PARTITION_CONTROL.md.
 | --- | --- | --- |
 | 1 | Stage-local I–IV source map | Exact passages and supported dependencies for 1687/1713; De Motu counterparts qualified witness by witness |
 | 2 | Finite contact and restart | Contact of actual recursively constructed cells, with any velocity jump derived from the displayed impulse; restart from the matching state |
-| 3 | Time subdivision | Two-cell mismatch and arbitrary finite constant-force endpoint residual/mesh coefficient bound derived. Next extend to within-cell positions and rational-time convergence; track connectors and absolute polygon-strip defects separately |
+| 3 | Time subdivision | Two-cell mismatch, arbitrary finite constant-force endpoint residual/mesh coefficient bound, and within-cell partial-position residual/mesh bound (PartialCell.lean) derived. Next rational-time convergence across partitions; track connectors and absolute polygon-strip defects separately |
 | 4 | Proposition I realization | Identify the precise permitted premises that give a curve and the required area-time law; prove or isolate each implication |
 | 5 | Proposition II converse | Formalize the finite converse before any continuous-force identification; list nondegeneracy and limiting conditions separately |
 | 6 | Proposition III relative motion | Derive relative-force composition from each edition's stated laws and corollaries; state admissible moving-center data |

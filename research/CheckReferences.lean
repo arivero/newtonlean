@@ -111,6 +111,30 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.InertialDefect.inertial_closedBoundaryTwice
 #check NewtonLimitDynamics.Polygon.InertialDefect.partitionMotion_closedBoundaryTwice
 #print axioms NewtonLimitDynamics.Polygon.InertialDefect.partitionMotion_closedBoundaryTwice
+#check NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual
+#check NewtonLimitDynamics.Polygon.PartialCell.endKick_position_kick_free
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.endKick_position_kick_free
+#check NewtonLimitDynamics.Polygon.PartialCell.partialState_append
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.partialState_append
+#check NewtonLimitDynamics.Polygon.PartialCell.partialState_position
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.partialState_position
+#check NewtonLimitDynamics.Polygon.PartialCell.partial_full_cell
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.partial_full_cell
+#check NewtonLimitDynamics.Polygon.PartialCell.partial_residual_mesh_bound
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.partial_residual_mesh_bound
+#check NewtonLimitDynamics.Polygon.PartialCell.partial_squares_bound
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.partial_squares_bound
+#check NewtonLimitDynamics.Polygon.PartialCell.partial_zero
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.partial_zero
+#check NewtonLimitDynamics.Polygon.PartialCell.partial_zero_force
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.partial_zero_force
+#check NewtonLimitDynamics.Polygon.PartialCell.squares_append
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.squares_append
+#check NewtonLimitDynamics.Polygon.PartialCell.stats_append
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.stats_append
+#check NewtonLimitDynamics.Polygon.PartialCell.total_append
+#print axioms NewtonLimitDynamics.Polygon.PartialCell.total_append
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #print axioms NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual

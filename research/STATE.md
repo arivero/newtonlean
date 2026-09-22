@@ -66,8 +66,11 @@ end-kick schedules to exact velocity and position formulas. It proves
 `M` an upper bound on each. Against the explicitly constructed rational
 polynomial map, the endpoint residual is exactly `(Q/(2D²))*a`; its scalar
 coefficient is bounded by half the largest-cell bound times elapsed time.
-See [finite partition control](PARTITION_CONTROL.md). The next step is
-within-cell position control and convergence to that rational-time map,
+See [finite partition control](PARTITION_CONTROL.md).
+`Polygon/PartialCell.lean` adds within-cell positions: a partial final cell
+`u/D` drifted from the actual prefix state has exact residual
+`((Q+u*u)/(2D²))*a`, with `Q+u*u≤M*(T+u)` when `u≤w≤M`. The next step is
+rational-time convergence to that map across partitions,
 retaining absolute defect accounting and the general central-force existence
 obligation separately.
 

@@ -54,8 +54,34 @@ This comparison involves positions, not swept sectors. It does not yet sum
 absolute polygon-strip defects. For comparison areas, retain explicit closing
 connectors between non-nested endpoints as in the two-cell construction.
 
+## Positions inside a cell
+
+`Polygon/PartialCell.lean` extends the schedule by a partial final cell of
+duration `u/D`, with `u` a natural numerator. The partial position is the
+actual prefix position drifted by the actual prefix velocity. It is the
+position component of one further end-kick step, and
+`endKick_position_kick_free` records that the terminal kick leaves that
+position unchanged. `partialState_append` identifies the construction with
+the recurrence on `weights ++ [u]`, so the statistics are derived as
+`T+u` and `Q+u*u` (`total_append`, `squares_append`) and are not postulated.
+`candidate_partial_residual` then gives the exact residual
+
+`q((T+u)/D) = partialPosition + ((Q+u*u)/(2D²))*a`.
+
+For a designated next cell of weight `w` with `u≤w` (and `0≤u` from `Nat`),
+prefix weights at most `M` and `w≤M`, `partial_squares_bound` proves
+`Q+u*u≤M*(T+u)`, and `partial_residual_mesh_bound` gives the Fraction
+coefficient bound `(Q+u*u)/(2D²) ≤ M*(T+u)/(2D²)`. The hypothesis `u≤w` is
+used. Boundaries: `partial_zero` (u=0 gives the prefix vertex),
+`partial_full_cell` (u=w gives the next actual vertex) and
+`partial_zero_force` (a=0 gives the inertial map at `(T+u)/D`).
+
+This is a finite position estimate at rational sample times inside a cell.
+It asserts no convergence and does not assume that old vertices survive
+refinement.
+
 Next derive quantitative agreement between partitions at the same rational
-time, including arbitrary positions inside their cells, and prove convergence
+time using these within-cell estimates, and prove convergence
 to the constructed map as their largest durations decrease. A rational-time
 constant-force result must remain distinct from a general Euclidean-time
 trajectory, a varying central-force realization and the historical limiting

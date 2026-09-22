@@ -1315,6 +1315,202 @@
     "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.partialState_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v a : Point)\n    (weights : List Nat) (u : Nat) :\n    (partialState D hD p v a weights u).1 = actualPartialPosition D hD p v a weights u",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.endKick_position_kick_free",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (state : Point × Point) (a b : Point) :\n    (endKick d state a).1 = (endKick d state b).1",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.partialState_append",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v a : Point)\n    (weights : List Nat) (u : Nat) :\n    partialState D hD p v a weights u = partitionMotion D hD p v a (weights ++ [u])",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.stats_append",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(weights : List Nat) (u : Nat) :\n    stats (weights ++ [u]) = next (stats weights) u",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.total_append",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(weights : List Nat) (u : Nat) :\n    total (weights ++ [u]) = total weights + u",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.squares_append",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(weights : List Nat) (u : Nat) :\n    squares (weights ++ [u]) = squares weights + u * u",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.pointEquiv_trans",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v a : Point)\n    (weights : List Nat) (u : Nat) :\n    pointEquiv (candidate p v a (duration D (total weights + u) hD))\n      (pointAdd (actualPartialPosition D hD p v a weights u)\n        (pointScale (residualCoefficient D (squares weights + u * u) hD) a))",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.partial_squares_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(M w u : Nat) (weights : List Nat)\n    (hM : ∀ x ∈ weights, x ≤ M) (hw : w ≤ M) (hu : u ≤ w) :\n    squares weights + u * u ≤ M * (total weights + u)",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.partial_residual_mesh_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D M w u : Nat) (hD : 0 < D) (weights : List Nat)\n    (hM : ∀ x ∈ weights, x ≤ M) (hw : w ≤ M) (hu : u ≤ w) :\n    Fraction.le (residualCoefficient D (squares weights + u * u) hD)\n      (meshCoefficient D M (total weights + u) hD)",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.partial_full_cell",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v a : Point)\n    (weights : List Nat) (w : Nat) :\n    actualPartialPosition D hD p v a weights w =\n      (partitionMotion D hD p v a (weights ++ [w])).1",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.zero_drift_scalar",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (x y : Fraction) :\n    Fraction.equiv (Fraction.add x (Fraction.mul (duration D 0 hD) y)) x",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.partial_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :\n    pointEquiv (actualPartialPosition D hD p v a weights 0)\n      (partitionMotion D hD p v a weights).1",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartialCell.partial_zero_force",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Nat) (hD : 0 < D) (p v : Point)\n    (weights : List Nat) (u : Nat) :\n    pointEquiv (actualPartialPosition D hD p v zeroPoint weights u)\n      (inertialAt p v (duration D (total weights + u) hD))",
+    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.PartitionControl.next_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",

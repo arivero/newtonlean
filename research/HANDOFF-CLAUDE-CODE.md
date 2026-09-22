@@ -1,5 +1,8 @@
 # Handoff to Claude Code
 
+Status: the bounded task below is implemented in `Polygon/PartialCell.lean`;
+see PARTITION_CONTROL.md, STATE.md and VERIFICATION.md.
+
 ## Authority and read order
 
 The user explicitly requests that the upgraded Claude Code receive the next
