@@ -1,4 +1,4 @@
-import NewtonLimitDynamics.Polygon.PartitionControl
+import NewtonLimitDynamics.Polygon.PartialCell
 
 namespace NewtonLimitDynamics.Polygon.PartitionComparison
 
@@ -64,5 +64,24 @@ theorem partition_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Poin
   pointEquiv_trans (pointEquiv_symm (candidate_partitionMotion_residual D hD p v a ws))
     (pointEquiv_trans (candidate_time_congr p v a ht)
       (candidate_partitionMotion_residual E hE p v a ws'))
+
+/-- Sample times inside cells: two schedules, each followed by a partial final
+    drift (`u/D` and `u'/E`), reaching equivalent rational times.  Their actual
+    partial positions agree after each is corrected by its own residual
+    `((Q+u*u)/(2D²))*a`.  Derived through the appended schedules. -/
+theorem partial_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
+    (ws ws' : List Nat) (u u' : Nat)
+    (ht : Fraction.equiv (duration D (total ws + u) hD) (duration E (total ws' + u') hE)) :
+    pointEquiv
+      (pointAdd (PartialCell.actualPartialPosition D hD p v a ws u)
+        (pointScale (residualCoefficient D (squares ws + u * u) hD) a))
+      (pointAdd (PartialCell.actualPartialPosition E hE p v a ws' u')
+        (pointScale (residualCoefficient E (squares ws' + u' * u') hE) a)) := by
+  have h := partition_comparison D E hD hE p v a (ws ++ [u]) (ws' ++ [u'])
+    (by rw [PartialCell.total_append, PartialCell.total_append]; exact ht)
+  rw [PartialCell.squares_append, PartialCell.squares_append,
+    ← PartialCell.partialState_append, ← PartialCell.partialState_append,
+    PartialCell.partialState_position, PartialCell.partialState_position] at h
+  exact h
 
 end NewtonLimitDynamics.Polygon.PartitionComparison

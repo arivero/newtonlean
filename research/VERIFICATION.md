@@ -159,3 +159,11 @@ all 167 declarations. The aggregate axiom set is `propext`,
 `git diff --check` passed. `partition_comparison` equates the residual-corrected
 actual positions of two arbitrary schedules reaching equivalent rational times.
 No limit or Euclidean-time claim is made.
+
+Partial-comparison follow-up (2026-09-22, Claude Code): both builds passed
+without warnings; 217 catalogued theorem declarations; `check_graph.py`
+validated 77 nodes, 68 edges, 234 passages and emitted 168 references, all
+elaborated by `CheckReferences.lean` with only `propext`, `Classical.choice`
+and `Quot.sound`, and no `sorryAx`. `git diff --check` passed.
+`partial_comparison` extends the exact two-partition comparison to partial-cell
+sample times via the appended schedules.

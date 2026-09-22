@@ -105,8 +105,11 @@ An explicit difference inequality is not yet packaged. Velocities have the
 form `v + (T/D)*a` by `partitionMotion_formula`, so they agree whenever the
 times agree; that corollary is also not yet packaged.
 
-Next combine the partition comparison with the within-cell estimates to reach
-arbitrary rational sample times inside cells, and prove convergence
+`partial_comparison` extends this to sample times inside cells: the two
+schedules may end with partial drifts `u/D` and `u'/E`, corrected by
+`((Q+u*u)/(2D²))*a` and `((Q'+u'*u')/(2E²))*a`.
+
+Next package the explicit difference bound and prove convergence
 to the constructed map as their largest durations decrease. A rational-time
 constant-force result must remain distinct from a general Euclidean-time
 trajectory, a varying central-force realization and the historical limiting
