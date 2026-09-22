@@ -30,6 +30,7 @@ and action-rescaling freedom.
 | --- | --- | --- | --- |
 | [260922opus5.5v1Arg001.md](260922opus5.5v1Arg001.md) | Claude Opus 5.5 | against (for the routes checked) | Every checked finite refinement residual vanishes linearly with the mesh; the constructions select no action floor |
 | [260922opus5.5v1Arg002.md](260922opus5.5v1Arg002.md) | Claude Opus 5.5 | inconclusive; fails system independence | Proposition IV Cor. 1 (with 1713 Cor. 7): inverse-cube circles are the one power law with a common areal velocity, `√(m*k)`, which also bounds the Prop. IX spirals; the action is system-fixed |
+| [260922opus5.5v1Arg003.md](260922opus5.5v1Arg003.md) | Claude Opus 5.5 | inconclusive; locates, derives none | Prop. XLI Cor. 3 and XLV Cor. 1: the inverse cube bounds centre-avoiding motion, where the finite-force premise holds; for that law the boundary is the action `√(m*k)`, for gravity it is zero |
 
 Status on 22 September 2026: **no argument here establishes a nonzero
 universal action constant.**
