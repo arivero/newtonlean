@@ -1,8 +1,10 @@
 # Autonomous continuation: completion criteria
 
 The user authorized continued work across the approved milestones on
-22 September 2026. Work remains sequential: Sol for bounded reasoning,
-Terra for implementation, Luna for compilation and checking. Commit verified
+22 September 2026. Updated model policy: use `gpt-6-sol` for bounded reasoning
+and implementation, and `gpt-6-luna` for compilation and checking. Earlier
+5.5/5.6 assignments are superseded; no silent v5 fallback. Work remains
+sequential, with at most one subagent at a time. Commit verified
 increments and preserve the unrelated conversation exports.
 
 The governing targets remain the stage-separated De Motu, 1687 and 1713

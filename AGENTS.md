@@ -26,7 +26,10 @@
 - Use `lake build NewtonLimitDynamics` as well as the default build. A successful
   command that does not compile the library is not proof verification.
 - Preserve unrelated conversation-export edits and avoid full cache downloads.
-- Delegate implementation/checking with Luna for routine verification, Terra
-  for technical implementation, and Sol for bounded reasoning. Run at most one
+- Use v6 models for all new delegated work: `gpt-6-sol` for bounded reasoning
+  and technical implementation, `gpt-6-luna` for routine verification and
+  compilation. This supersedes earlier 5.5/5.6 model assignments and the
+  previous Terra implementation assignment; no v6 Terra is currently exposed.
+  Do not silently fall back to a v5 model. Run at most one
   subagent at a time, with concise reports; no Astra subagents. This is the
   user's approved resource policy. Do not launch parallel agent work.
