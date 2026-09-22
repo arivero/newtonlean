@@ -46,8 +46,9 @@ the intended mechanical specialization.
 
 The finite-partition follow-up is now implemented in
 [PartitionControl](PARTITION_CONTROL.md): it derives exact endpoint formulas
-and a largest-cell coefficient bound from the constructed schedules. The next
-obligation is within-cell position control and rational-time convergence,
+and a largest-cell coefficient bound from the constructed schedules, and
+`PartialCell.lean` extends both to positions inside a cell. The next
+obligation is rational-time convergence across partitions,
 tracking non-nested endpoints and connectors explicitly. Keep finite sums of
 absolute defects separate from signed cancellation. A general justified limiting
 time-to-position map, partition independence and continuous-force

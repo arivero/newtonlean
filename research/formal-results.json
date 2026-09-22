@@ -592,6 +592,45 @@
     "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
   },
   {
+    "name": "NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseCube_equalAreal",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/InverseCubeAreal.lean",
+    "source_passages": [
+      "NATP00077.par62",
+      "NATP00082.par73",
+      "NATP00082.par79"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(F1 F2 R1 R2 v1 v2 : Nat) (hF : 0 < F2) (hR : 0 < R2)\n    (h1 : corOneProportion F1 F2 R1 R2 v1 v2) (h3 : inverseCube F1 F2 R1 R2) :\n    equalAreal R1 R2 v1 v2",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof: natural-number magnitudes of two uniform circles compared through the Proposition IV Cor. 1 proportion. An inverse-cube comparison is equivalent to equal squared areal velocity; an inverse-square instance has unequal areal velocities. The general power-law Cor. 7 is 1713 only. Supports research/action-arguments Arg002; it fixes a system-dependent action and gives no universal constant."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.InverseCubeAreal.equalAreal_inverseCube",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/InverseCubeAreal.lean",
+    "source_passages": [
+      "NATP00077.par62",
+      "NATP00082.par73",
+      "NATP00082.par79"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(F1 F2 R1 R2 v1 v2 : Nat) (hv : 0 < v2)\n    (h1 : corOneProportion F1 F2 R1 R2 v1 v2) (hA : equalAreal R1 R2 v1 v2) :\n    inverseCube F1 F2 R1 R2",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof: natural-number magnitudes of two uniform circles compared through the Proposition IV Cor. 1 proportion. An inverse-cube comparison is equivalent to equal squared areal velocity; an inverse-square instance has unequal areal velocities. The general power-law Cor. 7 is 1713 only. Supports research/action-arguments Arg002; it fixes a system-dependent action and gives no universal constant."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseSquare_areal_varies",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/InverseCubeAreal.lean",
+    "source_passages": [
+      "NATP00077.par62",
+      "NATP00082.par73",
+      "NATP00082.par79"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    corOneProportion 16 1 1 4 2 1 ∧ 16 * (1 * 1) = 1 * (4 * 4) ∧\n      ¬ equalAreal 1 4 2 1",
+    "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof: natural-number magnitudes of two uniform circles compared through the Proposition IV Cor. 1 proportion. An inverse-cube comparison is equivalent to equal squared areal velocity; an inverse-square instance has unequal areal velocities. The general power-law Cor. 7 is 1713 only. Supports research/action-arguments Arg002; it fixes a system-dependent action and gives no universal constant."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.velocityContact_position",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/Contact.lean",

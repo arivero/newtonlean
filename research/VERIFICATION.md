@@ -120,3 +120,20 @@ drift position, derived through the appended schedule `weights ++ [u]`;
 `partial_squares_bound` and `partial_residual_mesh_bound` give the within-cell
 mesh bound for `u≤w≤M`. These are finite rational-time position estimates;
 no convergence, Euclidean-time realization, or central-force theorem is claimed.
+
+Review and action-diagnostic follow-up (2026-09-22, Claude Code): `lake build`
+and `lake build NewtonLimitDynamics` passed under Lean 4.19.0. The regenerated
+formal catalogue contains 201 theorem declarations; `check_graph.py` validated
+77 nodes, 68 classified edges, 234 passages, and emitted 161 Lean references.
+`CheckReferences.lean` elaborated all 161 declarations. The aggregate axiom set
+is `propext`, `Classical.choice`, and `Quot.sound`; no `sorryAx` or project
+axiom occurs. The auxiliary scripts `catalogue_m1.py`, `collate_sources.py`
+(9 witnesses, 231 XML anchors), `compare_editions.py` (7 alignments),
+`test_evidence_validation.py` (baseline plus four negative cases) and
+`sha256sum -c docs/SHA256SUMS` passed without modifying tracked files; a
+Haiku subagent ran them. `Diagnostic/InverseCubeAreal.lean` checks over natural-number
+magnitudes that the Cor. 1 proportion with an inverse-cube comparison is
+equivalent to equal squared areal velocity for two circles. It belongs to the
+action diagnostic layer and is no historical proof. The review found stale
+next-step notes (CONTINUATION, TIME_SUBDIVISION, ZERO_FORCE), now corrected,
+and no mathematical errors in the checked modules.

@@ -18,3 +18,4 @@ import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
 import NewtonLimitDynamics.Comparison.Routes
 import NewtonLimitDynamics.Contact.AreaCoefficient
+import NewtonLimitDynamics.Diagnostic.InverseCubeAreal

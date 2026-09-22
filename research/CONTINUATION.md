@@ -1,8 +1,8 @@
 # Autonomous continuation: completion criteria
 
-Next executor: **Claude Code**, explicitly authorized by the user to take the
-next bounded task and make its own commit. Read HANDOFF-CLAUDE-CODE.md.
-Codex stops after committing the current inertial-defect result and handoff.
+Executor since the Claude Code handoff (22 September 2026): **Claude Code**,
+which completed the handoff task (`PartialCell.lean`). Claude Code may delegate
+routine checks to smaller models, one subagent at a time.
 
 The user authorized continued work across the approved milestones on
 22 September 2026. Updated model policy: use `gpt-6-sol` for bounded reasoning
@@ -32,12 +32,12 @@ undischarged premises; a successful special case is not full completion.
    exact domain and the remaining defect/continuity obligations.
    `InertialControl.lean` now proves the explicit rational small-time radius,
    uniform in initial position and rational base time, and applies it to an
-   actual zero-force cell. General collinear defect cancellation and extension
-   to arbitrary Euclidean times remain distinct next obligations.
-1. Extend the constructed constant-force end-kick comparison to arbitrary
-   finite rational partitions, with an exact displacement residual and a
-   largest-cell bound. Derive these from the recurrence, not from an assumed
-   curve or integral formula.
+   actual zero-force cell. `InertialDefect.lean` proves signed defect
+   cancellation for every finite closed inertial walk. Extension to arbitrary
+   Euclidean times remains the distinct next obligation.
+1. Done: `PartitionControl.lean` and `PartialCell.lean` derive the exact
+   constant-force displacement residual and largest-cell bound from the
+   recurrence, at schedule endpoints and inside cells.
 2. Construct and justify a time-to-position map in the rational constant-force
    special case, with partition-independent position control. Distinguish a
    map on rational times from a full Euclidean trajectory. Account separately

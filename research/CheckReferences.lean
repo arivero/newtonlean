@@ -43,6 +43,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Contact.uniform_partition_error
 #check NewtonLimitDynamics.Contact.upper_lower_gap
 #print axioms NewtonLimitDynamics.Contact.upper_lower_gap
+#check NewtonLimitDynamics.Diagnostic.InverseCubeAreal.equalAreal_inverseCube
+#print axioms NewtonLimitDynamics.Diagnostic.InverseCubeAreal.equalAreal_inverseCube
+#check NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseCube_equalAreal
+#print axioms NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseCube_equalAreal
+#check NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseSquare_areal_varies
+#print axioms NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseSquare_areal_varies
 #check NewtonLimitDynamics.Fraction.add_assoc
 #print axioms NewtonLimitDynamics.Fraction.add_assoc
 #check NewtonLimitDynamics.Fraction.add_comm

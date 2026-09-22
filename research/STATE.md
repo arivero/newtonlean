@@ -26,6 +26,14 @@ doubled area, and four actual zero-force schedules with arbitrary partitions
 give a vanishing boundary. Unsigned enclosure estimates and extension beyond
 rational times remain open.
 
+Action diagnostic: candidate arguments now live in
+[action-arguments](action-arguments/README.md), one file per proposer and
+version. Arg001 records that every checked refinement residual vanishes with
+the mesh. Arg002 records that Proposition IV Cor. 1 (1713 Cor. 7 for the
+family) singles out inverse-cube circles as the one power law with a common
+areal velocity, checked for two circles in `Diagnostic/InverseCubeAreal.lean`.
+That action is system-dependent. No argument yet supports a universal constant.
+
 The approved governing target is now the three-stage formalization of
 De Motu, 1687 and 1713 arguments corresponding to Book I, Section II,
 Propositions I–IV: see [goals](GOALS.md). M1–M4 below are supporting work.

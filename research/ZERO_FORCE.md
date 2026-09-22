@@ -102,4 +102,5 @@ This extends the earlier concrete collinearity example to arbitrary finite
 walks. Sample times need not be ordered. The conclusion concerns signed
 determinant sums; it is not an unsigned enclosure estimate for arbitrary
 noncollinear polygons, nor does it identify time parametrization from area.
-See HANDOFF-CLAUDE-CODE.md for the next constructed within-cell estimate.
+The constant-force within-cell estimate is now in `Polygon/PartialCell.lean`;
+see PARTITION_CONTROL.md.
