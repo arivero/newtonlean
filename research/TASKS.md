@@ -3,6 +3,15 @@
 This queue implements [the approved goals](GOALS.md). A checked finite
 diagnostic is not completion of the corresponding historical proposition.
 
+**Next priority (user instruction): zero force and rectilinear motion.**
+Derive constant velocity and exact subdivision-independent position from the
+constructed end-kick recurrence; prove finite joining/restart and construct
+the rational time-to-position map. Test what zero defect area does and does
+not determine about position and time. Include rest and nonzero-velocity
+cases; distinguish rational-time realization from full Euclidean-time motion.
+See CONTINUATION.md. This case takes precedence over the next nonzero-force
+within-cell extension below.
+
 Current progress: the bounded source map (1) is recorded in SECTION_II.md,
 with unresolved De Motu counterparts explicitly retained. The equal-cell
 finite recurrence now satisfies restart and contact (2), including the

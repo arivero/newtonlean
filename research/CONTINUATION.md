@@ -11,6 +11,16 @@ undischarged premises; a successful special case is not full completion.
 
 ## Immediate mathematical route
 
+0. **User-prioritized case: zero force and rectilinear motion.** Before the
+   nonzero-force extension, derive the inertial case from the finite recurrence:
+   constant velocity, exact subdivision independence and joining, including
+   unequal rational durations. Construct the rational time-to-position map
+   from those data without assuming a trajectory. Separate zero strip defect
+   from position/time parametrization: collinearity alone does not identify
+   either. Include rest, nonzero velocity, degenerate cells and non-nested
+   intermediate sample sets. Identify the remaining domain/continuity premises
+   before claiming a full Euclidean-time motion. This priority was explicitly
+   requested during the pause until 10:50 Madrid time on 22 September.
 1. Extend the constructed constant-force end-kick comparison to arbitrary
    finite rational partitions, with an exact displacement residual and a
    largest-cell bound. Derive these from the recurrence, not from an assumed
