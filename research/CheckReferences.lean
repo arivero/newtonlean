@@ -141,6 +141,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PartialCell.stats_append
 #check NewtonLimitDynamics.Polygon.PartialCell.total_append
 #print axioms NewtonLimitDynamics.Polygon.PartialCell.total_append
+#check NewtonLimitDynamics.Polygon.PartitionComparison.candidate_time_congr
+#print axioms NewtonLimitDynamics.Polygon.PartitionComparison.candidate_time_congr
+#check NewtonLimitDynamics.Polygon.PartitionComparison.partition_comparison
+#print axioms NewtonLimitDynamics.Polygon.PartitionComparison.partition_comparison
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #print axioms NewtonLimitDynamics.Polygon.PartitionControl.candidate_partitionMotion_residual
 #check NewtonLimitDynamics.Polygon.PartitionControl.candidate_residual

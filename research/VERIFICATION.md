@@ -148,3 +148,14 @@ axiom occurs. `git diff --check` passed. `uniform_refinement_small` gives, for
 each positive rational tolerance and rational time `N/E`, an explicit unit-cell
 refinement reaching that time with constant-force residual coefficient at most
 the tolerance. It proves no sequence limit and no comparison of arbitrary partitions.
+
+Partition-comparison follow-up (2026-09-22, Claude Code): `lake build` and
+`lake build NewtonLimitDynamics` passed under Lean 4.19.0 without warnings. The
+regenerated formal catalogue contains 216 theorem declarations (including
+private helpers); `check_graph.py` validated 77 nodes, 68 classified edges, 234
+passages, and emitted 167 Lean references. `CheckReferences.lean` elaborated
+all 167 declarations. The aggregate axiom set is `propext`,
+`Classical.choice`, and `Quot.sound`; no `sorryAx` or project axiom occurs.
+`git diff --check` passed. `partition_comparison` equates the residual-corrected
+actual positions of two arbitrary schedules reaching equivalent rational times.
+No limit or Euclidean-time claim is made.

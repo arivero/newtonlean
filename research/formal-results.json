@@ -1550,6 +1550,132 @@
     "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.add_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.mul_equiv_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c)",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.half_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.half a) (Fraction.half b)",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.pointEquiv_trans",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.pointEquiv_symm",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (h : pointEquiv p q) : pointEquiv q p",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.candidate_scalar_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{s t : Fraction} (h : Fraction.equiv s t)\n    (p v a : Fraction) :\n    Fraction.equiv\n      (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul (Fraction.half (Fraction.mul s s)) a))\n      (Fraction.add (Fraction.add p (Fraction.mul t v)) (Fraction.mul (Fraction.half (Fraction.mul t t)) a))",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.candidate_time_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v a : Point) {s t : Fraction} (h : Fraction.equiv s t) :\n    pointEquiv (candidate p v a s) (candidate p v a t)",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.partition_comparison",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)\n    (ws ws' : List Nat)\n    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :\n    pointEquiv\n      (pointAdd (partitionMotion D hD p v a ws).1\n        (pointScale (residualCoefficient D (squares ws) hD) a))\n      (pointAdd (partitionMotion E hE p v a ws').1\n        (pointScale (residualCoefficient E (squares ws') hE) a))",
+    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.PartitionControl.next_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",

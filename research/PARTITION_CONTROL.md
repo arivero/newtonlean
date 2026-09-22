@@ -87,11 +87,26 @@ positive rational tolerance `ε` and rational time `N/E`, refining by
 `K = N*den(ε)+1` into unit cells over denominator `E*K` reaches the same time
 (`refined_time`) with residual coefficient `Q/(2D²) ≤ ε`. The witness is
 explicit. It is one refinement per tolerance; arbitrary partitions are covered
-by the earlier mesh bound, and a Cauchy comparison between two arbitrary
-partitions at the same time is not yet stated.
+by the earlier mesh bound.
 
-Next derive quantitative agreement between partitions at the same rational
-time using these within-cell estimates, and prove convergence
+## Comparing two partitions at one rational time
+
+`Polygon/PartitionComparison.lean` proves `partition_comparison`: two
+arbitrary schedules, with possibly different denominators `D, E` and cells,
+whose end times are equivalent rationals, satisfy
+
+`position + (Q/(2D²))*a = position' + (Q'/(2E²))*a`.
+
+`candidate_time_congr` supplies the time congruence it needs. With
+`residual_mesh_bound` on each side, the two actual positions differ along `a`
+by a coefficient between zero and the larger mesh coefficient. Partition
+dependence at a common rational time is thus exact and controlled by the mesh.
+An explicit difference inequality is not yet packaged. Velocities have the
+form `v + (T/D)*a` by `partitionMotion_formula`, so they agree whenever the
+times agree; that corollary is also not yet packaged.
+
+Next combine the partition comparison with the within-cell estimates to reach
+arbitrary rational sample times inside cells, and prove convergence
 to the constructed map as their largest durations decrease. A rational-time
 constant-force result must remain distinct from a general Euclidean-time
 trajectory, a varying central-force realization and the historical limiting
