@@ -1635,6 +1635,62 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicStability.linearField_central",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicStability.lean",
+    "source_passages": [
+      "NATP00077.par64",
+      "NATP00082.par75",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) : central (linearField w)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. This gives discrete stability (bounded orbits) for w*d^2 < 4. The inequality chain, convergence, continuous curve, and Newton general central-force theorem are not formalized or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicStability.cell_invariant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicStability.lean",
+    "source_passages": [
+      "NATP00077.par64",
+      "NATP00082.par75",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w d : Fraction) (s : Point × Point) :\n    Fraction.equiv (invariant w d (cell (linearField w) d s)) (invariant w d s)",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. This gives discrete stability (bounded orbits) for w*d^2 < 4. The inequality chain, convergence, continuous curve, and Newton general central-force theorem are not formalized or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicStability.schedule_invariant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicStability.lean",
+    "source_passages": [
+      "NATP00077.par64",
+      "NATP00082.par75",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w d : Fraction) :\n    (n : Nat) → (s : Point × Point) →\n    Fraction.equiv (invariant w d (schedule (linearField w) (List.replicate n d) s))\n      (invariant w d s)\n  | 0, _ => Fraction.equiv_refl _\n  | n + 1, s =>\n      Fraction.equiv_trans (schedule_invariant w d n (cell (linearField w) d s))\n        (cell_invariant w d s)\n\n/-- `1 - w*c²`, the stability margin for cells of duration `d = 2c`. -/\ndef margin (w c : Fraction) : Fraction",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. This gives discrete stability (bounded orbits) for w*d^2 < 4. The inequality chain, convergence, continuous curve, and Newton general central-force theorem are not formalized or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicStability.invariant_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicStability.lean",
+    "source_passages": [
+      "NATP00077.par64",
+      "NATP00082.par75",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w c : Fraction) (s : Point × Point) :\n    Fraction.equiv (invariant w (Fraction.add c c) s)\n      (Fraction.add\n        (Fraction.mul w (dot (pointAdd s.1 (pointScale c s.2)) (pointAdd s.1 (pointScale c s.2))))\n        (Fraction.mul (margin w c) (dot s.2 s.2)))",
+    "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. This gives discrete stability (bounded orbits) for w*d^2 < 4. The inequality chain, convergence, continuous curve, and Newton general central-force theorem are not formalized or inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.InertialControl.radius_positive",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/InertialControl.lean",

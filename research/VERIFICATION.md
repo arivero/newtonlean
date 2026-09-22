@@ -211,3 +211,12 @@ witnesses for the action arguments and add no proof edge. `catalogue_m1.py`,
 `collate_sources.py` (9 witnesses, 243 XML anchors), `compare_editions.py`,
 `check_graph.py` (77 nodes, 68 edges, 246 passages), `test_evidence_validation.py`
 and `sha256sum -c docs/SHA256SUMS` passed. Nothing was downloaded.
+
+Harmonic-stability follow-up (2026-09-22, Claude Code): both builds passed
+without warnings; 260 catalogued theorem declarations; `check_graph.py`
+validated 77 nodes, 68 edges, 246 passages and emitted 200 references, all
+elaborated by `CheckReferences.lean` with only `propext`, `Classical.choice`
+and `Quot.sound`, and no `sorryAx`. `git diff --check` passed.
+`HarmonicStability.lean` proves the exact equal-cell invariant for the linear
+central field and its completed-square form. The boundedness inequality chain
+and any convergence are not formalized.
