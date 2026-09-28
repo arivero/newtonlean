@@ -307,6 +307,20 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_equal_area_central
 #check NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
+#check NewtonLimitDynamics.Polygon.StripArea.all_triangles_equal
+#print axioms NewtonLimitDynamics.Polygon.StripArea.all_triangles_equal
+#check NewtonLimitDynamics.Polygon.StripArea.chord_is_position_diff
+#print axioms NewtonLimitDynamics.Polygon.StripArea.chord_is_position_diff
+#check NewtonLimitDynamics.Polygon.StripArea.det_kick_direction_constant
+#print axioms NewtonLimitDynamics.Polygon.StripArea.det_kick_direction_constant
+#check NewtonLimitDynamics.Polygon.StripArea.pointSub_add_self_left_equiv
+#print axioms NewtonLimitDynamics.Polygon.StripArea.pointSub_add_self_left_equiv
+#check NewtonLimitDynamics.Polygon.StripArea.total_strip_area
+#print axioms NewtonLimitDynamics.Polygon.StripArea.total_strip_area
+#check NewtonLimitDynamics.Polygon.StripArea.two_cell_triangle_constant
+#print axioms NewtonLimitDynamics.Polygon.StripArea.two_cell_triangle_constant
+#check NewtonLimitDynamics.Polygon.StripArea.vel_det_constant
+#print axioms NewtonLimitDynamics.Polygon.StripArea.vel_det_constant
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.example_coarse_position

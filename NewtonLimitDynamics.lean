@@ -18,6 +18,7 @@ import NewtonLimitDynamics.Polygon.UniformRefinement
 import NewtonLimitDynamics.Polygon.PartitionComparison
 import NewtonLimitDynamics.Polygon.Converse
 import NewtonLimitDynamics.Polygon.RelativeMotion
+import NewtonLimitDynamics.Polygon.StripArea
 import NewtonLimitDynamics.Polygon.CentralSchedule
 import NewtonLimitDynamics.Polygon.HarmonicStability
 import NewtonLimitDynamics.Polygon.MonotoneEnclosure

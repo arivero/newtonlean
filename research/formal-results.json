@@ -3338,6 +3338,244 @@
     "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.pointSub_add_self_left_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Point) :\n    pointEquiv (pointSub (pointAdd x y) x) y",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.chord_is_position_diff",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (p v a : Point) (n : Nat) :\n    pointEquiv (pointSub (posAt h p v a (n + 1)) (posAt h p v a n)) (chord h v a n)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.det_add_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q x y : Point) :\n    Fraction.equiv (det (pointAdd x y) q) (Fraction.add (det x q) (det y q))",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.det_add_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p x y : Point) :\n    Fraction.equiv (det p (pointAdd x y)) (Fraction.add (det p x) (det p y))",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.det_scale_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (q x : Point) :\n    Fraction.equiv (det (pointScale d x) q) (Fraction.mul d (det x q))",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.det_scale_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (p x : Point) :\n    Fraction.equiv (det p (pointScale d x)) (Fraction.mul d (det p x))",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.det_self",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x : Point) : Fraction.equiv (det x x) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.add_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.scale_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul c a) (Fraction.mul c b)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.zero_mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Fraction) :\n    Fraction.equiv (Fraction.mul s (Fraction.ofInt 0)) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.det_kick_direction_constant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Fraction) (w a : Point) :\n    Fraction.equiv (det (pointAdd w (pointScale s a)) a) (det w a)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.vel_det_constant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (v a : Point) (n : Nat) :\n    Fraction.equiv (det (velAt h v a n) a) (det v a)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.two_cell_triangle_constant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (v a : Point) (n : Nat) :\n    Fraction.equiv (twoCellTwice h v a n)\n      (Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a))))",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.all_triangles_equal",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (v a : Point) (m n : Nat) :\n    Fraction.equiv (twoCellTwice h v a m) (twoCellTwice h v a n)",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.StripArea.total_strip_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (v a : Point) (k : Nat) :\n    Fraction.equiv (stripSum h v a k)\n      (Fraction.mul (Fraction.ofInt k) (Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a)))))",
+    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same doubled area, so the absolute and signed strip sums coincide and the total over k triangles is k times h cubed times det(v, a). This is the identity the 22 September handoff computed by hand and never formalized. Finite Fraction arithmetic only; no curve, limit or force law."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
