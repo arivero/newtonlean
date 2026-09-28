@@ -6,7 +6,9 @@ joining, refinement and trajectory-existence obligations. A universal action
 constant is a separate research hypothesis, not a premise of these proofs.
 The [three-stage source map](research/SECTION_II.md) records the actual
 dependencies; the [obligation queue](research/TASKS.md) separates finite
-mechanics, refinement, realization and force identification.
+mechanics, refinement, realization and force identification. Propositions
+I–III each have a source-linked note: [Proposition I](research/PROP_I_REALIZATION.md),
+[Proposition II](research/TASKS.md) and [Proposition III](research/PROP_III.md).
 
 Source-linked reconstructions of quadratic deflection, central-impulse polygons,
 contact-area bounds and proposed revisions, with separate De Motu, 1687,

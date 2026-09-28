@@ -48,6 +48,24 @@ has its finite Case-1 step in `Polygon/Converse.lean`: equal oriented areas
 are equivalent to a deflection parallel to the radius, with orientation, a
 vertex distinct from S, and the inward sense kept as separate premises.
 
+Order 6 (Proposition III) now has its finite step in
+`Polygon/RelativeMotion.lean`, with the source map in
+[Proposition III](PROP_III.md): two bodies advanced by one pair recursion, each
+with its own deflection history. Corollary VI of the laws is
+`corVI_relative` — any common deflection history leaves both relative
+coordinates unchanged at every stage — and Law I is `lawI_uniform` — an
+undeflected reference body is exactly the uniform `centreAt` motion of its
+initial pair. The compositional content of the proposition is
+`relative_deflection_difference`: the relative polygon's deflection is `d n − e n`.
+Equal relative oriented areas make that difference parallel to the relative
+radius (`relative_equal_area_central`, and `relative_rational_central` with a
+nonzero radius), which is also reachable by Newton's own route through
+`Converse.moving_centre_equal_areas_central` (`propIII_via_moving_centre`).
+The six Proposition III dependency edges (Corollary VI, Law I, Proposition II,
+both editions) now carry these formal references. The limiting passage from a
+realized relative orbit, parallelogram composition of simultaneous forces, and
+any force/mass interpretation remain open.
+
 Order 4 is decomposed in [Proposition I realization](PROP_I_REALIZATION.md).
 `CentralSchedule.lean` proves the finite area law for any central field with
 unequal rational cells and gives the exact refinement identities for a varying

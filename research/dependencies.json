@@ -664,7 +664,9 @@
       "witness": "De Motu Corporum (Liber Primus) (1687)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par54",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.RelativeMotion.corVI_relative"
+      ],
       "source_stage": "1687"
     },
     {
@@ -678,7 +680,9 @@
       "witness": "De Motu Corporum (Liber Primus) (1687)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par54",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.RelativeMotion.lawI_uniform"
+      ],
       "source_stage": "1687"
     },
     {
@@ -692,7 +696,10 @@
       "witness": "De Motu Corporum (Liber Primus) (1687)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par54",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.RelativeMotion.relative_equal_area_central",
+        "NewtonLimitDynamics.Polygon.RelativeMotion.propIII_via_moving_centre"
+      ],
       "source_stage": "1687"
     },
     {
@@ -818,7 +825,9 @@
       "witness": "De Motu Corporum (Liber Primus) (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par65",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.RelativeMotion.corVI_relative"
+      ],
       "source_stage": "1713"
     },
     {
@@ -832,7 +841,9 @@
       "witness": "De Motu Corporum (Liber Primus) (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par65",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.RelativeMotion.lawI_uniform"
+      ],
       "source_stage": "1713"
     },
     {
@@ -846,7 +857,10 @@
       "witness": "De Motu Corporum (Liber Primus) (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par65",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.RelativeMotion.relative_equal_area_central",
+        "NewtonLimitDynamics.Polygon.RelativeMotion.propIII_via_moving_centre"
+      ],
       "source_stage": "1713"
     },
     {

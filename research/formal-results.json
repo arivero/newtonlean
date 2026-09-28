@@ -3114,6 +3114,230 @@
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic motivated by the polygon constructions: exact Euclidean triangle area between a coarse edge and a compatible one-cell refinement. The passages locate motivation only; no limiting curve, common-force time refinement, integration, or trajectory existence is attributed or inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.add_zero_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : LatticePoint) : add a (0, 0) = a",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.add_common_cancel",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : LatticePoint) : sub (add a c) (add b c) = sub a b",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.add_sub_distrib",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c d : LatticePoint) :\n    sub (add a b) (add c d) = add (sub a c) (sub b d)",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.extend_sub",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c d : LatticePoint) :\n    sub (extend a b) (extend c d) = extend (sub a c) (sub b d)",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.det_add",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q x y : LatticePoint) : det q (add x y) = det q x + det q y",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.relP_succ",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e : Nat → LatticePoint) (n : Nat) :\n    relPAt z d e (n + 1) = relQAt z d e n",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.relative_deflection_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e : Nat → LatticePoint) (n : Nat) :\n    relQAt z d e (n + 1) =\n      add (extend (relPAt z d e n) (relQAt z d e n)) (sub (d n) (e n))",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e : Nat → LatticePoint) (n : Nat) :\n    sub (pairMotion z d e (n + 1)).q (extend (pairMotion z d e n).p (pairMotion z d e n).q) =\n      d n",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.corVI_relative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e h : Nat → LatticePoint) (n : Nat) :\n    relPAt z (fun i => add (d i) (h i)) (fun i => add (e i) (h i)) n = relPAt z d e n ∧\n      relQAt z (fun i => add (d i) (h i)) (fun i => add (e i) (h i)) n = relQAt z d e n",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.common_deflection_example",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    (relQAt exampleState (fun _ => (0, -2)) (fun _ => (0, 0)) 1 =\n        relQAt exampleState (fun _ => (0, -1)) (fun _ => (0, 1)) 1) ∧\n      (fun _ => (0, -2)) 0 ≠ (fun _ => (0, -1)) 0 ∧\n      sub ((fun _ => (0, -2)) 0) ((fun _ => (0, 0)) 0) =\n        sub ((fun _ => (0, -1)) 0) ((fun _ => (0, 1)) 0)",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.lawI_uniform",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e : Nat → LatticePoint) (he : ∀ i, e i = (0, 0))\n    (n : Nat) :\n    (pairMotion z d e n).s = centreAt z.s (sub z.t z.s) n ∧\n      (pairMotion z d e n).t = centreAt z.s (sub z.t z.s) (n + 1)",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.centre_is_reference_body",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e : Nat → LatticePoint)\n    (he : ∀ i, e i = (0, 0)) (n : Nat) :\n    sub (pairMotion z d e n).q (centreAt z.s (sub z.t z.s) (n + 1)) = relQAt z d e n",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.propIII_via_moving_centre",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e : Nat → LatticePoint)\n    (h : ∀ n, det (sub (pairMotion z d e (n + 1)).q (centreAt z.s (sub z.t z.s) (n + 1)))\n        (sub (pairMotion z d e (n + 2)).q (centreAt z.s (sub z.t z.s) (n + 2))) =\n      det (sub (pairMotion z d e n).q (centreAt z.s (sub z.t z.s) n))\n        (sub (pairMotion z d e (n + 1)).q (centreAt z.s (sub z.t z.s) (n + 1)))) (n : Nat) :\n    det (sub (pairMotion z d e (n + 1)).q (centreAt z.s (sub z.t z.s) (n + 1)))\n      (sub (pairMotion z d e (n + 2)).q\n        (extend (pairMotion z d e n).q (pairMotion z d e (n + 1)).q)) = 0",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.relative_equal_area_central",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e : Nat → LatticePoint)\n    (h : ∀ n, det (relQAt z d e n) (relQAt z d e (n + 1)) =\n      det (relPAt z d e n) (relQAt z d e n)) (n : Nat) :\n    det (relQAt z d e n) (sub (d n) (e n)) = 0",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z : PairState) (d e : Nat → LatticePoint)\n    (h : ∀ n, det (relQAt z d e n) (relQAt z d e (n + 1)) =\n      det (relPAt z d e n) (relQAt z d e n))\n    (hq : relQAt z d e 0 ≠ (0, 0)) :\n    ∃ a b : Int, b ≠ 0 ∧ b * (sub (d 0) (e 0)).1 = a * (relQAt z d e 0).1 ∧\n      b * (sub (d 0) (e 0)).2 = a * (relQAt z d e 0).2",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RelativeMotion.difference_not_pair_example",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RelativeMotion.lean",
+    "source_passages": [
+      "NATP00077.par53",
+      "NATP00077.par54",
+      "NATP00082.par64",
+      "NATP00082.par65"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    sub ((fun _ : Nat => (0, -2)) 0) ((fun _ : Nat => (0, 0)) 0) =\n      sub ((fun _ : Nat => (1, -1)) 0) ((fun _ : Nat => (1, 1)) 0) ∧\n    ((fun _ : Nat => (0, -2)) 0, (fun _ : Nat => (0, 0)) 0) ≠\n      ((fun _ : Nat => (1, -1)) 0, (fun _ : Nat => (1, 1)) 0)",
+    "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition III (both editions proceed by Corollary VI of the laws, then Law I, then Proposition II). Two bodies are advanced by one pair recursion, each taking its own deflection history. Corollary VI finite: a deflection history added to both bodies leaves both relative coordinates unchanged at every stage. Law I finite: with zero deflection the vertices of the reference body are the uniform centreAt motion of its initial pair. The deflection of the relative polygon is exactly the difference of the two deflections, which is the force composition of the proposition; equal relative oriented areas make that difference parallel to the relative radius, and with a nonzero relative radius they give a rational central impulse toward the reference body. Counterexamples separate the difference from the pair of absolute deflections. Finite only: no curve, limit, force law, mass, or realized-orbit area law is derived; the equal relative areas are a hypothesis."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
