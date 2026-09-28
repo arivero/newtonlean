@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1009" height="1101" viewBox="0 0 1009 1101" font-family="DejaVu Sans, Helvetica, sans-serif">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="26" y="26" font-size="16" font-weight="bold">Textual comparison and proposed reordering</text>
+<text x="26" y="44" font-size="11" fill="#555">cross-stage comparison edges only; these are not proof dependencies</text>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
+<path d="M 300.0 92.0 C 338.6 92.0, 338.6 92.0, 377.2 92.0" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 300.0 609.5 C 353.0 609.5, 353.0 587.0, 406.0 587.0" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 293.6 534.5 C 337.0 534.5, 337.0 512.0, 380.4 512.0" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 641.6 512.0 C 681.8 512.0, 681.8 107.0, 722.0 107.0" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 300.0 159.5 C 337.0 159.5, 337.0 159.5, 374.0 159.5" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 300.0 234.5 C 354.6 234.5, 354.6 234.5, 409.2 234.5" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 280.8 399.5 C 337.0 399.5, 337.0 369.5, 393.2 369.5" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 258.4 467.0 C 337.0 467.0, 337.0 437.0, 415.6 437.0" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 300.0 317.0 C 370.6 317.0, 370.6 302.0, 441.2 302.0" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 223.2 677.0 C 303.4 677.0, 303.4 654.5, 383.6 654.5" fill="none" stroke="#7a7a7a" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 226.4 797.0 C 324.2 797.0, 324.2 782.0, 422.0 782.0" fill="none" stroke="#8a6d1f" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 258.4 737.0 C 338.6 737.0, 338.6 722.0, 418.8 722.0" fill="none" stroke="#8a6d1f" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<rect x="422.0" y="760.0" width="178.0" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="431.0" y="778.0" font-size="12" bold fill="#1a1a1a">Draft.booklet</text>
+<text x="431.0" y="793.0" font-size="12" fill="#444">Separate proposed booklet</text>
+<rect x="722.0" y="70.0" width="261.2" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="731.0" y="88.0" font-size="12" bold fill="#1a1a1a">P1713.P1</text>
+<text x="731.0" y="103.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
+<text x="731.0" y="118.0" font-size="12" fill="#444">and polygon limit</text>
+<text x="731.0" y="133.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="380.4" y="475.0" width="261.2" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="389.4" y="493.0" font-size="12" bold fill="#1a1a1a">P1687.P1</text>
+<text x="389.4" y="508.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
+<text x="389.4" y="523.0" font-size="12" fill="#444">and polygon limit</text>
+<text x="389.4" y="538.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="26.0" y="280.0" width="274.0" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="35.0" y="298.0" font-size="12" bold fill="#1a1a1a">P1713.L11Cubic</text>
+<text x="35.0" y="313.0" font-size="12" fill="#444">Cubic curvilinear areas and segments via</text>
+<text x="35.0" y="328.0" font-size="12" fill="#444">the parabola</text>
+<text x="35.0" y="343.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="32.4" y="505.0" width="261.2" height="59.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="41.4" y="523.0" font-size="12" bold fill="#1a1a1a">NATP00089.T1</text>
+<text x="41.4" y="538.0" font-size="12" fill="#444">Polygonal equal areas; infinitely many</text>
+<text x="41.4" y="553.0" font-size="12" fill="#444">infinitesimal triangles asserted</text>
+<rect x="393.2" y="340.0" width="235.6" height="59.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="402.2" y="358.0" font-size="12" bold fill="#1a1a1a">P1726.P6</text>
+<text x="402.2" y="373.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>
+<text x="402.2" y="388.0" font-size="12" fill="#444">squared</text>
+<rect x="383.6" y="625.0" width="254.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="392.6" y="643.0" font-size="12" bold fill="#1a1a1a">P1713.P7C3</text>
+<text x="392.6" y="658.0" font-size="12" fill="#444">Force-centre comparison in same orbit</text>
+<text x="392.6" y="673.0" font-size="12" fill="#444">and period</text>
+<rect x="26.0" y="580.0" width="274.0" height="59.0" rx="5" fill="#e2e2e2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="35.0" y="598.0" font-size="12" bold fill="#1a1a1a">RS.H4</text>
+<text x="35.0" y="613.0" font-size="12" fill="#444">Quadratic initial displacement, numbered</text>
+<text x="35.0" y="628.0" font-size="12" fill="#444">4 in edited Royal Society copy</text>
+<rect x="377.2" y="70.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="386.2" y="88.0" font-size="12" bold fill="#1a1a1a">P1713.L10</text>
+<text x="386.2" y="103.0" font-size="12" fill="#444">Initial displacement under finite force</text>
+<rect x="67.6" y="715.0" width="190.8" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="76.6" y="733.0" font-size="12" bold fill="#1a1a1a">Draft.sagitta</text>
+<text x="76.6" y="748.0" font-size="12" fill="#444">Sagitta and curvature route</text>
+<rect x="45.2" y="370.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="54.2" y="388.0" font-size="12" bold fill="#1a1a1a">P1713.P6</text>
+<text x="54.2" y="403.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>
+<text x="54.2" y="418.0" font-size="12" fill="#444">squared</text>
+<rect x="418.8" y="700.0" width="184.4" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="427.8" y="718.0" font-size="12" bold fill="#1a1a1a">Draft.conic</text>
+<text x="427.8" y="733.0" font-size="12" fill="#444">Proposed conic application</text>
+<rect x="374.0" y="130.0" width="274.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="383.0" y="148.0" font-size="12" bold fill="#1a1a1a">P1713.L11</text>
+<text x="383.0" y="163.0" font-size="12" fill="#444">Contact subtense ultimately quadratic in</text>
+<text x="383.0" y="178.0" font-size="12" fill="#444">arc chord</text>
+<rect x="102.8" y="655.0" width="120.4" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="111.8" y="673.0" font-size="12" bold fill="#1a1a1a">Draft.comparison</text>
+<text x="111.8" y="688.0" font-size="12" fill="#444">Comparison route</text>
+<rect x="99.6" y="775.0" width="126.8" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="108.6" y="793.0" font-size="12" bold fill="#1a1a1a">Draft.sections</text>
+<text x="108.6" y="808.0" font-size="12" fill="#444">Sections IV and V</text>
+<rect x="26.0" y="130.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="35.0" y="148.0" font-size="12" bold fill="#1a1a1a">P1687.L11</text>
+<text x="35.0" y="163.0" font-size="12" fill="#444">Contact subtense ultimately quadratic in</text>
+<text x="35.0" y="178.0" font-size="12" fill="#444">arc chord</text>
+<rect x="26.0" y="205.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="35.0" y="223.0" font-size="12" bold fill="#1a1a1a">P1687.P6</text>
+<text x="35.0" y="238.0" font-size="12" fill="#444">Force through tangent departure and time</text>
+<text x="35.0" y="253.0" font-size="12" fill="#444">squared</text>
+<rect x="415.6" y="415.0" width="190.8" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="424.6" y="433.0" font-size="12" bold fill="#1a1a1a">P1726.P6C3</text>
+<text x="424.6" y="448.0" font-size="12" fill="#444">Curvature-chord force ratio</text>
+<rect x="406.0" y="565.0" width="210.0" height="44.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="415.0" y="583.0" font-size="12" bold fill="#1a1a1a">DM90.L2</text>
+<text x="415.0" y="598.0" font-size="12" fill="#444">Initial quadratic displacement</text>
+<rect x="409.2" y="205.0" width="203.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="418.2" y="223.0" font-size="12" bold fill="#1a1a1a">P1713.P6C1</text>
+<text x="418.2" y="238.0" font-size="12" fill="#444">Tangent-departure force ratio</text>
+<text x="418.2" y="253.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="441.2" y="280.0" width="139.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="450.2" y="298.0" font-size="12" bold fill="#1a1a1a">P1726.L11Cubic</text>
+<text x="450.2" y="313.0" font-size="12" fill="#444">Cubic contact areas</text>
+<rect x="67.6" y="445.0" width="190.8" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="76.6" y="463.0" font-size="12" bold fill="#1a1a1a">P1713.P6C3</text>
+<text x="76.6" y="478.0" font-size="12" fill="#444">Curvature-chord force ratio</text>
+<rect x="26.0" y="70.0" width="274.0" height="44.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="35.0" y="88.0" font-size="12" bold fill="#1a1a1a">P1687.L10</text>
+<text x="35.0" y="103.0" font-size="12" fill="#444">Initial displacement under regular force</text>
+<text x="26" y="903" font-size="12" font-weight="bold">Stages</text>
+<rect x="36" y="909" width="16" height="14" fill="#cfe3f7" stroke="#666"/>
+<text x="58" y="921" font-size="11">1687 (4 nodes)</text>
+<rect x="36" y="935" width="16" height="14" fill="#d6ecd2" stroke="#666"/>
+<text x="58" y="947" font-size="11">1713 (8 nodes)</text>
+<rect x="36" y="961" width="16" height="14" fill="#f0d9ec" stroke="#666"/>
+<text x="58" y="973" font-size="11">1726 (3 nodes)</text>
+<rect x="36" y="987" width="16" height="14" fill="#e8d5b7" stroke="#666"/>
+<text x="58" y="999" font-size="11">NATP00089 (1 nodes)</text>
+<rect x="36" y="1013" width="16" height="14" fill="#e8d5b7" stroke="#666"/>
+<text x="58" y="1025" font-size="11">NATP00090 (1 nodes)</text>
+<rect x="36" y="1039" width="16" height="14" fill="#e2e2e2" stroke="#666"/>
+<text x="58" y="1051" font-size="11">RS-copy-reprint (1 nodes)</text>
+<rect x="36" y="1065" width="16" height="14" fill="#f7e6c4" stroke="#666"/>
+<text x="58" y="1077" font-size="11">proposed1694 (5 nodes)</text>
+<text x="266" y="921" font-size="11">solid = explicit_dependency, dashed = implicit_dependency, dotted = editorial/comparison</text>
+<text x="266" y="937" font-size="11">green border = the node carries checked Lean results; grey = historical claim only</text>
+</svg>

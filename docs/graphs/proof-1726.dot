@@ -1,0 +1,24 @@
+digraph proof-1726 {
+  rankdir=LR;
+  node [shape=box, style="rounded,filled"];
+  "P1726.L11" [label="P1726.L11\nFinite-curvature contact", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.L10C4" [label="P1726.L10C4\nGenerated-displacement force ratio", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.P1" [label="P1726.P1\nCentral equal-area motion", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.L11C3" [label="P1726.L11C3\nSagitta quadratic in time at given\nvelocity", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.L10" [label="P1726.L10\nInitial generated displacement", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.P6" [label="P1726.P6\nMid-arc force as sagitta over time\nsquared", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.L9" [label="P1726.L9\nInitial area ratios", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.P1C4" [label="P1726.P1C4\nForce comparison by equal-time sagittae", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.L11Cubic" [label="P1726.L11Cubic\nCubic contact areas", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.L3C4" [label="P1726.L3C4\nCurvilinear perimeter limit", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.L11Restriction" [label="P1726.L11Restriction\nFinite nonzero curvature", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.L11C2" [label="P1726.L11C2\nQuadratic sagittae", fillcolor="#f0d9ec", color="#8d8d8d", penwidth=1];
+  "P1726.P1C4" -> "P1726.P6" [style=solid, label="proof dependency", fontsize=9];
+  "P1726.L11C2" -> "P1726.P6" [style=solid, label="proof dependency", fontsize=9];
+  "P1726.L11C3" -> "P1726.P6" [style=solid, label="proof dependency", fontsize=9];
+  "P1726.L10C4" -> "P1726.P6" [style=solid, label="proof dependency", fontsize=9];
+  "P1726.L9" -> "P1726.L10" [style=solid, label="proof dependency", fontsize=9];
+  "P1726.L3C4" -> "P1726.P1" [style=solid, label="proof dependency", fontsize=9];
+  "P1726.L11Restriction" -> "P1726.L11" [style=solid, label="proof dependency", fontsize=9];
+  "P1726.L11" -> "P1726.L11Cubic" [style=dashed, label="proof dependency", fontsize=9];
+}

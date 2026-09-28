@@ -105,6 +105,7 @@ python3 scripts/catalogue_formal.py
 python3 scripts/collate_sources.py
 python3 scripts/check_graph.py
 python3 scripts/compare_editions.py
+python3 scripts/plot_graphs.py
 lake env lean research/CheckReferences.lean
 git diff --check
 ```
@@ -116,6 +117,9 @@ not a facsimile or palaeographic audit. Graph validation checks local TEI
 anchors, source identity, edge metadata and acyclicity. Generated Lean
 reference checks inspect actual types and axioms. These checks do not establish
 an unproved historical premise.
+`plot_graphs.py` re-renders the dependency figures in `docs/graphs/`
+(documented in [research/figures.md](research/figures.md)); the validated graph
+data is still `research/dependencies.json`.
 No post-Newtonian theorem supplies a missing historical construction.
 
 Additional integrity checks:
