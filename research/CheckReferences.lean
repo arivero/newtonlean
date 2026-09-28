@@ -3,6 +3,8 @@ import NewtonLimitDynamics
 -- Generated; compile with lake env lean research/CheckReferences.lean.
 #check DeMotu1684.QuadraticInitialDeflection
 #print axioms DeMotu1684.QuadraticInitialDeflection
+#check NewtonLimitDynamics.Comparison.CircleCompare.force_ratio_is_sagitta_ratio
+#print axioms NewtonLimitDynamics.Comparison.CircleCompare.force_ratio_is_sagitta_ratio
 #check NewtonLimitDynamics.Comparison.constant_force_generated
 #print axioms NewtonLimitDynamics.Comparison.constant_force_generated
 #check NewtonLimitDynamics.Comparison.generated_sagitta_commute

@@ -324,6 +324,20 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
   },
   {
+    "name": "NewtonLimitDynamics.Comparison.CircleCompare.force_ratio_is_sagitta_ratio",
+    "private": false,
+    "file": "NewtonLimitDynamics/Comparison/CircleCompare.lean",
+    "source_passages": [
+      "NATP00077.par60",
+      "NATP00082.par71",
+      "NATP00077.par31",
+      "NATP00082.par18"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{r r' : Fraction} (w : CircleChord r) (w' : CircleChord r')\n    (t : Fraction) (ht : positive t) :\n    equiv (mul (forceBySagitta w t ht) w'.s) (mul (forceBySagitta w' t ht) w.s)",
+    "interpretation_and_remaining_premises": "Modern finite circular comparison for Proposition IV (1687 par60, 1713 par71). A CircleChord carries the exact finite sagitta-chord relation s times (2r minus s) equals (c over 2) squared, the intersecting-chords fact, with no limit. forceBySagitta reads centripetal force as sagitta over the square of the common time, and force_ratio_is_sagitta_ratio shows equal-time forces are proportional to the sagittae. The edition routes (1687 Prop II plus Lemma V and Lemma XI; 1713 Prop II plus Prop I Cor 2 and 4 and Lemma VII) are the limiting steps that replace the finite relation by arc squared over r, and are recorded separately as editorial interpretations, never derived and never merged."
+  },
+  {
     "name": "NewtonLimitDynamics.Comparison.twice_positive",
     "private": false,
     "file": "NewtonLimitDynamics/Comparison/Routes.lean",

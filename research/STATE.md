@@ -162,3 +162,26 @@ standard Lean logical axioms can appear in generated dependency inspection.
 
 Unrelated conversation-export deletion/new file remain untouched. No mathlib,
 cache download, toolchain upgrade, correspondence or publication was performed.
+
+## 2026-09-28 session (arena branch, toolchain built from source; continuation)
+Resumed from `f50ff14` and extended the formalisation; all Lean compiles under
+the source-built Lean 4.19.0 (core/Std only, no mathlib), both build targets, and
+`research/CheckReferences.lean` elaborates every reference with axiom set
+`{Classical.choice, Quot.sound, propext}` and no `sorryAx`.
+- Order 6 (Proposition III, two-body): `RelativeTwoBody.lean` proves the
+  relative-pair composition — the difference orbit runs in `relativePair` exactly
+  as in `pair`, so Law III is an identity, a common deflection is invisible, Law I
+  gives a uniform relative body, and equal relative areas make the relative
+  deflection rational-central. No mass/force law/limit.
+- Order 3 (time subdivision): `Polygon/StripArea.lean` proves the absolute
+  strip-area sums close — every two-cell chord triangle has doubled area
+  `h^3*det(v,a)`, equal for all cells, so the total is `k*h^3*det(v,a)`.
+- Order 7 (Proposition IV): `Comparison/CircleCompare.lean` proves the exact
+  finite sagitta-chord relation and equal-time force proportional to sagitta;
+  per-edition limiting routes recorded, not derived (editions kept separate).
+- Dependency graphs: `scripts/plot_graphs.py` renders the module and
+  passage/reference dependency graphs to `docs/graphs/*.png`; see
+  `research/figures.md`.
+Open: order 4 (P3 convergence — needs a Fraction Cauchy-Schwarz/triangle
+inequality, which the raw `equiv` relation makes non-trivial), order 8
+(Arg004-Arg006), and the limiting routes/ODE interpretation for Props III/IV.
