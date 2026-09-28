@@ -25,6 +25,7 @@ import NewtonLimitDynamics.Polygon.MonotoneEnclosure
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums
 import NewtonLimitDynamics.Comparison.Routes
+import NewtonLimitDynamics.Comparison.CircleCompare
 import NewtonLimitDynamics.Contact.AreaCoefficient
 import NewtonLimitDynamics.Diagnostic.InverseCubeAreal
 import NewtonLimitDynamics.Diagnostic.PhaseArea
