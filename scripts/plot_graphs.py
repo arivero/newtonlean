@@ -21,6 +21,10 @@ ledger = json.loads((root / 'research/formal-results.json').read_text())
 out_dir = root / 'docs/graphs'
 out_dir.mkdir(parents=True, exist_ok=True)
 
+# Names of graphs for which a PNG was written, in emission order; used to
+# assemble the grouped PDF at the end.
+EMITTED_PNG = []
+
 nodes = {n['id']: n for n in data['nodes']}
 edges = data['edges']
 theorem_count = {}
@@ -258,10 +262,29 @@ def emit(name, title, subtitle, node_ids, edge_list):
     try:
         to_png(out_dir / f'{name}.png', title, subtitle, ns, drawn, width, height)
         png = 'png+svg+dot'
+        EMITTED_PNG.append(name)
     except ImportError:
         png = 'svg+dot'
     print(f'{name}: {len(ns)} nodes, {len(drawn)} edges -> {png}')
     return len(ns), len(drawn)
+
+
+def build_pdf(names):
+    """Group every emitted PNG into one multi-page PDF, one graph per page."""
+    if not names:
+        return None
+    try:
+        from PIL import Image
+    except ImportError:
+        print('all-graphs.pdf: skipped (Pillow not available)')
+        return None
+    imgs = [Image.open(out_dir / f'{n}.png').convert('RGB') for n in names]
+    pdf = out_dir / 'all-graphs.pdf'
+    imgs[0].save(pdf, save_all=True, append_images=imgs[1:], resolution=100.0)
+    for im in imgs:
+        im.close()
+    print(f'all-graphs.pdf: {len(imgs)} pages -> {pdf.name}')
+    return pdf
 
 
 proof = [e for e in edges if e['relation'] == 'proof_dependency']
@@ -316,6 +339,8 @@ totals.append(emit('section-II', 'Section II, Propositions I-IV and everything t
 totals.append(emit('formalisation-coverage', 'Formalisation coverage of the whole evidence graph',
                    'every node, ranked by dependency depth; green = carries checked Lean results',
                    set(nodes), proof + proposed))
+
+build_pdf(EMITTED_PNG)
 
 print('totals:', sum(t[0] for t in totals), 'node placements,',
       sum(t[1] for t in totals), 'edges drawn')

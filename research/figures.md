@@ -25,3 +25,9 @@ stage (De Motu and drafts ochre, 1687 blue, 1713 green, 1726 pink, proposed
 reference attached in `dependencies.json`; grey nodes are historical claims
 with no formal backing yet, so the coverage figure shows at a glance which
 proofs of the formalisation are mechanized.
+
+Every figure is written as SVG and DOT, and as a PNG preview.  All seven PNGs
+are also collected, one graph per page, into a single grouped PDF at
+`docs/graphs/all-graphs.pdf` (page order matches the table above).  The PNGs and
+the PDF are produced by `scripts/plot_graphs.py`; the PDF step needs Pillow and
+is skipped with a notice when Pillow is unavailable.
