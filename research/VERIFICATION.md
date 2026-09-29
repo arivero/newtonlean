@@ -238,3 +238,20 @@ energy-type invariant. `Polygon/MonotoneEnclosure.lean` checks the finite
 enclosure under the 1713 Lemma X clause and a non-monotone escape.
 Arg004–Arg006 cite only passages already in the store. No passage store
 change, download, or proof edge.
+
+Proposition III finite-step follow-up (2026-09-28): both builds passed under a
+locally rebuilt Lean 4.19.0. That toolchain was compiled in this environment
+from the upstream `v4.19.0` source (`stage0` bootstrap, `-DUSE_GMP=OFF`, libuv
+1.48.0 built locally) because the release-binary hosts are unreachable here;
+`lean --version` reports `4.19.0-pre, Release` for the stage0 binary.
+`catalogue_formal.py` inventoried 300 theorem declarations, and `check_graph.py`
+validated 77 nodes, 68 edges, 246 passages and emitted 236 Lean references.
+`lake env lean research/CheckReferences.lean` elaborated all 236 declarations;
+the aggregate axiom set is `propext` (178), `Quot.sound` (149) and
+`Classical.choice` (25), with no `sorryAx` and no project axiom. The other
+Python checks, `sha256sum -c docs/SHA256SUMS` (22/22) and `git diff --check`
+passed. `Polygon/RelativeMotion.lean` adds 16 declarations; the six
+Proposition III dependency edges now carry formal references. The results are
+finite two-body polygon identities: no limiting curve, no parallelogram
+composition of simultaneous forces, and no force/mass/time-scale reading is
+derived.

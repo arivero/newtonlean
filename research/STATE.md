@@ -48,6 +48,24 @@ has its finite Case-1 step in `Polygon/Converse.lean`: equal oriented areas
 are equivalent to a deflection parallel to the radius, with orientation, a
 vertex distinct from S, and the inward sense kept as separate premises.
 
+Order 6 (Proposition III) now has its finite step in
+`Polygon/RelativeMotion.lean`, with the source map in
+[Proposition III](PROP_III.md): two bodies advanced by one pair recursion, each
+with its own deflection history. Corollary VI of the laws is
+`corVI_relative` — any common deflection history leaves both relative
+coordinates unchanged at every stage — and Law I is `lawI_uniform` — an
+undeflected reference body is exactly the uniform `centreAt` motion of its
+initial pair. The compositional content of the proposition is
+`relative_deflection_difference`: the relative polygon's deflection is `d n − e n`.
+Equal relative oriented areas make that difference parallel to the relative
+radius (`relative_equal_area_central`, and `relative_rational_central` with a
+nonzero radius), which is also reachable by Newton's own route through
+`Converse.moving_centre_equal_areas_central` (`propIII_via_moving_centre`).
+The six Proposition III dependency edges (Corollary VI, Law I, Proposition II,
+both editions) now carry these formal references. The limiting passage from a
+realized relative orbit, parallelogram composition of simultaneous forces, and
+any force/mass interpretation remain open.
+
 Order 4 is decomposed in [Proposition I realization](PROP_I_REALIZATION.md).
 `CentralSchedule.lean` proves the finite area law for any central field with
 unequal rational cells and gives the exact refinement identities for a varying
@@ -144,3 +162,26 @@ standard Lean logical axioms can appear in generated dependency inspection.
 
 Unrelated conversation-export deletion/new file remain untouched. No mathlib,
 cache download, toolchain upgrade, correspondence or publication was performed.
+
+## 2026-09-28 session (arena branch, toolchain built from source; continuation)
+Resumed from `f50ff14` and extended the formalisation; all Lean compiles under
+the source-built Lean 4.19.0 (core/Std only, no mathlib), both build targets, and
+`research/CheckReferences.lean` elaborates every reference with axiom set
+`{Classical.choice, Quot.sound, propext}` and no `sorryAx`.
+- Order 6 (Proposition III, two-body): `RelativeTwoBody.lean` proves the
+  relative-pair composition — the difference orbit runs in `relativePair` exactly
+  as in `pair`, so Law III is an identity, a common deflection is invisible, Law I
+  gives a uniform relative body, and equal relative areas make the relative
+  deflection rational-central. No mass/force law/limit.
+- Order 3 (time subdivision): `Polygon/StripArea.lean` proves the absolute
+  strip-area sums close — every two-cell chord triangle has doubled area
+  `h^3*det(v,a)`, equal for all cells, so the total is `k*h^3*det(v,a)`.
+- Order 7 (Proposition IV): `Comparison/CircleCompare.lean` proves the exact
+  finite sagitta-chord relation and equal-time force proportional to sagitta;
+  per-edition limiting routes recorded, not derived (editions kept separate).
+- Dependency graphs: `scripts/plot_graphs.py` renders the module and
+  passage/reference dependency graphs to `docs/graphs/*.png`; see
+  `research/figures.md`.
+Open: order 4 (P3 convergence — needs a Fraction Cauchy-Schwarz/triangle
+inequality, which the raw `equiv` relation makes non-trivial), order 8
+(Arg004-Arg006), and the limiting routes/ODE interpretation for Props III/IV.
