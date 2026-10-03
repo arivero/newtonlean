@@ -183,15 +183,59 @@ theorem centre_is_reference_body (z : PairState) (d e : Nat → LatticePoint)
     deflection from the inertial continuation parallel to the relative
     radius. -/
 theorem propIII_via_moving_centre (z : PairState) (d e : Nat → LatticePoint)
-    (h : ∀ n, det (sub (pairMotion z d e (n + 1)).q (centreAt z.s (sub z.t z.s) (n + 1)))
-        (sub (pairMotion z d e (n + 2)).q (centreAt z.s (sub z.t z.s) (n + 2))) =
-      det (sub (pairMotion z d e n).q (centreAt z.s (sub z.t z.s) n))
-        (sub (pairMotion z d e (n + 1)).q (centreAt z.s (sub z.t z.s) (n + 1)))) (n : Nat) :
-    det (sub (pairMotion z d e (n + 1)).q (centreAt z.s (sub z.t z.s) (n + 1)))
-      (sub (pairMotion z d e (n + 2)).q
-        (extend (pairMotion z d e n).q (pairMotion z d e (n + 1)).q)) = 0 :=
-  Converse.moving_centre_equal_areas_central z.s (sub z.t z.s)
-    (fun i => (pairMotion z d e i).q) h n
+    (h : ∀ n, det (relQAt z d e n) (relQAt z d e (n + 1)) =
+      det (relPAt z d e n) (relQAt z d e n)) (n : Nat) :
+    det (relQAt z d e n) (sub (d n) (e n)) = 0 := by
+  -- Corollary VI: cancel the reference body's deflection in both histories.
+  let d' := fun i => add (d i) (sub (0, 0) (e i))
+  let e' := fun i => add (e i) (sub (0, 0) (e i))
+  have he' : ∀ i, e' i = (0, 0) := by
+    intro i
+    apply Prod.ext <;> dsimp [e', add, sub] <;> omega
+  have hdiff : ∀ i, d' i = sub (d i) (e i) := by
+    intro i
+    apply Prod.ext <;> dsimp [d', add, sub] <;> omega
+  have hrelative := corVI_relative z d e (fun i => sub (0, 0) (e i))
+  -- Law I identifies .p with time i and .q with time i+1.
+  have hp (i : Nat) :
+      sub (pairMotion z d' e' i).p (centreAt z.s (sub z.t z.s) i) =
+        relPAt z d e i := by
+    rw [← (lawI_uniform z d' e' he' i).1]
+    exact (hrelative i).1
+  have hq (i : Nat) :
+      sub (pairMotion z d' e' i).q (centreAt z.s (sub z.t z.s) (i + 1)) =
+        relQAt z d e i :=
+    (centre_is_reference_body z d' e' he' i).trans (hrelative i).2
+  -- Proposition II applies to the reduced body's .p vertex sequence.
+  have hareas : ∀ i,
+      det (sub (pairMotion z d' e' (i + 1)).p (centreAt z.s (sub z.t z.s) (i + 1)))
+        (sub (pairMotion z d' e' (i + 2)).p (centreAt z.s (sub z.t z.s) (i + 2))) =
+      det (sub (pairMotion z d' e' i).p (centreAt z.s (sub z.t z.s) i))
+        (sub (pairMotion z d' e' (i + 1)).p (centreAt z.s (sub z.t z.s) (i + 1))) := by
+    intro i
+    simpa only [hp, relP_succ] using h i
+  have hc := Converse.moving_centre_equal_areas_central z.s (sub z.t z.s)
+    (fun i => (pairMotion z d' e' i).p) hareas n
+  change det (sub (pairMotion z d' e' n).q (centreAt z.s (sub z.t z.s) (n + 1)))
+    (sub (pairMotion z d' e' (n + 1)).q
+      (extend (pairMotion z d' e' n).p (pairMotion z d' e' n).q)) = 0 at hc
+  rw [hq, absolute_deflection, hdiff] at hc
+  exact hc
+
+/-- Regression for the moving-centre indexing: three consecutive true relative
+    radii have equal oriented areas, while pairing .q with time n instead of
+    n+1 gives unequal areas, even with an inertial reference body. -/
+theorem moving_centre_alignment_example :
+    let z : PairState := { p := (0, -1), q := (2, 0), s := (0, 0), t := (1, 0) }
+    let d : Nat → LatticePoint := fun n => if n = 0 then (-2, 0) else (0, -2)
+    let e : Nat → LatticePoint := fun _ => (0, 0)
+    det (relQAt z d e 0) (relQAt z d e 1) =
+      det (relQAt z d e 1) (relQAt z d e 2) ∧
+    det (sub (pairMotion z d e 0).q (centreAt z.s (sub z.t z.s) 0))
+        (sub (pairMotion z d e 1).q (centreAt z.s (sub z.t z.s) 1)) ≠
+      det (sub (pairMotion z d e 1).q (centreAt z.s (sub z.t z.s) 1))
+        (sub (pairMotion z d e 2).q (centreAt z.s (sub z.t z.s) 2)) := by
+  decide
 
 /-- Proposition III, finite step in relative coordinates: equal relative
     oriented areas in equal cells make the difference of the two deflections
@@ -205,7 +249,7 @@ theorem relative_equal_area_central (z : PairState) (d e : Nat → LatticePoint)
   omega
 
 /-- With a nonzero relative radius the same step gives an explicit rational
-    central impulse `a/b` toward the reference body. -/
+    multiple `a/b` of that radius. The inward sense is a separate premise. -/
 theorem relative_rational_central (z : PairState) (d e : Nat → LatticePoint)
     (h : ∀ n, det (relQAt z d e n) (relQAt z d e (n + 1)) =
       det (relPAt z d e n) (relQAt z d e n))

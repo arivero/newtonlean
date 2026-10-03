@@ -19,12 +19,15 @@ is regenerated into [graphs.md](graphs.md) by `check_graph.py`.
 
 Conventions: an arrow runs from the cited result to the result that cites it;
 `solid` = explicit dependency, `dashed` = implicit dependency, `dotted` =
-editorial interpretation or textual comparison.  Node colour is the witness
+editorial interpretation or textual comparison, `dash-dot` = modern
+reconstruction (the DOT label states this status explicitly). These patterns
+and the stage/status legends are preserved in SVG, PNG and the grouped PDF.
+Node colour is the witness
 stage (De Motu and drafts ochre, 1687 blue, 1713 green, 1726 pink, proposed
 1694 amber).  A green border marks a node that has at least one checked Lean
-reference attached in `dependencies.json`; grey nodes are historical claims
-with no formal backing yet, so the coverage figure shows at a glance which
-proofs of the formalisation are mechanized.
+reference attached in `dependencies.json`; grey nodes have no attached formal
+reference. A reference can prove a conditional or finite reconstruction; the
+green border does not certify the whole historical claim.
 
 Every figure is written as SVG and DOT, and as a PNG preview.  All seven PNGs
 are also collected, one graph per page, into a single grouped PDF at

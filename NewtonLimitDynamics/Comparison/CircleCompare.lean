@@ -18,9 +18,10 @@ finite relation into `arc²/(r·t²)`:
 
 The finite comparison below uses no limit: for two circle chords traversed in
 the same time, the cross-multiplied force ratio is the sagitta ratio, and the
-sagitta-chord relation rewrites a sagitta as `(c²/4)/(2r − s)`.  The two routes
-are kept separate as conditional theorems with their limiting premise named
-explicitly.  Modern rational reconstruction; no mass, no realized orbit.
+sagitta-chord relation rewrites a sagitta as `(c²/4)/(2r − s)` when the
+denominator is positive. The two routes are recorded separately below as
+limiting obligations; no conditional route theorem is implemented here.
+Modern rational reconstruction; no mass, no realized orbit.
 -/
 
 namespace NewtonLimitDynamics.Comparison.CircleCompare
@@ -69,7 +70,8 @@ editions are never merged:
   (`forceBySagitta`); Lemma V supplies the duplicate ratio of similar figures
   to pass from chords to arcs; Lemma XI (1687 par31, contact subtense
   ultimately quadratic) replaces the finite `s = (c²/4)/(2r − s)` by
-  `s ≍ c²/(2r)`, and with arcs ≍ chords the comparison becomes `arc²/r`.
+  `s ≍ c²/(8r)` for the full chord `c`, and with arcs ≍ chords the comparison
+  becomes `arc²/r` (the common factor cancels in the ratio).
 * `route_1713`: Proposition I Corollary 2 (par53) and 4 (par55) give force by
   equal-time sagittae and its ratio form; Lemma VII (par18, arc-chord-tangent
   ultimately equal) performs the same replacement.

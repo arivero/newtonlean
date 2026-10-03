@@ -1,7 +1,7 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1022" height="1101" viewBox="0 0 1022 1101" font-family="DejaVu Sans, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="1022" height="1235" viewBox="0 0 1022 1235" font-family="DejaVu Sans, Helvetica, sans-serif">
 <rect width="100%" height="100%" fill="#ffffff"/>
-<text x="26" y="26" font-size="16" font-weight="bold">Proof dependencies — 1713 Principia, Book I</text>
-<text x="26" y="44" font-size="11" fill="#555">arrow: cited result -&gt; result that cites it; green border carries Lean proofs</text>
+<text x="26" y="26" font-size="16" font-weight="bold">Proof dependencies - 1713 Principia, Book I</text>
+<text x="26" y="44" font-size="11" fill="#555">arrow: cited result -&gt; result that cites it; green = attached Lean references</text>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
 <path d="M 232.8 707.0 C 305.0 707.0, 305.0 309.5, 377.2 309.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 287.2 767.0 C 332.2 767.0, 332.2 309.5, 377.2 309.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
@@ -27,103 +27,111 @@
 <path d="M 229.6 287.0 C 485.4 287.0, 485.4 99.5, 741.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 280.8 354.5 C 511.0 354.5, 511.0 99.5, 741.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 641.6 99.5 C 691.4 99.5, 691.4 99.5, 741.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<rect x="96.4" y="265.0" width="133.2" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="105.4" y="283.0" font-size="12" bold fill="#1a1a1a">P1713.L11C2</text>
-<text x="105.4" y="298.0" font-size="12" fill="#444">Quadratic sagittae</text>
-<rect x="380.4" y="70.0" width="261.2" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="389.4" y="88.0" font-size="12" bold fill="#1a1a1a">P1713.L10C4</text>
-<text x="389.4" y="103.0" font-size="12" fill="#444">Force as space divided by time squared</text>
-<text x="389.4" y="118.0" font-size="12" fill="#2c6e31">1 Lean result(s)</text>
-<rect x="38.8" y="880.0" width="248.4" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="47.8" y="898.0" font-size="12" bold fill="#1a1a1a">P1713.P1C2</text>
-<text x="47.8" y="913.0" font-size="12" fill="#444">The limiting diagonal from two</text>
-<text x="47.8" y="928.0" font-size="12" fill="#444">equal-time chords passes through the</text>
-<rect x="67.6" y="475.0" width="190.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="76.6" y="493.0" font-size="12" bold fill="#1a1a1a">P1713.L3</text>
-<text x="76.6" y="508.0" font-size="12" fill="#444">Unequal-width enclosure and</text>
-<text x="76.6" y="523.0" font-size="12" fill="#444">maximum-width refinement</text>
-<rect x="35.6" y="400.0" width="254.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="44.6" y="418.0" font-size="12" bold fill="#1a1a1a">P1713.L11Restriction</text>
-<text x="44.6" y="433.0" font-size="12" fill="#444">Finite nonzero curvature restriction;</text>
-<text x="44.6" y="448.0" font-size="12" fill="#444">higher/lower orders excluded</text>
-<rect x="728.4" y="235.0" width="261.2" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="737.4" y="253.0" font-size="12" bold fill="#1a1a1a">P1713.P1</text>
-<text x="737.4" y="268.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
-<text x="737.4" y="283.0" font-size="12" fill="#444">and polygon limit</text>
-<text x="737.4" y="298.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
-<rect x="722.0" y="145.0" width="274.0" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="731.0" y="163.0" font-size="12" bold fill="#1a1a1a">P1713.L11Cubic</text>
-<text x="731.0" y="178.0" font-size="12" fill="#444">Cubic curvilinear areas and segments via</text>
-<text x="731.0" y="193.0" font-size="12" fill="#444">the parabola</text>
-<text x="731.0" y="208.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
-<rect x="90.0" y="625.0" width="146.0" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="99.0" y="643.0" font-size="12" bold fill="#1a1a1a">P1713.L9</text>
-<text x="99.0" y="658.0" font-size="12" fill="#444">Limiting area ratios</text>
-<rect x="377.2" y="280.0" width="267.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="386.2" y="298.0" font-size="12" bold fill="#1a1a1a">P1713.P2</text>
-<text x="386.2" y="313.0" font-size="12" fill="#444">Area-time proportionality about a fixed</text>
-<text x="386.2" y="328.0" font-size="12" fill="#444">or uniformly translating point implies</text>
-<rect x="377.2" y="220.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="386.2" y="238.0" font-size="12" bold fill="#1a1a1a">P1713.L3C4</text>
-<text x="386.2" y="253.0" font-size="12" fill="#444">Curvilinear limit of polygon perimeters</text>
+<rect x="74.0" y="70.0" width="178.0" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="83.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.Composition</text>
+<text x="83.0" y="103.0" font-size="12" fill="#444">Parallelogram composition</text>
 <rect x="35.6" y="130.0" width="254.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="44.6" y="148.0" font-size="12" bold fill="#1a1a1a">P1713.EuclidI40</text>
+<text x="44.6" y="148.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.EuclidI40</text>
 <text x="44.6" y="163.0" font-size="12" fill="#444">Euclid I.40, equal triangles on equal</text>
 <text x="44.6" y="178.0" font-size="12" fill="#444">bases and in the same parallels</text>
 <rect x="377.2" y="355.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="386.2" y="373.0" font-size="12" bold fill="#1a1a1a">P1713.L10</text>
+<text x="386.2" y="373.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L10</text>
 <text x="386.2" y="388.0" font-size="12" fill="#444">Initial displacement under finite force</text>
-<rect x="38.8" y="745.0" width="248.4" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="47.8" y="763.0" font-size="12" bold fill="#1a1a1a">P1713.Law2</text>
-<text x="47.8" y="778.0" font-size="12" fill="#444">Impressed force and generated motion</text>
-<rect x="741.2" y="70.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="750.2" y="88.0" font-size="12" bold fill="#1a1a1a">P1713.P6</text>
-<text x="750.2" y="103.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>
-<text x="750.2" y="118.0" font-size="12" fill="#444">squared</text>
-<rect x="45.2" y="325.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="54.2" y="343.0" font-size="12" bold fill="#1a1a1a">P1713.L11C3</text>
-<text x="54.2" y="358.0" font-size="12" fill="#444">Sagitta quadratic in time at given</text>
-<text x="54.2" y="373.0" font-size="12" fill="#444">velocity</text>
+<rect x="26.0" y="205.0" width="274.0" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="35.0" y="223.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L10C3</text>
+<text x="35.0" y="238.0" font-size="12" fill="#444">Spaces jointly as force and time squared</text>
+<rect x="380.4" y="70.0" width="261.2" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="389.4" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L10C4</text>
+<text x="389.4" y="103.0" font-size="12" fill="#444">Force as space divided by time squared</text>
+<text x="389.4" y="118.0" font-size="12" fill="#2c6e31">1 Lean result(s)</text>
 <rect x="374.0" y="145.0" width="274.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="383.0" y="163.0" font-size="12" bold fill="#1a1a1a">P1713.L11</text>
+<text x="383.0" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11</text>
 <text x="383.0" y="178.0" font-size="12" fill="#444">Contact subtense ultimately quadratic in</text>
 <text x="383.0" y="193.0" font-size="12" fill="#444">arc chord</text>
-<rect x="393.2" y="415.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="402.2" y="433.0" font-size="12" bold fill="#1a1a1a">P1713.LawCor6</text>
-<text x="402.2" y="448.0" font-size="12" fill="#444">Equal parallel accelerations leave</text>
-<text x="402.2" y="463.0" font-size="12" fill="#444">relative motions unchanged</text>
-<rect x="734.8" y="325.0" width="248.4" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="743.8" y="343.0" font-size="12" bold fill="#1a1a1a">P1713.P4</text>
-<text x="743.8" y="358.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
-<text x="743.8" y="373.0" font-size="12" fill="#444">squared simultaneous arcs divided by</text>
-<rect x="93.2" y="685.0" width="139.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="102.2" y="703.0" font-size="12" bold fill="#1a1a1a">P1713.Law1</text>
-<text x="102.2" y="718.0" font-size="12" fill="#444">Rectilinear inertia</text>
+<rect x="96.4" y="265.0" width="133.2" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="105.4" y="283.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11C2</text>
+<text x="105.4" y="298.0" font-size="12" fill="#444">Quadratic sagittae</text>
+<rect x="45.2" y="325.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="54.2" y="343.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11C3</text>
+<text x="54.2" y="358.0" font-size="12" fill="#444">Sagitta quadratic in time at given</text>
+<text x="54.2" y="373.0" font-size="12" fill="#444">velocity</text>
+<rect x="722.0" y="145.0" width="274.0" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="731.0" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11Cubic</text>
+<text x="731.0" y="178.0" font-size="12" fill="#444">Cubic curvilinear areas and segments via</text>
+<text x="731.0" y="193.0" font-size="12" fill="#444">the parabola</text>
+<text x="731.0" y="208.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="35.6" y="400.0" width="254.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="44.6" y="418.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11Restriction</text>
+<text x="44.6" y="433.0" font-size="12" fill="#444">Finite nonzero curvature restriction;</text>
+<text x="44.6" y="448.0" font-size="12" fill="#444">higher/lower orders excluded</text>
+<rect x="67.6" y="475.0" width="190.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="76.6" y="493.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3</text>
+<text x="76.6" y="508.0" font-size="12" fill="#444">Unequal-width enclosure and</text>
+<text x="76.6" y="523.0" font-size="12" fill="#444">maximum-width refinement</text>
+<rect x="377.2" y="220.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="386.2" y="238.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C4</text>
+<text x="386.2" y="253.0" font-size="12" fill="#444">Curvilinear limit of polygon perimeters</text>
 <rect x="35.6" y="550.0" width="254.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="44.6" y="568.0" font-size="12" bold fill="#1a1a1a">P1713.L7</text>
+<text x="44.6" y="568.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L7</text>
 <text x="44.6" y="583.0" font-size="12" fill="#444">Vanishing arc, chord and tangent have</text>
 <text x="44.6" y="598.0" font-size="12" fill="#444">the ultimate ratio of equality</text>
-<rect x="26.0" y="205.0" width="274.0" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="35.0" y="223.0" font-size="12" bold fill="#1a1a1a">P1713.L10C3</text>
-<text x="35.0" y="238.0" font-size="12" fill="#444">Spaces jointly as force and time squared</text>
-<rect x="74.0" y="70.0" width="178.0" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="83.0" y="88.0" font-size="12" bold fill="#1a1a1a">P1713.Composition</text>
-<text x="83.0" y="103.0" font-size="12" fill="#444">Parallelogram composition</text>
+<rect x="90.0" y="625.0" width="146.0" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="99.0" y="643.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L9</text>
+<text x="99.0" y="658.0" font-size="12" fill="#444">Limiting area ratios</text>
+<rect x="93.2" y="685.0" width="139.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="102.2" y="703.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.Law1</text>
+<text x="102.2" y="718.0" font-size="12" fill="#444">Rectilinear inertia</text>
+<rect x="38.8" y="745.0" width="248.4" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="47.8" y="763.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.Law2</text>
+<text x="47.8" y="778.0" font-size="12" fill="#444">Impressed force and generated motion</text>
 <rect x="42.0" y="805.0" width="242.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="51.0" y="823.0" font-size="12" bold fill="#1a1a1a">P1713.LawCor5</text>
+<text x="51.0" y="823.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.LawCor5</text>
 <text x="51.0" y="838.0" font-size="12" fill="#444">Uniform translation leaves relative</text>
 <text x="51.0" y="853.0" font-size="12" fill="#444">motions unchanged</text>
+<rect x="393.2" y="415.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="402.2" y="433.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.LawCor6</text>
+<text x="402.2" y="448.0" font-size="12" fill="#444">Equal parallel accelerations leave</text>
+<text x="402.2" y="463.0" font-size="12" fill="#444">relative motions unchanged</text>
+<rect x="728.4" y="235.0" width="261.2" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="737.4" y="253.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1</text>
+<text x="737.4" y="268.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
+<text x="737.4" y="283.0" font-size="12" fill="#444">and polygon limit</text>
+<text x="737.4" y="298.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="38.8" y="880.0" width="248.4" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="47.8" y="898.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1C2</text>
+<text x="47.8" y="913.0" font-size="12" fill="#444">The limiting diagonal from two</text>
+<text x="47.8" y="928.0" font-size="12" fill="#444">equal-time chords passes through the</text>
 <rect x="29.2" y="955.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="38.2" y="973.0" font-size="12" bold fill="#1a1a1a">P1713.P1C4</text>
+<text x="38.2" y="973.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1C4</text>
 <text x="38.2" y="988.0" font-size="12" fill="#444">Force comparison by equal-time sagittae</text>
+<rect x="377.2" y="280.0" width="267.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="386.2" y="298.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P2</text>
+<text x="386.2" y="313.0" font-size="12" fill="#444">Area-time proportionality about a fixed</text>
+<text x="386.2" y="328.0" font-size="12" fill="#444">or uniformly translating point implies</text>
 <rect x="731.6" y="400.0" width="254.8" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="740.6" y="418.0" font-size="12" bold fill="#1a1a1a">P1713.P3</text>
+<text x="740.6" y="418.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P3</text>
 <text x="740.6" y="433.0" font-size="12" fill="#444">Relative area law about a moving body</text>
 <text x="740.6" y="448.0" font-size="12" fill="#444">identifies the difference of</text>
 <text x="740.6" y="463.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
+<rect x="734.8" y="325.0" width="248.4" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="743.8" y="343.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P4</text>
+<text x="743.8" y="358.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
+<text x="743.8" y="373.0" font-size="12" fill="#444">squared simultaneous arcs divided by</text>
+<rect x="741.2" y="70.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="750.2" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P6</text>
+<text x="750.2" y="103.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>
+<text x="750.2" y="118.0" font-size="12" fill="#444">squared</text>
 <text x="26" y="1083" font-size="12" font-weight="bold">Stages</text>
 <rect x="36" y="1089" width="16" height="14" fill="#d6ecd2" stroke="#666"/>
 <text x="58" y="1101" font-size="11">1713 (25 nodes)</text>
-<text x="266" y="1101" font-size="11">solid = explicit_dependency, dashed = implicit_dependency, dotted = editorial/comparison</text>
-<text x="266" y="1117" font-size="11">green border = the node carries checked Lean results; grey = historical claim only</text>
+<path d="M 266 1096 h 40" stroke="#33475b"/>
+<text x="316" y="1100" font-size="11">explicit dependency</text>
+<path d="M 266 1122 h 40" stroke="#33475b" stroke-dasharray="6 4"/>
+<text x="316" y="1126" font-size="11">implicit dependency</text>
+<path d="M 266 1148 h 40" stroke="#33475b" stroke-dasharray="2 4"/>
+<text x="316" y="1152" font-size="11">editorial interpretation / comparison</text>
+<path d="M 266 1174 h 40" stroke="#33475b" stroke-dasharray="10 3 2 3"/>
+<text x="316" y="1178" font-size="11">modern reconstruction</text>
+<text x="266" y="1207" font-size="11">green border = attached Lean references</text>
+<text x="266" y="1223" font-size="11">references do not certify the historical claim</text>
 </svg>

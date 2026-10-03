@@ -12,12 +12,12 @@ These pictures visualise research/dependencies.json; check_graph.py is what
 validates it (anchors, source identity, edge metadata, acyclicity).
 """
 import json
+from math import hypot
 from pathlib import Path
 from xml.sax.saxutils import escape
 
 root = Path(__file__).resolve().parents[1]
 data = json.loads((root / 'research/dependencies.json').read_text())
-ledger = json.loads((root / 'research/formal-results.json').read_text())
 out_dir = root / 'docs/graphs'
 out_dir.mkdir(parents=True, exist_ok=True)
 
@@ -27,9 +27,6 @@ EMITTED_PNG = []
 
 nodes = {n['id']: n for n in data['nodes']}
 edges = data['edges']
-theorem_count = {}
-for r in ledger:
-    theorem_count[r['name']] = theorem_count.get(r['name'], 0) + 1
 
 STAGE_COLOR = {
     'NATP00089': '#e8d5b7',
@@ -48,6 +45,10 @@ RELATION_STYLE = {
 }
 STATUS_DASH = {'explicit_dependency': '', 'implicit_dependency': '6 4',
                'editorial_interpretation': '2 4', 'modern_reconstruction': '10 3 2 3'}
+STATUS_LABELS = {'explicit_dependency': 'explicit dependency',
+                 'implicit_dependency': 'implicit dependency',
+                 'editorial_interpretation': 'editorial interpretation / comparison',
+                 'modern_reconstruction': 'modern reconstruction'}
 
 FONT = 12
 CHAR_W = 6.4
@@ -107,6 +108,7 @@ class Node:
 
 
 def layout(node_ids, edge_list):
+    node_ids = sorted(node_ids)
     ns = {i: Node(nodes[i]) for i in node_ids}
     adj = {i: [] for i in node_ids}
     radj = {i: [] for i in node_ids}
@@ -158,17 +160,51 @@ def layout(node_ids, edge_list):
             n.y = y
             y += n.h + ROW_GAP
         x += col_w + COL_GAP
-    width = x - COL_GAP + MARGIN
+    width = max(x - COL_GAP + MARGIN, 640)
     height = max(n.y + n.h for n in ns.values()) + MARGIN + 46
     return ns, [(e, ns[e['from']], ns[e['to']]) for e in edge_list
                 if e['from'] in ns and e['to'] in ns], width, height
 
 
+def legend_height(stages):
+    return max(26 * len(stages) + 38, 164)
+
+
+def edge_style(edge):
+    return RELATION_STYLE[edge['relation']][0], STATUS_DASH[edge['status']]
+
+
+def draw_polyline(draw, points, colour, dash='', width=1):
+    """Draw dash lengths continuously through every corner of a PNG edge."""
+    if not dash:
+        draw.line(points, fill=colour, width=width, joint='curve')
+        return
+    pattern = tuple(float(length) for length in dash.split())
+    index = 0
+    remaining = pattern[0]
+    for (x1, y1), (x2, y2) in zip(points, points[1:]):
+        length = hypot(x2 - x1, y2 - y1)
+        offset = 0.0
+        while offset < length:
+            step = min(remaining, length - offset)
+            if index % 2 == 0:
+                start = (x1 + (x2 - x1) * offset / length,
+                         y1 + (y2 - y1) * offset / length)
+                end = (x1 + (x2 - x1) * (offset + step) / length,
+                       y1 + (y2 - y1) * (offset + step) / length)
+                draw.line([start, end], fill=colour, width=width)
+            offset += step
+            remaining -= step
+            if remaining < 1e-9:
+                index = (index + 1) % len(pattern)
+                remaining = pattern[index]
+
+
 def to_svg(title, subtitle, ns, drawn, width, height):
     stages = sorted({n.stage for n in ns.values()})
     p = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{width:.0f}" '
-         f'height="{height + 30 * len(stages):.0f}" viewBox="0 0 {width:.0f} '
-         f'{height + 30 * len(stages):.0f}" font-family="DejaVu Sans, Helvetica, sans-serif">',
+         f'height="{height + legend_height(stages):.0f}" viewBox="0 0 {width:.0f} '
+         f'{height + legend_height(stages):.0f}" font-family="DejaVu Sans, Helvetica, sans-serif">',
          f'<rect width="100%" height="100%" fill="#ffffff"/>',
          f'<text x="{MARGIN}" y="26" font-size="16" font-weight="bold">{escape(title)}</text>',
          f'<text x="{MARGIN}" y="44" font-size="11" fill="#555">{escape(subtitle)}</text>',
@@ -176,8 +212,7 @@ def to_svg(title, subtitle, ns, drawn, width, height):
          'markerWidth="7" markerHeight="7" orient="auto-start-reverse">'
          '<path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>']
     for e, a, b in drawn:
-        colour, _ = RELATION_STYLE[e['relation']]
-        dash = STATUS_DASH.get(e['status'], '')
+        colour, dash = edge_style(e)
         x1, y1 = a.x + a.w, a.cy
         x2, y2 = b.x, b.cy
         mx = (x1 + x2) / 2
@@ -192,7 +227,7 @@ def to_svg(title, subtitle, ns, drawn, width, height):
         p.append(f'<rect x="{n.x:.1f}" y="{n.y:.1f}" width="{n.w:.1f}" height="{n.h:.1f}" '
                  f'rx="5" fill="{fill}" stroke="{stroke}" stroke-width="{sw}"/>')
         for k, line in enumerate(n.lines):
-            weight = ' bold' if k == 0 else ''
+            weight = ' font-weight="bold"' if k == 0 else ''
             colour = '#1a1a1a' if k == 0 else ('#2c6e31' if 'Lean result' in line else '#444')
             p.append(f'<text x="{n.x + PAD_X:.1f}" y="{n.y + PAD_Y + (k + 1) * LINE_H - 4:.1f}" '
                      f'font-size="{FONT}"{weight} fill="{colour}">{escape(line)}</text>')
@@ -204,10 +239,16 @@ def to_svg(title, subtitle, ns, drawn, width, height):
         count = sum(1 for n in ns.values() if n.stage == s)
         p.append(f'<text x="{MARGIN + 32}" y="{ly + k * 26 + 12}" font-size="11">'
                  f'{escape(s)} ({count} nodes)</text>')
-    p.append(f'<text x="{MARGIN + 240}" y="{ly + 12}" font-size="11">solid = explicit_dependency, '
-             f'dashed = implicit_dependency, dotted = editorial/comparison</text>')
-    p.append(f'<text x="{MARGIN + 240}" y="{ly + 28}" font-size="11">green border = the node '
-             f'carries checked Lean results; grey = historical claim only</text>')
+    for k, (status, label) in enumerate(STATUS_LABELS.items()):
+        y = ly + k * 26 + 7
+        dash = STATUS_DASH[status]
+        p.append(f'<path d="M {MARGIN + 240} {y} h 40" stroke="#33475b"'
+                 + (f' stroke-dasharray="{dash}"' if dash else '') + '/>')
+        p.append(f'<text x="{MARGIN + 290}" y="{y + 4}" font-size="11">{label}</text>')
+    p.append(f'<text x="{MARGIN + 240}" y="{ly + 118}" font-size="11">'
+             'green border = attached Lean references</text>')
+    p.append(f'<text x="{MARGIN + 240}" y="{ly + 134}" font-size="11">'
+             'references do not certify the historical claim</text>')
     p.append('</svg>')
     return '\n'.join(p)
 
@@ -215,7 +256,7 @@ def to_svg(title, subtitle, ns, drawn, width, height):
 def to_png(path, title, subtitle, ns, drawn, width, height):
     from PIL import Image, ImageDraw
     stages = sorted({n.stage for n in ns.values()})
-    total_h = int(height + 30 * len(stages))
+    total_h = int(height + legend_height(stages))
     img = Image.new('RGB', (int(width), total_h), 'white')
     dr = ImageDraw.Draw(img)
     from PIL import ImageFont
@@ -223,9 +264,9 @@ def to_png(path, title, subtitle, ns, drawn, width, height):
     dr.text((MARGIN, 12), title, fill='black', font=font)
     dr.text((MARGIN, 32), subtitle, fill='#555555', font=font)
     for e, a, b in drawn:
-        colour = RELATION_STYLE[e['relation']][0]
-        dr.line([(a.x + a.w, a.cy), ((a.x + a.w + b.x) / 2, a.cy),
-                 ((a.x + a.w + b.x) / 2, b.cy), (b.x, b.cy)], fill=colour, width=1, joint='curve')
+        colour, dash = edge_style(e)
+        draw_polyline(dr, [(a.x + a.w, a.cy), ((a.x + a.w + b.x) / 2, a.cy),
+                          ((a.x + a.w + b.x) / 2, b.cy), (b.x, b.cy)], colour, dash)
         dr.polygon([(b.x, b.cy), (b.x - 7, b.cy - 4), (b.x - 7, b.cy + 4)], fill=colour)
     for n in ns.values():
         fill = STAGE_COLOR.get(n.stage, '#eeeeee')
@@ -235,6 +276,23 @@ def to_png(path, title, subtitle, ns, drawn, width, height):
         for k, line in enumerate(n.lines):
             colour = '#1a1a1a' if k == 0 else ('#2c6e31' if 'Lean result' in line else '#444444')
             dr.text((n.x + PAD_X, n.y + PAD_Y + k * LINE_H - 2), line, fill=colour, font=font)
+    ly = height + 18
+    dr.text((MARGIN, ly - 16), 'Stages', fill='black', font=font)
+    for k, stage in enumerate(stages):
+        y = ly + k * 26
+        dr.rectangle([MARGIN + 10, y, MARGIN + 26, y + 14],
+                     fill=STAGE_COLOR.get(stage, '#eeeeee'), outline='#666666')
+        count = sum(n.stage == stage for n in ns.values())
+        dr.text((MARGIN + 32, y + 1), f'{stage} ({count} nodes)', fill='black', font=font)
+    for k, (status, label) in enumerate(STATUS_LABELS.items()):
+        y = ly + k * 26 + 7
+        draw_polyline(dr, [(MARGIN + 240, y), (MARGIN + 280, y)],
+                      '#33475b', STATUS_DASH[status])
+        dr.text((MARGIN + 290, y - 6), label, fill='black', font=font)
+    dr.text((MARGIN + 240, ly + 108), 'green border = attached Lean references',
+            fill='black', font=font)
+    dr.text((MARGIN + 240, ly + 124), 'references do not certify the historical claim',
+            fill='black', font=font)
     img.save(path)
 
 
@@ -248,9 +306,10 @@ def to_dot(name, ns, drawn):
                  f'penwidth={2 if n.refs else 1}];')
     for e, a, b in drawn:
         style = {'explicit_dependency': 'solid', 'implicit_dependency': 'dashed',
-                 'editorial_interpretation': 'dotted'}.get(e['status'], 'solid')
+                 'editorial_interpretation': 'dotted',
+                 'modern_reconstruction': 'dashed'}[e['status']]
         p.append(f'  "{e["from"]}" -> "{e["to"]}" [style={style}, '
-                 f'label="{e["relation"].replace("_", " ")}", fontsize=9];')
+                 f'label="{e["relation"].replace("_", " ")}: {e["status"]}", fontsize=9];')
     p.append('}')
     return '\n'.join(p)
 
@@ -296,8 +355,8 @@ for stage, label in (('1687', '1687 Principia, Book I'), ('1713', '1713 Principi
     ids = {n['id'] for n in data['nodes'] if n['stage'] == stage}
     sub = [e for e in proof if e['from'] in ids and e['to'] in ids]
     used = {e['from'] for e in sub} | {e['to'] for e in sub}
-    totals.append(emit(f'proof-{stage}', f'Proof dependencies — {label}',
-                       'arrow: cited result -> result that cites it; green border carries Lean proofs',
+    totals.append(emit(f'proof-{stage}', f'Proof dependencies - {label}',
+                       'arrow: cited result -> result that cites it; green = attached Lean references',
                        used or ids, sub))
 ids1726 = {n['id'] for n in data['nodes'] if n['stage'] == '1726'}
 sub = [e for e in proof if e['from'] in ids1726 and e['to'] in ids1726]
@@ -310,7 +369,7 @@ draft_ids = {n['id'] for n in data['nodes']
 sub = [e for e in proof + proposed if e['from'] in draft_ids and e['to'] in draft_ids]
 used = {e['from'] for e in sub} | {e['to'] for e in sub}
 totals.append(emit('proof-drafts', 'De Motu, drafts and the proposed 1694 ordering',
-                   'solid: proof dependency in a draft witness; dashed/dotted: proposed-stage edges',
+                   'edge pattern gives evidence status; ochre arrows are proposed-stage edges',
                    used or draft_ids, sub))
 comp_ids = {e['from'] for e in comparison + proposed} | {e['to'] for e in comparison + proposed}
 totals.append(emit('comparison', 'Textual comparison and proposed reordering',
@@ -337,7 +396,7 @@ totals.append(emit('section-II', 'Section II, Propositions I-IV and everything t
                    'both editions in one picture; transitive closure of the cited dependencies',
                    sectionII, sub_edges))
 totals.append(emit('formalisation-coverage', 'Formalisation coverage of the whole evidence graph',
-                   'every node, ranked by dependency depth; green = carries checked Lean results',
+                   'every node, ranked by dependency depth; green = attached Lean references',
                    set(nodes), proof + proposed))
 
 build_pdf(EMITTED_PNG)

@@ -116,6 +116,11 @@ are in `research/VERIFICATION.md`.
 
 ## Working notes
 
+Review correction (1 October 2026): the order-3 hand calculation above gives
+the **signed** total. The unsigned total would be `N*|h³·det(v,a)|` and equals
+the signed total only when the common signed area is nonnegative. The merged
+`StripArea.lean` proves the signed identity only; see current TASKS.md.
+
 - Fraction identities: `unfold …; dsimp; simp only [Int.add_mul, Int.mul_add,
   Int.neg_mul, Int.mul_neg]; ac_nf; omega` proves most of them. Avoid numeric
   literals inside fractions (write `c + c`); `decide` evaluates concrete

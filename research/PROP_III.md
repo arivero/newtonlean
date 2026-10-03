@@ -72,10 +72,11 @@ All results are in `Polygon/RelativeMotion.lean`, on the lattice polygon of
 | force composition (statement) | `relative_deflection_difference` | the relative polygon's next vertex is the inertial continuation of the relative pair **plus `d n − e n`**: the relative deflection is the difference of the two deflections |
 | Corollary VI | `corVI_relative` | adding one arbitrary history `h` to **both** bodies leaves `relPAt` and `relQAt` unchanged at every stage; `common_deflection_example` shows the common history genuinely changes the absolute deflections while the relative polygon is fixed |
 | Law I | `lawI_uniform` | with `e = 0` the reference body's vertices are `centreAt s (t − s) n` and `centreAt s (t − s) (n+1)`; `centre_is_reference_body` identifies that uniform centre with the relative coordinate |
-| Proposition II, Newton's route | `propIII_via_moving_centre` | areas measured from the uniform `centreAt` satisfy the moving-centre converse `Converse.moving_centre_equal_areas_central`, so the deflection from the inertial continuation is parallel to the relative radius |
+| Proposition II, Newton's route | `propIII_via_moving_centre` | add `−e` to both histories by Corollary VI; Law I identifies the reduced reference body's `.p` at time `n` and `.q` at time `n+1`; transfer the supplied relative areas to that centre and apply `Converse.moving_centre_equal_areas_central` to derive `det (relQAt n) (d n − e n) = 0` |
 | Proposition II, relative form | `relative_equal_area_central` | equal relative oriented areas give `det (relQAt n) (d n − e n) = 0` |
-| force identification | `relative_rational_central` | with a nonzero relative radius there are `a, b : Int`, `b ≠ 0`, with `b * (d n − e n) = a * (relative radius)` — a rational central impulse toward the reference body |
+| force identification | `relative_rational_central` | at the initial step, with a nonzero relative radius there are `a, b : Int`, `b ≠ 0`, with `b * (d 0 − e 0) = a * (relative radius)` — a rational multiple of the radius; inward sense remains a separate premise |
 | bookkeeping | `absolute_deflection`, `difference_not_pair_example` | a body's own deflection is the gap to its inertial continuation; the parallelism constrains the **difference**, not the pair of absolute deflections |
+| centre timing regression | `moving_centre_alignment_example` | with an inertial reference body, three correctly timed relative radii give equal areas while the same `.q` vertices paired with centre times one cell earlier give unequal areas |
 
 ## What is not discharged
 
@@ -84,6 +85,8 @@ All results are in `Polygon/RelativeMotion.lean`, on the lattice polygon of
   simultaneous forces (Corollary IV of the laws) is not used and not proved.
 - **No acceleration, no mass, no continuous force.** The per-cell deflection is
   an impulse; dividing by a cell duration or a mass is outside this module.
+- **Parallelism does not fix inward sense.** The rational coefficient has no
+  sign restriction; equal oriented areas also admit outward deflections.
 - **The equal relative areas are assumed.** The proposition's hypothesis is a
   realized orbit sweeping areas proportional to times; here it is an hypothesis
   about the constructed relative polygon, exactly as in `Converse.lean`.

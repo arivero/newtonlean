@@ -7,10 +7,11 @@ force `a`, the end-kick recurrence gives velocity `v_n = v + (n·h)·a` and chor
 `c_n = h·v_n` (the drift of cell `n`).  The two-cell chord triangle
 `(p_n, p_{n+1}, p_{n+2})` has doubled area `det c_n c_{n+1}`.  Because
 `det (w + s·a) a = det w a`, every such triangle has the same doubled area
-`h³·det(v, a)`, so the absolute and signed strip sums coincide and the total
-over `k` triangles is `k·h³·det(v, a)`.  This is exactly the identity the
-22 September handoff computed by hand and never formalized.  Pure finite
-Fraction arithmetic; no curve, limit or force law.
+`h³·det(v, a)`, and the signed total over `k` triangles is
+`k·h³·det(v, a)`.  The common value can be negative: equality of the triangles
+does not equate signed and absolute sums.  An absolute sum would instead be
+`k·|h³·det(v, a)|`; its formalization and a geometric strip decomposition remain
+open.  Pure finite Fraction arithmetic; no curve, limit or force law.
 -/
 
 namespace NewtonLimitDynamics.Polygon.StripArea
@@ -148,8 +149,8 @@ theorem two_cell_triangle_constant (h : Fraction) (v a : Point) (n : Nat) :
   have rhs := scale_equiv_left h (scale_equiv_left h inner)
   exact Fraction.equiv_trans (Fraction.equiv_trans s1 s2) rhs
 
-/-- All two-cell triangles are mutually equivalent, hence share one value; the
-    absolute and signed strip sums therefore coincide. -/
+/-- All two-cell triangles have the same signed doubled area.  No absolute-area
+    operation or unsigned sum is asserted. -/
 theorem all_triangles_equal (h : Fraction) (v a : Point) (m n : Nat) :
     Fraction.equiv (twoCellTwice h v a m) (twoCellTwice h v a n) :=
   Fraction.equiv_trans (two_cell_triangle_constant h v a m)

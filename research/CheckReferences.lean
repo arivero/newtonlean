@@ -299,6 +299,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.extend_sub
 #check NewtonLimitDynamics.Polygon.RelativeMotion.lawI_uniform
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.lawI_uniform
+#check NewtonLimitDynamics.Polygon.RelativeMotion.moving_centre_alignment_example
+#print axioms NewtonLimitDynamics.Polygon.RelativeMotion.moving_centre_alignment_example
 #check NewtonLimitDynamics.Polygon.RelativeMotion.propIII_via_moving_centre
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.propIII_via_moving_centre
 #check NewtonLimitDynamics.Polygon.RelativeMotion.relP_succ

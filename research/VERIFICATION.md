@@ -255,3 +255,46 @@ Proposition III dependency edges now carry formal references. The results are
 finite two-body polygon identities: no limiting curve, no parallelogram
 composition of simultaneous forces, and no force/mass/time-scale reading is
 derived.
+
+## Merge corrections verified on 1 October 2026
+
+Reviewed merge `381d5e9`. `propIII_via_moving_centre` now accepts the original
+relative-area hypothesis, adds the opposite reference deflection to both
+histories using `corVI_relative`, identifies the reduced reference motion by
+Law I at the correct vertex times, and applies the Proposition II moving-centre
+converse. `moving_centre_alignment_example` checks the three-vertex timing
+counterexample. These remain finite integer-coordinate reconstructions;
+inward sense, force interpretation and trajectory realization are separate.
+
+The false absolute-area completion claim was removed from the module comments,
+state, queue and generated catalogue. `StripArea.lean` proves the signed sum
+only; absolute polygon-strip sums and their geometric decomposition remain
+open. The state and queue now name the existing `RelativeMotion.lean` results
+instead of the absent module and declarations. Circle-comparison comments now
+distinguish the supplied circle relation from proved algebra and record the
+full-chord coefficient `1/(8r)` in the unproved limiting route.
+
+The local Elan installation had no toolchain. The pinned upstream Lean 4.19.0
+release was streamed into `/tmp/newtonlean-core-4.19.0`, extracting only the
+Lean/Lake executables, runtime shared libraries and core/Std `.olean` files.
+No archive, mathlib or external-package cache was installed. Its version is
+`4.19.0`, release commit `6caaee842e94`. Both build targets and the reference
+check passed:
+
+```sh
+/tmp/newtonlean-core-4.19.0/bin/lake build
+/tmp/newtonlean-core-4.19.0/bin/lake build NewtonLimitDynamics
+/tmp/newtonlean-core-4.19.0/bin/lake env lean research/CheckReferences.lean
+```
+
+The catalogue inventories 319 theorem declarations; the evidence checker
+validates 77 nodes, 68 edges and 246 passages and emits 245 Lean references.
+All 245 references elaborated. Axiom inspection reports only `propext` (215),
+`Quot.sound` (155) and `Classical.choice` (28); no `sorryAx` or project axiom.
+
+All seven SVGs parse as XML after fixing the malformed bold attribute.
+`test_graph_rendering.py` checks generated SVGs and distinct solid, dashed,
+dotted and dash-dot raster patterns, including the stage/status legend.
+PNG previews and the seven-page grouped PDF were regenerated; representative
+figures were visually inspected. The evidence-validation baseline and four
+negative cases, all 22 source checksums, and `git diff --check` passed.

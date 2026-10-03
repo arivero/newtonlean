@@ -126,6 +126,7 @@ Additional integrity checks:
 
 ```sh
 python3 scripts/test_evidence_validation.py
+python3 scripts/test_graph_rendering.py
 sha256sum -c docs/SHA256SUMS
 ```
 

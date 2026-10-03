@@ -43,7 +43,8 @@ hypothesis to the 1713 force clause (finite enclosure in
 `Polygon/MonotoneEnclosure.lean`). Arg006 reads the two 1713 finiteness
 clauses as a bound on one local action. None fixes a value.
 
-Order 3 (constant-force, rational times) is closed by `partition_gap`; order 5
+Order 3's constant-force rational-time position/velocity comparison is closed by
+`partition_gap`; absolute polygon-strip sums remain open. Order 5
 has its finite Case-1 step in `Polygon/Converse.lean`: equal oriented areas
 are equivalent to a deflection parallel to the radius, with orientation, a
 vertex distinct from S, and the inward sense kept as separate premises.
@@ -61,6 +62,9 @@ Equal relative oriented areas make that difference parallel to the relative
 radius (`relative_equal_area_central`, and `relative_rational_central` with a
 nonzero radius), which is also reachable by Newton's own route through
 `Converse.moving_centre_equal_areas_central` (`propIII_via_moving_centre`).
+That route now explicitly adds `−e` to both histories, identifies the reduced
+reference body's `.p` at time `n` and `.q` at time `n+1`, and transfers the
+original relative-area hypothesis before applying Proposition II.
 The six Proposition III dependency edges (Corollary VI, Law I, Proposition II,
 both editions) now carry these formal references. The limiting passage from a
 realized relative orbit, parallelogram composition of simultaneous forces, and
@@ -168,20 +172,34 @@ Resumed from `f50ff14` and extended the formalisation; all Lean compiles under
 the source-built Lean 4.19.0 (core/Std only, no mathlib), both build targets, and
 `research/CheckReferences.lean` elaborates every reference with axiom set
 `{Classical.choice, Quot.sound, propext}` and no `sorryAx`.
-- Order 6 (Proposition III, two-body): `RelativeTwoBody.lean` proves the
-  relative-pair composition — the difference orbit runs in `relativePair` exactly
-  as in `pair`, so Law III is an identity, a common deflection is invisible, Law I
-  gives a uniform relative body, and equal relative areas make the relative
-  deflection rational-central. No mass/force law/limit.
-- Order 3 (time subdivision): `Polygon/StripArea.lean` proves the absolute
-  strip-area sums close — every two-cell chord triangle has doubled area
-  `h^3*det(v,a)`, equal for all cells, so the total is `k*h^3*det(v,a)`.
-- Order 7 (Proposition IV): `Comparison/CircleCompare.lean` proves the exact
-  finite sagitta-chord relation and equal-time force proportional to sagitta;
+- Order 6 (Proposition III, two-body): `Polygon/RelativeMotion.lean` proves
+  relative deflection `d n − e n`, invariance under a common added history,
+  uniform reference motion under zero deflection, and the finite relative-area
+  converse. No `RelativeTwoBody.lean` module or Law III theorem is present.
+  No mass/force law/limit is derived.
+- Order 3 (time subdivision): `Polygon/StripArea.lean` proves signed sums —
+  every two-cell chord triangle has signed doubled area `h^3*det(v,a)`, equal
+  for all cells, so the signed total is `k*h^3*det(v,a)`. This does not prove an
+  absolute-area sum; that obligation and a geometric strip decomposition remain
+  open.
+- Order 7 (Proposition IV): `Comparison/CircleCompare.lean` carries the exact
+  finite sagitta-chord relation as a premise and proves equal-time
+  `forceBySagitta` ratios proportional to the sagittae;
   per-edition limiting routes recorded, not derived (editions kept separate).
 - Dependency graphs: `scripts/plot_graphs.py` renders the module and
   passage/reference dependency graphs to `docs/graphs/*.png`; see
   `research/figures.md`.
 Open: order 4 (P3 convergence — needs a Fraction Cauchy-Schwarz/triangle
 inequality, which the raw `equiv` relation makes non-trivial), order 8
-(Arg004-Arg006), and the limiting routes/ODE interpretation for Props III/IV.
+(Arg004-Arg006), absolute polygon-strip sums, and the limiting routes/ODE
+interpretation for Props III/IV.
+
+## 1 October 2026 merge corrections
+
+The Proposition III moving-centre theorem now derives the original relative
+conclusion through Corollary VI, Law I and Proposition II with aligned vertex
+times. Absolute strip-area completion has been withdrawn; the signed identity
+remains checked. The absent-module claims were removed, and SVG/PNG/PDF
+figures now preserve evidence status and legends. Both Lean 4.19.0 builds and
+all 245 generated reference/axiom checks pass. See
+[the verification record](VERIFICATION.md#merge-corrections-verified-on-1-october-2026).
