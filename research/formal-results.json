@@ -2139,6 +2139,594 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.nonneg_add",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.add a b).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.nonneg_mul",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.mul a b).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.le_add_nonneg",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.point_le_state",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.1) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.velocity_le_state",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.2) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_identity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    stateEquiv (stateSub (HarmonicRefinement.fine w h s) (HarmonicRefinement.coarse w h s))\n      (pointScale (negF (localA w h)) (middle w h s),\n        pointAdd (pointScale (localA w h) s.2)\n          (pointScale (localC w h) (middle w h s)))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.localA_abs",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    Fraction.equiv (localA w h).abs\n      (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.neg_localA_abs",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    Fraction.equiv (negF (localA w h)).abs\n      (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.localC_abs",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    Fraction.equiv (localC w h).abs\n      (Fraction.mul (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)\n        (Fraction.mul h.abs w.abs))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.middle_norm_bound",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.le (pointNorm (middle w h s))\n      (Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.amplitude_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    0 ≤ (amplitude w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.kickMagnitude_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    0 ≤ (kickMagnitude w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_expanded_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.coarse w h s)))\n      (Fraction.add\n        (Fraction.mul (amplitude w h) (pointNorm (middle w h s)))\n        (Fraction.add\n          (Fraction.mul (amplitude w h) (pointNorm s.2))\n          (Fraction.mul (Fraction.mul (amplitude w h) (kickMagnitude w h))\n            (pointNorm (middle w h s)))))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.coarse w h s)))\n      (Fraction.mul (localFactor w h) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.coarseAt_comm",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      coarseAt w h (HarmonicRefinement.coarse w h s) n =\n        HarmonicRefinement.coarse w h (coarseAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [coarseAt]\n      rw [coarseAt_comm w h s n]\n\nprivate theorem fineAt_comm (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.fineAt_comm",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.coarseAt_schedule",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.fineAt_schedule",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.schedules_common_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.kappa_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) : 0 ≤ (kappa w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.localFactor_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    0 ≤ (localFactor w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.fineFactor_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    0 ≤ (fineFactor w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.coarseFactor_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    0 ≤ (coarseFactor w h).num",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.fpower_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num) :\n    (n : Nat) → 0 ≤ (fpower a n).num\n  | 0 => by simp [fpower, Fraction.ofInt]\n  | n + 1 => nonneg_mul _ _ ha (fpower_nonnegative a ha n)\n\ntheorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :\n    (n : Nat) → 0 ≤ (errorBudget w h s n).num\n  | 0 => by simp [errorBudget, Fraction.ofInt]\n  | n + 1 =>\n      nonneg_add _ _\n        (nonneg_mul _ _ (fineFactor_nonnegative w h)\n          (errorBudget_nonnegative w h s n))\n        (nonneg_mul _ _\n          (nonneg_mul _ _ (localFactor_nonnegative w h)\n            (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))\n          (stateNorm_nonnegative s))\n\n/-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/\ntheorem fine_perturbation (w h : Fraction) (s t : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.fine w h t)))\n      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t)))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.errorBudget_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) → 0 ≤ (errorBudget w h s n).num\n  | 0 => by simp [errorBudget, Fraction.ofInt]\n  | n + 1 =>\n      nonneg_add _ _\n        (nonneg_mul _ _ (fineFactor_nonnegative w h)\n          (errorBudget_nonnegative w h s n))\n        (nonneg_mul _ _\n          (nonneg_mul _ _ (localFactor_nonnegative w h)\n            (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))\n          (stateNorm_nonnegative s))\n\n/-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/\ntheorem fine_perturbation (w h : Fraction) (s t : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.fine w h t)))\n      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t)))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.fine_perturbation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s t : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.fine w h t)))\n      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t)))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.stateSub_chain",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Point × Point) :\n    stateEquiv (stateSub a c)\n      (pointAdd (stateSub a b).1 (stateSub b c).1,\n        pointAdd (stateSub a b).2 (stateSub b c).2)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.stateSub_triangle",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Point × Point) :\n    Fraction.le (stateNorm (stateSub a c))\n      (Fraction.add (stateNorm (stateSub a b)) (stateNorm (stateSub b c)))",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.coarse_norm_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      Fraction.le (stateNorm (coarseAt w h s n))\n        (Fraction.mul (fpower (coarseFactor w h) n) (stateNorm s))\n  | 0 => by\n      apply Fraction.le_of_equiv\n      simp only [coarseAt, fpower, Fraction.equiv, Fraction.mul, Fraction.ofInt]\n      simp only [Int.one_mul, Int.mul_one]\n  | n + 1 => by\n      have hc",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.stateSub_self_norm_zero",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    Fraction.equiv (stateNorm (stateSub s s)) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.actual_error_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      Fraction.le (stateNorm (stateSub (fineAt w h s n) (coarseAt w h s n)))\n        (errorBudget w h s n)\n  | 0 => Fraction.le_of_equiv (stateSub_self_norm_zero s)\n  | n + 1 => by\n      let F",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_zero_blocks",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    stateEquiv (fineAt one zero sample 1) (coarseAt one zero sample 1)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_zero_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub (fineAt one zero sample 1) (coarseAt one zero sample 1)))\n      zero",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_zero_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (errorBudget one zero sample 1) zero",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_initial_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub (fineAt one half sample 0) (coarseAt one half sample 0)))\n      zero",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_local_factor",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (localFactor one half) ⟨13, 16, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_one_block_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub (fineAt one half sample 1) (coarseAt one half sample 1)))\n      ⟨13, 16, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_one_block_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (errorBudget one half sample 1) ⟨13, 8, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_two_block_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub (fineAt one half sample 2) (coarseAt one half sample 2)))\n      ⟨173, 256, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.sample_one_block_distinct",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ stateEquiv (fineAt one half sample 1) (coarseAt one half sample 1)",
+    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.add_equiv",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",

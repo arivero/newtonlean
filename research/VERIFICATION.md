@@ -350,3 +350,13 @@ harmonic cell's derived amplification and one-step perturbation estimates.
 Zero-duration and w=1,h=1/2 controls compile; Lean rejects the false temporary
 norm-cancellation assertion. These estimates do not yet compare whole schedules,
 construct a trajectory or identify a geometric nonnegative intervening region.
+
+Global accumulation follow-up: both full builds and all 342 reference/axiom
+checks passed, with catalogue/graph validation and whitespace checks in order.
+There are 445 declarations in 39 modules; only propext, Classical.choice and
+Quot.sound are reported, with no sorryAx/project axiom. The module identifies
+actual coarse/fine recurrences with their equal-time schedules and proves the
+local truncation estimate, two-cell perturbation estimate, coarse-state power
+bound and nonnegative global error recurrence. Exact zero/one/two-block controls
+pass, including actual errors 13/16 and 173/256; Lean rejects the false one-block
+endpoint equality. Mesh-uniformity, realization and geometric area remain open.

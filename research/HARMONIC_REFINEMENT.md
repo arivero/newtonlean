@@ -41,8 +41,24 @@ At w=1,h=1/2 the factor is 9/4, the initial state norm is 2 and the actual
 one-cell state norm is 11/4. Zero-duration controls and a rejected false
 norm-cancellation assertion check the boundaries of the estimate.
 
-Next accumulate position/velocity differences between evolving schedules and
-derive nonnegative area control, then construct the trajectory with an explicit
-time domain and partition independence. Local identities cannot simply be
-summed as though coarse/fine initial cell states stayed equal. No actual curve,
-global accumulation, completion or ODE theorem is supplied by these increments.
+`HarmonicAccumulation.lean` now compares evolving schedules. From the same
+initial state s it constructs C_n from n cells of duration 2h and F_n from
+2n cells of duration h, with their equal elapsed times proved. Put
+
+    k=(1+|h|)*(1+|h|*|w|), r=k², b=kappa(w,2h),
+    delta=|h|²*|w|*(k+1), M=stateNorm(s),
+    B_0=0, B_(n+1)=r*B_n+delta*b^n*M.
+
+The local truncation estimate is derived from the actual position/velocity
+mismatches, and two fine cells propagate an input error by at most r. Induction
+then proves `stateNorm(C_n)≤b^n*M` and
+`stateNorm(F_n-C_n)≤B_n` for every n, with B_n nonnegative. This addresses the
+different initial states of later coarse/fine cells explicitly. The checked
+one-block state error is 13/16 and its budget 13/8; two blocks give an actual
+state error of 173/256. These are coordinate state errors, separate from D and K.
+
+Next bound the accumulated expression uniformly as the mesh shrinks, derive
+nonnegative area control, then construct the trajectory with an explicit time
+domain and partition independence. The finite error recurrence supplies no
+completion, continuum curve or ODE theorem. Its uniform refinement bound is
+the next target recorded in the overnight checkpoint.

@@ -223,3 +223,25 @@ it through the actual cells. An explicit finite recurrence or weighted sum is
 acceptable as the first global bound; uniformity as the mesh shrinks is a
 separate next obligation. Do not treat signed Kepler cancellation as control
 of the nonnegative area between the evolving polygons.
+
+Commit `875dc53` records the fourth increment. An occasional sequential Astra
+review found no flaw in the proposed local truncation factor or global
+recurrence. Its paper derivation suggests the following next uniform target,
+whose full Lean proof remains OPEN: for h>0, n≥1, W=|w|, T=2nh and
+T*(1+W)≤1/2, the actual state error is at most `3*T*h*W*stateNorm(s)`.
+The arithmetic route uses a finite product estimate
+`product(1+a_j)≤1+2*sum(a_j)≤2` for nonnegative increments of total at most 1/2.
+Only its cross-multiplied induction step has yet been checked in a temporary
+Lean review file; the whole product and uniform error claims must be compiled
+before entering the formal-result ledger. Dyadic telescoping and between-node
+control, explicit realization and unsigned intervening-area geometry follow
+separately. This imports neither a supplied trajectory nor a modern ODE theorem.
+
+Fifth increment checked: `HarmonicAccumulation.lean` derives the complete
+actual local/global recurrence pin, including schedule correspondence and
+equal elapsed times. Both full builds and all 342 references pass; 445
+declarations in 39 modules, standard logical axioms only, no sorryAx/project
+axiom. Exact one/two-block errors are 13/16 and 173/256; the false endpoint
+equality is rejected. The recursive budget is a finite state estimate.
+Its uniform bound and the separate nonnegative intervening-area accounting
+remain the next construction obligations.

@@ -16,6 +16,14 @@ The governing targets remain the stage-separated De Motu, 1687 and 1713
 Section II arguments in GOALS.md. Supporting M1–M4 reports retain their
 undischarged premises; a successful special case is not full completion.
 
+The 3 October instruction supersedes the older zero-force ordering below:
+prioritize Proposition I, then II, III and IV, separately in the three stages.
+The primary forward variant constructs its trajectory from polygonal motions;
+a supplied-curve estimate is a diagnostic. The main area is the nonnegative
+region BETWEEN polygon and trajectory, separate from the Kepler swept area.
+Continue from [the overnight checkpoint](OVERNIGHT-2026-10-03.md), which records
+the current harmonic comparison and actual-cell perturbation results.
+
 ## Immediate mathematical route
 
 0. **User-prioritized case: zero force and rectilinear motion.** Before the

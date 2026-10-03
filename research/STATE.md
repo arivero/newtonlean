@@ -17,8 +17,9 @@ and the [overnight checkpoint](OVERNIGHT-2026-10-03.md). Zero-force support
 remains useful. The harmonic construction now has a checked local common-time
 position/velocity and area comparison, coordinate triangle estimates and an
 actual-cell perturbation bound; see [harmonic refinement](HARMONIC_REFINEMENT.md).
-Global schedule comparison, trajectory existence and nonnegative intervening
-area control remain open. The first finite suite
+Actual global coarse/fine schedule error is now bounded by an explicit finite
+recurrence. Uniform refinement control, trajectory existence and nonnegative
+intervening-area geometry remain open. The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
 agreement with `p+t*v`, constant velocity, cross-denominator subdivision
 independence, exact restart, rest and within-cell positions. A zero-defect
