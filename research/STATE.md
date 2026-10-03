@@ -19,7 +19,10 @@ position/velocity and area comparison, coordinate triangle estimates and an
 actual-cell perturbation bound; see [harmonic refinement](HARMONIC_REFINEMENT.md).
 Actual global coarse/fine schedule error is now bounded by an explicit finite
 recurrence. Uniform refinement control, trajectory existence and nonnegative
-intervening-area geometry remain open. The first finite suite
+intervening-area geometry remain separate: HarmonicUniform now derives
+mesh-uniform power/state bounds and actual error ≤3*T*h*|w|*M under its named
+small-time condition. Trajectory existence and the intervening region's
+nonnegative geometric area remain open. The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
 agreement with `p+t*v`, constant velocity, cross-denominator subdivision
 independence, exact restart, rest and within-cell positions. A zero-defect

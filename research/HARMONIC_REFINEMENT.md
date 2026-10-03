@@ -64,10 +64,24 @@ gives `P*(D-S)≤D^(length+1)`. The condition `2*S≤D` then gives
 `P/D^length≤2`, independently of the number of increments. Empty and zero
 increments are covered; a checked counterexample shows the bound fails when
 the small-total condition is removed. Transporting the actual harmonic powers
-to these factors, and bounding their accumulated error, remain next.
+to these factors is now proved in `HarmonicUniform.lean`.
 
-Next bound the accumulated expression uniformly as the mesh shrinks, derive
-nonnegative area control, then construct the trajectory with an explicit time
-domain and partition independence. The finite error recurrence supplies no
-completion, continuum curve or ODE theorem. Its uniform refinement bound is
-the next target recorded in the overnight checkpoint.
+For h≥0, T=2nh and `T*(1+|w|)≤1/2`, that module proves both actual
+amplification powers are at most 2. It identifies the displayed T with the
+elapsed time of each actual list, bounds both state magnitudes by 2M, and
+derives
+
+    stateNorm(F_n-C_n) ≤ 3*T*h*|w|*M.
+
+The constants use the chosen coordinate/unit calibration; this is not a
+universal physical time threshold. Zero blocks and zero durations are covered.
+The boundary example w=1,h=1/8,n=1 has T=1/4, actual state error 145/4096
+and bound 3/16. A false unrestricted factor-two claim is rejected: w=h=n=1
+has fine amplification 16. Thus the finite accumulated bound is uniform in
+refinement at fixed sufficiently small total time.
+
+Next derive nonnegative area control between the actual paths and construct
+Cauchy data, then realize the trajectory with an explicit time domain and
+partition independence. The finite estimates supply no completion, continuum
+curve or ODE theorem. Position/velocity error and geometric area remain
+distinct obligations in the primary construction.

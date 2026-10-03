@@ -370,3 +370,14 @@ Empty/zero increments, list identities and a boundary sample compile. Lean
 rejects the deliberately false bound in `/tmp/NewtonFiniteGrowthFalse.lean`
 when smallness is removed. Application to actual harmonic powers remains next;
 no completion, geometric area or historical analytic theorem is supplied.
+
+Uniform harmonic follow-up: both full builds and all 381 reference/axiom
+checks passed in order, followed by whitespace checks. There are 514
+declarations in 41 modules; only propext, Classical.choice and Quot.sound,
+no sorryAx/project axiom. Actual coarse/fine factor powers and states obey
+uniform bounds under h≥0 and T*(1+|w|)≤1/2; actual state error is at most
+3*T*h*|w|*M. The displayed T is proved equivalent to both actual elapsed
+times. Exact boundary error 145/4096, bound 3/16 and zero controls compile;
+the false unrestricted factor-two claim is rejected. The time threshold
+uses a coordinate/unit calibration. Trajectory and intervening-area geometry
+remain open, so this is finite construction support, not full Proposition I.

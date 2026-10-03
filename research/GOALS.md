@@ -5,6 +5,13 @@ and 1713. The printed-edition targets are Book I, Section II, Propositions
 I–IV; De Motu requires an explicit correspondence search, not retrospective
 proposition numbering. Proposed 1694 and 1726 remain comparison witnesses.
 
+Latest user direction, 3 October: prioritize Proposition I, then II, III and IV
+in all three stages. The primary forward variant constructs the trajectory
+from polygonal motions; its existence must be proved. The main geometric area
+is the nonnegative region BETWEEN polygon and trajectory, distinct from the
+Kepler swept-sector area of Theorem 1 / Proposition I. A supplied-curve estimate
+is a diagnostic variant and cannot complete this primary construction target.
+
 ## Historical derivation
 
 For each target, reconstruct the available definitions, laws, invoked earlier

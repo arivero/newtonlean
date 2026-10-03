@@ -34,9 +34,9 @@ with no numbered limiting lemma (M2.md).
 
 | Obligation | Status |
 | --- | --- |
-| P1 finite area law | **Checked, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
+| P1 finite area law | **Checked in the rational planar model, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
-| P3 existence of the ultimate curve | **Open.** Lemma III Cor. 4 (1687 par10, 1713 par11) says the ultimate figures of Lemmas II–III, built on a *given* curve `acE`, are *rectilinearum limites curvilinei*. It states no convergence of the Prop I polygon family, whose vertices move under refinement (P2). For constant force the convergence is checked at rational times (PARTITION_CONTROL.md). For varying force, P2 shows that the missing premise is control of force differences at the scale of the cell displacements. **Stability, one varying field checked**: for `a(p) = -w*p` (Prop. IV Cor. 3 case), `HarmonicStability.schedule_invariant` conserves `w\|x\|² + w*d*(x·v) + \|v\|²` exactly over equal cells, and `invariant_square` completes it to `w\|x + (d/2)v\|² + (1 − w*d²/4)\|v\|²`, so orbits stay bounded when `w*d² < 4`. `schedule_speed_bound` and `schedule_position_bound` prove these bounds against the initial invariant for every schedule length. Convergence is still open. |
+| P3 existence of the ultimate curve | **Open.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns limits of rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate and residual/mesh bounds are checked at rational times. For the harmonic field, the discrete invariant and its speed/position bounds have explicit coefficient and margin premises in HarmonicStability. HarmonicAccumulation now compares actual equal-time schedules, and HarmonicUniform derives state bounds ≤2M and actual error ≤3*T*h*abs(w)*M under h≥0 and its named small-time condition. Formal Cauchy construction, between-node control, completion/realization and general varying-force convergence remain open. |
 | P4 intervening defect and area law | **Open, conditional on P3 plus geometric control.** Construct the nonnegative polygon–trajectory region D_mesh and derive a vanishing enclosure budget without cancellation of opposite lobes. `swept_eq` controls the distinct Kepler area K_mesh. Exact K_mesh alone proves neither realization nor D_mesh control; transferring its law to the constructed curve requires geometric identification. |
 | P5 force identification | **Open.** "Aget indesinenter" identifies the impulse limit with a continuous force; no finite result supplies this. |
 
@@ -70,16 +70,13 @@ the finite content it needs when cells are unequal.
 
 ## Next bounded step
 
-The harmonic field already has a mesh-uniform bound. Combining it with the
-exact refinement identities of P2 is the natural first convergence test.
+The harmonic field now has derived mesh-uniform actual state and endpoint-error
+bounds; see [harmonic refinement](HARMONIC_REFINEMENT.md). Next construct
+finite unsigned patches between the evolving paths, derive their area budgets,
+and construct Cauchy data without supplying a curve. Completion/realization,
+between-node control and partition independence remain distinct obligations.
 
-`HarmonicRefinement.lean` now checks a same-field/common-time local comparison:
-position and velocity mismatch, terminal connector and exact cubic doubled
-area between the polygons. Their Kepler sums agree while that intervening
-area can be nonzero. See [harmonic refinement](HARMONIC_REFINEMENT.md).
-Next accumulate position/velocity differences between evolving schedules.
-
-State P3 for a varying field as a discrete stability estimate at rational
-times. The premise should be explicit and named: either a Lipschitz-type bound
-on force differences (modern), or the 1713 monotone-finite qualification on a
-radial segment (editorial). Prove it by finite induction, with no ODE theorem.
+For a general varying field, any force-difference premise must be explicit and
+named: a Lipschitz-type bound is a modern repair; the 1713 monotone-finite
+qualification on a radial segment is an editorial candidate and does not alone
+control a force vector's change of direction. No ODE theorem is imported.

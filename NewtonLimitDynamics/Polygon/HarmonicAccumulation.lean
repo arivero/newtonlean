@@ -272,18 +272,18 @@ def errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction
         (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))
           (stateNorm s))
 
-private theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num := by
+theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num := by
   unfold kappa
   apply nonneg_mul
   · exact nonneg_add _ _ (by decide) (Fraction.abs_num_nonnegative _)
   · exact nonneg_add _ _ (by decide) (kickMagnitude_nonnegative w h)
 
-private theorem localFactor_nonnegative (w h : Fraction) :
+theorem localFactor_nonnegative (w h : Fraction) :
     0 ≤ (localFactor w h).num :=
   nonneg_mul _ _ (amplitude_nonnegative w h)
     (nonneg_add _ _ (kappa_nonnegative w h) (by decide))
 
-private theorem fineFactor_nonnegative (w h : Fraction) :
+theorem fineFactor_nonnegative (w h : Fraction) :
     0 ≤ (fineFactor w h).num :=
   nonneg_mul _ _ (kappa_nonnegative w h) (kappa_nonnegative w h)
 

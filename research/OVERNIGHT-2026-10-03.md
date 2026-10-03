@@ -264,3 +264,30 @@ zero and boundary controls compile. The deliberately false bound without
 smallness is rejected. No historical dependency is attributed to this modern
 arithmetic support. Next transport actual harmonic powers and close the
 mesh-uniform state estimate before constructing Cauchy data and unsigned strips.
+
+Commit `6437bb1` records the sixth increment. The next sequential implementation
+pin is `HarmonicUniform.lean`: with h≥0 and T=2nh, derive actual coarse/fine
+power bounds ≤2 under T*(1+|w|)≤1/2, hence their state bounds and the proposed
+actual error bound `3*T*h*|w|*stateNorm(s)`. Zero blocks and zero steps remain
+explicit. The boundary control w=1,h=1/8,n=1 has T=1/4, proposed actual state
+error 145/4096 and final bound 3/16; independently check these numeric pins.
+Without smallness, w=1,h=1,n=1 has fine amplification 16, so a false ≤2 claim
+must be rejected. The implemented theorem must derive its bounds from the
+actual cells and finite factors, not take them as supplied fields. A stable
+compiled uniform power/state subset is acceptable if budget closure exceeds
+this bounded unit; the exact remaining recurrence lemma must then be recorded.
+
+Seventh increment checked: `HarmonicUniform.lean` completes the full uniform
+power, state and actual error pin for every n, including zero. The parent
+added the explicit equality of both elapsed times with displayed T and named
+the calibration of the small-time threshold. Both builds and all 381
+references pass; 514 declarations in 41 modules, standard logical axioms only,
+no sorryAx/project axiom. Boundary and zero controls pass; the unrestricted
+power-two bound is rejected. Next address unsigned geometric patches and
+construct Cauchy data. The main trajectory existence claim remains open.
+
+User pause: sleep until 04:02 Madrid on 4 October (02:02 UTC). All workers are
+idle. The seventh increment is checked and saved before pausing. Resume with
+the unsigned area-between-paths target, followed by Cauchy construction; do
+not supply a curve or confuse this area with Kepler area. The user requested
+this pause explicitly; the overnight endpoint remains 07:00 Madrid.

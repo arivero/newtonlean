@@ -249,10 +249,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.errorBudget_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.fineAt_schedule
 #print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.fineAt_schedule
+#check NewtonLimitDynamics.Polygon.HarmonicAccumulation.fineFactor_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.fineFactor_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.fine_perturbation
 #print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.fine_perturbation
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.fpower_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.fpower_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicAccumulation.kappa_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.kappa_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicAccumulation.localFactor_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.localFactor_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_bound
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_expanded_bound
@@ -353,6 +359,42 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.schedule_speed_bound
 #check NewtonLimitDynamics.Polygon.HarmonicStability.speed_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.speed_bound
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.actual_uniform_error
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.actual_uniform_error
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.coarseFactor_le_fineFactor
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.coarseFactor_le_fineFactor
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_elapsed_totalTime
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_elapsed_totalTime
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_power_le_two
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_power_le_two
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_state_le_two
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_state_le_two
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.false_unrestricted_power
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.false_unrestricted_power
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.fine_elapsed_totalTime
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.fine_elapsed_totalTime
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.fine_norm_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.fine_norm_bound
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.fine_power_le_two
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.fine_power_le_two
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.fine_state_le_two
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.fine_state_le_two
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_actual_error
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_actual_error
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_power_bounds
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_power_bounds
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_small_time
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_small_time
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_total_time
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_total_time
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_uniform_error
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_uniform_error
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_uniform_rhs
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_uniform_rhs
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_blocks
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_blocks
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_duration
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_duration
 #check NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #print axioms NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #check NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment

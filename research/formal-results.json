@@ -2544,7 +2544,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      coarseAt w h (HarmonicRefinement.coarse w h s) n =\n        HarmonicRefinement.coarse w h (coarseAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [coarseAt]\n      rw [coarseAt_comm w h s n]\n\nprivate theorem fineAt_comm (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      coarseAt w h (HarmonicRefinement.coarse w h s) n =\n        HarmonicRefinement.coarse w h (coarseAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [coarseAt]\n      rw [coarseAt_comm w h s n]\n\nprivate theorem fineAt_comm (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -2558,7 +2558,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -2572,7 +2572,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -2586,7 +2586,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -2600,12 +2600,12 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\nprivate theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.kappa_nonnegative",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -2619,7 +2619,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.localFactor_nonnegative",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -2633,7 +2633,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.fineFactor_nonnegative",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -3554,6 +3554,706 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(w c : Fraction) (hm : 0 ≤ (margin w c).num) (n : Nat)\n    (s : Point × Point) :\n    Fraction.le\n      (Fraction.mul w\n        (dot (pointAdd (schedule (linearField w) (List.replicate n (Fraction.add c c)) s).1\n            (pointScale c (schedule (linearField w) (List.replicate n (Fraction.add c c)) s).2))\n          (pointAdd (schedule (linearField w) (List.replicate n (Fraction.add c c)) s).1\n            (pointScale c (schedule (linearField w) (List.replicate n (Fraction.add c c)) s).2))))\n      (invariant w (Fraction.add c c) s)",
     "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. For w >= 0 the speed term (1 - w*d^2/4)|v_n|^2, and for a nonnegative margin the position term, stay below the initial invariant along every equal-cell schedule (mesh-uniform discrete stability). Convergence, continuous curve, and Newton general central-force theorem are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.denom_pos",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) : 0 < denom w h",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.driftIncrement_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    0 ≤ driftIncrement w h",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.kickIncrement_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    0 ≤ kickIncrement w h",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarseWeights_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    (n : Nat) → Nonnegative (coarseWeights w h n)\n  | 0 => by simp [coarseWeights, Nonnegative]\n  | n + 1 => by\n      simp only [coarseWeights, Nonnegative, List.mem_cons]\n      intro a ha\n      rcases ha with rfl | rfl | ht\n      · exact Int.mul_nonneg (by decide) (driftIncrement_nonnegative w h hh)\n      · exact Int.mul_nonneg (by decide) (kickIncrement_nonnegative w h hh)\n      · exact coarseWeights_nonnegative w h hh n a ht\n\nprivate theorem fineWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :\n    (n : Nat) → Nonnegative (fineWeights w h n)\n  | 0 => by simp [fineWeights, Nonnegative]\n  | n + 1 => by\n      simp only [fineWeights, Nonnegative, List.mem_cons]\n      intro a ha\n      rcases ha with rfl | rfl | rfl | rfl | ht\n      · exact driftIncrement_nonnegative w h hh\n      · exact kickIncrement_nonnegative w h hh\n      · exact driftIncrement_nonnegative w h hh\n      · exact kickIncrement_nonnegative w h hh\n      · exact fineWeights_nonnegative w h hh n a ht\n\nprivate theorem common_weight_sum (w h : Fraction) :\n    (n : Nat) →\n      weightSum (coarseWeights w h n) =\n        weightSum (fineWeights w h n) ∧\n      weightSum (fineWeights w h n) =\n        2 * (n : Int) * (driftIncrement w h + kickIncrement w h)\n  | 0 => by simp [coarseWeights, fineWeights, weightSum]\n  | n + 1 => by\n      obtain ⟨hc, hf⟩",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fineWeights_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    (n : Nat) → Nonnegative (fineWeights w h n)\n  | 0 => by simp [fineWeights, Nonnegative]\n  | n + 1 => by\n      simp only [fineWeights, Nonnegative, List.mem_cons]\n      intro a ha\n      rcases ha with rfl | rfl | rfl | rfl | ht\n      · exact driftIncrement_nonnegative w h hh\n      · exact kickIncrement_nonnegative w h hh\n      · exact driftIncrement_nonnegative w h hh\n      · exact kickIncrement_nonnegative w h hh\n      · exact fineWeights_nonnegative w h hh n a ht\n\nprivate theorem common_weight_sum (w h : Fraction) :\n    (n : Nat) →\n      weightSum (coarseWeights w h n) =\n        weightSum (fineWeights w h n) ∧\n      weightSum (fineWeights w h n) =\n        2 * (n : Int) * (driftIncrement w h + kickIncrement w h)\n  | 0 => by simp [coarseWeights, fineWeights, weightSum]\n  | n + 1 => by\n      obtain ⟨hc, hf⟩",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.common_weight_sum",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    (n : Nat) →\n      weightSum (coarseWeights w h n) =\n        weightSum (fineWeights w h n) ∧\n      weightSum (fineWeights w h n) =\n        2 * (n : Int) * (driftIncrement w h + kickIncrement w h)\n  | 0 => by simp [coarseWeights, fineWeights, weightSum]\n  | n + 1 => by\n      obtain ⟨hc, hf⟩",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_elapsed_totalTime",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (n : Nat) :\n    Fraction.equiv (elapsed (List.replicate n (Fraction.add h h)))\n      (totalTime h n)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fine_elapsed_totalTime",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (n : Nat) :\n    Fraction.equiv (elapsed (fineDurations h n)) (totalTime h n)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.smallTime_integer",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (n : Nat)\n    (hs : SmallTime w h n) :\n    2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤ denom w h",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fineWeights_small",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (n : Nat)\n    (hs : SmallTime w h n) :\n    2 * weightSum (fineWeights w h n) ≤ denom w h",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarseWeights_small",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (n : Nat)\n    (hs : SmallTime w h n) :\n    2 * weightSum (coarseWeights w h n) ≤ denom w h",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.two_mul",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x : Int) : 2 * x = x + x",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_block_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    Fraction.equiv\n      (amplification (denom w h) (denom_pos w h)\n        [2 * driftIncrement w h, 2 * kickIncrement w h])\n      (coarseFactor w h)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fine_block_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    Fraction.equiv\n      (amplification (denom w h) (denom_pos w h)\n        [driftIncrement w h, kickIncrement w h,\n          driftIncrement w h, kickIncrement w h])\n      (fineFactor w h)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_power_amplification",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    (n : Nat) →\n      Fraction.equiv\n        (amplification (denom w h) (denom_pos w h) (coarseWeights w h n))\n        (fpower (coarseFactor w h) n)\n  | 0 => amplification_empty _ _\n  | n + 1 => by\n      have ha",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fine_power_amplification",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    (n : Nat) →\n      Fraction.equiv\n        (amplification (denom w h) (denom_pos w h) (fineWeights w h n))\n        (fpower (fineFactor w h) n)\n  | 0 => amplification_empty _ _\n  | n + 1 => by\n      have ha",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_power_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (n : Nat)\n    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :\n    Fraction.le (fpower (coarseFactor w h) n) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fine_power_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (n : Nat)\n    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :\n    Fraction.le (fpower (fineFactor w h) n) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_state_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) (n : Nat)\n    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :\n    Fraction.le (stateNorm (coarseAt w h s n))\n      (Fraction.mul (Fraction.ofInt 2) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fine_cell_bound",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.le (stateNorm (HarmonicRefinement.fine w h s))\n      (Fraction.mul (fineFactor w h) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fine_norm_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      Fraction.le (stateNorm (fineAt w h s n))\n        (Fraction.mul (fpower (fineFactor w h) n) (stateNorm s))\n  | 0 => by\n      apply Fraction.le_of_equiv\n      simp only [fineAt, fpower, Fraction.equiv, Fraction.mul, Fraction.ofInt]\n      simp only [Int.one_mul, Int.mul_one]\n  | n + 1 => by\n      have hf",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fine_state_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) (n : Nat)\n    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :\n    Fraction.le (stateNorm (fineAt w h s n))\n      (Fraction.mul (Fraction.ofInt 2) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.square_dominates_double",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D a : Int) (ha : 0 ≤ a) :\n    D * (D + 2 * a) ≤ (D + a) * (D + a)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.block_product_order",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D A B : Int) (hD : 0 < D)\n    (hA : 0 ≤ A) (hB : 0 ≤ B) :\n    (D + 2 * A) * (D + 2 * B) * (D * D) ≤\n      ((D + A) * (D + A)) * ((D + B) * (D + B))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.block_amplification_order",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    Fraction.le\n      (amplification (denom w h) (denom_pos w h)\n        [2 * driftIncrement w h, 2 * kickIncrement w h])\n      (amplification (denom w h) (denom_pos w h)\n        [driftIncrement w h, kickIncrement w h,\n          driftIncrement w h, kickIncrement w h])",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarseFactor_le_fineFactor",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (hh : 0 ≤ h.num) :\n    Fraction.le (coarseFactor w h) (fineFactor w h)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_one_add",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num) :\n    Fraction.le (Fraction.ofInt 1) (Fraction.add (Fraction.ofInt 1) a)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_kappa",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    Fraction.le (Fraction.ofInt 1) (kappa w h)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_fineFactor",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    Fraction.le (Fraction.ofInt 1) (fineFactor w h)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.fpower_monotone",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num)\n    (hb : 0 ≤ b.num) (hab : Fraction.le a b) :\n    (n : Nat) → Fraction.le (fpower a n) (fpower b n)\n  | 0 => Fraction.magnitudes.le_refl _\n  | n + 1 => by\n      have h₁",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.coarse_power_le_fine_power",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (n : Nat)\n    (hh : 0 ≤ h.num) :\n    Fraction.le (fpower (coarseFactor w h) n) (fpower (fineFactor w h) n)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.budget_power_bound",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (hh : 0 ≤ h.num) :\n    (n : Nat) → Fraction.le (errorBudget w h s n) (budgetCap w h s n)\n  | 0 => by\n      apply Fraction.le_of_equiv\n      simp only [errorBudget, budgetCap, count, fpower, Fraction.equiv,\n        Fraction.ofInt, Fraction.mul]\n      simp\n  | n + 1 => by\n      let d",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.budget_two_bound",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) (n : Nat)\n    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :\n    Fraction.le (errorBudget w h s n)\n      (Fraction.mul (Fraction.ofInt 2)\n        (Fraction.mul (count n) (Fraction.mul (localFactor w h) (stateNorm s))))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_power",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num)\n    (h1 : Fraction.le (Fraction.ofInt 1) a) :\n    (n : Nat) → Fraction.le (Fraction.ofInt 1) (fpower a n)\n  | 0 => Fraction.magnitudes.le_refl _\n  | n + 1 => by\n      have hi",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.factor_le_power_succ",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num)\n    (h1 : Fraction.le (Fraction.ofInt 1) a) (n : Nat) :\n    Fraction.le a (fpower a (n + 1))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.kappa_le_fineFactor",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    Fraction.le (kappa w h) (fineFactor w h)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.kappa_le_two_of_positive_blocks",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (n : Nat)\n    (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :\n    Fraction.le (kappa w h) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.meshAmplitude_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) :\n    0 ≤ (meshAmplitude w h).num",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.localFactor_le_three_amplitude",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (n : Nat)\n    (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :\n    Fraction.le (localFactor w h)\n      (Fraction.mul (Fraction.ofInt 3) (meshAmplitude w h))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.actual_uniform_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) (n : Nat)\n    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :\n    Fraction.le\n      (stateNorm (stateSub (fineAt w h s n) (coarseAt w h s n)))\n      (Fraction.mul (Fraction.ofInt 3)\n        (Fraction.mul (totalTime h n)\n          (Fraction.mul h (Fraction.mul w.abs (stateNorm s)))))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.sample_small_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": SmallTime one eighth 1",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.sample_total_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (totalTime eighth 1) ⟨1, 4, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.sample_power_bounds",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.le (fpower (coarseFactor one eighth) 1) (Fraction.ofInt 2) ∧\n      Fraction.le (fpower (fineFactor one eighth) 1) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.sample_actual_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))\n      ⟨145, 4096, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.sample_uniform_rhs",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (Fraction.mul (Fraction.ofInt 3)\n        (Fraction.mul (totalTime eighth 1)\n          (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample)))))\n      ⟨3, 16, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.sample_uniform_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.le\n      (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))\n      (Fraction.mul (Fraction.ofInt 3)\n        (Fraction.mul (totalTime eighth 1)\n          (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample)))))",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_blocks",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub (fineAt one eighth sample 0) (coarseAt one eighth sample 0)))\n      zero",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_duration",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub (fineAt one zero sample 1) (coarseAt one zero sample 1)))\n      zero",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.false_unrestricted_power",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ Fraction.le (fpower (fineFactor one one) 1) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.InertialControl.radius_positive",
