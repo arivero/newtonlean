@@ -1971,6 +1971,202 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.position_mismatch",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    pointEquiv (fine w h s).1\n      (pointAdd (coarse w h s).1\n        (pointScale (negF (Fraction.mul (Fraction.mul h h) w)) (middle w h s)))",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.velocity_mismatch",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    pointEquiv (fine w h s).2\n      (pointAdd (coarse w h s).2\n        (pointAdd (pointScale (Fraction.mul (Fraction.mul h h) w) s.2)\n          (pointScale (Fraction.mul (Fraction.mul (Fraction.mul h h) h)\n            (Fraction.mul w w)) (middle w h s))))",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_eq_triangle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.equiv (closedDefect w h s)\n      (det (pointSub (fine w h s).1 (middle w h s))\n        (pointSub (coarse w h s).1 (middle w h s)))",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_defect_cubic",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.equiv (closedDefect w h s)\n      (negF (Fraction.mul (Fraction.mul (Fraction.mul h h) h)\n        (Fraction.mul w (det s.1 s.2))))",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    0 ≤ (absoluteClosedGap w h s).num",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.swept_equal",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.equiv (swept (linearField w) [h, h] s)\n      (swept (linearField w) [Fraction.add h h] s)",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_middle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": pointEquiv (middle one half sample) (one, half)",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_fine",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": pointEquiv (fine one half sample).1\n    (⟨3, 4, by decide⟩, ⟨7, 8, by decide⟩)",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_coarse",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": pointEquiv (coarse one half sample).1 (one, one)",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_fine_swept",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (swept (linearField one) [half, half] sample) one",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_coarse_swept",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (swept (linearField one) [Fraction.add half half] sample) one",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_closed_defect",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (closedDefect one half sample) ⟨-1, 8, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_absolute_closed_gap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (absoluteClosedGap one half sample) ⟨1, 8, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_closed_defect_nonzero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ Fraction.equiv (closedDefect one half sample) zero",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicStability.linearField_central",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicStability.lean",

@@ -175,6 +175,34 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.Converse.unsigned_equal_area_not_central
 #check NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
 #print axioms NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_defect_cubic
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_defect_cubic
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_eq_triangle
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_eq_triangle
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.position_mismatch
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.position_mismatch
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_absolute_closed_gap
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_absolute_closed_gap
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_closed_defect
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_closed_defect
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_closed_defect_nonzero
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_closed_defect_nonzero
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_coarse
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_coarse
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_coarse_swept
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_coarse_swept
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_fine
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_fine
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_fine_swept
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_fine_swept
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_middle
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.sample_middle
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.swept_equal
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.swept_equal
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.velocity_mismatch
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.velocity_mismatch
 #check NewtonLimitDynamics.Polygon.HarmonicStability.cell_invariant
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.cell_invariant
 #check NewtonLimitDynamics.Polygon.HarmonicStability.dot_self_num_nonneg

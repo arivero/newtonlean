@@ -73,6 +73,12 @@ the finite content it needs when cells are unequal.
 The harmonic field already has a mesh-uniform bound. Combining it with the
 exact refinement identities of P2 is the natural first convergence test.
 
+`HarmonicRefinement.lean` now checks a same-field/common-time local comparison:
+position and velocity mismatch, terminal connector and exact cubic doubled
+area between the polygons. Their Kepler sums agree while that intervening
+area can be nonzero. See [harmonic refinement](HARMONIC_REFINEMENT.md).
+Next accumulate position/velocity differences between evolving schedules.
+
 State P3 for a varying field as a discrete stability estimate at rational
 times. The premise should be explicit and named: either a Lipschitz-type bound
 on force differences (modern), or the 1713 monotone-finite qualification on a

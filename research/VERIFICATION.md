@@ -322,3 +322,12 @@ No actual trajectory is constructed by this increment. The stage defect-control
 interfaces assume the nonnegative polygon–trajectory region's geometric
 enclosure and a vanishing budget and are diagnostic variants only. The primary
 forward construction remains open, with Proposition I prioritized over II–IV.
+
+Harmonic common-time follow-up: both full builds passed. The catalogue now has
+360 theorem declarations in 36 modules; all 286 references elaborate with only
+propext, Classical.choice and Quot.sound, no sorryAx or project axiom. The
+reference run started before root-library compilation had completed failed on
+the new names; its correctly ordered rerun passed. The local construction
+checks position/velocity mismatch, triangle reduction, exact cubic closed
+defect, equal Kepler sums and the pinned -1/8 signed versus 1/8 absolute gap.
+It supplies no actual trajectory or accumulated global defect estimate.

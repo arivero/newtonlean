@@ -100,9 +100,8 @@ false signed-area assertion was rejected in a separate temporary Lean file.
 This review is about the pinned finite statement, not the forthcoming full
 repository implementation and not trajectory realization.
 
-The extended `Polygon/Finite.lean` and all three stage modules compiled during
-the first default build. Complete the remaining catalogue/reference checks
-after incorporating the user's polygon–trajectory-defect interface.
+The extended `Polygon/Finite.lean`, all three stage modules, and the explicit
+polygon–trajectory-defect interfaces passed both builds and reference checks.
 
 First increment independently verified (21:36 UTC): 346 catalogued theorem
 declarations in 35 modules; both Lean builds; all 272 reference/axiom checks;
@@ -113,8 +112,8 @@ with equal signed/unsigned Kepler areas but positive absolute patch budget.
 The main unsupplied-curve construction remains OPEN. See PROP_I_PATH_DEFECT.md.
 
 Commit `d182f02` checkpoints the pre-existing 1 October proof/documentation/
-rendering corrections, without the unrelated conversation exports. The new
-three-stage finite/defect increment is being checkpointed separately.
+rendering corrections, without the unrelated conversation exports. Commit
+`29703ae` records the three-stage finite/defect increment separately.
 
 ## Next bounded construction step: harmonic common-time refinement
 
@@ -145,3 +144,19 @@ z=(3/4,7/8), X=(1,1); the closed doubled defect is -1/8 and its absolute size
 1/8, while the two Kepler doubled sums each equal 1. Validate with Lean decide
 and a deliberately false zero-defect variant. This is finite construction,
 not proof of harmonic convergence or a curve existing at all Euclidean times.
+
+Second increment checked: `HarmonicRefinement.lean` proves BOTH mismatch
+formulas, the closed-boundary triangle and cubic area identities, equal Kepler
+sums, nonnegative local absolute magnitude, and all pinned values. Both full
+builds passed; 360 theorem declarations in 36 modules; 286 reference/axiom
+checks passed with only standard logical axioms and no sorryAx/project axiom.
+The first reference command was started before the new root import finished
+building and failed on unknown names; the correctly ordered rerun passed.
+The deliberately false zero-defect instance was rejected. No curve is assumed
+in the local finite comparison; global accumulation/realization remains OPEN.
+
+Next bounded obligation: rational absolute-value and triangle estimates needed
+to accumulate harmonic refinement errors. Search/extend the existing Fraction
+arithmetic rather than introduce a duplicate rational system. Then derive
+finite perturbation/schedule comparison; keep nonnegative path-area control
+separate from positions and the still unconstructed actual trajectory.
