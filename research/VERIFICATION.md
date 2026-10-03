@@ -360,3 +360,13 @@ local truncation estimate, two-cell perturbation estimate, coarse-state power
 bound and nonnegative global error recurrence. Exact zero/one/two-block controls
 pass, including actual errors 13/16 and 173/256; Lean rejects the false one-block
 endpoint equality. Mesh-uniformity, realization and geometric area remain open.
+
+Finite growth follow-up: both full builds and all 360 reference/axiom checks
+passed, with catalogue/graph and whitespace checks. There are 464 declarations
+in 40 modules; the axiom set remains propext, Classical.choice and Quot.sound,
+with no sorryAx/project axiom. The common-denominator cofactor estimate and
+small-total uniform amplification bound are proved by finite integer induction.
+Empty/zero increments, list identities and a boundary sample compile. Lean
+rejects the deliberately false bound in `/tmp/NewtonFiniteGrowthFalse.lean`
+when smallness is removed. Application to actual harmonic powers remains next;
+no completion, geometric area or historical analytic theorem is supplied.

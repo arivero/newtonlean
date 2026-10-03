@@ -81,6 +81,42 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.kick_rigid
 #check NewtonLimitDynamics.Diagnostic.PhaseArea.refinement_moves_points_keeps_area
 #print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.refinement_moves_points_keeps_area
+#check NewtonLimitDynamics.FiniteGrowth.amplification_append
+#print axioms NewtonLimitDynamics.FiniteGrowth.amplification_append
+#check NewtonLimitDynamics.FiniteGrowth.amplification_cons
+#print axioms NewtonLimitDynamics.FiniteGrowth.amplification_cons
+#check NewtonLimitDynamics.FiniteGrowth.amplification_empty
+#print axioms NewtonLimitDynamics.FiniteGrowth.amplification_empty
+#check NewtonLimitDynamics.FiniteGrowth.amplification_nonnegative
+#print axioms NewtonLimitDynamics.FiniteGrowth.amplification_nonnegative
+#check NewtonLimitDynamics.FiniteGrowth.boundary_sample
+#print axioms NewtonLimitDynamics.FiniteGrowth.boundary_sample
+#check NewtonLimitDynamics.FiniteGrowth.cofactor_bound
+#print axioms NewtonLimitDynamics.FiniteGrowth.cofactor_bound
+#check NewtonLimitDynamics.FiniteGrowth.cofactor_step
+#print axioms NewtonLimitDynamics.FiniteGrowth.cofactor_step
+#check NewtonLimitDynamics.FiniteGrowth.factorProduct_append
+#print axioms NewtonLimitDynamics.FiniteGrowth.factorProduct_append
+#check NewtonLimitDynamics.FiniteGrowth.factorProduct_nonnegative
+#print axioms NewtonLimitDynamics.FiniteGrowth.factorProduct_nonnegative
+#check NewtonLimitDynamics.FiniteGrowth.factorProduct_replicate
+#print axioms NewtonLimitDynamics.FiniteGrowth.factorProduct_replicate
+#check NewtonLimitDynamics.FiniteGrowth.factor_eq_one_add
+#print axioms NewtonLimitDynamics.FiniteGrowth.factor_eq_one_add
+#check NewtonLimitDynamics.FiniteGrowth.missing_smallness_counterexample
+#print axioms NewtonLimitDynamics.FiniteGrowth.missing_smallness_counterexample
+#check NewtonLimitDynamics.FiniteGrowth.uniform_amplification
+#print axioms NewtonLimitDynamics.FiniteGrowth.uniform_amplification
+#check NewtonLimitDynamics.FiniteGrowth.uniform_product_bound
+#print axioms NewtonLimitDynamics.FiniteGrowth.uniform_product_bound
+#check NewtonLimitDynamics.FiniteGrowth.weightSum_append
+#print axioms NewtonLimitDynamics.FiniteGrowth.weightSum_append
+#check NewtonLimitDynamics.FiniteGrowth.weightSum_nonnegative
+#print axioms NewtonLimitDynamics.FiniteGrowth.weightSum_nonnegative
+#check NewtonLimitDynamics.FiniteGrowth.weightSum_replicate
+#print axioms NewtonLimitDynamics.FiniteGrowth.weightSum_replicate
+#check NewtonLimitDynamics.FiniteGrowth.zero_increments
+#print axioms NewtonLimitDynamics.FiniteGrowth.zero_increments
 #check NewtonLimitDynamics.Fraction.abs_add_le
 #print axioms NewtonLimitDynamics.Fraction.abs_add_le
 #check NewtonLimitDynamics.Fraction.abs_add_strict_example

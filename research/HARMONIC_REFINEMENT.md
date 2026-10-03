@@ -57,6 +57,15 @@ different initial states of later coarse/fine cells explicitly. The checked
 one-block state error is 13/16 and its budget 13/8; two blocks give an actual
 state error of 173/256. These are coordinate state errors, separate from D and K.
 
+`Common/FiniteGrowth.lean` proves the finite product estimate used for uniform
+refinement control. For a positive common denominator D and nonnegative
+integer increments a_j, put S=sum(a_j) and P=product(D+a_j). Finite induction
+gives `P*(D-S)≤D^(length+1)`. The condition `2*S≤D` then gives
+`P/D^length≤2`, independently of the number of increments. Empty and zero
+increments are covered; a checked counterexample shows the bound fails when
+the small-total condition is removed. Transporting the actual harmonic powers
+to these factors, and bounding their accumulated error, remain next.
+
 Next bound the accumulated expression uniformly as the mesh shrinks, derive
 nonnegative area control, then construct the trajectory with an explicit time
 domain and partition independence. The finite error recurrence supplies no

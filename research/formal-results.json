@@ -1,5 +1,176 @@
 [
   {
+    "name": "NewtonLimitDynamics.FiniteGrowth.weightSum_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(xs : List Int) (hx : Nonnegative xs) :\n    0 ≤ weightSum xs",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.factorProduct_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 ≤ D)\n    (xs : List Int) (hx : Nonnegative xs) : 0 ≤ factorProduct D xs",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.cofactor_step",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D a S : Int) (ha : 0 ≤ a) (hS : 0 ≤ S) :\n    (D + a) * (D - (a + S)) ≤ D * (D - S)",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.cofactor_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D)\n    (xs : List Int) (hx : Nonnegative xs) :\n    factorProduct D xs * (D - weightSum xs) ≤ D ^ (xs.length + 1)",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.uniform_product_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D)\n    (xs : List Int) (hx : Nonnegative xs) (hsmall : 2 * weightSum xs ≤ D) :\n    factorProduct D xs ≤ 2 * D ^ xs.length",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.factor_eq_one_add",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D) (a : Int) :\n    Fraction.equiv (factor D hD a)\n      (Fraction.add (Fraction.ofInt 1) ⟨a, D, hD⟩)",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.amplification_empty",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D) :\n    Fraction.equiv (amplification D hD []) (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.amplification_cons",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D) (a : Int) (xs : List Int) :\n    Fraction.equiv (amplification D hD (a :: xs))\n      (Fraction.mul (factor D hD a) (amplification D hD xs))",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.amplification_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D)\n    (xs : List Int) (hx : Nonnegative xs) :\n    0 ≤ (amplification D hD xs).num",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.uniform_amplification",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D)\n    (xs : List Int) (hx : Nonnegative xs) (hsmall : 2 * weightSum xs ≤ D) :\n    Fraction.le (amplification D hD xs) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.weightSum_append",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(xs ys : List Int) :\n    weightSum (xs ++ ys) = weightSum xs + weightSum ys",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.factorProduct_append",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (xs ys : List Int) :\n    factorProduct D (xs ++ ys) = factorProduct D xs * factorProduct D ys",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.denominator_power_add",
+    "private": true,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (m n : Nat) :\n    D ^ (m + n) = D ^ m * D ^ n",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.amplification_append",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D) (xs ys : List Int) :\n    Fraction.equiv (amplification D hD (xs ++ ys))\n      (Fraction.mul (amplification D hD xs) (amplification D hD ys))",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.weightSum_replicate",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Int) (n : Nat) :\n    weightSum (List.replicate n a) = (n : Int) * a",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.factorProduct_replicate",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D a : Int) (n : Nat) :\n    factorProduct D (List.replicate n a) = (D + a) ^ n",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.zero_increments",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : Int) (hD : 0 < D) (n : Nat) :\n    Fraction.equiv (amplification D hD (List.replicate n 0)) (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.boundary_sample",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (amplification 4 (by decide) [1, 1]) ⟨25, 16, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.FiniteGrowth.missing_smallness_counterexample",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ Fraction.le (amplification 1 (by decide) [1, 1]) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.near_and",
     "private": false,
     "file": "NewtonLimitDynamics/Common/Quadratic.lean",

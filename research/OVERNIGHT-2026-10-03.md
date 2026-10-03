@@ -245,3 +245,22 @@ axiom. Exact one/two-block errors are 13/16 and 173/256; the false endpoint
 equality is rejected. The recursive budget is a finite state estimate.
 Its uniform bound and the separate nonnegative intervening-area accounting
 remain the next construction obligations.
+
+Commit `dc3e9b7` records the fifth increment. Parent's next bounded arithmetic
+unit uses positive common denominator D and a finite list of nonnegative
+integer increments a_j. Let S=sum(a_j) and P=product(D+a_j). Prove by finite
+induction `P*(D-S)≤D^(length+1)` and deduce `P≤2*D^length` when `2*S≤D`.
+Package the latter as a Fraction amplification estimate for P/D^length,
+with finite factor/list identities needed to transport the actual harmonic
+powers. Test empty/zero increments, a boundary case, and reject a false
+uniform bound when the small-total-increment hypothesis is removed. These
+are elementary finite arithmetic estimates; no completeness is supplied.
+
+Sixth increment checked: `Common/FiniteGrowth.lean` completes the finite
+cofactor and small-total amplification pin, including list/replication
+identities. Both builds and all 360 references pass; 464 declarations in 40
+modules, standard logical axioms only and no sorryAx/project axiom. The empty,
+zero and boundary controls compile. The deliberately false bound without
+smallness is rejected. No historical dependency is attributed to this modern
+arithmetic support. Next transport actual harmonic powers and close the
+mesh-uniform state estimate before constructing Cauchy data and unsigned strips.
