@@ -26,8 +26,23 @@ X=(1,1), both Kepler doubled sums 1, closed doubled defect -1/8 and absolute
 gap 1/8. Lean checks all values and nonzero defect; a false zero-defect
 assertion in a temporary Lean file was rejected.
 
+`PointBounds.lean` now supplies coordinate L1 magnitudes for rational points
+and position/velocity states, with nonnegativity, equivalence invariance,
+triangle estimates and scaling. This coordinate diagnostic is not an area;
+combining position and velocity physically also requires a calibration of units.
+`HarmonicComparison.lean` derives, from the actual drift and kick,
+
+    stateNorm(cell(w,h,s)) ≤ (1+|h|)*(1+|h|*|w|)*stateNorm(s).
+
+The cell applied to the difference of two initial states is equivalent to the
+difference of their actual outputs. Consequently the same factor bounds their
+one-step perturbation. These statements cover signed and zero parameters.
+At w=1,h=1/2 the factor is 9/4, the initial state norm is 2 and the actual
+one-cell state norm is 11/4. Zero-duration controls and a rejected false
+norm-cancellation assertion check the boundaries of the estimate.
+
 Next accumulate position/velocity differences between evolving schedules and
 derive nonnegative area control, then construct the trajectory with an explicit
 time domain and partition independence. Local identities cannot simply be
 summed as though coarse/fine initial cell states stayed equal. No actual curve,
-global accumulation, completion or ODE theorem is supplied by this increment.
+global accumulation, completion or ODE theorem is supplied by these increments.

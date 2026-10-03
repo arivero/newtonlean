@@ -2139,6 +2139,272 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.add_zero",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) :\n    Fraction.equiv (Fraction.add a (Fraction.ofInt 0)) a",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.zero_le_product",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    Fraction.le (Fraction.ofInt 0) (Fraction.mul a b)",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.one_plus_bound_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction)\n    (ha : 0 ≤ a.num) (hc : 0 ≤ c.num) :\n    Fraction.le (Fraction.add (Fraction.add a b) (Fraction.mul c b))\n      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c) (Fraction.add a b))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.one_plus_bound_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction)\n    (hb : 0 ≤ b.num) (hc : 0 ≤ c.num) :\n    Fraction.le (Fraction.add (Fraction.add a b) (Fraction.mul c a))\n      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c) (Fraction.add a b))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.cell_eq_kick_drift",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    cell (linearField w) h s = kick w h (drift h s)",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.drift_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point) :\n    Fraction.le (stateNorm (drift h s))\n      (Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.kick_scale_norm",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (p : Point) :\n    Fraction.equiv (pointNorm (pointScale h (linearField w p)))\n      (Fraction.mul (Fraction.mul h.abs w.abs) (pointNorm p))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.kick_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.le (stateNorm (kick w h s))\n      (Fraction.mul\n        (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs))\n        (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.cell_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.le (stateNorm (cell (linearField w) h s))\n      (Fraction.mul (kappa w h) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.cell_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s t : Point × Point) :\n    stateEquiv (stateSub (cell (linearField w) h s) (cell (linearField w) h t))\n      (cell (linearField w) h (stateSub s t))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.cell_perturbation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s t : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (cell (linearField w) h s) (cell (linearField w) h t)))\n      (Fraction.mul (kappa w h) (stateNorm (stateSub s t)))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) :\n    stateEquiv (cell (linearField w) zero s) s",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) :\n    Fraction.equiv (stateNorm (cell (linearField w) zero s)) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.zero_kappa",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) : Fraction.equiv (kappa w zero) one",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.sample_kappa",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (kappa one half) ⟨9, 4, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.sample_initial_norm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (stateNorm sample) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_norm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (stateNorm (cell (linearField one) half sample)) ⟨11, 4, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.le (stateNorm (cell (linearField one) half sample))\n      (Fraction.mul (kappa one half) (stateNorm sample))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.position_mismatch",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
@@ -3672,6 +3938,132 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction)\n    (hbudget : Vanishes budget)\n    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :\n    Vanishes polygonTrajectoryArea",
     "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) : 0 ≤ (pointNorm p).num",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) : 0 ≤ (stateNorm s).num",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (h : pointEquiv p q) :\n    Fraction.equiv (pointNorm p) (pointNorm q)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{s t : Point × Point} (h : stateEquiv s t) :\n    Fraction.equiv (stateNorm s) (stateNorm t)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_add_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) :\n    Fraction.le (pointNorm (pointAdd p q))\n      (Fraction.add (pointNorm p) (pointNorm q))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_scale",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (p : Point) :\n    Fraction.equiv (pointNorm (pointScale d p)) (Fraction.mul d.abs (pointNorm p))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_add_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s t : Point × Point) :\n    Fraction.le (stateNorm (pointAdd s.1 t.1, pointAdd s.2 t.2))\n      (Fraction.add (stateNorm s) (stateNorm t))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (s : Point × Point) :\n    Fraction.equiv\n      (stateNorm (pointScale d s.1, pointScale d s.2))\n      (Fraction.mul d.abs (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.refinementStripTwice_eq_triangle",

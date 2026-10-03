@@ -340,3 +340,13 @@ sign and triangle estimates; order transport handles equivalent values and
 zero factors. The checked strict cancellation example guards unsigned sums.
 The local harmonic unsigned gap is now identified with its exact cubic
 magnitude. These are finite arithmetic estimates, not trajectory existence.
+
+Finite perturbation follow-up: both full builds passed, followed in order by
+the catalogue, graph validation and all 322 reference/axiom checks. There are
+403 declarations in 38 modules. The axiom set remains propext, Classical.choice
+and Quot.sound, with no sorryAx/project axiom; whitespace checks passed.
+Point/state L1 triangle, scaling and equivalence estimates support the actual
+harmonic cell's derived amplification and one-step perturbation estimates.
+Zero-duration and w=1,h=1/2 controls compile; Lean rejects the false temporary
+norm-cancellation assertion. These estimates do not yet compare whole schedules,
+construct a trajectory or identify a geometric nonnegative intervening region.

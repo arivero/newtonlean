@@ -26,6 +26,8 @@ import NewtonLimitDynamics.Polygon.StripArea
 import NewtonLimitDynamics.Polygon.CentralSchedule
 import NewtonLimitDynamics.Polygon.HarmonicStability
 import NewtonLimitDynamics.Polygon.HarmonicRefinement
+import NewtonLimitDynamics.Polygon.PointBounds
+import NewtonLimitDynamics.Polygon.HarmonicComparison
 import NewtonLimitDynamics.Polygon.MonotoneEnclosure
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums

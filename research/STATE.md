@@ -14,7 +14,11 @@ IV, in De Motu, 1687 and 1713 separately**. Construct the trajectory in the
 primary forward variant. Its main area lies BETWEEN polygon and trajectory,
 distinct from the Kepler area law. See [path defect](PROP_I_PATH_DEFECT.md)
 and the [overnight checkpoint](OVERNIGHT-2026-10-03.md). Zero-force support
-remains useful. The first finite suite
+remains useful. The harmonic construction now has a checked local common-time
+position/velocity and area comparison, coordinate triangle estimates and an
+actual-cell perturbation bound; see [harmonic refinement](HARMONIC_REFINEMENT.md).
+Global schedule comparison, trajectory existence and nonnegative intervening
+area control remain open. The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
 agreement with `p+t*v`, constant velocity, cross-denominator subdivision
 independence, exact restart, rest and within-cell positions. A zero-defect

@@ -174,3 +174,52 @@ Current next task: add coordinate L1 point/state estimates, derive the actual
 harmonic cell's one-step perturbation bound, and use it in finite schedule
 comparison. These are construction estimates for the primary unsupplied-curve
 variant. They are not a geometric area definition or a continuum realization.
+
+Commit `b999b53` records the harmonic local comparison; `fd9f517` records the
+absolute/triangle arithmetic. The current date is now 4 October locally; the
+overnight endpoint remains 07:00 Madrid / 05:00 UTC, not the date rollover.
+
+## Finite perturbation target pin
+
+Construct coordinate L1 magnitudes for represented points and position/velocity
+states, using Fraction.abs. Establish nonnegativity, invariance under rational
+value equivalence, the triangle inequality, and scalar multiplication. This
+norm is a chosen coordinate diagnostic, not a Euclidean area or a physical
+sum of unlike dimensions without calibration.
+
+For the actual harmonic cell with parameters w,h, let
+
+    kappa = (1+|h|)*(1+|h|*|w|).
+
+Prove stateNorm(cell(linearField w) h s) ≤ kappa*stateNorm(s). Prefer a finite
+drift bound followed by a finite kick bound. Prove that subtracting two actual
+cells is rationally equivalent to applying the same linear cell to the state
+difference, then deduce the one-step perturbation/Lipschitz estimate. Signed
+and zero parameters are allowed because the bound uses magnitudes. No modern
+ODE or analytic existence theorem is permitted. Do not assume stability,
+linearity or norm compatibility as fields; derive them from the actual cell.
+
+Gate: Lean compilation with actual parameterized theorem signatures, exact
+examples at h=0 and the pinned w=1,h=1/2 state, and a false norm-cancellation
+control rejected by Lean. If the full perturbation step exceeds this unit,
+deliver the complete point/state norm estimates with the exact remaining
+cell bound recorded. This is finite quantitative construction support, not
+an assumed or realized trajectory. Parent integrates source ledger and runs
+both full builds and reference checks after the implementation agent ends.
+
+Fourth increment checked: `PointBounds.lean` and `HarmonicComparison.lean`
+complete the full pin, including the derived actual-cell amplification,
+difference identity and perturbation estimate. The coordinate diagnostic needs
+unit calibration for physical interpretation. Both full builds and all 322
+references pass; 403 declarations in 38 modules, only standard logical axioms,
+no sorryAx/project axiom. Exact zero-step and pinned controls pass; the false
+norm-cancellation control is rejected. Global iteration, construction of the
+trajectory and the intervening-area geometry remain open.
+
+Next pin: compare n actual coarse cells of duration 2h with 2n actual fine
+cells of duration h, from the same initial state and field. Derive the local
+state truncation magnitude from the checked mismatch formulas, then propagate
+it through the actual cells. An explicit finite recurrence or weighted sum is
+acceptable as the first global bound; uniformity as the mesh shrinks is a
+separate next obligation. Do not treat signed Kepler cancellation as control
+of the nonnegative area between the evolving polygons.

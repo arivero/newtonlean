@@ -203,6 +203,32 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.Converse.unsigned_equal_area_not_central
 #check NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
 #print axioms NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.cell_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.cell_bound
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.cell_difference
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.cell_difference
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.cell_eq_kick_drift
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.cell_eq_kick_drift
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.cell_perturbation
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.cell_perturbation
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.drift_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.drift_bound
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.kick_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.kick_bound
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_bound
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_norm
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_norm
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.sample_initial_norm
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.sample_initial_norm
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.sample_kappa
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.sample_kappa
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.zero_kappa
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_kappa
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absolute_closed_defect_cubic
@@ -359,6 +385,22 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PathDefect.signed_gap_abs_le_budget
 #check NewtonLimitDynamics.Polygon.PathDefect.signed_gap_eq_Kepler_difference
 #print axioms NewtonLimitDynamics.Polygon.PathDefect.signed_gap_eq_Kepler_difference
+#check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_add_le
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_add_le
+#check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_equiv
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_equiv
+#check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative
+#check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_scale
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_scale
+#check NewtonLimitDynamics.Polygon.PointBounds.stateNorm_add_le
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_add_le
+#check NewtonLimitDynamics.Polygon.PointBounds.stateNorm_equiv
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_equiv
+#check NewtonLimitDynamics.Polygon.PointBounds.stateNorm_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_nonnegative
+#check NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale
 #check NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #check NewtonLimitDynamics.Polygon.RelativeMotion.add_common_cancel
