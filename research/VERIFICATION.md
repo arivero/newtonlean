@@ -331,3 +331,12 @@ the new names; its correctly ordered rerun passed. The local construction
 checks position/velocity mismatch, triangle reduction, exact cubic closed
 defect, equal Kepler sums and the pinned -1/8 signed versus 1/8 absolute gap.
 It supplies no actual trajectory or accumulated global defect estimate.
+
+Absolute-arithmetic follow-up: both full builds and all 301 references passed
+sequentially; 375 catalogued declarations in 36 modules. Axiom set remains
+propext, Classical.choice, Quot.sound, with no sorryAx/project axiom. The new
+Fraction magnitude respects unnormalised value equivalence and has product,
+sign and triangle estimates; order transport handles equivalent values and
+zero factors. The checked strict cancellation example guards unsigned sums.
+The local harmonic unsigned gap is now identified with its exact cubic
+magnitude. These are finite arithmetic estimates, not trajectory existence.

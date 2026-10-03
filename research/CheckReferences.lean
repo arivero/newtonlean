@@ -81,12 +81,30 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.kick_rigid
 #check NewtonLimitDynamics.Diagnostic.PhaseArea.refinement_moves_points_keeps_area
 #print axioms NewtonLimitDynamics.Diagnostic.PhaseArea.refinement_moves_points_keeps_area
+#check NewtonLimitDynamics.Fraction.abs_add_le
+#print axioms NewtonLimitDynamics.Fraction.abs_add_le
+#check NewtonLimitDynamics.Fraction.abs_add_strict_example
+#print axioms NewtonLimitDynamics.Fraction.abs_add_strict_example
+#check NewtonLimitDynamics.Fraction.abs_equiv
+#print axioms NewtonLimitDynamics.Fraction.abs_equiv
+#check NewtonLimitDynamics.Fraction.abs_mul
+#print axioms NewtonLimitDynamics.Fraction.abs_mul
+#check NewtonLimitDynamics.Fraction.abs_neg
+#print axioms NewtonLimitDynamics.Fraction.abs_neg
+#check NewtonLimitDynamics.Fraction.abs_num_nonnegative
+#print axioms NewtonLimitDynamics.Fraction.abs_num_nonnegative
+#check NewtonLimitDynamics.Fraction.abs_of_nonnegative
+#print axioms NewtonLimitDynamics.Fraction.abs_of_nonnegative
 #check NewtonLimitDynamics.Fraction.add_assoc
 #print axioms NewtonLimitDynamics.Fraction.add_assoc
 #check NewtonLimitDynamics.Fraction.add_comm
 #print axioms NewtonLimitDynamics.Fraction.add_comm
 #check NewtonLimitDynamics.Fraction.add_equiv_right
 #print axioms NewtonLimitDynamics.Fraction.add_equiv_right
+#check NewtonLimitDynamics.Fraction.add_le_add
+#print axioms NewtonLimitDynamics.Fraction.add_le_add
+#check NewtonLimitDynamics.Fraction.add_le_add_left
+#print axioms NewtonLimitDynamics.Fraction.add_le_add_left
 #check NewtonLimitDynamics.Fraction.add_le_add_right
 #print axioms NewtonLimitDynamics.Fraction.add_le_add_right
 #check NewtonLimitDynamics.Fraction.constructed_triangle_limit
@@ -101,6 +119,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.equiv_trans
 #check NewtonLimitDynamics.Fraction.half_lt
 #print axioms NewtonLimitDynamics.Fraction.half_lt
+#check NewtonLimitDynamics.Fraction.le_equiv_left
+#print axioms NewtonLimitDynamics.Fraction.le_equiv_left
+#check NewtonLimitDynamics.Fraction.le_equiv_right
+#print axioms NewtonLimitDynamics.Fraction.le_equiv_right
+#check NewtonLimitDynamics.Fraction.le_of_equiv
+#print axioms NewtonLimitDynamics.Fraction.le_of_equiv
 #check NewtonLimitDynamics.Fraction.mul_add
 #print axioms NewtonLimitDynamics.Fraction.mul_add
 #check NewtonLimitDynamics.Fraction.mul_assoc
@@ -109,6 +133,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.mul_comm
 #check NewtonLimitDynamics.Fraction.mul_equiv_left
 #print axioms NewtonLimitDynamics.Fraction.mul_equiv_left
+#check NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative
+#print axioms NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative
+#check NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative_left
+#print axioms NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative_left
 #check NewtonLimitDynamics.Fraction.mul_le_mul_positive
 #print axioms NewtonLimitDynamics.Fraction.mul_le_mul_positive
 #check NewtonLimitDynamics.Fraction.positive_iff_zero_lt
@@ -177,6 +205,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicRefinement.absolute_closed_defect_cubic
+#print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.absolute_closed_defect_cubic
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_defect_cubic
 #print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_defect_cubic
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.closed_eq_triangle

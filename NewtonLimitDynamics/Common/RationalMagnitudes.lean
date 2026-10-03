@@ -22,6 +22,49 @@ def mul (a b : Fraction) : Fraction :=
   ⟨a.num * b.num, a.den * b.den, Int.mul_pos a.den_pos b.den_pos⟩
 def half (a : Fraction) : Fraction := ⟨a.num, 2 * a.den, Int.mul_pos (by decide) a.den_pos⟩
 
+/-- Unsigned scalar magnitude. This arithmetic operation does not identify a
+    geometric region between paths or erase the need to sum separate lobes. -/
+def abs (a : Fraction) : Fraction := ⟨a.num.natAbs, a.den, a.den_pos⟩
+
+theorem abs_num_nonnegative (a : Fraction) : 0 ≤ a.abs.num := Int.ofNat_nonneg _
+
+/-- Unsigned magnitude respects equality of rational values, not just equality
+    of their unnormalised representations. -/
+theorem abs_equiv {a b : Fraction} (h : equiv a b) : equiv a.abs b.abs := by
+  have hn := congrArg Int.natAbs h
+  have hi := congrArg (fun n : Nat => (n : Int)) hn
+  simp only [Int.natAbs_mul, Int.ofNat_mul,
+    Int.natAbs_of_nonneg (Int.le_of_lt a.den_pos),
+    Int.natAbs_of_nonneg (Int.le_of_lt b.den_pos)] at hi
+  exact hi
+
+theorem abs_mul (a b : Fraction) : equiv (mul a b).abs (mul a.abs b.abs) := by
+  unfold equiv abs mul
+  dsimp
+  rw [Int.natAbs_mul, Int.ofNat_mul]
+
+theorem abs_of_nonnegative (a : Fraction) (ha : 0 ≤ a.num) : equiv a.abs a := by
+  unfold equiv abs
+  dsimp
+  rw [Int.natAbs_of_nonneg ha]
+
+theorem abs_neg (a : Fraction) : equiv (⟨-a.num, a.den, a.den_pos⟩ : Fraction).abs a.abs := by
+  unfold equiv abs
+  dsimp
+  rw [Int.natAbs_neg]
+
+/-- Rational triangle estimate for finite perturbation accounting. -/
+theorem abs_add_le (a b : Fraction) : le (add a b).abs (add a.abs b.abs) := by
+  have hn := Int.natAbs_add_le (a.num * b.den) (b.num * a.den)
+  have hi := Int.ofNat_le.mpr hn
+  simp only [Int.ofNat_add, Int.natAbs_mul, Int.ofNat_mul,
+    Int.natAbs_of_nonneg (Int.le_of_lt a.den_pos),
+    Int.natAbs_of_nonneg (Int.le_of_lt b.den_pos)] at hi
+  unfold le abs add
+  dsimp
+  exact Int.mul_le_mul_of_nonneg_right hi
+    (Int.le_of_lt (Int.mul_pos a.den_pos b.den_pos))
+
 private theorem transfer {a b c : Fraction} (h : le a b) (k : le b c) : le a c := by
   have h' := Int.mul_le_mul_of_nonneg_right h (Int.le_of_lt c.den_pos)
   have k' := Int.mul_le_mul_of_nonneg_right k (Int.le_of_lt a.den_pos)
@@ -111,6 +154,15 @@ theorem equiv_trans {a b c : Fraction} (h : equiv a b) (k : equiv b c) : equiv a
   obtain ⟨hbc, hcb⟩ := (equiv_iff_mutual_le b c).mp k
   exact (equiv_iff_mutual_le a c).mpr ⟨transfer hab hbc, transfer hcb hba⟩
 
+theorem le_of_equiv {a b : Fraction} (h : equiv a b) : le a b :=
+  ((equiv_iff_mutual_le a b).mp h).1
+
+theorem le_equiv_right {a b c : Fraction} (h : le a b) (k : equiv b c) : le a c :=
+  transfer h (le_of_equiv k)
+
+theorem le_equiv_left {a b c : Fraction} (h : equiv a b) (k : le b c) : le a c :=
+  transfer (le_of_equiv h) k
+
 /-- Addition preserves weak order: arithmetic and comparisons are compatible. -/
 theorem add_le_add_right {a b : Fraction} (h : le a b) (c : Fraction) :
     le (add a c) (add b c) := by
@@ -141,10 +193,44 @@ theorem add_comm (a b : Fraction) : equiv (add a b) (add b a) := by
   dsimp
   simp only [Int.mul_comm, Int.add_comm]
 
+theorem add_le_add_left {a b : Fraction} (h : le a b) (c : Fraction) :
+    le (add c a) (add c b) :=
+  le_equiv_left (add_comm c a)
+    (le_equiv_right (add_le_add_right h c) (add_comm b c))
+
+theorem add_le_add {a b c d : Fraction} (h : le a b) (k : le c d) :
+    le (add a c) (add b d) :=
+  transfer (add_le_add_right h c) (add_le_add_left k b)
+
+/-- Weak-order multiplication also permits a zero factor. -/
+theorem mul_le_mul_nonnegative {a b : Fraction} (h : le a b) (c : Fraction)
+    (hc : 0 ≤ c.num) : le (mul a c) (mul b c) := by
+  have hp := Int.mul_nonneg hc (Int.le_of_lt c.den_pos)
+  have hm := Int.mul_le_mul_of_nonneg_right h hp
+  unfold le mul at *
+  dsimp
+  have e1 : a.num * c.num * (b.den * c.den) = (a.num * b.den) * (c.num * c.den) := by ac_rfl
+  have e2 : b.num * c.num * (a.den * c.den) = (b.num * a.den) * (c.num * c.den) := by ac_rfl
+  rw [e1, e2]
+  exact hm
+
 theorem mul_comm (a b : Fraction) : equiv (mul a b) (mul b a) := by
   unfold equiv mul
   dsimp
   ac_rfl
+
+theorem mul_le_mul_nonnegative_left {a b : Fraction} (h : le a b) (c : Fraction)
+    (hc : 0 ≤ c.num) : le (mul c a) (mul c b) :=
+  le_equiv_left (mul_comm c a)
+    (le_equiv_right (mul_le_mul_nonnegative h c hc) (mul_comm b c))
+
+/-- Cancellation can make the triangle estimate strict; absolute sums cannot
+    be replaced by the absolute value of the total signed sum. -/
+theorem abs_add_strict_example :
+    lt (add (⟨1, 2, by decide⟩ : Fraction) ⟨-1, 2, by decide⟩).abs
+      (add (⟨1, 2, by decide⟩ : Fraction).abs (⟨-1, 2, by decide⟩ : Fraction).abs) := by
+  unfold lt add abs
+  decide
 
 /-- The actual ratio s/t²; time has to be positive before division is built. -/
 def deflectionRatio (s t : Fraction) (ht : positive t) : Fraction :=

@@ -160,3 +160,17 @@ to accumulate harmonic refinement errors. Search/extend the existing Fraction
 arithmetic rather than introduce a duplicate rational system. Then derive
 finite perturbation/schedule comparison; keep nonnegative path-area control
 separate from positions and the still unconstructed actual trajectory.
+
+Third increment checked: Fraction absolute magnitude respects represented
+rational equivalence, products, signs and the triangle inequality; weak-order
+transport/addition/multiplication handles zero factors. A strict cancellation
+example compiles. The harmonic local absolute defect now uses this common
+operation and is exactly the magnitude of its cubic coefficient. Both builds
+and all 301 references pass; 375 theorem declarations in 36 modules; only
+standard logical axioms, no sorryAx/project axiom. The library rebuild was run
+to completion before the explicit-target and reference checks.
+
+Current next task: add coordinate L1 point/state estimates, derive the actual
+harmonic cell's one-step perturbation bound, and use it in finite schedule
+comparison. These are construction estimates for the primary unsupplied-curve
+variant. They are not a geometric area definition or a continuum realization.

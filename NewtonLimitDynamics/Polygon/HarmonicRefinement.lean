@@ -88,13 +88,20 @@ theorem closed_defect_cubic (w h : Fraction) (s : Point × Point) :
 /-- Nonnegative magnitude of this one closed signed triangle. It does not
 account for overlaps or multiple lobes in a global polygon comparison. -/
 def absoluteClosedGap (w h : Fraction) (s : Point × Point) : Fraction :=
-  let d := closedDefect w h s
-  ⟨Int.natAbs d.num, d.den, d.den_pos⟩
+  (closedDefect w h s).abs
 
 theorem absoluteClosedGap_nonnegative (w h : Fraction) (s : Point × Point) :
     0 ≤ (absoluteClosedGap w h s).num := by
-  unfold absoluteClosedGap
-  exact Int.ofNat_nonneg _
+  exact Fraction.abs_num_nonnegative _
+
+/-- Nonnegative local gap as the magnitude of the exact cubic coefficient.
+    This is one triangle, so no cancellation of distinct lobes is involved. -/
+theorem absolute_closed_defect_cubic (w h : Fraction) (s : Point × Point) :
+    Fraction.equiv (absoluteClosedGap w h s)
+      (Fraction.mul (Fraction.mul (Fraction.mul h h) h)
+        (Fraction.mul w (det s.1 s.2))).abs :=
+  Fraction.equiv_trans (Fraction.abs_equiv (closed_defect_cubic w h s))
+    (Fraction.abs_neg _)
 
 /-- Central-force Kepler sums agree for these two schedules. -/
 theorem swept_equal (w h : Fraction) (s : Point × Point) :

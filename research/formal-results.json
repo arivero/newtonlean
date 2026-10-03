@@ -36,6 +36,78 @@
     "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.abs_num_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : 0 ≤ a.abs.num",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : equiv a b) : equiv a.abs b.abs",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_mul",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : equiv (mul a b).abs (mul a.abs b.abs)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_of_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num) : equiv a.abs a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_neg",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : equiv (⟨-a.num, a.den, a.den_pos⟩ : Fraction).abs a.abs",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_add_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : le (add a b).abs (add a.abs b.abs)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Fraction.transfer",
     "private": true,
     "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
@@ -45,7 +117,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b c : Fraction} (h : le a b) (k : le b c) : le a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.mixed",
@@ -57,7 +129,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b c : Fraction} (h : lt a b) (k : le b c) : lt a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.mixed",
@@ -69,7 +141,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b c : Fraction} (h : lt a b) (k : le b c) : lt a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.half_lt",
@@ -81,7 +153,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Fraction) (h : positive a) : lt a.half a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.equiv_iff_mutual_le",
@@ -93,7 +165,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Fraction) : equiv a b ↔ le a b ∧ le b a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.equiv_refl",
@@ -105,7 +177,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Fraction) : equiv a a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.equiv_symm",
@@ -117,7 +189,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : Fraction} (h : equiv a b) : equiv b a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.equiv_trans",
@@ -129,7 +201,43 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b c : Fraction} (h : equiv a b) (k : equiv b c) : equiv a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.le_of_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : equiv a b) : le a b",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.le_equiv_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : le a b) (k : equiv b c) : le a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.le_equiv_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : equiv a b) (k : le b c) : le a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.add_le_add_right",
@@ -141,7 +249,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction) :\n    le (add a c) (add b c)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.mul_le_mul_positive",
@@ -153,7 +261,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : positive c) : le (mul a c) (mul b c)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.add_comm",
@@ -165,7 +273,43 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Fraction) : equiv (add a b) (add b a)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_le_add_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction) :\n    le (add c a) (add c b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_le_add",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : le a b) (k : le c d) :\n    le (add a c) (add b d)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : 0 ≤ c.num) : le (mul a c) (mul b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.mul_comm",
@@ -177,7 +321,31 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Fraction) : equiv (mul a b) (mul b a)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : 0 ≤ c.num) : le (mul c a) (mul c b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_add_strict_example",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    lt (add (⟨1, 2, by decide⟩ : Fraction) ⟨-1, 2, by decide⟩).abs\n      (add (⟨1, 2, by decide⟩ : Fraction).abs (⟨-1, 2, by decide⟩ : Fraction).abs)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.square_ratio",
@@ -189,7 +357,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(k t : Fraction) (ht : positive t) :\n    equiv (deflectionRatio (mul k (mul t t)) t ht) k",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.add_assoc",
@@ -201,7 +369,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b c : Fraction) : equiv (add (add a b) c) (add a (add b c))",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.mul_assoc",
@@ -213,7 +381,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b c : Fraction) : equiv (mul (mul a b) c) (mul a (mul b c))",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.mul_add",
@@ -225,7 +393,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b c : Fraction) : equiv (mul a (add b c)) (add (mul a b) (mul a c))",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.positive_mul",
@@ -237,7 +405,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Fraction) (ha : positive a) (hb : positive b) :\n    positive (mul a b)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.positive_iff_zero_lt",
@@ -249,7 +417,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Fraction) : positive a ↔ lt (ofInt 0) a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.ultimate_congr",
@@ -261,7 +429,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(f k : Fraction → Fraction) (c : Fraction)\n    (he : ∀ t, positive t → equiv (f t) (k t))\n    (hk : Ultimate magnitudes k c) : Ultimate magnitudes f c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.triangle_normalized_limit",
@@ -273,7 +441,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(slope : Fraction → Fraction) (c : Fraction)\n    (hs : Ultimate magnitudes slope c) :\n    Ultimate magnitudes (ratio (fun t => mul (slope t) (mul t t))) c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.triangle_area_ratio",
@@ -285,7 +453,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(slope time : Fraction) (ht : positive time) :\n    equiv (deflectionRatio (triangleArea time (mul slope time)) time ht) (half slope)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.constructed_triangle_limit",
@@ -297,7 +465,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(slope : Fraction → Fraction) (c : Fraction)\n    (hs : Ultimate magnitudes (fun t => half (slope t)) c) :\n    Ultimate magnitudes (ratio (fun t => triangleArea t (mul (slope t) t))) c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.mul_equiv_left",
@@ -309,7 +477,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(k : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (mul k a) (mul k b)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Fraction.add_equiv_right",
@@ -321,7 +489,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(k : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (add a k) (add b k)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit."
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Comparison.CircleCompare.force_ratio_is_sagitta_ratio",
@@ -2038,6 +2206,20 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    0 ≤ (absoluteClosedGap w h s).num",
+    "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.absolute_closed_defect_cubic",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    Fraction.equiv (absoluteClosedGap w h s)\n      (Fraction.mul (Fraction.mul (Fraction.mul h h) h)\n        (Fraction.mul w (det s.1 s.2))).abs",
     "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
   },
   {
