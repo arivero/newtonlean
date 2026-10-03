@@ -1,0 +1,147 @@
+# Overnight Newton formalization, 3–4 October 2026
+
+The user's 3 October instruction authorizes overnight work, in the order
+Proposition I, II, III, IV, for **De Motu, 1687, and 1713 separately**.
+The overnight window ends at 07:00 Europe/Madrid on 4 October (05:00 UTC).
+Finish the current bounded increment and its checks before the final report.
+The active goal must remain active until that window and reporting are done.
+At most one subagent works at a time; the user's latest instruction permits
+occasional Astra second opinions despite the older prohibition in AGENTS.md.
+
+## Baseline and preservation
+
+At start: master at `381d5e9`; 319 catalogued theorem declarations in 31
+modules. Both Lean 4.19.0 builds, 245 reference/axiom checks, and the evidence
+graph check passed in the preceding status turn. The worktree already contains
+the 1 October proof/documentation/rendering corrections. Preserve them and
+the unrelated conversation-export deletion and replacement. Do not stage
+conversation exports. No mathlib or additional external dependencies.
+
+## First bounded target: finite Proposition I in all three stages
+
+The user's follow-up makes the main target explicit: **the area between the
+impulse polygon and the actual trajectory over the same time interval**.
+It must appear separately in all three Theorem 1 / Proposition I interfaces.
+This is not the Kepler sector area swept by a radius from S. The unsigned
+triangle-sum correction below supports the finite area law but does not itself
+control that polygon–trajectory defect. Identify the geometric region and its
+enclosure budget first; a supplied curve, a curve constructed by convergence,
+and a finite finer polygon are three different objects.
+
+The existing `Polygon/Finite.lean` construction proves a common oriented
+triangle area for every impulse history, conditional on two explicitly named
+Euclidean identities. It has no theorem about the **unsigned** triangle sum
+and no separately named stage-local finite theorem. `CentralSchedule.lean`
+supplies a more general rational position-dependent-field construction; it
+does not remove those presentation and unsigned-area obligations.
+
+Extend the existing finite construction in place. Define each triangle's
+doubled unsigned area by `Int.natAbs`, derive its constancy from the checked
+oriented identity, and prove that the finite unsigned sum is its count times
+the first unsigned area. Derive the cross-multiplied area/time ratio for
+positive equal cells. This does not identify polygon sums with an overlapping
+sector union, construct a curve, or justify an infinite refinement.
+
+Expose this finite statement separately in the De Motu, 1687, and 1713
+namespaces. Each module must cite only its stage's passages, name the two
+Euclidean identities as supplied geometric premises, and leave the stage's
+limiting clause outside the proved finite statement. De Motu keeps the two
+witnesses distinct and does not acquire retrospective I–IV numbering.
+
+May assume: the existing finite recursion and its checked one-step area
+identity; elementary integer/natural-number arithmetic; explicit Euclidean
+construction premises. Must not assume: a limiting curve, force identification,
+geometric sector enclosure, unsigned=sum-of-signed without a sign premise,
+or a theorem imported from a later textual stage.
+
+Acceptance: both library builds; catalogue and graph/reference checks; all
+generated references elaborated with no sorryAx/project axiom; exact Lean
+examples for positive orientation, negative orientation, radial degeneracy,
+rest/zero impulse, and zero counts. A negative-orientation instance must
+refute equality of signed and unsigned sums. A deliberately false variant in
+a temporary Lean file must be rejected. Label the result Lean-checked finite
+reconstruction, not a complete historical proof or VERIFIED-CLOSED under
+the full multi-agent numerical protocol.
+
+Pre-registered instances: lattice p=(1,0), q=(1,1), zero impulses gives signed
+and unsigned sums 3 for three cells; p=(1,0), q=(1,-1), zero impulses gives
+signed sum -3 and unsigned sum 3; p=(1,0), q=(2,0) with radial impulses has
+unsigned sum zero; zero counts always give zero. Nonzero equal time cells
+are explicit in the area/time wrapper.
+
+## Remaining queue and stop rule
+
+The user's additional clarification prioritizes the **unsupplied-curve
+construction variant**. Supplied-curve enclosure theorems are diagnostics
+only. The main forward theorem must construct the trajectory and its region
+of comparison; assuming that curve leaves the central target open.
+
+After the finite three-stage increment, advance Proposition I's P3 finite
+stability/refinement comparison, beginning with the harmonic field. A proved
+special case must retain its modern regularity and arithmetic premises.
+If a missing historical premise cannot be discharged in a bounded increment,
+record the exact gap and continue independent work on the next proposition;
+do not spend the overnight window repeating source audits.
+
+For II and III, retain the current bounded De Motu absence findings until an
+actual same-stage antecedent is recovered. Never fabricate an analogue from
+1687/1713. For IV, preserve all three different finite/limiting routes.
+The action hypothesis is a separate open diagnostic and is not a priority
+in this overnight run.
+
+## Result checkpoints
+
+Astra's bounded adversary-first review found no counterexample to the exact
+finite unsigned block-sum claim and compiled a generic proof independently in
+`/tmp/prop_i_adversary.lean`. Its periodic inward-kick example demonstrates
+repeated coverage, so the sum is explicitly counted with multiplicity. It also
+checked a negative orientation, radial degeneracy, rest and zero counts; a
+false signed-area assertion was rejected in a separate temporary Lean file.
+This review is about the pinned finite statement, not the forthcoming full
+repository implementation and not trajectory realization.
+
+The extended `Polygon/Finite.lean` and all three stage modules compiled during
+the first default build. Complete the remaining catalogue/reference checks
+after incorporating the user's polygon–trajectory-defect interface.
+
+First increment independently verified (21:36 UTC): 346 catalogued theorem
+declarations in 35 modules; both Lean builds; all 272 reference/axiom checks;
+graph validation (77 nodes, 68 edges, 246 passages); evidence/rendering negative
+controls; all source checksums; whitespace check. Only standard Lean axioms
+occur. A fresh `Std` direct-determinant check reproduced the two-lobe example
+with equal signed/unsigned Kepler areas but positive absolute patch budget.
+The main unsupplied-curve construction remains OPEN. See PROP_I_PATH_DEFECT.md.
+
+Commit `d182f02` checkpoints the pre-existing 1 October proof/documentation/
+rendering corrections, without the unrelated conversation exports. The new
+three-stage finite/defect increment is being checkpointed separately.
+
+## Next bounded construction step: harmonic common-time refinement
+
+Implement `Polygon/HarmonicRefinement.lean`, using actual `CentralSchedule.cell`
+with the SAME `linearField w`, initial state s=(x,v), and total duration 2h.
+Compare a coarse cell 2h with two fine cells h. Write y for the first fine
+position, z for the fine endpoint, and X for the coarse endpoint. The two
+polygons need not share terminal position, so the explicit connector z→X
+closes their comparison; it is not an additional mechanical cell.
+
+Pin: prove the exact local position and velocity mismatches by core rational
+arithmetic. Fine-minus-coarse position is `-h²*w*y`; fine-minus-coarse velocity
+is `h²*w*v + h³*w²*y`. The main signed doubled area is the closed boundary
+x→y→z→X→x, not its Kepler sums. Because x,y,X are collinear, this boundary
+reduces to triangle y,z,X. Prove its exact value `-h³*w*det(x,v)`. In particular
+coarse and fine Kepler sums agree by centrality while this closed defect can
+be nonzero. No actual trajectory is supplied or constructed in this local
+step; its use is a finite comparison needed for the primary construction.
+
+Allowed alternative: exact position mismatch plus the closed-boundary/triangle
+and cubic signed-area identities if velocity expansion exceeds the bounded
+unit. Record any remaining norm/accumulation obligations. Must not equate the
+absolute signed gap with a global multi-lobe area, or sum local estimates as
+if two evolving global polygons shared all cell initial data.
+
+Pre-registered exact instance: w=1, h=1/2, x=(1,0), v=(0,1). Then y=(1,1/2),
+z=(3/4,7/8), X=(1,1); the closed doubled defect is -1/8 and its absolute size
+1/8, while the two Kepler doubled sums each equal 1. Validate with Lean decide
+and a deliberately false zero-defect variant. This is finite construction,
+not proof of harmonic convergence or a curve existing at all Euclidean times.

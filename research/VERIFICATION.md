@@ -298,3 +298,27 @@ dotted and dash-dot raster patterns, including the stage/status legend.
 PNG previews and the seven-page grouped PDF were regenerated; representative
 figures were visually inspected. The evidence-validation baseline and four
 negative cases, all 22 source checksums, and `git diff --check` passed.
+
+## Overnight first increment, 3 October 2026
+
+Lean 4.19.0 `lake build` and `lake build NewtonLimitDynamics` passed. The
+catalogue has 346 theorem declarations in 35 modules; the graph validates
+77 nodes, 68 edges, 246 passages and emits 272 Lean references. A separate
+verification agent elaborated every reference and axiom report with no errors,
+sorryAx or project axioms; the aggregate set is propext, Classical.choice,
+Quot.sound. Evidence validation, graph-rendering controls, all 22 source
+checksums and whitespace checks passed. New graph coverage rendering is
+deferred until the next proof batch; existing seven figures passed integrity
+checks, and their earlier corrections are preserved.
+
+The new finite support includes unsigned equal-cell/block sums, separately
+named De Motu witnesses and 1687/1713 statements, and finite path-defect
+accounting. A fresh `Std` direct-det calculation independently checked the
+two-lobe example: signed/unsigned Kepler sums agree at -6/6 while the unsigned
+patch budget is 2. A deliberately false statement was rejected by Lean.
+The De Motu catalogue now uses declaration-specific witness references.
+
+No actual trajectory is constructed by this increment. The stage defect-control
+interfaces assume the nonnegative polygon–trajectory region's geometric
+enclosure and a vanishing budget and are diagnostic variants only. The primary
+forward construction remains open, with Proposition I prioritized over II–IV.

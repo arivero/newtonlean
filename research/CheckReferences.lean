@@ -1,6 +1,18 @@
 import NewtonLimitDynamics
 
 -- Generated; compile with lake env lean research/CheckReferences.lean.
+#check DeMotu1684.AreaLaw.natp00089_finite_block_comparison
+#print axioms DeMotu1684.AreaLaw.natp00089_finite_block_comparison
+#check DeMotu1684.AreaLaw.natp00089_finite_equal_areas
+#print axioms DeMotu1684.AreaLaw.natp00089_finite_equal_areas
+#check DeMotu1684.AreaLaw.natp00089_polygon_trajectory_defect_control
+#print axioms DeMotu1684.AreaLaw.natp00089_polygon_trajectory_defect_control
+#check DeMotu1684.AreaLaw.natp00090_finite_block_comparison
+#print axioms DeMotu1684.AreaLaw.natp00090_finite_block_comparison
+#check DeMotu1684.AreaLaw.natp00090_finite_equal_areas
+#print axioms DeMotu1684.AreaLaw.natp00090_finite_equal_areas
+#check DeMotu1684.AreaLaw.natp00090_polygon_trajectory_defect_control
+#print axioms DeMotu1684.AreaLaw.natp00090_polygon_trajectory_defect_control
 #check DeMotu1684.QuadraticInitialDeflection
 #print axioms DeMotu1684.QuadraticInitialDeflection
 #check NewtonLimitDynamics.Comparison.CircleCompare.force_ratio_is_sagitta_ratio
@@ -277,6 +289,18 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PartitionControl.stats_identity
 #check NewtonLimitDynamics.Polygon.PartitionControl.stats_identity_from
 #print axioms NewtonLimitDynamics.Polygon.PartitionControl.stats_identity_from
+#check NewtonLimitDynamics.Polygon.PathDefect.absolute_budget_le_count_mul
+#print axioms NewtonLimitDynamics.Polygon.PathDefect.absolute_budget_le_count_mul
+#check NewtonLimitDynamics.Polygon.PathDefect.absolute_budget_translation
+#print axioms NewtonLimitDynamics.Polygon.PathDefect.absolute_budget_translation
+#check NewtonLimitDynamics.Polygon.PathDefect.equal_Kepler_areas_positive_path_defect
+#print axioms NewtonLimitDynamics.Polygon.PathDefect.equal_Kepler_areas_positive_path_defect
+#check NewtonLimitDynamics.Polygon.PathDefect.polygon_trajectory_defect_vanishes
+#print axioms NewtonLimitDynamics.Polygon.PathDefect.polygon_trajectory_defect_vanishes
+#check NewtonLimitDynamics.Polygon.PathDefect.signed_gap_abs_le_budget
+#print axioms NewtonLimitDynamics.Polygon.PathDefect.signed_gap_abs_le_budget
+#check NewtonLimitDynamics.Polygon.PathDefect.signed_gap_eq_Kepler_difference
+#print axioms NewtonLimitDynamics.Polygon.PathDefect.signed_gap_eq_Kepler_difference
 #check NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #check NewtonLimitDynamics.Polygon.RelativeMotion.add_common_cancel
@@ -395,8 +419,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.adjacent_velocityContact_iff
 #check NewtonLimitDynamics.Polygon.all_cell_areas
 #print axioms NewtonLimitDynamics.Polygon.all_cell_areas
+#check NewtonLimitDynamics.Polygon.all_unsigned_cell_areas
+#print axioms NewtonLimitDynamics.Polygon.all_unsigned_cell_areas
 #check NewtonLimitDynamics.Polygon.central_step_area
 #print axioms NewtonLimitDynamics.Polygon.central_step_area
+#check NewtonLimitDynamics.Polygon.degenerate_unsigned_examples
+#print axioms NewtonLimitDynamics.Polygon.degenerate_unsigned_examples
 #check NewtonLimitDynamics.Polygon.det_translation
 #print axioms NewtonLimitDynamics.Polygon.det_translation
 #check NewtonLimitDynamics.Polygon.enclosed_gap_vanishes
@@ -445,12 +473,20 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.motion_lattice_velocity_jump
 #check NewtonLimitDynamics.Polygon.motion_restart
 #print axioms NewtonLimitDynamics.Polygon.motion_restart
+#check NewtonLimitDynamics.Polygon.negative_orientation_unsigned_example
+#print axioms NewtonLimitDynamics.Polygon.negative_orientation_unsigned_example
+#check NewtonLimitDynamics.Polygon.nsum_constant
+#print axioms NewtonLimitDynamics.Polygon.nsum_constant
 #check NewtonLimitDynamics.Polygon.oneCellMotionRefinementCompatible_end
 #print axioms NewtonLimitDynamics.Polygon.oneCellMotionRefinementCompatible_end
 #check NewtonLimitDynamics.Polygon.oneCellMotionRefinementCompatible_start
 #print axioms NewtonLimitDynamics.Polygon.oneCellMotionRefinementCompatible_start
 #check NewtonLimitDynamics.Polygon.parallel_identity
 #print axioms NewtonLimitDynamics.Polygon.parallel_identity
+#check NewtonLimitDynamics.Polygon.positive_orientation_unsigned_example
+#print axioms NewtonLimitDynamics.Polygon.positive_orientation_unsigned_example
+#check NewtonLimitDynamics.Polygon.positive_unsigned_area_comparison
+#print axioms NewtonLimitDynamics.Polygon.positive_unsigned_area_comparison
 #check NewtonLimitDynamics.Polygon.rectangle_gap_bound
 #print axioms NewtonLimitDynamics.Polygon.rectangle_gap_bound
 #check NewtonLimitDynamics.Polygon.refinementDefect_eq_zero_iff
@@ -459,6 +495,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.refinementStripTwice_eq_triangle
 #check NewtonLimitDynamics.Polygon.refinementStripTwice_translation
 #print axioms NewtonLimitDynamics.Polygon.refinementStripTwice_translation
+#check NewtonLimitDynamics.Polygon.repeated_triangle_coverage_example
+#print axioms NewtonLimitDynamics.Polygon.repeated_triangle_coverage_example
 #check NewtonLimitDynamics.Polygon.restriction_cell
 #print axioms NewtonLimitDynamics.Polygon.restriction_cell
 #check NewtonLimitDynamics.Polygon.sector_ratio_reconstruction
@@ -469,6 +507,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.swept_eq
 #check NewtonLimitDynamics.Polygon.telescoping
 #print axioms NewtonLimitDynamics.Polygon.telescoping
+#check NewtonLimitDynamics.Polygon.unsigned_block_eq
+#print axioms NewtonLimitDynamics.Polygon.unsigned_block_eq
+#check NewtonLimitDynamics.Polygon.unsigned_block_time_cross
+#print axioms NewtonLimitDynamics.Polygon.unsigned_block_time_cross
 #check NewtonLimitDynamics.Polygon.velocityContact_position
 #print axioms NewtonLimitDynamics.Polygon.velocityContact_position
 #check NewtonLimitDynamics.enclosure_reconstruction
@@ -479,12 +521,24 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.near_has_witness
 #check NewtonLimitDynamics.not_near_false
 #print axioms NewtonLimitDynamics.not_near_false
+#check Principia1687.PropositionI.finite_componendo
+#print axioms Principia1687.PropositionI.finite_componendo
+#check Principia1687.PropositionI.finite_equal_areas
+#print axioms Principia1687.PropositionI.finite_equal_areas
+#check Principia1687.PropositionI.polygon_trajectory_defect_control
+#print axioms Principia1687.PropositionI.polygon_trajectory_defect_control
 #check Principia1687.constructed_quadratic_bridge
 #print axioms Principia1687.constructed_quadratic_bridge
 #check Principia1687.discharges_quadraticPremise_reconstruction
 #print axioms Principia1687.discharges_quadraticPremise_reconstruction
 #check Principia1687.lemmaX_reconstruction
 #print axioms Principia1687.lemmaX_reconstruction
+#check Principia1713.PropositionI.finite_componendo
+#print axioms Principia1713.PropositionI.finite_componendo
+#check Principia1713.PropositionI.finite_equal_areas
+#print axioms Principia1713.PropositionI.finite_equal_areas
+#check Principia1713.PropositionI.polygon_trajectory_defect_control
+#print axioms Principia1713.PropositionI.polygon_trajectory_defect_control
 #check Principia1713.corollary4_coefficient_reconstruction
 #print axioms Principia1713.corollary4_coefficient_reconstruction
 #check Principia1713.corollary5_coefficient_reconstruction

@@ -6,6 +6,10 @@ import re
 from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 correspondence = {
+ 'DeMotu1684/AreaLaw.lean': (['NATP00089.par8','NATP00089.par9','NATP00090.par16','NATP00090.par17'], 'Separate finite De Motu Theorem 1 reconstructions, not retrospectively numbered Principia propositions. The two witnesses remain distinct at declaration level below. Named Euclidean identities and supplied area semantics give equal unsigned cell areas and derived block comparisons. The main polygon-trajectory area is separate from Kepler area; its conditional control requires a realized curve, justified nonnegative enclosure and a vanishing budget. No limiting clause or uninterrupted force is derived.'),
+ 'Principia1687/PropositionI.lean': (['NATP00077.par44','NATP00077.par45'], '1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 premise, sector union, trajectory realization or uninterrupted-force identification is derived.'),
+ 'Principia1713/PropositionI.lean': (['NATP00082.par50','NATP00082.par51'], '1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. Curve existence, sector interpretation, Lemma III Corollary 4 passage and force identification remain open.'),
+ 'Polygon/PathDefect.lean': (['NATP00089.par9','NATP00090.par17','NATP00077.par45','NATP00082.par51'], 'Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality.'),
  'Common/Quadratic.lean': ([], 'Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters.'),
  'Common/RationalMagnitudes.lean': (['NATP00077.par26','NATP00082.par27'], 'Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit.'),
  'DeMotu1684/QuadraticDeflection.lean': (['RSreprint.H4'], 'Initial-ratio predicate only; not a proof of the manuscript hypothesis.'),
@@ -39,6 +43,14 @@ correspondence = {
  'Comparison/CircleCompare.lean': (['NATP00077.par60','NATP00082.par71','NATP00077.par31','NATP00082.par18'], 'Modern finite circular comparison for Proposition IV (1687 par60, 1713 par71). A CircleChord carries the exact finite sagitta-chord relation s times (2r minus s) equals (c over 2) squared, the intersecting-chords fact, with no limit. forceBySagitta reads centripetal force as sagitta over the square of the common time, and force_ratio_is_sagitta_ratio shows equal-time forces are proportional to the sagittae. The edition routes (1687 Prop II plus Lemma V and Lemma XI; 1713 Prop II plus Prop I Cor 2 and 4 and Lemma VII) are the limiting steps that replace the finite relation by arc squared over r, and are recorded separately as editorial interpretations, never derived and never merged.'),
   'Comparison/Routes.lean': (['NATP00082.par91','NATP00087.par89'], 'Constant-force coordinate example and matched-duration algebra; general orbit correspondence remains conditional.'),
 }
+declaration_correspondence = {
+ 'DeMotu1684.AreaLaw.natp00089_finite_equal_areas': (['NATP00089.par8','NATP00089.par9'], 'NATP00089 Theorem 1 finite equal-area reconstruction only; unresolved changing marginal hypothesis/lemma labels remain unresolved. Supplied Euclidean identities and area semantics; unsigned triangle areas counted with multiplicity. No NATP00090 or printed-edition premise.'),
+ 'DeMotu1684.AreaLaw.natp00090_finite_equal_areas': (['NATP00090.par16','NATP00090.par17'], 'NATP00090 Theorem 1 finite equal-area reconstruction only, with its own Law 1/Lemma 1 references. Supplied Euclidean identities and area semantics; no reconstruction of another witness revision or later limiting lemma.'),
+ 'DeMotu1684.AreaLaw.natp00089_finite_block_comparison': (['NATP00089.par8','NATP00089.par9'], 'Derived finite block comparison from NATP00089 equal triangles; the witness has no printed-edition componendo sentence. Positive time cell/counts are explicit. No curve, sector union, force identification or chronological resolution.'),
+ 'DeMotu1684.AreaLaw.natp00090_finite_block_comparison': (['NATP00090.par16','NATP00090.par17'], 'Derived finite block comparison from NATP00090 alone, before its infinitely-small-triangle clause. Positive time cell/counts and named Euclidean premises; no later-edition limit or sector interpretation.'),
+ 'DeMotu1684.AreaLaw.natp00089_polygon_trajectory_defect_control': (['NATP00089.par9'], 'Conditional reconstruction of the polygon-to-trajectory obligation for NATP00089: the nonnegative intervening region is NOT Kepler area. Curve existence, correct geometric enclosure and vanishing budget are supplied obligations; no historical limiting proof is completed.'),
+ 'DeMotu1684.AreaLaw.natp00090_polygon_trajectory_defect_control': (['NATP00090.par17'], 'Conditional NATP00090 polygon-trajectory defect control with explicitly supplied geometric enclosure and budget. It derives no curve and imports no printed-edition limiting lemma. The finite Kepler law does not imply these premises.'),
+}
 results=[]
 for path in sorted((root/'NewtonLimitDynamics').rglob('*.lean')):
     rel=str(path.relative_to(root/'NewtonLimitDynamics'))
@@ -53,9 +65,11 @@ for path in sorted((root/'NewtonLimitDynamics').rglob('*.lean')):
             local=match[2]
             header=re.search(r'(?:private )?theorem '+re.escape(local)+r'\b([\s\S]*?):=',text)
             assert header, (path,local)
-            results.append({'name':'.'.join(namespace+[local]),'private':bool(match[1]),
-                'file':str(path.relative_to(root)),'source_passages':sources,
+            name='.'.join(namespace+[local])
+            actual_sources,actual_note=declaration_correspondence.get(name,(sources,note))
+            results.append({'name':name,'private':bool(match[1]),
+                'file':str(path.relative_to(root)),'source_passages':actual_sources,
                 'classification':'modern_reconstruction','premise_signature':header[1].strip(),
-                'interpretation_and_remaining_premises':note})
+                'interpretation_and_remaining_premises':actual_note})
 (root/'research/formal-results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')
 print(f'Inventoried {len(results)} theorems with signatures and source boundaries')

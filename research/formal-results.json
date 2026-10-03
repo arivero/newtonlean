@@ -606,6 +606,76 @@
     "interpretation_and_remaining_premises": "Finite arithmetic and modern bookkeeping of a uniform error budget. Not a historical N^-2 theorem; the geometric coefficient identification is separately checked in AreaCoefficient.lean."
   },
   {
+    "name": "DeMotu1684.AreaLaw.natp00089_finite_equal_areas",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00089.par8",
+      "NATP00089.par9"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (n : Nat) :\n    unsignedCellArea g p q impulse n = (g.area p q).natAbs",
+    "interpretation_and_remaining_premises": "NATP00089 Theorem 1 finite equal-area reconstruction only; unresolved changing marginal hypothesis/lemma labels remain unresolved. Supplied Euclidean identities and area semantics; unsigned triangle areas counted with multiplicity. No NATP00090 or printed-edition premise."
+  },
+  {
+    "name": "DeMotu1684.AreaLaw.natp00090_finite_equal_areas",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00090.par16",
+      "NATP00090.par17"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (n : Nat) :\n    unsignedCellArea g p q impulse n = (g.area p q).natAbs",
+    "interpretation_and_remaining_premises": "NATP00090 Theorem 1 finite equal-area reconstruction only, with its own Law 1/Lemma 1 references. Supplied Euclidean identities and area semantics; no reconstruction of another witness revision or later limiting lemma."
+  },
+  {
+    "name": "DeMotu1684.AreaLaw.natp00089_finite_block_comparison",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00089.par8",
+      "NATP00089.par9"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt)\n    (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) :\n    0 < m * dt ∧ 0 < n * dt ∧\n      unsignedBlock g p q impulse start₁ m * (n * dt) =\n        unsignedBlock g p q impulse start₂ n * (m * dt)",
+    "interpretation_and_remaining_premises": "Derived finite block comparison from NATP00089 equal triangles; the witness has no printed-edition componendo sentence. Positive time cell/counts are explicit. No curve, sector union, force identification or chronological resolution."
+  },
+  {
+    "name": "DeMotu1684.AreaLaw.natp00090_finite_block_comparison",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00090.par16",
+      "NATP00090.par17"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt)\n    (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) :\n    0 < m * dt ∧ 0 < n * dt ∧\n      unsignedBlock g p q impulse start₁ m * (n * dt) =\n        unsignedBlock g p q impulse start₂ n * (m * dt)",
+    "interpretation_and_remaining_premises": "Derived finite block comparison from NATP00090 alone, before its infinitely-small-triangle clause. Positive time cell/counts and named Euclidean premises; no later-edition limit or sector interpretation."
+  },
+  {
+    "name": "DeMotu1684.AreaLaw.natp00089_polygon_trajectory_defect_control",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00089.par9"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget)\n    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :\n    Vanishes polygonTrajectoryArea",
+    "interpretation_and_remaining_premises": "Conditional reconstruction of the polygon-to-trajectory obligation for NATP00089: the nonnegative intervening region is NOT Kepler area. Curve existence, correct geometric enclosure and vanishing budget are supplied obligations; no historical limiting proof is completed."
+  },
+  {
+    "name": "DeMotu1684.AreaLaw.natp00090_polygon_trajectory_defect_control",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00090.par17"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget)\n    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :\n    Vanishes polygonTrajectoryArea",
+    "interpretation_and_remaining_premises": "Conditional NATP00090 polygon-trajectory defect control with explicitly supplied geometric enclosure and budget. It derives no curve and imports no printed-edition limiting lemma. The finite Kepler law does not imply these premises."
+  },
+  {
     "name": "NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseCube_equalAreal",
     "private": false,
     "file": "NewtonLimitDynamics/Diagnostic/InverseCubeAreal.lean",
@@ -1747,6 +1817,76 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.nsum_constant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Nat → Nat) (c : Nat) (hf : ∀ i, f i = c) (n : Nat) :\n    nsum f n = n * c",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.all_unsigned_cell_areas",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point)\n    (impulse : Nat → Impulse) (n : Nat) :\n    unsignedCellArea g p q impulse n = (g.area p q).natAbs",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.unsigned_block_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point)\n    (impulse : Nat → Impulse) (start count : Nat) :\n    unsignedBlock g p q impulse start count = count * (g.area p q).natAbs",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.unsigned_block_time_cross",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point)\n    (impulse : Nat → Impulse) (dt start₁ start₂ m n : Nat) :\n    unsignedBlock g p q impulse start₁ m * (n * dt) =\n      unsignedBlock g p q impulse start₂ n * (m * dt)",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.positive_unsigned_area_comparison",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt)\n    (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) :\n    0 < m * dt ∧ 0 < n * dt ∧\n      unsignedBlock g p q impulse start₁ m * (n * dt) =\n        unsignedBlock g p q impulse start₂ n * (m * dt)",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.extension_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/Finite.lean",
@@ -1772,6 +1912,62 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(q x : LatticePoint) (j : Int) : det q (kick q x j) = det q x",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.positive_orientation_unsigned_example",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    swept lattice (1, 0) (1, 1) (fun _ => 0) 3 = 3 ∧\n      unsignedBlock lattice (1, 0) (1, 1) (fun _ => 0) 0 3 = 3",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.negative_orientation_unsigned_example",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    swept lattice (1, 0) (1, -1) (fun _ => 0) 3 = -3 ∧\n      unsignedBlock lattice (1, 0) (1, -1) (fun _ => 0) 0 3 = 3 ∧\n      swept lattice (1, 0) (1, -1) (fun _ => 0) 3 ≠\n        (unsignedBlock lattice (1, 0) (1, -1) (fun _ => 0) 0 3 : Int)",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.degenerate_unsigned_examples",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    unsignedBlock lattice (1, 0) (2, 0) (fun _ => -1) 2 3 = 0 ∧\n      unsignedBlock lattice (1, 0) (1, 0) (fun _ => 0) 2 3 = 0 ∧\n      unsignedBlock lattice (1, 0) (1, 1) (fun _ => 0) 4 0 = 0",
+    "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.repeated_triangle_coverage_example",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Finite.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    motion lattice (1, 0) (0, 1) (fun _ => -2) 4 = ((1, 0), (0, 1)) ∧\n      unsignedBlock lattice (1, 0) (0, 1) (fun _ => -2) 0 4 = 4 ∧\n      unsignedBlock lattice (1, 0) (0, 1) (fun _ => -2) 0 8 = 8",
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
@@ -3014,6 +3210,90 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(D M : Nat) (hD : 0 < D) (weights : List Nat)\n    (hw : ∀ w ∈ weights, w ≤ M) :\n    Fraction.le (residualCoefficient D (squares weights) hD)\n      (meshCoefficient D M (total weights) hD)",
     "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PathDefect.signed_gap_eq_Kepler_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PathDefect.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(coarse inserted : Nat → LatticePoint) (n : Nat) :\n    signedGap coarse inserted n = fineKeplerTwice coarse inserted n -\n      coarseKeplerTwice coarse n",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PathDefect.signed_gap_abs_le_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PathDefect.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(coarse inserted : Nat → LatticePoint) (n : Nat) :\n    (signedGap coarse inserted n).natAbs ≤ absolutePatchBudget coarse inserted n",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PathDefect.absolute_budget_le_count_mul",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PathDefect.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(coarse inserted : Nat → LatticePoint) (n b : Nat)\n    (h : ∀ i, i < n → refinementDefect (coarse i) (inserted i) (coarse (i + 1)) ≤ b) :\n    absolutePatchBudget coarse inserted n ≤ n * b",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PathDefect.absolute_budget_translation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PathDefect.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(origin : LatticePoint)\n    (coarse inserted : Nat → LatticePoint) (n : Nat) :\n    absolutePatchBudget (fun i => latticeAdd origin (coarse i))\n      (fun i => latticeAdd origin (inserted i)) n = absolutePatchBudget coarse inserted n",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PathDefect.equal_Kepler_areas_positive_path_defect",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PathDefect.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    coarseKeplerTwice exampleCoarse 2 = -6 ∧\n      fineKeplerTwice exampleCoarse exampleInserted 2 = -6 ∧\n      coarseKeplerUnsigned exampleCoarse 2 = 6 ∧\n      fineKeplerUnsigned exampleCoarse exampleInserted 2 = 6 ∧\n      signedGap exampleCoarse exampleInserted 2 = 0 ∧\n      absolutePatchBudget exampleCoarse exampleInserted 2 = 2",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PathDefect.polygon_trajectory_defect_vanishes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PathDefect.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction)\n    (hbudget : Vanishes budget)\n    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :\n    Vanishes polygonTrajectoryArea",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.refinementStripTwice_eq_triangle",
@@ -4298,6 +4578,42 @@
     "interpretation_and_remaining_premises": "Legacy conditional squeeze: supplied triangle limits and mechanical velocity-area identification."
   },
   {
+    "name": "Principia1687.PropositionI.finite_equal_areas",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/PropositionI.lean",
+    "source_passages": [
+      "NATP00077.par44",
+      "NATP00077.par45"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (n : Nat) :\n    unsignedCellArea g p q impulse n = (g.area p q).natAbs",
+    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 premise, sector union, trajectory realization or uninterrupted-force identification is derived."
+  },
+  {
+    "name": "Principia1687.PropositionI.finite_componendo",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/PropositionI.lean",
+    "source_passages": [
+      "NATP00077.par44",
+      "NATP00077.par45"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt)\n    (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) :\n    0 < m * dt ∧ 0 < n * dt ∧\n      unsignedBlock g p q impulse start₁ m * (n * dt) =\n        unsignedBlock g p q impulse start₂ n * (m * dt)",
+    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 premise, sector union, trajectory realization or uninterrupted-force identification is derived."
+  },
+  {
+    "name": "Principia1687.PropositionI.polygon_trajectory_defect_control",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/PropositionI.lean",
+    "source_passages": [
+      "NATP00077.par44",
+      "NATP00077.par45"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget)\n    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :\n    Vanishes polygonTrajectoryArea",
+    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 premise, sector union, trajectory realization or uninterrupted-force identification is derived."
+  },
+  {
     "name": "Principia1713.corollary4_coefficient_reconstruction",
     "private": false,
     "file": "NewtonLimitDynamics/Principia1713/ForceComparison.lean",
@@ -4333,5 +4649,41 @@
     "classification": "modern_reconstruction",
     "premise_signature": "{Q : Type} (g : Magnitudes Q)\n    (ratio : Q → Q) (c : Q) (p : LemmaXPremises g ratio c) :\n    Ultimate g ratio c",
     "interpretation_and_remaining_premises": "Shared conditional geometry, not identification of edition-specific mechanical hypotheses."
+  },
+  {
+    "name": "Principia1713.PropositionI.finite_equal_areas",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/PropositionI.lean",
+    "source_passages": [
+      "NATP00082.par50",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (n : Nat) :\n    unsignedCellArea g p q impulse n = (g.area p q).natAbs",
+    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. Curve existence, sector interpretation, Lemma III Corollary 4 passage and force identification remain open."
+  },
+  {
+    "name": "Principia1713.PropositionI.finite_componendo",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/PropositionI.lean",
+    "source_passages": [
+      "NATP00082.par50",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : EuclideanConstruction Point Impulse)\n    (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt)\n    (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) :\n    0 < m * dt ∧ 0 < n * dt ∧\n      unsignedBlock g p q impulse start₁ m * (n * dt) =\n        unsignedBlock g p q impulse start₂ n * (m * dt)",
+    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. Curve existence, sector interpretation, Lemma III Corollary 4 passage and force identification remain open."
+  },
+  {
+    "name": "Principia1713.PropositionI.polygon_trajectory_defect_control",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/PropositionI.lean",
+    "source_passages": [
+      "NATP00082.par50",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget)\n    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :\n    Vanishes polygonTrajectoryArea",
+    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. Curve existence, sector interpretation, Lemma III Corollary 4 passage and force identification remain open."
   }
 ]

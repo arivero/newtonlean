@@ -3,7 +3,12 @@
 This queue implements [the approved goals](GOALS.md). A checked finite
 diagnostic is not completion of the corresponding historical proposition.
 
-**Priority case (user instruction): zero force and rectilinear motion.**
+**Priority (3 October user instruction): Proposition I, then II, III, IV,
+in De Motu, 1687 and 1713 separately.** The primary forward variant constructs
+the trajectory. Its main polygon–trajectory area is distinct from the Kepler
+area; supplied-curve enclosures are diagnostics. See PROP_I_PATH_DEFECT.md.
+
+Earlier priority case: zero force and rectilinear motion.
 ZeroForce.lean now derives the inertial map, unchanged velocity, exact
 cross-denominator subdivision agreement, restart, rest and within-cell
 positions from the constructed recurrence. Its zero-area timing example uses

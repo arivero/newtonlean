@@ -5,9 +5,13 @@ import NewtonLimitDynamics.Common.RationalMagnitudes
 import NewtonLimitDynamics.Principia1713.ForceComparison
 import NewtonLimitDynamics.Principia1687.ConstructedRatio
 import NewtonLimitDynamics.Polygon.Finite
+import NewtonLimitDynamics.DeMotu1684.AreaLaw
+import NewtonLimitDynamics.Principia1687.PropositionI
+import NewtonLimitDynamics.Principia1713.PropositionI
 import NewtonLimitDynamics.Polygon.Enclosure
 import NewtonLimitDynamics.Polygon.Contact
 import NewtonLimitDynamics.Polygon.RefinementStrip
+import NewtonLimitDynamics.Polygon.PathDefect
 import NewtonLimitDynamics.Polygon.TimeSubdivision
 import NewtonLimitDynamics.Polygon.PartitionControl
 import NewtonLimitDynamics.Polygon.ZeroForce

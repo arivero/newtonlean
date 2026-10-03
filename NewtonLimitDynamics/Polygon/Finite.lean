@@ -69,6 +69,60 @@ theorem equal_time_area_reconstruction (g : EuclideanConstruction Point Impulse)
   rw [swept_eq, swept_eq]
   ac_rfl
 
+/-- Finite sum of natural-number magnitudes. -/
+def nsum (f : Nat → Nat) : Nat → Nat
+  | 0 => 0
+  | n + 1 => nsum f n + f n
+
+theorem nsum_constant (f : Nat → Nat) (c : Nat) (hf : ∀ i, f i = c) (n : Nat) :
+    nsum f n = n * c := by
+  induction n with
+  | zero => simp [nsum]
+  | succ n ih => simp [nsum, ih, hf, Nat.add_mul]
+
+/-- Magnitude of the supplied oriented doubled triangle-area datum. The
+    interpretation as Euclidean area is part of the construction's supplied
+    semantics; the two preservation identities alone do not certify it. -/
+def unsignedCellArea (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (n : Nat) : Nat :=
+  (g.area (motion g p q impulse n).1 (motion g p q impulse n).2).natAbs
+
+theorem all_unsigned_cell_areas (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (n : Nat) :
+    unsignedCellArea g p q impulse n = (g.area p q).natAbs :=
+  congrArg Int.natAbs (all_cell_areas g p q impulse n)
+
+/-- Sum over a consecutive block of cells, starting at `start`. Revisited
+    triangles count again: this is not the area of their geometric union. -/
+def unsignedBlock (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (start count : Nat) : Nat :=
+  nsum (fun i => unsignedCellArea g p q impulse (start + i)) count
+
+theorem unsigned_block_eq (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (start count : Nat) :
+    unsignedBlock g p q impulse start count = count * (g.area p q).natAbs :=
+  nsum_constant _ _ (fun i => all_unsigned_cell_areas g p q impulse (start + i)) count
+
+/-- Algebraic cross multiplication, valid also for zero counts. A time-ratio
+    interpretation additionally requires a positive cell and positive counts. -/
+theorem unsigned_block_time_cross (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (dt start₁ start₂ m n : Nat) :
+    unsignedBlock g p q impulse start₁ m * (n * dt) =
+      unsignedBlock g p q impulse start₂ n * (m * dt) := by
+  rw [unsigned_block_eq, unsigned_block_eq]
+  ac_rfl
+
+/-- Positive total times and the finite unsigned-area/time comparison, with
+    geometric interpretation and force direction still supplied separately. -/
+theorem positive_unsigned_area_comparison (g : EuclideanConstruction Point Impulse)
+    (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt)
+    (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) :
+    0 < m * dt ∧ 0 < n * dt ∧
+      unsignedBlock g p q impulse start₁ m * (n * dt) =
+        unsignedBlock g p q impulse start₂ n * (m * dt) :=
+  ⟨Nat.mul_pos hm hdt, Nat.mul_pos hn hdt,
+    unsigned_block_time_cross g p q impulse dt start₁ start₂ m n⟩
+
 /-- A concrete consistency model in integer coordinates. The synthetic result
     above is conditional on the named Euclidean identities, not on coordinates. -/
 abbrev LatticePoint := Int × Int
@@ -92,6 +146,35 @@ theorem parallel_identity (q x : LatticePoint) (j : Int) : det q (kick q x j) = 
 
 def lattice : EuclideanConstruction LatticePoint Int :=
   ⟨det, extend, kick, extension_identity, parallel_identity⟩
+
+/-- Checked orientation control: signed and unsigned sums agree here. -/
+theorem positive_orientation_unsigned_example :
+    swept lattice (1, 0) (1, 1) (fun _ => 0) 3 = 3 ∧
+      unsignedBlock lattice (1, 0) (1, 1) (fun _ => 0) 0 3 = 3 := by
+  decide
+
+/-- Reversing orientation preserves unsigned magnitude, not the signed sum. -/
+theorem negative_orientation_unsigned_example :
+    swept lattice (1, 0) (1, -1) (fun _ => 0) 3 = -3 ∧
+      unsignedBlock lattice (1, 0) (1, -1) (fun _ => 0) 0 3 = 3 ∧
+      swept lattice (1, 0) (1, -1) (fun _ => 0) 3 ≠
+        (unsignedBlock lattice (1, 0) (1, -1) (fun _ => 0) 0 3 : Int) := by
+  decide
+
+/-- Radial degeneracy, rest, and empty blocks need no area division. -/
+theorem degenerate_unsigned_examples :
+    unsignedBlock lattice (1, 0) (2, 0) (fun _ => -1) 2 3 = 0 ∧
+      unsignedBlock lattice (1, 0) (1, 0) (fun _ => 0) 2 3 = 0 ∧
+      unsignedBlock lattice (1, 0) (1, 1) (fun _ => 0) 4 0 = 0 := by
+  decide
+
+/-- Even inward radial impulses can revisit triangles. The unsigned cell sum
+    counts repeated coverage and therefore cannot identify a sector union. -/
+theorem repeated_triangle_coverage_example :
+    motion lattice (1, 0) (0, 1) (fun _ => -2) 4 = ((1, 0), (0, 1)) ∧
+      unsignedBlock lattice (1, 0) (0, 1) (fun _ => -2) 0 4 = 4 ∧
+      unsignedBlock lattice (1, 0) (0, 1) (fun _ => -2) 0 8 = 8 := by
+  decide
 
 /-- Zero force is permitted; radial/zero-area configurations need no division. -/
 example : swept lattice (1,0) (1,1) (fun _ => 0) 3 = 3 := by decide
