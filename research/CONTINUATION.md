@@ -1,8 +1,9 @@
 # Autonomous continuation: completion criteria
 
-Latest handoff: [HANDOFF-2026-09-22-NEXT.md](HANDOFF-2026-09-22-NEXT.md),
-written by Claude Code at the end of its 22 September session. The next
-agent should start there. Claude Code may delegate routine checks to smaller
+Latest handoff: [HANDOFF-2026-10-04-GENERAL-FORCE.md](HANDOFF-2026-10-04-GENERAL-FORCE.md),
+written by Claude Code on 4 October at the user's request; it supersedes
+[HANDOFF-2026-09-22-NEXT.md](HANDOFF-2026-09-22-NEXT.md). The next agent
+should start there. Claude Code may delegate routine checks to smaller
 models, one subagent at a time.
 
 The user authorized continued work across the approved milestones on
