@@ -28,7 +28,8 @@ def main():
         tree = ET.parse(path)
         elements = {e.get(NS+'id'): e for e in tree.iter() if e.get(NS+'id')}
         title = ''.join(tree.find('.//{*}titleStmt/{*}title').itertext())
-        companion = f'# {title}\n\nIsaac Newton; Newton Project {ident}. Retrieved 2026-09-21.\n\n'
+        retrieved = selection.get('retrieved', '2026-09-21')
+        companion = f'# {title}\n\nIsaac Newton; Newton Project {ident}. Retrieved {retrieved}.\n\n'
         companion += f'Original: [{ident}.xml]({ident}.xml). Source: https://www.newtonproject.ox.ac.uk/view/texts/xml/{ident}\n\n'
         companion += 'Electronic transcription: CC BY-NC-ND 3.0 (TEI availability statement). '
         companion += 'XML parsed successfully; selected passages extracted, not a facsimile audit. '
@@ -40,7 +41,7 @@ def main():
             if html.exists():
                 html.with_suffix('.md').write_text(
                     f'# {title} — {view} view\n\n'
-                    f'Isaac Newton; Newton Project {ident}. Retrieved 2026-09-21.\n\n'
+                    f'Isaac Newton; Newton Project {ident}. Retrieved {retrieved}.\n\n'
                     f'Source: https://www.newtonproject.ox.ac.uk/view/texts/{view}/{ident}\n\n'
                     f'Local original: [{html.name}]({html.name}).\n\n'
                     'CC BY-NC-ND 3.0 per associated TEI. See the XML companion for '

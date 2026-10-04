@@ -2,7 +2,7 @@
 
 Generated 2026-09-21 by `scripts/collate_sources.py`. This report checks the local TEI/XML transcription against selected passage extracts and the presence of corresponding anchors in normalized and diplomatic HTML. It records page and facsimile metadata but does not inspect or download manuscript images, and it does not establish historical proof dependency.
 
-Primary witnesses: 9; selected XML anchors: 243; exact generated-extract matches: 243; revision-tagged anchors: 56.
+Primary witnesses: 10; selected XML anchors: 244; exact generated-extract matches: 244; revision-tagged anchors: 57.
 
 ## Witness layers
 
@@ -17,6 +17,7 @@ Primary witnesses: 9; selected XML anchors: 243; exact generated-extract matches
 | NATP00080 | 1713 | Printed | 11 | 8/8 | 8/8 |
 | NATP00081 | 1713 | Printed | 13 | 8/8 | 8/8 |
 | NATP00087 | 1726 | Printed | 202 | 46/46 | 46/46 |
+| NATP00091 | NATP00091 | Manuscript | 4 | 0/1 | 1/1 |
 
 A missing local HTML view is reported as absent; its official URL remains in the JSON record. XML is the machine-readable authority for exact revision markup.
 
@@ -361,6 +362,18 @@ Library/facsimile record: none encoded
 | par92 | 48 | — | none | match | present | present |
 | par93 | 48 | — | none | match | present | present |
 | par99 | 50 | — | none | match | present | present |
+
+## NATP00091 — 'De motu corporum in mediis regulariter cedentibus'
+
+Source: MS Add. 3965.5, ff. 25r-26r, 23r-24r, Cambridge University Library, Cambridge, UK
+Date: Late 1684/5
+Hand: Unknown Hand, Holograph
+XML: [docs/m1/NATP00091.xml](../docs/m1/NATP00091.xml)
+Library/facsimile record: https://cudl.lib.cam.ac.uk/view/MS-ADD-03965/49
+
+| Anchor | Page | Facsimile target | Revision tags | Extract | Normalized | Diplomatic |
+|---|---:|---|---|---|---|---|
+| par24 | 23r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00005.jpg | del:1 | match | anchor missing | present |
 
 ## Supplementary records
 

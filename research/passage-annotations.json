@@ -339,5 +339,8 @@
   },
   "NATP00082.par355": {
     "translation": "Proposition XLV corollary 1: a power-law force can be found from the motion of the apsides. A force decreasing faster than the cube of the altitude (1713 adds \"in recessu a centro\"): a body leaving an apsis descends to the centre or ascends to infinity. A force decreasing more slowly, or increasing: the body never descends to the centre and reaches a lower apsis."
+  },
+  "NATP00091.par24": {
+    "translation": "Deleted in the manuscript: Def. 16. Moments of quantities are their generating or altering principles in continuous flux: as present time of past and future, present motion of past and future motion, centripetal or any other momentary force of impetus, the point of a line, the line of a surface, the surface of a solid, and the angle of contact of a rectilinear angle."
   }
 }

@@ -26883,6 +26883,369 @@
           }
         }
       ]
+    },
+    {
+      "id": "NATP00091",
+      "stage": "NATP00091",
+      "path": "docs/m1/NATP00091.xml",
+      "title": "'De motu corporum in mediis regulariter cedentibus'",
+      "revision_layer": "draft, MS Add. 3965.5, late 1684/5 per TEI origDate; the whole definition is deleted in the manuscript and the deletion is retained; renumbering of the neighbouring definitions unresolved",
+      "source_description": "MS Add. 3965.5, ff. 25r-26r, 23r-24r, Cambridge University Library, Cambridge, UK",
+      "source_kind": "Manuscript",
+      "orig_date": "Late 1684/5",
+      "hand_notes": [
+        "Unknown Hand",
+        "Holograph"
+      ],
+      "library_facsimile": "https://cudl.lib.cam.ac.uk/view/MS-ADD-03965/49",
+      "xml_sha256": "e0cd841f658160673ff7feb3a9fc1923035a6ecb1a227670d6dcec827acb5ff0",
+      "xml_source_url": "https://www.newtonproject.ox.ac.uk/view/texts/xml/NATP00091",
+      "normalized_source_url": "https://www.newtonproject.ox.ac.uk/view/texts/normalized/NATP00091",
+      "diplomatic_source_url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00091",
+      "page_count": 4,
+      "pages": [
+        {
+          "xml_id": "p25r",
+          "n": "25r",
+          "facs": "#MS-ADD-03965-005-00009.jpg",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00009.jpg",
+          "graphic_folio": "25r"
+        },
+        {
+          "xml_id": "p26r",
+          "n": "26r",
+          "facs": "#MS-ADD-03965-005-00011.jpg",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00011.jpg",
+          "graphic_folio": "26r"
+        },
+        {
+          "xml_id": "p023r",
+          "n": "23r",
+          "facs": "#MS-ADD-03965-005-00005.jpg",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00005.jpg",
+          "graphic_folio": "23r"
+        },
+        {
+          "xml_id": "p24r",
+          "n": "24r",
+          "facs": "#MS-ADD-03965-005-00007.jpg",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00007.jpg",
+          "graphic_folio": "24r"
+        }
+      ],
+      "normalized_view": {
+        "present": true,
+        "path": "docs/m1/NATP00091_normalized.html",
+        "sha256": "df3d51fcc5aabaa1d58cee6a8805bf8ce09f24d6d7f9025c643058ab72b4e88c",
+        "anchors": {
+          "par1": {
+            "chars": 175,
+            "sha256": "d613689c11dd676154cef7ed2382b1e53a8b5d0966e1c33b92a8ea582a64afa1"
+          },
+          "par2": {
+            "chars": 203,
+            "sha256": "1e7cd0118dffdc6895bc8625d02c16f16d8f4f1b8e4a18473ff58dbd149d5015"
+          },
+          "par3": {
+            "chars": 581,
+            "sha256": "18bb671997a425c1c7d599701ffac17f8614c4dbd4d951adc5467193b047d926"
+          },
+          "par4": {
+            "chars": 305,
+            "sha256": "30a1a2fd9331a2bee0df97165641e5f7aabaab13e26c607e6ae2fec58bd295d5"
+          },
+          "par5": {
+            "chars": 90,
+            "sha256": "c0fc6177ce299b04c66a9155c7b0aa3b3f0e41dbbd5c6fa8cda69528f7375779"
+          },
+          "par6": {
+            "chars": 45,
+            "sha256": "3b4944da6818c19313f3270159a9c71afc89402e4e2ceebd62d932068bec502e"
+          },
+          "par7": {
+            "chars": 113,
+            "sha256": "884d99b8402b328de6d06144d7d5d33b3fe0d7b1f447aa2b0f68342ea343ccd1"
+          },
+          "par8": {
+            "chars": 116,
+            "sha256": "17bd137d013917df08e24a35b0262fc143166d2765e03c146e618d47cec9eea3"
+          },
+          "par9": {
+            "chars": 1029,
+            "sha256": "05f8839bbed7cc3e36e2588e96d80bc670dc70b6d5a1eff630f5a15d0c395911"
+          },
+          "par10": {
+            "chars": 595,
+            "sha256": "7bad53f1f73c6accba41e3d2ed4cf80e96a22c9cfb3f3590517104e227a1f5e7"
+          },
+          "par11": {
+            "chars": 371,
+            "sha256": "039425b576106e13a8b617897caee319971e2ec283efa5956ad3da369f4c65ce"
+          },
+          "par13": {
+            "chars": 91,
+            "sha256": "7b12c6a908f331669780748261ae2b110cca2d9b4a5a22d5ab8bdf007e3edb68"
+          },
+          "par14": {
+            "chars": 770,
+            "sha256": "82a9ef373c3d51cc3526b556b94bef6733918005db2f99ae939b488923174cf7"
+          },
+          "par15": {
+            "chars": 7,
+            "sha256": "e41b7c894172737f9889489ed17b634738790a248b80bb9d8c60fcc6ff33306f"
+          },
+          "par16": {
+            "chars": 7,
+            "sha256": "6e80f6dbace2259f535e6cf086d937cab770907e4be60ff4d96b30146e85bc30"
+          },
+          "par17": {
+            "chars": 8,
+            "sha256": "58ff47f156f6667113ce24e381a54beb5cf59ce0efff64fc056db160c6965074"
+          },
+          "par18": {
+            "chars": 12,
+            "sha256": "804839bbb590bdfbadf7ddbb43b8d6294bf1c14e39688347388d5533f2336aa0"
+          },
+          "par19": {
+            "chars": 175,
+            "sha256": "802beac80b84867952fc24f350ed6c9d425b1fd62a627a54c74c6135a3ee3829"
+          },
+          "par20": {
+            "chars": 232,
+            "sha256": "d375f831e4a703d508e049cf16c498f05ceefb4dc7ec610ed64078ff72f80173"
+          },
+          "par22": {
+            "chars": 285,
+            "sha256": "40f0f9ffa9bfe02e35094ec663b9b525e15ecad57d3fcde2e63aaa85a5c00f54"
+          },
+          "par23": {
+            "chars": 5,
+            "sha256": "0e11a2284a74f703f03eb8411dbdd4825806d174afc274c154a96c14d4ddf0a6"
+          },
+          "par25": {
+            "chars": 117,
+            "sha256": "8e904145d0e0231e0beba1c31ebdb82fd2d6d094c847c59ae0fa9b948f61ddc2"
+          },
+          "par26": {
+            "chars": 686,
+            "sha256": "0698641a8684fba44f6844c64c1b27d9fae5ea7b4e8214db8c310103c7cb4c87"
+          },
+          "par27": {
+            "chars": 420,
+            "sha256": "a3919434d47599c46077108e0096b812ea848501926c53e20cc35e1e4e8e9d98"
+          },
+          "par28": {
+            "chars": 400,
+            "sha256": "0f8c2c0b91b77d383247720355e9fbeb50887a77566de7133c9876aa9bfd5acb"
+          },
+          "par29": {
+            "chars": 700,
+            "sha256": "3ad27d5d0e9dc54394cfb248f074a012c277fefca6603bea5edfae3c69a56510"
+          },
+          "par30": {
+            "chars": 286,
+            "sha256": "7f32e6c436dfe014af6aa0cc17537cb1bd0bc49e325a037ee5edf87fb28f7996"
+          },
+          "par31": {
+            "chars": 147,
+            "sha256": "260bf81851f3a2fdfe89fc7750de54fa8d38f124109d668368fcfceee42b6efa"
+          },
+          "par33": {
+            "chars": 108,
+            "sha256": "4c88d964bd535b3c4dc9bce87829a3e27060f8a020a3feabc7b09e7e9edd9e7c"
+          },
+          "par34": {
+            "chars": 598,
+            "sha256": "f43e05a8a1e367cf837102a6fef3892e250866c213946c3ab6319098dc210155"
+          },
+          "par35": {
+            "chars": 125,
+            "sha256": "574b629008126c04f217132132384863cc7af31297ef2f33a05fb9a7e22e327b"
+          },
+          "par36": {
+            "chars": 170,
+            "sha256": "3813e36adfb66437173b4996e3308aef809c12ef9aa56b5b245ea8bd9ec968ac"
+          }
+        }
+      },
+      "diplomatic_view": {
+        "present": true,
+        "path": "docs/m1/NATP00091_diplomatic.html",
+        "sha256": "c2d7251de8c9507d5a839f96538b48463ce7f1d6e7f5f0846f925da5a12cdf42",
+        "anchors": {
+          "par1": {
+            "chars": 178,
+            "sha256": "2e47ad7818c5e9f5d3dd2ac7531f50078caa4aecbf5ea14f91556176c071328b"
+          },
+          "par2": {
+            "chars": 477,
+            "sha256": "32ec6d6e97c56e4cf455464c50393af6b3b581f9560a6a9a5917fcacd3dc4deb"
+          },
+          "par3": {
+            "chars": 643,
+            "sha256": "818fbedf58a263763a7361f655e8c766633cee167719e375b703b8098af425ce"
+          },
+          "par4": {
+            "chars": 334,
+            "sha256": "f12bb6027c693302f70d2472433c14ff4ba8acdaee19efa6e7950b97c04591d5"
+          },
+          "par5": {
+            "chars": 150,
+            "sha256": "44745579dc4002f52f050f9d5649d182c91806c515d75557f48e1e0b79825472"
+          },
+          "par6": {
+            "chars": 143,
+            "sha256": "53c1d695f7ce2a547d627c0de243bcf528931da794eda1fd1de266a5679720e9"
+          },
+          "par7": {
+            "chars": 117,
+            "sha256": "b93993ae8f4211f764425f0845e64959d0995529b37ba21b33536e20851d68a4"
+          },
+          "par8": {
+            "chars": 121,
+            "sha256": "1d46330f8deead6155c6b86fadac7bad3a3190d31f905a06ff6af9d163e21659"
+          },
+          "par9": {
+            "chars": 1111,
+            "sha256": "d874612f2431c52b5e077e4ce00231fe5c673858fe54900cb8f6540361d9f450"
+          },
+          "par10": {
+            "chars": 682,
+            "sha256": "a2fcf0721b04beb56a0e2ca45a8433c37f733902cc6cc9222542b5b24bea5570"
+          },
+          "par11": {
+            "chars": 485,
+            "sha256": "59d7420efb6fb12673281856eb71db2ea75110cdc7a16a9c4a65cfa759ea6e7f"
+          },
+          "par12": {
+            "chars": 311,
+            "sha256": "fe54aa5487e1add86508e2895488071a926ff36bd3fb547e5afb40ccb0895e8c"
+          },
+          "par13": {
+            "chars": 107,
+            "sha256": "691e83cbd7d3744b2e39630379a1ca03d837c97866adb25439946d0cbcc5cff4"
+          },
+          "par14": {
+            "chars": 937,
+            "sha256": "97a1d2ff36bde96e0d173070d7402cbb533404f1aeb53e3f1ca89233d7f7303a"
+          },
+          "par15": {
+            "chars": 7,
+            "sha256": "e41b7c894172737f9889489ed17b634738790a248b80bb9d8c60fcc6ff33306f"
+          },
+          "par16": {
+            "chars": 7,
+            "sha256": "6e80f6dbace2259f535e6cf086d937cab770907e4be60ff4d96b30146e85bc30"
+          },
+          "par17": {
+            "chars": 8,
+            "sha256": "58ff47f156f6667113ce24e381a54beb5cf59ce0efff64fc056db160c6965074"
+          },
+          "par18": {
+            "chars": 12,
+            "sha256": "804839bbb590bdfbadf7ddbb43b8d6294bf1c14e39688347388d5533f2336aa0"
+          },
+          "par19": {
+            "chars": 183,
+            "sha256": "c9fa6c162c3ec2d6833ebec81de8b277afd3756460b0737523ed7088e198b2e0"
+          },
+          "par20": {
+            "chars": 327,
+            "sha256": "17cfae7cef512615ec99e7fd490967b71df7f27bab31bb721c463a7fd2ec1c7d"
+          },
+          "par21": {
+            "chars": 427,
+            "sha256": "d6ae26bd1df1b59e247d8ca1c80c03a84317baeb9fc6a4dbc98201eb22b96a50"
+          },
+          "par22": {
+            "chars": 305,
+            "sha256": "4c8e50c2210d258dd15554b555086e7ede36db209f71779c04fa58f48b67f047"
+          },
+          "par23": {
+            "chars": 304,
+            "sha256": "4dda62f99bc46e0b6b30c3cb032b1c1f445caf1f961338db34ad38b1ca4a77f8"
+          },
+          "par24": {
+            "chars": 313,
+            "sha256": "1ebea6d4857b39ad72a79dda01a5bd03d4c352e14c88efdbda9604433cb656ba"
+          },
+          "par25": {
+            "chars": 124,
+            "sha256": "13404986f2e17779c496551ebdb147bbfa7669b3f7aafd52c2f21df59f8f7920"
+          },
+          "par26": {
+            "chars": 972,
+            "sha256": "ed561e19b247bb755b93989874e9fd8fbe2a75835ccce18772c157645c2a3e91"
+          },
+          "par27": {
+            "chars": 517,
+            "sha256": "2841f3f487499b58e9fcf02e1df7f84d75a41592a57fc3894765db98da73e487"
+          },
+          "par28": {
+            "chars": 432,
+            "sha256": "b2570bdc2e9b39e83da2fcb2beea4f02132fe1fa24d2d0a3989df5e966b45156"
+          },
+          "par29": {
+            "chars": 791,
+            "sha256": "d04af3baf23543f03139a6a6066bb9b7249aa771fae55c505842993532629ffc"
+          },
+          "par30": {
+            "chars": 284,
+            "sha256": "8da75daf0a1064b867154b8393e8e3633a8ef0f521ec2b57537e0c2d138383ce"
+          },
+          "par31": {
+            "chars": 147,
+            "sha256": "260bf81851f3a2fdfe89fc7750de54fa8d38f124109d668368fcfceee42b6efa"
+          },
+          "par32": {
+            "chars": 298,
+            "sha256": "5130a60de446cad672c98781ba40c76c61d41267b9a0924c6680adc3d93db14f"
+          },
+          "par33": {
+            "chars": 108,
+            "sha256": "4c88d964bd535b3c4dc9bce87829a3e27060f8a020a3feabc7b09e7e9edd9e7c"
+          },
+          "par34": {
+            "chars": 608,
+            "sha256": "c0fd75cc60983911dae32bf1a7def9b888c5e77e933f2017fea3c5bbdb4d3e11"
+          },
+          "par35": {
+            "chars": 123,
+            "sha256": "f8f3cb528a6fd25ed56525b7a413127cc1d24d20b71fb0c2d756a53207823d7f"
+          },
+          "par36": {
+            "chars": 178,
+            "sha256": "ad424bf6d093a06040afb7e1be7360184a8d77ed9fc0815fddd0d5bc5c555191"
+          }
+        }
+      },
+      "anchors": [
+        {
+          "id": "NATP00091.par24",
+          "anchor": "par24",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "23r",
+          "page_xml_id": "p023r",
+          "page_facs": "#MS-ADD-03965-005-00005.jpg",
+          "page_folio": "23r",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00005.jpg",
+          "revision_tags": {
+            "del": 1
+          },
+          "revision_tag_total": 1,
+          "normalized": {
+            "present": true,
+            "anchor_present": false
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 313,
+            "sha256": "1ebea6d4857b39ad72a79dda01a5bd03d4c352e14c88efdbda9604433cb656ba"
+          }
+        }
+      ]
     }
   ],
   "supplementary": [
@@ -26924,12 +27287,12 @@
     }
   ],
   "summary": {
-    "primary_witnesses": 9,
-    "primary_anchors": 243,
-    "generated_extract_matches": 243,
-    "revision_tagged_anchors": 56,
+    "primary_witnesses": 10,
+    "primary_anchors": 244,
+    "generated_extract_matches": 244,
+    "revision_tagged_anchors": 57,
     "normalized_anchor_matches": 238,
-    "diplomatic_anchor_matches": 243,
+    "diplomatic_anchor_matches": 244,
     "supplementary_records": 3
   }
 }

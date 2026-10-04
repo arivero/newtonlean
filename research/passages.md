@@ -2432,6 +2432,16 @@ Corol. 3. Vis, qua corpus P in orbe quocunque circum virium centrum S revolvitur
 
 Translation status: not_translated.
 
+## NATP00091.par24
+
+Witness: 'De motu corporum in mediis regulariter cedentibus'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00091#par24
+
+[del: Def. 16. Momenta quantitatum sunt ipsarum principia generantia vel alterantia fluxu continuo: ut tempus præsens præteriti et futuri, motus præsens, præteri et futuri, vis centripeta aut alia quævis momentanea impetus, punctum lineæ, linea superficiei, superficies solidi et angulus contactus anguli rectilinei.]
+
+Translation status: identifying_translation_not_full. Deleted in the manuscript: Def. 16. Moments of quantities are their generating or altering principles in continuous flux: as present time of past and future, present motion of past and future motion, centripetal or any other momentary force of impetus, the point of a line, the line of a surface, the surface of a solid, and the angle of contact of a rectilinear angle.
+
 ## RSreprint.H4
 
 Witness: Royal Society copy as edited by W. W. Rouse Ball, An Essay on Newton’s Principia (1893), p. 36

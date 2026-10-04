@@ -148,7 +148,22 @@ reconstruction; it adds no historical proof-dependency edge.
    [1687 Proposition I, par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45),
    [1713 Proposition I, par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51).
 
-The finite results constrain this conjecture. Under our stated constant-force
+4. **Boundaries in every dimension, the boundary theorem in only one — firm
+   chronology; the concept rests on one struck-out draft definition.** In the
+   draft *De motu corporum in mediis regulariter cedentibus* (late 1684/5),
+   Newton wrote and then struck through a definition of moments as the
+   generating or altering principles of quantities in continuous flux: present
+   time of past and future, centripetal force of impetus, the point of a line,
+   the line of a surface, the surface of a solid. We see him weighing the
+   notion and withdrawing it; it is absent from the other stored De Motu
+   witnesses, the 1687 and 1713 definitions and Book I of all three editions.
+   The theorem relating a region to its boundary was his
+   only in one dimension, as Barrow's theorem (1670). Its higher-dimensional
+   forms, which need oriented surfaces and volumes, came later: Green (1828),
+   Gauss–Ostrogradsky (1810s–1820s), Kelvin–Stokes (1850s).
+   Source: [NATP00091 par24, deleted Def. 16](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00091#par24).
+
+The finite results constrain the third conjecture. Under our stated constant-force
 impulse schedule, subdivision changes endpoints, but the exact position
 residual is `(Σ d_i²/2)*a`, with coefficient bounded by half the largest cell
 duration times elapsed time. The harmonic construction now derives geometric

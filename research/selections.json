@@ -304,5 +304,14 @@
       "par99"
     ],
     "revision_layer": "printed 1726 edition; transcription corrections retained"
+  },
+  "NATP00091": {
+    "stage": "NATP00091",
+    "path": "docs/m1/NATP00091.xml",
+    "anchors": [
+      "par24"
+    ],
+    "revision_layer": "draft, MS Add. 3965.5, late 1684/5 per TEI origDate; the whole definition is deleted in the manuscript and the deletion is retained; renumbering of the neighbouring definitions unresolved",
+    "retrieved": "2026-10-04"
   }
 }
