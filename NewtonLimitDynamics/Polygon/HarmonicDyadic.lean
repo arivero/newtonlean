@@ -49,21 +49,21 @@ theorem totalTime_dyadic (T : Fraction) (j : Nat) :
     Fraction.ofInt, Int.pow_succ, Int.natCast_pow]
   ac_nf
 
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
+theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
     (k : Fraction.equiv c d) :
     Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
   Fraction.equiv_trans (Fraction.add_equiv_right c h)
     (Fraction.equiv_trans (Fraction.add_comm b c)
       (Fraction.equiv_trans (Fraction.add_equiv_right b k) (Fraction.add_comm d b)))
 
-private theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
+theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
     (k : Fraction.equiv c d) :
     Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
   Fraction.equiv_trans (Fraction.mul_comm a c)
     (Fraction.equiv_trans (Fraction.mul_equiv_left c h)
       (Fraction.equiv_trans (Fraction.mul_comm c b) (Fraction.mul_equiv_left b k)))
 
-private theorem neg_equiv {a b : Fraction} (h : Fraction.equiv a b) :
+theorem neg_equiv {a b : Fraction} (h : Fraction.equiv a b) :
     Fraction.equiv ⟨-a.num, a.den, a.den_pos⟩ ⟨-b.num, b.den, b.den_pos⟩ := by
   unfold Fraction.equiv at *
   dsimp
@@ -88,7 +88,7 @@ private theorem pointSub_congr {p p' q q' : Point}
     pointEquiv (pointSub p q) (pointSub p' q') :=
   pointAdd_congr hp (pointNeg_congr hq)
 
-private theorem stateSub_congr {s s' t t' : Point × Point}
+theorem stateSub_congr {s s' t t' : Point × Point}
     (hs : stateEquiv s s') (ht : stateEquiv t t') :
     stateEquiv (stateSub s t) (stateSub s' t') :=
   ⟨pointSub_congr hs.1 ht.1, pointSub_congr hs.2 ht.2⟩
@@ -167,7 +167,7 @@ theorem endpoint_next_elapsed (T : Fraction) (j : Nat) :
     (fine_elapsed_totalTime (duration T (j + 1)) (blocks j))
     (totalTime_dyadic T j)
 
-private def halfThreshold : Fraction := ⟨1, 2, by decide⟩
+def halfThreshold : Fraction := ⟨1, 2, by decide⟩
 
 def DyadicSmallTime (w T : Fraction) : Prop :=
   Fraction.le
@@ -311,7 +311,7 @@ theorem two_sided_error (w T : Fraction) (s : Point × Point)
     (Fraction.magnitudes.le_trans htri (Fraction.add_le_add hfirst hsecond'))
     (tail_double w T s N)
 
-private theorem two_pow_ge_succ (N : Nat) :
+theorem two_pow_ge_succ (N : Nat) :
     (N : Int) + 1 ≤ (2 : Int) ^ N := by
   induction N with
   | zero => decide

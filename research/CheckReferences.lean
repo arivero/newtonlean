@@ -379,6 +379,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicCover.secondPatch_square
 #check NewtonLimitDynamics.Polygon.HarmonicCover.squareArea_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicCover.squareArea_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicDyadic.add_equiv
+#print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.add_equiv
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.adjacentCap_tail
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.adjacentCap_tail
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.adjacent_error_le
@@ -405,6 +407,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.endpoint_next_elapsed
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.finite_gap_error
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.finite_gap_error
+#check NewtonLimitDynamics.Polygon.HarmonicDyadic.mul_equiv
+#print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.mul_equiv
+#check NewtonLimitDynamics.Polygon.HarmonicDyadic.neg_equiv
+#print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.neg_equiv
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_adjacent_cap
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_adjacent_cap
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_adjacent_error
@@ -413,6 +419,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_dyadic_small_time
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_tail_cap
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_tail_cap
+#check NewtonLimitDynamics.Polygon.HarmonicDyadic.stateSub_congr
+#print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.stateSub_congr
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.stateSub_norm_symm
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.stateSub_norm_symm
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.tail_double
@@ -421,6 +429,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.tail_halving
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.totalTime_dyadic
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.totalTime_dyadic
+#check NewtonLimitDynamics.Polygon.HarmonicDyadic.two_pow_ge_succ
+#print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.two_pow_ge_succ
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.two_sided_error
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.two_sided_error
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.zero_time_endpoint
@@ -473,6 +483,56 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.schedule_speed_bound
 #check NewtonLimitDynamics.Polygon.HarmonicStability.speed_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicStability.speed_bound
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_error
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_error
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_uniform
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_uniform
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_bound
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_difference
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_difference
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_norm_formula
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_norm_formula
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.coarse_parameter_step
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.coarse_parameter_step
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_abs_duration_difference
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_abs_duration_difference
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_duration_difference
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_duration_difference
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.duration_le_time
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.duration_le_time
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.dyadic_time_le_half
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.dyadic_time_le_half
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.endpoint_time_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.endpoint_time_bound
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.parameter_budget_power
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.parameter_budget_power
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.parameter_delta_control
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.parameter_delta_control
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.same_time_error_zero
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.same_time_error_zero
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_parameter_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_parameter_bound
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_parameter_error
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_parameter_error
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_short_times
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_short_times
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_time_budget
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_time_budget
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_time_lipschitz
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_time_lipschitz
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.short_duration_pair
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.short_duration_pair
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.short_sum_point_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.short_sum_point_bound
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeDelta_positive
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeDelta_positive
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeLipschitz_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeLipschitz_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeName_uniform_continuity
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeName_uniform_continuity
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.zero_state_error_zero
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.zero_state_error_zero
 #check NewtonLimitDynamics.Polygon.HarmonicUniform.actual_uniform_error
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.actual_uniform_error
 #check NewtonLimitDynamics.Polygon.HarmonicUniform.coarseFactor_le_fineFactor
@@ -493,6 +553,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.fine_power_le_two
 #check NewtonLimitDynamics.Polygon.HarmonicUniform.fine_state_le_two
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.fine_state_le_two
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_kappa
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_kappa
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_power
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_power
 #check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_actual_error
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_actual_error
 #check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_power_bounds

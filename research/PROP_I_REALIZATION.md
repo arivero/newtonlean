@@ -36,7 +36,7 @@ with no numbered limiting lemma (M2.md).
 | --- | --- |
 | P1 finite area law | **Checked in the rational planar model, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
-| P3 existence of the ultimate curve | **Open.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns limits of rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate and residual/mesh bounds are checked at rational times. For the harmonic field, the discrete invariant and its speed/position bounds have explicit coefficient and margin premises in HarmonicStability. HarmonicAccumulation compares actual equal-time schedules, and HarmonicUniform derives state bounds ≤2M and actual error ≤3*T*h*abs(w)*M under h≥0 and its named small-time condition. HarmonicCover encloses matched rational points inside cells; HarmonicDyadic constructs actual endpoint Cauchy names at fixed rational times, with finite-gap bound 3*T²*abs(w)*M/2^j and an explicit positive-tolerance modulus. No limit point or curve is supplied. Realization of these data, continuity/coherence in time, partition independence and general varying-force convergence remain open. |
+| P3 existence of the ultimate curve | **Open.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns limits of rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate and residual/mesh bounds are checked at rational times. For the harmonic field, the discrete invariant and its speed/position bounds have explicit coefficient and margin premises in HarmonicStability. HarmonicAccumulation compares actual equal-time schedules, and HarmonicUniform derives state bounds ≤2M and actual error ≤3*T*h*abs(w)*M under h≥0 and its named small-time condition. HarmonicCover encloses matched rational points inside cells; HarmonicDyadic constructs actual endpoint Cauchy names at fixed rational times, with finite-gap bound 3*T²*abs(w)*M/2^j and an explicit positive-tolerance modulus. HarmonicTimeComparison constructs their rational-time map and derives uniform levelwise time control, with positive delta=eps/(L+1). No limit point or curve is supplied. Realization, identification with prefixes of one global polygon family, partition independence and general varying-force convergence remain open. |
 | P4 intervening defect and area law | **Open for the actual trajectory.** HarmonicCover derives a finite coordinate-square cover for both matched half-cell patches of each actual coarse/fine block. Its nonnegative, multiplicity-counted budget is 2*T*h*M²*(4+3*T*abs(w))². It proves point-set containment, not union content or D_mesh for an unconstructed trajectory. Construct that region and derive its vanishing enclosure without cancellation of opposite lobes. `swept_eq` controls the distinct Kepler area K_mesh; transferring its law to the constructed curve requires geometric identification. |
 | P5 force identification | **Open.** "Aget indesinenter" identifies the impulse limit with a continuous force; no finite result supplies this. |
 
@@ -73,8 +73,11 @@ the finite content it needs when cells are unequal.
 The harmonic field now has derived mesh-uniform actual state and endpoint-error
 bounds, a proved square enclosure and nonnegative cover budget for matched
 polygonal patches, and constructed fixed-rational-time endpoint Cauchy names;
-see [harmonic refinement](HARMONIC_REFINEMENT.md). Next derive uniform control
-as time varies and realize these data. Completion/realization, transfer of the
+see [harmonic refinement](HARMONIC_REFINEMENT.md). Uniform variation with
+rational time is now derived in HarmonicTimeComparison, with an explicit
+positive tolerance controlling every approximant. Next construct motion from
+prefixes of one global polygon family and realize the resulting data.
+Completion/realization, transfer of the
 cover to a trajectory, content/area identification and partition independence
 remain distinct. A general represented-point force also needs compatibility
 with point value equivalence; finite centrality alone does not supply it.

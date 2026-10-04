@@ -434,3 +434,18 @@ This constructs fixed-rational-time Cauchy names; it supplies neither a limit
 point nor continuous time-domain realization, partition independence or the
 actual polygon–trajectory area. The earlier holdout certifies only its frozen
 cover snapshot and is not reused to certify this construction.
+
+Uniform rational-time follow-up, 4 October: both full builds, catalogue,
+graph and all 485 reference/axiom checks pass in order; 665 declarations in
+46 declaration-bearing modules. Only propext, Classical.choice and Quot.sound
+appear, with no sorryAx/project axiom, warning or error. `timeName` and
+`timeDelta` were separately type/axiom checked. The actual schedules satisfy
+the pinned level-independent coefficient4 bound, and eps/(L+1) constructs a
+positive tolerance even when M=0. Generic same-time and zero-state controls
+and exact production values19/64,24,3 compile. The deliberately false
+zero-error control in `/tmp/NewtonHarmonicTimeFalse.lean` is rejected as false.
+Reference log: `/tmp/newtonlean-day-time-refs.log`. Whitespace checks pass.
+This verifies a rational-time map of derived Cauchy names; realization in a
+completed point space, identification with one global polygon family, force
+identification and the actual intervening area remain open. The earlier
+frozen-snapshot cover holdout is not reused as an oracle for this increment.

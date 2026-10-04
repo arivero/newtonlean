@@ -28,8 +28,11 @@ nonnegative, multiplicity-counted cover budget is
 intervening region's actual area remain open. HarmonicDyadic now constructs
 actual fixed-rational-time endpoint Cauchy data, with arbitrary finite-gap
 bound 3*T²*|w|*M/2^j and an explicit positive-tolerance modulus. A Cauchy name
-is not yet a limit point or a continuous time-to-position map; realization,
-partition independence and mechanical force identification remain separate.
+is not yet a limit point. HarmonicTimeComparison derives the rational-time map
+of these names with uniform bound 4*(1+2*|w|)*M*|U-T| and explicit positive
+delta=eps/(L+1). Realization, identification with prefixes of one global
+polygon family, partition independence and mechanical force identification
+remain separate.
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
 agreement with `p+t*v`, constant velocity, cross-denominator subdivision

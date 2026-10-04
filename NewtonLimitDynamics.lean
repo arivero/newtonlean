@@ -35,6 +35,7 @@ import NewtonLimitDynamics.Polygon.HarmonicUniform
 import NewtonLimitDynamics.Polygon.ConvexCover
 import NewtonLimitDynamics.Polygon.HarmonicCover
 import NewtonLimitDynamics.Polygon.HarmonicDyadic
+import NewtonLimitDynamics.Polygon.HarmonicTimeComparison
 import NewtonLimitDynamics.Polygon.MonotoneEnclosure
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums

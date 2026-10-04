@@ -135,8 +135,23 @@ efficient evaluation algorithm or a physical scale. Zero time returns the
 initial state in value equivalence at every level. The boundary adjacent
 error145/4096, adjacent cap3/16 and tail cap3/8 compile.
 
-This constructs a Cauchy name, not a limit point or a continuous curve. A
-realization of these data, coherence/continuity in time, partition independence,
+`HarmonicTimeComparison.lean` derives a uniform time-parameter estimate for
+these actual endpoint schedules. For nonnegative T,U satisfying the same
+small-time condition, every level obeys
+
+    stateNorm(D_j(U)-D_j(T)) ≤ L*|U-T|,  L=4*(1+2*|w|)*M.
+
+The cell count agrees while the durations differ; this comparison is distinct
+from common-time refinement. Actual one-cell mismatch, derived prefix state
+bounds and finite amplification give the estimate. `timeName` constructs the
+map from admissible rational times to Cauchy names. For every positive rational
+eps, delta=eps/(L+1) is positive and controls every approximant at once, including
+M=0. The production control w=1,T=1/4,U=1/8,j=0 has exact error19/64,
+L=24 and bound3. Same-time and zero-state conclusions are generic.
+
+This constructs a uniformly continuous rational-time map of Cauchy names.
+Realization in a completed point space, identification with prefixes of one
+global polygon family, partition independence,
 mechanical force identification and the actual intervening-region area remain
 separate obligations. In the general represented-point model, a force must
 also respect point value equivalence; the harmonic cell's compatibility is

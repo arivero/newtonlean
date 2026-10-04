@@ -390,3 +390,75 @@ zero-time and exact boundary controls pass; the false zero-error assertion
 is rejected as false. Fixed rational-time Cauchy data are constructed, not a
 supplied curve. Realization, continuity/coherence in time, partition independence,
 force identification and actual intervening-area content remain open.
+
+Commit `19d9c0b` records the tenth checked increment. Eleventh pin: derive
+uniform control as the rational time parameter varies, using actual schedules.
+For fixed w,s and nonnegative T,U each satisfying DyadicSmallTime, target
+
+    stateNorm(endpoint(w,U,s,j)-endpoint(w,T,s,j))
+      <= 4*(1+2*abs(w))*M*abs(U-T)  for every j.
+
+The same level has the same cell count, with two different cell durations;
+it must not be treated as a common-time refinement. Derive the one-cell
+parameter mismatch, use actual prefix state bounds and the uniform finite
+amplification estimate, and cancel the common count against the duration
+difference by value equivalence. May assume only the checked rational/cell,
+growth, dyadic and norm lemmas with their premises. No curve, limit point,
+continuity field, ODE theorem or generic force regularity may be supplied.
+
+Construct the map from nonnegative short rational times to endpoint Cauchy
+names, and derive an explicit positive delta for each positive rational eps
+controlling all level approximants. The robust choice eps/(L+1), where
+L=4*(1+2*abs(w))*M, includes M=0. Rational-time Cauchy-data continuity is the
+deliverable; full Euclidean-time realization, force law and actual D_mesh
+area are not inferred. Kepler area remains separate. Production boundary
+control w=1,T=1/4,U=1/8,s=((1,0),(0,1)),j=0 predicts exact error19/64,
+L=24 and bound3. Same-time and zero-state controls must be generic. A false
+zero-error statement for that boundary must fail.
+
+Licensed alternative before implementation: the coefficient 8 in place of
+4 is sufficient for the consuming continuity obligation; it must be flagged
+explicitly and the boundary budget becomes6. Bounded fallback is the compiled
+uniform parameter estimate with exactly the missing radius/map lemma named.
+No silent discarded small-time or nonnegativity premise, and no promotion to
+a historical Proposition I proof. Record a spec correction before changing it.
+
+Eleventh increment checked in full: HarmonicTimeComparison derives the pinned
+coefficient 4, constructs `timeName`, and proves its uniform levelwise
+continuity with positive delta=eps/(L+1). Both full builds, catalogue, graph
+and all 485 reference/axiom checks pass; 665 theorem declarations in 46
+declaration-bearing modules. Only propext, Classical.choice and Quot.sound,
+with no sorryAx/project axiom, warning or error. Constructors were separately
+type/axiom checked. Same-time and zero-state controls are generic; the exact
+production control gives error19/64, L24 and bound3. Lean rejects the false
+zero error in `/tmp/NewtonHarmonicTimeFalse.lean` as false. Reference log:
+`/tmp/newtonlean-day-time-refs.log`. Whitespace checks pass. This does not yet
+realize completed points or identify these independently rescaled endpoint
+schedules with prefixes of one global polygon family.
+
+Twelfth pin: construct intermediate-time Cauchy data directly from a single
+global dyadic family. Fix w,s,T with T>=0 and DyadicSmallTime. For an arbitrary
+binary address b:Nat->Bool, define ticks0=0 and
+ticks(j+1)=2*ticks(j)+(if b(j) then 1 else 0). Derive ticks(j)<2^j. At level j
+run exactly ticks(j) actual cells of duration T/2^j from s. This is a prefix
+of the global level-j schedule, with actual elapsed time ticks(j)*T/2^j.
+
+Target adjacent state error <= A/2^(j+1), where
+
+    A = T*M*(2*(1+abs(w))+3*T*abs(w)).
+
+Compare the actual coarse prefix with its actual doubled fine prefix at the
+same time, then account for the optional one fine cell. Derive prefix state
+bounds <=2M, the one-cell increment <=2*h*(1+abs(w))*M, and prefix-time <=T.
+Reuse the checked finite geometric-tail method to derive arbitrary finite-gap
+and two-sided bounds, an explicit positive-tolerance modulus, and a constructor
+whose approximants are these actual prefixes. A small generic geometric-tail
+helper may be extracted; preserve the existing public dyadic endpoint API.
+No supplied curve, Cauchy premise for these actual prefixes, completed limit
+point, force law, or later analytic theorem. Binary addresses are not silently
+identified with every Euclidean time; quotient/time-domain realization remains
+the next obligation. Actual polygon-trajectory area and Kepler area stay
+separate. All-zero address must return s generically, and zero T must return s
+in value equivalence. Production control w=1,T=1/4,s=((1,0),(0,1)), first bit1
+predicts first-level error17/64 and A19/8. First bits1,0 predict tick2=2 and
+same-time adjacent error545/65536. A false zero-error claim must be rejected.

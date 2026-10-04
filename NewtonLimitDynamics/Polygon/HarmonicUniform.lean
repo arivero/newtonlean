@@ -409,7 +409,7 @@ private theorem one_le_one_add (a : Fraction) (ha : 0 ≤ a.num) :
   have hp := Int.le_of_lt a.den_pos
   omega
 
-private theorem one_le_kappa (w h : Fraction) :
+theorem one_le_kappa (w h : Fraction) :
     Fraction.le (Fraction.ofInt 1) (kappa w h) := by
   let u := Fraction.add (Fraction.ofInt 1) h.abs
   let v := Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs)
@@ -523,7 +523,7 @@ private theorem budget_two_bound (w h : Fraction) (s : Point × Point) (n : Nat)
   simp only [budgetCap, count, Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
-private theorem one_le_power (a : Fraction) (ha : 0 ≤ a.num)
+theorem one_le_power (a : Fraction) (ha : 0 ≤ a.num)
     (h1 : Fraction.le (Fraction.ofInt 1) a) :
     (n : Nat) → Fraction.le (Fraction.ofInt 1) (fpower a n)
   | 0 => Fraction.magnitudes.le_refl _

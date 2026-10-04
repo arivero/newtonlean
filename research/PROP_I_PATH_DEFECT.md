@@ -67,8 +67,11 @@ counts multiplicity; it is neither Kepler area nor actual union/trajectory
 area. No curve is an input to this construction.
 
 HarmonicDyadic now constructs endpoint Cauchy names at fixed rational times,
-with a derived tolerance modulus and no supplied limit point. Next realize
-these data with a coherent time domain and partition independence: rational
+with a derived tolerance modulus and no supplied limit point.
+HarmonicTimeComparison now controls their variation with rational time,
+uniformly in the refinement level, and constructs an explicit positive
+continuity tolerance. Next realize motion from prefixes of one global polygon
+family, keeping partition independence explicit: rational
 approximation values need
 not have rational limits. Then derive D_mesh geometry/enclosure and edition-local
 uninterrupted-force identification. No integral calculus, ODE theorem, measure

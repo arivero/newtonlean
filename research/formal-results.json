@@ -3953,7 +3953,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.add_equiv",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -3967,7 +3967,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.mul_equiv",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -3981,7 +3981,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.neg_equiv",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -4051,7 +4051,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.stateSub_congr",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -4303,7 +4303,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.two_pow_ge_succ",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -4862,6 +4862,482 @@
     "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. For w >= 0 the speed term (1 - w*d^2/4)|v_n|^2, and for a nonnegative margin the position term, stay below the initial invariant along every equal-cell schedule (mesh-uniform discrete stability). Convergence, continuous curve, and Newton general central-force theorem are not inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w sigma tau : Fraction) (s : Point × Point) :\n    stateEquiv\n      (stateSub (cell (linearField w) tau s) (cell (linearField w) sigma s))\n      (pointScale (durationDifference sigma tau) s.2,\n        pointScale (negF (Fraction.mul (durationDifference sigma tau) w))\n          (pointAdd s.1 (pointScale (Fraction.add sigma tau) s.2)))",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_norm_formula",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w sigma tau : Fraction) (s : Point × Point) :\n    Fraction.equiv\n      (stateNorm (stateSub (cell (linearField w) tau s)\n        (cell (linearField w) sigma s)))\n      (Fraction.mul (durationDifference sigma tau).abs\n        (Fraction.add (pointNorm s.2)\n          (Fraction.mul w.abs\n            (pointNorm (pointAdd s.1\n              (pointScale (Fraction.add sigma tau) s.2))))))",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.add_num_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction)\n    (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.add a b).num",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.short_sum_point_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(sigma tau : Fraction) (x v : Point)\n    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)\n    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :\n    Fraction.le\n      (pointNorm (pointAdd x (pointScale (Fraction.add sigma tau) v)))\n      (Fraction.add (pointNorm x) (pointNorm v))",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.scalar_local_bound",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction)\n    (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) (hc : 0 ≤ c.num) :\n    Fraction.le\n      (Fraction.add b (Fraction.mul c (Fraction.add a b)))\n      (Fraction.mul (Fraction.add (Fraction.ofInt 1)\n        (Fraction.mul (Fraction.ofInt 2) c)) (Fraction.add a b))",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w sigma tau : Fraction) (s : Point × Point)\n    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)\n    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :\n    Fraction.le\n      (stateNorm (stateSub (cell (linearField w) tau s)\n        (cell (linearField w) sigma s)))\n      (Fraction.mul (durationDifference sigma tau).abs\n        (Fraction.mul\n          (Fraction.add (Fraction.ofInt 1)\n            (Fraction.mul (Fraction.ofInt 2) w.abs)) (stateNorm s)))",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.parameterFactor_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) :\n    0 ≤ (parameterFactor w).num",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.localParameterBudget_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w sigma tau : Fraction)\n    (s : Point × Point) :\n    0 ≤ (localParameterBudget w sigma tau s).num",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.parameterErrorBudget_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w hσ hτ : Fraction)\n    (s : Point × Point) :\n    (i : Nat) → 0 ≤ (parameterErrorBudget w hσ hτ s i).num\n  | 0 => by simp [parameterErrorBudget, Fraction.ofInt]\n  | i + 1 =>\n      add_num_nonnegative _ _\n        (Int.mul_nonneg (kappa_nonnegative w (Fraction.add hτ hτ))\n          (parameterErrorBudget_nonnegative w hσ hτ s i))\n        (localParameterBudget_nonnegative w _ _ s)\n\ntheorem coarse_parameter_step (w sigma tau : Fraction) (a b : Point × Point)\n    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)\n    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :\n    Fraction.le\n      (stateNorm (stateSub (cell (linearField w) tau a)\n        (cell (linearField w) sigma b)))\n      (Fraction.add\n        (Fraction.mul (kappa w tau) (stateNorm (stateSub a b)))\n        (Fraction.mul (durationDifference sigma tau).abs\n          (Fraction.mul (parameterFactor w) (stateNorm b))))",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.coarse_parameter_step",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w sigma tau : Fraction) (a b : Point × Point)\n    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)\n    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :\n    Fraction.le\n      (stateNorm (stateSub (cell (linearField w) tau a)\n        (cell (linearField w) sigma b)))\n      (Fraction.add\n        (Fraction.mul (kappa w tau) (stateNorm (stateSub a b)))\n        (Fraction.mul (durationDifference sigma tau).abs\n          (Fraction.mul (parameterFactor w) (stateNorm b))))",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w hσ hτ : Fraction) (s : Point × Point)\n    (n : Nat) (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)\n    (hsum : Fraction.le\n      (Fraction.add (Fraction.add hσ hσ) (Fraction.add hτ hτ))\n      (Fraction.ofInt 1)) (hsmall : SmallTime w hσ n) :\n    (i : Nat) → i ≤ n →\n      Fraction.le\n        (stateNorm (stateSub (coarseAt w hτ s i) (coarseAt w hσ s i)))\n        (parameterErrorBudget w hσ hτ s i)\n  | 0, _ => Fraction.le_of_equiv (stateSub_self_norm_zero s)\n  | i + 1, hi => by\n      let sigma",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.parameter_budget_power",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w hσ hτ : Fraction) (s : Point × Point) :\n    (i : Nat) → Fraction.le (parameterErrorBudget w hσ hτ s i)\n      (parameterPowerBudget w hσ hτ s i)\n  | 0 => Fraction.le_of_equiv (by\n      simp only [parameterErrorBudget, parameterPowerBudget, fpower,\n        Fraction.equiv, Fraction.ofInt, Fraction.mul]\n      simp)\n  | i + 1 => by\n      let d",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_uniform",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w hσ hτ : Fraction)\n    (s : Point × Point) (n : Nat)\n    (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)\n    (hsum : Fraction.le\n      (Fraction.add (Fraction.add hσ hσ) (Fraction.add hτ hτ))\n      (Fraction.ofInt 1))\n    (hsmallσ : SmallTime w hσ n) (hsmallτ : SmallTime w hτ n) :\n    Fraction.le\n      (stateNorm (stateSub (coarseAt w hτ s n) (coarseAt w hσ s n)))\n      (Fraction.mul (Fraction.ofInt (2 * (n : Int)))\n        (localParameterBudget w (Fraction.add hσ hσ)\n          (Fraction.add hτ hτ) s))",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.dyadic_time_le_half",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    Fraction.le T half",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.duration_le_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) (hT : 0 ≤ T.num) :\n    Fraction.le (duration T j) T",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.short_duration_pair",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T U : Fraction) (j : Nat)\n    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)\n    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :\n    Fraction.le\n      (Fraction.add\n        (Fraction.add (duration T (j + 1)) (duration T (j + 1)))\n        (Fraction.add (duration U (j + 1)) (duration U (j + 1))))\n      (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_duration_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T U : Fraction) (j : Nat) :\n    Fraction.equiv\n      (Fraction.mul (Fraction.ofInt (blocks j : Int))\n        (durationDifference\n          (Fraction.add (duration T (j + 1)) (duration T (j + 1)))\n          (Fraction.add (duration U (j + 1)) (duration U (j + 1)))))\n      (durationDifference T U)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_abs_duration_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T U : Fraction) (j : Nat) :\n    Fraction.equiv\n      (Fraction.mul (Fraction.ofInt (blocks j : Int))\n        (durationDifference\n          (Fraction.add (duration T (j + 1)) (duration T (j + 1)))\n          (Fraction.add (duration U (j + 1)) (duration U (j + 1)))).abs)\n      (durationDifference T U).abs",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.endpoint_time_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T U : Fraction) (s : Point × Point) (j : Nat)\n    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)\n    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :\n    Fraction.le\n      (stateNorm (stateSub (endpoint w U s j) (endpoint w T s j)))\n      (Fraction.mul (timeLipschitz w s) (durationDifference T U).abs)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeLipschitz_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) :\n    0 ≤ (timeLipschitz w s).num",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeDenominator_positive",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) :\n    0 < (timeDenominator w s).num",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeDelta_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) (eps : Fraction)\n    (heps : 0 < eps.num) : 0 < (timeDelta w s eps).num",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.mul_lt_mul_positive_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction}\n    (hab : Fraction.lt a b) (c : Fraction) (hc : 0 < c.num) :\n    Fraction.lt (Fraction.mul c a) (Fraction.mul c b)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeLipschitz_le_denominator",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) :\n    Fraction.le (timeLipschitz w s) (timeDenominator w s)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.delta_product_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point)\n    (eps : Fraction) :\n    Fraction.equiv\n      (Fraction.mul (timeDenominator w s) (timeDelta w s eps)) eps",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.parameter_delta_control",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point)\n    (eps d : Fraction) (_heps : 0 < eps.num)\n    (hd : 0 ≤ d.num) (hdelta : Fraction.lt d (timeDelta w s eps)) :\n    Fraction.lt (Fraction.mul (timeLipschitz w s) d) eps",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.timeName_uniform_continuity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point)\n    (eps : Fraction) (heps : 0 < eps.num) :\n    ∃ delta : Fraction, 0 < delta.num ∧\n      ∀ T U : ShortRationalTime w,\n        Fraction.lt (durationDifference T.val U.val).abs delta →\n        ∀ j : Nat,\n          Fraction.lt\n            (stateNorm (stateSub ((timeName w s U).approx j)\n              ((timeName w s T).approx j))) eps",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.same_time_error_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    Fraction.equiv\n      (stateNorm (stateSub (endpoint w T s j) (endpoint w T s j)))\n      (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.zero_state_error_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T U : Fraction) (j : Nat)\n    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)\n    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :\n    Fraction.equiv\n      (stateNorm (stateSub (endpoint w U zeroState j)\n        (endpoint w T zeroState j))) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_short_times",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    DyadicSmallTime sampleOne sampleQuarter ∧\n      DyadicSmallTime sampleOne sampleEighth",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_parameter_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub\n        (endpoint sampleOne sampleEighth sampleState 0)\n        (endpoint sampleOne sampleQuarter sampleState 0)))\n      ⟨19, 64, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_time_lipschitz",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (timeLipschitz sampleOne sampleState)\n      (Fraction.ofInt 24)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_time_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (Fraction.mul (timeLipschitz sampleOne sampleState)\n        (durationDifference sampleQuarter sampleEighth).abs)\n      (Fraction.ofInt 3)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.sample_parameter_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.le\n      (stateNorm (stateSub\n        (endpoint sampleOne sampleEighth sampleState 0)\n        (endpoint sampleOne sampleQuarter sampleState 0)))\n      (Fraction.mul (timeLipschitz sampleOne sampleState)\n        (durationDifference sampleQuarter sampleEighth).abs)",
+    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.denom_pos",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
@@ -5269,7 +5745,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_kappa",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -5353,7 +5829,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.one_le_power",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
     "source_passages": [
       "NATP00089.par9",
