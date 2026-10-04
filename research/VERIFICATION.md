@@ -480,5 +480,14 @@ fails by rfl; this supplementary failure is not the mathematical evidence for
 non-equality. Reference log: `/tmp/newtonlean-day-values-refs.log`. Whitespace
 checks pass. This constructs values in the explicit name quotient, not an
 assumed external complete coordinate space, quotient time domain, position-only
-motion or actual intervening area. Next is the sequential nonauthor check of
-the committed value-construction snapshot.
+motion or actual intervening area.
+
+The sequential nonauthor Luna check reproduced the two builds and all547
+references on frozen `92b8a9f23c1add8cfcd0606022b83ebcd3e5ddfc`. Catalogue/graph
+regeneration in a temporary snapshot matched the checkout at744 declarations,
+48 modules and77 nodes/68 edges/246 passages. Constructor/premise inspection
+confirmed bound invariance before lifting, zero-radius separation and the
+positive sample non-equality proof, with only the same standard axioms. The
+retained short-time scope artifact and whitespace check passed. No numerical
+holdout or oracle was used. Log: `/tmp/newtonlean-92b8a9f-references.log`.
+The unrelated conversation-export changes were preserved; no repair was made.

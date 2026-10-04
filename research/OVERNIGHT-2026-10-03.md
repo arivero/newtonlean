@@ -522,6 +522,13 @@ by the compiled non-equality theorem. Reference log:
 complete coordinate space, time quotient, position-only separation, force law
 or actual polygon-trajectory area has been assumed or certified.
 
+The sequential nonauthor Luna check of frozen `92b8a9f` reproduced both builds,
+all547 references and unchanged regenerated catalogue/graph artifacts, with
+744 declarations in48 modules and only standard axioms. Scope and constructor
+inspection, the retained short-time control and whitespace passed. No oracle
+or new numeric holdout was used. `/tmp/newtonlean-92b8a9f-references.log`
+records the check; no repair occurred and unrelated archives were preserved.
+
 Fourteenth pin: construct and identify the binary time domain, then descend
 the actual prefix values to a continuous state-value map on it. Construct
 Cauchy names for the actual times t_j=ticks(j)*T/2^j (stored as one coordinate

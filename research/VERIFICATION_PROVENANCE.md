@@ -50,3 +50,12 @@ j=0 and s=((1,0),(0,1)), it proves actual error10200, proposed unrestricted
 budget2400, failure of that inequality, and violation of DyadicSmallTime.
 It demonstrates why the short-time premise cannot be dropped from the displayed
 bound. It is not an independent reference or a failure of trajectory existence.
+
+The sequential nonauthor check of frozen `92b8a9f` reproduced builds,547
+references and unchanged generated catalogues/graph data. It inspected the
+proved name equivalence, bound invariance before quotient lifting, constant
+embedding separation, zero-radius equality and actual value-bound premises.
+The all-level3/16 lower bound and compiled non-equality theorem establish the
+sample separation; the supplementary failed rfl attempt does not. This was
+kernel/build and scope verification, with no numeric holdout or oracle and no
+reference-derived repair. Log: `/tmp/newtonlean-92b8a9f-references.log`.
