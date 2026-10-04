@@ -1180,6 +1180,114 @@
     "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.scalarState_distance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(t u : Fraction) :\n    Fraction.equiv (distance (scalarState t) (scalarState u))\n      (durationDifference u t).abs",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.timeState_distance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (T : Fraction) (j : Nat) :\n    Fraction.equiv (distance (timeState b T j) (timeState c T j))\n      (durationDifference (timeApprox c T j) (timeApprox b T j)).abs",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.time_step_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (j : Nat) :\n    Fraction.equiv\n      (durationDifference (timeApprox b T j) (timeApprox b T (j + 1)))\n      (Fraction.mul (Fraction.ofInt (bit b j : Int)) (duration T (j + 1)))",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.adjacent_time_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (j : Nat)\n    (hT : 0 ≤ T.num) :\n    Fraction.le (distance (timeState b T (j + 1)) (timeState b T j))\n      (duration T (j + 1))",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.tail_double",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) :\n    Fraction.equiv (Fraction.add (duration T j) (duration T j))\n      (doubleTail T j)",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.finite_gap_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction)\n    (hT : 0 ≤ T.num) :\n    (k j : Nat) → Fraction.le\n      (distance (timeState b T (j + k)) (timeState b T j))\n      (duration T j)\n  | 0, j => by\n      have hz : Fraction.le (Fraction.ofInt 0) (duration T j)",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.two_sided_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction)\n    (hT : 0 ≤ T.num) (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :\n    Fraction.le (distance (timeState b T m) (timeState b T n))\n      (doubleTail T N)",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.doubleTail_lt_tolerance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T eps : Fraction)\n    (hT : 0 ≤ T.num) (heps : 0 < eps.num) :\n    Fraction.lt (doubleTail T (modulus T eps)) eps",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.time_cauchy",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) :\n    ∀ eps : Fraction, 0 < eps.num →\n      ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →\n        Fraction.lt (distance (timeState b T m) (timeState b T n)) eps",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.addressEquiv_refl",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num)\n    (b : Nat → Bool) : AddressEquiv T hT b b",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.addressEquiv_symm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num)\n    {b c : Nat → Bool} (h : AddressEquiv T hT b c) :\n    AddressEquiv T hT c b",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.addressEquiv_trans",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/BinaryTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num)\n    {a b c : Nat → Bool} (hab : AddressEquiv T hT a b)\n    (hbc : AddressEquiv T hT b c) : AddressEquiv T hT a c",
+    "interpretation_and_remaining_premises": "Modern explicit binary-time domain constructed from the actual dyadic tick counts, with no historical dependency attributed. Rational time approximants have derived adjacent, finite-gap and two-sided geometric bounds; finite integer arithmetic supplies the positive-tolerance condition. Cauchy time names and a proved address equivalence define the quotient, including zero duration. No external real interval or generic completeness theorem is supplied or identified."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.equiv_zero_num",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
@@ -1307,7 +1415,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.add_lt_add_left",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
@@ -1334,7 +1442,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_right",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
@@ -3547,7 +3655,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.schedule_replicate_step",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -6232,6 +6340,706 @@
     "classification": "modern_reconstruction",
     "premise_signature": ":\n    Fraction.le\n      (stateNorm (stateSub\n        (endpoint sampleOne sampleEighth sampleState 0)\n        (endpoint sampleOne sampleQuarter sampleState 0)))\n      (Fraction.mul (timeLipschitz sampleOne sampleState)\n        (durationDifference sampleQuarter sampleEighth).abs)",
     "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countState_coarse",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (j n : Nat) :\n    stateEquiv (countState w T s j n)\n      (coarseAt w (duration T (j + 1)) s n)",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countState_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (j n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (hn : n ≤ blocks j) :\n    Fraction.le (stateNorm (countState w T s j n))\n      (Fraction.mul (Fraction.ofInt 2) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countState_step_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (j n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (hn : n ≤ blocks j) :\n    Fraction.le (distance (countState w T s j (n + 1))\n      (countState w T s j n))\n      (Fraction.mul (duration T j) (stateTimeFactor w s))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countState_gap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (j : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    (n k : Nat) → n + k ≤ blocks j →\n      Fraction.le (distance (countState w T s j (n + k))\n        (countState w T s j n))\n        (Fraction.mul (Fraction.ofInt (k : Int))\n          (Fraction.mul (duration T j) (stateTimeFactor w s)))\n  | n, 0, _ => by\n      have hz",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countTime_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j n k : Nat) :\n    Fraction.equiv\n      (durationDifference (countTime T j n) (countTime T j (n + k)))\n      (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countTime_abs_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j n k : Nat)\n    (hT : 0 ≤ T.num) :\n    Fraction.equiv\n      (durationDifference (countTime T j n) (countTime T j (n + k))).abs\n      (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.stateTimeFactor_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) :\n    0 ≤ (stateTimeFactor w s).num",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countState_ordered_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (j n k : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (hnk : n + k ≤ blocks j) :\n    Fraction.le (distance (countState w T s j (n + k))\n      (countState w T s j n))\n      (Fraction.mul\n        (durationDifference (countTime T j n) (countTime T j (n + k))).abs\n        (stateTimeFactor w s))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.durationDifference_abs_symm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) :\n    Fraction.equiv (durationDifference a b).abs\n      (durationDifference b a).abs",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countState_same_grid_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (j m n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (hm : m ≤ blocks j) (hn : n ≤ blocks j) :\n    Fraction.le (distance (countState w T s j m)\n      (countState w T s j n))\n      (Fraction.mul\n        (durationDifference (countTime T j n) (countTime T j m)).abs\n        (stateTimeFactor w s))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.prefix_time_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T) :\n    Fraction.le (distance (prefixState b w T s j)\n      (prefixState c w T s j))\n      (Fraction.mul (distance (timeState b T j) (timeState c T j))\n        (stateTimeFactor w s))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factorDenominator_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C : Fraction) (hC : 0 ≤ C.num) :\n    0 < (factorDenominator C).num",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factorDelta_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C eps : Fraction) (hC : 0 ≤ C.num)\n    (heps : 0 < eps.num) : 0 < (factorDelta C eps hC).num",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factor_control",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C eps d : Fraction) (hC : 0 ≤ C.num)\n    (hd : 0 ≤ d.num)\n    (hdelta : Fraction.lt d (factorDelta C eps hC)) :\n    Fraction.lt (Fraction.mul d C) eps",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factor_delta_weak",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C eps : Fraction) (hC : 0 ≤ C.num)\n    (heps : 0 ≤ eps.num) :\n    Fraction.le (Fraction.mul (factorDelta C eps hC) C) eps",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.mul_add_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) :\n    Fraction.equiv (Fraction.mul (Fraction.add a b) c)\n      (Fraction.add (Fraction.mul a c) (Fraction.mul b c))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_scale",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b ta tb : EndpointCauchyName)\n    (C R : Fraction) (hC : 0 ≤ C.num)\n    (hlevel : ∀ n : Nat,\n      Fraction.le (distance (a.approx n) (b.approx n))\n        (Fraction.mul (distance (ta.approx n) (tb.approx n)) C))\n    (hnear : NameBound ta tb R) :\n    NameBound a b (Fraction.mul R C)",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.address_state_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T)\n    (hbc : AddressEquiv T hT b c) :\n    NameEquiv (prefixName b w T s hT hs)\n      (prefixName c w T s hT hs)",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.gammaValue_address",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T) :\n    gammaValue w T s hT hs (Quotient.mk _ b) =\n      binaryValue b w T s hT hs",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.timeCoordinate_injective",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) :\n    ∀ x y : BinaryTime T hT,\n      timeCoordinate T hT x = timeCoordinate T hT y → x = y",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.timeWithin_address",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (T : Fraction)\n    (hT : 0 ≤ T.num) (R : Fraction) :\n    TimeWithin T hT (Quotient.mk _ b) (Quotient.mk _ c) R ↔\n      NameBound (BinaryTime.timeName b T hT)\n        (BinaryTime.timeName c T hT) R",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.gamma_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (x y : BinaryTime T hT) (R : Fraction)\n    (_hR : 0 ≤ R.num) (hxy : TimeWithin T hT x y R) :\n    Within (gammaValue w T s hT hs x)\n      (gammaValue w T s hT hs y)\n      (Fraction.mul R (stateTimeFactor w s))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_mono",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : EndpointCauchyName) (R S : Fraction)\n    (hRS : Fraction.le R S) (h : NameBound a b R) :\n    NameBound a b S",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.within_mono",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R S : Fraction)\n    (hRS : Fraction.le R S) (h : Within x y R) : Within x y S",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.timeTolerance_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point)\n    (eps : Fraction) (heps : 0 < eps.num) :\n    0 < (timeTolerance w s eps).num",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.gamma_uniform_continuity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (eps : Fraction) (heps : 0 < eps.num)\n    (x y : BinaryTime T hT)\n    (hxy : TimeWithin T hT x y (timeTolerance w s eps)) :\n    Within (gammaValue w T s hT hs x)\n      (gammaValue w T s hT hs y) eps.half",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.duration_eventually_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T eps : Fraction)\n    (hT : 0 ≤ T.num) (heps : 0 < eps.num) :\n    ∃ N : Nat, ∀ j : Nat, N ≤ j →\n      Fraction.lt (duration T j) eps",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.duration_factor_eventually_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num)\n    (eps : Fraction) (heps : 0 < eps.num) :\n    ∃ N : Nat, ∀ j : Nat, N ≤ j →\n      Fraction.lt (Fraction.mul (duration T j) (stateTimeFactor w s))\n        eps",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_state_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) :\n    stateEquiv (timeState leftAddress T j)\n      (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_coordinate",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) :\n    timeCoordinate T hT (leftTime T hT) =\n      embed (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_endpoint_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    gammaValue w T s hT hs (leftTime T hT) = embed s",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_ticks",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(j : Nat) : ticks rightAddress j + 1 = blocks j",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_difference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) :\n    Fraction.equiv (durationDifference (timeApprox rightAddress T j) T)\n      (duration T j)",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_distance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat)\n    (hT : 0 ≤ T.num) :\n    Fraction.equiv (distance (timeState rightAddress T j)\n      (scalarState T)) (duration T j)",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_coordinate",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) :\n    timeCoordinate T hT (rightTime T hT) = embed (scalarState T)",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_prefix_endpoint_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction)\n    (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T) :\n    Fraction.le (distance (endpoint w T s j)\n      (prefixState rightAddress w T s j))\n      (Fraction.mul (duration T j) (stateTimeFactor w s))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_endpoint_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    gammaValue w T s hT hs (rightTime T hT) =\n      endpointValue w T s hT hs",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.alias_ticks",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(j : Nat) :\n    ticks firstAlias (j + 1) = blocks j ∧\n      ticks secondAlias (j + 1) + 1 = blocks j",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.alias_time_distance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat)\n    (hT : 0 ≤ T.num) :\n    Fraction.equiv\n      (distance (timeState firstAlias T (j + 1))\n        (timeState secondAlias T (j + 1)))\n      (duration T (j + 1))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.alias_address_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) :\n    AddressEquiv T hT firstAlias secondAlias",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.alias_time_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) :\n    (Quotient.mk (addressSetoid T hT) firstAlias : BinaryTime T hT) =\n      Quotient.mk (addressSetoid T hT) secondAlias",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.alias_value_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    binaryValue firstAlias w T s hT hs =\n      binaryValue secondAlias w T s hT hs",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.zero_time_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T) (hzero : T.num = 0) :\n    gammaValue w T s hT hs (Quotient.mk _ b) = embed s",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.zero_state_norm_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T) (hzero : (stateNorm s).num = 0) :\n    gammaValue w T s hT hs (Quotient.mk _ b) = embed s",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.sample_alias_counts",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ticks firstAlias 2 = 2 ∧ ticks secondAlias 2 = 1",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.sample_alias_time_gap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (distance (timeState firstAlias sampleQuarter 2)\n        (timeState secondAlias sampleQuarter 2))\n      ⟨1, 16, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.sample_state_time_factor",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (stateTimeFactor sampleOne sampleState)\n      (Fraction.ofInt 8)",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.sample_alias_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (Fraction.mul (distance\n        (timeState firstAlias sampleQuarter 2)\n        (timeState secondAlias sampleQuarter 2))\n        (stateTimeFactor sampleOne sampleState))\n      ⟨1, 2, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.sample_alias_actual_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (distance\n        (prefixState firstAlias sampleOne sampleQuarter sampleState 2)\n        (prefixState secondAlias sampleOne sampleQuarter sampleState 2))\n      ⟨8927, 65536, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.sample_right_ne_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    gammaValue sampleOne sampleQuarter sampleState\n      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)\n      (rightTime sampleQuarter (by decide)) ≠\n    gammaValue sampleOne sampleQuarter sampleState\n      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)\n      (leftTime sampleQuarter (by decide))",
+    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.denom_pos",

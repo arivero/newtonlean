@@ -175,9 +175,8 @@ The all-zero address returns the initial state exactly; zero time returns it
 in value equivalence. Production controls give first error17/64, A19/8 and
 same-time second error545/65536. No actual curve or limit point was supplied.
 
-These are Cauchy data for all binary addresses. Identification of equivalent
-time descriptions, continuity of the resulting
-time-to-position map and the actual between-path region remain to be proved;
+These are Cauchy data for all binary addresses. The data alone do not identify
+equivalent time descriptions or give a map on times and a between-path region;
 see [the construction specification](CAUCHY_REALIZATION.md). The independently
 rescaled rational-time endpoint map and this single global family remain
 distinct until their values are compared.
@@ -197,9 +196,21 @@ existing time and prefix-tail bounds. The example endpoint value differs from
 the initial value: its level0 distance9/16 and tail3/8 imply distance>=3/16
 at every level, which rules out name equivalence.
 
-This constructs state values, including a uniformly controlled rational-time
-map. Identification of binary addresses as times and a well-defined continuous
-map on their quotient remain next. A state separation result does not by itself
-prove position-only separation or any intervening-region area. Generic
+BinaryTime now constructs geometric time Cauchy names and their proved address
+quotient. HarmonicTimeRealization derives an arbitrary-prefix state bound and
+same-grid control by C times actual time difference, C=2*(1+|w|)*M, before
+descending the prefix values to gammaValue. Closed time-radius R gives state
+radius C*R; half(eps)/(C+1) is an explicit positive continuity tolerance.
+The left state equals the embedded initial state, and the all-one right state
+equals the complete-schedule endpoint value after bounding the omitted cell.
+The addresses1,0,0,... and0,1,1,... yield equal time and state values despite
+different finite prefixes. Their pinned level2 counts2/1, time gap1/16,
+factor8, bound1/2 and actual state error8927/65536 compile. Generic zero-time
+and zero-state-magnitude controls and sample left/right state separation compile.
+
+This constructs a continuous state map on the binary-time quotient. A state
+separation result does not by itself prove position-only separation or any
+intervening-region area. Those are the next geometric obligations in
+[the region specification](TRAJECTORY_DEFECT_REGION.md). Generic
 completeness, external real-coordinate identification and mechanical properties
 are not inferred.

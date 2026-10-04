@@ -563,3 +563,46 @@ identification, partition independence, dynamics and actual intervening area
 remain separate. Keep zero T and zero state explicit; no hidden positivity
 division that excludes those cases. A bounded incomplete bridge is reported
 with its exact missing lemma, without calling the time-domain map complete.
+
+Fourteenth increment checked in full: BinaryTime constructs the actual time
+names and their proved address quotient. HarmonicTimeRealization derives the
+arbitrary-prefix bound and same-grid coefficient C=2*(1+|w|)*M before lifting
+gammaValue. Closed-radius control and an explicit uniform continuity tolerance,
+left/right state identities, injective time coordinates with endpoints 0 and T,
+the two half-time aliases, zero time and zero initial magnitude compile.
+Both full builds, catalogue, graph and all 612 references pass; 806 declarations
+in 50 declaration-bearing modules. Only propext, Classical.choice and Quot.sound,
+no sorryAx/project axiom or warning/error. Constructors were separately
+type/axiom checked. The production alias controls and positive sample state
+separation pass. Lean rejects finite alias state equality specifically as false
+in `/tmp/newtonlean_false_time_state.lean`. Reference log:
+`/tmp/newtonlean-day-binary-time-refs.log`. Whitespace passes. No external
+real-time identification, position-only separation, arbitrary partition
+independence, uninterrupted force law or actual intervening-area content is
+certified. Earlier holdouts remain limited to their frozen snapshots.
+
+Fifteenth pin: construct planar position values and coordinate-square predicates
+before defining the between-path region. Derive nonexpansive rational state
+projections for position (zero velocity) and its two coordinates. Their actions
+on Cauchy names must have derived Cauchy proofs and respect name equivalence
+before lifting to values. Prove constant compatibility and position projection
+idempotence; define position values as values fixed by that projection or an
+equivalently proved planar quotient. Closed bounds must be preserved. Construct
+gammaPosition from the actual gammaValue, retaining its continuity, aliases and
+endpoint identities. Define a completed coordinate square by the two derived
+closed coordinate bounds about a rational point, with nonnegative radius.
+Transfer eventual rational coordinate bounds to square membership. The square
+is a planar point set, not an L1 ball, state-space region or supplied area.
+
+Production position separation: w=1,T=1/4,s=((1,0),(0,1)). Endpoint level1
+position distance is 135/512 and its checked state tail is 3/16. Derive a
+position lower bound 39/512 for all later levels, then prove the constructed
+right position differs from its initial/left position. Do not infer this
+from state-value separation alone. A completed-square control should contain
+(1,1) at centre (0,0), radius 1, even though its L1 distance is 2. These are
+production controls, not independent oracles. Reuse core arithmetic and actual
+two-cell/tail estimates; avoid evaluating large unnormalized rational schedules.
+No supplied point limit/curve, completeness, mathlib, axiom or sorry. The actual
+coarse polygon map, completed connectors, finite region cover/content, force
+identification and partition independence remain subsequent obligations. See
+TRAJECTORY_DEFECT_REGION.md for the fixed region and area convention.

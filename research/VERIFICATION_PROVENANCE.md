@@ -59,3 +59,13 @@ The all-level3/16 lower bound and compiled non-equality theorem establish the
 sample separation; the supplementary failed rfl attempt does not. This was
 kernel/build and scope verification, with no numeric holdout or oracle and no
 reference-derived repair. Log: `/tmp/newtonlean-92b8a9f-references.log`.
+
+The binary-time construction is checked by both full builds and all 612
+references, including axiom reports. Its disclosed exact alias values are
+production-side controls: finite prefixes differ while the proved time/state
+values agree. Generic zero cases and the positive sample state separation also
+compile. Constructor checks inspect the actual time quotient and motion lift;
+equivalence proofs precede both. These checks provide no new numerical oracle
+and do not certify position-only separation, the intervening region's content,
+partition independence or a force law. Log:
+`/tmp/newtonlean-day-binary-time-refs.log`.

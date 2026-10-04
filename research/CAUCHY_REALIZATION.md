@@ -1,7 +1,8 @@
 # Constructing motion from the harmonic polygon family
 
-This is the next-step specification for Proposition I's construction variant,
-not a checked trajectory theorem. The mathematical layer is a modern
+This records the checked Cauchy-name, value and binary-time constructions and
+the remaining geometric and mechanical steps for Proposition I's construction
+variant. It is not a completed trajectory theorem. The mathematical layer is a modern
 reconstruction with explicit rational coordinates and the calibrated L1 state
 magnitude. It does not add a historical dependency or silently supply a curve.
 The stage-local obligations remain in [the realization ledger](PROP_I_REALIZATION.md).
@@ -21,10 +22,11 @@ approximants are the actual state after k_j cells and its actual elapsed time
 k_j*H_j. HarmonicBinaryPrefix derives k_j<2^j, elapsed time<=T and state<=2M
 before applying the actual comparison estimate. Its checked adjacent and
 finite-gap bounds construct these state Cauchy names; see
-[the checkpoint](OVERNIGHT-2026-10-03.md). Binary addresses have not yet been
-identified with a completed time interval.
+[the checkpoint](OVERNIGHT-2026-10-03.md). BinaryTime now constructs their time
+names and quotients the addresses by proved time-name equivalence. Identification
+with an external real interval remains separate.
 
-## Point-space realization specification
+## Checked state-value construction
 
 `CauchyValues.lean` now constructs a value space explicitly from state Cauchy
 names. For two names a,b, the proved equivalence is
@@ -54,31 +56,37 @@ initial value. This arithmetic pin is a production-side control, not an
 independent oracle. The all-level lower bound and quotient state separation
 proof now compile. Position-only separation remains a further obligation.
 
-## Time-domain identification specification
+## Checked time-domain map
 
-The binary time approximants have geometric tails. Construct their time names
-and an equivalence of addresses based on vanishing time difference. Derive a
-uniform same-grid state increment bound from actual cells and prefix state
-bounds. The intended finite bound is
+BinaryTime derives geometric time tails and the positive-tolerance condition
+from the actual ticks. Its time names define a proved equivalence of addresses.
+HarmonicTimeRealization derives the arbitrary-prefix state bound and the
+uniform same-grid state increment estimate from actual cells:
 
     stateNorm(S_j(b)-S_j(c)) <= 2*(1+|w|)*M*|t_j(b)-t_j(c)|.
 
-Both states use the same duration T/2^j. Prove the arbitrary-prefix count
-bound before telescoping actual one-cell increments. The time names need
-their own tick/time estimates; they cannot carry an assumed Cauchy field.
-Use this comparison to prove that equivalent time addresses give equivalent state
-names. Only then lift the address-to-value construction to a map on the
-constructed time quotient and prove continuity there. The two addresses of a
-dyadic time must agree in value. A concrete control is the first-bit-only
-address1,0,0,... and the address0,1,1,..., whose level-j time difference is
-T/2^j for j>=1. Prove equality of their time and motion values, not equality
-of their finite schedules. Identify the right endpoint with the existing
-complete-schedule endpoint name, accounting for the last omitted cell.
+Both states use the same duration T/2^j. The equivalence proof precedes the
+quotient lift defining gammaValue. Closed time-radius R gives state-radius
+2*(1+|w|)*M*R. The explicit tolerance half(eps)/(2*(1+|w|)*M+1)
+gives state-radius half(eps), including zero initial magnitude.
 
-These are explicit obligations. An arbitrary function from binary addresses
-to state classes does not yet establish a motion on times. Likewise, the
-existence of names does not identify their velocity coordinate with the
-derivative of position or their acceleration with the sampled harmonic force.
+The left value is the embedded initial state. The all-one right value equals
+the complete-schedule endpoint value after bounding the last omitted cell.
+Their time coordinates equal the embedded scalar times 0 and T, respectively;
+the time-coordinate map is proved injective on the binary-time quotient.
+The first-bit-only address1,0,0,... and address0,1,1,... give equal time and
+state values, although their finite prefixes differ. At w=1,T=1/4 and level 2,
+their time distance is 1/16, state factor 8, budget 1/2 and actual state
+distance 8927/65536. These are production controls. Generic zero-time and
+zero-state-magnitude values are constant. The sample right and left state
+values differ by the already proved endpoint separation.
+
+The domain is the explicitly constructed binary-time quotient. Its name/value
+map is not a supplied curve or external limit point. Position projection and
+separation are next. The velocity coordinate still needs to be identified
+with position's rate of change, and acceleration with the sampled harmonic
+force. Partition independence and identification with independently rescaled
+rational-time endpoint values remain separate.
 
 ## Between-path geometry specification
 
@@ -106,6 +114,9 @@ tolerance decay. A small square sum proves a small outer enclosure only after
 the intervening set is shown to lie in those squares; it does not define that
 set's area or establish measurability. Exact union/content or a stated outer-
 content construction remains necessary for an actual scalar D_mesh.
+The [region specification](TRAJECTORY_DEFECT_REGION.md) fixes the intended
+simultaneous-position connector set and finite-square outer content before
+the geometric proof is attempted.
 
 Partition independence, force identification, extension beyond the named short
 interval and the general central-field case remain separate. No Kepler-area

@@ -491,3 +491,18 @@ positive sample non-equality proof, with only the same standard axioms. The
 retained short-time scope artifact and whitespace check passed. No numerical
 holdout or oracle was used. Log: `/tmp/newtonlean-92b8a9f-references.log`.
 The unrelated conversation-export changes were preserved; no repair was made.
+
+Binary-time motion follow-up, 4 October: both full builds, catalogue, graph
+and all 612 reference/axiom checks pass; 806 declarations in 50 declaration-bearing
+modules. Only propext, Classical.choice and Quot.sound; no sorryAx/project
+axiom, warning or error. Time-name/setoid/domain and motion/time-coordinate/
+tolerance constructors were separately type/axiom inspected. Same-grid state
+control, address independence before the quotient lift, closed-radius and
+uniform continuity, state endpoints, injective time coordinates with endpoints
+0/T, aliases and zero cases compile. Exact alias controls and sample left/right
+state separation pass. The finite-prefix alias equality is rejected specifically
+as false in `/tmp/newtonlean_false_time_state.lean`. Reference log:
+`/tmp/newtonlean-day-binary-time-refs.log`. Whitespace passes. The result is a
+continuous state map on its explicitly constructed binary-time quotient;
+position geometry, actual region/content, partition independence and force
+identification remain separate. No old holdout is reused for this construction.

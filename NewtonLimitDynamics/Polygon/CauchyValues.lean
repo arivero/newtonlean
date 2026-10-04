@@ -205,7 +205,7 @@ theorem embed_eq_iff_stateEquiv (a b : Point × Point) :
   · intro h
     exact Quotient.sound ((constantName_equiv_iff a b).mpr h)
 
-private theorem add_lt_add_left {a b : Fraction}
+theorem add_lt_add_left {a b : Fraction}
     (hab : Fraction.lt a b) (c : Fraction) :
     Fraction.lt (Fraction.add c a) (Fraction.add c b) := by
   have hp : 0 < c.den * c.den := Int.mul_pos c.den_pos c.den_pos
@@ -235,7 +235,7 @@ private theorem lt_equiv_left {a b c : Fraction}
   Fraction.magnitudes.lt_of_le_lt
     ((Fraction.equiv_iff_mutual_le _ _).mp hab).1 hbc
 
-private theorem lt_equiv_right {a b c : Fraction}
+theorem lt_equiv_right {a b c : Fraction}
     (hab : Fraction.lt a b) (hbc : Fraction.equiv b c) : Fraction.lt a c :=
   Fraction.magnitudes.lt_of_lt_le hab
     ((Fraction.equiv_iff_mutual_le _ _).mp hbc).1

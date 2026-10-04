@@ -74,9 +74,12 @@ continuity tolerance. HarmonicBinaryPrefix now constructs intermediate-time
 Cauchy names from actual prefixes of one global polygon family, for every
 binary address, with a derived geometric tail. CauchyValues now constructs
 their quotient state values and transfers the actual time/tail bounds after
-proving representative invariance. Next identify equivalent time descriptions
-and construct a continuous map on times, keeping partition independence explicit:
-rational approximants need not have rational limits. Then derive D_mesh
+proving representative invariance. BinaryTime and HarmonicTimeRealization now
+derive the time names, their proved quotient and a continuous state-value map
+on it. Equivalent addresses, endpoints and zero cases are checked. Next project
+to position values and construct the same-time polygon map and region, keeping
+partition independence explicit: rational approximants need not have rational
+limits. Then derive D_mesh
 geometry/enclosure and edition-local
 uninterrupted-force identification. No integral calculus, ODE theorem, measure
 theorem, or silently supplied completion closes these obligations.

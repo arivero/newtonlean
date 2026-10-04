@@ -38,8 +38,13 @@ actual prefixes of one global dyadic family. Every binary address has a
 derived geometric tail and explicit positive-tolerance modulus. CauchyValues
 now constructs their values in a proved quotient of Cauchy names, lifts
 representative-invariant bounds, and proves convergence and rational-state
-embedding separation. Equivalent time descriptions, a continuous map on the
-constructed time domain and the actual between-path area remain open; see
+embedding separation. Identification of equivalent time descriptions and a
+continuous map on the
+constructed time domain are now derived in BinaryTime and
+HarmonicTimeRealization: actual same-grid states differ by at most
+2*(1+|w|)*M times their time difference, equivalent addresses descend to the
+same value, and continuity, endpoint/alias identities and zero cases are proved.
+Position projection/separation and the actual between-path area remain open; see
 [the construction specification](CAUCHY_REALIZATION.md).
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule

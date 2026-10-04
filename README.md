@@ -10,12 +10,19 @@ mechanics, refinement, realization and force identification. Propositions
 I–III each have a source-linked note: [Proposition I](research/PROP_I_REALIZATION.md),
 [Proposition II](research/TASKS.md) and [Proposition III](research/PROP_III.md).
 
+Current priority is Proposition I, then II, III and IV, retaining all three
+stages. The primary forward variant constructs the motion from its impulse
+polygons. Its main geometric target is the nonnegative area between polygon
+and trajectory, distinct from the radius-swept Kepler area. Follow the
+[construction ledger](research/CAUCHY_REALIZATION.md) and
+[current checkpoint](research/OVERNIGHT-2026-10-03.md).
+
 Source-linked reconstructions of quadratic deflection, central-impulse polygons,
 contact-area bounds and proposed revisions, with separate De Motu, 1687,
 proposed-1694, 1713 and 1726 witnesses. Lean 4.19.0 core/Std only; no mathlib.
 
-The implementation advances all four milestones but **does not certify them
-complete**. Geometric, mechanical and manuscript gaps remain explicit in
+The supporting M1–M4 milestones remain **incomplete**. Geometric, mechanical
+and manuscript gaps remain explicit in
 [research state](research/STATE.md), [M1](research/M1.md), [M2](research/M2.md),
 [M3](research/M3.md), and [M4](research/M4.md). Historical results are distinct
 from conditional reconstructions and coordinate consistency examples.
@@ -69,15 +76,18 @@ reconstruction; it adds no historical proof-dependency edge.
    [1687 Proposition I, par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45),
    [1713 Proposition I, par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51).
 
-Our new finite result constrains this conjecture. Under our stated constant-force
+The finite results constrain this conjecture. Under our stated constant-force
 impulse schedule, subdivision changes endpoints, but the exact position
 residual is `(Σ d_i²/2)*a`, with coefficient bounded by half the largest cell
-duration times elapsed time. This provides a classical route toward controlling
-the mismatch, not evidence of an irreparable inconsistency. Convergence and
-general central-force realization remain unproved.
+duration times elapsed time. The harmonic construction now derives geometric
+Cauchy tails for actual prefixes of one dyadic polygon family and realizes
+their state values in an explicitly proved quotient. A continuous state map
+now descends to the constructed binary-time domain. Position projection,
+between-path geometry and mechanical identification are tracked separately;
+general central-force realization remains unproved.
 See [the constructed partition comparison](research/PARTITION_CONTROL.md).
 
-**Prioritized discriminator: zero force.** The [first inertial suite](research/ZERO_FORCE.md)
+**Zero-force support.** The [first inertial suite](research/ZERO_FORCE.md)
 now derives rational-time rectilinear motion, exact subdivision independence,
 restart and within-cell positions from the recurrence, including rest.
 Collinear paths can have zero geometric defect while different

@@ -114,7 +114,7 @@ theorem prefix_elapsed_le_time (b : Nat → Bool) (T : Fraction) (j : Nat)
   exact Fraction.le_equiv_right hbound
     (Fraction.equiv_trans (Fraction.equiv_symm he) hfull)
 
-private theorem schedule_replicate_step (w h : Fraction) (s : Point × Point) :
+theorem schedule_replicate_step (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       schedule (linearField w) (List.replicate (n + 1) h) s =
         cell (linearField w) h
