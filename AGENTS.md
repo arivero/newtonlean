@@ -25,6 +25,7 @@
   honestly. Any later dependency expansion requires reconsideration with the user.
 - Use `lake build NewtonLimitDynamics` as well as the default build. A successful
   command that does not compile the library is not proof verification.
+- Build the elementary foundation explicitly with `lake build BarrowLib` too.
 - Preserve unrelated conversation-export edits and avoid full cache downloads.
 - Use v6 models for all new delegated work: `gpt-6-sol` for bounded reasoning
   and technical implementation, `gpt-6-luna` for routine verification and

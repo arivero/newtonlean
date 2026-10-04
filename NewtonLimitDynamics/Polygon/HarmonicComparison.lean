@@ -1,4 +1,5 @@
 import NewtonLimitDynamics.Polygon.PointBounds
+import BarrowLib.Polygon.FiniteEstimates
 import NewtonLimitDynamics.Polygon.HarmonicStability
 
 /-!
@@ -156,12 +157,26 @@ theorem cell_difference (w h : Fraction) (s t : Point × Point) :
 
 /-- A one-step perturbation estimate for two actual cells under the same
 linear field and duration. The input difference is a represented state. -/
+theorem linearField_comparison_contract (w : Fraction) :
+    FiniteEstimates.comparisonContract (linearField w) (linearField w)
+      w.abs (Fraction.ofInt 0) := by
+  intro p q
+  have hs := FiniteEstimates.difference_scale (negF w) p q
+  have he := Fraction.equiv_trans hs
+    (Fraction.mul_equiv (Fraction.abs_neg w) (Fraction.equiv_refl _))
+  exact Fraction.le_of_equiv (Fraction.equiv_trans he
+    (Fraction.equiv_symm (Fraction.add_zero _)))
+
 theorem cell_perturbation (w h : Fraction) (s t : Point × Point) :
     Fraction.le
       (stateNorm (stateSub (cell (linearField w) h s) (cell (linearField w) h t)))
-      (Fraction.mul (kappa w h) (stateNorm (stateSub s t))) :=
-  Fraction.le_equiv_left (stateNorm_equiv (cell_difference w h s t))
-    (cell_bound w h (stateSub s t))
+      (Fraction.mul (kappa w h) (stateNorm (stateSub s t))) := by
+  have hg := FiniteEstimates.cell_amplification (linearField w) (linearField w)
+    h w.abs (Fraction.ofInt 0) s t (Fraction.abs_num_nonnegative w)
+    (linearField_comparison_contract w)
+  apply Fraction.le_equiv_right hg
+  exact Fraction.equiv_trans (Fraction.add_equiv (Fraction.equiv_refl _)
+    (Fraction.mul_zero h.abs)) (Fraction.add_zero _)
 
 private def one : Fraction := ⟨1, 1, by decide⟩
 private def zero : Fraction := ⟨0, 1, by decide⟩

@@ -33,7 +33,13 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-Snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
+The first general-force increment (Sol 6.1, 4 October) has **839 checked
+library theorems, 535 substantive** by the existing heuristic, across
+NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
+It adds constructed acceleration values and local sampling-aware estimates;
+general motion convergence and polygon–curve area remain open.
+
+Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
 `python3 scripts/progress_stats.py`; the per-commit numbers behind every plot
 are in [history.csv](docs/progress/history.csv).
 
@@ -197,6 +203,7 @@ arguments and their verdicts are kept in [action-arguments](research/action-argu
 
 ```sh
 lake build
+lake build BarrowLib
 lake build NewtonLimitDynamics
 python3 scripts/catalogue_m1.py
 python3 scripts/catalogue_formal.py

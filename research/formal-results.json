@@ -1,5 +1,1068 @@
 [
   {
+    "name": "NewtonLimitDynamics.near_and",
+    "private": false,
+    "file": "BarrowLib/Common/Quadratic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Magnitudes Q) (P R : Q → Prop)\n    (hp : Near g P) (hr : Near g R) : Near g (fun h => P h ∧ R h)",
+    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
+  },
+  {
+    "name": "NewtonLimitDynamics.enclosure_reconstruction",
+    "private": false,
+    "file": "BarrowLib/Common/Quadratic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Magnitudes Q)\n    (ratio lower upper : Q → Q) (c : Q)\n    (hl : Ultimate g lower c) (hu : Ultimate g upper c)\n    (hb : Near g (fun h => g.le (lower h) (ratio h) ∧\n      g.le (ratio h) (upper h))) : Ultimate g ratio c",
+    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
+  },
+  {
+    "name": "NewtonLimitDynamics.near_has_witness",
+    "private": false,
+    "file": "BarrowLib/Common/Quadratic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Magnitudes Q) (P : Q → Prop)\n    (h : Near g P) : ∃ x, g.positive x ∧ P x",
+    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
+  },
+  {
+    "name": "NewtonLimitDynamics.not_near_false",
+    "private": false,
+    "file": "BarrowLib/Common/Quadratic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Magnitudes Q) : ¬ Near g (fun _ => False)",
+    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_num_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : 0 ≤ a.abs.num",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_equiv",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : equiv a b) : equiv a.abs b.abs",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_mul",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : equiv (mul a b).abs (mul a.abs b.abs)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_of_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num) : equiv a.abs a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_neg",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : equiv (⟨-a.num, a.den, a.den_pos⟩ : Fraction).abs a.abs",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_add_le",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : le (add a b).abs (add a.abs b.abs)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.transfer",
+    "private": true,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : le a b) (k : le b c) : le a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mixed",
+    "private": true,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : lt a b) (k : le b c) : lt a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mixed",
+    "private": true,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : lt a b) (k : le b c) : lt a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.half_lt",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (h : positive a) : lt a.half a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.equiv_iff_mutual_le",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : equiv a b ↔ le a b ∧ le b a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.equiv_refl",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : equiv a a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.equiv_symm",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : equiv a b) : equiv b a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.equiv_trans",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : equiv a b) (k : equiv b c) : equiv a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.le_of_equiv",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : equiv a b) : le a b",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.le_equiv_right",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : le a b) (k : equiv b c) : le a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.le_equiv_left",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction} (h : equiv a b) (k : le b c) : le a c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_le_add_right",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction) :\n    le (add a c) (add b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_positive",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : positive c) : le (mul a c) (mul b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_comm",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : equiv (add a b) (add b a)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_le_add_left",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction) :\n    le (add c a) (add c b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_le_add",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : le a b) (k : le c d) :\n    le (add a c) (add b d)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : 0 ≤ c.num) : le (mul a c) (mul b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_comm",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : equiv (mul a b) (mul b a)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative_left",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : 0 ≤ c.num) : le (mul c a) (mul c b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.abs_add_strict_example",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    lt (add (⟨1, 2, by decide⟩ : Fraction) ⟨-1, 2, by decide⟩).abs\n      (add (⟨1, 2, by decide⟩ : Fraction).abs (⟨-1, 2, by decide⟩ : Fraction).abs)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.square_ratio",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(k t : Fraction) (ht : positive t) :\n    equiv (deflectionRatio (mul k (mul t t)) t ht) k",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_assoc",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) : equiv (add (add a b) c) (add a (add b c))",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_assoc",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) : equiv (mul (mul a b) c) (mul a (mul b c))",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_add",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) : equiv (mul a (add b c)) (add (mul a b) (mul a c))",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.positive_mul",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : positive a) (hb : positive b) :\n    positive (mul a b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.positive_iff_zero_lt",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : positive a ↔ lt (ofInt 0) a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.ultimate_congr",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f k : Fraction → Fraction) (c : Fraction)\n    (he : ∀ t, positive t → equiv (f t) (k t))\n    (hk : Ultimate magnitudes k c) : Ultimate magnitudes f c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.triangle_normalized_limit",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(slope : Fraction → Fraction) (c : Fraction)\n    (hs : Ultimate magnitudes slope c) :\n    Ultimate magnitudes (ratio (fun t => mul (slope t) (mul t t))) c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.triangle_area_ratio",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(slope time : Fraction) (ht : positive time) :\n    equiv (deflectionRatio (triangleArea time (mul slope time)) time ht) (half slope)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.constructed_triangle_limit",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(slope : Fraction → Fraction) (c : Fraction)\n    (hs : Ultimate magnitudes (fun t => half (slope t)) c) :\n    Ultimate magnitudes (ratio (fun t => triangleArea t (mul (slope t) t))) c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_equiv_left",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(k : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (mul k a) (mul k b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_equiv_right",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(k : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (add a k) (add b k)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_equiv",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : equiv a b)\n    (k : equiv c d) :\n    equiv (add a c) (add b d)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_equiv",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : equiv a b)\n    (k : equiv c d) :\n    equiv (mul a c) (mul b d)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_equiv_left",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (add c a) (add c b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_equiv_right",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (mul a c) (mul b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.le_add_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    le a (add a b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.nonnegative_add",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (add a b).num",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.nonnegative_mul",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (mul a b).num",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_zero",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) :\n    equiv (mul d (ofInt 0)) (ofInt 0)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_zero",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) :\n    equiv (add c (ofInt 0)) c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_mul",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) :\n    equiv (mul (add a b) c)\n      (add (mul a c) (mul b c))",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.point_difference_add",
+    "private": true,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r t : Point) :\n    pointEquiv (pointSub (pointAdd p r) (pointAdd q t))\n      (pointAdd (pointSub p q) (pointSub r t))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.point_difference_scale",
+    "private": true,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (p q : Point) :\n    pointEquiv (pointSub (pointScale h p) (pointScale h q))\n      (pointScale h (pointSub p q))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.difference_add_bound",
+    "private": true,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r t : Point) :\n    Fraction.le (pointDistance (pointAdd p r) (pointAdd q t))\n      (Fraction.add (pointDistance p q) (pointDistance r t))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.difference_scale",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (p q : Point) :\n    Fraction.equiv (pointDistance (pointScale h p) (pointScale h q))\n      (Fraction.mul h.abs (pointDistance p q))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.component_amplification",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(P V H L E : Fraction)\n    (hP : 0 ≤ P.num) (hV : 0 ≤ V.num) (hH : 0 ≤ H.num) (hL : 0 ≤ L.num) :\n    Fraction.le\n      (Fraction.add (Fraction.add P (Fraction.mul H V))\n        (Fraction.add V (Fraction.mul H\n          (Fraction.add (Fraction.mul L (Fraction.add P (Fraction.mul H V))) E))))\n      (Fraction.add\n        (Fraction.mul (Fraction.mul (Fraction.add (Fraction.ofInt 1) H)\n          (Fraction.add (Fraction.ofInt 1) (Fraction.mul H L))) (Fraction.add P V))\n        (Fraction.mul H E))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_growth",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction)\n    (s : Point × Point) :\n    Fraction.le (pointNorm (cell a h s).1)\n      (Fraction.add (pointNorm s.1)\n        (Fraction.mul h.abs (pointNorm s.2)))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_growth",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h B : Fraction)\n    (s : Point × Point)\n    (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) :\n    Fraction.le (pointNorm (cell a h s).2)\n      (Fraction.add (pointNorm s.2) (Fraction.mul h.abs B))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_growth",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h B : Fraction)\n    (s : Point × Point)\n    (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) :\n    Fraction.le (stateNorm (cell a h s))\n      (Fraction.add\n        (Fraction.add (pointNorm s.1) (Fraction.mul h.abs (pointNorm s.2)))\n        (Fraction.add (pointNorm s.2) (Fraction.mul h.abs B)))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_perturbation",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (h : Fraction)\n    (s t : Point × Point) :\n    Fraction.le (pointDistance (cell a h s).1 (cell b h t).1)\n      (Fraction.add (pointDistance s.1 t.1)\n        (Fraction.mul h.abs (pointDistance s.2 t.2)))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (h L E : Fraction)\n    (s t : Point × Point) (hc : comparisonContract a b L E) :\n    Fraction.le (pointDistance (cell a h s).2 (cell b h t).2)\n      (Fraction.add (pointDistance s.2 t.2)\n        (Fraction.mul h.abs\n          (Fraction.add (Fraction.mul L\n            (pointDistance (cell a h s).1 (cell b h t).1)) E)))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (h L E : Fraction)\n    (s t : Point × Point) (hc : comparisonContract a b L E) :\n    Fraction.le (stateDistance (cell a h s) (cell b h t))\n      (Fraction.add\n        (Fraction.add (pointDistance s.1 t.1)\n          (Fraction.mul h.abs (pointDistance s.2 t.2)))\n        (Fraction.add (pointDistance s.2 t.2)\n          (Fraction.mul h.abs\n            (Fraction.add (Fraction.mul L\n              (pointDistance (cell a h s).1 (cell b h t).1)) E))))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point)\n    (h L E : Fraction) (s t : Point × Point)\n    (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) :\n    Fraction.le (stateDistance (cell a h s) (cell b h t))\n      (Fraction.add\n        (Fraction.add (pointDistance s.1 t.1)\n          (Fraction.mul h.abs (pointDistance s.2 t.2)))\n        (Fraction.add (pointDistance s.2 t.2)\n          (Fraction.mul h.abs\n            (Fraction.add (Fraction.mul L\n              (Fraction.add (pointDistance s.1 t.1)\n                (Fraction.mul h.abs (pointDistance s.2 t.2)))) E))))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (h L E : Fraction)\n    (s t : Point × Point) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) :\n    Fraction.le (stateDistance (cell a h s) (cell b h t))\n      (Fraction.add (Fraction.mul (amplification L h) (stateDistance s t))\n        (Fraction.mul h.abs E))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_identity",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction)\n    (s : Point × Point) :\n    pointEquiv (twoHalf a h s).1\n      (pointAdd (oneFull a h s).1\n        (pointScale (Fraction.mul h h) (a (cell a h s).1)))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_difference",
+    "private": true,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction)\n    (s : Point × Point) :\n    pointEquiv (pointSub (twoHalf a h s).1 (oneFull a h s).1)\n      (pointScale (Fraction.mul h h) (a (cell a h s).1))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h B : Fraction)\n    (s : Point × Point)\n    (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) :\n    Fraction.le (pointDistance (twoHalf a h s).1 (oneFull a h s).1)\n      (Fraction.mul (Fraction.mul h h).abs B)",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.first_to_full_difference",
+    "private": true,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction)\n    (s : Point × Point) :\n    pointEquiv (pointSub (cell a h s).1 (oneFull a h s).1)\n      (pointScale h (pointNeg s.2))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.first_to_full_distance",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction)\n    (s : Point × Point) :\n    Fraction.equiv (pointDistance (cell a h s).1 (oneFull a h s).1)\n      (Fraction.mul h.abs (pointNorm s.2))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_difference",
+    "private": true,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction)\n    (s : Point × Point) :\n    pointEquiv (pointSub (twoHalf a h s).2 (oneFull a h s).2)\n      (pointScale h\n        (pointAdd\n          (pointSub (a (cell a h s).1) (a (oneFull a h s).1))\n          (pointSub (a (twoHalf a h s).1) (a (oneFull a h s).1))))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h L E : Fraction)\n    (s : Point × Point) (hc : comparisonContract a a L E) :\n    Fraction.le (pointDistance (twoHalf a h s).2 (oneFull a h s).2)\n      (Fraction.mul h.abs\n        (Fraction.add\n          (Fraction.add (Fraction.mul L\n            (pointDistance (cell a h s).1 (oneFull a h s).1)) E)\n          (Fraction.add (Fraction.mul L\n            (pointDistance (twoHalf a h s).1 (oneFull a h s).1)) E)))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error_closed",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point)\n    (h L E B : Fraction) (s : Point × Point)\n    (hL : 0 ≤ L.num)\n    (hB : Fraction.le (pointNorm (a (cell a h s).1)) B)\n    (hc : comparisonContract a a L E) :\n    Fraction.le (pointDistance (twoHalf a h s).2 (oneFull a h s).2)\n      (Fraction.mul h.abs\n        (Fraction.add\n          (Fraction.add (Fraction.mul L\n            (Fraction.mul h.abs (pointNorm s.2))) E)\n          (Fraction.add (Fraction.mul L\n            (Fraction.mul (Fraction.mul h h).abs B)) E)))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_state_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h L E B : Fraction)\n    (s : Point × Point)\n    (hB : Fraction.le (pointNorm (a (cell a h s).1)) B)\n    (hc : comparisonContract a a L E) :\n    Fraction.le (stateDistance (twoHalf a h s) (oneFull a h s))\n      (Fraction.add\n        (Fraction.mul (Fraction.mul h h).abs B)\n        (Fraction.mul h.abs\n          (Fraction.add\n            (Fraction.add (Fraction.mul L\n              (pointDistance (cell a h s).1 (oneFull a h s).1)) E)\n            (Fraction.add (Fraction.mul L\n              (pointDistance (twoHalf a h s).1 (oneFull a h s).1)) E))))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_state_error_closed",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point)\n    (h L E B : Fraction) (s : Point × Point)\n    (hL : 0 ≤ L.num)\n    (hB : Fraction.le (pointNorm (a (cell a h s).1)) B)\n    (hc : comparisonContract a a L E) :\n    Fraction.le (stateDistance (twoHalf a h s) (oneFull a h s))\n      (Fraction.add\n        (Fraction.mul (Fraction.mul h h).abs B)\n        (Fraction.mul h.abs\n          (Fraction.add\n            (Fraction.add (Fraction.mul L\n              (Fraction.mul h.abs (pointNorm s.2))) E)\n            (Fraction.add (Fraction.mul L\n              (Fraction.mul (Fraction.mul h h).abs B)) E))))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.linear_sample_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    stateEquiv (cell controlLinear controlEighth controlStart)\n      ((Fraction.ofInt 1, controlEighth),\n        (⟨-1, 8, by decide⟩, ⟨63, 64, by decide⟩))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.constant_sample_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    stateEquiv (cell controlA controlHalf controlState)\n      ((controlZero, controlZero),\n        (controlZero, ⟨-1, 2, by decide⟩))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateDistance (cell controlA controlHalf controlState)\n        (cell controlB controlHalf controlState)) controlHalf",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control_nonzero",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ Fraction.le\n      (stateDistance (cell controlA controlHalf controlState)\n        (cell controlB controlHalf controlState)) controlZero",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.zero_duration_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (s : Point × Point) :\n    stateEquiv (cell a controlZero s) s",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (h : pointEquiv p q) : pointEquiv q p",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_trans",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) {p q : Point} (h : pointEquiv p q) :\n    pointEquiv (pointScale d p) (pointScale d q)",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_right",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v w : Point) :\n    Fraction.equiv (det x (pointAdd v w)) (Fraction.add (det x v) (det x w))",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) : 0 ≤ (pointNorm p).num",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) : 0 ≤ (stateNorm s).num",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (h : pointEquiv p q) :\n    Fraction.equiv (pointNorm p) (pointNorm q)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_neg",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) :\n    Fraction.equiv (pointNorm (pointNeg p)) (pointNorm p)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{s t : Point × Point} (h : stateEquiv s t) :\n    Fraction.equiv (stateNorm s) (stateNorm t)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_add_le",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) :\n    Fraction.le (pointNorm (pointAdd p q))\n      (Fraction.add (pointNorm p) (pointNorm q))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_scale",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (p : Point) :\n    Fraction.equiv (pointNorm (pointScale d p)) (Fraction.mul d.abs (pointNorm p))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_add_le",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s t : Point × Point) :\n    Fraction.le (stateNorm (pointAdd s.1 t.1, pointAdd s.2 t.2))\n      (Fraction.add (stateNorm s) (stateNorm t))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (s : Point × Point) :\n    Fraction.equiv\n      (stateNorm (pointScale d s.1, pointScale d s.2))\n      (Fraction.mul d.abs (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.point_le_state",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.1) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.velocity_le_state",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.2) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.FiniteGrowth.weightSum_nonnegative",
     "private": false,
     "file": "NewtonLimitDynamics/Common/FiniteGrowth.lean",
@@ -169,618 +1232,6 @@
     "classification": "modern_reconstruction",
     "premise_signature": ":\n    ¬ Fraction.le (amplification 1 (by decide) [1, 1]) (Fraction.ofInt 2)",
     "interpretation_and_remaining_premises": "Modern elementary finite common-denominator growth arithmetic, with no claimed historical dependency. For positive D and nonnegative integer increments, P=product(D+a_j) and S=sum(a_j) satisfy P*(D-S)<=D^(length+1). If 2*S<=D, the derived rational amplification P/D^length is at most 2, including empty and zero increments. List/product/replication identities support transport to actual schedule powers. Removing smallness has a checked counterexample. No supplied trajectory, completeness, area geometry, or historical analytic theorem is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.near_and",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/Quadratic.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(g : Magnitudes Q) (P R : Q → Prop)\n    (hp : Near g P) (hr : Near g R) : Near g (fun h => P h ∧ R h)",
-    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
-  },
-  {
-    "name": "NewtonLimitDynamics.enclosure_reconstruction",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/Quadratic.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(g : Magnitudes Q)\n    (ratio lower upper : Q → Q) (c : Q)\n    (hl : Ultimate g lower c) (hu : Ultimate g upper c)\n    (hb : Near g (fun h => g.le (lower h) (ratio h) ∧\n      g.le (ratio h) (upper h))) : Ultimate g ratio c",
-    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
-  },
-  {
-    "name": "NewtonLimitDynamics.near_has_witness",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/Quadratic.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(g : Magnitudes Q) (P : Q → Prop)\n    (h : Near g P) : ∃ x, g.positive x ∧ P x",
-    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
-  },
-  {
-    "name": "NewtonLimitDynamics.not_near_false",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/Quadratic.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(g : Magnitudes Q) : ¬ Near g (fun _ => False)",
-    "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.abs_num_nonnegative",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a : Fraction) : 0 ≤ a.abs.num",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.abs_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : equiv a b) : equiv a.abs b.abs",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.abs_mul",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) : equiv (mul a b).abs (mul a.abs b.abs)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.abs_of_nonnegative",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num) : equiv a.abs a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.abs_neg",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a : Fraction) : equiv (⟨-a.num, a.den, a.den_pos⟩ : Fraction).abs a.abs",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.abs_add_le",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) : le (add a b).abs (add a.abs b.abs)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.transfer",
-    "private": true,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c : Fraction} (h : le a b) (k : le b c) : le a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mixed",
-    "private": true,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c : Fraction} (h : lt a b) (k : le b c) : lt a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mixed",
-    "private": true,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c : Fraction} (h : lt a b) (k : le b c) : lt a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.half_lt",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a : Fraction) (h : positive a) : lt a.half a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.equiv_iff_mutual_le",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) : equiv a b ↔ le a b ∧ le b a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.equiv_refl",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a : Fraction) : equiv a a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.equiv_symm",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : equiv a b) : equiv b a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.equiv_trans",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c : Fraction} (h : equiv a b) (k : equiv b c) : equiv a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.le_of_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : equiv a b) : le a b",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.le_equiv_right",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c : Fraction} (h : le a b) (k : equiv b c) : le a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.le_equiv_left",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c : Fraction} (h : equiv a b) (k : le b c) : le a c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_le_add_right",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction) :\n    le (add a c) (add b c)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_positive",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : positive c) : le (mul a c) (mul b c)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_comm",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) : equiv (add a b) (add b a)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_le_add_left",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction) :\n    le (add c a) (add c b)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_le_add",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : le a b) (k : le c d) :\n    le (add a c) (add b d)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : 0 ≤ c.num) : le (mul a c) (mul b c)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_comm",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) : equiv (mul a b) (mul b a)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative_left",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : le a b) (c : Fraction)\n    (hc : 0 ≤ c.num) : le (mul c a) (mul c b)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.abs_add_strict_example",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": ":\n    lt (add (⟨1, 2, by decide⟩ : Fraction) ⟨-1, 2, by decide⟩).abs\n      (add (⟨1, 2, by decide⟩ : Fraction).abs (⟨-1, 2, by decide⟩ : Fraction).abs)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.square_ratio",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(k t : Fraction) (ht : positive t) :\n    equiv (deflectionRatio (mul k (mul t t)) t ht) k",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_assoc",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b c : Fraction) : equiv (add (add a b) c) (add a (add b c))",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_assoc",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b c : Fraction) : equiv (mul (mul a b) c) (mul a (mul b c))",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_add",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b c : Fraction) : equiv (mul a (add b c)) (add (mul a b) (mul a c))",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.positive_mul",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (ha : positive a) (hb : positive b) :\n    positive (mul a b)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.positive_iff_zero_lt",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a : Fraction) : positive a ↔ lt (ofInt 0) a",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.ultimate_congr",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(f k : Fraction → Fraction) (c : Fraction)\n    (he : ∀ t, positive t → equiv (f t) (k t))\n    (hk : Ultimate magnitudes k c) : Ultimate magnitudes f c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.triangle_normalized_limit",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(slope : Fraction → Fraction) (c : Fraction)\n    (hs : Ultimate magnitudes slope c) :\n    Ultimate magnitudes (ratio (fun t => mul (slope t) (mul t t))) c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.triangle_area_ratio",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(slope time : Fraction) (ht : positive time) :\n    equiv (deflectionRatio (triangleArea time (mul slope time)) time ht) (half slope)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.constructed_triangle_limit",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(slope : Fraction → Fraction) (c : Fraction)\n    (hs : Ultimate magnitudes (fun t => half (slope t)) c) :\n    Ultimate magnitudes (ratio (fun t => triangleArea t (mul (slope t) t))) c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_equiv_left",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(k : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (mul k a) (mul k b)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_equiv_right",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(k : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (add a k) (add b k)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : equiv a b)\n    (k : equiv c d) :\n    equiv (add a c) (add b d)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : equiv a b)\n    (k : equiv c d) :\n    equiv (mul a c) (mul b d)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_equiv_left",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (add c a) (add c b)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_equiv_right",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (mul a c) (mul b c)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.le_add_nonnegative",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    le a (add a b)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.nonnegative_add",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (add a b).num",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.nonnegative_mul",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (mul a b).num",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.mul_zero",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) :\n    equiv (mul d (ofInt 0)) (ofInt 0)",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_zero",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) :\n    equiv (add c (ofInt 0)) c",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
-  },
-  {
-    "name": "NewtonLimitDynamics.Fraction.add_mul",
-    "private": false,
-    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
-    "source_passages": [
-      "NATP00077.par26",
-      "NATP00082.par27"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b c : Fraction) :\n    equiv (mul (add a b) c)\n      (add (mul a c) (mul b c))",
-    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
     "name": "NewtonLimitDynamics.Comparison.CircleCompare.force_ratio_is_sagitta_ratio",
@@ -1133,6 +1584,60 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget)\n    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :\n    Vanishes polygonTrajectoryArea",
     "interpretation_and_remaining_premises": "Conditional NATP00090 polygon-trajectory defect control with explicitly supplied geometric enclosure and budget. It derives no curve and imports no printed-edition limiting lemma. The finite Kepler law does not imply these premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.DeflectionPotential.deflection_triangle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/DeflectionPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (B v a : Point) :\n    Fraction.equiv (triangleTwice B (inertial h B v) (deflected h B v a))\n      (Fraction.mul (Fraction.mul (Fraction.mul h h) h) (det v a))",
+    "interpretation_and_remaining_premises": "Arg007 action diagnostic: exact rational deflection triangle and Galilean/harmonic potential differences between the next kick-polygon vertex and its inertial continuation. Signed doubled area and its absolute value are separately named. The Galilean relation is division-free; the harmonic leading term has explicit cubic/quartic corrections and an exact counterexample to treating it as the finite formula. These are polygon-cell identities, not polygon-curve D_mesh, curve asymptotics, universal action scales or historical proof premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.DeflectionPotential.unsigned_deflection_triangle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/DeflectionPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (B v a : Point) :\n    Fraction.equiv (triangleMagnitude B (inertial h B v) (deflected h B v a))\n      (Fraction.mul (Fraction.mul (Fraction.mul h h) h) (det v a)).abs",
+    "interpretation_and_remaining_premises": "Arg007 action diagnostic: exact rational deflection triangle and Galilean/harmonic potential differences between the next kick-polygon vertex and its inertial continuation. Signed doubled area and its absolute value are separately named. The Galilean relation is division-free; the harmonic leading term has explicit cubic/quartic corrections and an exact counterexample to treating it as the finite formula. These are polygon-cell identities, not polygon-curve D_mesh, curve asymptotics, universal action scales or historical proof premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.DeflectionPotential.galilean_potential_step",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/DeflectionPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(m g h : Fraction) (B v : Point) :\n    Fraction.equiv\n      (potentialStep (linearPotential m g) (inertial h B v)\n        (deflected h B v (fallAcceleration g)))\n      (negF (Fraction.mul (Fraction.mul m (Fraction.mul g g)) (Fraction.mul h h)))",
+    "interpretation_and_remaining_premises": "Arg007 action diagnostic: exact rational deflection triangle and Galilean/harmonic potential differences between the next kick-polygon vertex and its inertial continuation. Signed doubled area and its absolute value are separately named. The Galilean relation is division-free; the harmonic leading term has explicit cubic/quartic corrections and an exact counterexample to treating it as the finite formula. These are polygon-cell identities, not polygon-curve D_mesh, curve asymptotics, universal action scales or historical proof premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.DeflectionPotential.galilean_area_potential_cross_relation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/DeflectionPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(m g h : Fraction) (B v : Point) :\n    Fraction.equiv\n      (Fraction.mul (Fraction.mul m g)\n        (triangleTwice B (inertial h B v) (deflected h B v (fallAcceleration g))))\n      (Fraction.mul (Fraction.mul h v.1)\n        (potentialStep (linearPotential m g) (inertial h B v)\n          (deflected h B v (fallAcceleration g))))",
+    "interpretation_and_remaining_premises": "Arg007 action diagnostic: exact rational deflection triangle and Galilean/harmonic potential differences between the next kick-polygon vertex and its inertial continuation. Signed doubled area and its absolute value are separately named. The Galilean relation is division-free; the harmonic leading term has explicit cubic/quartic corrections and an exact counterexample to treating it as the finite formula. These are polygon-cell identities, not polygon-curve D_mesh, curve asymptotics, universal action scales or historical proof premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.DeflectionPotential.harmonic_potential_step",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/DeflectionPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(m w h : Fraction) (B v : Point) :\n    Fraction.equiv\n      (potentialStep (quadraticPotential m w) (inertial h B v)\n        (deflected h B v (linearField w B)))\n      (Fraction.add\n        (negF (Fraction.mul (Fraction.mul m (Fraction.mul w w))\n          (Fraction.mul (Fraction.mul h h) (dot B B))))\n        (Fraction.add\n          (negF (Fraction.mul (Fraction.mul m (Fraction.mul w w))\n            (Fraction.mul (Fraction.mul (Fraction.mul h h) h) (dot B v))))\n          (Fraction.mul (Fraction.mul m (Fraction.mul (Fraction.mul w w) w))\n            (Fraction.mul (Fraction.mul (Fraction.mul h h) (Fraction.mul h h))\n              (dot B B))).half))",
+    "interpretation_and_remaining_premises": "Arg007 action diagnostic: exact rational deflection triangle and Galilean/harmonic potential differences between the next kick-polygon vertex and its inertial continuation. Signed doubled area and its absolute value are separately named. The Galilean relation is division-free; the harmonic leading term has explicit cubic/quartic corrections and an exact counterexample to treating it as the finite formula. These are polygon-cell identities, not polygon-curve D_mesh, curve asymptotics, universal action scales or historical proof premises."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.DeflectionPotential.harmonic_leading_term_not_exact",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/DeflectionPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    let one",
+    "interpretation_and_remaining_premises": "Arg007 action diagnostic: exact rational deflection triangle and Galilean/harmonic potential differences between the next kick-polygon vertex and its inertial continuation. Signed doubled area and its absolute value are separately named. The Galilean relation is division-free; the harmonic leading term has explicit cubic/quartic corrections and an exact counterexample to treating it as the finite formula. These are polygon-cell identities, not polygon-curve D_mesh, curve asymptotics, universal action scales or historical proof premises."
   },
   {
     "name": "NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseCube_equalAreal",
@@ -2935,6 +3440,96 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.sample_central",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (n : Nat) : central (o.sample n)",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.sampled_finite_area_law",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (n : Nat)\n    (ds : List Fraction) (s : Point × Point) :\n    Fraction.equiv (swept (o.sample n) ds s)\n      (Fraction.mul (elapsed ds) (momentum s))",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.acceleration_approximants_converge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : Oracle) (p : Point)\n    (hp : o.region p) (eps : Fraction) (heps : 0 < eps.num) :\n    ∃ N : Nat, ∀ n, N ≤ n →\n      Within (embed (accelerationState (o.sample n p)))\n        (accelerationValue o p hp) eps",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.exact_accelerationValue",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Field) (p : Point) :\n    accelerationValue (exactOracle a) p True.intro =\n      embed (accelerationState (a p))",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.harmonic_distance_only",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (hw : 0 ≤ w.num) :\n    DistanceOnly (harmonicOracle w hw)",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.harmonic_comparison_contract",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) :\n    FiniteEstimates.comparisonContract (linearField w) (linearField w)\n      w.abs (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.harmonic_class_a_force",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (hw : 0 ≤ w.num) :\n    ClassAForce (harmonicOracle w hw)",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.parallel_cell",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point) (h : Fraction) (s : Point × Point) :\n    cell ((parallelOracle a).sample 0) h s = endKick h s a",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.parallel_transverse_cell",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point) (h : Fraction) (s : Point × Point) :\n    Fraction.equiv (det (cell (fun _ => a) h s).2 a) (det s.2 a)",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.parallel_transverse_schedule",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point) (ds : List Fraction)\n    (s : Point × Point) :\n    Fraction.equiv (det (schedule (fun _ => a) ds s).2 a) (det s.2 a)",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
@@ -4066,6 +4661,20 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (s t : Point × Point) :\n    stateEquiv (stateSub (cell (linearField w) h s) (cell (linearField w) h t))\n      (cell (linearField w) h (stateSub s t))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.linearField_comparison_contract",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) :\n    FiniteEstimates.comparisonContract (linearField w) (linearField w)\n      w.abs (Fraction.ofInt 0)",
     "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
   },
   {
@@ -8352,146 +8961,6 @@
     "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(p : Point) : 0 ≤ (pointNorm p).num",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_nonnegative",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s : Point × Point) : 0 ≤ (stateNorm s).num",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q : Point} (h : pointEquiv p q) :\n    Fraction.equiv (pointNorm p) (pointNorm q)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{s t : Point × Point} (h : stateEquiv s t) :\n    Fraction.equiv (stateNorm s) (stateNorm t)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_add_le",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(p q : Point) :\n    Fraction.le (pointNorm (pointAdd p q))\n      (Fraction.add (pointNorm p) (pointNorm q))",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_scale",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) (p : Point) :\n    Fraction.equiv (pointNorm (pointScale d p)) (Fraction.mul d.abs (pointNorm p))",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_add_le",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s t : Point × Point) :\n    Fraction.le (stateNorm (pointAdd s.1 t.1, pointAdd s.2 t.2))\n      (Fraction.add (stateNorm s) (stateNorm t))",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) (s : Point × Point) :\n    Fraction.equiv\n      (stateNorm (pointScale d s.1, pointScale d s.2))\n      (Fraction.mul d.abs (stateNorm s))",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.point_le_state",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.1) (stateNorm s)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.velocity_le_state",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.2) (stateNorm s)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.PositionValues.distance_decompose",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
@@ -9320,62 +9789,6 @@
     "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q : Point} (h : pointEquiv p q) : pointEquiv q p",
-    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_trans",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
-    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_congr",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
-    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_congr",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) {p q : Point} (h : pointEquiv p q) :\n    pointEquiv (pointScale d p) (pointScale d q)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
@@ -9555,20 +9968,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": ": pointEquiv (directedConnector exampleD exampleC) (zero, negQuarter)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_right",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(x v w : Point) :\n    Fraction.equiv (det x (pointAdd v w)) (Fraction.add (det x v) (det x w))",
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {

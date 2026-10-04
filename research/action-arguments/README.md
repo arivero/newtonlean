@@ -34,6 +34,7 @@ and action-rescaling freedom.
 | [260922opus5.5v1Arg004.md](260922opus5.5v1Arg004.md) | Claude Opus 5.5 | supports the kind; value undetermined | De Motu *momenta* → 1687/1713 *particulæ* and ultimate ratios; new 1713 Prop. I Cor. 1 (velocity × perpendicular). The construction's exact invariants that survive every mesh and every force (phase area, areal product) are actions |
 | [260922opus5.5v1Arg005.md](260922opus5.5v1Arg005.md) | Claude Opus 5.5 | supports the location | Hyp. 4 → Lemma 2 → Lemma X *vi regulari* → 1713 *Vi finita … continuo augetur vel continuo diminuatur* with new Cor. 3–5; finite enclosure holds under the clause and fails without it; a nonzero action limits the law to `t ≳ (mħ/F²)^{1/3}` |
 | [260922opus5.5v1Arg006.md](260922opus5.5v1Arg006.md) | Claude Opus 5.5 | supports that the scale is an action | 1713 *Vi finita* (Lemma X) and *curvaturam finitam* (Lemma XI) bound one local action `p·ρ_F`; Newton compares with circles, without a unit; the quasi-classical condition is `p·ρ_F ≫ ħ` |
+| [261004gpt6.1solv1Arg007.md](261004gpt6.1solv1Arg007.md) | Sol 6.1 | supports action dimension; system-dependent scale | Exact finite Galilean area/potential proportionality and harmonic correction terms; polygon–curve identification remains separate |
 
 Direction (user, 22 September 2026): develop arguments *for* a nonzero
 constant, grounded in the Latin and in the differences between Newton's

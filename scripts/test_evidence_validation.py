@@ -9,7 +9,7 @@ from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 with tempfile.TemporaryDirectory(prefix='newton-evidence-') as tmp:
     work = Path(tmp)
-    for folder in ['scripts','research','docs','NewtonLimitDynamics']:
+    for folder in ['scripts','research','docs','NewtonLimitDynamics','BarrowLib']:
         shutil.copytree(root/folder,work/folder,ignore=shutil.ignore_patterns('__pycache__'))
     dep_path = work/'research/dependencies.json'
     passage_path = work/'research/passages.json'

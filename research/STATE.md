@@ -1,10 +1,15 @@
 # Research state
 
-Current handoff execution (Sol 6.1, 4 October): D.1 inventories the proposed
-foundation boundary in [BARROWLIB_BOUNDARY.md](BARROWLIB_BOUNDARY.md). This is
-a dependency/scope inventory; it changes no theorem or completion score.
-Next in the handoff's order is the general force interface and the class (a)
-and (b) estimates, including rational approximations of irrational forces.
+Current handoff execution (Sol 6.1, 4 October): D.1 is committed; the minimal
+BarrowLib bootstrap and first Task A estimates now compile. The
+[force design](GENERAL_FORCE_DESIGN.md) uses uniform rational samples for
+possibly irrational accelerations and constructs their quotient values.
+Finite growth, sampling-aware perturbation and local refinement estimates
+are in BarrowLib; the harmonic perturbation is a corollary, and parallel
+forces preserve transverse velocity. Global accumulation, confinement and
+the general realized motion are next. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md)
+records the exact finite-cell potential identities allowed alongside Task A.
+No completion score changes on the basis of this local increment.
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation

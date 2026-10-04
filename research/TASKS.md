@@ -48,9 +48,12 @@ For obligations 4–7, report a proved special case separately from the whole
 proposition. If a historical premise cannot be recovered, continue independent
 obligations while retaining that gap. A source-map entry is not a Lean theorem.
 
-Order 4, current handoff D.1: the [foundation boundary inventory](BARROWLIB_BOUNDARY.md)
-is recorded. It is supporting organization, not a new P3–P5 result. Follow the
-handoff's general-force design and estimates before migrating the library.
+Order 4, current handoff: D.1 and the minimal foundation bootstrap are
+recorded. Task A has a [sampling interface](GENERAL_FORCE_DESIGN.md),
+constructed acceleration values and local generic estimates; global
+accumulation/confinement and general motion remain next before full D.2.
+Task C.2's permitted parallel finite identities are in
+[Arg007](action-arguments/261004gpt6.1solv1Arg007.md), without identifying D_mesh.
 
 Validation is sequential and delegated. The final verification agent runs both
 build targets and source/reference checks after implementation agents finish.

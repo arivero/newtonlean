@@ -1,6 +1,26 @@
 # Verification record
 
-## Current handoff: D.1, 4 October 2026
+## Current handoff: first general-force increment, 4 October 2026
+
+Task A's first finite increment also includes the minimal BarrowLib bootstrap,
+the uniformly approximated-force interface, local generic estimates and the
+permitted parallel C.2 identities. The library now has 839 theorem declarations
+and 698 generated public/reference checks. The first full run found that the evidence test's temporary
+checkout omitted BarrowLib; its fixture now copies both libraries. The full
+sequential checklist passed after that correction, checked by a nonauthor
+GPT-6 Luna worker: all three build targets, catalogues, source collation,
+graph/reference/axiom inspection, edition comparison, rendering, evidence
+regressions, hashes, progress regeneration and whitespace. The axiom union
+is `propext`, `Classical.choice`, `Quot.sound`; no `sorryAx` or project axiom.
+The current worktree has 535 substantive/178 plumbing/112 sample/14 duplicate
+theorems by the existing heuristic. All original declaration names survive.
+Logs: `/tmp/newton-sol61-A1-final-01.log` through `-15.log`. A separate GPT-6
+Sol review checked independent exact controls and caught a deliberately false
+harmonic sign; its two prose scope corrections are applied to Arg007.
+No global accumulation, general
+motion realization, D_mesh or constructed-curve force law is certified.
+
+### D.1 inventory
 
 The foundation inventory changes documentation only. A sequential nonauthor
 GPT-6 Luna worker reran the full README checks: both Lean 4.19 targets, formal

@@ -57,6 +57,18 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Contact.uniform_partition_error
 #check NewtonLimitDynamics.Contact.upper_lower_gap
 #print axioms NewtonLimitDynamics.Contact.upper_lower_gap
+#check NewtonLimitDynamics.Diagnostic.DeflectionPotential.deflection_triangle
+#print axioms NewtonLimitDynamics.Diagnostic.DeflectionPotential.deflection_triangle
+#check NewtonLimitDynamics.Diagnostic.DeflectionPotential.galilean_area_potential_cross_relation
+#print axioms NewtonLimitDynamics.Diagnostic.DeflectionPotential.galilean_area_potential_cross_relation
+#check NewtonLimitDynamics.Diagnostic.DeflectionPotential.galilean_potential_step
+#print axioms NewtonLimitDynamics.Diagnostic.DeflectionPotential.galilean_potential_step
+#check NewtonLimitDynamics.Diagnostic.DeflectionPotential.harmonic_leading_term_not_exact
+#print axioms NewtonLimitDynamics.Diagnostic.DeflectionPotential.harmonic_leading_term_not_exact
+#check NewtonLimitDynamics.Diagnostic.DeflectionPotential.harmonic_potential_step
+#print axioms NewtonLimitDynamics.Diagnostic.DeflectionPotential.harmonic_potential_step
+#check NewtonLimitDynamics.Diagnostic.DeflectionPotential.unsigned_deflection_triangle
+#print axioms NewtonLimitDynamics.Diagnostic.DeflectionPotential.unsigned_deflection_triangle
 #check NewtonLimitDynamics.Diagnostic.InverseCubeAreal.equalAreal_inverseCube
 #print axioms NewtonLimitDynamics.Diagnostic.InverseCubeAreal.equalAreal_inverseCube
 #check NewtonLimitDynamics.Diagnostic.InverseCubeAreal.inverseCube_equalAreal
@@ -361,6 +373,70 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.pointSub_triangle
 #check NewtonLimitDynamics.Polygon.ConvexCover.weights_sum_one
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.weights_sum_one
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_growth
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_growth
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_perturbation
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_perturbation
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_growth
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_growth
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_growth
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_growth
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.component_amplification
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.component_amplification
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.constant_sample_control
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.constant_sample_control
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.difference_scale
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.difference_scale
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.first_to_full_distance
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.first_to_full_distance
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.linear_sample_control
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.linear_sample_control
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_error
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_error
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_identity
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_identity
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_state_error
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_state_error
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_state_error_closed
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_state_error_closed
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error_closed
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error_closed
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control_nonzero
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control_nonzero
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.zero_duration_control
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.zero_duration_control
+#check NewtonLimitDynamics.Polygon.ForceClasses.acceleration_approximants_converge
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.acceleration_approximants_converge
+#check NewtonLimitDynamics.Polygon.ForceClasses.exact_accelerationValue
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.exact_accelerationValue
+#check NewtonLimitDynamics.Polygon.ForceClasses.harmonic_class_a_force
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.harmonic_class_a_force
+#check NewtonLimitDynamics.Polygon.ForceClasses.harmonic_comparison_contract
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.harmonic_comparison_contract
+#check NewtonLimitDynamics.Polygon.ForceClasses.harmonic_distance_only
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.harmonic_distance_only
+#check NewtonLimitDynamics.Polygon.ForceClasses.parallel_cell
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.parallel_cell
+#check NewtonLimitDynamics.Polygon.ForceClasses.parallel_transverse_cell
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.parallel_transverse_cell
+#check NewtonLimitDynamics.Polygon.ForceClasses.parallel_transverse_schedule
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.parallel_transverse_schedule
+#check NewtonLimitDynamics.Polygon.ForceClasses.sample_central
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.sample_central
+#check NewtonLimitDynamics.Polygon.ForceClasses.sampled_finite_area_law
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.sampled_finite_area_law
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.actual_error_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.actual_error_bound
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.coarseAt_schedule
@@ -491,6 +567,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.drift_bound
 #check NewtonLimitDynamics.Polygon.HarmonicComparison.kick_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.kick_bound
+#check NewtonLimitDynamics.Polygon.HarmonicComparison.linearField_comparison_contract
+#print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.linearField_comparison_contract
 #check NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_bound
 #check NewtonLimitDynamics.Polygon.HarmonicComparison.sample_cell_norm
@@ -955,6 +1033,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_add_le
 #check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_equiv
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_equiv
+#check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_neg
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_neg
 #check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative
 #check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_scale

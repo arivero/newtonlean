@@ -6,7 +6,7 @@ or re-exported theorem keeps its identity; a private -> public switch counts
 as a visibility change.  Statements are compared up to the first `:=`, with
 comments and whitespace ignored, so a docstring edit is not a change.
 
-Library theorems are those under NewtonLimitDynamics/.  Theorems in
+Library theorems are those under NewtonLimitDynamics/ or BarrowLib/. Theorems in
 research/verification/ are holdout/comparator harnesses and are counted
 separately.
 
@@ -140,7 +140,7 @@ FINITE = {'Contact', 'RefinementStrip', 'TimeSubdivision', 'PartitionControl', '
           'UniformRefinement', 'PartitionComparison', 'StripArea', 'ZeroForce',
           'InertialControl', 'InertialDefect'}
 PROP1 = {'CentralSchedule', 'PathDefect', 'PointBounds', 'TriangleBounds', 'ConvexCover',
-         'CauchyValues', 'BinaryTime', 'PositionValues'}
+         'CauchyValues', 'BinaryTime', 'PositionValues', 'FiniteEstimates', 'ForceClasses'}
 
 
 def group_of(path):
@@ -152,7 +152,7 @@ def group_of(path):
         return 'props24'
     if stem.startswith('Harmonic') or stem in PROP1 or stem == 'FiniteGrowth':
         return 'prop1'
-    if area == 'Polygon' and stem in FINITE:
+    if area == 'Polygon' and (stem in FINITE or stem == 'PointAlgebra'):
         return 'finite'
     return 'stage'
 
@@ -246,7 +246,7 @@ def walk():
         groups = Counter()
         located, defs_by_file = [], {}
         for f in files:
-            library = f.startswith('NewtonLimitDynamics')
+            library = f.startswith(('NewtonLimitDynamics', 'BarrowLib'))
             src = git('show', f'{full}:{f}')
             if library:
                 lines += src.count('\n')

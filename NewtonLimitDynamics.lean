@@ -3,6 +3,7 @@ import NewtonLimitDynamics.Principia1687.LemmaX
 import NewtonLimitDynamics.Principia1713.LemmaX
 import NewtonLimitDynamics.Common.RationalMagnitudes
 import NewtonLimitDynamics.Common.FiniteGrowth
+import BarrowLib
 import NewtonLimitDynamics.Principia1713.ForceComparison
 import NewtonLimitDynamics.Principia1687.ConstructedRatio
 import NewtonLimitDynamics.Polygon.Finite
@@ -25,6 +26,7 @@ import NewtonLimitDynamics.Polygon.Converse
 import NewtonLimitDynamics.Polygon.RelativeMotion
 import NewtonLimitDynamics.Polygon.StripArea
 import NewtonLimitDynamics.Polygon.CentralSchedule
+import NewtonLimitDynamics.Polygon.ForceClasses
 import NewtonLimitDynamics.Polygon.HarmonicStability
 import NewtonLimitDynamics.Polygon.HarmonicRefinement
 import NewtonLimitDynamics.Polygon.PointBounds
@@ -49,3 +51,4 @@ import NewtonLimitDynamics.Comparison.CircleCompare
 import NewtonLimitDynamics.Contact.AreaCoefficient
 import NewtonLimitDynamics.Diagnostic.InverseCubeAreal
 import NewtonLimitDynamics.Diagnostic.PhaseArea
+import NewtonLimitDynamics.Diagnostic.DeflectionPotential

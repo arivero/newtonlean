@@ -7,9 +7,12 @@ reconstruction with explicit rational coordinates and the calibrated L1 state
 magnitude. It does not add a historical dependency or silently supply a curve.
 The stage-local obligations remain in [the realization ledger](PROP_I_REALIZATION.md).
 
-The [foundation inventory](BARROWLIB_BOUNDARY.md) separates generic Cauchy
-names and quotient bounds from the harmonic consumers. This D.1 inventory
-does not itself generalize the realized motion or migrate any declaration.
+The [foundation inventory](BARROWLIB_BOUNDARY.md) now has its minimal
+arithmetic/point bootstrap in BarrowLib; the generic Cauchy quotient and
+binary-time modules still await D.2. [ForceClasses](GENERAL_FORCE_DESIGN.md)
+uses explicit uniformly Cauchy force samples to construct acceleration names
+and values. This realizes force data, not the general motion; the local
+finite estimates must first be accumulated along the actual polygons.
 
 ## One global family
 

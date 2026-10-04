@@ -6,3 +6,5 @@ package NewtonLimitDynamics where
 
 @[default_target]
 lean_lib NewtonLimitDynamics
+
+lean_lib BarrowLib

@@ -6,9 +6,13 @@ realization of the motion needs for a **varying** central force. Lean results
 are modern rational-coordinate reconstructions (`modern_reconstruction`),
 not historical proofs.
 
-The 4 October handoff starts by separating generic elementary mathematics
-from these mechanical constructions; see [the foundation inventory](BARROWLIB_BOUNDARY.md).
-That boundary inventory discharges D.1 only, not P3, P4 or P5.
+The 4 October handoff's [foundation inventory](BARROWLIB_BOUNDARY.md) is
+implemented for its minimal bootstrap. BarrowLib's generic finite triangular
+maps now have growth, cross-map perturbation (including sampling error E),
+and local two-half/full-cell estimates. [ForceClasses](GENERAL_FORCE_DESIGN.md)
+constructs acceleration values from uniform rational samples; harmonic and
+parallel fields are instances. These are local Task A results, not P3–P5
+for a general central force; finite accumulation and confinement remain next.
 
 The governing target is the **unsupplied-curve construction variant**. The main
 area BETWEEN polygon and actual trajectory is distinct from the Kepler area
