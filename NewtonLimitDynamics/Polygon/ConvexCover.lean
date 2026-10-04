@@ -42,31 +42,6 @@ theorem weights_sum_one (a : Fraction) :
 def lerp (a : Fraction) (p q : Point) : Point :=
   pointAdd (pointScale (complement a) p) (pointScale a q)
 
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h)
-    (Fraction.equiv_trans (Fraction.add_comm b c)
-      (Fraction.equiv_trans (Fraction.add_equiv_right b k) (Fraction.add_comm d b)))
-
-private theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
-  Fraction.equiv_trans (Fraction.mul_comm a c)
-    (Fraction.equiv_trans (Fraction.mul_equiv_left c h)
-      (Fraction.equiv_trans (Fraction.mul_comm c b) (Fraction.mul_equiv_left b k)))
-
-private theorem le_add_nonnegative (a b : Fraction) (hb : 0 ≤ b.num) :
-    Fraction.le a (Fraction.add a b) := by
-  unfold Fraction.le Fraction.add
-  dsimp
-  have hp := Int.mul_nonneg (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-    (Int.le_of_lt a.den_pos)
-  simp only [Int.add_mul]
-  have he : a.num * (a.den * b.den) = a.num * b.den * a.den := by ac_rfl
-  rw [he]
-  omega
-
 theorem pointSub_self_zero (p : Point) :
     Fraction.equiv (pointNorm (pointSub p p)) (Fraction.ofInt 0) := by
   have hz (a : Int) : (a + -a).natAbs = 0 := by omega
@@ -122,11 +97,11 @@ theorem lerp_ball_bound (a : Fraction) (ha : UnitInterval a)
   have hs : Fraction.equiv
       (Fraction.add (pointNorm (pointScale c P)) (pointNorm (pointScale a Q)))
       (Fraction.add (Fraction.mul c (pointNorm P)) (Fraction.mul a (pointNorm Q))) :=
-    add_equiv
+    Fraction.add_equiv
       (Fraction.equiv_trans (pointNorm_scale c P)
-        (mul_equiv (complement_abs a ha) (Fraction.equiv_refl _)))
+        (Fraction.mul_equiv (complement_abs a ha) (Fraction.equiv_refl _)))
       (Fraction.equiv_trans (pointNorm_scale a Q)
-        (mul_equiv (interval_abs a ha) (Fraction.equiv_refl _)))
+        (Fraction.mul_equiv (interval_abs a ha) (Fraction.equiv_refl _)))
   have h₁ := Fraction.mul_le_mul_nonnegative_left hp c (complement_nonnegative a ha)
   have h₂ := Fraction.mul_le_mul_nonnegative_left hq a ha.1
   have hc := Fraction.add_le_add h₁ h₂
@@ -158,8 +133,8 @@ theorem ball_inside_square (anchor p : Point) (R : Fraction)
     SquareContains anchor R p := by
   constructor
   · exact Fraction.magnitudes.le_trans
-      (le_add_nonnegative _ _ (Fraction.abs_num_nonnegative _)) h
-  · have h₂ := le_add_nonnegative (pointSub p anchor).2.abs
+      (Fraction.le_add_nonnegative _ _ (Fraction.abs_num_nonnegative _)) h
+  · have h₂ := Fraction.le_add_nonnegative (pointSub p anchor).2.abs
       (pointSub p anchor).1.abs (Fraction.abs_num_nonnegative _)
     exact Fraction.magnitudes.le_trans
       (Fraction.le_equiv_right h₂

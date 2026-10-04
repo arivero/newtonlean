@@ -14,31 +14,6 @@ open NewtonLimitDynamics
 open TimeSubdivision
 open PointBounds
 
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h)
-    (Fraction.equiv_trans (Fraction.add_comm b c)
-      (Fraction.equiv_trans (Fraction.add_equiv_right b k) (Fraction.add_comm d b)))
-
-private theorem nonnegative_add (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
-    0 ≤ (Fraction.add a b).num := by
-  unfold Fraction.add
-  exact Int.add_nonneg
-    (Int.mul_nonneg ha (Int.le_of_lt b.den_pos))
-    (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-
-private theorem le_add_nonnegative (a b : Fraction) (hb : 0 ≤ b.num) :
-    Fraction.le a (Fraction.add a b) := by
-  unfold Fraction.le Fraction.add
-  dsimp
-  have hp := Int.mul_nonneg (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-    (Int.le_of_lt a.den_pos)
-  simp only [Int.add_mul]
-  have he : a.num * (a.den * b.den) = a.num * b.den * a.den := by ac_rfl
-  rw [he]
-  omega
-
 /-- Determinant magnitude is bounded by the product of coordinate L1
 magnitudes. The determinant is a doubled oriented area, not a distance. -/
 theorem det_abs_le_product (p q : Point) :
@@ -52,14 +27,14 @@ theorem det_abs_le_product (p q : Point) :
     (Fraction.mul p.2.abs q.2.abs)
   have h₀ := Fraction.abs_add_le a nb
   have he : Fraction.equiv (Fraction.add a.abs nb.abs) cross :=
-    add_equiv (Fraction.abs_mul _ _)
+    Fraction.add_equiv (Fraction.abs_mul _ _)
       (Fraction.equiv_trans (Fraction.abs_neg b) (Fraction.abs_mul _ _))
   have h₁ : Fraction.le (det p q).abs cross := Fraction.le_equiv_right h₀ he
   have hd : 0 ≤ diagonal.num :=
-    nonnegative_add _ _
+    Fraction.nonnegative_add _ _
       (Int.mul_nonneg (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _))
       (Int.mul_nonneg (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _))
-  have h₂ := le_add_nonnegative cross diagonal hd
+  have h₂ := Fraction.le_add_nonnegative cross diagonal hd
   have hchain := Fraction.magnitudes.le_trans h₁ h₂
   apply Fraction.le_equiv_right hchain
   simp only [cross, diagonal, pointNorm, Fraction.equiv, Fraction.add, Fraction.mul]

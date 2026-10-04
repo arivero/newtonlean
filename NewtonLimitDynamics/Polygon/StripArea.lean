@@ -54,11 +54,6 @@ private theorem det_add_left (q x y : Point) :
   simp only [det, pointAdd, Fraction.add, Fraction.mul, Fraction.equiv,
     Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;> ac_nf <;> omega
 
-private theorem det_add_right (p x y : Point) :
-    Fraction.equiv (det p (pointAdd x y)) (Fraction.add (det p x) (det p y)) := by
-  simp only [det, pointAdd, Fraction.add, Fraction.mul, Fraction.equiv,
-    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;> ac_nf <;> omega
-
 private theorem det_scale_left (d : Fraction) (q x : Point) :
     Fraction.equiv (det (pointScale d x) q) (Fraction.mul d (det x q)) := by
   simp only [det, pointScale, Fraction.add, Fraction.mul, Fraction.equiv,
@@ -73,30 +68,6 @@ private theorem det_self (x : Point) : Fraction.equiv (det x x) (Fraction.ofInt 
   simp only [det, Fraction.add, Fraction.mul, Fraction.ofInt, Fraction.equiv,
     Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;> ac_nf <;> omega
 
-private theorem add_equiv_left (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.add c a) (Fraction.add c b) :=
-  Fraction.equiv_trans (Fraction.add_comm c a)
-    (Fraction.equiv_trans (Fraction.add_equiv_right c h) (Fraction.add_comm b c))
-
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h) (add_equiv_left b k)
-
-private theorem scale_equiv_left (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.mul c a) (Fraction.mul c b) :=
-  Fraction.mul_equiv_left c h
-
-private theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
-  Fraction.equiv_trans
-    (Fraction.equiv_trans (Fraction.mul_comm a c)
-      (Fraction.equiv_trans (scale_equiv_left c h) (Fraction.mul_comm c b)))
-    (scale_equiv_left b k)
-
-private theorem zero_mul_equiv (s : Fraction) :
-    Fraction.equiv (Fraction.mul s (Fraction.ofInt 0)) (Fraction.ofInt 0) := by
-  simp only [Fraction.mul, Fraction.ofInt, Fraction.equiv] <;> omega
-
 /-- The key lemma from the hand computation: `det (w + s·a) a = det w a`. -/
 theorem det_kick_direction_constant (s : Fraction) (w a : Point) :
     Fraction.equiv (det (pointAdd w (pointScale s a)) a) (det w a) := by
@@ -105,16 +76,16 @@ theorem det_kick_direction_constant (s : Fraction) (w a : Point) :
   have h3 := det_self a
   have t1 : Fraction.equiv (det (pointAdd w (pointScale s a)) a)
       (Fraction.add (det w a) (Fraction.mul s (det a a))) :=
-    Fraction.equiv_trans h1 (add_equiv_left (det w a) h2)
+    Fraction.equiv_trans h1 (Fraction.add_equiv_left (det w a) h2)
   have t2 : Fraction.equiv (Fraction.mul s (det a a)) (Fraction.mul s (Fraction.ofInt 0)) :=
-    scale_equiv_left s h3
+    Fraction.mul_equiv_left s h3
   have t3 : Fraction.equiv (Fraction.mul s (Fraction.ofInt 0)) (Fraction.ofInt 0) :=
-    zero_mul_equiv s
+    Fraction.mul_zero s
   have t4 : Fraction.equiv (Fraction.add (det w a) (Fraction.ofInt 0)) (det w a) := by
     simp only [Fraction.add, Fraction.ofInt, Fraction.equiv,
       Int.add_mul, Int.mul_add] <;> ac_nf <;> omega
   exact Fraction.equiv_trans t1
-    (Fraction.equiv_trans (add_equiv_left (det w a) (Fraction.equiv_trans t2 t3)) t4)
+    (Fraction.equiv_trans (Fraction.add_equiv_left (det w a) (Fraction.equiv_trans t2 t3)) t4)
 
 /-- Each velocity has the same determinant with `a` as the initial velocity. -/
 theorem vel_det_constant (h : Fraction) (v a : Point) (n : Nat) :
@@ -134,19 +105,19 @@ theorem two_cell_triangle_constant (h : Fraction) (v a : Point) (n : Nat) :
   -- det (h·v_n) (h·v_{n+1}) = h·det v_n (h·v_{n+1})
   have s1 := det_scale_left h (pointScale h (pointAdd (velAt h v a n) (pointScale h a))) (velAt h v a n)
   -- = h·(h·det v_n v_{n+1})
-  have s2 := scale_equiv_left h (det_scale_right h (velAt h v a n) (pointAdd (velAt h v a n) (pointScale h a)))
+  have s2 := Fraction.mul_equiv_left h (det_scale_right h (velAt h v a n) (pointAdd (velAt h v a n) (pointScale h a)))
   -- det v_n v_{n+1} = det v_n v_n + h·det v_n a
   have s3 := det_add_right (velAt h v a n) (velAt h v a n) (pointScale h a)
-  have s4 := add_equiv (det_self (velAt h v a n)) (det_scale_right h (velAt h v a n) a)
-  have s5 := mul_equiv (Fraction.equiv_refl h) (vel_det_constant h v a n)
+  have s4 := Fraction.add_equiv (det_self (velAt h v a n)) (det_scale_right h (velAt h v a n) a)
+  have s5 := Fraction.mul_equiv (Fraction.equiv_refl h) (vel_det_constant h v a n)
   have inner : Fraction.equiv (det (velAt h v a n) (pointAdd (velAt h v a n) (pointScale h a)))
       (Fraction.mul h (det v a)) :=
     Fraction.equiv_trans (Fraction.equiv_trans s3 s4)
       (Fraction.equiv_trans
-        (add_equiv_left (Fraction.ofInt 0) s5)
+        (Fraction.add_equiv_left (Fraction.ofInt 0) s5)
         (by simp only [Fraction.add, Fraction.ofInt, Fraction.mul, Fraction.equiv,
             Int.add_mul, Int.mul_add] <;> ac_nf <;> omega))
-  have rhs := scale_equiv_left h (scale_equiv_left h inner)
+  have rhs := Fraction.mul_equiv_left h (Fraction.mul_equiv_left h inner)
   exact Fraction.equiv_trans (Fraction.equiv_trans s1 s2) rhs
 
 /-- All two-cell triangles have the same signed doubled area.  No absolute-area
@@ -172,7 +143,7 @@ theorem total_strip_area (h : Fraction) (v a : Point) (k : Nat) :
     let H := Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a)))
     simp only [stripSum]
     exact Fraction.equiv_trans
-      (add_equiv ih (two_cell_triangle_constant h v a k))
+      (Fraction.add_equiv ih (two_cell_triangle_constant h v a k))
       (by simp only [Fraction.mul, Fraction.add, Fraction.ofInt, Fraction.equiv,
           Int.add_mul, Int.mul_add, Int.ofNat_add, Int.mul_one, Int.one_mul] <;>
         ac_nf <;> omega)

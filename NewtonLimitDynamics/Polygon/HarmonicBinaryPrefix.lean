@@ -83,7 +83,7 @@ theorem elapsed_replicate (d : Fraction) :
       simp
   | n + 1 => by
       have ih := elapsed_replicate d n
-      have he := HarmonicDyadic.add_equiv (Fraction.equiv_refl d) ih
+      have he := Fraction.add_equiv (Fraction.equiv_refl d) ih
       apply Fraction.equiv_trans he
       simp only [elapsed, List.replicate_succ, Fraction.equiv,
         Fraction.add, Fraction.mul, Fraction.ofInt, Int.natCast_add]
@@ -285,7 +285,7 @@ theorem fine_optional_increment (b : Nat → Bool) (w T : Fraction)
       omega)
   have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁ h hT
   have habs := Fraction.abs_of_nonnegative h hT
-  have he := HarmonicDyadic.mul_equiv habs
+  have he := Fraction.mul_equiv habs
     (Fraction.equiv_refl
       (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm q)))
   have hchain := Fraction.magnitudes.le_trans
@@ -450,7 +450,7 @@ theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
   unfold coefficient
   exact Int.mul_nonneg hT
     (Int.mul_nonneg (stateNorm_nonnegative s)
-      (HarmonicTimeComparison.add_num_nonnegative _ _ h₁ h₂))
+      (Fraction.nonnegative_add _ _ h₁ h₂))
 
 theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv

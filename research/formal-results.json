@@ -663,6 +663,126 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.add_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : equiv a b)\n    (k : equiv c d) :\n    equiv (add a c) (add b d)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : equiv a b)\n    (k : equiv c d) :\n    equiv (mul a c) (mul b d)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_equiv_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (add c a) (add c b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_equiv_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) {a b : Fraction} (h : equiv a b) :\n    equiv (mul a c) (mul b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.le_add_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    le a (add a b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.nonnegative_add",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (add a b).num",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.nonnegative_mul",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (mul a b).num",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.mul_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) :\n    equiv (mul d (ofInt 0)) (ofInt 0)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) :\n    equiv (add c (ofInt 0)) c",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_mul",
+    "private": false,
+    "file": "NewtonLimitDynamics/Common/RationalMagnitudes.lean",
+    "source_passages": [
+      "NATP00077.par26",
+      "NATP00082.par27"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) :\n    equiv (mul (add a b) c)\n      (add (mul a c) (mul b c))",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Comparison.CircleCompare.force_ratio_is_sagitta_ratio",
     "private": false,
     "file": "NewtonLimitDynamics/Comparison/CircleCompare.lean",
@@ -1708,76 +1828,6 @@
     "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_equiv_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
-    "source_passages": [
-      "NATP00077.par45",
-      "NATP00082.par51",
-      "NATP00077.par48",
-      "NATP00082.par58"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.mul_equiv_right",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
-    "source_passages": [
-      "NATP00077.par45",
-      "NATP00082.par51",
-      "NATP00077.par48",
-      "NATP00082.par58"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c)",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.mul_zero",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
-    "source_passages": [
-      "NATP00077.par45",
-      "NATP00082.par51",
-      "NATP00077.par48",
-      "NATP00082.par58"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) :\n    Fraction.equiv (Fraction.mul d (Fraction.ofInt 0)) (Fraction.ofInt 0)",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_zero",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
-    "source_passages": [
-      "NATP00077.par45",
-      "NATP00082.par51",
-      "NATP00077.par48",
-      "NATP00082.par58"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) :\n    Fraction.equiv (Fraction.add c (Fraction.ofInt 0)) c",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_mul",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
-    "source_passages": [
-      "NATP00077.par45",
-      "NATP00082.par51",
-      "NATP00077.par48",
-      "NATP00082.par58"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b c : Fraction) :\n    Fraction.equiv (Fraction.mul (Fraction.add a b) c)\n      (Fraction.add (Fraction.mul a c) (Fraction.mul b c))",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.CentralSchedule.central_kick",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
@@ -1873,34 +1923,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Field) (h k : Fraction) (s : Point × Point) :\n    pointEquiv (cell a k (cell a h s)).2\n      (pointAdd (cell a (Fraction.add h k) s).2\n        (pointAdd\n          (pointScale h (pointSub (a (cell a h s).1) (a (cell a (Fraction.add h k) s).1)))\n          (pointScale k (pointSub (a (cell a k (cell a h s)).1) (a (cell a (Fraction.add h k) s).1)))))",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.det_add_right",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
-    "source_passages": [
-      "NATP00077.par45",
-      "NATP00082.par51",
-      "NATP00077.par48",
-      "NATP00082.par58"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(x v w : Point) :\n    Fraction.equiv (det x (pointAdd v w)) (Fraction.add (det x v) (det x w))",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.CentralSchedule.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",
-    "source_passages": [
-      "NATP00077.par45",
-      "NATP00082.par51",
-      "NATP00077.par48",
-      "NATP00082.par58"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
     "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
   },
   {
@@ -2524,33 +2546,6 @@
     "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.ConvexCover.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.ConvexCover.mul_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
-    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.ConvexCover.le_add_nonnegative",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
-    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.ConvexCover.pointSub_self_zero",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
@@ -2940,104 +2935,6 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.mul_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
-    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.nonneg_add",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.add a b).num",
-    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.nonneg_mul",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.mul a b).num",
-    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.le_add_nonneg",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
-    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.point_le_state",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.1) (stateNorm s)",
-    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.velocity_le_state",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.2) (stateNorm s)",
-    "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
@@ -3174,7 +3071,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      coarseAt w h (HarmonicRefinement.coarse w h s) n =\n        HarmonicRefinement.coarse w h (coarseAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [coarseAt]\n      rw [coarseAt_comm w h s n]\n\nprivate theorem fineAt_comm (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      coarseAt w h (HarmonicRefinement.coarse w h s) n =\n        HarmonicRefinement.coarse w h (coarseAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [coarseAt]\n      rw [coarseAt_comm w h s n]\n\nprivate theorem fineAt_comm (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (Fraction.add_equiv (Fraction.equiv_refl h)\n          (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -3188,7 +3085,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      fineAt w h (HarmonicRefinement.fine w h s) n =\n        HarmonicRefinement.fine w h (fineAt w h s n)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineAt]\n      rw [fineAt_comm w h s n]\n\n/-- The coarse recurrence is the actual list schedule of `n` full cells. -/\ntheorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (Fraction.add_equiv (Fraction.equiv_refl h)\n          (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -3202,7 +3099,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =\n        coarseAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate n (Fraction.add h h))\n        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)\n      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]\n      exact coarseAt_comm w h s n\n\n/-- The fine recurrence is the actual schedule of `2n` half-cells. -/\ntheorem fineAt_schedule (w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (Fraction.add_equiv (Fraction.equiv_refl h)\n          (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -3216,7 +3113,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (fineDurations h n) s = fineAt w h s n\n  | 0 => rfl\n  | n + 1 => by\n      simp only [fineDurations, schedule]\n      change schedule (linearField w) (fineDurations h n)\n        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)\n      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]\n      exact fineAt_comm w h s n\n\n/-- Both actual lists have the same represented elapsed duration. -/\ntheorem schedules_common_time (w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (Fraction.add_equiv (Fraction.equiv_refl h)\n          (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -3230,7 +3127,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (add_equiv (Fraction.equiv_refl h)\n          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
+    "premise_signature": "(w h : Fraction) :\n    (n : Nat) →\n      Fraction.equiv\n        (elapsed (List.replicate n (Fraction.add h h)))\n        (elapsed (fineDurations h n))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => by\n      simp only [List.replicate_succ, fineDurations, elapsed]\n      exact Fraction.equiv_trans\n        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))\n        (Fraction.add_equiv (Fraction.equiv_refl h)\n          (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))\n\n/-- Finite rational powers, avoiding any completeness premise. -/\ndef fpower (a : Fraction) : Nat → Fraction\n  | 0 => Fraction.ofInt 1\n  | n + 1 => Fraction.mul a (fpower a n)\n\ndef errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction\n  | 0 => Fraction.ofInt 0\n  | n + 1 =>\n      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))\n        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))\n          (stateNorm s))\n\ntheorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -3300,7 +3197,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num) :\n    (n : Nat) → 0 ≤ (fpower a n).num\n  | 0 => by simp [fpower, Fraction.ofInt]\n  | n + 1 => nonneg_mul _ _ ha (fpower_nonnegative a ha n)\n\ntheorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :\n    (n : Nat) → 0 ≤ (errorBudget w h s n).num\n  | 0 => by simp [errorBudget, Fraction.ofInt]\n  | n + 1 =>\n      nonneg_add _ _\n        (nonneg_mul _ _ (fineFactor_nonnegative w h)\n          (errorBudget_nonnegative w h s n))\n        (nonneg_mul _ _\n          (nonneg_mul _ _ (localFactor_nonnegative w h)\n            (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))\n          (stateNorm_nonnegative s))\n\n/-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/\ntheorem fine_perturbation (w h : Fraction) (s t : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.fine w h t)))\n      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t)))",
+    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num) :\n    (n : Nat) → 0 ≤ (fpower a n).num\n  | 0 => by simp [fpower, Fraction.ofInt]\n  | n + 1 => Fraction.nonnegative_mul _ _ ha (fpower_nonnegative a ha n)\n\ntheorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :\n    (n : Nat) → 0 ≤ (errorBudget w h s n).num\n  | 0 => by simp [errorBudget, Fraction.ofInt]\n  | n + 1 =>\n      Fraction.nonnegative_add _ _\n        (Fraction.nonnegative_mul _ _ (fineFactor_nonnegative w h)\n          (errorBudget_nonnegative w h s n))\n        (Fraction.nonnegative_mul _ _\n          (Fraction.nonnegative_mul _ _ (localFactor_nonnegative w h)\n            (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))\n          (stateNorm_nonnegative s))\n\n/-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/\ntheorem fine_perturbation (w h : Fraction) (s t : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.fine w h t)))\n      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t)))",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -3314,7 +3211,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) → 0 ≤ (errorBudget w h s n).num\n  | 0 => by simp [errorBudget, Fraction.ofInt]\n  | n + 1 =>\n      nonneg_add _ _\n        (nonneg_mul _ _ (fineFactor_nonnegative w h)\n          (errorBudget_nonnegative w h s n))\n        (nonneg_mul _ _\n          (nonneg_mul _ _ (localFactor_nonnegative w h)\n            (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))\n          (stateNorm_nonnegative s))\n\n/-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/\ntheorem fine_perturbation (w h : Fraction) (s t : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.fine w h t)))\n      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t)))",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) → 0 ≤ (errorBudget w h s n).num\n  | 0 => by simp [errorBudget, Fraction.ofInt]\n  | n + 1 =>\n      Fraction.nonnegative_add _ _\n        (Fraction.nonnegative_mul _ _ (fineFactor_nonnegative w h)\n          (errorBudget_nonnegative w h s n))\n        (Fraction.nonnegative_mul _ _\n          (Fraction.nonnegative_mul _ _ (localFactor_nonnegative w h)\n            (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))\n          (stateNorm_nonnegative s))\n\n/-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/\ntheorem fine_perturbation (w h : Fraction) (s t : Point × Point) :\n    Fraction.le\n      (stateNorm (stateSub (HarmonicRefinement.fine w h s)\n        (HarmonicRefinement.fine w h t)))\n      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t)))",
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
@@ -4046,34 +3943,6 @@
     "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.add_zero",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a : Fraction) :\n    Fraction.equiv (Fraction.add a (Fraction.ofInt 0)) a",
-    "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.zero_le_product",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
@@ -4312,76 +4181,6 @@
     "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.nonneg_mul",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.mul a b).num",
-    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.nonneg_add",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.add a b).num",
-    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.le_add_nonnegative",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
-    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.point_le_state",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.1) (stateNorm s)",
-    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.velocity_le_state",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.2) (stateNorm s)",
-    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicCover.totalTime_nonnegative",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
@@ -4505,20 +4304,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)\n    (hs : SmallTime w h n) :\n    Fraction.le\n      (stateNorm (stateSub (fineAt w h s i) (coarseAt w h s i)))\n      (maxError w h s n)",
-    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.mul_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
     "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
   },
   {
@@ -4914,20 +4699,6 @@
     "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.two_mul",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(x : Int) : 2 * x = x + x",
-    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.duration_halving",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
@@ -4956,34 +4727,6 @@
     "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.add_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.mul_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
-    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.neg_equiv",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
@@ -4995,20 +4738,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv ⟨-a.num, a.den, a.den_pos⟩ ⟨-b.num, b.den, b.den_pos⟩",
-    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.pointAdd_congr",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
     "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
   },
   {
@@ -5148,7 +4877,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "{d e : Fraction}\n    (hd : Fraction.equiv d e) :\n    (n : Nat) →\n      Fraction.equiv (elapsed (List.replicate n d)) (elapsed (List.replicate n e))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => add_equiv hd (elapsed_replicate_congr hd n)\n\ntheorem endpoint_elapsed (T : Fraction) (j : Nat) :\n    Fraction.equiv (elapsed (List.replicate (blocks j) (duration T j))) T",
+    "premise_signature": "{d e : Fraction}\n    (hd : Fraction.equiv d e) :\n    (n : Nat) →\n      Fraction.equiv (elapsed (List.replicate n d)) (elapsed (List.replicate n e))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => Fraction.add_equiv hd (elapsed_replicate_congr hd n)\n\ntheorem endpoint_elapsed (T : Fraction) (j : Nat) :\n    Fraction.equiv (elapsed (List.replicate (blocks j) (duration T j))) T",
     "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
   },
   {
@@ -5782,34 +5511,6 @@
     "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. For w >= 0 the speed term (1 - w*d^2/4)|v_n|^2, and for a nonnegative margin the position term, stay below the initial invariant along every equal-cell schedule (mesh-uniform discrete stability). Convergence, continuous curve, and Newton general central-force theorem are not inferred."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicStability.le_add_of_num_nonneg",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicStability.lean",
-    "source_passages": [
-      "NATP00077.par64",
-      "NATP00082.par75",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(A B : Fraction) (hA : 0 ≤ A.num) :\n    Fraction.le B (Fraction.add A B)",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. For w >= 0 the speed term (1 - w*d^2/4)|v_n|^2, and for a nonnegative margin the position term, stay below the initial invariant along every equal-cell schedule (mesh-uniform discrete stability). Convergence, continuous curve, and Newton general central-force theorem are not inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicStability.le_equiv_trans",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicStability.lean",
-    "source_passages": [
-      "NATP00077.par64",
-      "NATP00082.par75",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{x y z : Fraction} (h : Fraction.le x y) (k : Fraction.equiv y z) :\n    Fraction.le x z",
-    "interpretation_and_remaining_premises": "Modern rational reconstruction: for the linear central field a(p) = -w*p (compare Prop. IV Cor. 3, forces as radii for equal periods) the finite impulse construction with equal cells d conserves exactly w|x|^2 + w*d*(x.v) + |v|^2, which completes to w|x + (d/2)v|^2 + (1 - w*d^2/4)|v|^2. For w >= 0 the speed term (1 - w*d^2/4)|v_n|^2, and for a nonnegative margin the position term, stay below the initial invariant along every equal-cell schedule (mesh-uniform discrete stability). Convergence, continuous curve, and Newton general central-force theorem are not inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicStability.speed_bound",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicStability.lean",
@@ -5894,20 +5595,6 @@
     "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.add_num_nonnegative",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction)\n    (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.add a b).num",
-    "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.short_sum_point_bound",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
@@ -5988,7 +5675,7 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w hσ hτ : Fraction)\n    (s : Point × Point) :\n    (i : Nat) → 0 ≤ (parameterErrorBudget w hσ hτ s i).num\n  | 0 => by simp [parameterErrorBudget, Fraction.ofInt]\n  | i + 1 =>\n      add_num_nonnegative _ _\n        (Int.mul_nonneg (kappa_nonnegative w (Fraction.add hτ hτ))\n          (parameterErrorBudget_nonnegative w hσ hτ s i))\n        (localParameterBudget_nonnegative w _ _ s)\n\ntheorem coarse_parameter_step (w sigma tau : Fraction) (a b : Point × Point)\n    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)\n    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :\n    Fraction.le\n      (stateNorm (stateSub (cell (linearField w) tau a)\n        (cell (linearField w) sigma b)))\n      (Fraction.add\n        (Fraction.mul (kappa w tau) (stateNorm (stateSub a b)))\n        (Fraction.mul (durationDifference sigma tau).abs\n          (Fraction.mul (parameterFactor w) (stateNorm b))))",
+    "premise_signature": "(w hσ hτ : Fraction)\n    (s : Point × Point) :\n    (i : Nat) → 0 ≤ (parameterErrorBudget w hσ hτ s i).num\n  | 0 => by simp [parameterErrorBudget, Fraction.ofInt]\n  | i + 1 =>\n      Fraction.nonnegative_add _ _\n        (Int.mul_nonneg (kappa_nonnegative w (Fraction.add hτ hτ))\n          (parameterErrorBudget_nonnegative w hσ hτ s i))\n        (localParameterBudget_nonnegative w _ _ s)\n\ntheorem coarse_parameter_step (w sigma tau : Fraction) (a b : Point × Point)\n    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)\n    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :\n    Fraction.le\n      (stateNorm (stateSub (cell (linearField w) tau a)\n        (cell (linearField w) sigma b)))\n      (Fraction.add\n        (Fraction.mul (kappa w tau) (stateNorm (stateSub a b)))\n        (Fraction.mul (durationDifference sigma tau).abs\n          (Fraction.mul (parameterFactor w) (stateNorm b))))",
     "interpretation_and_remaining_premises": "Modern uniform time-parameter estimate for actual harmonic dyadic endpoint schedules. At the same level the cell count is identical and the two durations differ; this is not a common-time refinement. Under both nonnegative-time and named small-time premises, actual cell mismatch, prefix bounds and finite amplification give state difference <= L*abs(U-T), L=4*(1+2*abs(w))*M, at every level. The map timeName sends each admissible rational time to derived endpoint Cauchy data; delta=eps/(L+1) is positive and controls all approximants, including zero initial state. Same-time, zero-state and exact signed parameter controls compile. This proves continuity of Cauchy data only: no completed point-space realization, global-grid prefix identification, partition independence, actual polygon-trajectory region or force law is supplied or inferred. Source locators motivate the reconstruction; Kepler swept area remains separate."
   },
   {
@@ -6549,20 +6236,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(C eps : Fraction) (hC : 0 ≤ C.num)\n    (heps : 0 ≤ eps.num) :\n    Fraction.le (Fraction.mul (factorDelta C eps hC) C) eps",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.mul_add_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b c : Fraction) :\n    Fraction.equiv (Fraction.mul (Fraction.add a b) c)\n      (Fraction.add (Fraction.mul a c) (Fraction.mul b c))",
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {
@@ -7210,22 +6883,8 @@
     "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.mul_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
-    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.two_mul",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -7860,19 +7519,6 @@
     "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.InertialDefect.add_equiv_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
-    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.InertialDefect.inertialWalk_eq_edge",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
@@ -7922,45 +7568,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (fracNeg a) (fracNeg b)",
-    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.InertialDefect.mul_equiv_right",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c)",
-    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.InertialDefect.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.InertialDefect.mul_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
     "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
   },
   {
@@ -8171,20 +7778,6 @@
     "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.PartialCell.pointEquiv_trans",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
-    "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/PartialCell.lean",
@@ -8283,48 +7876,6 @@
     "interpretation_and_remaining_premises": "Modern finite bookkeeping for a partial final end-kick cell of duration `u/D` after an actual common-denominator prefix. The partial position is the drift of the actual prefix state and equals the appended schedule `weights ++ [u]`; the exact candidate residual `((Q+u*u)/(2*D^2))*a` and the within-cell bound `Q+u*u <= M*(T+u)` for `u <= w <= M` are derived from the appended statistics. Boundaries u=0, u=w and a=0 are corollaries. Rational-time positions only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.add_equiv_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
-    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`, also at partial-cell sample times, and their actual velocities agree exactly; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.mul_equiv_right",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c)",
-    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`, also at partial-cell sample times, and their actual velocities agree exactly; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.mul_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
-    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`, also at partial-cell sample times, and their actual velocities agree exactly; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.PartitionComparison.half_equiv",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
@@ -8336,34 +7887,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.half a) (Fraction.half b)",
-    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`, also at partial-cell sample times, and their actual velocities agree exactly; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.pointEquiv_trans",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
-    "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`, also at partial-cell sample times, and their actual velocities agree exactly; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PartitionComparison.pointEquiv_symm",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionComparison.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q : Point} (h : pointEquiv p q) : pointEquiv q p",
     "interpretation_and_remaining_premises": "Modern finite comparison: two arbitrary common-denominator end-kick schedules reaching equivalent rational times have actual positions that agree after each is corrected by its own exact residual `(Q/(2*D^2))*a`, also at partial-cell sample times, and their actual velocities agree exactly; the candidate respects rational time equivalence. With the mesh bounds this controls partition dependence along `a`. No limit, Euclidean-time trajectory, or central-force theorem is inferred."
   },
   {
@@ -8605,76 +8128,6 @@
     "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.PartitionControl.add_equiv_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
-    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PartitionControl.pointEquiv_trans",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
-    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PartitionControl.pointEquiv_symm",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q : Point} (h : pointEquiv p q) : pointEquiv q p",
-    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PartitionControl.pointAdd_congr",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
-    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.PartitionControl.pointScale_congr",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) {p q : Point} (h : pointEquiv p q) :\n    pointEquiv (pointScale d p) (pointScale d q)",
-    "interpretation_and_remaining_premises": "Modern finite bookkeeping for arbitrary common-denominator end-kick schedules. The actual `partitionMotion` is the repeated `TimeSubdivision.endKick` recurrence; its exact candidate residual is `(Q/(2*D^2))*a`, with a nonnegative coefficient bounded by the maximum-cell coefficient. This is a rational-time candidate formula only: no convergence, limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.PartitionControl.endKick_congr",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/PartitionControl.lean",
@@ -8899,20 +8352,6 @@
     "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.PointBounds.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
@@ -9025,13 +8464,32 @@
     "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.PositionValues.le_add_nonnegative",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
-    "source_passages": [],
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.point_le_state",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
-    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.1) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PointBounds.velocity_le_state",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PointBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.2) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PositionValues.distance_decompose",
@@ -9750,20 +9208,6 @@
     "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.det_add_right",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(p x y : Point) :\n    Fraction.equiv (det p (pointAdd x y)) (Fraction.add (det p x) (det p y))",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.StripArea.det_scale_left",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
@@ -9803,76 +9247,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(x : Point) : Fraction.equiv (det x x) (Fraction.ofInt 0)",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.add_equiv_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.scale_equiv_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul c a) (Fraction.mul c b)",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.mul_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.zero_mul_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(s : Fraction) :\n    Fraction.equiv (Fraction.mul s (Fraction.ofInt 0)) (Fraction.ofInt 0)",
     "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
   },
   {
@@ -9946,6 +9320,62 @@
     "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (h : pointEquiv p q) : pointEquiv q p",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_trans",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) {p q : Point} (h : pointEquiv p q) :\n    pointEquiv (pointScale d p) (pointScale d q)",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
@@ -9957,48 +9387,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(h k : Fraction)\n    (hh : positiveDuration h) (hk : positiveDuration k) :\n    positiveDuration (totalDuration h k)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.add_equiv_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.mul_equiv_right",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c)",
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
@@ -10170,6 +9558,20 @@
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v w : Point) :\n    Fraction.equiv (det x (pointAdd v w)) (Fraction.add (det x v) (det x w))",
+    "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/TimeSubdivision.lean",
@@ -10182,48 +9584,6 @@
     "classification": "modern_reconstruction",
     "premise_signature": ":\n    Fraction.equiv (closedBoundaryTwice exampleP exampleB exampleD exampleC) (⟨-1, 8, by decide⟩)",
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.add_equiv",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
-    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.nonnegative_add",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.add a b).num",
-    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.le_add_nonnegative",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
-    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TriangleBounds.det_abs_le_product",
@@ -10516,58 +9876,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(p : Point) : pointEquiv p p",
-    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointEquiv_trans",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :\n    pointEquiv p r",
-    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointAdd_congr",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
-    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.ZeroForce.pointScale_congr",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) {p q : Point} (h : pointEquiv p q) :\n    pointEquiv (pointScale d p) (pointScale d q)",
-    "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.ZeroForce.add_equiv_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/ZeroForce.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv (Fraction.add c a) (Fraction.add c b)",
     "interpretation_and_remaining_premises": "Modern rational coordinate reconstruction of zero impressed acceleration. The actual end-kick recurrence agrees with `p + t*v` at every finite rational schedule time, including rest, exact restart, and equivalent times across denominators. The locators motivate the inertial premise only; NATP00089.par4 is a deleted supporting witness and is not a surviving premise. No all-Euclidean-time trajectory, limiting curve, or historical proof dependency is inferred."
   },
   {

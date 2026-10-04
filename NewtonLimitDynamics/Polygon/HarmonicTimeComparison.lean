@@ -51,13 +51,6 @@ theorem cell_parameter_norm_formula (w sigma tau : Fraction) (s : Point × Point
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
-theorem add_num_nonnegative (a b : Fraction)
-    (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
-    0 ≤ (Fraction.add a b).num :=
-  Int.add_nonneg
-    (Int.mul_nonneg ha (Int.le_of_lt b.den_pos))
-    (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-
 theorem short_sum_point_bound (sigma tau : Fraction) (x v : Point)
     (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
     (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
@@ -65,7 +58,7 @@ theorem short_sum_point_bound (sigma tau : Fraction) (x v : Point)
       (pointNorm (pointAdd x (pointScale (Fraction.add sigma tau) v)))
       (Fraction.add (pointNorm x) (pointNorm v)) := by
   let q := Fraction.add sigma tau
-  have hq : 0 ≤ q.num := add_num_nonnegative sigma tau hσ hτ
+  have hq : 0 ≤ q.num := Fraction.nonnegative_add sigma tau hσ hτ
   have hs := pointNorm_scale q v
   have hqabs := Fraction.abs_of_nonnegative q hq
   have hscale : Fraction.le (pointNorm (pointScale q v)) (pointNorm v) := by
@@ -98,7 +91,7 @@ private theorem scalar_local_bound (a b c : Fraction)
     rw [he]
     omega
   have hfirst := Fraction.add_le_add_right hbM cM
-  have hcM : 0 ≤ cM.num := Int.mul_nonneg hc (add_num_nonnegative a b ha hb)
+  have hcM : 0 ≤ cM.num := Int.mul_nonneg hc (Fraction.nonnegative_add a b ha hb)
   have hz : Fraction.le (Fraction.ofInt 0) cM := by
     unfold Fraction.le Fraction.ofInt
     dsimp
@@ -171,7 +164,7 @@ def parameterErrorBudget (w hσ hτ : Fraction) (s : Point × Point) : Nat → F
 private theorem parameterFactor_nonnegative (w : Fraction) :
     0 ≤ (parameterFactor w).num := by
   unfold parameterFactor
-  exact add_num_nonnegative _ _ (by decide)
+  exact Fraction.nonnegative_add _ _ (by decide)
     (Int.mul_nonneg (by decide) (Fraction.abs_num_nonnegative w))
 
 private theorem localParameterBudget_nonnegative (w sigma tau : Fraction)
@@ -187,7 +180,7 @@ private theorem parameterErrorBudget_nonnegative (w hσ hτ : Fraction)
     (i : Nat) → 0 ≤ (parameterErrorBudget w hσ hτ s i).num
   | 0 => by simp [parameterErrorBudget, Fraction.ofInt]
   | i + 1 =>
-      add_num_nonnegative _ _
+      Fraction.nonnegative_add _ _
         (Int.mul_nonneg (kappa_nonnegative w (Fraction.add hτ hτ))
           (parameterErrorBudget_nonnegative w hσ hτ s i))
         (localParameterBudget_nonnegative w _ _ s)
@@ -224,8 +217,8 @@ theorem actual_coarse_parameter_error (w hσ hτ : Fraction) (s : Point × Point
       let a := coarseAt w hτ s i
       let b := coarseAt w hσ s i
       have hi' : i ≤ n := by omega
-      have hσnon := add_num_nonnegative hσ hσ hhσ hhσ
-      have hτnon := add_num_nonnegative hτ hτ hhτ hhτ
+      have hσnon := Fraction.nonnegative_add hσ hσ hhσ hhσ
+      have hτnon := Fraction.nonnegative_add hτ hτ hhτ hhτ
       have hstep := coarse_parameter_step w sigma tau a b
         hσnon hτnon hsum
       have hprev := actual_coarse_parameter_error w hσ hτ s n hhσ hhτ
@@ -386,11 +379,11 @@ theorem count_duration_difference (T U : Fraction) (j : Nat) :
         (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
         (Fraction.add (duration U (j + 1)) (duration U (j + 1))))
       (durationDifference (duration T j) (duration U j)) :=
-    HarmonicDyadic.add_equiv
+    Fraction.add_equiv
       (Fraction.equiv_symm (duration_halving U j))
       (HarmonicDyadic.neg_equiv
         (Fraction.equiv_symm (duration_halving T j)))
-  have hm := HarmonicDyadic.mul_equiv
+  have hm := Fraction.mul_equiv
     (Fraction.equiv_refl (Fraction.ofInt (blocks j : Int))) hdur
   apply Fraction.equiv_trans hm
   simp only [blocks, duration, durationDifference, negF, Fraction.equiv,
@@ -415,7 +408,7 @@ theorem count_abs_duration_difference (T U : Fraction) (j : Nat) :
   have hcount : Fraction.equiv (Fraction.ofInt (blocks j : Int)).abs
       (Fraction.ofInt (blocks j : Int)) :=
     Fraction.abs_of_nonnegative _ (Int.ofNat_nonneg _)
-  have hmul := HarmonicDyadic.mul_equiv hcount
+  have hmul := Fraction.mul_equiv hcount
     (Fraction.equiv_refl
       (durationDifference
         (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
@@ -462,7 +455,7 @@ theorem endpoint_time_bound (w T U : Fraction) (s : Point × Point) (j : Nat)
       Fraction.ofInt]
     ac_nf
   have hc := count_abs_duration_difference T U j
-  have hsecond := HarmonicDyadic.mul_equiv
+  have hsecond := Fraction.mul_equiv
     (Fraction.equiv_refl (timeLipschitz w s)) hc
   exact Fraction.le_equiv_right hfirst
     (Fraction.equiv_trans hrewrite hsecond)

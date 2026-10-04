@@ -22,18 +22,6 @@ def kappa (w h : Fraction) : Fraction :=
   Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs)
     (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs))
 
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h)
-    (Fraction.equiv_trans (Fraction.add_comm b c)
-      (Fraction.equiv_trans (Fraction.add_equiv_right b k) (Fraction.add_comm d b)))
-
-private theorem add_zero (a : Fraction) :
-    Fraction.equiv (Fraction.add a (Fraction.ofInt 0)) a := by
-  unfold Fraction.equiv Fraction.add Fraction.ofInt
-  simp only [Int.mul_one, Int.zero_mul, Int.add_zero, Int.mul_zero]
-
 private theorem zero_le_product (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
     Fraction.le (Fraction.ofInt 0) (Fraction.mul a b) := by
   unfold Fraction.le Fraction.ofInt Fraction.mul
@@ -47,7 +35,7 @@ private theorem one_plus_bound_right (a b c : Fraction)
   let lhs := Fraction.add (Fraction.add a b) (Fraction.mul c b)
   have h := Fraction.add_le_add_left (zero_le_product c a hc ha) lhs
   have h' : Fraction.le lhs (Fraction.add lhs (Fraction.mul c a)) :=
-    Fraction.le_equiv_left (Fraction.equiv_symm (add_zero lhs)) h
+    Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.add_zero lhs)) h
   apply Fraction.le_equiv_right h'
   simp only [lhs, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
   simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
@@ -60,7 +48,7 @@ private theorem one_plus_bound_left (a b c : Fraction)
   let lhs := Fraction.add (Fraction.add a b) (Fraction.mul c a)
   have h := Fraction.add_le_add_left (zero_le_product c b hc hb) lhs
   have h' : Fraction.le lhs (Fraction.add lhs (Fraction.mul c b)) :=
-    Fraction.le_equiv_left (Fraction.equiv_symm (add_zero lhs)) h
+    Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.add_zero lhs)) h
   apply Fraction.le_equiv_right h'
   simp only [lhs, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
   simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
@@ -86,8 +74,8 @@ theorem drift_bound (h : Fraction) (s : Point × Point) :
       (Fraction.add (Fraction.add (pointNorm s.1) (pointNorm s.2))
         (Fraction.mul h.abs (pointNorm s.2))) := by
     have hs := pointNorm_scale h s.2
-    have hh := add_equiv (Fraction.equiv_refl (pointNorm s.1)) hs
-    have hhh := add_equiv hh (Fraction.equiv_refl (pointNorm s.2))
+    have hh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.1)) hs
+    have hhh := Fraction.add_equiv hh (Fraction.equiv_refl (pointNorm s.2))
     exact Fraction.equiv_trans hhh (by
       simp only [Fraction.equiv, Fraction.add, Fraction.mul]
       simp only [Int.add_mul, Int.mul_add]
@@ -120,8 +108,8 @@ theorem kick_bound (w h : Fraction) (s : Point × Point) :
       (Fraction.add (Fraction.add (pointNorm s.1) (pointNorm s.2))
         (Fraction.mul (Fraction.mul h.abs w.abs) (pointNorm s.1))) := by
     have hf := kick_scale_norm w h s.1
-    have hh := add_equiv (Fraction.equiv_refl (pointNorm s.2)) hf
-    have hhh := add_equiv (Fraction.equiv_refl (pointNorm s.1)) hh
+    have hh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.2)) hf
+    have hhh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.1)) hh
     exact Fraction.equiv_trans hhh (by
       simp only [Fraction.equiv, Fraction.add, Fraction.mul]
       simp only [Int.add_mul, Int.mul_add]

@@ -135,6 +135,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.add_assoc
 #check NewtonLimitDynamics.Fraction.add_comm
 #print axioms NewtonLimitDynamics.Fraction.add_comm
+#check NewtonLimitDynamics.Fraction.add_equiv
+#print axioms NewtonLimitDynamics.Fraction.add_equiv
+#check NewtonLimitDynamics.Fraction.add_equiv_left
+#print axioms NewtonLimitDynamics.Fraction.add_equiv_left
 #check NewtonLimitDynamics.Fraction.add_equiv_right
 #print axioms NewtonLimitDynamics.Fraction.add_equiv_right
 #check NewtonLimitDynamics.Fraction.add_le_add
@@ -143,6 +147,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.add_le_add_left
 #check NewtonLimitDynamics.Fraction.add_le_add_right
 #print axioms NewtonLimitDynamics.Fraction.add_le_add_right
+#check NewtonLimitDynamics.Fraction.add_mul
+#print axioms NewtonLimitDynamics.Fraction.add_mul
+#check NewtonLimitDynamics.Fraction.add_zero
+#print axioms NewtonLimitDynamics.Fraction.add_zero
 #check NewtonLimitDynamics.Fraction.constructed_triangle_limit
 #print axioms NewtonLimitDynamics.Fraction.constructed_triangle_limit
 #check NewtonLimitDynamics.Fraction.equiv_iff_mutual_le
@@ -155,6 +163,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.equiv_trans
 #check NewtonLimitDynamics.Fraction.half_lt
 #print axioms NewtonLimitDynamics.Fraction.half_lt
+#check NewtonLimitDynamics.Fraction.le_add_nonnegative
+#print axioms NewtonLimitDynamics.Fraction.le_add_nonnegative
 #check NewtonLimitDynamics.Fraction.le_equiv_left
 #print axioms NewtonLimitDynamics.Fraction.le_equiv_left
 #check NewtonLimitDynamics.Fraction.le_equiv_right
@@ -167,14 +177,24 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.mul_assoc
 #check NewtonLimitDynamics.Fraction.mul_comm
 #print axioms NewtonLimitDynamics.Fraction.mul_comm
+#check NewtonLimitDynamics.Fraction.mul_equiv
+#print axioms NewtonLimitDynamics.Fraction.mul_equiv
 #check NewtonLimitDynamics.Fraction.mul_equiv_left
 #print axioms NewtonLimitDynamics.Fraction.mul_equiv_left
+#check NewtonLimitDynamics.Fraction.mul_equiv_right
+#print axioms NewtonLimitDynamics.Fraction.mul_equiv_right
 #check NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative
 #print axioms NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative
 #check NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative_left
 #print axioms NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative_left
 #check NewtonLimitDynamics.Fraction.mul_le_mul_positive
 #print axioms NewtonLimitDynamics.Fraction.mul_le_mul_positive
+#check NewtonLimitDynamics.Fraction.mul_zero
+#print axioms NewtonLimitDynamics.Fraction.mul_zero
+#check NewtonLimitDynamics.Fraction.nonnegative_add
+#print axioms NewtonLimitDynamics.Fraction.nonnegative_add
+#check NewtonLimitDynamics.Fraction.nonnegative_mul
+#print axioms NewtonLimitDynamics.Fraction.nonnegative_mul
 #check NewtonLimitDynamics.Fraction.positive_iff_zero_lt
 #print axioms NewtonLimitDynamics.Fraction.positive_iff_zero_lt
 #check NewtonLimitDynamics.Fraction.positive_mul
@@ -269,8 +289,6 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CentralSchedule.cell_momentum
 #check NewtonLimitDynamics.Polygon.CentralSchedule.central_kick
 #print axioms NewtonLimitDynamics.Polygon.CentralSchedule.central_kick
-#check NewtonLimitDynamics.Polygon.CentralSchedule.det_add_right
-#print axioms NewtonLimitDynamics.Polygon.CentralSchedule.det_add_right
 #check NewtonLimitDynamics.Polygon.CentralSchedule.det_cell_area
 #print axioms NewtonLimitDynamics.Polygon.CentralSchedule.det_cell_area
 #check NewtonLimitDynamics.Polygon.CentralSchedule.det_drift
@@ -525,8 +543,6 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicCover.secondPatch_square
 #check NewtonLimitDynamics.Polygon.HarmonicCover.squareArea_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicCover.squareArea_nonnegative
-#check NewtonLimitDynamics.Polygon.HarmonicDyadic.add_equiv
-#print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.add_equiv
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.adjacentCap_tail
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.adjacentCap_tail
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.adjacent_error_le
@@ -557,8 +573,6 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.fineDurations_replicate
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.finite_gap_error
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.finite_gap_error
-#check NewtonLimitDynamics.Polygon.HarmonicDyadic.mul_equiv
-#print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.mul_equiv
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.neg_equiv
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.neg_equiv
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_adjacent_cap
@@ -641,8 +655,6 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_error
 #check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_uniform
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.actual_coarse_parameter_uniform
-#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.add_num_nonnegative
-#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.add_num_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_bound
 #check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.cell_parameter_difference
@@ -743,8 +755,6 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_coordinate
 #check NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_state_equiv
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_state_equiv
-#check NewtonLimitDynamics.Polygon.HarmonicTimeRealization.mul_add_equiv
-#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeRealization.mul_add_equiv
 #check NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_mono
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_mono
 #check NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_scale
@@ -831,6 +841,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_duration
 #check NewtonLimitDynamics.Polygon.HarmonicUniform.smallTime_prefix
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.smallTime_prefix
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.two_mul
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.two_mul
 #check NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #print axioms NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #check NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment
@@ -947,6 +959,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_nonnegative
 #check NewtonLimitDynamics.Polygon.PointBounds.pointNorm_scale
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.pointNorm_scale
+#check NewtonLimitDynamics.Polygon.PointBounds.point_le_state
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.point_le_state
 #check NewtonLimitDynamics.Polygon.PointBounds.stateNorm_add_le
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_add_le
 #check NewtonLimitDynamics.Polygon.PointBounds.stateNorm_equiv
@@ -955,6 +969,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_nonnegative
 #check NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale
+#check NewtonLimitDynamics.Polygon.PointBounds.velocity_le_state
+#print axioms NewtonLimitDynamics.Polygon.PointBounds.velocity_le_state
 #check NewtonLimitDynamics.Polygon.PositionValues.firstValue_embed
 #print axioms NewtonLimitDynamics.Polygon.PositionValues.firstValue_embed
 #check NewtonLimitDynamics.Polygon.PositionValues.firstValue_positionValue
@@ -1067,6 +1083,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.StripArea.two_cell_triangle_constant
 #check NewtonLimitDynamics.Polygon.StripArea.vel_det_constant
 #print axioms NewtonLimitDynamics.Polygon.StripArea.vel_det_constant
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_right
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_right
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.example_coarse_position
@@ -1089,6 +1107,14 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.fine_position_eq_coarse_plus
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.fine_velocity_eq_coarse
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.fine_velocity_eq_coarse
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_congr
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_congr
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_trans
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_trans
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_congr
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_congr
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
 #check NewtonLimitDynamics.Polygon.TriangleBounds.det_abs_le_product

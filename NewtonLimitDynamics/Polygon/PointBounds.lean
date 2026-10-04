@@ -18,13 +18,6 @@ def stateNorm (s : Point × Point) : Fraction :=
 def stateEquiv (s t : Point × Point) : Prop :=
   pointEquiv s.1 t.1 ∧ pointEquiv s.2 t.2
 
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h)
-    (Fraction.equiv_trans (Fraction.add_comm b c)
-      (Fraction.equiv_trans (Fraction.add_equiv_right b k) (Fraction.add_comm d b)))
-
 theorem pointNorm_nonnegative (p : Point) : 0 ≤ (pointNorm p).num := by
   unfold pointNorm Fraction.add
   exact Int.add_nonneg
@@ -39,11 +32,11 @@ theorem stateNorm_nonnegative (s : Point × Point) : 0 ≤ (stateNorm s).num := 
 
 theorem pointNorm_equiv {p q : Point} (h : pointEquiv p q) :
     Fraction.equiv (pointNorm p) (pointNorm q) :=
-  add_equiv (Fraction.abs_equiv h.1) (Fraction.abs_equiv h.2)
+  Fraction.add_equiv (Fraction.abs_equiv h.1) (Fraction.abs_equiv h.2)
 
 theorem stateNorm_equiv {s t : Point × Point} (h : stateEquiv s t) :
     Fraction.equiv (stateNorm s) (stateNorm t) :=
-  add_equiv (pointNorm_equiv h.1) (pointNorm_equiv h.2)
+  Fraction.add_equiv (pointNorm_equiv h.1) (pointNorm_equiv h.2)
 
 theorem pointNorm_add_le (p q : Point) :
     Fraction.le (pointNorm (pointAdd p q))
@@ -80,5 +73,17 @@ theorem stateNorm_scale (d : Fraction) (s : Point × Point) :
     Fraction.add, Fraction.mul, Int.natAbs_mul, Int.ofNat_mul]
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
+
+-- Coordinate magnitudes of the two state components.
+
+theorem point_le_state (s : Point × Point) :
+    Fraction.le (pointNorm s.1) (stateNorm s) :=
+  Fraction.le_add_nonnegative _ _ (pointNorm_nonnegative s.2)
+
+theorem velocity_le_state (s : Point × Point) :
+    Fraction.le (pointNorm s.2) (stateNorm s) :=
+  Fraction.le_equiv_right
+    (Fraction.le_add_nonnegative _ _ (pointNorm_nonnegative s.1))
+    (Fraction.add_comm (pointNorm s.2) (pointNorm s.1))
 
 end NewtonLimitDynamics.Polygon.PointBounds

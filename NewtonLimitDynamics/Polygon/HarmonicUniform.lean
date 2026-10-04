@@ -196,14 +196,7 @@ private theorem coarseWeights_small (w h : Fraction) (n : Nat)
   rw [(common_weight_sum w h n).1]
   exact fineWeights_small w h n hs
 
-private theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
-  Fraction.equiv_trans (Fraction.mul_comm a c)
-    (Fraction.equiv_trans (Fraction.mul_equiv_left c h)
-      (Fraction.equiv_trans (Fraction.mul_comm c b) (Fraction.mul_equiv_left b k)))
-
-private theorem two_mul (x : Int) : 2 * x = x + x := by omega
+theorem two_mul (x : Int) : 2 * x = x + x := by omega
 
 private theorem coarse_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
     Fraction.equiv
@@ -255,7 +248,7 @@ private theorem coarse_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
         (amplification (denom w h) (denom_pos w h)
           ([2 * driftIncrement w h, 2 * kickIncrement w h] ++ coarseWeights w h n))
         (Fraction.mul (coarseFactor w h) (fpower (coarseFactor w h) n))
-      exact Fraction.equiv_trans ha (mul_equiv hb hi)
+      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
 
 private theorem fine_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
     (n : Nat) →
@@ -274,7 +267,7 @@ private theorem fine_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
           ([driftIncrement w h, kickIncrement w h,
             driftIncrement w h, kickIncrement w h] ++ fineWeights w h n))
         (Fraction.mul (fineFactor w h) (fpower (fineFactor w h) n))
-      exact Fraction.equiv_trans ha (mul_equiv hb hi)
+      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
 
 /-- Uniform finite growth of the actual coarse amplification power. -/
 theorem coarse_power_le_two (w h : Fraction) (n : Nat)

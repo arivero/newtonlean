@@ -100,34 +100,10 @@ private theorem le_add_of_num_nonneg (A B : Fraction) (hA : 0 ≤ A.num) :
   rw [Int.add_mul, e1]
   omega
 
-private theorem le_add_of_num_nonneg' (A B : Fraction) (hB : 0 ≤ B.num) :
-    Fraction.le A (Fraction.add A B) := by
-  unfold Fraction.le Fraction.add
-  dsimp
-  have h := Int.mul_nonneg (Int.mul_nonneg hB (Int.le_of_lt A.den_pos)) (Int.le_of_lt A.den_pos)
-  have e1 : A.num * (A.den * B.den) = A.num * B.den * A.den := by ac_rfl
-  rw [Int.add_mul, e1]
-  omega
-
-private theorem le_equiv_trans {x y z : Fraction} (h : Fraction.le x y) (k : Fraction.equiv y z) :
-    Fraction.le x z := by
-  unfold Fraction.le at *
-  unfold Fraction.equiv at k
-  have hz := z.den_pos
-  have hy := y.den_pos
-  have h1 := Int.mul_le_mul_of_nonneg_right h (Int.le_of_lt hz)
-  have h2 : x.num * z.den * y.den ≤ z.num * x.den * y.den := by
-    calc x.num * z.den * y.den = x.num * y.den * z.den := by ac_rfl
-      _ ≤ y.num * x.den * z.den := h1
-      _ = x.den * (y.num * z.den) := by ac_rfl
-      _ = x.den * (z.num * y.den) := by rw [k]
-      _ = z.num * x.den * y.den := by ac_rfl
-  exact Int.le_of_mul_le_mul_right h2 hy
-
 /-- For `w ≥ 0`: `(1 - w*c²)|v|²` never exceeds the invariant. -/
 theorem speed_bound (w c : Fraction) (hw : 0 ≤ w.num) (s : Point × Point) :
     Fraction.le (Fraction.mul (margin w c) (dot s.2 s.2)) (invariant w (Fraction.add c c) s) :=
-  le_equiv_trans
+  Fraction.le_equiv_right
     (le_add_of_num_nonneg _ _ (Int.mul_nonneg hw (dot_self_num_nonneg _)))
     (Fraction.equiv_symm (invariant_square w c s))
 
@@ -135,8 +111,8 @@ theorem speed_bound (w c : Fraction) (hw : 0 ≤ w.num) (s : Point × Point) :
 theorem position_bound (w c : Fraction) (hm : 0 ≤ (margin w c).num) (s : Point × Point) :
     Fraction.le (Fraction.mul w (dot (pointAdd s.1 (pointScale c s.2)) (pointAdd s.1 (pointScale c s.2))))
       (invariant w (Fraction.add c c) s) :=
-  le_equiv_trans
-    (le_add_of_num_nonneg' _ _ (Int.mul_nonneg hm (dot_self_num_nonneg _)))
+  Fraction.le_equiv_right
+    (Fraction.le_add_nonnegative _ _ (Int.mul_nonneg hm (dot_self_num_nonneg _)))
     (Fraction.equiv_symm (invariant_square w c s))
 
 /-- Mesh-uniform discrete stability: along every equal-cell schedule of cell
@@ -147,7 +123,7 @@ theorem schedule_speed_bound (w c : Fraction) (hw : 0 ≤ w.num) (n : Nat) (s : 
         (dot (schedule (linearField w) (List.replicate n (Fraction.add c c)) s).2
           (schedule (linearField w) (List.replicate n (Fraction.add c c)) s).2))
       (invariant w (Fraction.add c c) s) :=
-  le_equiv_trans (speed_bound w c hw _) (schedule_invariant w (Fraction.add c c) n s)
+  Fraction.le_equiv_right (speed_bound w c hw _) (schedule_invariant w (Fraction.add c c) n s)
 
 theorem schedule_position_bound (w c : Fraction) (hm : 0 ≤ (margin w c).num) (n : Nat)
     (s : Point × Point) :
@@ -158,6 +134,6 @@ theorem schedule_position_bound (w c : Fraction) (hm : 0 ≤ (margin w c).num) (
           (pointAdd (schedule (linearField w) (List.replicate n (Fraction.add c c)) s).1
             (pointScale c (schedule (linearField w) (List.replicate n (Fraction.add c c)) s).2))))
       (invariant w (Fraction.add c c) s) :=
-  le_equiv_trans (position_bound w c hm _) (schedule_invariant w (Fraction.add c c) n s)
+  Fraction.le_equiv_right (position_bound w c hm _) (schedule_invariant w (Fraction.add c c) n s)
 
 end NewtonLimitDynamics.Polygon.HarmonicStability

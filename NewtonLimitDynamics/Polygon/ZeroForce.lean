@@ -17,32 +17,6 @@ def inertialAt (p v : Point) (t : Fraction) : Point :=
 private theorem pointEquiv_refl (p : Point) : pointEquiv p p :=
   ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩
 
-private theorem pointEquiv_trans {p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :
-    pointEquiv p r :=
-  ⟨Fraction.equiv_trans h.1 k.1, Fraction.equiv_trans h.2 k.2⟩
-
-private theorem pointAdd_congr {p p' q q' : Point}
-    (hp : pointEquiv p p') (hq : pointEquiv q q') :
-    pointEquiv (pointAdd p q) (pointAdd p' q') := by
-  constructor
-  · exact Fraction.equiv_trans (Fraction.add_equiv_right q.1 hp.1)
-      (Fraction.equiv_trans (Fraction.add_comm p'.1 q.1)
-        (Fraction.equiv_trans (Fraction.add_equiv_right p'.1 hq.1)
-          (Fraction.add_comm q'.1 p'.1)))
-  · exact Fraction.equiv_trans (Fraction.add_equiv_right q.2 hp.2)
-      (Fraction.equiv_trans (Fraction.add_comm p'.2 q.2)
-        (Fraction.equiv_trans (Fraction.add_equiv_right p'.2 hq.2)
-          (Fraction.add_comm q'.2 p'.2)))
-
-private theorem pointScale_congr (d : Fraction) {p q : Point} (h : pointEquiv p q) :
-    pointEquiv (pointScale d p) (pointScale d q) :=
-  ⟨Fraction.mul_equiv_left d h.1, Fraction.mul_equiv_left d h.2⟩
-
-private theorem add_equiv_left (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.add c a) (Fraction.add c b) := by
-  exact Fraction.equiv_trans (Fraction.add_comm c a)
-    (Fraction.equiv_trans (Fraction.add_equiv_right c h) (Fraction.add_comm b c))
-
 private theorem inertial_add_scalar (p v s t : Fraction) :
     Fraction.equiv
       (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul t v))
@@ -52,11 +26,11 @@ private theorem inertial_add_scalar (p v s t : Fraction) :
     exact Fraction.equiv_trans
       (Fraction.equiv_trans
         (Fraction.add_equiv_right (Fraction.mul t v) (Fraction.mul_comm s v))
-        (add_equiv_left (Fraction.mul v s) (Fraction.mul_comm t v)))
+        (Fraction.add_equiv_left (Fraction.mul v s) (Fraction.mul_comm t v)))
       (Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_add v s t))
         (Fraction.equiv_symm (Fraction.mul_comm (Fraction.add s t) v)))
   exact Fraction.equiv_trans (Fraction.add_assoc p (Fraction.mul s v) (Fraction.mul t v))
-    (add_equiv_left p hsum)
+    (Fraction.add_equiv_left p hsum)
 
 /-- Inertial rational-time evolution joins by addition of elapsed times. -/
 theorem inertialAt_add (p v : Point) (s t : Fraction) :

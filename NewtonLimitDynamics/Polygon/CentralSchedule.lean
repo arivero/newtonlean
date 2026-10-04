@@ -72,43 +72,14 @@ theorem det_cell_area (x v : Point) (d : Fraction) :
   ac_nf
   omega
 
-private theorem add_equiv_left (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.add c a) (Fraction.add c b) :=
-  Fraction.equiv_trans (Fraction.add_comm c a)
-    (Fraction.equiv_trans (Fraction.add_equiv_right c h) (Fraction.add_comm b c))
-
-private theorem mul_equiv_right (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c) :=
-  Fraction.equiv_trans (Fraction.mul_comm a c)
-    (Fraction.equiv_trans (Fraction.mul_equiv_left c h) (Fraction.mul_comm c b))
-
-private theorem mul_zero (d : Fraction) :
-    Fraction.equiv (Fraction.mul d (Fraction.ofInt 0)) (Fraction.ofInt 0) := by
-  unfold Fraction.equiv Fraction.mul Fraction.ofInt
-  simp
-
-private theorem add_zero (c : Fraction) :
-    Fraction.equiv (Fraction.add c (Fraction.ofInt 0)) c := by
-  unfold Fraction.equiv Fraction.add Fraction.ofInt
-  simp only [Int.mul_one, Int.zero_mul, Int.add_zero]
-  try ac_rfl
-
-private theorem add_mul (a b c : Fraction) :
-    Fraction.equiv (Fraction.mul (Fraction.add a b) c)
-      (Fraction.add (Fraction.mul a c) (Fraction.mul b c)) := by
-  unfold Fraction.equiv Fraction.add Fraction.mul
-  dsimp
-  simp only [Int.add_mul, Int.mul_add]
-  try ac_nf
-
 /-- A central impulse at `x` leaves `det(x, ·)` unchanged. -/
 theorem central_kick (a : Field) (hc : central a) (x v : Point) (d : Fraction) :
     Fraction.equiv (det x (pointAdd v (pointScale d (a x)))) (det x v) :=
   Fraction.equiv_trans (det_kick_split x v (a x) d)
     (Fraction.equiv_trans
-      (add_equiv_left (det x v)
-        (Fraction.equiv_trans (Fraction.mul_equiv_left d (hc x)) (mul_zero d)))
-      (add_zero (det x v)))
+      (Fraction.add_equiv_left (det x v)
+        (Fraction.equiv_trans (Fraction.mul_equiv_left d (hc x)) (Fraction.mul_zero d)))
+      (Fraction.add_zero (det x v)))
 
 /-- Each cell (drift, then central impulse at the arrival vertex) preserves the
     areal velocity exactly, for any cell duration. -/
@@ -140,8 +111,8 @@ theorem swept_eq (a : Field) (hc : central a) :
         Fraction.equiv_trans (swept_eq a hc ds (cell a d s))
           (Fraction.mul_equiv_left (elapsed ds) (cell_momentum a hc d s))
       exact Fraction.equiv_trans
-        (Fraction.equiv_trans (Fraction.add_equiv_right _ hcell) (add_equiv_left _ hrest))
-        (Fraction.equiv_symm (add_mul d (elapsed ds) (momentum s)))
+        (Fraction.equiv_trans (Fraction.add_equiv_right _ hcell) (Fraction.add_equiv_left _ hrest))
+        (Fraction.equiv_symm (Fraction.add_mul d (elapsed ds) (momentum s)))
 
 /-- Refinement of one cell `h+k` into `h` then `k`, for an arbitrary field:
     the fine endpoint exceeds the coarse one by exactly `h*k` times the force at
@@ -181,18 +152,6 @@ theorem refine_velocity (a : Field) (h k : Fraction) (s : Point × Point) :
           (pointScale h (pointSub (a (cell a h s).1) (a (cell a (Fraction.add h k) s).1)))
           (pointScale k (pointSub (a (cell a k (cell a h s)).1) (a (cell a (Fraction.add h k) s).1))))) :=
   ⟨velocity_scalar _ _ _ _ _ _, velocity_scalar _ _ _ _ _ _⟩
-
-theorem det_add_right (x v w : Point) :
-    Fraction.equiv (det x (pointAdd v w)) (Fraction.add (det x v) (det x w)) := by
-  unfold Fraction.equiv det pointAdd Fraction.add Fraction.mul
-  dsimp
-  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
-  ac_nf
-  omega
-
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h) (add_equiv_left b k)
 
 private theorem expand_left (d d' L K : Fraction) :
     Fraction.equiv (Fraction.mul d (Fraction.mul d' (Fraction.add L K)))

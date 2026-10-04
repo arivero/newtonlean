@@ -332,5 +332,71 @@ theorem add_equiv_right (k : Fraction) {a b : Fraction} (h : equiv a b) :
   obtain ⟨hab, hba⟩ := (equiv_iff_mutual_le a b).mp h
   exact (equiv_iff_mutual_le _ _).mpr ⟨add_le_add_right hab k, add_le_add_right hba k⟩
 
+-- Congruence, distributivity and sign lemmas shared by the Polygon modules.
+
+theorem add_equiv {a b c d : Fraction} (h : equiv a b)
+    (k : equiv c d) :
+    equiv (add a c) (add b d) :=
+  equiv_trans (add_equiv_right c h)
+    (equiv_trans (add_comm b c)
+      (equiv_trans (add_equiv_right b k) (add_comm d b)))
+
+theorem mul_equiv {a b c d : Fraction} (h : equiv a b)
+    (k : equiv c d) :
+    equiv (mul a c) (mul b d) :=
+  equiv_trans (mul_comm a c)
+    (equiv_trans (mul_equiv_left c h)
+      (equiv_trans (mul_comm c b) (mul_equiv_left b k)))
+
+theorem add_equiv_left (c : Fraction) {a b : Fraction} (h : equiv a b) :
+    equiv (add c a) (add c b) := by
+  exact equiv_trans (add_comm c a)
+    (equiv_trans (add_equiv_right c h) (add_comm b c))
+
+theorem mul_equiv_right (c : Fraction) {a b : Fraction} (h : equiv a b) :
+    equiv (mul a c) (mul b c) := by
+  exact equiv_trans (mul_comm a c)
+    (equiv_trans (mul_equiv_left c h) (mul_comm c b))
+
+theorem le_add_nonnegative (a b : Fraction) (hb : 0 ≤ b.num) :
+    le a (add a b) := by
+  unfold le add
+  dsimp
+  have hp := Int.mul_nonneg (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
+    (Int.le_of_lt a.den_pos)
+  simp only [Int.add_mul]
+  have he : a.num * (a.den * b.den) = a.num * b.den * a.den := by ac_rfl
+  rw [he]
+  omega
+
+theorem nonnegative_add (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
+    0 ≤ (add a b).num := by
+  unfold add
+  exact Int.add_nonneg
+    (Int.mul_nonneg ha (Int.le_of_lt b.den_pos))
+    (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
+
+theorem nonnegative_mul (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
+    0 ≤ (mul a b).num := Int.mul_nonneg ha hb
+
+theorem mul_zero (d : Fraction) :
+    equiv (mul d (ofInt 0)) (ofInt 0) := by
+  unfold equiv mul ofInt
+  simp
+
+theorem add_zero (c : Fraction) :
+    equiv (add c (ofInt 0)) c := by
+  unfold equiv add ofInt
+  simp only [Int.mul_one, Int.zero_mul, Int.add_zero]
+  try ac_rfl
+
+theorem add_mul (a b c : Fraction) :
+    equiv (mul (add a b) c)
+      (add (mul a c) (mul b c)) := by
+  unfold equiv add mul
+  dsimp
+  simp only [Int.add_mul, Int.mul_add]
+  try ac_nf
+
 end Fraction
 end NewtonLimitDynamics

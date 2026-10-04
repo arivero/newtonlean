@@ -34,8 +34,6 @@ theorem blocks_succ (j : Nat) : blocks (j + 1) = blocks j + blocks j := by
   rw [Nat.pow_succ]
   omega
 
-private theorem two_mul (x : Int) : 2 * x = x + x := by omega
-
 theorem duration_halving (T : Fraction) (j : Nat) :
     Fraction.equiv (duration T j)
       (Fraction.add (duration T (j + 1)) (duration T (j + 1))) := by
@@ -49,35 +47,16 @@ theorem totalTime_dyadic (T : Fraction) (j : Nat) :
     Fraction.ofInt, Int.pow_succ, Int.natCast_pow]
   ac_nf
 
-theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h)
-    (Fraction.equiv_trans (Fraction.add_comm b c)
-      (Fraction.equiv_trans (Fraction.add_equiv_right b k) (Fraction.add_comm d b)))
-
-theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
-  Fraction.equiv_trans (Fraction.mul_comm a c)
-    (Fraction.equiv_trans (Fraction.mul_equiv_left c h)
-      (Fraction.equiv_trans (Fraction.mul_comm c b) (Fraction.mul_equiv_left b k)))
-
 theorem neg_equiv {a b : Fraction} (h : Fraction.equiv a b) :
     Fraction.equiv ⟨-a.num, a.den, a.den_pos⟩ ⟨-b.num, b.den, b.den_pos⟩ := by
   unfold Fraction.equiv at *
   dsimp
   simp only [Int.neg_mul, h]
 
-private theorem pointAdd_congr {p p' q q' : Point}
-    (hp : pointEquiv p p') (hq : pointEquiv q q') :
-    pointEquiv (pointAdd p q) (pointAdd p' q') :=
-  ⟨add_equiv hp.1 hq.1, add_equiv hp.2 hq.2⟩
-
 private theorem pointScale_congr {a b : Fraction} {p q : Point}
     (ha : Fraction.equiv a b) (hp : pointEquiv p q) :
     pointEquiv (pointScale a p) (pointScale b q) :=
-  ⟨mul_equiv ha hp.1, mul_equiv ha hp.2⟩
+  ⟨Fraction.mul_equiv ha hp.1, Fraction.mul_equiv ha hp.2⟩
 
 private theorem pointNeg_congr {p q : Point} (hp : pointEquiv p q) :
     pointEquiv (pointNeg p) (pointNeg q) :=
@@ -149,7 +128,7 @@ theorem elapsed_replicate_congr {d e : Fraction}
     (n : Nat) →
       Fraction.equiv (elapsed (List.replicate n d)) (elapsed (List.replicate n e))
   | 0 => Fraction.equiv_refl _
-  | n + 1 => add_equiv hd (elapsed_replicate_congr hd n)
+  | n + 1 => Fraction.add_equiv hd (elapsed_replicate_congr hd n)
 
 theorem endpoint_elapsed (T : Fraction) (j : Nat) :
     Fraction.equiv (elapsed (List.replicate (blocks j) (duration T j))) T :=
@@ -177,7 +156,7 @@ theorem dyadic_smallTime (w T : Fraction) (j : Nat)
     (hs : DyadicSmallTime w T) :
     SmallTime w (duration T (j + 1)) (blocks j) := by
   have ht := totalTime_dyadic T j
-  have he := mul_equiv ht
+  have he := Fraction.mul_equiv ht
     (Fraction.equiv_refl (Fraction.add (Fraction.ofInt 1) w.abs))
   exact Fraction.le_equiv_left he hs
 
@@ -205,8 +184,8 @@ theorem adjacent_error_le (w T : Fraction) (s : Point × Point) (j : Nat)
   have hbound := actual_uniform_error w h s n hT (dyadic_smallTime w T j hs)
   have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hbound
   apply Fraction.le_equiv_right hfirst
-  exact mul_equiv (Fraction.equiv_refl _)
-    (mul_equiv (totalTime_dyadic T j) (Fraction.equiv_refl _))
+  exact Fraction.mul_equiv (Fraction.equiv_refl _)
+    (Fraction.mul_equiv (totalTime_dyadic T j) (Fraction.equiv_refl _))
 
 /-- The finite tail coefficient `A=3*T²*|w|*M`. -/
 def coefficient (w T : Fraction) (s : Point × Point) : Fraction :=

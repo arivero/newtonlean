@@ -534,3 +534,25 @@ The positive position separation is supported by the all-level lower bound.
 No scope defect, numeric holdout or repair; only the same standard axioms.
 Log: `/tmp/newtonlean-a42f547-references.log`, SHA-256
 `bdb3812d58bc754f058c87357af1c4983044a8834b238716636fa5dd9d3d6543`.
+
+Duplicate-helper consolidation, 4 October (Claude Code): 50 duplicated helper
+theorems are merged into one canonical copy each, taking the library from 843
+to 793 theorems. Fraction congruence, distributivity and sign lemmas
+(`add_equiv`, `mul_equiv`, `add_equiv_left`, `mul_equiv_right`,
+`le_add_nonnegative`, `nonnegative_add`, `nonnegative_mul`, `add_zero`,
+`mul_zero`, `add_mul`) now live in `Common/RationalMagnitudes.lean`; point
+equivalence lemmas and `det_add_right` in `TimeSubdivision`; `point_le_state`
+and `velocity_le_state` in `PointBounds`; `HarmonicUniform.two_mul` is public.
+Each canonical statement equals the removed copies up to variable names, and
+each kept proof is one of those copies. The removed public names
+`HarmonicDyadic.add_equiv`, `HarmonicDyadic.mul_equiv`,
+`HarmonicTimeComparison.add_num_nonnegative`,
+`HarmonicTimeRealization.mul_add_equiv` and `CentralSchedule.det_add_right`
+have their call sites moved to the canonical lemmas. Stage-local restatements,
+the per-edition Lemma X pair, the two Proposition III routes and same-named
+lemmas about distinct definitions (HarmonicBinaryPrefix tails, samples) are
+retained deliberately. Both builds pass with no warning; the catalogue has 793
+theorems; all 658 reference/axiom checks pass with only propext,
+Classical.choice and Quot.sound and no sorryAx; evidence validation and
+whitespace pass. Mathematical content, premises and source classifications
+are unchanged.

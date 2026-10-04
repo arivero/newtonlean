@@ -6,20 +6,6 @@ open NewtonLimitDynamics
 open TimeSubdivision
 open PartitionControl
 
-private theorem add_equiv_left (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.add c a) (Fraction.add c b) :=
-  Fraction.equiv_trans (Fraction.add_comm c a)
-    (Fraction.equiv_trans (Fraction.add_equiv_right c h) (Fraction.add_comm b c))
-
-private theorem mul_equiv_right (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c) :=
-  Fraction.equiv_trans (Fraction.mul_comm a c)
-    (Fraction.equiv_trans (Fraction.mul_equiv_left c h) (Fraction.mul_comm c b))
-
-private theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
-  Fraction.equiv_trans (mul_equiv_right c h) (Fraction.mul_equiv_left b k)
-
 private theorem half_equiv {a b : Fraction} (h : Fraction.equiv a b) :
     Fraction.equiv (Fraction.half a) (Fraction.half b) := by
   unfold Fraction.equiv Fraction.half at *
@@ -28,21 +14,14 @@ private theorem half_equiv {a b : Fraction} (h : Fraction.equiv a b) :
     _ = 2 * (b.num * a.den) := by rw [h]
     _ = b.num * (2 * a.den) := by ac_rfl
 
-private theorem pointEquiv_trans {p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :
-    pointEquiv p r :=
-  ⟨Fraction.equiv_trans h.1 k.1, Fraction.equiv_trans h.2 k.2⟩
-
-private theorem pointEquiv_symm {p q : Point} (h : pointEquiv p q) : pointEquiv q p :=
-  ⟨Fraction.equiv_symm h.1, Fraction.equiv_symm h.2⟩
-
 private theorem candidate_scalar_congr {s t : Fraction} (h : Fraction.equiv s t)
     (p v a : Fraction) :
     Fraction.equiv
       (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul (Fraction.half (Fraction.mul s s)) a))
       (Fraction.add (Fraction.add p (Fraction.mul t v)) (Fraction.mul (Fraction.half (Fraction.mul t t)) a)) :=
   Fraction.equiv_trans
-    (Fraction.add_equiv_right _ (add_equiv_left p (mul_equiv_right v h)))
-    (add_equiv_left _ (mul_equiv_right a (half_equiv (mul_equiv h h))))
+    (Fraction.add_equiv_right _ (Fraction.add_equiv_left p (Fraction.mul_equiv_right v h)))
+    (Fraction.add_equiv_left _ (Fraction.mul_equiv_right a (half_equiv (Fraction.mul_equiv h h))))
 
 /-- The constructed candidate depends only on the represented rational time. -/
 theorem candidate_time_congr (p v a : Point) {s t : Fraction} (h : Fraction.equiv s t) :
@@ -67,7 +46,7 @@ theorem partition_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Poin
 
 private theorem velocity_scalar_congr {s t : Fraction} (h : Fraction.equiv s t) (v a : Fraction) :
     Fraction.equiv (Fraction.add v (Fraction.mul s a)) (Fraction.add v (Fraction.mul t a)) :=
-  add_equiv_left v (mul_equiv_right a h)
+  Fraction.add_equiv_left v (Fraction.mul_equiv_right a h)
 
 /-- Two arbitrary schedules reaching equivalent rational times have equivalent
     actual velocities; no correction term is needed. -/

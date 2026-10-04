@@ -255,8 +255,8 @@ private theorem three_quarters_lt (R eps : Fraction) (heps : 0 < eps.num) :
   have h₃ := add_lt_add_left h₂ R
   have hp : Fraction.equiv (Fraction.add q q) eps.half :=
     half_add_equiv eps.half
-  have hi := HarmonicDyadic.add_equiv (Fraction.equiv_refl q) hp
-  have ho := HarmonicDyadic.add_equiv (Fraction.equiv_refl R) hi
+  have hi := Fraction.add_equiv (Fraction.equiv_refl q) hp
+  have ho := Fraction.add_equiv (Fraction.equiv_refl R) hi
   have he := Fraction.equiv_trans
     (Fraction.add_assoc (Fraction.add R q) q q)
     (Fraction.equiv_trans (Fraction.add_assoc R q (Fraction.add q q)) ho)
@@ -360,7 +360,7 @@ private theorem two_quarters_lt (R S eps : Fraction)
     simp only [Fraction.equiv, Fraction.add]
     simp only [Int.add_mul, Int.mul_add]
     ac_nf
-  have he₂ := HarmonicDyadic.add_equiv (Fraction.equiv_refl (Fraction.add R S))
+  have he₂ := Fraction.add_equiv (Fraction.equiv_refl (Fraction.add R S))
     (half_add_equiv eps.half)
   have hlt := add_lt_add_left (Fraction.half_lt eps heps)
     (Fraction.add R S)
@@ -576,7 +576,7 @@ theorem sample_lower_all_levels (j : Nat) :
         (HarmonicDyadic.tailCap sampleOne sampleQuarter sampleState 0)
         (distance eⱼ sampleState))
       (Fraction.add sampleTail (distance eⱼ sampleState)) :=
-    HarmonicDyadic.add_equiv sample_tail_zero (Fraction.equiv_refl _)
+    Fraction.add_equiv sample_tail_zero (Fraction.equiv_refl _)
   have hfull := Fraction.le_equiv_right (Fraction.le_equiv_left hL hchain) hR
   exact le_add_cancel_left sampleTail sampleLower (distance eⱼ sampleState) hfull
 

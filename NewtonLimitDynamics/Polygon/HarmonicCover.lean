@@ -25,37 +25,6 @@ open ConvexCover
 private def two : Fraction := Fraction.ofInt 2
 private def four : Fraction := Fraction.ofInt 4
 
-private theorem nonneg_mul (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
-    0 ≤ (Fraction.mul a b).num := Int.mul_nonneg ha hb
-
-private theorem nonneg_add (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
-    0 ≤ (Fraction.add a b).num := by
-  unfold Fraction.add
-  exact Int.add_nonneg
-    (Int.mul_nonneg ha (Int.le_of_lt b.den_pos))
-    (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-
-private theorem le_add_nonnegative (a b : Fraction) (hb : 0 ≤ b.num) :
-    Fraction.le a (Fraction.add a b) := by
-  unfold Fraction.le Fraction.add
-  dsimp
-  have hp := Int.mul_nonneg (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-    (Int.le_of_lt a.den_pos)
-  simp only [Int.add_mul]
-  have he : a.num * (a.den * b.den) = a.num * b.den * a.den := by ac_rfl
-  rw [he]
-  omega
-
-private theorem point_le_state (s : Point × Point) :
-    Fraction.le (pointNorm s.1) (stateNorm s) :=
-  le_add_nonnegative _ _ (pointNorm_nonnegative s.2)
-
-private theorem velocity_le_state (s : Point × Point) :
-    Fraction.le (pointNorm s.2) (stateNorm s) :=
-  Fraction.le_equiv_right
-    (le_add_nonnegative _ _ (pointNorm_nonnegative s.1))
-    (Fraction.add_comm (pointNorm s.2) (pointNorm s.1))
-
 def maxError (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
   Fraction.mul (Fraction.ofInt 3)
     (Fraction.mul (totalTime h n)
@@ -86,31 +55,31 @@ private theorem totalTime_nonnegative (h : Fraction) (n : Nat) (hh : 0 ≤ h.num
 
 private theorem maxError_nonnegative (w h : Fraction) (s : Point × Point)
     (n : Nat) (hh : 0 ≤ h.num) : 0 ≤ (maxError w h s n).num :=
-  nonneg_mul _ _ (by decide)
-    (nonneg_mul _ _ (totalTime_nonnegative h n hh)
-      (nonneg_mul _ _ hh
-        (nonneg_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))))
+  Fraction.nonnegative_mul _ _ (by decide)
+    (Fraction.nonnegative_mul _ _ (totalTime_nonnegative h n hh)
+      (Fraction.nonnegative_mul _ _ hh
+        (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))))
 
 private theorem halfDriftBudget_nonnegative (h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) : 0 ≤ (halfDriftBudget h s).num :=
-  nonneg_mul _ _ (by decide) (nonneg_mul _ _ hh (stateNorm_nonnegative s))
+  Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
 
 private theorem fullDriftBudget_nonnegative (h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) : 0 ≤ (fullDriftBudget h s).num :=
-  nonneg_mul _ _ (by decide) (nonneg_mul _ _ hh (stateNorm_nonnegative s))
+  Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
 
 theorem radius_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) : 0 ≤ (radius w h s n).num :=
-  nonneg_add _ _ (fullDriftBudget_nonnegative h s hh)
+  Fraction.nonnegative_add _ _ (fullDriftBudget_nonnegative h s hh)
     (maxError_nonnegative w h s n hh)
 
 theorem squareArea_nonnegative (R : Fraction) (hR : 0 ≤ R.num) :
     0 ≤ (squareArea R).num :=
-  nonneg_mul _ _ (by decide) (nonneg_mul _ _ hR hR)
+  Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hR hR)
 
 theorem coverBudget_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) : 0 ≤ (coverBudget w h s n).num :=
-  nonneg_mul _ _ (Int.ofNat_nonneg _)
+  Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _)
     (squareArea_nonnegative _ (radius_nonnegative w h s n hh))
 
 private theorem totalTime_le (h : Fraction) (i n : Nat)
@@ -142,19 +111,12 @@ private theorem prefix_error_le_max (w h : Fraction) (s : Point × Point)
   have he := actual_uniform_error w h s i hh hsmall
   have ht := totalTime_le h i n hh hin
   have hfactor : 0 ≤ (Fraction.mul h (Fraction.mul w.abs (stateNorm s))).num :=
-    nonneg_mul _ _ hh
-      (nonneg_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))
+    Fraction.nonnegative_mul _ _ hh
+      (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))
   have hm := Fraction.mul_le_mul_nonnegative ht
     (Fraction.mul h (Fraction.mul w.abs (stateNorm s))) hfactor
   have hm' := Fraction.mul_le_mul_nonnegative_left hm (Fraction.ofInt 3) (by decide)
   exact Fraction.magnitudes.le_trans he hm'
-
-private theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
-  Fraction.equiv_trans (Fraction.mul_comm a c)
-    (Fraction.equiv_trans (Fraction.mul_equiv_left c h)
-      (Fraction.equiv_trans (Fraction.mul_comm c b) (Fraction.mul_equiv_left b k)))
 
 private theorem drift_offset_le_state (d : Fraction) (hd : 0 ≤ d.num)
     (t : Point × Point) :
@@ -164,7 +126,7 @@ private theorem drift_offset_le_state (d : Fraction) (hd : 0 ≤ d.num)
   have he := pointNorm_equiv (drift_offset d t.1 t.2)
   have hs := pointNorm_scale d t.2
   have hdabs := Fraction.abs_of_nonnegative d hd
-  have hmul := mul_equiv hdabs (Fraction.equiv_refl (pointNorm t.2))
+  have hmul := Fraction.mul_equiv hdabs (Fraction.equiv_refl (pointNorm t.2))
   have hstart := Fraction.equiv_trans he (Fraction.equiv_trans hs hmul)
   have hv := velocity_le_state t
   have hm := Fraction.mul_le_mul_nonnegative_left hv d hd
@@ -177,7 +139,7 @@ private theorem two_le_four (h : Fraction) (s : Point × Point)
     unfold Fraction.le two four Fraction.ofInt
     decide
   exact Fraction.mul_le_mul_nonnegative ht (Fraction.mul h (stateNorm s))
-    (nonneg_mul _ _ hh (stateNorm_nonnegative s))
+    (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
 
 private theorem half_drift_le (h : Fraction) (s t : Point × Point)
     (hh : 0 ≤ h.num)
@@ -199,7 +161,7 @@ private theorem full_drift_le (h : Fraction) (s t : Point × Point)
       (pointNorm (pointSub (pointAdd t.1 (pointScale (Fraction.add h h) t.2)) t.1))
       (fullDriftBudget h s) := by
   have hsum : 0 ≤ (Fraction.add h h).num :=
-    nonneg_add h h hh hh
+    Fraction.nonnegative_add h h hh hh
   have h₀ := drift_offset_le_state (Fraction.add h h) hsum t
   have h₁ := Fraction.mul_le_mul_nonnegative_left ht (Fraction.add h h) hsum
   have hc := Fraction.magnitudes.le_trans h₀ h₁
@@ -313,9 +275,9 @@ theorem actual_corners_in_ball (w h : Fraction) (s : Point × Point)
   have hH := fullDriftBudget_nonnegative h s hh
   have hH2 := two_le_four h s hh
   have hHR : Fraction.le (fullDriftBudget h s) (radius w h s n) :=
-    le_add_nonnegative _ _ hE
+    Fraction.le_add_nonnegative _ _ hE
   have hER : Fraction.le (maxError w h s n) (radius w h s n) :=
-    Fraction.le_equiv_right (le_add_nonnegative _ _ hH)
+    Fraction.le_equiv_right (Fraction.le_add_nonnegative _ _ hH)
       (Fraction.add_comm (maxError w h s n) (fullDriftBudget h s))
   have hsum : Fraction.le
       (Fraction.add (maxError w h s n) (halfDriftBudget h s))
@@ -393,9 +355,9 @@ theorem coverBudget_formula (w h : Fraction) (s : Point × Point) (n : Nat) :
   let Q := shapeFactor w h n
   let M := stateNorm s
   have hr := radius_formula w h s n
-  have hsq := mul_equiv hr hr
-  have harea := mul_equiv (Fraction.equiv_refl (Fraction.ofInt 4)) hsq
-  have hbudget := mul_equiv (Fraction.equiv_refl (Fraction.ofInt (n : Int))) harea
+  have hsq := Fraction.mul_equiv hr hr
+  have harea := Fraction.mul_equiv (Fraction.equiv_refl (Fraction.ofInt 4)) hsq
+  have hbudget := Fraction.mul_equiv (Fraction.equiv_refl (Fraction.ofInt (n : Int))) harea
   apply Fraction.equiv_trans hbudget
   simp only [coverBudget, squareArea, R, Q, M, totalTime,
     Fraction.equiv, Fraction.mul, Fraction.ofInt]

@@ -26,17 +26,6 @@ def positionState (s : Point × Point) : Point × Point := (s.1, zeroPoint)
 def firstState (s : Point × Point) : Point × Point := ((s.1.1, zero), zeroPoint)
 def secondState (s : Point × Point) : Point × Point := ((zero, s.1.2), zeroPoint)
 
-private theorem le_add_nonnegative (a b : Fraction) (hb : 0 ≤ b.num) :
-    Fraction.le a (Fraction.add a b) := by
-  unfold Fraction.le Fraction.add
-  dsimp
-  have hp := Int.mul_nonneg (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-    (Int.le_of_lt a.den_pos)
-  simp only [Int.add_mul]
-  have he : a.num * (a.den * b.den) = a.num * b.den * a.den := by ac_rfl
-  rw [he]
-  omega
-
 private def xGap (a b : Point × Point) : Fraction :=
   (Fraction.add a.1.1 ⟨-b.1.1.num, b.1.1.den, b.1.1.den_pos⟩).abs
 private def yGap (a b : Point × Point) : Fraction :=
@@ -85,7 +74,7 @@ theorem position_nonexpansive (a b : Point × Point) :
       (distance a b) := by
   apply Fraction.le_equiv_left (projected_distance a b)
   rw [distance_decompose]
-  exact le_add_nonnegative _ _
+  exact Fraction.le_add_nonnegative _ _
     (by
       unfold Fraction.add
       exact Int.add_nonneg
@@ -98,9 +87,9 @@ theorem first_nonexpansive (a b : Point × Point) :
     Fraction.le (distance (firstState a) (firstState b))
       (distance a b) := by
   apply Fraction.le_equiv_left (first_distance a b)
-  have h₁ := le_add_nonnegative (xGap a b) (yGap a b)
+  have h₁ := Fraction.le_add_nonnegative (xGap a b) (yGap a b)
     (Fraction.abs_num_nonnegative _)
-  have h₂ := le_add_nonnegative (Fraction.add (xGap a b) (yGap a b))
+  have h₂ := Fraction.le_add_nonnegative (Fraction.add (xGap a b) (yGap a b))
     (Fraction.add (vxGap a b) (vyGap a b)) (by
       unfold Fraction.add
       exact Int.add_nonneg
@@ -115,10 +104,10 @@ theorem second_nonexpansive (a b : Point × Point) :
     Fraction.le (distance (secondState a) (secondState b))
       (distance a b) := by
   apply Fraction.le_equiv_left (second_distance a b)
-  have h₁ := le_add_nonnegative (yGap a b) (xGap a b)
+  have h₁ := Fraction.le_add_nonnegative (yGap a b) (xGap a b)
     (Fraction.abs_num_nonnegative _)
   have hcomm := Fraction.add_comm (yGap a b) (xGap a b)
-  have h₂ := le_add_nonnegative (Fraction.add (xGap a b) (yGap a b))
+  have h₂ := Fraction.le_add_nonnegative (Fraction.add (xGap a b) (yGap a b))
     (Fraction.add (vxGap a b) (vyGap a b)) (by
       unfold Fraction.add
       exact Int.add_nonneg
@@ -419,7 +408,7 @@ theorem sample_position_lower_all_levels (j : Nat) (hj : 1 ≤ j) :
         (distance (positionState eⱼ) (positionState sampleState)))
       (Fraction.add sampleTail
         (distance (positionState eⱼ) (positionState sampleState))) :=
-    HarmonicDyadic.add_equiv sample_tail_one (Fraction.equiv_refl _)
+    Fraction.add_equiv sample_tail_one (Fraction.equiv_refl _)
   have hfull := Fraction.le_equiv_right
     (Fraction.le_equiv_left hL hchain) hR
   exact le_add_cancel_left sampleTail sampleLower

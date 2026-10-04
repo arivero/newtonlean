@@ -58,10 +58,6 @@ theorem squares_append (weights : List Nat) (u : Nat) :
   rw [stats_append]
   rfl
 
-private theorem pointEquiv_trans {p q r : Point} (h : pointEquiv p q) (k : pointEquiv q r) :
-    pointEquiv p r :=
-  ⟨Fraction.equiv_trans h.1 k.1, Fraction.equiv_trans h.2 k.2⟩
-
 /-- Exact residual at the sample time `(T+u)/D` inside the next cell: the
     constructed candidate exceeds the actual partial position by
     `((Q+u*u)/(2D²))*a`.  Derived from the appended schedule's statistics. -/

@@ -80,7 +80,7 @@ theorem countState_step_bound (w T : Fraction) (s : Point × Point)
     (Fraction.add (Fraction.ofInt 1) w.abs) hfac
   have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁ h hT
   have habs := Fraction.abs_of_nonnegative h hT
-  have he := HarmonicDyadic.mul_equiv habs
+  have he := Fraction.mul_equiv habs
     (Fraction.equiv_refl
       (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm q)))
   have hchain := Fraction.magnitudes.le_trans
@@ -173,7 +173,7 @@ theorem countState_ordered_bound (w T : Fraction) (s : Point × Point)
   have he := countTime_abs_difference T j n k hT
   apply Fraction.equiv_symm
   apply Fraction.equiv_trans
-    (HarmonicDyadic.mul_equiv he (Fraction.equiv_refl _))
+    (Fraction.mul_equiv he (Fraction.equiv_refl _))
   simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
@@ -213,7 +213,7 @@ theorem countState_same_grid_bound (w T : Fraction) (s : Point × Point)
       (countTime T j n)
     exact Fraction.le_equiv_right
       (Fraction.le_equiv_left hd hb)
-      (HarmonicDyadic.mul_equiv ht (Fraction.equiv_refl _))
+      (Fraction.mul_equiv ht (Fraction.equiv_refl _))
 
 theorem prefix_time_bound (b c : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)
@@ -225,7 +225,7 @@ theorem prefix_time_bound (b c : Nat → Bool) (w T : Fraction)
   have hb := countState_same_grid_bound w T s j (ticks b j) (ticks c j)
     hT hs (ticks_le_blocks b j) (ticks_le_blocks c j)
   apply Fraction.le_equiv_right hb
-  exact HarmonicDyadic.mul_equiv
+  exact Fraction.mul_equiv
     (Fraction.equiv_symm (scalarState_distance
       (timeApprox b T j) (timeApprox c T j)))
     (Fraction.equiv_refl _)
@@ -314,13 +314,6 @@ theorem factor_delta_weak (C eps : Fraction) (hC : 0 ≤ C.num)
   dsimp
   ac_nf
 
-theorem mul_add_equiv (a b c : Fraction) :
-    Fraction.equiv (Fraction.mul (Fraction.add a b) c)
-      (Fraction.add (Fraction.mul a c) (Fraction.mul b c)) := by
-  simp only [Fraction.equiv, Fraction.mul, Fraction.add]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
-
 theorem nameBound_scale (a b ta tb : EndpointCauchyName)
     (C R : Fraction) (hC : 0 ≤ C.num)
     (hlevel : ∀ n : Nat,
@@ -337,7 +330,7 @@ theorem nameBound_scale (a b ta tb : EndpointCauchyName)
   intro n hn
   have hmul := Fraction.mul_le_mul_nonnegative
     (Fraction.magnitudes.lt_implies_le (hN n hn)) C hC
-  have hsum := Fraction.le_equiv_right hmul (mul_add_equiv R delta C)
+  have hsum := Fraction.le_equiv_right hmul (Fraction.add_mul R delta C)
   have hdelta := factor_delta_weak C q hC
     (by simpa only [q, Fraction.half] using Int.le_of_lt heps)
   have htotal := Fraction.add_le_add_left hdelta (Fraction.mul R C)

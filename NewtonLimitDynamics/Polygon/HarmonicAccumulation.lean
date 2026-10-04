@@ -19,51 +19,6 @@ open HarmonicRefinement
 open HarmonicComparison
 open PointBounds
 
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h)
-    (Fraction.equiv_trans (Fraction.add_comm b c)
-      (Fraction.equiv_trans (Fraction.add_equiv_right b k) (Fraction.add_comm d b)))
-
-private theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) :
-    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
-  Fraction.equiv_trans (Fraction.mul_comm a c)
-    (Fraction.equiv_trans (Fraction.mul_equiv_left c h)
-      (Fraction.equiv_trans (Fraction.mul_comm c b) (Fraction.mul_equiv_left b k)))
-
-private theorem nonneg_add (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
-    0 ≤ (Fraction.add a b).num := by
-  unfold Fraction.add
-  exact Int.add_nonneg
-    (Int.mul_nonneg ha (Int.le_of_lt b.den_pos))
-    (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-
-private theorem nonneg_mul (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
-    0 ≤ (Fraction.mul a b).num := Int.mul_nonneg ha hb
-
-private theorem le_add_nonneg (a b : Fraction) (hb : 0 ≤ b.num) :
-    Fraction.le a (Fraction.add a b) := by
-  unfold Fraction.le Fraction.add
-  dsimp
-  have hp := Int.mul_nonneg (Int.mul_nonneg hb (Int.le_of_lt a.den_pos))
-    (Int.le_of_lt a.den_pos)
-  simp only [Int.add_mul]
-  have he : a.num * (a.den * b.den) = a.num * b.den * a.den := by ac_rfl
-  rw [he]
-  omega
-
-private theorem point_le_state (s : Point × Point) :
-    Fraction.le (pointNorm s.1) (stateNorm s) :=
-  le_add_nonneg _ _ (pointNorm_nonnegative s.2)
-
-private theorem velocity_le_state (s : Point × Point) :
-    Fraction.le (pointNorm s.2) (stateNorm s) :=
-  Fraction.le_equiv_right
-    (le_add_nonneg _ _ (pointNorm_nonnegative s.1))
-    (Fraction.add_comm (pointNorm s.2) (pointNorm s.1))
-
 def localFactor (w h : Fraction) : Fraction :=
   Fraction.mul (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)
     (Fraction.add (kappa w h) (Fraction.ofInt 1))
@@ -123,13 +78,13 @@ private def kickMagnitude (w h : Fraction) : Fraction := Fraction.mul h.abs w.ab
 
 private theorem amplitude_nonnegative (w h : Fraction) :
     0 ≤ (amplitude w h).num :=
-  nonneg_mul _ _
-    (nonneg_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _))
+  Fraction.nonnegative_mul _ _
+    (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _))
     (Fraction.abs_num_nonnegative _)
 
 private theorem kickMagnitude_nonnegative (w h : Fraction) :
     0 ≤ (kickMagnitude w h).num :=
-  nonneg_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _)
+  Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _)
 
 /-- Triangle and scaling estimate for the explicit local mismatch. -/
 theorem local_error_expanded_bound (w h : Fraction) (s : Point × Point) :
@@ -151,18 +106,18 @@ theorem local_error_expanded_bound (w h : Fraction) (s : Point × Point) :
   have hp : Fraction.equiv (pointNorm a)
       (Fraction.mul (amplitude w h) (pointNorm y)) :=
     Fraction.equiv_trans (pointNorm_scale _ _)
-      (mul_equiv (neg_localA_abs w h) (Fraction.equiv_refl _))
+      (Fraction.mul_equiv (neg_localA_abs w h) (Fraction.equiv_refl _))
   have hv : Fraction.equiv (pointNorm b)
       (Fraction.mul (amplitude w h) (pointNorm s.2)) :=
     Fraction.equiv_trans (pointNorm_scale _ _)
-      (mul_equiv (localA_abs w h) (Fraction.equiv_refl _))
+      (Fraction.mul_equiv (localA_abs w h) (Fraction.equiv_refl _))
   have hc : Fraction.equiv (pointNorm c)
       (Fraction.mul (Fraction.mul (amplitude w h) (kickMagnitude w h))
         (pointNorm y)) :=
     Fraction.equiv_trans (pointNorm_scale _ _)
-      (mul_equiv (localC_abs w h) (Fraction.equiv_refl _))
+      (Fraction.mul_equiv (localC_abs w h) (Fraction.equiv_refl _))
   exact Fraction.le_equiv_left he
-    (Fraction.le_equiv_right ht (add_equiv hp (add_equiv hv hc)))
+    (Fraction.le_equiv_right ht (Fraction.add_equiv hp (Fraction.add_equiv hv hc)))
 
 /-- The local defect of two actual half-cells against one full cell is bounded
 by `|h|²|w|(kappa+1)` times the current state magnitude. -/
@@ -175,7 +130,7 @@ theorem local_error_bound (w h : Fraction) (s : Point × Point) :
   have hy := middle_norm_bound w h s
   have hv := velocity_le_state s
   have ha := amplitude_nonnegative w h
-  have hat := nonneg_mul (amplitude w h) (kickMagnitude w h) ha
+  have hat := Fraction.nonnegative_mul (amplitude w h) (kickMagnitude w h) ha
     (kickMagnitude_nonnegative w h)
   have h₁ := Fraction.mul_le_mul_nonnegative_left hy (amplitude w h) ha
   have h₂ := Fraction.mul_le_mul_nonnegative_left hv (amplitude w h) ha
@@ -257,8 +212,8 @@ theorem schedules_common_time (w h : Fraction) :
       simp only [List.replicate_succ, fineDurations, elapsed]
       exact Fraction.equiv_trans
         (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))
-        (add_equiv (Fraction.equiv_refl h)
-          (add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))
+        (Fraction.add_equiv (Fraction.equiv_refl h)
+          (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))
 
 /-- Finite rational powers, avoiding any completeness premise. -/
 def fpower (a : Fraction) : Nat → Fraction
@@ -274,18 +229,18 @@ def errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction
 
 theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num := by
   unfold kappa
-  apply nonneg_mul
-  · exact nonneg_add _ _ (by decide) (Fraction.abs_num_nonnegative _)
-  · exact nonneg_add _ _ (by decide) (kickMagnitude_nonnegative w h)
+  apply Fraction.nonnegative_mul
+  · exact Fraction.nonnegative_add _ _ (by decide) (Fraction.abs_num_nonnegative _)
+  · exact Fraction.nonnegative_add _ _ (by decide) (kickMagnitude_nonnegative w h)
 
 theorem localFactor_nonnegative (w h : Fraction) :
     0 ≤ (localFactor w h).num :=
-  nonneg_mul _ _ (amplitude_nonnegative w h)
-    (nonneg_add _ _ (kappa_nonnegative w h) (by decide))
+  Fraction.nonnegative_mul _ _ (amplitude_nonnegative w h)
+    (Fraction.nonnegative_add _ _ (kappa_nonnegative w h) (by decide))
 
 theorem fineFactor_nonnegative (w h : Fraction) :
     0 ≤ (fineFactor w h).num :=
-  nonneg_mul _ _ (kappa_nonnegative w h) (kappa_nonnegative w h)
+  Fraction.nonnegative_mul _ _ (kappa_nonnegative w h) (kappa_nonnegative w h)
 
 private theorem coarseFactor_nonnegative (w h : Fraction) :
     0 ≤ (coarseFactor w h).num := kappa_nonnegative w (Fraction.add h h)
@@ -293,17 +248,17 @@ private theorem coarseFactor_nonnegative (w h : Fraction) :
 theorem fpower_nonnegative (a : Fraction) (ha : 0 ≤ a.num) :
     (n : Nat) → 0 ≤ (fpower a n).num
   | 0 => by simp [fpower, Fraction.ofInt]
-  | n + 1 => nonneg_mul _ _ ha (fpower_nonnegative a ha n)
+  | n + 1 => Fraction.nonnegative_mul _ _ ha (fpower_nonnegative a ha n)
 
 theorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :
     (n : Nat) → 0 ≤ (errorBudget w h s n).num
   | 0 => by simp [errorBudget, Fraction.ofInt]
   | n + 1 =>
-      nonneg_add _ _
-        (nonneg_mul _ _ (fineFactor_nonnegative w h)
+      Fraction.nonnegative_add _ _
+        (Fraction.nonnegative_mul _ _ (fineFactor_nonnegative w h)
           (errorBudget_nonnegative w h s n))
-        (nonneg_mul _ _
-          (nonneg_mul _ _ (localFactor_nonnegative w h)
+        (Fraction.nonnegative_mul _ _
+          (Fraction.nonnegative_mul _ _ (localFactor_nonnegative w h)
             (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))
           (stateNorm_nonnegative s))
 

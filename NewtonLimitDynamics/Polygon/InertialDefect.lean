@@ -38,18 +38,13 @@ def inertialWalk (p v : Point) (a b : Fraction) : List Fraction → Fraction
   | [] => inertialEdge p v a b
   | t :: ts => Fraction.add (inertialEdge p v a t) (inertialWalk p v t b ts)
 
-private theorem add_equiv_left (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.add c a) (Fraction.add c b) := by
-  exact Fraction.equiv_trans (Fraction.add_comm c a)
-    (Fraction.equiv_trans (Fraction.add_equiv_right c h) (Fraction.add_comm b c))
-
 /-- Every finite collinear walk telescopes to its end connector. -/
 theorem inertialWalk_eq_edge (p v : Point) (a b : Fraction) (times : List Fraction) :
     Fraction.equiv (inertialWalk p v a b times) (inertialEdge p v a b) := by
   induction times generalizing a with
   | nil => exact Fraction.equiv_refl _
   | cons t ts ih =>
-      exact Fraction.equiv_trans (add_equiv_left _ (ih t))
+      exact Fraction.equiv_trans (Fraction.add_equiv_left _ (ih t))
         (inertialEdge_compose p v a t b)
 
 /-- Any finite closed polygon sampled from an inertial recurrence has zero
@@ -78,32 +73,19 @@ private theorem fracNeg_congr {a b : Fraction} (h : Fraction.equiv a b) :
   dsimp at *
   simpa only [Int.neg_mul] using congrArg Neg.neg h
 
-private theorem mul_equiv_right (c : Fraction) {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.mul a c) (Fraction.mul b c) := by
-  exact Fraction.equiv_trans (Fraction.mul_comm a c)
-    (Fraction.equiv_trans (Fraction.mul_equiv_left c h) (Fraction.mul_comm c b))
-
-private theorem add_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.add a c) (Fraction.add b d) :=
-  Fraction.equiv_trans (Fraction.add_equiv_right c h) (add_equiv_left b k)
-
-private theorem mul_equiv {a b c d : Fraction} (h : Fraction.equiv a b)
-    (k : Fraction.equiv c d) : Fraction.equiv (Fraction.mul a c) (Fraction.mul b d) :=
-  Fraction.equiv_trans (mul_equiv_right c h) (Fraction.mul_equiv_left b k)
-
 /-- The represented directed determinant respects point equivalence. -/
 theorem det_congr {a a' b b' : Point} (ha : pointEquiv a a')
     (hb : pointEquiv b b') : Fraction.equiv (det a b) (det a' b') := by
   unfold det
-  exact add_equiv (mul_equiv ha.1 hb.2) (fracNeg_congr (mul_equiv ha.2 hb.1))
+  exact Fraction.add_equiv (Fraction.mul_equiv ha.1 hb.2) (fracNeg_congr (Fraction.mul_equiv ha.2 hb.1))
 
 theorem closedBoundaryTwice_congr {a a' b b' c c' d d' : Point}
     (ha : pointEquiv a a') (hb : pointEquiv b b')
     (hc : pointEquiv c c') (hd : pointEquiv d d') :
     Fraction.equiv (closedBoundaryTwice a b c d) (closedBoundaryTwice a' b' c' d') := by
   unfold closedBoundaryTwice
-  exact add_equiv (add_equiv (det_congr ha hb) (det_congr hb hc))
-    (add_equiv (det_congr hc hd) (det_congr hd ha))
+  exact Fraction.add_equiv (Fraction.add_equiv (det_congr ha hb) (det_congr hb hc))
+    (Fraction.add_equiv (det_congr hc hd) (det_congr hd ha))
 
 /-- Four arbitrary actual zero-force schedules (possibly with different
     partitions) have a vanishing signed determinant boundary. -/
