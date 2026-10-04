@@ -27,17 +27,20 @@ nonnegative, multiplicity-counted cover budget is
 2*T*h*M²*(4+3*T*|w|)². Trajectory construction and identification of the
 intervening region's actual area remain open. HarmonicDyadic now constructs
 actual fixed-rational-time endpoint Cauchy data, with arbitrary finite-gap
-bound 3*T²*|w|*M/2^j and an explicit positive-tolerance modulus. A Cauchy name
-is not yet a limit point. HarmonicTimeComparison derives the rational-time map
+bound 3*T²*|w|*M/2^j and an explicit positive-tolerance modulus.
+HarmonicTimeComparison derives the rational-time map
 of these names with uniform bound 4*(1+2*|w|)*M*|U-T| and explicit positive
-delta=eps/(L+1). Realization, identification with prefixes of one global
-polygon family, partition independence and mechanical force identification
+delta=eps/(L+1). Identification with prefixes of one global polygon family,
+partition independence and mechanical force identification
 remain separate.
 HarmonicBinaryPrefix now constructs Cauchy data at intermediate times from
 actual prefixes of one global dyadic family. Every binary address has a
-derived geometric tail and explicit positive-tolerance modulus. Completed
-point values, equivalence of time descriptions and the actual between-path
-area remain open; see [the construction specification](CAUCHY_REALIZATION.md).
+derived geometric tail and explicit positive-tolerance modulus. CauchyValues
+now constructs their values in a proved quotient of Cauchy names, lifts
+representative-invariant bounds, and proves convergence and rational-state
+embedding separation. Equivalent time descriptions, a continuous map on the
+constructed time domain and the actual between-path area remain open; see
+[the construction specification](CAUCHY_REALIZATION.md).
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
 agreement with `p+t*v`, constant velocity, cross-denominator subdivision

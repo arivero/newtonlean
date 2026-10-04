@@ -37,6 +37,7 @@ import NewtonLimitDynamics.Polygon.HarmonicCover
 import NewtonLimitDynamics.Polygon.HarmonicDyadic
 import NewtonLimitDynamics.Polygon.HarmonicTimeComparison
 import NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
+import NewtonLimitDynamics.Polygon.CauchyValues
 import NewtonLimitDynamics.Polygon.MonotoneEnclosure
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums

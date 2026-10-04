@@ -187,6 +187,54 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.triangle_normalized_limit
 #check NewtonLimitDynamics.Fraction.ultimate_congr
 #print axioms NewtonLimitDynamics.Fraction.ultimate_congr
+#check NewtonLimitDynamics.Polygon.CauchyValues.binaryValue_prefix_bound
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.binaryValue_prefix_bound
+#check NewtonLimitDynamics.Polygon.CauchyValues.constantName_equiv_iff
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.constantName_equiv_iff
+#check NewtonLimitDynamics.Polygon.CauchyValues.constant_approximants_converge
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.constant_approximants_converge
+#check NewtonLimitDynamics.Polygon.CauchyValues.distance_self_lt
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.distance_self_lt
+#check NewtonLimitDynamics.Polygon.CauchyValues.distance_zero_iff_stateEquiv
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.distance_zero_iff_stateEquiv
+#check NewtonLimitDynamics.Polygon.CauchyValues.embed_eq_iff_stateEquiv
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.embed_eq_iff_stateEquiv
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_congr
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameBound_congr
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_of_eventual_le
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameBound_of_eventual_le
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_symm
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameBound_symm
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_triangle
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameBound_triangle
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_zero_iff
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameBound_zero_iff
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_refl
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_refl
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_symm
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_symm
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_trans
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_trans
+#check NewtonLimitDynamics.Polygon.CauchyValues.rational_time_uniform_value_bound
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.rational_time_uniform_value_bound
+#check NewtonLimitDynamics.Polygon.CauchyValues.sample_endpoint_value_ne_initial
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.sample_endpoint_value_ne_initial
+#check NewtonLimitDynamics.Polygon.CauchyValues.sample_endpoint_zero_distance
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.sample_endpoint_zero_distance
+#check NewtonLimitDynamics.Polygon.CauchyValues.sample_lower_all_levels
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.sample_lower_all_levels
+#check NewtonLimitDynamics.Polygon.CauchyValues.sample_tail_zero
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.sample_tail_zero
+#check NewtonLimitDynamics.Polygon.CauchyValues.timeValue_bound
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.timeValue_bound
+#check NewtonLimitDynamics.Polygon.CauchyValues.within_realize
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.within_realize
+#check NewtonLimitDynamics.Polygon.CauchyValues.within_symm
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.within_symm
+#check NewtonLimitDynamics.Polygon.CauchyValues.within_triangle
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.within_triangle
+#check NewtonLimitDynamics.Polygon.CauchyValues.within_zero_iff
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.within_zero_iff
 #check NewtonLimitDynamics.Polygon.CentralSchedule.cell_momentum
 #print axioms NewtonLimitDynamics.Polygon.CentralSchedule.cell_momentum
 #check NewtonLimitDynamics.Polygon.CentralSchedule.central_kick

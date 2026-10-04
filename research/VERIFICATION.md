@@ -465,3 +465,20 @@ The separately retained long-time scope control also compiles, proving the
 time coefficient fails without smallness, with propext only. No completed
 point/time realization, address independence, force law or actual D_mesh is
 claimed. Earlier arithmetic holdouts remain limited to their fixed snapshots.
+
+Cauchy-value realization follow-up, 4 October: both full builds, catalogue,
+graph and all 547 reference/axiom checks pass in order; 744 declarations in
+48 declaration-bearing library modules. The only axioms are propext,
+Classical.choice and Quot.sound, no sorryAx/project axiom or warnings/errors.
+The value and bound constructors were separately type/axiom inspected.
+Name equivalence and constant-state separation are proved; bound invariance
+precedes quotient lifting. Symmetry, triangle and zero-radius iff equality,
+constant-approximant convergence, rational-time control and actual prefix-tail
+value bounds compile. The all-level3/16 sample lower bound and positive
+non-equality theorem prove state-value separation. The false equality test
+fails by rfl; this supplementary failure is not the mathematical evidence for
+non-equality. Reference log: `/tmp/newtonlean-day-values-refs.log`. Whitespace
+checks pass. This constructs values in the explicit name quotient, not an
+assumed external complete coordinate space, quotient time domain, position-only
+motion or actual intervening area. Next is the sequential nonauthor check of
+the committed value-construction snapshot.

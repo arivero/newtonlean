@@ -175,9 +175,31 @@ The all-zero address returns the initial state exactly; zero time returns it
 in value equivalence. Production controls give first error17/64, A19/8 and
 same-time second error545/65536. No actual curve or limit point was supplied.
 
-These are Cauchy data for all binary addresses. Quotient point values,
-identification of equivalent time descriptions, continuity of the resulting
+These are Cauchy data for all binary addresses. Identification of equivalent
+time descriptions, continuity of the resulting
 time-to-position map and the actual between-path region remain to be proved;
 see [the construction specification](CAUCHY_REALIZATION.md). The independently
 rescaled rational-time endpoint map and this single global family remain
 distinct until their values are compared.
+
+`CauchyValues.lean` realizes these names in an explicitly constructed quotient
+value space. Eventual distance below every positive rational tolerance is
+proved to be an equivalence relation. Constant rational states embed into the
+quotient, and their values are equal exactly when their state coordinates are
+value-equivalent. No external limit point or completeness field is supplied.
+
+A closed rational-radius bound is defined first on names using eventual
+distance<R+eps for every positive eps. Its invariance under both representative
+changes is proved before lifting `Within` to values. Symmetry, the triangle
+bound, zero radius iff equality and convergence of constant approximants are
+checked. Actual endpoint/time/binary-prefix constructors give values with the
+existing time and prefix-tail bounds. The example endpoint value differs from
+the initial value: its level0 distance9/16 and tail3/8 imply distance>=3/16
+at every level, which rules out name equivalence.
+
+This constructs state values, including a uniformly controlled rational-time
+map. Identification of binary addresses as times and a well-defined continuous
+map on their quotient remain next. A state separation result does not by itself
+prove position-only separation or any intervening-region area. Generic
+completeness, external real-coordinate identification and mechanical properties
+are not inferred.

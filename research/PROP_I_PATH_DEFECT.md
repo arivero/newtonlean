@@ -72,8 +72,10 @@ HarmonicTimeComparison now controls their variation with rational time,
 uniformly in the refinement level, and constructs an explicit positive
 continuity tolerance. HarmonicBinaryPrefix now constructs intermediate-time
 Cauchy names from actual prefixes of one global polygon family, for every
-binary address, with a derived geometric tail. Next realize point values and
-identify equivalent time descriptions, keeping partition independence explicit:
+binary address, with a derived geometric tail. CauchyValues now constructs
+their quotient state values and transfers the actual time/tail bounds after
+proving representative invariance. Next identify equivalent time descriptions
+and construct a continuous map on times, keeping partition independence explicit:
 rational approximants need not have rational limits. Then derive D_mesh
 geometry/enclosure and edition-local
 uninterrupted-force identification. No integral calculus, ODE theorem, measure

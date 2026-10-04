@@ -505,3 +505,54 @@ nonconstant value, not independent verification. Full completed-time motion,
 partition independence, force law and actual intervening area remain separate.
 Reuse core rational/norm/actual-schedule lemmas; no mathlib, ODE/measure theorem,
 new axiom, sorry or unstated force regularity. See CAUCHY_REALIZATION.md.
+
+Thirteenth increment checked in full: CauchyValues constructs the proved
+name quotient and constant embedding, representative-invariant `Within`, its
+symmetry/triangle and zero-radius iff equality, convergence of constant
+approximants, and actual rational-time/binary-prefix value bounds. Both full
+builds, catalogue, graph and all 547 references pass; 744 library theorem
+declarations in 48 declaration-bearing modules. Only propext, Classical.choice
+and Quot.sound, no sorryAx/project axiom or warning/error. Constructors were
+separately type/axiom checked. The sample all-level lower3/16 and positive
+theorem `sample_endpoint_value_ne_initial` establish state-value separation.
+The false equality attempt in `/tmp/newtonlean-values-false.lean` fails by rfl;
+that tactic failure alone would not establish separation, which is supplied
+by the compiled non-equality theorem. Reference log:
+`/tmp/newtonlean-day-values-refs.log`. Whitespace checks pass. No external
+complete coordinate space, time quotient, position-only separation, force law
+or actual polygon-trajectory area has been assumed or certified.
+
+Fourteenth pin: construct and identify the binary time domain, then descend
+the actual prefix values to a continuous state-value map on it. Construct
+Cauchy names for the actual times t_j=ticks(j)*T/2^j (stored as one coordinate
+with other coordinates fixed). Derive their finite-gap/two-sided bounds and
+positive-tolerance condition from ticks, without an assumed time Cauchy field.
+Prove actual arbitrary prefix-state magnitude<=2M for every count<=2^j and
+derive the same-grid estimate
+
+    stateNorm(prefixState(b,j)-prefixState(c,j))
+      <= C*abs(t_j(b)-t_j(c)), C=2*(1+abs(w))*M.
+
+This compares two actual schedules with the SAME duration and possibly
+different counts. Telescope actual one-cell increments; no supplied curve,
+amplification field, limit point, ODE theorem or arbitrary force regularity.
+Define time-address equivalence using the proved time names, quotient it,
+and prove equivalent times yield equivalent prefix values before defining the
+state-value map. Derive a closed value bound C*R when two time values are
+Within radiusR>=0, and an explicit positive tolerance for each positive eps.
+The binary time quotient is the stated domain; do not silently identify it
+with an external Euclidean interval or prove a generic completeness theorem.
+
+Generic left endpoint is the embedded initial state. Generic right endpoint
+uses the all-one address and equals endpointValue(w,T,s), after bounding the
+last omitted cell. Prove equality of the two half-time addresses1,0,0,... and
+0,1,1,... in both time and state values. For w1,T1/4,s((1,0),(0,1)),j2,
+their counts are2 and1, time difference1/16, C8, proposed bound1/2 and actual
+state difference8927/65536. These are production controls, not holdouts. Their
+finite prefixes differ while their limiting values agree. Right versus left
+state value must be distinct for that sample using the thirteenth separation
+theorem. Position projection/separation, arbitrary rational-time/global-family
+identification, partition independence, dynamics and actual intervening area
+remain separate. Keep zero T and zero state explicit; no hidden positivity
+division that excludes those cases. A bounded incomplete bridge is reported
+with its exact missing lemma, without calling the time-domain map complete.

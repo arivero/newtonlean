@@ -1180,6 +1180,384 @@
     "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.equiv_zero_num",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction)\n    (h : Fraction.equiv a (Fraction.ofInt 0)) : a.num = 0",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.zero_lt_positive",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps : Fraction) (heps : 0 < eps.num) :\n    Fraction.lt (Fraction.ofInt 0) eps",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.distance_self_lt",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point × Point) (eps : Fraction)\n    (heps : 0 < eps.num) : Fraction.lt (distance a a) eps",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_refl",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : EndpointCauchyName) : NameEquiv a a",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_symm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : EndpointCauchyName}\n    (hab : NameEquiv a b) : NameEquiv b a",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.half_add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps : Fraction) :\n    Fraction.equiv (Fraction.add eps.half eps.half) eps",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.half_lt",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(eps : Fraction) (heps : 0 < eps.num) :\n    Fraction.lt eps.half eps",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_trans",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : EndpointCauchyName}\n    (hab : NameEquiv a b) (hbc : NameEquiv b c) : NameEquiv a c",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.add_zero_split",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction)\n    (ha : 0 ≤ a.num) (hb : 0 ≤ b.num)\n    (h : Fraction.equiv (Fraction.add a b) (Fraction.ofInt 0)) :\n    a.num = 0 ∧ b.num = 0",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.pointNorm_zero_coords",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point)\n    (h : (pointNorm p).num = 0) : p.1.num = 0 ∧ p.2.num = 0",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.fraction_sub_zero_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction)\n    (h : (Fraction.add a ⟨-b.num, b.den, b.den_pos⟩).num = 0) :\n    Fraction.equiv a b",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.distance_zero_iff_stateEquiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    Fraction.equiv (distance a b) (Fraction.ofInt 0) ↔ stateEquiv a b",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.constantName_equiv_iff",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    NameEquiv (constantName a) (constantName b) ↔ stateEquiv a b",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.embed_eq_iff_stateEquiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    embed a = embed b ↔ stateEquiv a b",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.add_lt_add_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction}\n    (hab : Fraction.lt a b) (c : Fraction) :\n    Fraction.lt (Fraction.add c a) (Fraction.add c b)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.add_lt_add_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction}\n    (hab : Fraction.lt a b) (c : Fraction) :\n    Fraction.lt (Fraction.add a c) (Fraction.add b c)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction}\n    (hab : Fraction.equiv a b) (hbc : Fraction.lt b c) : Fraction.lt a c",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_right",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Fraction}\n    (hab : Fraction.lt a b) (hbc : Fraction.equiv b c) : Fraction.lt a c",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.three_quarters_lt",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(R eps : Fraction) (heps : 0 < eps.num) :\n    Fraction.lt\n      (Fraction.add (Fraction.add\n        (Fraction.add R eps.half.half) eps.half.half) eps.half.half)\n      (Fraction.add R eps)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_symm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : EndpointCauchyName} {R : Fraction}\n    (h : NameBound a b R) : NameBound b a R",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.distance_three",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a a' b b' : Point × Point) :\n    Fraction.le (distance a' b')\n      (Fraction.add (distance a' a)\n        (Fraction.add (distance a b) (distance b b')))",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.three_quarters_reordered",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(R eps : Fraction)\n    (heps : 0 < eps.num) :\n    Fraction.lt\n      (Fraction.add eps.half.half\n        (Fraction.add (Fraction.add R eps.half.half) eps.half.half))\n      (Fraction.add R eps)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_transport",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a a' b b' : EndpointCauchyName} {R : Fraction}\n    (ha : NameEquiv a a') (hb : NameEquiv b b') :\n    NameBound a b R → NameBound a' b' R",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a a' b b' : EndpointCauchyName} {R : Fraction}\n    (ha : NameEquiv a a') (hb : NameEquiv b b') :\n    NameBound a b R ↔ NameBound a' b' R",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.within_realize",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : EndpointCauchyName) (R : Fraction) :\n    Within (realize a) (realize b) R ↔ NameBound a b R",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.within_symm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R : Fraction)\n    (h : Within x y R) : Within y x R",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.two_quarters_lt",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(R S eps : Fraction)\n    (heps : 0 < eps.num) :\n    Fraction.lt\n      (Fraction.add (Fraction.add R eps.half.half)\n        (Fraction.add S eps.half.half))\n      (Fraction.add (Fraction.add R S) eps)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_triangle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : EndpointCauchyName} {R S : Fraction}\n    (hab : NameBound a b R) (hbc : NameBound b c S) :\n    NameBound a c (Fraction.add R S)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.within_triangle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y z : Value) (R S : Fraction)\n    (hxy : Within x y R) (hyz : Within y z S) :\n    Within x z (Fraction.add R S)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.lt_self_add_positive",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(R eps : Fraction)\n    (heps : 0 < eps.num) : Fraction.lt R (Fraction.add R eps)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_of_eventual_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : EndpointCauchyName) (R : Fraction)\n    (N : Nat) (h : ∀ n : Nat, N ≤ n →\n      Fraction.le (distance (a.approx n) (b.approx n)) R) :\n    NameBound a b R",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.constant_approximants_converge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : EndpointCauchyName)\n    (eps : Fraction) (heps : 0 < eps.num) :\n    ∃ N : Nat, ∀ m : Nat, N ≤ m →\n      Within (embed (a.approx m)) (realize a) eps",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_zero_iff",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : EndpointCauchyName) :\n    NameBound a b (Fraction.ofInt 0) ↔ NameEquiv a b",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.within_zero_iff",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) :\n    Within x y (Fraction.ofInt 0) ↔ x = y",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.timeValue_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point)\n    (T U : ShortRationalTime w) :\n    Within (timeValue w s U) (timeValue w s T)\n      (Fraction.mul (timeLipschitz w s)\n        (durationDifference T.val U.val).abs)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.binaryValue_prefix_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T) (m : Nat) :\n    Within (embed (prefixState b w T s m))\n      (binaryValue b w T s hT hs) (HarmonicBinaryPrefix.tailCap w T s m)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.rational_time_uniform_value_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point)\n    (eps : Fraction) (heps : 0 < eps.num)\n    (T U : ShortRationalTime w)\n    (hnear : Fraction.lt (durationDifference T.val U.val).abs\n      (timeDelta w s eps.half)) :\n    Within (timeValue w s U) (timeValue w s T) eps.half",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.le_add_cancel_left",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(z a b : Fraction)\n    (h : Fraction.le (Fraction.add z a) (Fraction.add z b)) :\n    Fraction.le a b",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.sample_endpoint_zero_distance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (distance\n      (endpoint sampleOne sampleQuarter sampleState 0) sampleState)\n      ⟨9, 16, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.sample_tail_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (HarmonicDyadic.tailCap sampleOne sampleQuarter sampleState 0)\n      sampleTail",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.sample_lower_all_levels",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(j : Nat) :\n    Fraction.le sampleLower\n      (distance (endpoint sampleOne sampleQuarter sampleState j) sampleState)",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.sample_endpoint_value_ne_initial",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    endpointValue sampleOne sampleQuarter sampleState\n        (by decide) (by unfold DyadicSmallTime Fraction.le; decide) ≠\n      embed sampleState",
+    "interpretation_and_remaining_premises": "Modern explicit quotient of rational-state Cauchy names, with no historical dependency attributed. NameEquiv is eventual levelwise distance below every positive rational tolerance; reflexivity, symmetry and transitivity are proved before constructing Value. Constant embedding respects and separates state coordinate value equivalence. NameBound requires eventual distance<R+eps for every positive eps; representative invariance is proved before Within is lifted to quotient values. Symmetry, triangle, zero-radius iff equality, and convergence of constant approximants compile. Actual endpoint/time/prefix names construct values without a supplied limit point; checked levelwise and geometric-tail estimates become value bounds, and the calibrated sample endpoint value is proved distinct from its initial value by an all-level3/16 lower bound. This is realization in the explicit Cauchy quotient, not an assumed external complete coordinate space or generic completeness theorem. Quotient times/address independence, a continuous completed-time trajectory, partition independence, position-only geometry, actual intervening area and force identification remain open; Kepler area is separate."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.CentralSchedule.det_drift",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/CentralSchedule.lean",

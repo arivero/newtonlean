@@ -26,23 +26,22 @@ identified with a completed time interval.
 
 ## Point-space realization specification
 
-After the prefix names are checked, construct a point space explicitly from
-state Cauchy names. For two names a,b, the proposed equivalence is
+`CauchyValues.lean` now constructs a value space explicitly from state Cauchy
+names. For two names a,b, the proved equivalence is
 
     for every positive rational eps, eventually
       stateNorm(a_j-b_j)<eps.
 
-Prove reflexivity, symmetry and transitivity from the checked zero, symmetry
-and triangle estimates. Define values as the quotient by this proved
-equivalence. Constant names embed rational states. Equality of constants must
-respect rational value equivalence; a constructor name alone does not prove
-that different physical states remain distinguishable.
+Reflexivity, symmetry and transitivity follow from the checked zero, symmetry
+and triangle estimates. Values are the quotient by this proved equivalence.
+Constant names embed rational states, and equality of their values is proved
+equivalent to rational state value equivalence.
 
 To express a closed distance bound between values, first define it on names:
-for every positive rational eps, eventually stateNorm(a_j-b_j)<R+eps. Prove
-that this predicate is invariant under replacing either name by an equivalent
-one before lifting it to the quotient. Establish its triangle and symmetry
-properties and the convergence of constant approximants to their name's value.
+for every positive rational eps, eventually stateNorm(a_j-b_j)<R+eps.
+Representative invariance is proved before lifting this predicate to `Within`
+on quotient values. Its triangle and symmetry properties, zero radius iff
+equality, and convergence of constant approximants are checked.
 The values must be constructed from the actual polygon names, with no supplied
 limit point or completeness field. A generic completeness theorem and an
 identification with an external real coordinate system are separate claims.
@@ -52,17 +51,28 @@ sequence at w=1,T=1/4,s=((1,0),(0,1)). Its level0 state differs from s by9/16,
 while the fixed-time tail cap at level0 is3/8. A derived lower bound3/16 for
 every later state difference can distinguish its quotient value from the
 initial value. This arithmetic pin is a production-side control, not an
-independent oracle, and the quotient separation proof remains to be checked.
+independent oracle. The all-level lower bound and quotient state separation
+proof now compile. Position-only separation remains a further obligation.
 
 ## Time-domain identification specification
 
 The binary time approximants have geometric tails. Construct their time names
 and an equivalence of addresses based on vanishing time difference. Derive a
 uniform same-grid state increment bound from actual cells and prefix state
-bounds. Use it to prove that equivalent time addresses give equivalent state
+bounds. The intended finite bound is
+
+    stateNorm(S_j(b)-S_j(c)) <= 2*(1+|w|)*M*|t_j(b)-t_j(c)|.
+
+Both states use the same duration T/2^j. Prove the arbitrary-prefix count
+bound before telescoping actual one-cell increments. The time names need
+their own tick/time estimates; they cannot carry an assumed Cauchy field.
+Use this comparison to prove that equivalent time addresses give equivalent state
 names. Only then lift the address-to-value construction to a map on the
 constructed time quotient and prove continuity there. The two addresses of a
-dyadic time must agree in value. Identify the right endpoint with the existing
+dyadic time must agree in value. A concrete control is the first-bit-only
+address1,0,0,... and the address0,1,1,..., whose level-j time difference is
+T/2^j for j>=1. Prove equality of their time and motion values, not equality
+of their finite schedules. Identify the right endpoint with the existing
 complete-schedule endpoint name, accounting for the last omitted cell.
 
 These are explicit obligations. An arbitrary function from binary addresses
