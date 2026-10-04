@@ -9,27 +9,26 @@ and [the construction ledger](CAUCHY_REALIZATION.md).
 
 ## Region to construct
 
-After the binary time quotient and its motion map are proved, project the
-state values to position values. Construct the level-m polygon map P_m on the
-same time quotient from its actual coarse vertices and within-cell inertial
-drifts. Prove this map agrees for equivalent time descriptions; a choice of
-binary address must not change the polygon position.
+The binary time quotient and its continuous state map are proved.
+PositionValues now derives the nonexpansive position and coordinate projections
+on rational states, their Cauchy-name maps and equivalence preservation before
+quotient lifting. Position values are the values fixed by the proved idempotent
+position projection. Its gammaPosition map inherits continuity, time aliases,
+endpoints and zero cases. Completed coordinate squares use two closed
+coordinate bounds and a nonnegative radius; eventual rational bounds imply
+membership. State values retain velocity as well; planar area uses PositionValue.
 
-The first bounded geometric step is the position projection. State values
-contain both position and velocity; they are not planar area coordinates.
-Derive the nonexpansive rational projection to (position, zero velocity), its
-action on Cauchy names and name equivalence, and its well-defined idempotent
-action on values. Position values can then be the values fixed by this
-projection. Coordinate projections must also be derived before defining a
-completed coordinate square by its two closed coordinate bounds.
+The production example w=1,T=1/4,s=((1,0),(0,1)) now has a checked position
+separation proof: the two-cell endpoint at level 1 has distance 135/512 from
+the initial point, its state tail is 3/16, and every later position distance
+is at least 39/512. The projected right and left values differ. A radius-1
+coordinate square contains (1,1) at centre (0,0), whose L1 distance is 2.
+These controls use the disclosed production inputs, not an independent oracle.
 
-A production separation target uses w=1,T=1/4,s=((1,0),(0,1)). The two-cell
-endpoint at level1 has position distance 135/512 from its initial point. The
-checked state tail there is 3/16. Deriving a position lower bound 39/512 for
-all later endpoint levels would prove that the projected right endpoint
-differs from the initial position. State separation alone does not prove this.
-This is a proposed arithmetic control, not a checked theorem or independent
-oracle. Avoid evaluating large unnormalized rational schedules to obtain it.
+Next construct the level-m polygon map P_m on the same time quotient from its
+actual coarse vertices and within-cell inertial drifts. Prove this map agrees
+for equivalent time descriptions; an address choice must not change the
+polygon position.
 
 Define the intervening region as the union of segments joining simultaneous
 positions P_m(t) and gamma(t). The segment parameter must range over the
@@ -39,6 +38,28 @@ their endpoints need not coincide at a finite mesh. The first endpoints must
 be proved equal. Crossings and opposite lobes remain in this nonnegative
 point set. The definition is a union, while a finite covering sum counts
 overlap with multiplicity. Keep these two conventions distinct.
+
+## Same-time coarse polygon map to construct
+
+For address b and coarse level m, let (x_m,v_m) be its actual coarse prefix
+state and t_m its elapsed time. Use the later actual times t_(m+j) and form
+the rational position x_m+(t_(m+j)-t_m)*v_m. Derive that its phase lies between
+0 and H_m from the binary ticks. This shift keeps every approximant inside
+the selected coarse cell, including at early name indices.
+
+Derive a uniform time-difference bound for arbitrary coarse cells and phases
+from actual drift steps. Across different cells, split the difference into the
+first remaining drift, the intervening coarse vertices and the last partial
+drift. Their nonnegative durations sum to the actual time difference. Within
+one cell, use the same incoming velocity. This proves both the name's Cauchy
+condition and agreement for equivalent time addresses before any quotient lift.
+An address alias at a coarse vertex must yield one polygon position.
+
+The left endpoint must be the initial point and the right endpoint the actual
+level-m full-schedule position. Then derive enclosures about each coarse start:
+the existing prefix tail suggests radius R_m for gamma's position, while the
+coarse drift has radius 2*H_m*M. Prove the latter fits R_m. No supplied polygon
+curve, full-time interpolation, limiting point or scalar area enters this step.
 
 ## Nonnegative area to construct
 

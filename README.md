@@ -82,9 +82,10 @@ residual is `(Σ d_i²/2)*a`, with coefficient bounded by half the largest cell
 duration times elapsed time. The harmonic construction now derives geometric
 Cauchy tails for actual prefixes of one dyadic polygon family and realizes
 their state values in an explicitly proved quotient. A continuous state map
-now descends to the constructed binary-time domain. Position projection,
-between-path geometry and mechanical identification are tracked separately;
-general central-force realization remains unproved.
+now descends to the constructed binary-time domain; its planar projection,
+coordinate squares and sample position separation are proved. The coarse
+polygon map, between-path region/content and mechanical identification remain
+separate. General central-force realization remains unproved.
 See [the constructed partition comparison](research/PARTITION_CONTROL.md).
 
 **Zero-force support.** The [first inertial suite](research/ZERO_FORCE.md)

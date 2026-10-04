@@ -76,8 +76,10 @@ binary address, with a derived geometric tail. CauchyValues now constructs
 their quotient state values and transfers the actual time/tail bounds after
 proving representative invariance. BinaryTime and HarmonicTimeRealization now
 derive the time names, their proved quotient and a continuous state-value map
-on it. Equivalent addresses, endpoints and zero cases are checked. Next project
-to position values and construct the same-time polygon map and region, keeping
+on it. Equivalent addresses, endpoints and zero cases are checked. PositionValues
+now derives planar values, the continuous position map and coordinate-square
+predicates, including a positive position separation proof. Next construct the
+same-time polygon map and region, keeping
 partition independence explicit: rational approximants need not have rational
 limits. Then derive D_mesh
 geometry/enclosure and edition-local

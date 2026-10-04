@@ -40,6 +40,7 @@ import NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
 import NewtonLimitDynamics.Polygon.CauchyValues
 import NewtonLimitDynamics.Polygon.BinaryTime
 import NewtonLimitDynamics.Polygon.HarmonicTimeRealization
+import NewtonLimitDynamics.Polygon.PositionValues
 import NewtonLimitDynamics.Polygon.MonotoneEnclosure
 import NewtonLimitDynamics.Contact.Bounds
 import NewtonLimitDynamics.Contact.FiniteSums

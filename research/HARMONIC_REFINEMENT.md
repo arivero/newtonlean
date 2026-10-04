@@ -208,9 +208,18 @@ different finite prefixes. Their pinned level2 counts2/1, time gap1/16,
 factor8, bound1/2 and actual state error8927/65536 compile. Generic zero-time
 and zero-state-magnitude controls and sample left/right state separation compile.
 
-This constructs a continuous state map on the binary-time quotient. A state
-separation result does not by itself prove position-only separation or any
-intervening-region area. Those are the next geometric obligations in
-[the region specification](TRAJECTORY_DEFECT_REGION.md). Generic
+PositionValues now derives nonexpansive position and coordinate projections,
+their Cauchy-name and quotient maps, constant compatibility and idempotence.
+PositionValue is the subtype fixed by the position projection. gammaPosition
+inherits continuity, aliases, endpoints and zero cases. Completed coordinate
+squares use two closed coordinate bounds and a nonnegative rational radius;
+eventual rational bounds give membership. The (1,1) corner fits a radius-1
+square although its L1 distance is 2. The sample endpoint's level-1 position
+distance 135/512 and state tail 3/16 imply position distance at least 39/512
+at every later level, proving projected right/left values distinct.
+
+This constructs a continuous position map on the binary-time quotient. The
+same-time coarse polygon map and actual intervening region/content remain
+next in [the region specification](TRAJECTORY_DEFECT_REGION.md). Generic
 completeness, external real-coordinate identification and mechanical properties
 are not inferred.

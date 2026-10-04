@@ -512,7 +512,7 @@ def endpointValue (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : Value :=
   realize (endpointName w T s hT hs)
 
-private theorem le_add_cancel_left (z a b : Fraction)
+theorem le_add_cancel_left (z a b : Fraction)
     (h : Fraction.le (Fraction.add z a) (Fraction.add z b)) :
     Fraction.le a b := by
   unfold Fraction.le Fraction.add at h

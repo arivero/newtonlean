@@ -225,6 +225,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.distance_zero_iff_stateEquiv
 #check NewtonLimitDynamics.Polygon.CauchyValues.embed_eq_iff_stateEquiv
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.embed_eq_iff_stateEquiv
+#check NewtonLimitDynamics.Polygon.CauchyValues.le_add_cancel_left
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.le_add_cancel_left
 #check NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_right
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_right
 #check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_congr
@@ -953,6 +955,70 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_nonnegative
 #check NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale
+#check NewtonLimitDynamics.Polygon.PositionValues.firstValue_embed
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.firstValue_embed
+#check NewtonLimitDynamics.Polygon.PositionValues.firstValue_positionValue
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.firstValue_positionValue
+#check NewtonLimitDynamics.Polygon.PositionValues.firstValue_within
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.firstValue_within
+#check NewtonLimitDynamics.Polygon.PositionValues.first_nonexpansive
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.first_nonexpansive
+#check NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_alias
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_alias
+#check NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_left
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_left
+#check NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_right
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_right
+#check NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_uniform_continuity
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_uniform_continuity
+#check NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_within
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_within
+#check NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_zero_state_norm
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_zero_state_norm
+#check NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_zero_time
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_zero_time
+#check NewtonLimitDynamics.Polygon.PositionValues.mapName_bound
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.mapName_bound
+#check NewtonLimitDynamics.Polygon.PositionValues.mapName_equiv
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.mapName_equiv
+#check NewtonLimitDynamics.Polygon.PositionValues.mapValue_embed
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.mapValue_embed
+#check NewtonLimitDynamics.Polygon.PositionValues.mapValue_within
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.mapValue_within
+#check NewtonLimitDynamics.Polygon.PositionValues.positionValue_embed
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.positionValue_embed
+#check NewtonLimitDynamics.Polygon.PositionValues.positionValue_idempotent
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.positionValue_idempotent
+#check NewtonLimitDynamics.Polygon.PositionValues.positionValue_within
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.positionValue_within
+#check NewtonLimitDynamics.Polygon.PositionValues.position_nonexpansive
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.position_nonexpansive
+#check NewtonLimitDynamics.Polygon.PositionValues.sample_corner_L1_distance_two
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.sample_corner_L1_distance_two
+#check NewtonLimitDynamics.Polygon.PositionValues.sample_corner_in_square
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.sample_corner_in_square
+#check NewtonLimitDynamics.Polygon.PositionValues.sample_endpoint_position_ne_initial
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.sample_endpoint_position_ne_initial
+#check NewtonLimitDynamics.Polygon.PositionValues.sample_gammaPosition_right_ne_left
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.sample_gammaPosition_right_ne_left
+#check NewtonLimitDynamics.Polygon.PositionValues.sample_position_level_one
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.sample_position_level_one
+#check NewtonLimitDynamics.Polygon.PositionValues.sample_position_lower_all_levels
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.sample_position_lower_all_levels
+#check NewtonLimitDynamics.Polygon.PositionValues.sample_tail_one
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.sample_tail_one
+#check NewtonLimitDynamics.Polygon.PositionValues.secondValue_embed
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.secondValue_embed
+#check NewtonLimitDynamics.Polygon.PositionValues.secondValue_positionValue
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.secondValue_positionValue
+#check NewtonLimitDynamics.Polygon.PositionValues.secondValue_within
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.secondValue_within
+#check NewtonLimitDynamics.Polygon.PositionValues.second_nonexpansive
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.second_nonexpansive
+#check NewtonLimitDynamics.Polygon.PositionValues.square_of_eventual_coordinate_bounds
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.square_of_eventual_coordinate_bounds
+#check NewtonLimitDynamics.Polygon.PositionValues.square_of_rational_coordinate_bounds
+#print axioms NewtonLimitDynamics.Polygon.PositionValues.square_of_rational_coordinate_bounds
 #check NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #check NewtonLimitDynamics.Polygon.RelativeMotion.add_common_cancel

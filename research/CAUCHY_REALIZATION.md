@@ -54,7 +54,10 @@ while the fixed-time tail cap at level0 is3/8. A derived lower bound3/16 for
 every later state difference can distinguish its quotient value from the
 initial value. This arithmetic pin is a production-side control, not an
 independent oracle. The all-level lower bound and quotient state separation
-proof now compile. Position-only separation remains a further obligation.
+proof now compile. PositionValues separately proves position distance 135/512
+at endpoint level 1 and a lower bound 39/512 for every later level, using the
+state tail 3/16. Its positive projected endpoint/right-versus-left non-equality
+proof supplies position separation, rather than inferring it from state separation.
 
 ## Checked time-domain map
 
@@ -82,8 +85,15 @@ zero-state-magnitude values are constant. The sample right and left state
 values differ by the already proved endpoint separation.
 
 The domain is the explicitly constructed binary-time quotient. Its name/value
-map is not a supplied curve or external limit point. Position projection and
-separation are next. The velocity coordinate still needs to be identified
+map is not a supplied curve or external limit point. PositionValues now derives
+nonexpansive position and coordinate projections, their Cauchy-name/quotient
+maps, constant compatibility and idempotence. Its PositionValue objects have
+zero velocity component; gammaPosition inherits continuity, aliases, endpoints
+and zero cases. Completed coordinate squares have two closed coordinate bounds
+with a proved nonnegative radius. Eventual rational bounds imply membership;
+the radius-1 square's corner (1,1) has L1 distance 2.
+The same-time coarse polygon map and actual between-path region are next.
+The velocity coordinate still needs to be identified
 with position's rate of change, and acceleration with the sampled harmonic
 force. Partition independence and identification with independently rescaled
 rational-time endpoint values remain separate.

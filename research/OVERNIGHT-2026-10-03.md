@@ -606,3 +606,47 @@ No supplied point limit/curve, completeness, mathlib, axiom or sorry. The actual
 coarse polygon map, completed connectors, finite region cover/content, force
 identification and partition independence remain subsequent obligations. See
 TRAJECTORY_DEFECT_REGION.md for the fixed region and area convention.
+
+Fifteenth increment checked in full: PositionValues derives nonexpansive
+position/coordinate projections, generic Cauchy-name maps and equivalence
+preservation before lifting. Constant compatibility, idempotence and bound
+preservation give planar fixed-point values and gammaPosition with continuity,
+aliases, endpoints and zero cases. Completed coordinate squares use two closed
+coordinate bounds with a nonnegative radius; eventual rational bounds transfer
+to membership. The corner-square control and the position pins 135/512, 3/16,
+all-level lower 39/512 and positive projected endpoint/right-versus-left
+non-equality pass. Both full builds, catalogue, graph and all 645 references
+pass; 843 declarations in 51 declaration-bearing modules. Constructors were
+separately type/axiom checked. Only propext, Classical.choice and Quot.sound,
+no sorryAx/project axiom or warning/error. The finite position equality is
+rejected specifically as false in `/tmp/newtonlean_position_false.lean`.
+Reference log: `/tmp/newtonlean-day-position-refs.log`. Whitespace passes.
+Actual polygon/connector construction, region content, partition independence
+and force identification remain open; no old holdout is reused.
+
+Sixteenth pin: construct the actual coarse polygon position on the same
+binary-time quotient as gammaPosition. For coarse level m and address b,
+use its actual prefix state (x_m,v_m) and elapsed time t_m. The level-j name
+position is x_m+(t_(m+j)-t_m)*v_m, with velocity set to zero. Derive its
+phase in [0,H_m] from actual binary ticks before using the drift bound.
+Prove a uniform finite polygon time-difference estimate across arbitrary
+coarse counts and within-cell phases. Splitting into the first remaining
+drift, intermediate coarse vertices and final partial drift is permitted;
+their nonnegative durations must sum to the actual time difference. The
+already derived coefficient C=2*(1+|w|)*M is a sufficient conservative bound.
+This estimate must derive the Cauchy proof and address equivalence before the
+polygonPosition quotient lift. No supplied curve or interpolation field.
+
+Prove generic initial position and right endpoint equal to the actual level-m
+full-schedule position, alias agreement, continuity and zero cases. Derive
+coordinate-square enclosures for both polygonPosition and gammaPosition about
+the selected actual coarse start, with R_m=H_m*M*C_area,
+C_area=2*(1+|w|)+3*T*|w|. Reuse the checked prefix-tail value bound; prove
+the coarse drift radius 2*H_m*M fits R_m. No connector or actual area claim yet.
+Production controls at w=1,T=1/4,s=((1,0),(0,1)): level1 half-time polygon
+position is (1,1/8), both half-time aliases agree there; level0 right polygon
+position is (1,1/4); radius at level1 is 19/16. These are disclosed production
+controls, not holdouts. Avoid evaluating large unnormalized schedules. Keep
+zero time and zero initial magnitude; no mathlib, new axiom, sorry, external
+time identification, force law or partition independence. See the region
+specification before constructing completed connectors in a subsequent unit.

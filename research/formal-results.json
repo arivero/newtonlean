@@ -1622,7 +1622,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.le_add_cancel_left",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/CauchyValues.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
@@ -9023,6 +9023,339 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(d : Fraction) (s : Point × Point) :\n    Fraction.equiv\n      (stateNorm (pointScale d s.1, pointScale d s.2))\n      (Fraction.mul d.abs (stateNorm s))",
     "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.le_add_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.distance_decompose",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    distance a b = Fraction.add (Fraction.add (xGap a b) (yGap a b))\n      (Fraction.add (vxGap a b) (vyGap a b))",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.projected_distance",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    Fraction.equiv (distance (positionState a) (positionState b))\n      (Fraction.add (xGap a b) (yGap a b))",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.first_distance",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    Fraction.equiv (distance (firstState a) (firstState b)) (xGap a b)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.second_distance",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    Fraction.equiv (distance (secondState a) (secondState b)) (yGap a b)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.position_nonexpansive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    Fraction.le (distance (positionState a) (positionState b))\n      (distance a b)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.first_nonexpansive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    Fraction.le (distance (firstState a) (firstState b))\n      (distance a b)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.second_nonexpansive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    Fraction.le (distance (secondState a) (secondState b))\n      (distance a b)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.mapName_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Point × Point → Point × Point)\n    (hLip : ∀ a b, Fraction.le (distance (f a) (f b)) (distance a b))\n    {a b : EndpointCauchyName} (hab : NameEquiv a b) :\n    NameEquiv (mapName f hLip a) (mapName f hLip b)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.mapValue_embed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Point × Point → Point × Point)\n    (hLip : ∀ a b, Fraction.le (distance (f a) (f b)) (distance a b))\n    (s : Point × Point) :\n    mapValue f hLip (embed s) = embed (f s)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.mapName_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Point × Point → Point × Point)\n    (hLip : ∀ a b, Fraction.le (distance (f a) (f b)) (distance a b))\n    (a b : EndpointCauchyName) (R : Fraction) (h : NameBound a b R) :\n    NameBound (mapName f hLip a) (mapName f hLip b) R",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.mapValue_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Point × Point → Point × Point)\n    (hLip : ∀ a b, Fraction.le (distance (f a) (f b)) (distance a b))\n    (x y : Value) (R : Fraction) (h : Within x y R) :\n    Within (mapValue f hLip x) (mapValue f hLip y) R",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.positionValue_embed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    positionValue (embed s) = embed (positionState s)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.firstValue_embed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    firstValue (embed s) = embed (firstState s)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.secondValue_embed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    secondValue (embed s) = embed (secondState s)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.positionValue_idempotent",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(v : Value) :\n    positionValue (positionValue v) = positionValue v",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.positionValue_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R : Fraction)\n    (h : Within x y R) :\n    Within (positionValue x) (positionValue y) R",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.firstValue_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R : Fraction)\n    (h : Within x y R) :\n    Within (firstValue x) (firstValue y) R",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.secondValue_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R : Fraction)\n    (h : Within x y R) :\n    Within (secondValue x) (secondValue y) R",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (x y : BinaryTime T hT) (R : Fraction)\n    (hR : 0 ≤ R.num) (hxy : TimeWithin T hT x y R) :\n    Within (gammaPosition w T s hT hs x).val\n      (gammaPosition w T s hT hs y).val\n      (Fraction.mul R (stateTimeFactor w s))",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_uniform_continuity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T) (eps : Fraction)\n    (heps : 0 < eps.num) (x y : BinaryTime T hT)\n    (hxy : TimeWithin T hT x y (timeTolerance w s eps)) :\n    Within (gammaPosition w T s hT hs x).val\n      (gammaPosition w T s hT hs y).val eps.half",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_alias",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    gammaPosition w T s hT hs (Quotient.mk _ firstAlias) =\n      gammaPosition w T s hT hs (Quotient.mk _ secondAlias)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    gammaPosition w T s hT hs (leftTime T hT) = embedPosition s.1",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_right",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    gammaPosition w T s hT hs (rightTime T hT) =\n      asPosition (endpointValue w T s hT hs)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_zero_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num)\n    (hs : DyadicSmallTime w T) (hzero : T.num = 0) :\n    gammaPosition w T s hT hs (Quotient.mk _ b) =\n      embedPosition s.1",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_zero_state_norm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool)\n    (w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (hzero : (stateNorm s).num = 0) :\n    gammaPosition w T s hT hs (Quotient.mk _ b) =\n      embedPosition s.1",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.firstValue_positionValue",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(v : Value) :\n    firstValue (positionValue v) = firstValue v",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.secondValue_positionValue",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(v : Value) :\n    secondValue (positionValue v) = secondValue v",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.square_of_eventual_coordinate_bounds",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : EndpointCauchyName) (centre : Point)\n    (radius : NonnegativeRadius) (N : Nat)\n    (hx : ∀ n : Nat, N ≤ n →\n      Fraction.le\n        (distance (firstState (a.approx n))\n          (firstState (centre, zeroPoint))) radius.val)\n    (hy : ∀ n : Nat, N ≤ n →\n      Fraction.le\n        (distance (secondState (a.approx n))\n          (secondState (centre, zeroPoint))) radius.val) :\n    CoordinateSquare centre radius (asPosition (realize a))",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.square_of_rational_coordinate_bounds",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p centre : Point)\n    (radius : NonnegativeRadius)\n    (hx : Fraction.le (distance (firstState (p, zeroPoint))\n      (firstState (centre, zeroPoint))) radius.val)\n    (hy : Fraction.le (distance (secondState (p, zeroPoint))\n      (secondState (centre, zeroPoint))) radius.val) :\n    CoordinateSquare centre radius (embedPosition p)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.sample_corner_in_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    CoordinateSquare sampleCentre sampleRadius\n      (embedPosition sampleCorner)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.sample_corner_L1_distance_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (pointNorm (pointSub sampleCorner sampleCentre))\n      (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.sample_position_level_one",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (distance (positionState (endpoint sampleOne sampleQuarter sampleState 1))\n        (positionState sampleState))\n      ⟨135, 512, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.sample_tail_one",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (HarmonicDyadic.tailCap\n      sampleOne sampleQuarter sampleState 1) sampleTail",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.sample_position_lower_all_levels",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(j : Nat) (hj : 1 ≤ j) :\n    Fraction.le sampleLower\n      (distance (positionState (endpoint sampleOne sampleQuarter sampleState j))\n        (positionState sampleState))",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.sample_endpoint_position_ne_initial",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    positionValue (endpointValue sampleOne sampleQuarter sampleState\n      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)) ≠\n    embed (positionState sampleState)",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PositionValues.sample_gammaPosition_right_ne_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PositionValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    gammaPosition sampleOne sampleQuarter sampleState\n      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)\n      (rightTime sampleQuarter (by decide)) ≠\n    gammaPosition sampleOne sampleQuarter sampleState\n      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)\n      (leftTime sampleQuarter (by decide))",
+    "interpretation_and_remaining_premises": "Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.refinementStripTwice_eq_triangle",

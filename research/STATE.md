@@ -44,7 +44,11 @@ constructed time domain are now derived in BinaryTime and
 HarmonicTimeRealization: actual same-grid states differ by at most
 2*(1+|w|)*M times their time difference, equivalent addresses descend to the
 same value, and continuity, endpoint/alias identities and zero cases are proved.
-Position projection/separation and the actual between-path area remain open; see
+PositionValues now derives planar values and gammaPosition, preserving bounds,
+continuity and time identities. Its coordinate-square predicate transfers
+eventual rational bounds, and the positive sample position separation is proved.
+The same-time coarse polygon map and actual between-path region/content remain
+open; see
 [the construction specification](CAUCHY_REALIZATION.md).
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule

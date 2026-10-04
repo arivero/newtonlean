@@ -69,3 +69,12 @@ equivalence proofs precede both. These checks provide no new numerical oracle
 and do not certify position-only separation, the intervening region's content,
 partition independence or a force law. Log:
 `/tmp/newtonlean-day-binary-time-refs.log`.
+
+The planar-position unit is checked by both builds and all 645 references,
+with constructor/axiom inspection. The disclosed two-cell position pin and
+existing generic state tail derive an all-level position lower bound; the
+compiled projected-value non-equality supplies separation. The failed finite
+equality is a supplementary production control. The corner control verifies
+the distinction between coordinate squares and L1 balls. No independent
+numerical reference is used, and no actual area or force law is certified.
+Log: `/tmp/newtonlean-day-position-refs.log`.

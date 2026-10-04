@@ -506,3 +506,20 @@ as false in `/tmp/newtonlean_false_time_state.lean`. Reference log:
 continuous state map on its explicitly constructed binary-time quotient;
 position geometry, actual region/content, partition independence and force
 identification remain separate. No old holdout is reused for this construction.
+
+Planar-position follow-up, 4 October: both full builds, catalogue, graph and
+all 645 reference/axiom checks pass; 843 declarations in 51 declaration-bearing
+modules. Only propext, Classical.choice and Quot.sound, no sorryAx/project
+axiom, warning or error. Generic name/value map, planar fixed-point type,
+gammaPosition, nonnegative radius and completed-square constructors were
+separately type/axiom inspected. Equivalence preservation precedes quotient
+lifting; idempotence and closed-bound preservation are proved. Continuity,
+alias/endpoint identities and zero cases compile. Eventual coordinate bounds
+imply completed-square membership; the radius-1 corner has L1 distance 2.
+The sample's level-1 position distance 135/512 and tail 3/16 give lower 39/512
+at every later level and positive projected endpoint/right-left separation.
+Lean rejects finite position equality specifically as false in
+`/tmp/newtonlean_position_false.lean`. Log:
+`/tmp/newtonlean-day-position-refs.log`. Whitespace passes. No actual polygon
+map, connector region, area content, partition independence or force law is
+claimed, and no previous holdout is reused as an oracle.
