@@ -70,9 +70,11 @@ HarmonicDyadic now constructs endpoint Cauchy names at fixed rational times,
 with a derived tolerance modulus and no supplied limit point.
 HarmonicTimeComparison now controls their variation with rational time,
 uniformly in the refinement level, and constructs an explicit positive
-continuity tolerance. Next realize motion from prefixes of one global polygon
-family, keeping partition independence explicit: rational
-approximation values need
-not have rational limits. Then derive D_mesh geometry/enclosure and edition-local
+continuity tolerance. HarmonicBinaryPrefix now constructs intermediate-time
+Cauchy names from actual prefixes of one global polygon family, for every
+binary address, with a derived geometric tail. Next realize point values and
+identify equivalent time descriptions, keeping partition independence explicit:
+rational approximants need not have rational limits. Then derive D_mesh
+geometry/enclosure and edition-local
 uninterrupted-force identification. No integral calculus, ODE theorem, measure
 theorem, or silently supplied completion closes these obligations.

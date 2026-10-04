@@ -3042,6 +3042,524 @@
     "interpretation_and_remaining_premises": "Modern finite global harmonic comparison, derived from actual cells rather than supplied stability fields. The local state defect is bounded by delta=abs(h)^2*abs(w)*(kappa+1). Coarse/fine recurrences are identified with actual n full cells and 2n half-cells having equal elapsed time. Coarse state magnitude is at most b^n times the initial magnitude; actual state error obeys the explicit nonnegative recurrence B_(n+1)=kappa^2*B_n+delta*b^n*M. Exact one/two-block errors are checked. Mesh-uniform growth, Cauchy completion, continuum trajectory, nonnegative intervening-area geometry and mechanical force identification remain open; Kepler area is separate."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.bit_le_one",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (j : Nat) : bit b j ≤ 1",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_lt_blocks",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) :\n    (j : Nat) → ticks b j < blocks j\n  | 0 => by simp [ticks, blocks]\n  | j + 1 => by\n      have ih",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_le_blocks",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (j : Nat) :\n    ticks b j ≤ blocks j",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_next",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (j : Nat) :\n    ticks b (j + 1) = ticks b j + ticks b j + bit b j",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.prefix_coarse",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat) :\n    stateEquiv (prefixState b w T s j)\n      (coarseAt w (duration T (j + 1)) s (ticks b j))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.prefix_state_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    Fraction.le (stateNorm (prefixState b w T s j))\n      (Fraction.mul (Fraction.ofInt 2) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.elapsed_replicate",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) :\n    (n : Nat) → Fraction.equiv (elapsed (List.replicate n d))\n      (Fraction.mul (Fraction.ofInt (n : Int)) d)\n  | 0 => by\n      simp only [elapsed, List.replicate_zero, Fraction.equiv,\n        Fraction.ofInt, Fraction.mul]\n      simp\n  | n + 1 => by\n      have ih",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.prefix_elapsed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (j : Nat) :\n    Fraction.equiv\n      (elapsed (List.replicate (ticks b j) (duration T j)))\n      (Fraction.mul (Fraction.ofInt (ticks b j : Int)) (duration T j))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.prefix_elapsed_le_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (j : Nat)\n    (hT : 0 ≤ T.num) :\n    Fraction.le (elapsed (List.replicate (ticks b j) (duration T j))) T",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.schedule_replicate_step",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) :\n    (n : Nat) →\n      schedule (linearField w) (List.replicate (n + 1) h) s =\n        cell (linearField w) h\n          (schedule (linearField w) (List.replicate n h) s)\n  | 0 => rfl\n  | n + 1 => by\n      simp only [List.replicate_succ, schedule]\n      change schedule (linearField w) (List.replicate (n + 1) h)\n        (cell (linearField w) h s) =\n          cell (linearField w) h\n            (schedule (linearField w) (List.replicate n h)\n              (cell (linearField w) h s))\n      rw [schedule_replicate_step w h (cell (linearField w) h s) n]\n\ntheorem prefix_next (b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat) :\n    prefixState b w T s (j + 1) =\n      if b j then\n        cell (linearField w) (duration T (j + 1))\n          (fineAt w (duration T (j + 1)) s (ticks b j))\n      else fineAt w (duration T (j + 1)) s (ticks b j)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.prefix_next",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat) :\n    prefixState b w T s (j + 1) =\n      if b j then\n        cell (linearField w) (duration T (j + 1))\n          (fineAt w (duration T (j + 1)) s (ticks b j))\n      else fineAt w (duration T (j + 1)) s (ticks b j)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.scalar_one_bound",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction)\n    (ha : 0 ≤ a.num) :\n    Fraction.le\n      (Fraction.add b (Fraction.mul c (Fraction.add a b)))\n      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c)\n        (Fraction.add a b))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.cell_parameter_bound_one",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w sigma tau : Fraction) (s : Point × Point)\n    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)\n    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :\n    Fraction.le\n      (stateNorm (stateSub (cell (linearField w) tau s)\n        (cell (linearField w) sigma s)))\n      (Fraction.mul (durationDifference sigma tau).abs\n        (Fraction.mul\n          (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm s)))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.cell_increment_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (hh : 0 ≤ h.num) (hsmall : Fraction.le h (Fraction.ofInt 1)) :\n    Fraction.le (stateNorm (stateSub (cell (linearField w) h s) s))\n      (Fraction.mul h.abs\n        (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm s)))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.fine_prefix_state_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    Fraction.le\n      (stateNorm (fineAt w (duration T (j + 1)) s (ticks b j)))\n      (Fraction.mul (Fraction.ofInt 2) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.prefix_totalTime_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (j : Nat)\n    (hT : 0 ≤ T.num) :\n    Fraction.le (totalTime (duration T (j + 1)) (ticks b j)) T",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.fine_optional_increment",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    Fraction.le\n      (stateNorm (stateSub\n        (cell (linearField w) (duration T (j + 1))\n          (fineAt w (duration T (j + 1)) s (ticks b j)))\n        (fineAt w (duration T (j + 1)) s (ticks b j))))\n      (Fraction.mul (Fraction.ofInt 2)\n        (Fraction.mul (duration T (j + 1))\n          (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs)\n            (stateNorm s))))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.prefix_refinement_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    Fraction.le\n      (stateNorm (stateSub\n        (fineAt w (duration T (j + 1)) s (ticks b j))\n        (prefixState b w T s j)))\n      (refinementCap w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.optionalCap_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (j : Nat) (hT : 0 ≤ T.num) :\n    0 ≤ (optionalCap w T s j).num",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.le_add_optional",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a c : Fraction) (hc : 0 ≤ c.num) :\n    Fraction.le a (Fraction.add c a)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.adjacent_error_le_add",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    Fraction.le\n      (stateNorm (stateSub (prefixState b w T s (j + 1))\n        (prefixState b w T s j)))\n      (adjacentCap w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.adjacentCap_tail",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    Fraction.equiv (adjacentCap w T s j) (tailCap w T s (j + 1))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.adjacent_error_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    Fraction.le\n      (stateNorm (stateSub (prefixState b w T s (j + 1))\n        (prefixState b w T s j)))\n      (tailCap w T s (j + 1))",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.coefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.tail_halving",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    Fraction.equiv\n      (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))\n      (tailCap w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.tail_double",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))\n      (doubleTail w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.finite_gap_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    (k j : Nat) → Fraction.le\n      (stateNorm (stateSub (prefixState b w T s (j + k))\n        (prefixState b w T s j))) (tailCap w T s j)\n  | 0, j => by\n      have hz : Fraction.le (Fraction.ofInt 0) (tailCap w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.two_sided_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :\n    Fraction.le\n      (stateNorm (stateSub (prefixState b w T s m) (prefixState b w T s n)))\n      (doubleTail w T s N)",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.doubleTail_lt_tolerance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :\n    Fraction.lt (doubleTail w T s (modulus w T s eps)) eps",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.prefix_cauchy",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    ∀ eps : Fraction, 0 < eps.num →\n      ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →\n        Fraction.lt\n          (stateNorm (stateSub (prefixState b w T s m)\n            (prefixState b w T s n))) eps",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.all_zero_ticks",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(j : Nat) : ticks (fun _ => false) j = 0",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.all_zero_prefix",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    prefixState (fun _ => false) w T s j = s",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.zero_time_prefix",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction)\n    (s : Point × Point) (j : Nat) (hT : T.num = 0) :\n    stateEquiv (prefixState b w T s j) s",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.sample_ticks",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ticks firstBit 1 = 1 ∧ ticks firstBit 2 = 2",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.sample_first_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub\n        (prefixState firstBit sampleOne sampleQuarter sampleState 1)\n        (prefixState firstBit sampleOne sampleQuarter sampleState 0)))\n      ⟨17, 64, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.sample_coefficient",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (coefficient sampleOne sampleQuarter sampleState)\n      ⟨19, 8, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.sample_second_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub\n        (prefixState firstBit sampleOne sampleQuarter sampleState 2)\n        (prefixState firstBit sampleOne sampleQuarter sampleState 1)))\n      ⟨545, 65536, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicComparison.add_equiv",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/HarmonicComparison.lean",
@@ -4079,7 +4597,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.schedule_replicate_congr",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -4088,12 +4606,12 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(w d e : Fraction)\n    (hd : Fraction.equiv d e) :\n    (n : Nat) → (s t : Point × Point) → stateEquiv s t →\n      stateEquiv (schedule (linearField w) (List.replicate n d) s)\n        (schedule (linearField w) (List.replicate n e) t)\n  | 0, _, _, hs => hs\n  | n + 1, _, _, hs =>\n      schedule_replicate_congr w d e hd n _ _ (cell_congr hd hs w)\n\nprivate theorem fineDurations_replicate (h : Fraction) :\n    (n : Nat) → fineDurations h n = List.replicate (n + n) h\n  | 0 => rfl\n  | n + 1 => by\n      have ih",
+    "premise_signature": "(w d e : Fraction)\n    (hd : Fraction.equiv d e) :\n    (n : Nat) → (s t : Point × Point) → stateEquiv s t →\n      stateEquiv (schedule (linearField w) (List.replicate n d) s)\n        (schedule (linearField w) (List.replicate n e) t)\n  | 0, _, _, hs => hs\n  | n + 1, _, _, hs =>\n      schedule_replicate_congr w d e hd n _ _ (cell_congr hd hs w)\n\ntheorem fineDurations_replicate (h : Fraction) :\n    (n : Nat) → fineDurations h n = List.replicate (n + n) h\n  | 0 => rfl\n  | n + 1 => by\n      have ih",
     "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.fineDurations_replicate",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -4135,7 +4653,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.elapsed_replicate_congr",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -4387,7 +4905,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.zero_duration_schedule",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -4891,7 +5409,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.add_num_nonnegative",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicTimeComparison.lean",
     "source_passages": [
       "NATP00089.par9",

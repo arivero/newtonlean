@@ -102,7 +102,7 @@ private theorem cell_congr {d e : Fraction} {s t : Point × Point}
     pointScale_congr (Fraction.equiv_refl _) hpos
   exact ⟨hpos, pointAdd_congr hs.2 (pointScale_congr hd hfield)⟩
 
-private theorem schedule_replicate_congr (w d e : Fraction)
+theorem schedule_replicate_congr (w d e : Fraction)
     (hd : Fraction.equiv d e) :
     (n : Nat) → (s t : Point × Point) → stateEquiv s t →
       stateEquiv (schedule (linearField w) (List.replicate n d) s)
@@ -111,7 +111,7 @@ private theorem schedule_replicate_congr (w d e : Fraction)
   | n + 1, _, _, hs =>
       schedule_replicate_congr w d e hd n _ _ (cell_congr hd hs w)
 
-private theorem fineDurations_replicate (h : Fraction) :
+theorem fineDurations_replicate (h : Fraction) :
     (n : Nat) → fineDurations h n = List.replicate (n + n) h
   | 0 => rfl
   | n + 1 => by
@@ -144,7 +144,7 @@ theorem endpoint_fine (w T : Fraction) (s : Point × Point) (j : Nat) :
   rw [← fineDurations_replicate]
   exact fineAt_schedule w (duration T (j + 1)) s (blocks j)
 
-private theorem elapsed_replicate_congr {d e : Fraction}
+theorem elapsed_replicate_congr {d e : Fraction}
     (hd : Fraction.equiv d e) :
     (n : Nat) →
       Fraction.equiv (elapsed (List.replicate n d)) (elapsed (List.replicate n e))
@@ -393,7 +393,7 @@ private theorem zero_duration_cell (w d : Fraction) (s : Point × Point)
   exact stateEquiv_trans (cell_congr he (stateEquiv_refl s) w)
     (zero_step w s)
 
-private theorem zero_duration_schedule (w d : Fraction) (hd : d.num = 0) :
+theorem zero_duration_schedule (w d : Fraction) (hd : d.num = 0) :
     (n : Nat) → (s : Point × Point) →
       stateEquiv (schedule (linearField w) (List.replicate n d) s) s
   | 0, s => stateEquiv_refl s

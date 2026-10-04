@@ -462,3 +462,46 @@ separate. All-zero address must return s generically, and zero T must return s
 in value equivalence. Production control w=1,T=1/4,s=((1,0),(0,1)), first bit1
 predicts first-level error17/64 and A19/8. First bits1,0 predict tick2=2 and
 same-time adjacent error545/65536. A false zero-error claim must be rejected.
+
+The usage interruption occurred after the actual adjacent estimate compiled;
+the user's 4 October continuation resumes the same task. Twelfth increment
+now checked in full: both full builds, catalogue, graph and all 523 references
+pass; 702 theorem declarations in 47 declaration-bearing modules. Only
+propext, Classical.choice and Quot.sound, no sorryAx/project axiom or warnings.
+`prefixName` and the sample constructor were separately type/axiom checked.
+Actual elapsed-time/prefix bounds, arbitrary finite-gap/two-sided tails and
+the explicit modulus compile. All-zero/zero-time and pinned exact controls
+pass; `/tmp/newtonlean-prefix-false.lean` rejects the false first zero error.
+Reference log: `/tmp/newtonlean-day-binary-refs.log`. Whitespace checks pass.
+The added production-side long-time control proves10200>2400, demonstrating
+failure of the time coefficient without its short-time premise; see
+`research/verification/harmonic-time-scope-2026-10-04.lean`. It is not an
+independent oracle or an existence obstruction. No quotient point/time or
+actual trajectory area is inferred from the new prefix names.
+
+Thirteenth pin: realize derived Cauchy data in an explicitly constructed value
+space. Define equivalence of EndpointCauchyNames by eventual levelwise state
+distance less than every positive rational eps. Derive reflexivity, symmetry
+and transitivity; quotient by this proved equivalence. Define constant names,
+their embedding and realization of a name. Prove constant embedding respects
+and separates rational state value equivalence (not representative equality).
+No limit point, completion field or generic completeness theorem is supplied.
+
+Define a closed bound on names: for every positive eps, eventually distance
+<R+eps. Prove invariance under replacing either name by an equivalent one
+before lifting it to values. Derive symmetry/triangle properties and convergence
+of constant approximants to the realized value. Construct rational-time values
+from timeName and binary-prefix values from prefixName; derive their existing
+levelwise/tail estimates as value bounds. In particular, the actual prefix
+value has distance <=tailCap_m from its constant level-m state. A positive
+uniform rational-time tolerance may use half(eps)/(L+1), yielding the value
+bound half(eps). Arbitrary binary addresses are not yet quotient times.
+
+Production separation control: w=1,T=1/4,s=((1,0),(0,1)). Endpoint level0
+distance from s is9/16 and its fixed-time tail bound is3/8. Derive distance
+>=3/16 from s at every level and prove the realized endpoint value differs
+from the initial value. A false equality must fail. This is proof of a concrete
+nonconstant value, not independent verification. Full completed-time motion,
+partition independence, force law and actual intervening area remain separate.
+Reuse core rational/norm/actual-schedule lemmas; no mathlib, ODE/measure theorem,
+new axiom, sorry or unstated force regularity. See CAUCHY_REALIZATION.md.

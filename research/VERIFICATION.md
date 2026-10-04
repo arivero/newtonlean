@@ -449,3 +449,19 @@ This verifies a rational-time map of derived Cauchy names; realization in a
 completed point space, identification with one global polygon family, force
 identification and the actual intervening area remain open. The earlier
 frozen-snapshot cover holdout is not reused as an oracle for this increment.
+
+Actual binary-prefix Cauchy-data follow-up, 4 October: both full builds,
+catalogue, graph and all 523 reference/axiom checks pass in order; 702 library
+declarations in 47 declaration-bearing modules. Only propext, Classical.choice
+and Quot.sound; no sorryAx/project axiom, warning or error. The `prefixName`
+and sample data constructors were separately checked. Every binary address
+selects actual prefixes of one global family; tick bounds, actual elapsed-time
+control, state bounds, adjacent and finite geometric tails, and the explicit
+positive-tolerance modulus compile. Generic all-zero/zero-time controls and
+production values17/64,19/8,545/65536 pass. The false first zero-error statement
+is rejected specifically as false in `/tmp/newtonlean-prefix-false.lean`.
+Reference log: `/tmp/newtonlean-day-binary-refs.log`. Whitespace checks pass.
+The separately retained long-time scope control also compiles, proving the
+time coefficient fails without smallness, with propext only. No completed
+point/time realization, address independence, force law or actual D_mesh is
+claimed. Earlier arithmetic holdouts remain limited to their fixed snapshots.

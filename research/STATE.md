@@ -33,6 +33,11 @@ of these names with uniform bound 4*(1+2*|w|)*M*|U-T| and explicit positive
 delta=eps/(L+1). Realization, identification with prefixes of one global
 polygon family, partition independence and mechanical force identification
 remain separate.
+HarmonicBinaryPrefix now constructs Cauchy data at intermediate times from
+actual prefixes of one global dyadic family. Every binary address has a
+derived geometric tail and explicit positive-tolerance modulus. Completed
+point values, equivalence of time descriptions and the actual between-path
+area remain open; see [the construction specification](CAUCHY_REALIZATION.md).
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
 agreement with `p+t*v`, constant velocity, cross-denominator subdivision

@@ -51,7 +51,7 @@ theorem cell_parameter_norm_formula (w sigma tau : Fraction) (s : Point × Point
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
-private theorem add_num_nonnegative (a b : Fraction)
+theorem add_num_nonnegative (a b : Fraction)
     (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
     0 ≤ (Fraction.add a b).num :=
   Int.add_nonneg

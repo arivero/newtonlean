@@ -156,3 +156,28 @@ mechanical force identification and the actual intervening-region area remain
 separate obligations. In the general represented-point model, a force must
 also respect point value equivalence; the harmonic cell's compatibility is
 derived in this construction rather than assumed for arbitrary fields.
+
+`HarmonicBinaryPrefix.lean` constructs intermediate-time Cauchy data directly
+from one global polygon family. An arbitrary binary address selects ticks
+k_0=0, k_(j+1)=2*k_j+b_j. The proof derives k_j<2^j and runs exactly k_j
+actual cells of duration T/2^j. Its actual elapsed time is at most T, and
+both compared prefix states have magnitude at most2M. The optional extra fine
+cell has increment at most2*h*(1+|w|)*M; common-time refinement supplies the
+other error. With
+
+    A = T*M*(2*(1+|w|)+3*T*|w|),
+
+the actual adjacent error is at most A/2^(j+1), an arbitrary finite gap from
+level j is at most A/2^j, and two levels m,n>=N differ by at most2*A/2^N.
+Finite integer arithmetic constructs a positive-tolerance modulus and
+`prefixName` packages the actual approximants with their derived Cauchy proof.
+The all-zero address returns the initial state exactly; zero time returns it
+in value equivalence. Production controls give first error17/64, A19/8 and
+same-time second error545/65536. No actual curve or limit point was supplied.
+
+These are Cauchy data for all binary addresses. Quotient point values,
+identification of equivalent time descriptions, continuity of the resulting
+time-to-position map and the actual between-path region remain to be proved;
+see [the construction specification](CAUCHY_REALIZATION.md). The independently
+rescaled rational-time endpoint map and this single global family remain
+distinct until their values are compared.

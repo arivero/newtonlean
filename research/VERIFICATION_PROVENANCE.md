@@ -3,7 +3,8 @@
 The primary evidence for a parametric theorem is successful Lean 4.19.0
 elaboration and kernel checking, with its actual premises and axiom report.
 An arithmetic example cannot certify a general statement or its historical
-interpretation. All current results remain modern finite reconstructions.
+interpretation. Current results are modern reconstructions; finite estimates
+and derived Cauchy data are distinguished from realized trajectories.
 
 The numeric pins disclosed before implementation (including the harmonic
 one-block/two-block errors, the small-time boundary example and planned cover
@@ -42,3 +43,10 @@ comparator and birth/contact/hash record are preserved unchanged in the
 No reference-derived repair occurred. Shared update specification,
 integer/kernel layers and the use of the proposed radius formula are disclosed
 there. The check certifies neither the geometric proof nor a trajectory.
+
+The [rational-time scope control](verification/harmonic-time-scope-2026-10-04.lean)
+uses project definitions and is production-side evidence. At w=1,T=100,U=0,
+j=0 and s=((1,0),(0,1)), it proves actual error10200, proposed unrestricted
+budget2400, failure of that inequality, and violation of DyadicSmallTime.
+It demonstrates why the short-time premise cannot be dropped from the displayed
+bound. It is not an independent reference or a failure of trajectory existence.
