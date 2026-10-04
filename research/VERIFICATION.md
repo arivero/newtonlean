@@ -1,4 +1,20 @@
-# Verification record — 2026-09-22
+# Verification record
+
+## Current handoff: D.1, 4 October 2026
+
+The foundation inventory changes documentation only. A sequential nonauthor
+GPT-6 Luna worker reran the full README checks: both Lean 4.19 targets, formal
+catalogue, source collation, graph/reference and axiom checks, edition
+comparison, graph rendering, evidence regressions, source hashes, progress
+regeneration and whitespace validation. All passed: 793 library theorems,
+658 reference checks, 77 nodes/68 edges/247 passages, and only `propext`,
+`Classical.choice`, `Quot.sound`; no `sorryAx`. Progress at the checked parent
+has 501 substantive declarations. Logs: `/tmp/newton-sol61-D1-01.log` through
+`/tmp/newton-sol61-D1-14.log`. The foundation boundary has not yet migrated.
+Completion scores are unchanged; the earlier dated entries below are historical
+verification records, not counts for the current checkout.
+
+## 22 September 2026 baseline and follow-ups
 
 - Lean: 4.19.0, declared by lean-toolchain; default target is the library.
 - `lake build` and `lake build NewtonLimitDynamics`: passed. The expanded

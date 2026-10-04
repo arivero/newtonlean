@@ -1,5 +1,11 @@
 # Research state
 
+Current handoff execution (Sol 6.1, 4 October): D.1 inventories the proposed
+foundation boundary in [BARROWLIB_BOUNDARY.md](BARROWLIB_BOUNDARY.md). This is
+a dependency/scope inventory; it changes no theorem or completion score.
+Next in the handoff's order is the general force interface and the class (a)
+and (b) estimates, including rational approximations of irrational forces.
+
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation
 library). It supersedes the [22 September handoff](HANDOFF-2026-09-22-NEXT.md)

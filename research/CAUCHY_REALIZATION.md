@@ -7,6 +7,10 @@ reconstruction with explicit rational coordinates and the calibrated L1 state
 magnitude. It does not add a historical dependency or silently supply a curve.
 The stage-local obligations remain in [the realization ledger](PROP_I_REALIZATION.md).
 
+The [foundation inventory](BARROWLIB_BOUNDARY.md) separates generic Cauchy
+names and quotient bounds from the harmonic consumers. This D.1 inventory
+does not itself generalize the realized motion or migrate any declaration.
+
 ## One global family
 
 Fix nonnegative rational T, initial state s, and harmonic coefficient w, with

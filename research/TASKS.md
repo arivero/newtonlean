@@ -48,6 +48,10 @@ For obligations 4–7, report a proved special case separately from the whole
 proposition. If a historical premise cannot be recovered, continue independent
 obligations while retaining that gap. A source-map entry is not a Lean theorem.
 
+Order 4, current handoff D.1: the [foundation boundary inventory](BARROWLIB_BOUNDARY.md)
+is recorded. It is supporting organization, not a new P3–P5 result. Follow the
+handoff's general-force design and estimates before migrating the library.
+
 Validation is sequential and delegated. The final verification agent runs both
 build targets and source/reference checks after implementation agents finish.
 Use the formal-result ledger for actual theorem premises and the research state

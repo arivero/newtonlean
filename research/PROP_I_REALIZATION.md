@@ -6,6 +6,10 @@ realization of the motion needs for a **varying** central force. Lean results
 are modern rational-coordinate reconstructions (`modern_reconstruction`),
 not historical proofs.
 
+The 4 October handoff starts by separating generic elementary mathematics
+from these mechanical constructions; see [the foundation inventory](BARROWLIB_BOUNDARY.md).
+That boundary inventory discharges D.1 only, not P3, P4 or P5.
+
 The governing target is the **unsupplied-curve construction variant**. The main
 area BETWEEN polygon and actual trajectory is distinct from the Kepler area
 swept by the radius. See [path defect](PROP_I_PATH_DEFECT.md) for all three

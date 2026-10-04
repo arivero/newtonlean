@@ -6,6 +6,10 @@ and the required partition independence, then prove its mechanical properties
 and control the area between it and the polygons. Supplied-curve estimates are
 conditional diagnostics and cannot discharge the forward theorem.
 
+The [foundation inventory](BARROWLIB_BOUNDARY.md) identifies the generic point,
+completion and cover ingredients available to the 4 October handoff. D.1
+supplies no polygon–curve area definition or curve estimate.
+
 ## The two areas
 
 For a constructed polygon P_mesh and the eventual trajectory gamma over the
