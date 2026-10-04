@@ -145,6 +145,38 @@ private theorem smallTime_integer (w h : Fraction) (n : Nat)
         2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int)) * 2 := by ac_rfl
     _ ≤ h.den * w.den := hs
 
+/-- The small-time condition is inherited by every earlier actual block. -/
+theorem smallTime_prefix (w h : Fraction) (i n : Nat)
+    (hh : 0 ≤ h.num) (hi : i ≤ n) (hs : SmallTime w h n) :
+    SmallTime w h i := by
+  have hn := smallTime_integer w h n hs
+  have hcoef : 0 ≤ 4 * h.num * (w.den + (w.num.natAbs : Int)) := by
+    exact Int.mul_nonneg
+      (Int.mul_nonneg (by decide) hh)
+      (Int.add_nonneg (Int.le_of_lt w.den_pos) (Int.ofNat_nonneg _))
+  have hcast : (i : Int) ≤ (n : Int) := Int.ofNat_le.mpr hi
+  have hm := Int.mul_le_mul_of_nonneg_right hcast hcoef
+  have hpref :
+      2 * (2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤
+        2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := by
+    calc
+      _ = (i : Int) * (4 * h.num * (w.den + (w.num.natAbs : Int))) := by
+        simp only [show (4 : Int) = 2 * 2 by rfl]
+        ac_rfl
+      _ ≤ (n : Int) * (4 * h.num * (w.den + (w.num.natAbs : Int))) := hm
+      _ = _ := by
+        simp only [show (4 : Int) = 2 * 2 by rfl]
+        ac_rfl
+  unfold SmallTime totalTime halfThreshold Fraction.le Fraction.mul Fraction.add
+    Fraction.ofInt Fraction.abs
+  dsimp
+  simp only [Int.mul_one, Int.one_mul, Int.add_zero]
+  calc
+    2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int)) * 2 =
+        2 * (2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int))) := by ac_rfl
+    _ ≤ 2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := hpref
+    _ ≤ denom w h := hn
+
 private theorem fineWeights_small (w h : Fraction) (n : Nat)
     (hs : SmallTime w h n) :
     2 * weightSum (fineWeights w h n) ≤ denom w h := by

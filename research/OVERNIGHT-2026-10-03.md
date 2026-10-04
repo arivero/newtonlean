@@ -298,6 +298,9 @@ The goal tool still reports paused; its interface cannot set an active status.
 Continue the saved mathematics without treating this tracking state as a
 mathematical blocker. Commit `7c52a0f` contains the seventh checked increment.
 
+Later daytime refresh: the goal now reports `active`. The user's continuation
+instruction remains in force; the original overnight endpoint is superseded.
+
 The user explicitly said to keep going through the day. Next bounded area
 pin: derive rational determinant/triangle magnitude estimates from PointBounds,
 including nonnegativity and translation/orientation compatibility. A finite
@@ -311,3 +314,29 @@ project axiom. Positive/negative orientation and cancellation controls compile;
 Lean rejects the false unsigned-equals-signed assertion. These are finite
 patch estimates. Next construct a geometric enclosure for actual coarse/fine
 path regions and derive its nonnegative mesh-dependent cover-area budget.
+
+Commit `0dfcfb1` records the eighth increment. Ninth pin: derive convex
+rational interpolation and coordinate-square containment, then enclose the
+actual two matched half-cell patches of each evolving coarse/fine block.
+Under the existing small-time condition, with T=2nh and M=stateNorm(s), use
+the constructed radius `R=h*M*(4+3*T*abs(w))` about each coarse start.
+Prefix state/error bounds must be derived from the final time hypothesis.
+The summed square-area budget `4*n*R²` should equal
+`2*T*h*M²*(4+3*T*abs(w))²`, be nonnegative and cover the actual matched point
+regions. It counts squares with multiplicity and is not the region's actual
+area. Boundary control w=1,h=1/8,n=1 predicts R=19/16 and cover area361/64;
+independently verify the values and reject a false too-small corner cover.
+No curve is supplied. If the global prefix proof exceeds the unit, retain a
+compiled generic enclosure and actual one-block result with the remaining
+lemma named exactly. Completion and content/area identification stay open.
+
+Ninth increment checked: ConvexCover and HarmonicCover derive the full finite
+matched-patch square enclosure and budget formula. Both builds, catalogue,
+graph and all 428 references pass sequentially; 590 declarations in 44
+modules, standard logical axioms only and no sorryAx/project axiom. Zero and
+boundary controls pass. Lean rejects the deliberately false eighth-radius
+coordinate-square cover. The quarter-radius L1-ball control concerns a
+different point set; no quarter-radius square failure is claimed.
+Next freeze this increment for a sequential independent arithmetic holdout,
+then derive dyadic finite Cauchy data from actual schedules. Completion,
+partition independence and actual polygon-trajectory area remain open.

@@ -2002,6 +2002,150 @@
     "interpretation_and_remaining_premises": "Modern integer-coordinate reconstruction of the finite step in Proposition II Case 1 (both editions cite Law I, Euclid I.40 and Law II). Equal oriented areas Spq and SqC are equivalent to the deflection cC being parallel to Sq; with q distinct from S the step is a rational central kick. Counterexamples show that orientation, a vertex distinct from S, and the inward sense are separate premises. Case 2 finite step: inertial continuation commutes with uniform translation of the centre (motivated by the laws Cor. V, par50/par60), so equal areas about a uniformly moving centre give deflections parallel to the current radius. No realized curve, vanishing-triangle limit, or force law is treated."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.complement_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) :\n    0 ≤ (complement a).num",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.complement_abs",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) :\n    Fraction.equiv (complement a).abs (complement a)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.interval_abs",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) :\n    Fraction.equiv a.abs a",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.weights_sum_one",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) :\n    Fraction.equiv (Fraction.add (complement a) a) (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.le_add_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.pointSub_self_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) :\n    Fraction.equiv (pointNorm (pointSub p p)) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.pointSub_chain",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Point) :\n    pointEquiv (pointSub a c)\n      (pointAdd (pointSub a b) (pointSub b c))",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.pointSub_triangle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Point) :\n    Fraction.le (pointNorm (pointSub a c))\n      (Fraction.add (pointNorm (pointSub a b)) (pointNorm (pointSub b c)))",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.drift_offset",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (x v : Point) :\n    pointEquiv (pointSub (pointAdd x (pointScale h v)) x) (pointScale h v)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.lerp_offset",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (anchor p q : Point) :\n    pointEquiv (pointSub (lerp a p q) anchor)\n      (pointAdd (pointScale (complement a) (pointSub p anchor))\n        (pointScale a (pointSub q anchor)))",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.lerp_ball_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a)\n    (anchor p q : Point) (R : Fraction)\n    (hp : Fraction.le (pointNorm (pointSub p anchor)) R)\n    (hq : Fraction.le (pointNorm (pointSub q anchor)) R) :\n    Fraction.le (pointNorm (pointSub (lerp a p q) anchor)) R",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.ball_inside_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(anchor p : Point) (R : Fraction)\n    (h : Fraction.le (pointNorm (pointSub p anchor)) R) :\n    SquareContains anchor R p",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_ball",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(theta lambda : Fraction)\n    (ht : UnitInterval theta) (hl : UnitInterval lambda)\n    (anchor c0 c1 f0 f1 : Point) (R : Fraction)\n    (hc0 : Fraction.le (pointNorm (pointSub c0 anchor)) R)\n    (hc1 : Fraction.le (pointNorm (pointSub c1 anchor)) R)\n    (hf0 : Fraction.le (pointNorm (pointSub f0 anchor)) R)\n    (hf1 : Fraction.le (pointNorm (pointSub f1 anchor)) R) :\n    Fraction.le (pointNorm (pointSub\n      (matchedPatch theta lambda c0 c1 f0 f1) anchor)) R",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(theta lambda : Fraction)\n    (ht : UnitInterval theta) (hl : UnitInterval lambda)\n    (anchor c0 c1 f0 f1 : Point) (R : Fraction)\n    (hc0 : Fraction.le (pointNorm (pointSub c0 anchor)) R)\n    (hc1 : Fraction.le (pointNorm (pointSub c1 anchor)) R)\n    (hf0 : Fraction.le (pointNorm (pointSub f0 anchor)) R)\n    (hf1 : Fraction.le (pointNorm (pointSub f1 anchor)) R) :\n    SquareContains anchor R (matchedPatch theta lambda c0 c1 f0 f1)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.isum_mono",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
@@ -3164,6 +3308,594 @@
     "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.nonneg_mul",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.mul a b).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.nonneg_add",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.add a b).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.le_add_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.point_le_state",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.1) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.velocity_le_state",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) :\n    Fraction.le (pointNorm s.2) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.totalTime_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (n : Nat) (hh : 0 ≤ h.num) :\n    0 ≤ (totalTime h n).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.maxError_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (n : Nat) (hh : 0 ≤ h.num) : 0 ≤ (maxError w h s n).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.halfDriftBudget_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point)\n    (hh : 0 ≤ h.num) : 0 ≤ (halfDriftBudget h s).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.fullDriftBudget_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point)\n    (hh : 0 ≤ h.num) : 0 ≤ (fullDriftBudget h s).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.radius_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) (n : Nat)\n    (hh : 0 ≤ h.num) : 0 ≤ (radius w h s n).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.squareArea_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(R : Fraction) (hR : 0 ≤ R.num) :\n    0 ≤ (squareArea R).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.coverBudget_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) (n : Nat)\n    (hh : 0 ≤ h.num) : 0 ≤ (coverBudget w h s n).num",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.totalTime_le",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (i n : Nat)\n    (hh : 0 ≤ h.num) (hin : i ≤ n) :\n    Fraction.le (totalTime h i) (totalTime h n)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.prefix_error_le_max",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)\n    (hs : SmallTime w h n) :\n    Fraction.le\n      (stateNorm (stateSub (fineAt w h s i) (coarseAt w h s i)))\n      (maxError w h s n)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.drift_offset_le_state",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (hd : 0 ≤ d.num)\n    (t : Point × Point) :\n    Fraction.le\n      (pointNorm (pointSub (pointAdd t.1 (pointScale d t.2)) t.1))\n      (Fraction.mul d (stateNorm t))",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.two_le_four",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point)\n    (hh : 0 ≤ h.num) :\n    Fraction.le (halfDriftBudget h s) (fullDriftBudget h s)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.half_drift_le",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s t : Point × Point)\n    (hh : 0 ≤ h.num)\n    (ht : Fraction.le (stateNorm t) (Fraction.mul two (stateNorm s))) :\n    Fraction.le\n      (pointNorm (pointSub (pointAdd t.1 (pointScale h t.2)) t.1))\n      (halfDriftBudget h s)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.full_drift_le",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s t : Point × Point)\n    (hh : 0 ≤ h.num)\n    (ht : Fraction.le (stateNorm t) (Fraction.mul two (stateNorm s))) :\n    Fraction.le\n      (pointNorm (pointSub (pointAdd t.1 (pointScale (Fraction.add h h) t.2)) t.1))\n      (fullDriftBudget h s)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.coarse_mid_le_half",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)\n    (hs : SmallTime w h n) :\n    Fraction.le (pointNorm (pointSub (coarseMid w h s i) (coarseStart w h s i)))\n      (halfDriftBudget h s)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.fine_mid_own_le_half",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)\n    (hs : SmallTime w h n) :\n    Fraction.le (pointNorm (pointSub (fineMid w h s i) (fineStart w h s i)))\n      (halfDriftBudget h s)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.coarse_end_le_full",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)\n    (hs : SmallTime w h n) :\n    Fraction.le (pointNorm (pointSub (coarseEnd w h s i) (coarseStart w h s i)))\n      (fullDriftBudget h s)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.fine_start_error_le",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)\n    (hs : SmallTime w h n) :\n    Fraction.le (pointNorm (pointSub (fineStart w h s i) (coarseStart w h s i)))\n      (maxError w h s n)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.fine_mid_le",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)\n    (hs : SmallTime w h n) :\n    Fraction.le (pointNorm (pointSub (fineMid w h s i) (coarseStart w h s i)))\n      (Fraction.add (maxError w h s n) (halfDriftBudget h s))",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.fine_end_le",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)\n    (hs : SmallTime w h n) :\n    Fraction.le (pointNorm (pointSub (fineEnd w h s i) (coarseStart w h s i)))\n      (Fraction.add (maxError w h s n) (fullDriftBudget h s))",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.zero_le",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(R : Fraction) (hR : 0 ≤ R.num) :\n    Fraction.le (Fraction.ofInt 0) R",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.actual_corners_in_ball",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)\n    (hs : SmallTime w h n) :\n    let x",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.firstPatch_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)\n    (hs : SmallTime w h n) (theta lambda : Fraction)\n    (ht : UnitInterval theta) (hl : UnitInterval lambda) :\n    SquareContains (coarseStart w h s i) (radius w h s n)\n      (firstPatch w h s i theta lambda)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.secondPatch_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point)\n    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)\n    (hs : SmallTime w h n) (theta lambda : Fraction)\n    (ht : UnitInterval theta) (hl : UnitInterval lambda) :\n    SquareContains (coarseStart w h s i) (radius w h s n)\n      (secondPatch w h s i theta lambda)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.radius_formula",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) (n : Nat) :\n    Fraction.equiv (radius w h s n)\n      (Fraction.mul (Fraction.mul h (stateNorm s)) (shapeFactor w h n))",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.coverBudget_formula",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) (n : Nat) :\n    Fraction.equiv (coverBudget w h s n)\n      (Fraction.mul (Fraction.ofInt 2)\n        (Fraction.mul (totalTime h n)\n          (Fraction.mul h\n            (Fraction.mul (Fraction.mul (stateNorm s) (stateNorm s))\n              (Fraction.mul (shapeFactor w h n) (shapeFactor w h n))))))",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_small_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": SmallTime one eighth 1",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_radius",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (radius one eighth sample 1) ⟨19, 16, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_square_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (squareArea (radius one eighth sample 1))\n      ⟨361, 64, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_cover_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (coverBudget one eighth sample 1)\n      ⟨361, 64, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_all_corners",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    let x",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_first_patch_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(theta lambda : Fraction)\n    (ht : UnitInterval theta) (hl : UnitInterval lambda) :\n    SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)\n      (firstPatch one eighth sample 0 theta lambda)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_second_patch_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(theta lambda : Fraction)\n    (ht : UnitInterval theta) (hl : UnitInterval lambda) :\n    SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)\n      (secondPatch one eighth sample 0 theta lambda)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_zero_blocks_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (coverBudget one eighth sample 0) zero",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_zero_duration_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (coverBudget one zero sample 1) zero",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_quarter_ball_too_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ Fraction.le\n      (pointNorm (pointSub (fineEnd one eighth sample 0)\n        (coarseStart one eighth sample 0))) quarter",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCover.sample_eighth_square_too_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ SquareContains (coarseStart one eighth sample 0) eighth\n      (coarseEnd one eighth sample 0)",
+    "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.position_mismatch",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicRefinement.lean",
@@ -3679,6 +4411,20 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (n : Nat)\n    (hs : SmallTime w h n) :\n    2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤ denom w h",
+    "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicUniform.smallTime_prefix",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicUniform.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (i n : Nat)\n    (hh : 0 ≤ h.num) (hi : i ≤ n) (hs : SmallTime w h n) :\n    SmallTime w h i",
     "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
   },
   {

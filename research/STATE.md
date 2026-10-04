@@ -21,8 +21,12 @@ Actual global coarse/fine schedule error is now bounded by an explicit finite
 recurrence. Uniform refinement control, trajectory existence and nonnegative
 intervening-area geometry remain separate: HarmonicUniform now derives
 mesh-uniform power/state bounds and actual error ≤3*T*h*|w|*M under its named
-small-time condition. Trajectory existence and the intervening region's
-nonnegative geometric area remain open. The first finite suite
+small-time condition. ConvexCover and HarmonicCover now enclose every rational
+matched half-cell patch between the actual paths in a derived square. Their
+nonnegative, multiplicity-counted cover budget is
+2*T*h*M²*(4+3*T*|w|)². Trajectory construction and identification of the
+intervening region's actual area remain open; next construct finite Cauchy data.
+The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
 agreement with `p+t*v`, constant velocity, cross-denominator subdivision
 independence, exact restart, rest and within-cell positions. A zero-defect

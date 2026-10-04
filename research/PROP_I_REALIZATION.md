@@ -36,8 +36,8 @@ with no numbered limiting lemma (M2.md).
 | --- | --- |
 | P1 finite area law | **Checked in the rational planar model, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
-| P3 existence of the ultimate curve | **Open.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns limits of rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate and residual/mesh bounds are checked at rational times. For the harmonic field, the discrete invariant and its speed/position bounds have explicit coefficient and margin premises in HarmonicStability. HarmonicAccumulation now compares actual equal-time schedules, and HarmonicUniform derives state bounds ≤2M and actual error ≤3*T*h*abs(w)*M under h≥0 and its named small-time condition. Formal Cauchy construction, between-node control, completion/realization and general varying-force convergence remain open. |
-| P4 intervening defect and area law | **Open, conditional on P3 plus geometric control.** Construct the nonnegative polygon–trajectory region D_mesh and derive a vanishing enclosure budget without cancellation of opposite lobes. `swept_eq` controls the distinct Kepler area K_mesh. Exact K_mesh alone proves neither realization nor D_mesh control; transferring its law to the constructed curve requires geometric identification. |
+| P3 existence of the ultimate curve | **Open.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns limits of rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate and residual/mesh bounds are checked at rational times. For the harmonic field, the discrete invariant and its speed/position bounds have explicit coefficient and margin premises in HarmonicStability. HarmonicAccumulation compares actual equal-time schedules, and HarmonicUniform derives state bounds ≤2M and actual error ≤3*T*h*abs(w)*M under h≥0 and its named small-time condition. HarmonicCover encloses matched rational points inside cells; formal Cauchy construction, completion/realization, partition independence and general varying-force convergence remain open. |
+| P4 intervening defect and area law | **Open for the actual trajectory.** HarmonicCover derives a finite coordinate-square cover for both matched half-cell patches of each actual coarse/fine block. Its nonnegative, multiplicity-counted budget is 2*T*h*M²*(4+3*T*abs(w))². It proves point-set containment, not union content or D_mesh for an unconstructed trajectory. Construct that region and derive its vanishing enclosure without cancellation of opposite lobes. `swept_eq` controls the distinct Kepler area K_mesh; transferring its law to the constructed curve requires geometric identification. |
 | P5 force identification | **Open.** "Aget indesinenter" identifies the impulse limit with a continuous force; no finite result supplies this. |
 
 ## Candidate permitted premise for P3
@@ -72,9 +72,10 @@ the finite content it needs when cells are unequal.
 
 The harmonic field now has derived mesh-uniform actual state and endpoint-error
 bounds; see [harmonic refinement](HARMONIC_REFINEMENT.md). Next construct
-finite unsigned patches between the evolving paths, derive their area budgets,
-and construct Cauchy data without supplying a curve. Completion/realization,
-between-node control and partition independence remain distinct obligations.
+finite Cauchy data without supplying a curve. The actual matched polygonal
+patches now have a proved geometric square enclosure and a nonnegative cover
+budget. Completion/realization, transfer of this cover to a trajectory,
+content/area identification and partition independence remain distinct.
 
 For a general varying field, any force-difference premise must be explicit and
 named: a Lipschitz-type bound is a modern repair; the 1713 monotone-finite

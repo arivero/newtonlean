@@ -59,9 +59,15 @@ The stage-local `polygon_trajectory_defect_control` theorems are explicitly
 the stated geometric meaning, and enclosure/vanishing budget must be supplied.
 They cannot create a curve or complete the primary construction variant.
 
-Next construct force/time-compatible refinements with position and velocity
-comparison, beginning with the harmonic field's checked stability. Prove a
-realization with its time domain specified: rational approximation values need
+The harmonic field now has actual common-time refinement, uniform state/error
+bounds and a finite geometric cover in `HarmonicCover.lean`. Both matched
+half-cell point regions fit a square of radius h*M*(4+3*T*|w|) about the coarse
+start. The summed square budget 2*T*h*M²*(4+3*T*|w|)² is nonnegative and
+counts multiplicity; it is neither Kepler area nor actual union/trajectory
+area. No curve is an input to this construction.
+
+Next construct finite Cauchy data and prove a realization with its time domain
+specified: rational approximation values need
 not have rational limits. Then derive D_mesh geometry/enclosure and edition-local
 uninterrupted-force identification. No integral calculus, ODE theorem, measure
 theorem, or silently supplied completion closes these obligations.

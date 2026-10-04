@@ -80,11 +80,10 @@ and bound 3/16. A false unrestricted factor-two claim is rejected: w=h=n=1
 has fine amplification 16. Thus the finite accumulated bound is uniform in
 refinement at fixed sufficiently small total time.
 
-Next derive nonnegative area control between the actual paths and construct
-Cauchy data, then realize the trajectory with an explicit time domain and
-partition independence. The finite estimates supply no completion, continuum
-curve or ODE theorem. Position/velocity error and geometric area remain
-distinct obligations in the primary construction.
+Next construct finite Cauchy data, then realize the trajectory with an explicit
+time domain and partition independence. The finite estimates supply no
+completion, continuum curve or ODE theorem. Position/velocity error and
+geometric area remain distinct obligations in the primary construction.
 
 `TriangleBounds.lean` supplies the next area estimates in rational coordinates:
 `abs(det(u,v))≤pointNorm(u)*pointNorm(v)`, and corresponding bounds for the
@@ -94,3 +93,26 @@ two vertices. Opposite signed triangles can have zero signed total and a
 positive unsigned patch sum. That sum counts multiplicity; geometric coverage
 or decomposition of the intervening region must still be derived. It is
 separate from either path's Kepler swept triangles.
+
+`ConvexCover.lean` and `HarmonicCover.lean` now derive a finite geometric
+enclosure. Each coarse block is divided into two matched half-cell patches:
+both paths use the same rational physical-time fraction, and a second fraction
+interpolates between their simultaneous positions. The coarse midpoint is a
+subdivision of its drift and receives no impulse. Prefix state/error bounds
+place all six actual corners in the L1 ball, hence the coordinate square, of
+radius
+
+    R = h*M*(4+3*T*|w|)
+
+about the coarse start. Convex interpolation proves containment for every
+pair of rational unit-interval parameters. One square covers both half-cell
+patches. Summing one square per coarse block gives the nonnegative budget
+
+    4*n*R² = 2*T*h*M²*(4+3*T*|w|)².
+
+The sum counts multiplicity; it is not a theorem about union content or the
+actual area D_mesh. At fixed T,w,M its formula has a factor h. The boundary
+example has radius 19/16 and budget 361/64. A quarter-radius L1 ball fails for
+the fine endpoint; a separate eighth-radius coordinate square fails for the
+coarse endpoint. These controls do not identify the ball with the square.
+No trajectory was supplied or constructed by this finite cover.

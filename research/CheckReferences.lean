@@ -239,6 +239,32 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.Converse.unsigned_equal_area_not_central
 #check NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
 #print axioms NewtonLimitDynamics.Polygon.Converse.vertex_at_centre_degenerate
+#check NewtonLimitDynamics.Polygon.ConvexCover.ball_inside_square
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.ball_inside_square
+#check NewtonLimitDynamics.Polygon.ConvexCover.complement_abs
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.complement_abs
+#check NewtonLimitDynamics.Polygon.ConvexCover.complement_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.complement_nonnegative
+#check NewtonLimitDynamics.Polygon.ConvexCover.drift_offset
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.drift_offset
+#check NewtonLimitDynamics.Polygon.ConvexCover.interval_abs
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.interval_abs
+#check NewtonLimitDynamics.Polygon.ConvexCover.lerp_ball_bound
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.lerp_ball_bound
+#check NewtonLimitDynamics.Polygon.ConvexCover.lerp_offset
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.lerp_offset
+#check NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_ball
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_ball
+#check NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_square
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_square
+#check NewtonLimitDynamics.Polygon.ConvexCover.pointSub_chain
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.pointSub_chain
+#check NewtonLimitDynamics.Polygon.ConvexCover.pointSub_self_zero
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.pointSub_self_zero
+#check NewtonLimitDynamics.Polygon.ConvexCover.pointSub_triangle
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.pointSub_triangle
+#check NewtonLimitDynamics.Polygon.ConvexCover.weights_sum_one
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.weights_sum_one
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.actual_error_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.actual_error_bound
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.coarseAt_schedule
@@ -311,6 +337,44 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step
 #check NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm
+#check NewtonLimitDynamics.Polygon.HarmonicCover.actual_corners_in_ball
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.actual_corners_in_ball
+#check NewtonLimitDynamics.Polygon.HarmonicCover.coverBudget_formula
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.coverBudget_formula
+#check NewtonLimitDynamics.Polygon.HarmonicCover.coverBudget_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.coverBudget_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicCover.firstPatch_square
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.firstPatch_square
+#check NewtonLimitDynamics.Polygon.HarmonicCover.radius_formula
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.radius_formula
+#check NewtonLimitDynamics.Polygon.HarmonicCover.radius_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.radius_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_all_corners
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_all_corners
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_cover_budget
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_cover_budget
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_eighth_square_too_small
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_eighth_square_too_small
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_first_patch_square
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_first_patch_square
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_quarter_ball_too_small
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_quarter_ball_too_small
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_radius
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_radius
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_second_patch_square
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_second_patch_square
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_small_time
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_small_time
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_square_area
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_square_area
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_zero_blocks_budget
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_zero_blocks_budget
+#check NewtonLimitDynamics.Polygon.HarmonicCover.sample_zero_duration_budget
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.sample_zero_duration_budget
+#check NewtonLimitDynamics.Polygon.HarmonicCover.secondPatch_square
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.secondPatch_square
+#check NewtonLimitDynamics.Polygon.HarmonicCover.squareArea_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCover.squareArea_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absolute_closed_defect_cubic
@@ -395,6 +459,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_blocks
 #check NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_duration
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.sample_zero_duration
+#check NewtonLimitDynamics.Polygon.HarmonicUniform.smallTime_prefix
+#print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.smallTime_prefix
 #check NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #print axioms NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #check NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment

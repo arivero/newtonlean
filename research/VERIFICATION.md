@@ -392,3 +392,18 @@ invariant and unchanged by reversed vertex order. Opposite signed patches
 retain their magnitude sum. A false unsigned-equals-signed claim is rejected
 in `/tmp/NewtonTriangleMagnitudeFalse.lean`. Patch multiplicity is explicit;
 geometric region coverage and limiting trajectory remain separate obligations.
+
+Finite geometric-cover follow-up, 4 October: both full builds pass, followed
+in order by catalogue/graph validation and all 428 reference/axiom checks.
+There are 590 declarations in 44 modules. Only propext, Classical.choice and
+Quot.sound appear; no sorryAx/project axiom or compiler warning/error.
+Convex interpolation and actual prefix estimates derive the two matched
+half-cell enclosures, with nonnegative square-cover budget
+2*T*h*M²*(4+3*T*|w|)². Exact boundary and zero controls pass. The eighth-radius
+coordinate-square claim is deliberately rejected in
+`/tmp/NewtonHarmonicSquareFalse.lean`; the separate quarter-radius L1-ball
+failure is not a square failure. Reference log:
+`/tmp/newtonlean-day-cover-refs.log`. Whitespace checks pass. Point containment
+and the square-area sum do not assert union content, a realized trajectory or
+its actual intervening area. The next check uses the frozen-snapshot arithmetic
+holdout protocol in [verification provenance](VERIFICATION_PROVENANCE.md).
