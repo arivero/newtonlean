@@ -78,3 +78,13 @@ equality is a supplementary production control. The corner control verifies
 the distinction between coordinate squares and L1 balls. No independent
 numerical reference is used, and no actual area or force law is certified.
 Log: `/tmp/newtonlean-day-position-refs.log`.
+
+The sequential nonauthor review of frozen `a42f547` reproduced both builds,
+645 references and unchanged regenerated artifacts, and checked constructors
+and proof scope for the combined time/position construction. No numerical
+oracle or holdout was used. The all-level position lower bound supports the
+positive non-equality proof; coordinate squares retain both coordinate bounds
+and nonnegative radius. No repair or scope defect was found. The review does
+not establish the still-unconstructed polygon/connector region or its area,
+partition independence or a force law. Log:
+`/tmp/newtonlean-a42f547-references.log`.

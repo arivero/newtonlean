@@ -650,3 +650,14 @@ controls, not holdouts. Avoid evaluating large unnormalized schedules. Keep
 zero time and zero initial magnitude; no mathlib, new axiom, sorry, external
 time identification, force law or partition independence. See the region
 specification before constructing completed connectors in a subsequent unit.
+
+The sequential nonauthor Luna review of frozen
+`a42f5474eb22ba80ee46b0718931c82dd353ea65` reproduced both builds and all
+645 references, with unchanged regenerated catalogue/graph/reference artifacts
+at 843 declarations in 51 modules. It checked the time-coordinate injection
+and endpoints, equivalence preservation before lifts, planar fixed-point
+semantics, completed coordinate squares and positive all-level position
+separation. No scope defect, numeric holdout or repair. Only standard axioms;
+the unrelated conversation archive edits were preserved. Log:
+`/tmp/newtonlean-a42f547-references.log`, SHA-256
+`bdb3812d58bc754f058c87357af1c4983044a8834b238716636fa5dd9d3d6543`.

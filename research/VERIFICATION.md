@@ -523,3 +523,14 @@ Lean rejects finite position equality specifically as false in
 `/tmp/newtonlean-day-position-refs.log`. Whitespace passes. No actual polygon
 map, connector region, area content, partition independence or force law is
 claimed, and no previous holdout is reused as an oracle.
+
+The sequential nonauthor Luna review of frozen
+`a42f5474eb22ba80ee46b0718931c82dd353ea65` reproduced both builds, all 645
+reference/axiom checks, constructor checks and unchanged generated artifacts
+from a temporary snapshot at 843 declarations in 51 modules. Time-coordinate
+injection and endpoint times, equivalence before lifting, planar fixed-point
+semantics and coordinate-square predicates retain their intended premises.
+The positive position separation is supported by the all-level lower bound.
+No scope defect, numeric holdout or repair; only the same standard axioms.
+Log: `/tmp/newtonlean-a42f547-references.log`, SHA-256
+`bdb3812d58bc754f058c87357af1c4983044a8834b238716636fa5dd9d3d6543`.
