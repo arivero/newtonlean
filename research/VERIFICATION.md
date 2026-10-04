@@ -407,3 +407,14 @@ failure is not a square failure. Reference log:
 and the square-area sum do not assert union content, a realized trajectory or
 its actual intervening area. The next check uses the frozen-snapshot arithmetic
 holdout protocol in [verification provenance](VERIFICATION_PROVENANCE.md).
+
+The sequential nonauthor check of frozen `15d50ad` reproduced both builds,
+catalogue/graph and all 428 references. Counts refer to 44 declaration-bearing
+modules (45 Lean files): 427 public catalogue theorems plus the public
+QuadraticInitialDeflection proposition explain the 428 reference targets.
+The third fresh signed two-block arithmetic holdout passed; its altered-radius
+comparator was rejected as a false equality. The earlier two invalid harness
+records are excluded. Exact standalone/comparison sources, hashes and logs
+are retained in [the holdout artifact](verification/harmonic-cover-2026-10-04/README.md).
+Its scope is implementation arithmetic for one case, not generic geometry or
+existence; no project repair was made from the reference.

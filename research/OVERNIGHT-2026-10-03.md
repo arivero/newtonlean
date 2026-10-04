@@ -2,11 +2,14 @@
 
 The user's 3 October instruction authorizes overnight work, in the order
 Proposition I, II, III, IV, for **De Motu, 1687, and 1713 separately**.
-The overnight window ends at 07:00 Europe/Madrid on 4 October (05:00 UTC).
-Finish the current bounded increment and its checks before the final report.
-The active goal must remain active until that window and reporting are done.
-At most one subagent works at a time; the user's latest instruction permits
-occasional Astra second opinions despite the older prohibition in AGENTS.md.
+The original overnight endpoint was 07:00 Europe/Madrid on 4 October
+(05:00 UTC). The user's daytime continuation supersedes that endpoint.
+Keep advancing verified bounded increments; the goal is complete only when
+its mathematical objective is achieved, not when a clock deadline passes.
+At most one subagent works at a time. Earlier overnight instructions permitted
+occasional Astra opinions; the subsequently supplied AGENTS.md instruction
+sets the current policy to gpt-6-sol implementation and gpt-6-luna checks,
+with no new Astra work. Earlier reviews remain recorded below.
 
 ## Baseline and preservation
 
@@ -340,3 +343,40 @@ different point set; no quarter-radius square failure is claimed.
 Next freeze this increment for a sequential independent arithmetic holdout,
 then derive dyadic finite Cauchy data from actual schedules. Completion,
 partition independence and actual polygon-trajectory area remain open.
+
+Commit `15d50ad` freezes the ninth increment. A sequential Luna verification
+is running the disclosed fresh-input arithmetic holdout; no implementation
+changes are made during that check.
+
+The sequential check finished successfully: both frozen-snapshot builds,
+all 428 references and the third fresh signed two-block arithmetic comparison
+pass. The altered-radius comparator is rejected as false. Two earlier harness
+attempts are burned, not proof-code failures or passing evidence. Unchanged
+sources, logs and birth/contact/hash records are archived under
+`research/verification/harmonic-cover-2026-10-04/`. The check's shared model,
+integer/kernel layers and formula/geometry boundary are explicit.
+
+Tenth target pin: actual dyadic endpoints, not a supplied curve. For rational
+T>=0, set H_j=T/2^j and D_j to the output of 2^j actual harmonic end-kick
+cells H_j from s. Under T*(1+abs(w))<=1/2, derive the correspondence of
+D_j,D_(j+1) with coarseAt/fineAt at h=H_(j+1), n=2^j, preserving rational
+value equivalence and actual elapsed time T. Then derive adjacent error
+at most 3*T*H_(j+1)*abs(w)*M and, for every finite k, error between D_(j+k)
+and D_j at most A/2^j, A=3*T²*abs(w)*M. Derive a positive-tolerance modulus
+by finite integer arithmetic, and construct the endpoint's Cauchy-name data
+with its Cauchy proof. A structure field asserting that D_j is Cauchy without
+deriving it is forbidden. No limit point, curve, completeness, generic ODE
+theorem or force regularity is supplied. Existing Fraction/cell/PointBounds
+helpers must be extended rather than introducing a second arithmetic stack.
+
+Licensed bounded fallback if full tolerance construction exceeds the unit:
+compile actual dyadic schedule identification and arbitrary-finite-gap bound,
+then name exactly the missing modulus/completion lemma. The production-side
+boundary control w=1,T=1/4,s=((1,0),(0,1)) has adjacent error145/4096 at j=0,
+adjacent cap3/16 and tail cap3/8. Zero time must give the initial state in
+value equivalence at every level. A false level-0/level-1 equality must fail.
+Any discarded nonnegativity/small-time premise or silently assumed limit
+disqualifies the route. These names concern fixed rational-time endpoint data;
+a coherent continuous trajectory and its nonnegative actual intervening area
+remain further obligations, separate from Kepler swept area. Any spec error
+is recorded before correction; no historical stage label is promoted.

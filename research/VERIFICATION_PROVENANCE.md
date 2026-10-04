@@ -31,3 +31,14 @@ The distinct calculation checks project formulas, sample indexing, signs and
 normalization; it does not independently check Lean itself or supply geometric
 content/trajectory existence. The comparison's birth/contact record must be
 linked here before it is described as a disjoint arithmetic check.
+
+On 4 October a sequential nonauthor Luna worker checked frozen `15d50ad`.
+The first two reference records were burned for harness indexing/copied-input
+errors; neither certifies the result. The third fresh input passed every
+exact coordinate/error/radius/budget comparison; its altered-radius control
+failed specifically as a false equality. The successful generator, logs,
+comparator and birth/contact/hash record are preserved unchanged in the
+[runnable holdout artifact](verification/harmonic-cover-2026-10-04/README.md).
+No reference-derived repair occurred. Shared update specification,
+integer/kernel layers and the use of the proposed radius formula are disclosed
+there. The check certifies neither the geometric proof nor a trajectory.

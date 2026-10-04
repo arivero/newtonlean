@@ -1,0 +1,5 @@
+'coarse_block_coordinates_match' depends on axioms: [propext]
+'fine_block_coordinates_match' depends on axioms: [propext]
+'final_state_error_matches' depends on axioms: [propext]
+'cover_radius_matches' depends on axioms: [propext]
+'cover_budget_matches' depends on axioms: [propext]
