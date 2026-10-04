@@ -1,6 +1,6 @@
 {
   "as_of": "2026-10-04",
-  "commit": "d761887",
+  "commit": "507d041",
   "note": "Editorial estimate of progress toward research/GOALS.md. Scores are judgements against TASKS.md, PROP_I_REALIZATION.md and CONTINUATION.md; they certify nothing. By the completion ledger in CONTINUATION.md no target is yet discharged.",
   "milestones": {
     "source_map": {"label": "Source map", "weight": 0.10},

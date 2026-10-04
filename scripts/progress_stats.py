@@ -10,9 +10,18 @@ Library theorems are those under NewtonLimitDynamics/.  Theorems in
 research/verification/ are holdout/comparator harnesses and are counted
 separately.
 
+Each library theorem is also classified heuristically (see `classify`):
+  duplicate    its statement repeats an earlier theorem's, up to variable names
+               (stage-local restatements of one finite result count once)
+  sample       a check on specific numbers (counterexamples are kept)
+  plumbing     it mentions only Fraction/Point arithmetic, det/dot, numeric
+               constants and generic list sums
+  substantive  everything else
+The classification reads statements only; it cannot judge depth or relevance.
+
 Outputs (docs/progress/):
   history.csv                   one row per commit (the table view of the plots)
-  theorems-total[-dark].svg     cumulative theorems and definitions
+  theorems-total[-dark].svg     cumulative theorems, substantive theorems, definitions
   theorems-churn[-dark].svg     added / modified / deleted per commit
   theorems-by-area[-dark].svg   cumulative theorems by proof obligation
   completion[-dark].svg         editorial completion estimate, from
@@ -121,7 +130,7 @@ def finish(cur):
 
 # Stacked bottom to top in this order; colours follow the same order.
 GROUPS = [
-    ('stage', 'Stage-local statements, M1–M4 support'),
+    ('stage', 'Stage-local, M1–M4 support, shared arithmetic'),
     ('finite', 'Finite joining & refinement (orders 2–3)'),
     ('props24', 'Props. II–IV finite steps (orders 5–7)'),
     ('prop1', 'Prop. I realization (order 4)'),
@@ -148,6 +157,81 @@ def group_of(path):
     return 'stage'
 
 
+# ----------------------------------------------------------- classification
+
+# Library definitions whose use alone marks a statement as arithmetic plumbing.
+ARITH = {
+    'Fraction', 'Point', 'LatticePoint', 'equiv', 'le', 'lt', 'add', 'sub', 'mul', 'neg', 'ofInt',
+    'abs', 'half', 'positive', 'fracNeg', 'det', 'dot', 'pointAdd', 'pointSub', 'pointNeg',
+    'pointScale', 'pointEquiv', 'pointNorm', 'stateNorm', 'stateSub', 'stateEquiv', 'latticeAdd',
+    'zeroPoint', 'zero', 'one', 'two', 'three', 'four', 'quarter', 'eighth', 'negQuarter',
+    'Nonnegative', 'weightSum', 'factorProduct', 'amplification', 'nsum', 'isum',
+}
+IDENT = re.compile(r"[A-Za-z_][\w']*")
+DOTTED = re.compile(r"(?<![\w.'])[A-Za-z_][\w']*(?:\.[A-Za-z_][\w']*)*")
+
+
+def statement_key(stmt, own_defs, namespaces):
+    """Statement with binder names renamed positionally and every library
+    definition resolved to `name@namespace`, so same-named definitions in
+    different modules stay distinct.  own_defs maps the theorem file's
+    definitions to their namespaces; namespaces maps each definition name to
+    all namespaces defining it."""
+    s = re.sub(r'^(?:theorem|lemma)\s+\S+', '', stmt).strip()
+    names = []
+    for group in re.findall(r'[({\[]([^(){}\[\]:]+):', s):
+        names += [v for v in group.split() if IDENT.fullmatch(v) and v not in names]
+    for i, v in enumerate(names):
+        s = re.sub(rf"(?<![\w.']){re.escape(v)}(?![\w'])", f'_{i}', s)
+
+    def resolve(m):
+        parts = m[0].split('.')
+        for k in range(len(parts) - 1, 0, -1):  # qualified reference, e.g. Fraction.add
+            short, qualifier = parts[k], '.'.join(parts[:k])
+            hits = [ns for ns in namespaces.get(short, ()) if ns == qualifier or ns.endswith('.' + qualifier)]
+            if hits:
+                return f'{short}@{hits[0]}' + ''.join('.' + p for p in parts[k + 1:])
+        head = parts[0]
+        if head in own_defs:
+            ns = own_defs[head]
+        elif len(namespaces.get(head, ())) == 1:
+            ns = next(iter(namespaces[head]))
+        elif head in namespaces:
+            ns = '?'
+        else:
+            return m[0]
+        return f'{head}@{ns}' + ''.join('.' + p for p in parts[1:])
+    s = DOTTED.sub(resolve, s)
+    return ' '.join(s.split())
+
+
+def classify(theorems, defs_by_file):
+    """Count duplicate / sample / plumbing / substantive among (file, name, stmt).
+    defs_by_file maps each file to {definition name: namespace}."""
+    namespaces = {}
+    for defs in defs_by_file.values():
+        for short, ns in defs.items():
+            namespaces.setdefault(short, set()).add(ns)
+    seen, counts = set(), Counter()
+    for f, name, stmt in sorted(theorems, key=lambda t: t[0]):
+        key = statement_key(stmt, defs_by_file.get(f, {}), namespaces)
+        short = name.split('.')[-1] if name else ''
+        refs = set(re.findall(r"([A-Za-z_][\w']*)@", key))
+        if key in seen:
+            counts['duplicate'] += 1
+            continue
+        seen.add(key)
+        counterexample = 'counterexample' in short
+        closed = key.startswith(':') and not re.search('[∀∃¬]', key)
+        if not counterexample and ('sample' in short or re.search(r'(^|_)example', short) or closed):
+            counts['sample'] += 1
+        elif refs <= ARITH:
+            counts['plumbing'] += 1
+        else:
+            counts['substantive'] += 1
+    return counts
+
+
 # ------------------------------------------------------------ history walk
 
 def walk():
@@ -160,6 +244,7 @@ def walk():
                  if f.endswith('.lean') and f != 'lakefile.lean']
         cur, defs, lines, harness = {}, 0, 0, 0
         groups = Counter()
+        located, defs_by_file = [], {}
         for f in files:
             library = f.startswith('NewtonLimitDynamics')
             src = git('show', f'{full}:{f}')
@@ -174,9 +259,14 @@ def walk():
                     while key in cur:
                         key, n = f'{name}#{n}', n + 1
                     cur[key] = (stmt, body, private)
+                    located.append((f, name, stmt))
                     groups[group_of(f)] += 1
                 elif kind in DEF_KINDS and library:
                     defs += 1
+                    if name:
+                        ns, _, short = name.rpartition('.')
+                        defs_by_file.setdefault(f, {})[short] = ns
+        kinds = classify(located, defs_by_file)
         common = [k for k in cur if k in prev]
         row = {
             'index': idx, 'commit': sha, 'date': date, 'subject': subject,
@@ -187,6 +277,8 @@ def walk():
             'proof_changed': sum(cur[k][0] == prev[k][0] and cur[k][1] != prev[k][1] for k in common),
             'visibility_changed': sum(cur[k][2] != prev[k][2] for k in common),
             'definitions': defs, 'library_lines': lines, 'harness_theorems': harness,
+            'substantive': kinds['substantive'], 'plumbing': kinds['plumbing'],
+            'sample': kinds['sample'], 'duplicate': kinds['duplicate'],
         }
         row['modified'] = row['statement_changed'] + row['proof_changed'] + row['visibility_changed']
         for g, _ in GROUPS:
@@ -269,13 +361,16 @@ def plot_total(rows, theme):
     t, fig, ax = setup(theme, (9, 4.2))
     x = [r['index'] for r in rows]
     for key, label, colour in (('theorems', 'Theorems', t['series'][0]),
+                               ('substantive', 'Substantive theorems (heuristic)', t['series'][2]),
                                ('definitions', 'Definitions and structures', t['series'][1])):
         y = [r[key] for r in rows]
         ax.plot(x, y, color=colour, lw=2, solid_joinstyle='round', solid_capstyle='round', label=label)
         ax.plot(x[-1], y[-1], 'o', ms=8, color=colour, mec=t['surface'], mew=2)
         ax.annotate(f'{y[-1]:,}', (x[-1], y[-1]), xytext=(8, 0), textcoords='offset points',
                     va='center', color=t['ink'], fontweight='bold')
-    ax.set_title(f"Lean library declarations per commit: {rows[-1]['theorems']:,} theorems at {rows[-1]['commit']}")
+    last = rows[-1]
+    ax.set_title(f"Lean library declarations per commit: {last['theorems']:,} theorems, "
+                 f"{last['substantive']:,} substantive, at {last['commit']}")
     ax.set_ylabel('Count at commit')
     ax.set_ylim(0, None)
     ax.legend(loc='upper left')
@@ -388,6 +483,7 @@ def main():
           f"(+{sum(r['added'] for r in rows)} / -{sum(r['deleted'] for r in rows)} / "
           f"~{sum(r['modified'] for r in rows)} modified); {last['harness_theorems']} harness theorems")
     print('by obligation:', {g: last[f'group_{g}'] for g, _ in GROUPS})
+    print('by kind:', {k: last[k] for k in ('substantive', 'plumbing', 'sample', 'duplicate')})
     print(f'estimated completion {mid:.1%} (range {lo:.1%}-{hi:.1%})')
 
 

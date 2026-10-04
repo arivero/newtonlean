@@ -33,22 +33,32 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-Snapshot at `d761887` (4 October 2026, 66 commits). Regenerate with
+Snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
 `python3 scripts/progress_stats.py`; the per-commit numbers behind every plot
 are in [history.csv](docs/progress/history.csv).
 
-- **843 library theorems** and 414 definitions in 11,002 lines of Lean. Both
-  build targets pass, and no commit in the history contains `sorry`. Another
-  13 theorems are verification harnesses in `research/verification/`.
-- The history is almost purely additive: 845 theorems added, 24 modified
-  (21 private-to-public switches, 1 statement and 2 proof edits) and 2 deleted,
-  both on 21 September.
-- Growth is recent and concentrated. The 3–4 October session added 525 of the
-  843 theorems, and 526 (62%) serve the Proposition I realization.
+- **793 library theorems, 501 of them substantive**, and 414 definitions in
+  10,709 lines of Lean. Both build targets pass, and no commit in the history
+  contains `sorry`. Another 13 theorems are verification harnesses in
+  `research/verification/`.
+- The classification is a heuristic over statements, defined in
+  `scripts/progress_stats.py`. Of the 793, 174 are arithmetic plumbing (only
+  fraction/point algebra, determinants, constants or generic list sums), 105
+  check specific numbers (counterexamples count as substantive) and 13 repeat
+  an earlier statement, mostly the deliberate per-edition restatements of
+  one finite result.
+- Until 4 October the history was almost purely additive: 845 theorems added,
+  24 modified and 2 deleted. Commit `507d041` then merged 50 duplicated helper
+  theorems (`add_equiv` alone had 10 private copies) into shared lemmas in
+  `Common/RationalMagnitudes.lean`, `TimeSubdivision` and `PointBounds`. The
+  total fell from 843 to 793 while the substantive count stayed at 501.
+- Growth is recent and concentrated. The 3–4 October session added 314 of the
+  501 substantive theorems, and 489 of all 793 (62%) serve the Proposition I
+  realization.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/progress/theorems-total-dark.svg">
-  <img alt="Cumulative theorems and definitions per commit" src="docs/progress/theorems-total.svg">
+  <img alt="Cumulative theorems, substantive theorems and definitions per commit" src="docs/progress/theorems-total.svg">
 </picture>
 
 <picture>
@@ -89,7 +99,9 @@ for the harmonic field alone, and the general varying central force, the
 between-path area and force identification are open in every stage.
 The limiting passages of Propositions II–IV are likely to reuse that construction.
 Theorem count is therefore a poor proxy for completion: most of the recent
-growth serves one special force law.
+growth serves one special force law, on a time window bounded by
+T*(1+|w|) ≤ 1/2. The duplicate merge changed no mathematical content, so the
+estimate is unchanged.
 
 ## Working hypothesis: what difficulties might Newton have recognized?
 
