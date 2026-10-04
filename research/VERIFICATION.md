@@ -381,3 +381,14 @@ times. Exact boundary error 145/4096, bound 3/16 and zero controls compile;
 the false unrestricted factor-two claim is rejected. The time threshold
 uses a coordinate/unit calibration. Trajectory and intervening-area geometry
 remain open, so this is finite construction support, not full Proposition I.
+
+Daytime unsigned-triangle follow-up, 4 October: both full builds and all 395
+reference/axiom checks pass; 531 declarations in 42 modules, with catalogue,
+graph and whitespace validation. The axiom set is still propext,
+Classical.choice and Quot.sound, with no sorryAx/project axiom. Determinant
+magnitude and incident/consecutive-edge triangle estimates hold for arbitrary
+rational representatives. Unsigned magnitudes are nonnegative, translation
+invariant and unchanged by reversed vertex order. Opposite signed patches
+retain their magnitude sum. A false unsigned-equals-signed claim is rejected
+in `/tmp/NewtonTriangleMagnitudeFalse.lean`. Patch multiplicity is explicit;
+geometric region coverage and limiting trajectory remain separate obligations.

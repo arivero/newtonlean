@@ -291,3 +291,23 @@ idle. The seventh increment is checked and saved before pausing. Resume with
 the unsigned area-between-paths target, followed by Cauchy construction; do
 not supply a curve or confuse this area with Kepler area. The user requested
 this pause explicitly; the overnight endpoint remains 07:00 Madrid.
+
+User resumed on 4 October at about 08:04 Madrid / 06:04 UTC. This revokes
+the pause and authorizes continuation beyond the original overnight window.
+The goal tool still reports paused; its interface cannot set an active status.
+Continue the saved mathematics without treating this tracking state as a
+mathematical blocker. Commit `7c52a0f` contains the seventh checked increment.
+
+The user explicitly said to keep going through the day. Next bounded area
+pin: derive rational determinant/triangle magnitude estimates from PointBounds,
+including nonnegativity and translation/orientation compatibility. A finite
+unsigned triangle-patch sum must retain both opposite lobes. Then use these
+estimates for actual equal-time coarse/fine path patches; no curve is supplied.
+
+Eighth increment checked: `TriangleBounds.lean` proves the full rational
+determinant/unsigned-triangle pin. Both builds and all 395 references pass;
+531 declarations in 42 modules, standard logical axioms only, no sorryAx/
+project axiom. Positive/negative orientation and cancellation controls compile;
+Lean rejects the false unsigned-equals-signed assertion. These are finite
+patch estimates. Next construct a geometric enclosure for actual coarse/fine
+path regions and derive its nonnegative mesh-dependent cover-area budget.

@@ -6351,6 +6351,244 @@
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic: an explicitly scheduled constant-acceleration end-kick coarse/fine comparison over positive rational durations. It proves a non-nested endpoint mismatch and closes the resulting finite boundary by a connector. The passages locate motivation only; no limiting curve, integration, trajectory existence, or Newtonian general central-force theorem is attributed or inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.nonnegative_add",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :\n    0 ≤ (Fraction.add a b).num",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.le_add_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (hb : 0 ≤ b.num) :\n    Fraction.le a (Fraction.add a b)",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.det_abs_le_product",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) :\n    Fraction.le (det p q).abs (Fraction.mul (pointNorm p) (pointNorm q))",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.triangleMagnitude_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r : Point) :\n    0 ≤ (triangleMagnitude p q r).num",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.triangleMagnitude_le_product",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r : Point) :\n    Fraction.le (triangleMagnitude p q r)\n      (Fraction.mul (pointNorm (pointSub q p)) (pointNorm (pointSub r p)))",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.triangleTwice_consecutive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r : Point) :\n    Fraction.equiv (triangleTwice p q r)\n      (det (pointSub q p) (pointSub r q))",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.triangleMagnitude_le_consecutive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r : Point) :\n    Fraction.le (triangleMagnitude p q r)\n      (Fraction.mul (pointNorm (pointSub q p)) (pointNorm (pointSub r q)))",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.triangleTwice_translation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(origin p q r : Point) :\n    Fraction.equiv\n      (triangleTwice (pointSub p origin) (pointSub q origin) (pointSub r origin))\n      (triangleTwice p q r)",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.triangleMagnitude_translation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(origin p q r : Point) :\n    Fraction.equiv\n      (triangleMagnitude (pointSub p origin) (pointSub q origin) (pointSub r origin))\n      (triangleMagnitude p q r)",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.triangleTwice_swap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r : Point) :\n    Fraction.equiv (triangleTwice p r q)\n      (⟨-(triangleTwice p q r).num,\n        (triangleTwice p q r).den, (triangleTwice p q r).den_pos⟩ : Fraction)",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.triangleMagnitude_swap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r : Point) :\n    Fraction.equiv (triangleMagnitude p r q) (triangleMagnitude p q r)",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.sample_signed_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (triangleTwice p q r) one",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.sample_signed_negative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (triangleTwice p r q) (Fraction.ofInt (-1))",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.sample_opposite_unsigned_sum",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (Fraction.add (triangleMagnitude p q r) (triangleMagnitude p r q))\n      (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.sample_opposite_signed_sum",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (Fraction.add (triangleTwice p q r) (triangleTwice p r q)) zero",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.sample_unsigned_not_signed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/TriangleBounds.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    ¬ Fraction.equiv (triangleMagnitude p r q) (triangleTwice p r q)",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.UniformRefinement.unitCells_T_from",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/UniformRefinement.lean",

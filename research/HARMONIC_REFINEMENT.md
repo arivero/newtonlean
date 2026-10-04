@@ -85,3 +85,12 @@ Cauchy data, then realize the trajectory with an explicit time domain and
 partition independence. The finite estimates supply no completion, continuum
 curve or ODE theorem. Position/velocity error and geometric area remain
 distinct obligations in the primary construction.
+
+`TriangleBounds.lean` supplies the next area estimates in rational coordinates:
+`abs(det(u,v))≤pointNorm(u)*pointNorm(v)`, and corresponding bounds for the
+unsigned doubled magnitude of an actual triangle. This magnitude is
+nonnegative, translation invariant and unchanged by exchanging its last
+two vertices. Opposite signed triangles can have zero signed total and a
+positive unsigned patch sum. That sum counts multiplicity; geometric coverage
+or decomposition of the intervening region must still be derived. It is
+separate from either path's Kepler swept triangles.
