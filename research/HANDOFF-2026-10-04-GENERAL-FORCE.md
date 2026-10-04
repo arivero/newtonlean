@@ -102,6 +102,18 @@ Technical guidance (verify each point; none is a premise):
 - Laws singular at S need an annulus `r ≥ r₀ > 0`. Derive confinement where
   the class allows (energy, angular momentum) or name it as an explicit
   premise. Arg003 records why the inverse cube marks this boundary.
+- Keep units explicit. The Lipschitz constant `L` has units 1/time² and
+  defines the local dynamical time `τ_L = 1/√L` (harmonic: `1/ω`; gravity
+  near radius r: about `√(r³/GM)`); a mesh converges when `h ≪ τ_L`. Only the
+  existence of a finite `L` on the region is assumed; its value depends on the
+  law and the region and fixes no universal constant. The current conditions
+  silently fix a unit of time: `T·(1+L) ≤ 1/2` adds 1 to a quantity of units
+  1/time², and the state magnitude `|x|+|v|` adds a length to a velocity.
+  Carry the calibration explicitly, for example `|x|+τ₀·|v|` with a window on
+  `h²·L` and `h/τ₀`, and show the conclusions are invariant under rescaling
+  the time unit. Newton's counterpart is qualitative finiteness (1713
+  Lemma X *Vi finita*, Lemma XI *curvaturam finitam*); Arg006 reads it as a
+  local scale.
 - Extend beyond the short window by restarting and gluing windows
   (`motion_restart` in `Polygon/Contact.lean` and the ZeroForce restart
   results cover finite polygons). Prove continuity across each join.
@@ -171,7 +183,9 @@ target is the polygon–curve object itself.
    Record the outcome as a new action argument in
    [action-arguments](action-arguments/README.md) (next Arg number, proposer
    tag per its README) with the GOALS.md tests: positivity, finiteness,
-   partition stability, system independence, rescaling freedom. Relate it to
+   partition stability, system independence, rescaling freedom. A scale read
+   off the estimates that changes with the time-unit calibration `τ₀` is an
+   artifact of the hidden unit, not a property of the motion. Relate it to
    Arg004, which already finds phase area and the areal product as actions.
 3. With a definition fixed, prove the area bound for the constructed curve in
    class (a), then wherever the other classes allow.
