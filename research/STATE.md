@@ -25,7 +25,11 @@ small-time condition. ConvexCover and HarmonicCover now enclose every rational
 matched half-cell patch between the actual paths in a derived square. Their
 nonnegative, multiplicity-counted cover budget is
 2*T*h*M²*(4+3*T*|w|)². Trajectory construction and identification of the
-intervening region's actual area remain open; next construct finite Cauchy data.
+intervening region's actual area remain open. HarmonicDyadic now constructs
+actual fixed-rational-time endpoint Cauchy data, with arbitrary finite-gap
+bound 3*T²*|w|*M/2^j and an explicit positive-tolerance modulus. A Cauchy name
+is not yet a limit point or a continuous time-to-position map; realization,
+partition independence and mechanical force identification remain separate.
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule
 agreement with `p+t*v`, constant velocity, cross-denominator subdivision

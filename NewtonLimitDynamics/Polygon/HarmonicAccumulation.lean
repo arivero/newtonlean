@@ -333,7 +333,7 @@ private theorem stateSub_chain (a b c : Point × Point) :
       Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
     ac_nf <;> omega
 
-private theorem stateSub_triangle (a b c : Point × Point) :
+theorem stateSub_triangle (a b c : Point × Point) :
     Fraction.le (stateNorm (stateSub a c))
       (Fraction.add (stateNorm (stateSub a b)) (stateNorm (stateSub b c))) :=
   Fraction.le_equiv_left (stateNorm_equiv (stateSub_chain a b c))
@@ -359,7 +359,7 @@ theorem coarse_norm_bound (w h : Fraction) (s : Point × Point) :
       simp only [coarseAt, fpower, coarseFactor, Fraction.equiv, Fraction.mul]
       ac_nf
 
-private theorem stateSub_self_norm_zero (s : Point × Point) :
+theorem stateSub_self_norm_zero (s : Point × Point) :
     Fraction.equiv (stateNorm (stateSub s s)) (Fraction.ofInt 0) := by
   have hz (a : Int) : (a + -a).natAbs = 0 := by omega
   simp only [stateNorm, stateSub, pointNorm, pointSub, pointNeg, pointAdd,

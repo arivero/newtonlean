@@ -116,3 +116,28 @@ example has radius 19/16 and budget 361/64. A quarter-radius L1 ball fails for
 the fine endpoint; a separate eighth-radius coordinate square fails for the
 coarse endpoint. These controls do not identify the ball with the square.
 No trajectory was supplied or constructed by this finite cover.
+
+`HarmonicDyadic.lean` constructs fixed rational-time endpoint Cauchy data.
+For T≥0, level j runs 2^j actual cells of duration T/2^j. Value equivalence,
+rather than identical rational representatives, identifies these runs with
+the checked coarse/fine schedules and proves their common elapsed time T.
+Under T*(1+|w|)≤1/2, with A=3*T²*|w|*M, it derives
+
+    stateNorm(D_(j+k)-D_j) ≤ A/2^j
+    stateNorm(D_m-D_n) ≤ 2*A/2^N  when m,n≥N.
+
+An explicit modulus N=(2*A.num*eps.den).toNat makes the latter budget strictly
+less than any represented rational eps with positive numerator. The proof is
+finite integer induction using 2^N≥N+1; no completeness premise is imported.
+`endpointName` packages the actual approximants and their derived Cauchy proof.
+The modulus is deliberately large and representation dependent; it is not an
+efficient evaluation algorithm or a physical scale. Zero time returns the
+initial state in value equivalence at every level. The boundary adjacent
+error145/4096, adjacent cap3/16 and tail cap3/8 compile.
+
+This constructs a Cauchy name, not a limit point or a continuous curve. A
+realization of these data, coherence/continuity in time, partition independence,
+mechanical force identification and the actual intervening-region area remain
+separate obligations. In the general represented-point model, a force must
+also respect point value equivalence; the harmonic cell's compatibility is
+derived in this construction rather than assumed for arbitrary fields.

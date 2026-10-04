@@ -104,8 +104,12 @@ numbering of the Euclid edition Newton used was not investigated
 translation of the centre, and `moving_centre_equal_areas_central` transfers the
 finite step to a uniformly moving centre. This is a finite coordinate
 counterpart of the use of Corollary V, which itself concerns motions within a
-uniformly moving space. Unequal cells and the vanishing-triangle passage from
-a realized curve remain open.
+uniformly moving space. `CentralSchedule.unequal_cells_converse` now also
+checks the finite rational step for two nonzero unequal durations: oriented
+areas proportional to durations imply that the impulse is parallel to the
+arrival radius. This uses the actual drift/impulse construction; it supplies
+neither the impulse's inward sense nor a realized curve. The vanishing-triangle
+passage and mechanical force identification remain open.
 
 ## Confidence and stopping point
 

@@ -2861,7 +2861,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.stateSub_triangle",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -2889,7 +2889,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.stateSub_self_norm_zero",
-    "private": true,
+    "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicAccumulation.lean",
     "source_passages": [
       "NATP00089.par9",
@@ -3894,6 +3894,580 @@
     "classification": "modern_reconstruction",
     "premise_signature": ":\n    ¬ SquareContains (coarseStart one eighth sample 0) eighth\n      (coarseEnd one eighth sample 0)",
     "interpretation_and_remaining_premises": "Modern geometric cover for actual common-time harmonic coarse/fine polygons. Under h>=0 and the named small-time condition, derived prefix state/error bounds enclose all six block corners and both matched half-cell patches in the square of radius R=h*M*(4+3*T*abs(w)) about each coarse start. One square per coarse block gives the nonnegative multiplicity-counted budget 4*n*R^2, proved equivalent to 2*T*h*M^2*(4+3*T*abs(w))^2. Both interpolation parameters are arbitrary rational unit-interval values. Exact, zero, too-small L1-ball and too-small coordinate-square controls compile. The coarse midpoint receives no impulse. This is a finite cover budget, separate from Kepler swept area; no union content, actual trajectory, continuum limit or mechanical force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.blocks_succ",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(j : Nat) : blocks (j + 1) = blocks j + blocks j",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.two_mul",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x : Int) : 2 * x = x + x",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.duration_halving",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) :\n    Fraction.equiv (duration T j)\n      (Fraction.add (duration T (j + 1)) (duration T (j + 1)))",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.totalTime_dyadic",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) :\n    Fraction.equiv (totalTime (duration T (j + 1)) (blocks j)) T",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.add_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.add a c) (Fraction.add b d)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.mul_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (h : Fraction.equiv a b)\n    (k : Fraction.equiv c d) :\n    Fraction.equiv (Fraction.mul a c) (Fraction.mul b d)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.neg_equiv",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : Fraction.equiv a b) :\n    Fraction.equiv ⟨-a.num, a.den, a.den_pos⟩ ⟨-b.num, b.den, b.den_pos⟩",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.pointAdd_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointAdd p q) (pointAdd p' q')",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.pointScale_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} {p q : Point}\n    (ha : Fraction.equiv a b) (hp : pointEquiv p q) :\n    pointEquiv (pointScale a p) (pointScale b q)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.pointNeg_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (hp : pointEquiv p q) :\n    pointEquiv (pointNeg p) (pointNeg q)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.pointSub_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point}\n    (hp : pointEquiv p p') (hq : pointEquiv q q') :\n    pointEquiv (pointSub p q) (pointSub p' q')",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.stateSub_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{s s' t t' : Point × Point}\n    (hs : stateEquiv s s') (ht : stateEquiv t t') :\n    stateEquiv (stateSub s t) (stateSub s' t')",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.cell_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{d e : Fraction} {s t : Point × Point}\n    (hd : Fraction.equiv d e) (hs : stateEquiv s t) (w : Fraction) :\n    stateEquiv (cell (linearField w) d s) (cell (linearField w) e t)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.schedule_replicate_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w d e : Fraction)\n    (hd : Fraction.equiv d e) :\n    (n : Nat) → (s t : Point × Point) → stateEquiv s t →\n      stateEquiv (schedule (linearField w) (List.replicate n d) s)\n        (schedule (linearField w) (List.replicate n e) t)\n  | 0, _, _, hs => hs\n  | n + 1, _, _, hs =>\n      schedule_replicate_congr w d e hd n _ _ (cell_congr hd hs w)\n\nprivate theorem fineDurations_replicate (h : Fraction) :\n    (n : Nat) → fineDurations h n = List.replicate (n + n) h\n  | 0 => rfl\n  | n + 1 => by\n      have ih",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.fineDurations_replicate",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) :\n    (n : Nat) → fineDurations h n = List.replicate (n + n) h\n  | 0 => rfl\n  | n + 1 => by\n      have ih",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.endpoint_coarse",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    stateEquiv (endpoint w T s j)\n      (coarseAt w (duration T (j + 1)) s (blocks j))",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.endpoint_fine",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    endpoint w T s (j + 1) =\n      fineAt w (duration T (j + 1)) s (blocks j)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.elapsed_replicate_congr",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{d e : Fraction}\n    (hd : Fraction.equiv d e) :\n    (n : Nat) →\n      Fraction.equiv (elapsed (List.replicate n d)) (elapsed (List.replicate n e))\n  | 0 => Fraction.equiv_refl _\n  | n + 1 => add_equiv hd (elapsed_replicate_congr hd n)\n\ntheorem endpoint_elapsed (T : Fraction) (j : Nat) :\n    Fraction.equiv (elapsed (List.replicate (blocks j) (duration T j))) T",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.endpoint_elapsed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) :\n    Fraction.equiv (elapsed (List.replicate (blocks j) (duration T j))) T",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.endpoint_next_elapsed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) :\n    Fraction.equiv\n      (elapsed (List.replicate (blocks (j + 1)) (duration T (j + 1)))) T",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.dyadic_smallTime",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (j : Nat)\n    (hs : DyadicSmallTime w T) :\n    SmallTime w (duration T (j + 1)) (blocks j)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.adjacent_error_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    Fraction.le\n      (stateNorm (stateSub (endpoint w T s (j + 1)) (endpoint w T s j)))\n      (adjacentCap w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.adjacentCap_tail",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    Fraction.equiv (adjacentCap w T s j) (tailCap w T s (j + 1))",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.tail_halving",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    Fraction.equiv\n      (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))\n      (tailCap w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.tail_double",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat) :\n    Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))\n      (doubleTail w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.coefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.finite_gap_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    (k j : Nat) → Fraction.le\n      (stateNorm (stateSub (endpoint w T s (j + k)) (endpoint w T s j)))\n      (tailCap w T s j)\n  | 0, j => by\n      have hz : Fraction.le (Fraction.ofInt 0) (tailCap w T s j)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.stateSub_norm_symm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) :\n    Fraction.equiv (stateNorm (stateSub a b)) (stateNorm (stateSub b a))",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.two_sided_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)\n    (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :\n    Fraction.le\n      (stateNorm (stateSub (endpoint w T s m) (endpoint w T s n)))\n      (doubleTail w T s N)",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.two_pow_ge_succ",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(N : Nat) :\n    (N : Int) + 1 ≤ (2 : Int) ^ N",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.doubleTail_lt_tolerance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :\n    Fraction.lt (doubleTail w T s (modulus w T s eps)) eps",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.endpoint_cauchy",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point)\n    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :\n    ∀ eps : Fraction, 0 < eps.num →\n      ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →\n        Fraction.lt\n          (stateNorm (stateSub (endpoint w T s m) (endpoint w T s n))) eps",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.stateEquiv_refl",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) : stateEquiv s s",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.stateEquiv_trans",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c : Point × Point}\n    (hab : stateEquiv a b) (hbc : stateEquiv b c) : stateEquiv a c",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.zero_duration_cell",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w d : Fraction) (s : Point × Point)\n    (hd : d.num = 0) : stateEquiv (cell (linearField w) d s) s",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.zero_duration_schedule",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w d : Fraction) (hd : d.num = 0) :\n    (n : Nat) → (s : Point × Point) →\n      stateEquiv (schedule (linearField w) (List.replicate n d) s) s\n  | 0, s => stateEquiv_refl s\n  | n + 1, s =>\n      stateEquiv_trans\n        (zero_duration_schedule w d hd n (cell (linearField w) d s))\n        (zero_duration_cell w d s hd)\n\ntheorem zero_time_endpoint (w T : Fraction) (s : Point × Point) (j : Nat)\n    (hT : T.num = 0) : stateEquiv (endpoint w T s j) s",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.zero_time_endpoint",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (j : Nat)\n    (hT : T.num = 0) : stateEquiv (endpoint w T s j) s",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_dyadic_small_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": DyadicSmallTime sampleOne sampleTime",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_adjacent_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv\n      (stateNorm (stateSub (endpoint sampleOne sampleTime sampleState 1)\n        (endpoint sampleOne sampleTime sampleState 0)))\n      ⟨145, 4096, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_adjacent_cap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (adjacentCap sampleOne sampleTime sampleState 0)\n      ⟨3, 16, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.sample_tail_cap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadic.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": ":\n    Fraction.equiv (tailCap sampleOne sampleTime sampleState 0)\n      ⟨3, 8, by decide⟩",
+    "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.position_mismatch",

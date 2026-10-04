@@ -418,3 +418,19 @@ records are excluded. Exact standalone/comparison sources, hashes and logs
 are retained in [the holdout artifact](verification/harmonic-cover-2026-10-04/README.md).
 Its scope is implementation arithmetic for one case, not generic geometry or
 existence; no project repair was made from the reference.
+
+Actual dyadic Cauchy-data follow-up, 4 October: both full builds, catalogue,
+graph and all 453 reference/axiom checks passed in order; 631 declarations in
+45 declaration-bearing modules. Only propext, Classical.choice and Quot.sound,
+with no sorryAx/project axiom, warning or error. `endpointName` was separately
+type/axiom checked as well as its public Cauchy theorem. The sequence is
+identified with actual schedules of elapsed time T, arbitrary finite gaps
+and two later endpoints obey the geometric tail bounds, and finite integer
+arithmetic derives the explicit positive-tolerance modulus. Zero time is
+generic; the production-side exact adjacent/cap controls pass. Lean rejects
+the false zero-error claim in `/tmp/NewtonHarmonicDyadicFalse.lean` as false.
+Reference log: `/tmp/newtonlean-day-dyadic-refs.log`. Whitespace checks pass.
+This constructs fixed-rational-time Cauchy names; it supplies neither a limit
+point nor continuous time-domain realization, partition independence or the
+actual polygon–trajectory area. The earlier holdout certifies only its frozen
+cover snapshot and is not reused to certify this construction.

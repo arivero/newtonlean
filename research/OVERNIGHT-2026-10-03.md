@@ -380,3 +380,13 @@ disqualifies the route. These names concern fixed rational-time endpoint data;
 a coherent continuous trajectory and its nonnegative actual intervening area
 remain further obligations, separate from Kepler swept area. Any spec error
 is recorded before correction; no historical stage label is promoted.
+
+Tenth increment checked in full: HarmonicDyadic constructs actual endpoint
+Cauchy names with the derived finite-gap bound and positive-tolerance modulus.
+Both builds and all 453 references pass sequentially; 631 declarations in
+45 declaration-bearing modules, standard logical axioms only, no sorryAx or
+project axiom. The constructor's type/axioms are separately checked. Generic
+zero-time and exact boundary controls pass; the false zero-error assertion
+is rejected as false. Fixed rational-time Cauchy data are constructed, not a
+supplied curve. Realization, continuity/coherence in time, partition independence,
+force identification and actual intervening-area content remain open.

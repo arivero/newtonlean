@@ -66,8 +66,10 @@ start. The summed square budget 2*T*h*M²*(4+3*T*|w|)² is nonnegative and
 counts multiplicity; it is neither Kepler area nor actual union/trajectory
 area. No curve is an input to this construction.
 
-Next construct finite Cauchy data and prove a realization with its time domain
-specified: rational approximation values need
+HarmonicDyadic now constructs endpoint Cauchy names at fixed rational times,
+with a derived tolerance modulus and no supplied limit point. Next realize
+these data with a coherent time domain and partition independence: rational
+approximation values need
 not have rational limits. Then derive D_mesh geometry/enclosure and edition-local
 uninterrupted-force identification. No integral calculus, ODE theorem, measure
 theorem, or silently supplied completion closes these obligations.
