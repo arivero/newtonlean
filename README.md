@@ -31,6 +31,66 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 [edition comparison](research/edition-comparison.md), and
 [formal result ledger](research/formal-results.json).
 
+## Progress
+
+Snapshot at `d761887` (4 October 2026, 66 commits). Regenerate with
+`python3 scripts/progress_stats.py`; the per-commit numbers behind every plot
+are in [history.csv](docs/progress/history.csv).
+
+- **843 library theorems** and 414 definitions in 11,002 lines of Lean. Both
+  build targets pass, and no commit in the history contains `sorry`. Another
+  13 theorems are verification harnesses in `research/verification/`.
+- The history is almost purely additive: 845 theorems added, 24 modified
+  (21 private-to-public switches, 1 statement and 2 proof edits) and 2 deleted,
+  both on 21 September.
+- Growth is recent and concentrated. The 3–4 October session added 525 of the
+  843 theorems, and 526 (62%) serve the Proposition I realization.
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/theorems-total-dark.svg">
+  <img alt="Cumulative theorems and definitions per commit" src="docs/progress/theorems-total.svg">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/theorems-churn-dark.svg">
+  <img alt="Theorems added, modified and deleted per commit" src="docs/progress/theorems-churn.svg">
+</picture>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/theorems-by-area-dark.svg">
+  <img alt="Cumulative theorems by proof obligation" src="docs/progress/theorems-by-area.svg">
+</picture>
+
+**Estimated completion: about 34% (31–42% under alternative weightings).**
+This figure is an editorial judgement and certifies nothing. Each proposition
+is scored on four milestones weighted by expected difficulty: source map (10%),
+finite step in Lean (20%), limiting passage or realization (45%), and area and
+force identification (25%). Propositions I–IV carry 22.5% each and the
+action-hypothesis assessment 10%. Scores and the evidence for each are in
+[completion-estimate.json](docs/progress/completion-estimate.json).
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/completion-dark.svg">
+  <img alt="Estimated completion per proposition and milestone" src="docs/progress/completion.svg">
+</picture>
+
+| Target | Source map | Finite step | Limit / realization | Identification | Estimate |
+| --- | --- | --- | --- | --- | --- |
+| Prop. I | done | done | harmonic special case | cover budget only | 46% |
+| Prop. II | done | done | stated | open | 32% |
+| Prop. III | done | done | open | open | 30% |
+| Prop. IV | done | finite core | routes documented | open | 30% |
+| Action assessment | | | | | 30% |
+
+Under the stricter [completion ledger](research/CONTINUATION.md), no target is
+discharged yet. Source maps and finite steps are essentially finished; the
+remaining two thirds is the analytic core. Proposition I's realization exists
+for the harmonic field alone, and the general varying central force, the
+between-path area and force identification are open in every stage.
+The limiting passages of Propositions II–IV are likely to reuse that construction.
+Theorem count is therefore a poor proxy for completion: most of the recent
+growth serves one special force law.
+
 ## Working hypothesis: what difficulties might Newton have recognized?
 
 **Educated guess, not an established account of Newton's intentions.** Our
@@ -117,6 +177,7 @@ python3 scripts/collate_sources.py
 python3 scripts/check_graph.py
 python3 scripts/compare_editions.py
 python3 scripts/plot_graphs.py
+python3 scripts/progress_stats.py
 lake env lean research/CheckReferences.lean
 git diff --check
 ```

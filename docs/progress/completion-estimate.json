@@ -1,0 +1,71 @@
+{
+  "as_of": "2026-10-04",
+  "commit": "d761887",
+  "note": "Editorial estimate of progress toward research/GOALS.md. Scores are judgements against TASKS.md, PROP_I_REALIZATION.md and CONTINUATION.md; they certify nothing. By the completion ledger in CONTINUATION.md no target is yet discharged.",
+  "milestones": {
+    "source_map": {"label": "Source map", "weight": 0.10},
+    "finite_step": {"label": "Finite step in Lean", "weight": 0.20},
+    "limit_realization": {"label": "Limit / realization", "weight": 0.45},
+    "identification": {"label": "Area & force identification", "weight": 0.25}
+  },
+  "alternative_weightings": {
+    "finite-heavy": {"source_map": 0.10, "finite_step": 0.30, "limit_realization": 0.40, "identification": 0.20},
+    "limit-heavy": {"source_map": 0.10, "finite_step": 0.15, "limit_realization": 0.55, "identification": 0.20}
+  },
+  "targets": [
+    {
+      "id": "I",
+      "label": "Prop. I (area law)",
+      "weight": 0.225,
+      "scores": {"source_map": 1.0, "finite_step": 1.0, "limit_realization": 0.30, "identification": 0.10},
+      "basis": {
+        "source_map": "De Motu Theorem 1, 1687 and 1713 passages and edges in SECTION_II.md; all 10 edges carry Lean references.",
+        "finite_step": "Stage-local AreaLaw / PropositionI files; CentralSchedule.swept_eq for any central field and unequal cells.",
+        "limit_realization": "Harmonic special case only: Cauchy names from one dyadic polygon family, continuous state and planar position maps on a constructed binary-time quotient. Coarse polygon map, partition independence and the general varying force (P3) remain open.",
+        "identification": "HarmonicCover square-cover budget. Between-path region and content (P4) and force identification (P5) remain open."
+      }
+    },
+    {
+      "id": "II",
+      "label": "Prop. II (converse)",
+      "weight": 0.225,
+      "scores": {"source_map": 1.0, "finite_step": 1.0, "limit_realization": 0.05, "identification": 0.0},
+      "basis": {
+        "source_map": "1687 and 1713 passages and edges; De Motu bounded absence recorded.",
+        "finite_step": "Converse.lean Case 1 and Case 2; CentralSchedule.unequal_cells_converse.",
+        "limit_realization": "Vanishing-triangle passage with a realized curve is stated as the next obligation.",
+        "identification": "Open."
+      }
+    },
+    {
+      "id": "III",
+      "label": "Prop. III (relative motion)",
+      "weight": 0.225,
+      "scores": {"source_map": 1.0, "finite_step": 1.0, "limit_realization": 0.0, "identification": 0.0},
+      "basis": {
+        "source_map": "1687 and 1713 passages and edges; De Motu bounded absence recorded.",
+        "finite_step": "RelativeMotion.lean: Corollary VI, Law I, relative deflection, propIII_via_moving_centre.",
+        "limit_realization": "Limiting passage from a realized relative orbit is open.",
+        "identification": "Force, mass and time-scale interpretation open."
+      }
+    },
+    {
+      "id": "IV",
+      "label": "Prop. IV (circular force)",
+      "weight": 0.225,
+      "scores": {"source_map": 1.0, "finite_step": 0.9, "limit_realization": 0.05, "identification": 0.0},
+      "basis": {
+        "source_map": "De Motu Theorem 2, 1687 and 1713 passages and edges.",
+        "finite_step": "CircleCompare.lean finite core: intersecting chords and force ratio equal to sagitta ratio.",
+        "limit_realization": "Edition routes to arc^2/r documented as editorial interpretations.",
+        "identification": "Open."
+      }
+    }
+  ],
+  "action_diagnostic": {
+    "label": "Action-hypothesis assessment",
+    "weight": 0.10,
+    "score": 0.30,
+    "basis": "Arg001-Arg006 recorded; InverseCubeAreal, PhaseArea and MonotoneEnclosure checked; Arg004-Arg006 formalization pending."
+  }
+}
