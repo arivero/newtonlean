@@ -1,3 +1,6 @@
+import BarrowLib.Polygon.GeometricTail
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
 import NewtonLimitDynamics.Polygon.HarmonicTimeComparison
 
 /-!
@@ -20,36 +23,9 @@ open HarmonicDyadic
 open HarmonicTimeComparison
 open PointBounds
 
-def bit (b : Nat → Bool) (j : Nat) : Nat := if b j then 1 else 0
-
-def ticks (b : Nat → Bool) : Nat → Nat
-  | 0 => 0
-  | j + 1 => 2 * ticks b j + bit b j
-
 def prefixState (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
     (j : Nat) : Point × Point :=
   schedule (linearField w) (List.replicate (ticks b j) (duration T j)) s
-
-theorem bit_le_one (b : Nat → Bool) (j : Nat) : bit b j ≤ 1 := by
-  unfold bit
-  split <;> omega
-
-theorem ticks_lt_blocks (b : Nat → Bool) :
-    (j : Nat) → ticks b j < blocks j
-  | 0 => by simp [ticks, blocks]
-  | j + 1 => by
-      have ih := ticks_lt_blocks b j
-      have hb := bit_le_one b j
-      rw [ticks, blocks_succ]
-      omega
-
-theorem ticks_le_blocks (b : Nat → Bool) (j : Nat) :
-    ticks b j ≤ blocks j := Nat.le_of_lt (ticks_lt_blocks b j)
-
-theorem ticks_next (b : Nat → Bool) (j : Nat) :
-    ticks b (j + 1) = ticks b j + ticks b j + bit b j := by
-  simp only [ticks]
-  omega
 
 theorem prefix_coarse (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat) :
@@ -456,44 +432,22 @@ theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv
       (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))
       (tailCap w T s j) := by
-  simp only [tailCap, Fraction.equiv, Fraction.add, Int.pow_succ]
-  simp only [show (2 : Int) = 1 + 1 by rfl, Int.add_mul, Int.mul_add]
-  ac_nf
+  exact GeometricTail.tail_halving (coefficient w T s) j
 
 theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))
       (doubleTail w T s j) := by
-  simp only [tailCap, doubleTail, Fraction.equiv, Fraction.add]
-  simp only [show (2 : Int) = 1 + 1 by rfl, Int.add_mul, Int.mul_add]
-  ac_nf
+  exact GeometricTail.tail_double (coefficient w T s) j
 
 theorem finite_gap_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     (k j : Nat) → Fraction.le
       (stateNorm (stateSub (prefixState b w T s (j + k))
-        (prefixState b w T s j))) (tailCap w T s j)
-  | 0, j => by
-      have hz : Fraction.le (Fraction.ofInt 0) (tailCap w T s j) := by
-        simp only [Fraction.le, Fraction.ofInt, tailCap]
-        have hc := coefficient_nonnegative w T s hT
-        simp only [Int.zero_mul, Int.mul_one]
-        exact hc
-      simpa only [Nat.add_zero] using
-        Fraction.le_equiv_left
-          (stateSub_self_norm_zero (prefixState b w T s j)) hz
-  | k + 1, j => by
-      have htri := stateSub_triangle
-        (prefixState b w T s (j + (k + 1)))
-        (prefixState b w T s (j + 1)) (prefixState b w T s j)
-      have hk : Fraction.le
-          (stateNorm (stateSub (prefixState b w T s (j + (k + 1)))
-            (prefixState b w T s (j + 1)))) (tailCap w T s (j + 1)) := by
-        simpa only [Nat.add_succ, Nat.succ_add, Nat.add_assoc] using
-          finite_gap_error b w T s hT hs k (j + 1)
-      have ha := adjacent_error_le b w T s j hT hs
-      have hsum := Fraction.add_le_add hk ha
-      exact Fraction.le_equiv_right (Fraction.magnitudes.le_trans htri hsum)
-        (tail_halving w T s j)
+        (prefixState b w T s j))) (tailCap w T s j) := by
+  intro k j
+  exact GeometricTail.finite_gap (prefixState b w T s) (coefficient w T s)
+    (coefficient_nonnegative w T s hT)
+    (fun i => adjacent_error_le b w T s i hT hs) k j
 
 theorem two_sided_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -501,19 +455,9 @@ theorem two_sided_error (b : Nat → Bool) (w T : Fraction)
     Fraction.le
       (stateNorm (stateSub (prefixState b w T s m) (prefixState b w T s n)))
       (doubleTail w T s N) := by
-  have hm' : N + (m - N) = m := by omega
-  have hn' : N + (n - N) = n := by omega
-  have hfirst := finite_gap_error b w T s hT hs (m - N) N
-  have hsecond := finite_gap_error b w T s hT hs (n - N) N
-  rw [hm'] at hfirst
-  rw [hn'] at hsecond
-  have hsecond' := Fraction.le_equiv_left
-    (stateSub_norm_symm (prefixState b w T s N) (prefixState b w T s n)) hsecond
-  have htri := stateSub_triangle
-    (prefixState b w T s m) (prefixState b w T s N) (prefixState b w T s n)
-  exact Fraction.le_equiv_right
-    (Fraction.magnitudes.le_trans htri (Fraction.add_le_add hfirst hsecond'))
-    (tail_double w T s N)
+  exact GeometricTail.two_sided (prefixState b w T s) (coefficient w T s)
+    (coefficient_nonnegative w T s hT)
+    (fun i => adjacent_error_le b w T s i hT hs) N m n hm hn
 
 def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
   (2 * (coefficient w T s).num * eps.den).toNat
@@ -521,25 +465,8 @@ def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
 theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
     (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
     Fraction.lt (doubleTail w T s (modulus w T s eps)) eps := by
-  let A := coefficient w T s
-  let N := modulus w T s eps
-  have hA : 0 ≤ A.num := coefficient_nonnegative w T s hT
-  have hL : 0 ≤ 2 * A.num * eps.den :=
-    Int.mul_nonneg (Int.mul_nonneg (by decide) hA) (Int.le_of_lt eps.den_pos)
-  have hN : (N : Int) = 2 * A.num * eps.den :=
-    Int.toNat_of_nonneg hL
-  have hpow := two_pow_ge_succ N
-  have hp : 0 ≤ (2 : Int) ^ N := Int.le_of_lt (Int.pow_pos (by decide))
-  have hfactor : 1 ≤ eps.num * A.den := by
-    have hmul := Int.mul_pos heps A.den_pos
-    omega
-  have hmult := Int.mul_le_mul_of_nonneg_right hfactor hp
-  simp only [Int.one_mul] at hmult
-  unfold Fraction.lt doubleTail
-  dsimp
-  change 2 * A.num * eps.den < eps.num * (A.den * (2 : Int) ^ N)
-  rw [← Int.mul_assoc]
-  omega
+  exact GeometricTail.doubleTail_lt_tolerance (coefficient w T s) eps
+    (coefficient_nonnegative w T s hT) heps
 
 theorem prefix_cauchy (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :

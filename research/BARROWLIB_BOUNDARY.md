@@ -60,3 +60,27 @@ This small bootstrap and its library registration are part of A's verified
 increment; D.2 migrates the remaining generic modules and completes the
 catalogue, count and verification-command changes. Every new generic estimate
 is therefore in the foundation from its first checked version.
+
+
+## D.2 extraction, 4 October
+
+The remaining geometry, state-distance, Cauchy-name/quotient, dyadic arithmetic,
+binary-time and generic position-value layers now live under `BarrowLib/`.
+Mixed Newton files import the generic definitions and retain the force-specific
+instances; whole migrated modules are old-path compatibility imports. Existing
+fully qualified declaration names remain stable. The generic finite triangle
+and cover examples still make no physical region-area assertion.
+
+`GeometricTail` proves the coefficient-parameter finite-gap/two-sided estimates
+and a positive-tolerance modulus from an explicit adjacent bound. The actual
+harmonic endpoint and prefix constructions supply that bound through their
+own finite refinement estimates and retain their different coefficients.
+No generic Cauchy premise is counted as a derived mechanical estimate.
+The completed position projections and coordinate squares also move to the
+foundation; the harmonic gamma maps and samples remain Newton-side.
+
+The separate `BarrowLib` build and import-boundary inspection check that no
+foundation file imports a Newton-specific file. Cauchy completion remains
+explicitly modern elementary infrastructure, with no derivative, integral
+or ODE result used as a primitive. Counts and catalogue paths include both
+library roots; this reorganization alone changes no completion score.

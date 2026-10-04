@@ -6,8 +6,9 @@ and the required partition independence, then prove its mechanical properties
 and control the area between it and the polygons. Supplied-curve estimates are
 conditional diagnostics and cannot discharge the forward theorem.
 
-The [foundation inventory](BARROWLIB_BOUNDARY.md) now has a minimal BarrowLib
-bootstrap, actual bounded iterates and mesh-uniform finite refinement estimates.
+The [foundation inventory](BARROWLIB_BOUNDARY.md) is now extracted into
+BarrowLib, including geometry, Cauchy values, binary time and position values,
+alongside actual bounded iterates and mesh-uniform finite refinement estimates.
 These compare actual finite endpoints and retain force-sampling error; they
 do not define an intervening region or its content. Continuous-force local
 consistency is also checked, without a stability or uniqueness inference.

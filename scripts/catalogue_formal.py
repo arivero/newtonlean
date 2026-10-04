@@ -65,6 +65,16 @@ correspondence = {
  'Comparison/CircleCompare.lean': (['NATP00077.par60','NATP00082.par71','NATP00077.par31','NATP00082.par18'], 'Modern finite circular comparison for Proposition IV (1687 par60, 1713 par71). A CircleChord carries the exact finite sagitta-chord relation s times (2r minus s) equals (c over 2) squared, the intersecting-chords fact, with no limit. forceBySagitta reads centripetal force as sagitta over the square of the common time, and force_ratio_is_sagitta_ratio shows equal-time forces are proportional to the sagittae. The edition routes (1687 Prop II plus Lemma V and Lemma XI; 1713 Prop II plus Prop I Cor 2 and 4 and Lemma VII) are the limiting steps that replace the finite relation by arc squared over r, and are recorded separately as editorial interpretations, never derived and never merged.'),
   'Comparison/Routes.lean': (['NATP00082.par91','NATP00087.par89'], 'Constant-force coordinate example and matched-duration algebra; general orbit correspondence remains conditional.'),
 }
+foundation_correspondence = {
+ 'Polygon/StateDistance.lean': ([], 'Generic rational state subtraction, congruence, symmetry, triangle and zero-distance bounds. Existing harmonic namespace names remain compatibility names; no field or motion premise occurs. The triangle and zero results are instances of shared FiniteEstimates facts, not duplicated proofs.'),
+ 'Polygon/EndpointCauchyName.lean': ([], 'Generic rational-state Cauchy names with a proved positive-tolerance condition. A name stores approximants and their Cauchy proof, not a supplied limit point or motion.'),
+ 'Polygon/CauchyValues.lean': ([], 'Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied.'),
+ 'Polygon/DyadicArithmetic.lean': ([], 'Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise.'),
+ 'Polygon/FinitePower.lean': ([], 'Generic finite rational powers and nonnegativity, with the existing namespace retained. No particular field, force or limiting result is used.'),
+ 'Polygon/BinaryTime.lean': ([], 'Generic binary-address time approximants, derived tail estimates and Cauchy names, proved address equivalence and its explicit quotient. The domain is constructed from rational approximants; no external real interval, mechanical motion or uninterrupted force is identified.'),
+ 'Polygon/PositionValues.lean': ([], 'Generic nonexpansive rational projections and quotient maps, planar position values and completed coordinate squares. Name and representative preservation precede value lifting. Coordinate-square membership transfers eventual rational bounds; it does not define planar content or a polygon-curve region.'),
+ 'Polygon/GeometricTail.lean': ([], 'Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied.'),
+}
 declaration_correspondence = {
  'DeMotu1684.AreaLaw.natp00089_finite_equal_areas': (['NATP00089.par8','NATP00089.par9'], 'NATP00089 Theorem 1 finite equal-area reconstruction only; unresolved changing marginal hypothesis/lemma labels remain unresolved. Supplied Euclidean identities and area semantics; unsigned triangle areas counted with multiplicity. No NATP00090 or printed-edition premise.'),
  'DeMotu1684.AreaLaw.natp00090_finite_equal_areas': (['NATP00090.par16','NATP00090.par17'], 'NATP00090 Theorem 1 finite equal-area reconstruction only, with its own Law 1/Lemma 1 references. Supplied Euclidean identities and area semantics; no reconstruction of another witness revision or later limiting lemma.'),
@@ -78,7 +88,14 @@ library_paths = [path for library in ('NewtonLimitDynamics', 'BarrowLib')
                  for path in (root/library).rglob('*.lean')]
 for path in sorted(library_paths):
     rel=str(path.relative_to(root/path.relative_to(root).parts[0]))
-    sources,note=correspondence[rel]
+    if path.relative_to(root).parts[0] == 'BarrowLib':
+        if rel in foundation_correspondence:
+            _,note=foundation_correspondence[rel]
+        else:
+            _,note=correspondence[rel]
+        sources=[]
+    else:
+        sources,note=correspondence[rel]
     for kind,name,statement,body,private in declarations(path.read_text()):
         if kind != 'theorem':
             continue

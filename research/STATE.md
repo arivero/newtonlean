@@ -1,16 +1,16 @@
 # Research state
 
-Current handoff execution (Sol 6.1, 4 October): D.1 and the first Task A
-increment are committed. The [force design](GENERAL_FORCE_DESIGN.md) uses
-uniform rational samples for possibly irrational accelerations and constructs
-their quotient values. BarrowLib now derives actual finite coarse/fine error
-accumulation and a mesh-uniform small-window estimate, retaining sample error.
-Actual sampled Newton schedules have position and velocity bounds depending
-on total time; bounded acceleration and region confinement are explicit.
-Merely continuous forces have a proved local refinement source controlled by
-their modulus, without a Lipschitz or uniqueness inference. Harmonic and
-parallel fields remain instances. The full D.2 extraction is next; general
-motion realization, restart/gluing and derived confinement remain open.
+Current handoff execution (Sol 6.1, 4 October): D.1 and Task A's finite
+interface/estimate increments are committed. The [force design](GENERAL_FORCE_DESIGN.md)
+uses uniform rational samples for possibly irrational accelerations, constructs
+their quotient values and derives actual mesh-uniform finite cross-sample
+refinement control. Bounded force and region confinement remain explicit.
+Continuous laws have local consistency through their own modulus.
+D.2 now extracts the remaining generic geometry, Cauchy quotient, binary-time
+and position-value infrastructure into BarrowLib, preserving declaration names.
+Shared coefficient-parameter exhaustion keeps endpoint and prefix constants
+distinct. Next is B.1/B.2: E/G agreement and whole-edge polygon/curve control.
+General motion realization, restart/gluing and derived confinement remain open.
 [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the exact finite-cell
 potential identities allowed alongside Task A. Completion scores are unchanged.
 

@@ -72,3 +72,11 @@ def closedBoundaryTwice (p b d c : Point) : Fraction :=
 
 
 end NewtonLimitDynamics.Polygon.TimeSubdivision
+
+namespace NewtonLimitDynamics.Polygon.HarmonicStability
+open NewtonLimitDynamics
+open TimeSubdivision
+def dot (p q : Point) : Fraction :=
+  Fraction.add (Fraction.mul p.1 q.1) (Fraction.mul p.2 q.2)
+
+end NewtonLimitDynamics.Polygon.HarmonicStability

@@ -16,7 +16,10 @@ constructs acceleration values, connects bounded iterates to actual Newton
 schedules, and derives continuous-force local consistency from a modulus.
 Harmonic and parallel fields remain instances. These are Task A finite
 results, not general P3–P5; confinement, general names and restart/gluing
-remain explicit obligations. Full D.2 is next in the handoff's order.
+remain explicit obligations. D.2 extracts the generic completion, geometry,
+binary-time and position-value layers; B.1/B.2 follow in the handoff's order.
+The foundation has no import from a Newton-specific file and no derivative,
+integral or ODE primitive.
 
 The governing target is the **unsupplied-curve construction variant**. The main
 area BETWEEN polygon and actual trajectory is distinct from the Kepler area

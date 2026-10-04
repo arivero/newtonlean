@@ -61,6 +61,10 @@ theorem stateDistance_triangle (s t u : Point × Point) :
       Int.add_mul, Int.mul_add]
     ac_nf)
 
+theorem stateDistance_symm (s t : Point × Point) :
+    Fraction.equiv (stateDistance s t) (stateDistance t s) :=
+  Fraction.add_equiv (pointDistance_symm s.1 t.1) (pointDistance_symm s.2 t.2)
+
 theorem stateDistance_self_zero (s : Point × Point) :
     Fraction.equiv (stateDistance s s) (Fraction.ofInt 0) := by
   have hz (a : Int) : (a + -a).natAbs = 0 := by omega

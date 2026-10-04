@@ -1,6 +1,27 @@
 # Verification record
 
-## Current handoff: actual finite general-force accumulation, 4 October 2026
+## Current handoff: D.2 foundation extraction, 4 October 2026
+
+The remaining generic geometry, state-distance, Cauchy quotient, dyadic-time
+and position-value layers move into BarrowLib, with old declaration names
+and import compatibility preserved. Harmonic coefficients, schedules and
+motion instances remain in NewtonLimitDynamics. Coefficient-parameter tail
+arithmetic serves the distinct endpoint/prefix constructions. A sequential
+nonauthor GPT-6 Luna worker passed all 16 checks after correcting an attribution
+bug: overlapping library-relative paths had given some generic facts historical
+locators. Every one of the 289 foundation catalogue rows now has an empty
+source list. The final catalogue has 911 distinct theorem rows and 761 checked
+public/reference declarations; live counts are 588 substantive/179 plumbing/
+127 sample/17 duplicate. All 1,128 prior public names and statement signatures
+are unchanged. Facades and the generic definition/import boundary were checked.
+The graph remains 77 nodes/68 edges/249 passages. Axiom union: `propext`,
+`Classical.choice`, `Quot.sound`; no `sorryAx`, project axiom or external package.
+Logs: `/tmp/newton-sol61-D2-final2-01.log` through `-16.log`. Generated graph PDF
+dates were restored after proving the other bytes unchanged.
+This extraction adds no historical edge, ODE primitive or completion score.
+General motion, restart/gluing, E/G agreement, D_mesh and P5 remain open.
+
+### Actual finite general-force accumulation, 4 October 2026
 
 The second Task A increment derives actual coarse/fine finite accumulation,
 mesh-uniform small-window control, bounded mechanical polygon iterates and

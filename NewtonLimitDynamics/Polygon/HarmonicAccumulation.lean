@@ -1,3 +1,6 @@
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
+import BarrowLib.Polygon.StateDistance
 import NewtonLimitDynamics.Polygon.HarmonicRefinement
 import NewtonLimitDynamics.Polygon.HarmonicComparison
 
@@ -215,11 +218,6 @@ theorem schedules_common_time (w h : Fraction) :
         (Fraction.add_equiv (Fraction.equiv_refl h)
           (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))
 
-/-- Finite rational powers, avoiding any completeness premise. -/
-def fpower (a : Fraction) : Nat → Fraction
-  | 0 => Fraction.ofInt 1
-  | n + 1 => Fraction.mul a (fpower a n)
-
 def errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction
   | 0 => Fraction.ofInt 0
   | n + 1 =>
@@ -244,11 +242,6 @@ theorem fineFactor_nonnegative (w h : Fraction) :
 
 private theorem coarseFactor_nonnegative (w h : Fraction) :
     0 ≤ (coarseFactor w h).num := kappa_nonnegative w (Fraction.add h h)
-
-theorem fpower_nonnegative (a : Fraction) (ha : 0 ≤ a.num) :
-    (n : Nat) → 0 ≤ (fpower a n).num
-  | 0 => by simp [fpower, Fraction.ofInt]
-  | n + 1 => Fraction.nonnegative_mul _ _ ha (fpower_nonnegative a ha n)
 
 theorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :
     (n : Nat) → 0 ≤ (errorBudget w h s n).num
@@ -278,22 +271,6 @@ theorem fine_perturbation (w h : Fraction) (s t : Point × Point) :
   simp only [fineFactor, Fraction.equiv, Fraction.mul]
   ac_nf
 
-private theorem stateSub_chain (a b c : Point × Point) :
-    stateEquiv (stateSub a c)
-      (pointAdd (stateSub a b).1 (stateSub b c).1,
-        pointAdd (stateSub a b).2 (stateSub b c).2) := by
-  constructor <;> constructor <;>
-    simp only [stateSub, pointEquiv, pointSub, pointNeg, pointAdd,
-      Fraction.equiv, Fraction.add, Fraction.mul,
-      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
-    ac_nf <;> omega
-
-theorem stateSub_triangle (a b c : Point × Point) :
-    Fraction.le (stateNorm (stateSub a c))
-      (Fraction.add (stateNorm (stateSub a b)) (stateNorm (stateSub b c))) :=
-  Fraction.le_equiv_left (stateNorm_equiv (stateSub_chain a b c))
-    (stateNorm_add_le (stateSub a b) (stateSub b c))
-
 /-- Every actual coarse state is bounded by `b^n` times the initial state
 magnitude, with `b = kappa(w,h+h)`. -/
 theorem coarse_norm_bound (w h : Fraction) (s : Point × Point) :
@@ -313,15 +290,6 @@ theorem coarse_norm_bound (w h : Fraction) (s : Point × Point) :
       apply Fraction.le_equiv_right hchain
       simp only [coarseAt, fpower, coarseFactor, Fraction.equiv, Fraction.mul]
       ac_nf
-
-theorem stateSub_self_norm_zero (s : Point × Point) :
-    Fraction.equiv (stateNorm (stateSub s s)) (Fraction.ofInt 0) := by
-  have hz (a : Int) : (a + -a).natAbs = 0 := by omega
-  simp only [stateNorm, stateSub, pointNorm, pointSub, pointNeg, pointAdd,
-    Fraction.equiv, Fraction.abs, Fraction.add, Fraction.ofInt,
-    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
-  simp only [hz, Int.ofNat_zero,
-    Int.zero_mul, Int.mul_zero, Int.add_zero]
 
 /-- The actual endpoints after `n` common blocks obey the recursively
 constructed finite error budget. The recurrence uses the coarse state at each

@@ -7,16 +7,20 @@ reconstruction with explicit rational coordinates and the calibrated L1 state
 magnitude. It does not add a historical dependency or silently supply a curve.
 The stage-local obligations remain in [the realization ledger](PROP_I_REALIZATION.md).
 
-The [foundation inventory](BARROWLIB_BOUNDARY.md) now has its minimal
-arithmetic/point bootstrap in BarrowLib; the generic Cauchy quotient and
-binary-time modules still await D.2. [ForceClasses](GENERAL_FORCE_DESIGN.md)
+The [foundation inventory](BARROWLIB_BOUNDARY.md) is now in BarrowLib:
+generic point/triangle/convex geometry, state distances, Cauchy names and
+quotient values, binary time, planar projections and coordinate squares.
+The old namespaces and imports remain compatibility interfaces. Harmonic
+schedule constructions, coefficients and gamma maps stay Newton-side.
+The coefficient-parameter geometric-tail argument is shared without
+identifying its distinct endpoint/prefix coefficients. [ForceClasses](GENERAL_FORCE_DESIGN.md)
 uses explicit uniformly Cauchy force samples to construct acceleration names
 and values. Actual finite coarse/fine errors now have a derived mesh-uniform
 small-window bound in BarrowLib; bounded actual Newton schedules and
 continuous-force local consistency are also checked. These realize force data
 and control finite polygons, not the general motion. Geometric precision
 selection, general polygon Cauchy names and restart/gluing remain open; the
-full generic extraction D.2 precedes them.
+generic extraction is complete; B.1/B.2 follow next.
 
 ## One global family
 

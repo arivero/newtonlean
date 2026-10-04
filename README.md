@@ -33,11 +33,12 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force increments (Sol 6.1, 4 October) have **905 checked
-library theorems, 582 substantive** by the existing heuristic, across
+The general-force increments (Sol 6.1, 4 October) have **911 checked
+library theorems, 588 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 They construct acceleration values, bound actual sampled polygons, derive
 mesh-uniform cross-sample refinement control and continuous local consistency.
+The generic geometry, completion and binary-time layers are now in BarrowLib.
 General motion convergence and polygon–curve area remain open.
 
 Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with

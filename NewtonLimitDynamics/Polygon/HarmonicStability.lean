@@ -1,3 +1,5 @@
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
 import NewtonLimitDynamics.Polygon.CentralSchedule
 
 /-!
@@ -17,13 +19,8 @@ open NewtonLimitDynamics
 open TimeSubdivision
 open CentralSchedule
 
-def negF (w : Fraction) : Fraction := ⟨-w.num, w.den, w.den_pos⟩
-
 /-- The central field `a(p) = -w*p`. -/
 def linearField (w : Fraction) : Field := fun p => pointScale (negF w) p
-
-def dot (p q : Point) : Fraction :=
-  Fraction.add (Fraction.mul p.1 q.1) (Fraction.mul p.2 q.2)
 
 /-- The discrete invariant of the equal-cell construction. -/
 def invariant (w d : Fraction) (s : Point × Point) : Fraction :=

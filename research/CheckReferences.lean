@@ -175,6 +175,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.equiv_trans
 #check NewtonLimitDynamics.Fraction.half_lt
 #print axioms NewtonLimitDynamics.Fraction.half_lt
+#check NewtonLimitDynamics.Fraction.le_add_cancel_left
+#print axioms NewtonLimitDynamics.Fraction.le_add_cancel_left
 #check NewtonLimitDynamics.Fraction.le_add_nonnegative
 #print axioms NewtonLimitDynamics.Fraction.le_add_nonnegative
 #check NewtonLimitDynamics.Fraction.le_equiv_left
@@ -487,6 +489,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_triangle
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_self_zero
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_self_zero
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_symm
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_symm
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_triangle
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_triangle
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_error
@@ -549,6 +553,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ForceClasses.sampled_uniform_refinement
 #check NewtonLimitDynamics.Polygon.ForceClasses.samples_comparison_contract
 #print axioms NewtonLimitDynamics.Polygon.ForceClasses.samples_comparison_contract
+#check NewtonLimitDynamics.Polygon.GeometricTail.doubleTail_lt_tolerance
+#print axioms NewtonLimitDynamics.Polygon.GeometricTail.doubleTail_lt_tolerance
+#check NewtonLimitDynamics.Polygon.GeometricTail.finite_gap
+#print axioms NewtonLimitDynamics.Polygon.GeometricTail.finite_gap
+#check NewtonLimitDynamics.Polygon.GeometricTail.tail_double
+#print axioms NewtonLimitDynamics.Polygon.GeometricTail.tail_double
+#check NewtonLimitDynamics.Polygon.GeometricTail.tail_halving
+#print axioms NewtonLimitDynamics.Polygon.GeometricTail.tail_halving
+#check NewtonLimitDynamics.Polygon.GeometricTail.two_sided
+#print axioms NewtonLimitDynamics.Polygon.GeometricTail.two_sided
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.actual_error_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicAccumulation.actual_error_bound
 #check NewtonLimitDynamics.Polygon.HarmonicAccumulation.coarseAt_schedule

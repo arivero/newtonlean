@@ -1,3 +1,5 @@
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
 import NewtonLimitDynamics.Polygon.HarmonicDyadic
 
 /-!
@@ -17,9 +19,6 @@ open HarmonicAccumulation
 open HarmonicUniform
 open HarmonicDyadic
 open PointBounds
-
-def durationDifference (sigma tau : Fraction) : Fraction :=
-  Fraction.add tau (negF sigma)
 
 theorem cell_parameter_difference (w sigma tau : Fraction) (s : Point × Point) :
     stateEquiv

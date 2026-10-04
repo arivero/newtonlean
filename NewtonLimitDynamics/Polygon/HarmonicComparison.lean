@@ -1,3 +1,4 @@
+import BarrowLib.Polygon.StateDistance
 import NewtonLimitDynamics.Polygon.PointBounds
 import BarrowLib.Polygon.FiniteEstimates
 import NewtonLimitDynamics.Polygon.HarmonicStability
@@ -15,9 +16,6 @@ open TimeSubdivision
 open CentralSchedule
 open HarmonicStability
 open PointBounds
-
-def stateSub (s t : Point × Point) : Point × Point :=
-  (pointSub s.1 t.1, pointSub s.2 t.2)
 
 def kappa (w h : Fraction) : Fraction :=
   Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs)

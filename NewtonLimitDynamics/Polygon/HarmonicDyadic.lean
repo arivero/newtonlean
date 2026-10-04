@@ -1,3 +1,8 @@
+import BarrowLib.Polygon.GeometricTail
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
+import BarrowLib.Polygon.EndpointCauchyName
+import BarrowLib.Polygon.StateDistance
 import NewtonLimitDynamics.Polygon.HarmonicUniform
 
 /-!
@@ -19,27 +24,9 @@ open HarmonicAccumulation
 open HarmonicUniform
 open PointBounds
 
-def blocks (j : Nat) : Nat := 2 ^ j
-
-def duration (T : Fraction) (j : Nat) : Fraction :=
-  ⟨T.num, T.den * (2 : Int) ^ j,
-    Int.mul_pos T.den_pos (Int.pow_pos (by decide))⟩
-
 /-- `2^j` actual end-kick cells, each of duration `T/2^j`. -/
 def endpoint (w T : Fraction) (s : Point × Point) (j : Nat) : Point × Point :=
   schedule (linearField w) (List.replicate (blocks j) (duration T j)) s
-
-theorem blocks_succ (j : Nat) : blocks (j + 1) = blocks j + blocks j := by
-  unfold blocks
-  rw [Nat.pow_succ]
-  omega
-
-theorem duration_halving (T : Fraction) (j : Nat) :
-    Fraction.equiv (duration T j)
-      (Fraction.add (duration T (j + 1)) (duration T (j + 1))) := by
-  simp only [duration, Fraction.equiv, Fraction.add, Int.pow_succ]
-  simp only [show (2 : Int) = 1 + 1 by rfl, Int.add_mul, Int.mul_add]
-  ac_nf
 
 theorem totalTime_dyadic (T : Fraction) (j : Nat) :
     Fraction.equiv (totalTime (duration T (j + 1)) (blocks j)) T := by
@@ -47,30 +34,10 @@ theorem totalTime_dyadic (T : Fraction) (j : Nat) :
     Fraction.ofInt, Int.pow_succ, Int.natCast_pow]
   ac_nf
 
-theorem neg_equiv {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv ⟨-a.num, a.den, a.den_pos⟩ ⟨-b.num, b.den, b.den_pos⟩ := by
-  unfold Fraction.equiv at *
-  dsimp
-  simp only [Int.neg_mul, h]
-
 private theorem pointScale_congr {a b : Fraction} {p q : Point}
     (ha : Fraction.equiv a b) (hp : pointEquiv p q) :
     pointEquiv (pointScale a p) (pointScale b q) :=
   ⟨Fraction.mul_equiv ha hp.1, Fraction.mul_equiv ha hp.2⟩
-
-private theorem pointNeg_congr {p q : Point} (hp : pointEquiv p q) :
-    pointEquiv (pointNeg p) (pointNeg q) :=
-  ⟨neg_equiv hp.1, neg_equiv hp.2⟩
-
-private theorem pointSub_congr {p p' q q' : Point}
-    (hp : pointEquiv p p') (hq : pointEquiv q q') :
-    pointEquiv (pointSub p q) (pointSub p' q') :=
-  pointAdd_congr hp (pointNeg_congr hq)
-
-theorem stateSub_congr {s s' t t' : Point × Point}
-    (hs : stateEquiv s s') (ht : stateEquiv t t') :
-    stateEquiv (stateSub s t) (stateSub s' t') :=
-  ⟨pointSub_congr hs.1 ht.1, pointSub_congr hs.2 ht.2⟩
 
 private theorem cell_congr {d e : Fraction} {s t : Point × Point}
     (hd : Fraction.equiv d e) (hs : stateEquiv s t) (w : Fraction) :
@@ -212,16 +179,12 @@ theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv
       (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))
       (tailCap w T s j) := by
-  simp only [tailCap, Fraction.equiv, Fraction.add, Int.pow_succ]
-  simp only [show (2 : Int) = 1 + 1 by rfl, Int.add_mul, Int.mul_add]
-  ac_nf
+  exact GeometricTail.tail_halving (coefficient w T s) j
 
 theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))
       (doubleTail w T s j) := by
-  simp only [tailCap, doubleTail, Fraction.equiv, Fraction.add]
-  simp only [show (2 : Int) = 1 + 1 by rfl, Int.add_mul, Int.mul_add]
-  ac_nf
+  exact GeometricTail.tail_double (coefficient w T s) j
 
 theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num :=
@@ -234,40 +197,13 @@ coarser endpoint. The proof uses actual neighboring schedules. -/
 theorem finite_gap_error (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     (k j : Nat) → Fraction.le
-      (stateNorm (stateSub (endpoint w T s (j + k)) (endpoint w T s j)))
-      (tailCap w T s j)
-  | 0, j => by
-      have hz : Fraction.le (Fraction.ofInt 0) (tailCap w T s j) := by
-        simp only [Fraction.le, Fraction.ofInt, tailCap]
-        have hc := coefficient_nonnegative w T s hT
-        simp only [Int.zero_mul, Int.mul_one]
-        exact hc
-      simpa only [Nat.add_zero] using
-        Fraction.le_equiv_left
-          (stateSub_self_norm_zero (endpoint w T s j)) hz
-  | k + 1, j => by
-      have htri := stateSub_triangle
-        (endpoint w T s (j + (k + 1)))
-        (endpoint w T s (j + 1)) (endpoint w T s j)
-      have hk : Fraction.le
-          (stateNorm (stateSub (endpoint w T s (j + (k + 1)))
-            (endpoint w T s (j + 1)))) (tailCap w T s (j + 1)) := by
-        simpa only [Nat.add_succ, Nat.succ_add, Nat.add_assoc] using
-          finite_gap_error w T s hT hs k (j + 1)
-      have ha := Fraction.le_equiv_right (adjacent_error_le w T s j hT hs)
-        (adjacentCap_tail w T s j)
-      have hsum := Fraction.add_le_add hk ha
-      exact Fraction.le_equiv_right (Fraction.magnitudes.le_trans htri hsum)
-        (tail_halving w T s j)
-
-theorem stateSub_norm_symm (a b : Point × Point) :
-    Fraction.equiv (stateNorm (stateSub a b)) (stateNorm (stateSub b a)) := by
-  simp only [stateNorm, stateSub, pointNorm, pointSub, pointNeg, pointAdd,
-    Fraction.equiv, Fraction.abs, Fraction.add,
-    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
-  simp only [show ∀ x y : Int, (x + -y).natAbs = (y + -x).natAbs from
-    fun x y => by rw [show y + -x = -(x + -y) by omega, Int.natAbs_neg]]
-  ac_nf
+      (stateNorm (stateSub (endpoint w T s (j + k))
+        (endpoint w T s j))) (tailCap w T s j) := by
+  intro k j
+  exact GeometricTail.finite_gap (endpoint w T s) (coefficient w T s)
+    (coefficient_nonnegative w T s hT)
+    (fun i => Fraction.le_equiv_right (adjacent_error_le w T s i hT hs)
+      (adjacentCap_tail w T s i)) k j
 
 /-- Both later endpoints are compared to the same earlier actual endpoint. -/
 theorem two_sided_error (w T : Fraction) (s : Point × Point)
@@ -276,28 +212,10 @@ theorem two_sided_error (w T : Fraction) (s : Point × Point)
     Fraction.le
       (stateNorm (stateSub (endpoint w T s m) (endpoint w T s n)))
       (doubleTail w T s N) := by
-  have hm' : N + (m - N) = m := by omega
-  have hn' : N + (n - N) = n := by omega
-  have hfirst := finite_gap_error w T s hT hs (m - N) N
-  have hsecond := finite_gap_error w T s hT hs (n - N) N
-  rw [hm'] at hfirst
-  rw [hn'] at hsecond
-  have hsecond' := Fraction.le_equiv_left
-    (stateSub_norm_symm (endpoint w T s N) (endpoint w T s n)) hsecond
-  have htri := stateSub_triangle
-    (endpoint w T s m) (endpoint w T s N) (endpoint w T s n)
-  exact Fraction.le_equiv_right
-    (Fraction.magnitudes.le_trans htri (Fraction.add_le_add hfirst hsecond'))
-    (tail_double w T s N)
-
-theorem two_pow_ge_succ (N : Nat) :
-    (N : Int) + 1 ≤ (2 : Int) ^ N := by
-  induction N with
-  | zero => decide
-  | succ n ih =>
-      rw [Int.pow_succ]
-      have hp : 0 ≤ (2 : Int) ^ n := Int.le_of_lt (Int.pow_pos (by decide))
-      omega
+  exact GeometricTail.two_sided (endpoint w T s) (coefficient w T s)
+    (coefficient_nonnegative w T s hT)
+    (fun i => Fraction.le_equiv_right (adjacent_error_le w T s i hT hs)
+      (adjacentCap_tail w T s i)) N m n hm hn
 
 /-- A deliberately simple, potentially large explicit precision modulus. -/
 def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
@@ -306,34 +224,11 @@ def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
 theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
     (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
     Fraction.lt (doubleTail w T s (modulus w T s eps)) eps := by
-  let A := coefficient w T s
-  let N := modulus w T s eps
-  have hA : 0 ≤ A.num := coefficient_nonnegative w T s hT
-  have hL : 0 ≤ 2 * A.num * eps.den :=
-    Int.mul_nonneg (Int.mul_nonneg (by decide) hA) (Int.le_of_lt eps.den_pos)
-  have hN : (N : Int) = 2 * A.num * eps.den := by
-    exact Int.toNat_of_nonneg hL
-  have hpow := two_pow_ge_succ N
-  have hp : 0 ≤ (2 : Int) ^ N := Int.le_of_lt (Int.pow_pos (by decide))
-  have hfactor : 1 ≤ eps.num * A.den := by
-    have hmul := Int.mul_pos heps A.den_pos
-    omega
-  have hmult := Int.mul_le_mul_of_nonneg_right hfactor hp
-  simp only [Int.one_mul] at hmult
-  unfold Fraction.lt doubleTail
-  dsimp
-  change 2 * A.num * eps.den < eps.num * (A.den * (2 : Int) ^ N)
-  rw [← Int.mul_assoc]
-  omega
+  exact GeometricTail.doubleTail_lt_tolerance (coefficient w T s) eps
+    (coefficient_nonnegative w T s hT) heps
 
 /-- A Cauchy name stores finite rational endpoint approximants and a proved
 positive-tolerance condition. It does not supply a limit point. -/
-structure EndpointCauchyName where
-  approx : Nat → Point × Point
-  cauchy : ∀ eps : Fraction, 0 < eps.num →
-    ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
-      Fraction.lt (stateNorm (stateSub (approx m) (approx n))) eps
-
 theorem endpoint_cauchy (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     ∀ eps : Fraction, 0 < eps.num →

@@ -73,3 +73,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 72,9078b2f,2026-10-04T21:31:37+02:00,Inventory the elementary foundation boundary before general forces,793,0,0,0,0,0,414,10709,13,501,174,105,13,0,113,143,30,489,18
 73,df7309d,2026-10-04T21:32:39+02:00,Add Newton's struck-out force definition and velocity revision (NATP00091),793,0,0,0,0,0,414,10709,13,501,174,105,13,0,113,143,30,489,18
 74,757165a,2026-10-04T22:01:29+02:00,Construct sampled central forces and general finite perturbation estimates,839,46,0,0,1,0,451,11460,13,535,178,112,14,1,113,143,30,529,24
+75,2693bc8,2026-10-04T22:25:22+02:00,Derive actual sampled polygon bounds and finite refinement accumulation,905,66,0,0,1,0,480,12526,13,582,180,127,16,1,113,143,30,595,24

@@ -42,8 +42,8 @@ BarrowLib. A Newton schedule instantiates this map. Its estimates keep the
 position and velocity error terms visible before combining the calibrated
 L1 state magnitude. New shared arithmetic and tail lemmas go in BarrowLib;
 old public harmonic names remain available as instances or compatibility
-facades. The minimal foundation bootstrap precedes use; the rest migrates
-in Task D.2.
+facades. D.2 now extracts the remaining geometry/completion/time layers and
+shares coefficient-parameter tail estimates; force instances stay Newton-side.
 
 ## First estimate specification
 

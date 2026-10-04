@@ -1,3 +1,4 @@
+import NewtonLimitDynamics.Polygon.CauchyValues
 import NewtonLimitDynamics.Polygon.BinaryTime
 
 /-!

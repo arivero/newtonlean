@@ -398,5 +398,26 @@ theorem add_mul (a b c : Fraction) :
   simp only [Int.add_mul, Int.mul_add]
   try ac_nf
 
+theorem le_add_cancel_left (z a b : Fraction)
+    (h : le (add z a) (add z b)) :
+    le a b := by
+  unfold le add at h
+  unfold le
+  dsimp at h
+  have hL : (z.num * a.den + a.num * z.den) * (z.den * b.den) =
+      z.num * a.den * z.den * b.den +
+        (a.num * b.den) * (z.den * z.den) := by
+    rw [Int.add_mul]
+    ac_nf
+  have hR : (z.num * b.den + b.num * z.den) * (z.den * a.den) =
+      z.num * a.den * z.den * b.den +
+        (b.num * a.den) * (z.den * z.den) := by
+    rw [Int.add_mul]
+    ac_nf
+  rw [hL, hR] at h
+  have hm : (a.num * b.den) * (z.den * z.den) ≤
+      (b.num * a.den) * (z.den * z.den) := by omega
+  exact Int.le_of_mul_le_mul_right hm (Int.mul_pos z.den_pos z.den_pos)
+
 end Fraction
 end NewtonLimitDynamics
