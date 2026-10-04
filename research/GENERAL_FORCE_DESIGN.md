@@ -45,6 +45,28 @@ old public harmonic names remain available as instances or compatibility
 facades. D.2 now extracts the remaining geometry/completion/time layers and
 shares coefficient-parameter tail estimates; force instances stay Newton-side.
 
+## Scales and units
+
+A Lipschitz contract introduces a scale. `L` has units of 1/time² and defines
+the local dynamical time `τ_L = 1/√L`: `1/ω` for the harmonic field, about
+`√(r³/GM)` for gravity near radius r. The latter shrinks to zero at the
+centre, which is why singular laws need a confining region. A mesh converges
+once `h ≪ τ_L`. The contract assumes only that a finite `L` exists on the
+region; its value depends on the law and the region, rescales with the unit
+of time, and fixes no universal constant. A modulus of continuity for classes
+(b) and (c) carries the same kind of scale without a single constant.
+
+The estimates as written fix a unit of time implicitly. The window
+`T·(1+L) ≤ 1/2` adds 1 to a quantity of units 1/time², and the coordinate
+state magnitude `|x|+|v|` adds a length to a velocity. The rational arithmetic
+is unitless, so the proofs are unaffected, but a scale read off these bounds
+may be the hidden unit. Carry the calibration explicitly, for example
+`|x|+τ₀·|v|` with windows on `h²·L` and `h/τ₀`, and check that conclusions
+are invariant under rescaling the time unit. Newton's counterpart of the
+contract is qualitative finiteness (1713 Lemma X *Vi finita*, Lemma XI
+*curvaturam finitam*): a bound asserted to exist, with no value given.
+Arg006 reads it as a local scale.
+
 ## First estimate specification
 
 May assume: Fraction order/arithmetic, point triangle/scaling inequalities,

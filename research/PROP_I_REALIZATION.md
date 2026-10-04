@@ -75,6 +75,14 @@ force is a vector, however. Monotone magnitude leaves the change of
 direction to control, which needs the radius bounded away from S
 (compare the vertex-at-S counterexample in `Converse.lean`).
 
+Any such regularity premise brings a scale. A Lipschitz bound `L` on the
+force defines a local dynamical time `1/√L`, and the polygon converges once
+the cell is small compared with it. Newton's clauses assert finiteness
+without a value: they fix the existence of a scale, and its size depends on
+the law and the region. The current harmonic and general estimates also fix
+a unit of time implicitly, through the window `T·(1+L) ≤ 1/2` and the state
+magnitude `|x|+|v|`; see [scales and units](GENERAL_FORCE_DESIGN.md#scales-and-units).
+
 ## Converse side
 
 `CentralSchedule.unequal_cells_converse` extends the finite Proposition II step
