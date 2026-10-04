@@ -15,6 +15,60 @@ def pointDistance (p q : Point) : Fraction := pointNorm (pointSub p q)
 def stateDistance (s t : Point × Point) : Fraction :=
   Fraction.add (pointDistance s.1 t.1) (pointDistance s.2 t.2)
 
+private theorem point_difference_chain (p q r : Point) :
+    pointEquiv (pointSub p r)
+      (pointAdd (pointSub p q) (pointSub q r)) := by
+  constructor <;>
+    simp only [pointEquiv, pointSub, pointNeg, pointAdd, Fraction.equiv,
+      Fraction.add, Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
+    ac_nf <;> omega
+
+/-- Triangle inequality for the coordinate distance of rational points. -/
+theorem pointDistance_triangle (p q r : Point) :
+    Fraction.le (pointDistance p r)
+      (Fraction.add (pointDistance p q) (pointDistance q r)) :=
+  Fraction.le_equiv_left (pointNorm_equiv (point_difference_chain p q r))
+    (pointNorm_add_le (pointSub p q) (pointSub q r))
+
+theorem pointDistance_symm (p q : Point) :
+    Fraction.equiv (pointDistance p q) (pointDistance q p) := by
+  have he : pointEquiv (pointSub p q) (pointNeg (pointSub q p)) := by
+    constructor <;>
+      simp only [pointEquiv, pointSub, pointNeg, pointAdd, Fraction.equiv,
+        Fraction.add, Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
+      ac_nf <;> omega
+  exact Fraction.equiv_trans (pointNorm_equiv he) (pointNorm_neg (pointSub q p))
+
+theorem comparisonContract_reverse (a b : Point → Point) (L E : Fraction)
+    (hc : ∀ p q, Fraction.le (pointDistance (a p) (b q))
+      (Fraction.add (Fraction.mul L (pointDistance p q)) E)) :
+    ∀ p q, Fraction.le (pointDistance (b p) (a q))
+      (Fraction.add (Fraction.mul L (pointDistance p q)) E) := by
+  intro p q
+  exact Fraction.le_equiv_right
+    (Fraction.le_equiv_left (pointDistance_symm _ _) (hc q p))
+    (Fraction.add_equiv (Fraction.mul_equiv_left L (pointDistance_symm q p))
+      (Fraction.equiv_refl E))
+
+/-- Triangle inequality for the coordinate distance of actual states. -/
+theorem stateDistance_triangle (s t u : Point × Point) :
+    Fraction.le (stateDistance s u)
+      (Fraction.add (stateDistance s t) (stateDistance t u)) := by
+  have hp := pointDistance_triangle s.1 t.1 u.1
+  have hv := pointDistance_triangle s.2 t.2 u.2
+  exact Fraction.le_equiv_right (Fraction.add_le_add hp hv) (by
+    simp only [stateDistance, pointDistance, Fraction.equiv, Fraction.add,
+      Int.add_mul, Int.mul_add]
+    ac_nf)
+
+theorem stateDistance_self_zero (s : Point × Point) :
+    Fraction.equiv (stateDistance s s) (Fraction.ofInt 0) := by
+  have hz (a : Int) : (a + -a).natAbs = 0 := by omega
+  simp only [stateDistance, pointDistance, pointNorm, pointSub, pointNeg,
+    pointAdd, Fraction.equiv, Fraction.abs, Fraction.add, Fraction.ofInt,
+    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
+  simp only [hz, Int.ofNat_zero, Int.zero_mul, Int.mul_zero, Int.add_zero]
+
 /-- Drift to the sampled arrival point, then update velocity. -/
 def cell (a : Point → Point) (h : Fraction) (s : Point × Point) : Point × Point :=
   let y := pointAdd s.1 (pointScale h s.2)
@@ -282,6 +336,26 @@ private theorem twoHalf_velocity_difference (a : Point → Point) (h : Fraction)
       Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
     ac_nf <;> omega
 
+/-- Two bounds at the actual sample locations suffice; no Lipschitz
+coefficient is needed for this local identity and magnitude estimate. -/
+theorem twoHalf_velocity_sample_error (a : Point → Point) (h E₁ E₂ : Fraction)
+    (s : Point × Point)
+    (h₁ : Fraction.le (pointDistance (a (cell a h s).1) (a (oneFull a h s).1)) E₁)
+    (h₂ : Fraction.le (pointDistance (a (twoHalf a h s).1) (a (oneFull a h s).1)) E₂) :
+    Fraction.le (pointDistance (twoHalf a h s).2 (oneFull a h s).2)
+      (Fraction.mul h.abs (Fraction.add E₁ E₂)) := by
+  let r₁ := pointSub (a (cell a h s).1) (a (oneFull a h s).1)
+  let r₂ := pointSub (a (twoHalf a h s).1) (a (oneFull a h s).1)
+  have he := pointNorm_equiv (twoHalf_velocity_difference a h s)
+  have hs := pointNorm_scale h (pointAdd r₁ r₂)
+  have ht := pointNorm_add_le r₁ r₂
+  have hsum := Fraction.add_le_add h₁ h₂
+  have hbound := Fraction.magnitudes.le_trans ht hsum
+  have hm := Fraction.mul_le_mul_nonnegative_left hbound h.abs
+    (Fraction.abs_num_nonnegative h)
+  exact Fraction.magnitudes.le_trans
+    (Fraction.le_of_equiv (Fraction.equiv_trans he hs)) hm
+
 /-- Local velocity error for a sampled map with Lipschitz coefficient `L`
 and additive discrepancy `E`. Rounded samples may have `E > 0`. -/
 theorem twoHalf_velocity_error (a : Point → Point) (h L E : Fraction)
@@ -292,20 +366,10 @@ theorem twoHalf_velocity_error (a : Point → Point) (h L E : Fraction)
           (Fraction.add (Fraction.mul L
             (pointDistance (cell a h s).1 (oneFull a h s).1)) E)
           (Fraction.add (Fraction.mul L
-            (pointDistance (twoHalf a h s).1 (oneFull a h s).1)) E))) := by
-  let r₁ := pointSub (a (cell a h s).1) (a (oneFull a h s).1)
-  let r₂ := pointSub (a (twoHalf a h s).1) (a (oneFull a h s).1)
-  have he := pointNorm_equiv (twoHalf_velocity_difference a h s)
-  have hs := pointNorm_scale h (pointAdd r₁ r₂)
-  have ht := pointNorm_add_le r₁ r₂
-  have hc₁ := hc (cell a h s).1 (oneFull a h s).1
-  have hc₂ := hc (twoHalf a h s).1 (oneFull a h s).1
-  have hsum := Fraction.add_le_add hc₁ hc₂
-  have hbound := Fraction.magnitudes.le_trans ht hsum
-  have hm := Fraction.mul_le_mul_nonnegative_left hbound h.abs
-    (Fraction.abs_num_nonnegative h)
-  exact Fraction.magnitudes.le_trans
-    (Fraction.le_of_equiv (Fraction.equiv_trans he hs)) hm
+            (pointDistance (twoHalf a h s).1 (oneFull a h s).1)) E))) :=
+  twoHalf_velocity_sample_error a h _ _ s
+    (hc (cell a h s).1 (oneFull a h s).1)
+    (hc (twoHalf a h s).1 (oneFull a h s).1)
 
 /-- A fully explicit local velocity bound follows once the first sampled
 value is bounded by `B` and the comparison coefficient is nonnegative. -/

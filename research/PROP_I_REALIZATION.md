@@ -8,11 +8,15 @@ not historical proofs.
 
 The 4 October handoff's [foundation inventory](BARROWLIB_BOUNDARY.md) is
 implemented for its minimal bootstrap. BarrowLib's generic finite triangular
-maps now have growth, cross-map perturbation (including sampling error E),
-and local two-half/full-cell estimates. [ForceClasses](GENERAL_FORCE_DESIGN.md)
-constructs acceleration values from uniform rational samples; harmonic and
-parallel fields are instances. These are local Task A results, not P3–P5
-for a general central force; finite accumulation and confinement remain next.
+maps now have actual iteration bounds, cross-map perturbation (including
+sampling error E), local two-half/full-cell estimates and derived finite
+mesh-uniform accumulation under T(1+L) ≤ 1/2. The comparison contract is global;
+B and V bounds concern only the finite prefix used. [ForceClasses](GENERAL_FORCE_DESIGN.md)
+constructs acceleration values, connects bounded iterates to actual Newton
+schedules, and derives continuous-force local consistency from a modulus.
+Harmonic and parallel fields remain instances. These are Task A finite
+results, not general P3–P5; confinement, general names and restart/gluing
+remain explicit obligations. Full D.2 is next in the handoff's order.
 
 The governing target is the **unsupplied-curve construction variant**. The main
 area BETWEEN polygon and actual trajectory is distinct from the Kepler area

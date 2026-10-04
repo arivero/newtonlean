@@ -33,11 +33,12 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The first general-force increment (Sol 6.1, 4 October) has **839 checked
-library theorems, 535 substantive** by the existing heuristic, across
+The general-force increments (Sol 6.1, 4 October) have **905 checked
+library theorems, 582 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
-It adds constructed acceleration values and local sampling-aware estimates;
-general motion convergence and polygon–curve area remain open.
+They construct acceleration values, bound actual sampled polygons, derive
+mesh-uniform cross-sample refinement control and continuous local consistency.
+General motion convergence and polygon–curve area remain open.
 
 Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
 `python3 scripts/progress_stats.py`; the per-commit numbers behind every plot
@@ -213,6 +214,10 @@ python3 scripts/compare_editions.py
 python3 scripts/plot_graphs.py
 python3 scripts/progress_stats.py
 lake env lean research/CheckReferences.lean
+python3 scripts/test_lean_declarations.py
+python3 scripts/test_evidence_validation.py
+python3 scripts/test_graph_rendering.py
+sha256sum -c docs/SHA256SUMS
 git diff --check
 ```
 

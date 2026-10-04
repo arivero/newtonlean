@@ -2,6 +2,8 @@ import NewtonLimitDynamics.Polygon.PositionValues
 import NewtonLimitDynamics.Polygon.InertialDefect
 import NewtonLimitDynamics.Polygon.StripArea
 import BarrowLib.Polygon.FiniteEstimates
+import BarrowLib.Polygon.BoundedIteration
+import BarrowLib.Polygon.FiniteAccumulation
 
 /-!
 Uniform rational approximations to possibly irrational accelerations on an
@@ -95,6 +97,39 @@ def ContinuousOn (o : Oracle) : Prop :=
 def BoundedOn (o : Oracle) (B : Fraction) : Prop :=
   0 ≤ B.num ∧ ∀ n p, o.region p → Fraction.le (pointNorm (o.sample n p)) B
 
+theorem acceleration_distance (p q : Point) :
+    Fraction.equiv (distance (accelerationState p) (accelerationState q))
+      (FiniteEstimates.pointDistance p q) := by
+  change Fraction.equiv
+    (Fraction.add (FiniteEstimates.pointDistance p q) (Fraction.ofInt 0))
+    (FiniteEstimates.pointDistance p q)
+  exact Fraction.add_zero _
+
+/-- Uniform force coherence also controls successive precisions at the same
+rational point. No exact force value is presumed rational. -/
+theorem sample_point_error (o : Oracle) (i j : Nat) (hij : i ≤ j)
+    (p : Point) (hp : o.region p) :
+    Fraction.le (FiniteEstimates.pointDistance (o.sample i p) (o.sample j p))
+      (o.error i) :=
+  Fraction.le_equiv_left (Fraction.equiv_symm (acceleration_distance _ _))
+    (o.coherent i j hij p hp)
+
+/-- A global comparison contract follows on a globally declared region.
+Region-local applications must separately prove the locations lie in it. -/
+theorem samples_comparison_contract (o : Oracle) (L : Fraction)
+    (hL : LipschitzOn o L) (hR : ∀ p, o.region p)
+    (i j : Nat) (hij : i ≤ j) :
+    FiniteEstimates.comparisonContract (o.sample i) (o.sample j) L
+      (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i)) := by
+  intro p q
+  have ht := FiniteEstimates.pointDistance_triangle (o.sample i p)
+    (o.sample i q) (o.sample j q)
+  have hs := Fraction.add_le_add (hL.2 i p q (hR p) (hR q))
+    (sample_point_error o i j hij q (hR q))
+  apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans ht hs)
+  simp only [Fraction.equiv, Fraction.add, Int.add_mul, Int.mul_add]
+  ac_nf
+
 /-- Distance is encoded by its square; no rational square root is assumed. -/
 def DistanceOnly (o : CentralOracle) : Prop :=
   ∀ n p q, Fraction.equiv (dot p p) (dot q q) →
@@ -175,5 +210,116 @@ theorem parallel_transverse_schedule (a : Point) (ds : List Fraction)
   | cons h ds ih =>
       exact Fraction.equiv_trans (ih (cell (fun _ => a) h s))
         (parallel_transverse_cell a h s)
+
+/-- Identify the generic forward iterates with the actual finite schedule. -/
+theorem run_eq_schedule (a : Field) (h : Fraction) (s : Point × Point) (n : Nat) :
+    BoundedIteration.run a h s n = schedule a (List.replicate n h) s := by
+  induction n generalizing s with
+  | zero => rfl
+  | succ n ih =>
+      simp only [List.replicate_succ, schedule]
+      rw [← ih]
+      exact (BoundedIteration.run_commute a h s n).symm
+
+theorem bounded_samples_of_confined (o : Oracle) (j : Nat) (h : Fraction)
+    (s : Point × Point) (B : Fraction) (n : Nat) (hB : BoundedOn o B)
+    (hR : ∀ i : Nat, i < n → o.region (BoundedIteration.run (o.sample j) h s (i+1)).1) :
+    BoundedIteration.BoundedSamples (o.sample j) h s B n :=
+  fun i hi => hB.2 j _ (hR i hi)
+
+/-- These actual polygon bounds apply also to continuous, non-Lipschitz laws;
+confinement is an explicit premise, not a conclusion of continuity. -/
+theorem sampled_polygon_velocity_bound (o : Oracle) (j : Nat) (h : Fraction)
+    (s : Point × Point) (B : Fraction) (n : Nat) (hh : 0 ≤ h.num)
+    (hB : BoundedOn o B)
+    (hR : ∀ i : Nat, i < n → o.region (BoundedIteration.run (o.sample j) h s (i+1)).1) :
+    Fraction.le (pointNorm (schedule (o.sample j) (List.replicate n h) s).2)
+      (Fraction.add (pointNorm s.2) (Fraction.mul (BoundedIteration.time h n) B)) := by
+  rw [← run_eq_schedule]
+  exact BoundedIteration.velocity_bound (o.sample j) h s B hh n
+    (bounded_samples_of_confined o j h s B n hB hR)
+
+theorem sampled_polygon_position_bound (o : Oracle) (j : Nat) (h : Fraction)
+    (s : Point × Point) (B : Fraction) (n : Nat) (hh : 0 ≤ h.num)
+    (hB : BoundedOn o B)
+    (hR : ∀ i : Nat, i < n → o.region (BoundedIteration.run (o.sample j) h s (i+1)).1) :
+    Fraction.le (pointNorm (schedule (o.sample j) (List.replicate n h) s).1)
+      (BoundedIteration.positionCap h s B n) := by
+  rw [← run_eq_schedule]
+  exact BoundedIteration.position_bound (o.sample j) h s B hh hB.1 n
+    (bounded_samples_of_confined o j h s B n hB hR)
+
+theorem sampled_polygon_state_bound (o : Oracle) (j : Nat) (h : Fraction)
+    (s : Point × Point) (B T : Fraction) (n : Nat) (hh : 0 ≤ h.num)
+    (hT : 0 ≤ T.num) (hB : BoundedOn o B)
+    (ht : Fraction.le (BoundedIteration.time h n) T)
+    (hR : ∀ i : Nat, i < n → o.region (BoundedIteration.run (o.sample j) h s (i+1)).1) :
+    Fraction.le (stateNorm (schedule (o.sample j) (List.replicate n h) s))
+      (Fraction.add (BoundedIteration.uniformPositionCap T s B)
+        (Fraction.add (pointNorm s.2) (Fraction.mul T B))) := by
+  rw [← run_eq_schedule]
+  exact BoundedIteration.state_bound_at_time (o.sample j) h s B T hh hB.1 hT n
+    (bounded_samples_of_confined o j h s B n hB hR) ht
+
+/-- Merely continuous laws give a vanishing local refinement source.
+The modulus controls all three actual arrival points. This is a consistency
+estimate, distinct from stability, full-family convergence or uniqueness. -/
+theorem continuous_local_refinement (o : Oracle) (hC : ContinuousOn o)
+    (eps : Fraction) (heps : 0 < eps.num) :
+    ∃ delta : Fraction, 0 < delta.num ∧ ∃ N : Nat,
+    ∀ (j : Nat) (h B : Fraction) (s : Point × Point), N ≤ j → BoundedOn o B →
+      o.region (FiniteEstimates.cell (o.sample j) h s).1 →
+      o.region (FiniteEstimates.oneFull (o.sample j) h s).1 →
+      o.region (FiniteEstimates.twoHalf (o.sample j) h s).1 →
+      Fraction.lt (Fraction.mul h.abs (pointNorm s.2)) delta →
+      Fraction.lt (Fraction.mul (Fraction.mul h h).abs B) delta →
+      Fraction.le
+        (FiniteEstimates.stateDistance (FiniteEstimates.twoHalf (o.sample j) h s)
+          (FiniteEstimates.oneFull (o.sample j) h s))
+        (Fraction.add (Fraction.mul (Fraction.mul h h).abs B)
+          (Fraction.mul h.abs (Fraction.add eps eps))) := by
+  obtain ⟨delta, hdelta, N, hN⟩ := hC eps heps
+  refine ⟨delta, hdelta, N, ?_⟩
+  intro j h B s hj hB hfirst hfull hfine hv hf
+  have hb := hB.2 j _ hfirst
+  have hd₁ := Fraction.magnitudes.lt_of_le_lt
+    (Fraction.le_of_equiv (FiniteEstimates.first_to_full_distance (o.sample j) h s)) hv
+  have hd₂ := Fraction.magnitudes.lt_of_le_lt
+    (FiniteEstimates.twoHalf_position_error (o.sample j) h B s hb) hf
+  have hs₁ := Fraction.magnitudes.lt_implies_le
+    (hN j _ _ hj hfirst hfull hd₁)
+  have hs₂ := Fraction.magnitudes.lt_implies_le
+    (hN j _ _ hj hfine hfull hd₂)
+  exact Fraction.add_le_add
+    (FiniteEstimates.twoHalf_position_error (o.sample j) h B s hb)
+    (FiniteEstimates.twoHalf_velocity_sample_error (o.sample j) h eps eps s hs₁ hs₂)
+
+/-- Successive oracle precisions instantiate the actual mesh comparison.
+The global-region premise is explicit; an annulus requires local confinement
+for the additional comparison arrivals before this theorem applies. -/
+theorem sampled_uniform_refinement (o : Oracle) (j : Nat)
+    (h L B V : Fraction) (s : Point × Point) (n : Nat)
+    (hh : 0 ≤ h.num) (hL : LipschitzOn o L)
+    (hR : ∀ p, o.region p) (hB : BoundedOn o B) (hV : 0 ≤ V.num)
+    (hs : FiniteAccumulation.SmallWindow h L n)
+    (hvel : ∀ k, k < n → Fraction.le
+      (pointNorm (FiniteAccumulation.coarseAt (o.sample j) h s k).2) V) :
+    Fraction.le
+      (FiniteEstimates.stateDistance (FiniteAccumulation.fineAt (o.sample (j+1)) h s n)
+        (FiniteAccumulation.coarseAt (o.sample j) h s n))
+      (Fraction.mul (Fraction.ofInt 2)
+        (Fraction.mul (FiniteAccumulation.count n)
+          (FiniteAccumulation.uniformBlockSource h L
+            (Fraction.add (Fraction.add (o.error j) (o.error j)) (o.error j)) B V))) := by
+  let E := Fraction.add (Fraction.add (o.error j) (o.error j)) (o.error j)
+  have hE : 0 ≤ E.num := Fraction.nonnegative_add _ _
+    (Fraction.nonnegative_add _ _ (o.error_nonnegative j) (o.error_nonnegative j))
+    (o.error_nonnegative j)
+  have hcross := FiniteEstimates.comparisonContract_reverse _ _ L E
+    (samples_comparison_contract o L hL hR j (j+1) (by omega))
+  exact FiniteAccumulation.cross_actual_uniform_error (o.sample (j+1)) (o.sample j)
+    h L E B V s n hh hL.1 hE hB.1 hV hs hcross
+    (samples_comparison_contract o L hL hR j j (by omega))
+    (fun k _ => hB.2 j _ (hR _)) hvel
 
 end NewtonLimitDynamics.Polygon.ForceClasses

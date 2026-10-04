@@ -1,10 +1,36 @@
 # Verification record
 
-## Current handoff: first general-force increment, 4 October 2026
+## Current handoff: actual finite general-force accumulation, 4 October 2026
+
+The second Task A increment derives actual coarse/fine finite accumulation,
+mesh-uniform small-window control, bounded mechanical polygon iterates and
+continuous-force local consistency. Bounds and confinement remain explicit
+force premises; no supplied adjacent-error field replaces the recurrence.
+The catalogue and progress inventory now share a declaration reader that
+keeps equation-style proof cases out of premise signatures. Known-source
+controls check nested comments, qualified names, retained premises, equation
+cases and nested let expressions. It also distinguishes the private arithmetic
+names `mixed` and `mixed'`, previously conflated by the catalogue regex.
+A sequential nonauthor GPT-6 Luna worker passed all 16 README/handoff checks:
+all three builds, catalogues/collation/graph/edition/rendering/progress,
+Lean reference and axiom inspection, parser/evidence/rendering controls,
+source hashes and whitespace. There are 905 distinct theorem rows, 754 checked
+public/reference declarations and 77 nodes/68 edges/249 passages. Live counts
+are 582 substantive/180 plumbing/127 sample/16 duplicate. All 1,290 declaration
+names from the preceding increment remain. Only `propext`, `Classical.choice`
+and `Quot.sound` occur; no `sorryAx`, project axiom or external package.
+Exact controls retain the 1/4 constant-map refinement defect and the 5/4
+unequal-map error, which exceeds the 1/2 budget obtained by dropping sampling.
+Logs: `/tmp/newton-sol61-A2-final-01.log` through `-16.log`. The graph PDF differed
+only in generated dates, which were restored after byte comparison.
+General motion realization, restart/gluing, D_mesh and P5 remain open;
+completion scores are unchanged.
+
+### First general-force increment, 4 October 2026
 
 Task A's first finite increment also includes the minimal BarrowLib bootstrap,
 the uniformly approximated-force interface, local generic estimates and the
-permitted parallel C.2 identities. The library now has 839 theorem declarations
+permitted parallel C.2 identities. At that increment the library had 839 theorem declarations
 and 698 generated public/reference checks. The first full run found that the evidence test's temporary
 checkout omitted BarrowLib; its fixture now copies both libraries. The full
 sequential checklist passed after that correction, checked by a nonauthor
@@ -12,13 +38,13 @@ GPT-6 Luna worker: all three build targets, catalogues, source collation,
 graph/reference/axiom inspection, edition comparison, rendering, evidence
 regressions, hashes, progress regeneration and whitespace. The axiom union
 is `propext`, `Classical.choice`, `Quot.sound`; no `sorryAx` or project axiom.
-The current worktree has 535 substantive/178 plumbing/112 sample/14 duplicate
+That increment had 535 substantive/178 plumbing/112 sample/14 duplicate
 theorems by the existing heuristic. All original declaration names survive.
 Logs: `/tmp/newton-sol61-A1-final-01.log` through `-15.log`. A separate GPT-6
 Sol review checked independent exact controls and caught a deliberately false
 harmonic sign; its two prose scope corrections are applied to Arg007.
-No global accumulation, general
-motion realization, D_mesh or constructed-curve force law is certified.
+At this first increment, no global accumulation, general motion realization,
+D_mesh or constructed-curve force law was certified.
 
 ### D.1 inventory
 

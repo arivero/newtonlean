@@ -11,8 +11,12 @@ The [foundation inventory](BARROWLIB_BOUNDARY.md) now has its minimal
 arithmetic/point bootstrap in BarrowLib; the generic Cauchy quotient and
 binary-time modules still await D.2. [ForceClasses](GENERAL_FORCE_DESIGN.md)
 uses explicit uniformly Cauchy force samples to construct acceleration names
-and values. This realizes force data, not the general motion; the local
-finite estimates must first be accumulated along the actual polygons.
+and values. Actual finite coarse/fine errors now have a derived mesh-uniform
+small-window bound in BarrowLib; bounded actual Newton schedules and
+continuous-force local consistency are also checked. These realize force data
+and control finite polygons, not the general motion. Geometric precision
+selection, general polygon Cauchy names and restart/gluing remain open; the
+full generic extraction D.2 precedes them.
 
 ## One global family
 

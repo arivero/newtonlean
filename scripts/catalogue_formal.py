@@ -2,12 +2,14 @@
 The file-level source correspondence is a locator, not a claim of historical proof.
 """
 import json
-import re
+from lean_declarations import declarations
 from pathlib import Path
 root = Path(__file__).resolve().parents[1]
 correspondence = {
  'Diagnostic/DeflectionPotential.lean': ([], 'Arg007 action diagnostic: exact rational deflection triangle and Galilean/harmonic potential differences between the next kick-polygon vertex and its inertial continuation. Signed doubled area and its absolute value are separately named. The Galilean relation is division-free; the harmonic leading term has explicit cubic/quartic corrections and an exact counterexample to treating it as the finite formula. These are polygon-cell identities, not polygon-curve D_mesh, curve asymptotics, universal action scales or historical proof premises.'),
  'Polygon/PointAlgebra.lean': ([], 'Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise.'),
+ 'Polygon/BoundedIteration.lean': ([], 'Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred.'),
+ 'Polygon/FiniteAccumulation.lean': ([], 'Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5.'),
  'Polygon/FiniteEstimates.lean': ([], 'Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification.'),
  'Polygon/ForceClasses.lean': ([], 'Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface.'),
  'Polygon/PositionValues.lean': ([], 'Modern planar-position construction from the proved Cauchy state values, with no historical dependency attributed. Rational position and coordinate projections are proved nonexpansive; their Cauchy-name/equivalence preservation precedes quotient lifting. Constant compatibility, idempotence and closed-bound preservation define planar PositionValue objects and the actual gammaPosition map with inherited continuity, aliases, endpoints and zero cases. Completed coordinate squares use separately bounded coordinates and a proved nonnegative radius; eventual rational coordinate bounds imply membership. A radius-one square contains (1,1), whose L1 distance is two. The harmonic sample has position distance 135/512 at level one and state tail 3/16, yielding position distance at least 39/512 at every later level and proved projected right/left separation. These are production controls, not independent oracles. No supplied point limit, planar area value, actual coarse polygon map, completed connector region, content/measure theorem, partition independence or uninterrupted force law is inferred. Kepler area remains separate.'),
@@ -77,21 +79,15 @@ library_paths = [path for library in ('NewtonLimitDynamics', 'BarrowLib')
 for path in sorted(library_paths):
     rel=str(path.relative_to(root/path.relative_to(root).parts[0]))
     sources,note=correspondence[rel]
-    text=path.read_text()
-    namespace=[]
-    for line in text.splitlines():
-        if line.startswith('namespace '): namespace.append(line.split()[1])
-        if line.startswith('end ') or line == 'end': namespace.pop()
-        match=re.match(r'(private )?theorem (\w+)',line)
-        if match:
-            local=match[2]
-            header=re.search(r'(?:private )?theorem '+re.escape(local)+r'\b([\s\S]*?):=',text)
-            assert header, (path,local)
-            name='.'.join(namespace+[local])
-            actual_sources,actual_note=declaration_correspondence.get(name,(sources,note))
-            results.append({'name':name,'private':bool(match[1]),
-                'file':str(path.relative_to(root)),'source_passages':actual_sources,
-                'classification':'modern_reconstruction','premise_signature':header[1].strip(),
-                'interpretation_and_remaining_premises':actual_note})
+    for kind,name,statement,body,private in declarations(path.read_text()):
+        if kind != 'theorem':
+            continue
+        # The shared reader includes the declaration keyword and name.
+        signature = statement.split(name.rsplit('.',1)[-1],1)[1].strip()
+        actual_sources,actual_note=declaration_correspondence.get(name,(sources,note))
+        results.append({'name':name,'private':private,
+            'file':str(path.relative_to(root)),'source_passages':actual_sources,
+            'classification':'modern_reconstruction','premise_signature':signature,
+            'interpretation_and_remaining_premises':actual_note})
 (root/'research/formal-results.json').write_text(json.dumps(results,ensure_ascii=False,indent=2)+'\n')
 print(f'Inventoried {len(results)} theorems with signatures and source boundaries')

@@ -7,7 +7,11 @@ and control the area between it and the polygons. Supplied-curve estimates are
 conditional diagnostics and cannot discharge the forward theorem.
 
 The [foundation inventory](BARROWLIB_BOUNDARY.md) now has a minimal BarrowLib
-bootstrap and generic local finite estimates. The exact deflection triangles
+bootstrap, actual bounded iterates and mesh-uniform finite refinement estimates.
+These compare actual finite endpoints and retain force-sampling error; they
+do not define an intervening region or its content. Continuous-force local
+consistency is also checked, without a stability or uniqueness inference.
+The exact deflection triangles
 and potential steps in [Arg007](action-arguments/261004gpt6.1solv1Arg007.md)
 compare a next polygon point to its inertial continuation. They supply no
 D_mesh definition or polygon–curve estimate.

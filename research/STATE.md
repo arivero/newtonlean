@@ -1,15 +1,18 @@
 # Research state
 
-Current handoff execution (Sol 6.1, 4 October): D.1 is committed; the minimal
-BarrowLib bootstrap and first Task A estimates now compile. The
-[force design](GENERAL_FORCE_DESIGN.md) uses uniform rational samples for
-possibly irrational accelerations and constructs their quotient values.
-Finite growth, sampling-aware perturbation and local refinement estimates
-are in BarrowLib; the harmonic perturbation is a corollary, and parallel
-forces preserve transverse velocity. Global accumulation, confinement and
-the general realized motion are next. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md)
-records the exact finite-cell potential identities allowed alongside Task A.
-No completion score changes on the basis of this local increment.
+Current handoff execution (Sol 6.1, 4 October): D.1 and the first Task A
+increment are committed. The [force design](GENERAL_FORCE_DESIGN.md) uses
+uniform rational samples for possibly irrational accelerations and constructs
+their quotient values. BarrowLib now derives actual finite coarse/fine error
+accumulation and a mesh-uniform small-window estimate, retaining sample error.
+Actual sampled Newton schedules have position and velocity bounds depending
+on total time; bounded acceleration and region confinement are explicit.
+Merely continuous forces have a proved local refinement source controlled by
+their modulus, without a Lipschitz or uniqueness inference. Harmonic and
+parallel fields remain instances. The full D.2 extraction is next; general
+motion realization, restart/gluing and derived confinement remain open.
+[Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the exact finite-cell
+potential identities allowed alongside Task A. Completion scores are unchanged.
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation

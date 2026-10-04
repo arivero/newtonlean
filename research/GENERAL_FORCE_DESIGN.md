@@ -71,3 +71,38 @@ compiler rejection alone is never an obstruction.
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will
 not be replaced by a structure field asserting the desired trajectory.
+
+## Actual finite accumulation and continuous consistency
+
+`BoundedIteration.run` constructs the actual triangular iterates. Under bounded
+arrival samples, velocity is at most `|v₀|+TB`, and position is at most
+`|x₀|+T|v₀|+T²B`, uniformly over meshes with elapsed time at most T.
+`ForceClasses.run_eq_schedule` and the `sampled_polygon_*_bound` theorems
+identify these with the mechanical schedules. `BoundedOn` and membership of
+every arrival in the region are explicit premises. They apply to bounded
+continuous (b)/(c), and even bounded (d), without deriving convergence.
+
+`FiniteAccumulation` constructs actual full-cell and two-half-cell iterates
+and derives their finite error recurrence. On `T=2nh`, `T(1+L) ≤ 1/2`, its
+finite product bound gives `D_n ≤ 2n S`, where S includes both the actual
+local defect and propagated additive sample error. B bounds first-half samples
+and V coarse velocities only for `k<n`. The global comparison contract also
+covers comparison locations that are not vertices of the coarse polygon;
+a region-local replacement must prove those locations confined. See the
+[accumulation verification](verification/general-accumulation-2026-10-04.md).
+The cross-map theorem compares different fine and coarse rational samples;
+`sampled_uniform_refinement` instantiates it at precisions j+1 and j with
+the derived discrepancy `3e_j`, under its explicit global-region premise.
+
+`sample_point_error` transfers oracle coherence to point distance, and
+`samples_comparison_contract` derives a cross-precision global force contract
+with discrepancy `3e_i` for `i≤j` when the declared region contains every
+rational point. It does not treat rounded sample maps as exactly Lipschitz.
+For a confined annulus, only the local version of this contract applies.
+
+`continuous_local_refinement` derives, for each positive eps, a positive delta
+and precision N from `ContinuousOn`. If the three actual sample locations lie
+in the region and their drift/refinement separations are below delta, the
+local state defect is bounded by `|h²|B+|h|(eps+eps)`. No Lipschitz coefficient
+is substituted for continuity. This controls the local source; a stability
+or subsequence construction and uniqueness require separate arguments.
