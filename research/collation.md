@@ -2,7 +2,7 @@
 
 Generated 2026-09-21 by `scripts/collate_sources.py`. This report checks the local TEI/XML transcription against selected passage extracts and the presence of corresponding anchors in normalized and diplomatic HTML. It records page and facsimile metadata but does not inspect or download manuscript images, and it does not establish historical proof dependency.
 
-Primary witnesses: 10; selected XML anchors: 244; exact generated-extract matches: 244; revision-tagged anchors: 57.
+Primary witnesses: 10; selected XML anchors: 246; exact generated-extract matches: 246; revision-tagged anchors: 59.
 
 ## Witness layers
 
@@ -17,7 +17,7 @@ Primary witnesses: 10; selected XML anchors: 244; exact generated-extract matche
 | NATP00080 | 1713 | Printed | 11 | 8/8 | 8/8 |
 | NATP00081 | 1713 | Printed | 13 | 8/8 | 8/8 |
 | NATP00087 | 1726 | Printed | 202 | 46/46 | 46/46 |
-| NATP00091 | NATP00091 | Manuscript | 4 | 0/1 | 1/1 |
+| NATP00091 | NATP00091 | Manuscript | 4 | 1/3 | 3/3 |
 
 A missing local HTML view is reported as absent; its official URL remains in the JSON record. XML is the machine-readable authority for exact revision markup.
 
@@ -373,6 +373,8 @@ Library/facsimile record: https://cudl.lib.cam.ac.uk/view/MS-ADD-03965/49
 
 | Anchor | Page | Facsimile target | Revision tags | Extract | Normalized | Diplomatic |
 |---|---:|---|---|---|---|---|
+| par10 | 26r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00011.jpg | add:8, choice:1, del:7, gap:1, orig:1, reg:1, unclear:1 | match | present | present |
+| par21 | 26r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00011.jpg | add:6, choice:1, del:7, gap:1, orig:1, reg:1, unclear:2 | match | anchor missing | present |
 | par24 | 23r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00005.jpg | del:1 | match | anchor missing | present |
 
 ## Supplementary records

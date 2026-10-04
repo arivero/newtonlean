@@ -342,5 +342,11 @@
   },
   "NATP00091.par24": {
     "translation": "Deleted in the manuscript: Def. 16. Moments of quantities are their generating or altering principles in continuous flux: as present time of past and future, present motion of past and future motion, centripetal or any other momentary force of impetus, the point of a line, the line of a surface, the surface of a solid, and the angle of contact of a rectilinear angle."
+  },
+  "NATP00091.par10": {
+    "translation": "Def. 10, renumbered from 9: velocity (replacing deleted \"speed of motion\") is the quantity of translation as to the length of the path; Newton deletes \"momentary\" and adds \"covered in a given time\". Added: the path is that described by the body's middle point, its centre of gravity. The paragraph continues with Def. 11, quantity of motion as velocity and quantity of body jointly."
+  },
+  "NATP00091.par21": {
+    "translation": "Deleted in the manuscript: Def. 14. The exerted force of a body is that by which it endeavours to conserve the part of its state of moving or resting that it loses in single moments; it is proportional to that change, and is not improperly called the body's reluctance or resistance. One species of it is the centrifugal force of revolving bodies."
   }
 }

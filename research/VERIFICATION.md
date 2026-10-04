@@ -572,3 +572,19 @@ theorems; all 658 reference/axiom checks pass with only propext,
 Classical.choice and Quot.sound and no sorryAx; evidence validation and
 whitespace pass. Mathematical content, premises and source classifications
 are unchanged.
+
+NATP00091 passages, 4 October (Claude Code): the TEI and both HTML views of
+'De motu corporum in mediis regulariter cedentibus' (MS Add. 3965.5, late
+1684/5) are now local, and three of its definitions are in the passage store
+with identifying translations. par24, the definition of moments numbered 16,
+is struck out entirely: the TEI encloses it in `<del>`. par21, a force
+definition built on *singulis momentis*, is struck out as well. In par10 the
+definition of velocity loses *momentanea* and gains *certo tempore confecti*.
+Collation matches all three extracts; the deleted par21 and par24 are present
+in the diplomatic view and absent from the normalized view, which omits
+deletions. A local TEI search finds the definition of moments in no other
+stored witness (NATP00089, NATP00090, the 1687 and 1713 definitions, Book I
+of 1687, 1713 and 1726). `catalogue_m1.py` now takes a per-witness retrieval
+date, leaving the existing companions unchanged. The passage store has 249
+entries; graph validation, evidence validation, checksums and whitespace
+pass. No proof edge or formal reference is added.

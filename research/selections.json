@@ -309,9 +309,11 @@
     "stage": "NATP00091",
     "path": "docs/m1/NATP00091.xml",
     "anchors": [
+      "par10",
+      "par21",
       "par24"
     ],
-    "revision_layer": "draft, MS Add. 3965.5, late 1684/5 per TEI origDate; the whole definition is deleted in the manuscript and the deletion is retained; renumbering of the neighbouring definitions unresolved",
+    "revision_layer": "draft, MS Add. 3965.5, late 1684/5 per TEI origDate; all marked additions and deletions retained (par21 and par24 are deleted in full); renumbering of the definitions unresolved",
     "retrieved": "2026-10-04"
   }
 }

@@ -26889,7 +26889,7 @@
       "stage": "NATP00091",
       "path": "docs/m1/NATP00091.xml",
       "title": "'De motu corporum in mediis regulariter cedentibus'",
-      "revision_layer": "draft, MS Add. 3965.5, late 1684/5 per TEI origDate; the whole definition is deleted in the manuscript and the deletion is retained; renumbering of the neighbouring definitions unresolved",
+      "revision_layer": "draft, MS Add. 3965.5, late 1684/5 per TEI origDate; all marked additions and deletions retained (par21 and par24 are deleted in full); renumbering of the definitions unresolved",
       "source_description": "MS Add. 3965.5, ff. 25r-26r, 23r-24r, Cambridge University Library, Cambridge, UK",
       "source_kind": "Manuscript",
       "orig_date": "Late 1684/5",
@@ -27221,6 +27221,70 @@
       },
       "anchors": [
         {
+          "id": "NATP00091.par10",
+          "anchor": "par10",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "26r",
+          "page_xml_id": "p26r",
+          "page_facs": "#MS-ADD-03965-005-00011.jpg",
+          "page_folio": "26r",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00011.jpg",
+          "revision_tags": {
+            "add": 8,
+            "choice": 1,
+            "del": 7,
+            "gap": 1,
+            "orig": 1,
+            "reg": 1,
+            "unclear": 1
+          },
+          "revision_tag_total": 20,
+          "normalized": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 595,
+            "sha256": "7bad53f1f73c6accba41e3d2ed4cf80e96a22c9cfb3f3590517104e227a1f5e7"
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 682,
+            "sha256": "a2fcf0721b04beb56a0e2ca45a8433c37f733902cc6cc9222542b5b24bea5570"
+          }
+        },
+        {
+          "id": "NATP00091.par21",
+          "anchor": "par21",
+          "xml_present": true,
+          "generated_extract_match": true,
+          "page": "26r",
+          "page_xml_id": "p26r",
+          "page_facs": "#MS-ADD-03965-005-00011.jpg",
+          "page_folio": "26r",
+          "facsimile_url": "http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00011.jpg",
+          "revision_tags": {
+            "add": 6,
+            "choice": 1,
+            "del": 7,
+            "gap": 1,
+            "orig": 1,
+            "reg": 1,
+            "unclear": 2
+          },
+          "revision_tag_total": 19,
+          "normalized": {
+            "present": true,
+            "anchor_present": false
+          },
+          "diplomatic": {
+            "present": true,
+            "anchor_present": true,
+            "chars": 427,
+            "sha256": "d6ae26bd1df1b59e247d8ca1c80c03a84317baeb9fc6a4dbc98201eb22b96a50"
+          }
+        },
+        {
           "id": "NATP00091.par24",
           "anchor": "par24",
           "xml_present": true,
@@ -27288,11 +27352,11 @@
   ],
   "summary": {
     "primary_witnesses": 10,
-    "primary_anchors": 244,
-    "generated_extract_matches": 244,
-    "revision_tagged_anchors": 57,
-    "normalized_anchor_matches": 238,
-    "diplomatic_anchor_matches": 244,
+    "primary_anchors": 246,
+    "generated_extract_matches": 246,
+    "revision_tagged_anchors": 59,
+    "normalized_anchor_matches": 239,
+    "diplomatic_anchor_matches": 246,
     "supplementary_records": 3
   }
 }

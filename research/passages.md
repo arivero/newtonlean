@@ -2432,6 +2432,26 @@ Corol. 3. Vis, qua corpus P in orbe quocunque circum virium centrum S revolvitur
 
 Translation status: not_translated.
 
+## NATP00091.par10
+
+Witness: 'De motu corporum in mediis regulariter cedentibus'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00091#par10
+
+Def. [add: 1] [del: 9] [add: 0] . [del: Celeritas motus] [add: Velocitas] est quantitas [del: momentanea] translationis quoad longitudinem itineris [add: certo tempore confecti] . [add: Iter verò est quod corporis puncto medio describitur a Geometris dicto centro gravitatis. Loquor de motu progressivo.] Def. 1 [del: 0] [add: 1] . Quantitas motus est quæ oritur [add: [del: ] ] ex velocitate et quantitate corporis translati conjunctim. Æstimatur autem quantitas corporis ex copia materiæ corporeæ quæ gravitati suæ [del: [unclear: fer] ] proportionalis esse solet. Pendulis æqualibus numerentur oscillationes corporum duorum ejusdem ponderis, et copia materiæ in utro erit reciprocè ut numerus oscillation [del: is] [add: u] m eodem tempore factorum.
+
+Translation status: identifying_translation_not_full. Def. 10, renumbered from 9: velocity (replacing deleted "speed of motion") is the quantity of translation as to the length of the path; Newton deletes "momentary" and adds "covered in a given time". Added: the path is that described by the body's middle point, its centre of gravity. The paragraph continues with Def. 11, quantity of motion as velocity and quantity of body jointly.
+
+## NATP00091.par21
+
+Witness: 'De motu corporum in mediis regulariter cedentibus'
+
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00091#par21
+
+[del: Def 14 Corporis vis exercita est qua id cona [del: ] tur [add: [del: singulis momentis] ] conservare status sui movendi vel quiescendi partem [del: [unclear: amissam] ] [add: illam quam singulis momentis amittit] , est status illius mutationi seu parti [add: singulis momentis] amissæ proportionalis, nec improprie [add: reluctatio vel] resistentia [del: dicitur] [add: [del: vel reluctatio] ] corporis dicitur. Hujus [del: [unclear: reperienda] ] [add: una species] est vis centrifuga gyrantium.]
+
+Translation status: identifying_translation_not_full. Deleted in the manuscript: Def. 14. The exerted force of a body is that by which it endeavours to conserve the part of its state of moving or resting that it loses in single moments; it is proportional to that change, and is not improperly called the body's reluctance or resistance. One species of it is the centrifugal force of revolving bodies.
+
 ## NATP00091.par24
 
 Witness: 'De motu corporum in mediis regulariter cedentibus'
