@@ -111,6 +111,36 @@ theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)
   cell_amplification_at tau ht a b d e L E s t hde hL
     (hc (cell a d s).1 (cell b e t).1)
 
+theorem run_distance_le_source_at (tau : Fraction) (ht : 0 < tau.num)
+    (a b : Point → Point) (d e L E : Fraction) (s : Point × Point)
+    (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) :
+    (n : Nat) →
+    (hc : ∀ k, k < n → Fraction.le
+      (pointDistance
+        (a (cell a d (BoundedIteration.run a d s k)).1)
+        (b (cell b e (BoundedIteration.run b e s k)).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance
+          (cell a d (BoundedIteration.run a d s k)).1
+          (cell b e (BoundedIteration.run b e s k)).1)) E)) →
+    Fraction.le
+      (TimeCalibration.distance tau (BoundedIteration.run a d s n) (BoundedIteration.run b e s n))
+      (FiniteRecurrence.sourceBudget (TimeCalibration.amplification tau d L ht)
+        (Fraction.mul (Fraction.mul tau d.abs) E) n)
+  | 0, _ => Fraction.le_of_equiv (TimeCalibration.distance_self_zero tau s)
+  | n+1, hc => by
+      have hstep := cell_amplification_at tau ht a b d e L E
+        (BoundedIteration.run a d s n) (BoundedIteration.run b e s n) hde hL
+        (hc n (by omega))
+      have hnext := Fraction.add_le_add_right
+        (Fraction.mul_le_mul_nonnegative_left
+          (run_distance_le_source_at tau ht a b d e L E s hde hL n
+            (fun k hk => hc k (by omega)))
+          (TimeCalibration.amplification tau d L ht)
+          (TimeCalibration.amplification_nonnegative tau d L ht hL))
+        (Fraction.mul (Fraction.mul tau d.abs) E)
+      exact Fraction.magnitudes.le_trans hstep hnext
+
 theorem run_distance_le_source (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (d e L E : Fraction) (s : Point × Point)
     (hde : Fraction.equiv d e) (hL : 0 ≤ L.num)
@@ -118,24 +148,25 @@ theorem run_distance_le_source (tau : Fraction) (ht : 0 < tau.num)
     (n : Nat) → Fraction.le
       (TimeCalibration.distance tau (BoundedIteration.run a d s n) (BoundedIteration.run b e s n))
       (FiniteRecurrence.sourceBudget (TimeCalibration.amplification tau d L ht)
-        (Fraction.mul (Fraction.mul tau d.abs) E) n)
-  | 0 => TimeCalibration.run_distance_le_source tau ht a b d L E s hL hc 0
-  | n+1 => by
-      have hstep := cell_amplification tau ht a b d e L E
-        (BoundedIteration.run a d s n) (BoundedIteration.run b e s n) hde hL hc
-      have hnext := Fraction.add_le_add_right
-        (Fraction.mul_le_mul_nonnegative_left
-          (run_distance_le_source tau ht a b d e L E s hde hL hc n)
-          (TimeCalibration.amplification tau d L ht)
-          (TimeCalibration.amplification_nonnegative tau d L ht hL))
-        (Fraction.mul (Fraction.mul tau d.abs) E)
-      exact Fraction.magnitudes.le_trans hstep hnext
+        (Fraction.mul (Fraction.mul tau d.abs) E) n) :=
+  fun n => run_distance_le_source_at tau ht a b d e L E s hde hL n
+    (fun k _ => hc
+      (cell a d (BoundedIteration.run a d s k)).1
+      (cell b e (BoundedIteration.run b e s k)).1)
 
-theorem run_uniform_error (tau : Fraction) (ht : 0 < tau.num)
+theorem run_uniform_error_at (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (d e L E : Fraction) (s : Point × Point)
     (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num)
-    (hc : comparisonContract a b L E) (n : Nat)
-    (hs : TimeCalibration.Window tau d L ht n) :
+    (n : Nat)
+    (hs : TimeCalibration.Window tau d L ht n)
+    (hc : ∀ k, k < n → Fraction.le
+      (pointDistance
+        (a (cell a d (BoundedIteration.run a d s k)).1)
+        (b (cell b e (BoundedIteration.run b e s k)).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance
+          (cell a d (BoundedIteration.run a d s k)).1
+          (cell b e (BoundedIteration.run b e s k)).1)) E)) :
     Fraction.le
       (TimeCalibration.distance tau (BoundedIteration.run a d s n) (BoundedIteration.run b e s n))
       (Fraction.mul (Fraction.ofInt (2*(n : Int)))
@@ -147,9 +178,23 @@ theorem run_uniform_error (tau : Fraction) (ht : 0 < tau.num)
     (Fraction.nonnegative_mul _ _ (Int.le_of_lt ht) (Fraction.abs_num_nonnegative d)) hE
   have hp := TimeCalibration.amplification_power_le_two tau d L ht hL n hs
   exact Fraction.magnitudes.le_trans
-    (run_distance_le_source tau ht a b d e L E s hde hL hc n)
+    (run_distance_le_source_at tau ht a b d e L E s hde hL n hc)
     (FiniteRecurrence.sourceBudget_two_count K S n hK hS
       (TimeCalibration.one_le_amplification tau d L ht hL) hp)
+
+theorem run_uniform_error (tau : Fraction) (ht : 0 < tau.num)
+    (a b : Point → Point) (d e L E : Fraction) (s : Point × Point)
+    (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num)
+    (hc : comparisonContract a b L E) (n : Nat)
+    (hs : TimeCalibration.Window tau d L ht n) :
+    Fraction.le
+      (TimeCalibration.distance tau (BoundedIteration.run a d s n) (BoundedIteration.run b e s n))
+      (Fraction.mul (Fraction.ofInt (2*(n : Int)))
+        (Fraction.mul (Fraction.mul tau d.abs) E)) :=
+  run_uniform_error_at tau ht a b d e L E s hde hL hE n hs
+    (fun k _ => hc
+      (cell a d (BoundedIteration.run a d s k)).1
+      (cell b e (BoundedIteration.run b e s k)).1)
 
 private def representativeMap (p : Point) : Point :=
   (Fraction.ofInt 0, if p.1.den = 1 then Fraction.ofInt 1 else Fraction.ofInt 2)

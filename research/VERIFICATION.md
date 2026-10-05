@@ -1,6 +1,31 @@
 # Verification record
 
-## Current handoff: regional cell comparison, 5 October 2026
+## Current handoff: regional paired accumulation, 5 October 2026
+
+Pointwise finite paired accumulation takes only four actual force comparisons
+per block. The local two-half defect, recurrence and uniform closing reuse
+the old proofs, whose global-contract statements remain wrappers.
+RegionConfinement derives every fine/coarse and both shadow certificate before
+using regional comparison. Equivalent represented durations keep separate
+force evaluations and derived certificates for both runs. Proper-annulus
+controls verify the short window at every mesh and the durations 1/8, 2/16.
+Conditions/completed-force migration, completed curve confinement and the
+actual Euclidean Kepler instance remain required within A.6. No new completed
+quantity, Task E work or score increase is added.
+
+Root Sol 6.1 reviewed and compiled the sequential Sol worker edits after its
+reporting turn hit model capacity, then integrated both clients. All 16
+sequential commands and the scope file pass. There are 1,375 emitted checks,
+77 graph nodes, 68 edges and 253 passages; only propext, Classical.choice and
+Quot.sound occur in the axiom union. No sorryAx, project axiom, external
+package or foundation Newton import is present. All 1,938 prior public names
+and signatures remain, with ten new names and nine rows. The live catalogue
+has 1,519 rows and 641 Barrow rows: 1,128 substantive, 199 plumbing, 166 sample
+and 26 duplicate by the heuristic. Logs:
+/tmp/newton-sol61-regional-accumulation-final-01.log through -16.log. See the
+[checkpoint](verification/regional-accumulation-2026-10-05.md).
+
+### Regional cell comparison, 5 October 2026
 
 Shared pointwise cell estimates in FiniteEstimates, TimeCalibration and
 EquivalentDuration accept force comparison only at their two actual arrivals;

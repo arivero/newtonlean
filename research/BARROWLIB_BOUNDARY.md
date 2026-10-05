@@ -147,3 +147,11 @@ available only at actual points. RegionConfinement.sampled_cell_comparison is
 the live Newton client: confinement derives both certificates before local
 force comparison. Seven foundation theorem rows share the old arithmetic
 proofs rather than duplicate them. No completed quantity is added.
+
+CalibratedRefinement.BlockComparisons bundles the four actual force pairs of
+one coarse/two-half block. Pointwise source accumulation and uniform closing
+reuse the existing finite recurrence and power bounds. EquivalentDuration
+accumulates only comparisons of the two actual represented runs. Their old
+global-contract statements wrap these proofs. RegionConfinement is the live
+client for both: every membership certificate comes from its finite invariant,
+including both shadow arrivals. No new completed operation is introduced.

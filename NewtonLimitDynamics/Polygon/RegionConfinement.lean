@@ -260,4 +260,121 @@ theorem sampled_cell_comparison (o : CentralOracle) (T B r R : Fraction)
   exact TimeCalibration.cell_amplification_at tau htau (o.sample i) (o.sample j)
     h L _ q z hL.1 (samples_comparison_contract o.toOracle L hL i j hij _ _ hp hr)
 
+/-- Actual paired refinement on a certified band. Both fine arrivals, both
+coarse-field shadow arrivals and the full coarse arrival are certified before
+any of the four local force comparisons is used. -/
+theorem sampled_refinement_bound (o : CentralOracle) (T B r R : Fraction)
+    (s0 : Point × Point) (d : Frame o.region T B r R s0)
+    (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num)
+    (i j : Nat) (hij : i ≤ j)
+    (hbi : ∀ p, Band r R p → Fraction.le (pointNorm (o.sample i p)) B)
+    (hbj : ∀ p, Band r R p → Fraction.le (pointNorm (o.sample j p)) B) (m n : Nat) (hn : n ≤ HarmonicDyadic.blocks m)
+    (hs : TimeCalibration.Window tau (HarmonicDyadic.duration T (m+1)) L htau (2*n)) :
+    Fraction.le (TimeCalibration.distance tau
+      (FiniteAccumulation.fineAt (o.sample j) (HarmonicDyadic.duration T (m+1)) s0 n)
+      (FiniteAccumulation.coarseAt (o.sample i) (HarmonicDyadic.duration T (m+1)) s0 n))
+      (Fraction.mul (Fraction.ofInt (2*(n : Int)))
+        (CalibratedRefinement.blockSource tau (HarmonicDyadic.duration T (m+1)) L
+          (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i))
+          B (velocityCap T B s0) htau)) := by
+  let h := HarmonicDyadic.duration T (m+1)
+  let E := Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i)
+  have hh : 0 ≤ h.num := d.time_nonnegative
+  have hfull : 0 ≤ (Fraction.add h h).num := Fraction.nonnegative_add _ _ hh hh
+  have hf : ∀ k, k ≤ 2*HarmonicDyadic.blocks m →
+      Band r R (BoundedIteration.run (o.sample j) h s0 k).1 := by
+    intro k hk
+    exact run_band o.region T B r R s0 d _ (sample_central o j) hbj h hh k
+      (Fraction.magnitudes.le_trans
+        (BoundedIteration.time_monotone h hh k (2*HarmonicDyadic.blocks m) hk)
+        (Fraction.le_of_equiv (fine_time T m)))
+  have hct : ∀ k, k ≤ HarmonicDyadic.blocks m →
+      Fraction.le (BoundedIteration.time (Fraction.add h h) k) T := by
+    intro k hk
+    exact Fraction.magnitudes.le_trans
+      (BoundedIteration.time_monotone _ hfull k (HarmonicDyadic.blocks m) hk)
+      (Fraction.le_of_equiv (coarse_time T m))
+  have hc : ∀ k, k ≤ HarmonicDyadic.blocks m →
+      Band r R (BoundedIteration.run (o.sample i) (Fraction.add h h) s0 k).1 := by
+    intro k hk
+    exact run_band o.region T B r R s0 d _ (sample_central o i) hbi
+      _ hfull k (hct k hk)
+  have hcross : ∀ p q, o.region p → o.region q →
+      Fraction.le (FiniteEstimates.pointDistance (o.sample j p) (o.sample i q))
+        (Fraction.add (Fraction.mul L (FiniteEstimates.pointDistance p q)) E) := by
+    intro p q hp hq
+    have he := samples_comparison_contract o.toOracle L hL i j hij q p hq hp
+    exact Fraction.le_equiv_right
+      (Fraction.le_equiv_left (FiniteEstimates.pointDistance_symm _ _) he)
+      (Fraction.add_equiv
+        (Fraction.mul_equiv_left L (FiniteEstimates.pointDistance_symm _ _))
+        (Fraction.equiv_refl _))
+  apply CalibratedRefinement.actual_uniform_error_at tau htau (o.sample j) (o.sample i)
+    h L E B (velocityCap T B s0) s0 hL.1
+    (Fraction.nonnegative_add _ _
+      (Fraction.nonnegative_add _ _ (o.error_nonnegative i) (o.error_nonnegative i))
+      (o.error_nonnegative i)) d.bound_nonnegative
+    (velocityCap_nonnegative T B s0 d.time_nonnegative d.bound_nonnegative) n hs
+  · intro k hk
+    have hkm : k < HarmonicDyadic.blocks m := by omega
+    obtain ⟨hb1,hb2⟩ := shadow_bands o.region T B r R s0 d _
+      (sample_central o i) hbi m k hkm
+    have ha1 : Band r R (FiniteEstimates.cell (o.sample j) h
+        (FiniteAccumulation.fineAt (o.sample j) h s0 k)).1 := by
+      simpa only [CalibratedRefinement.fineAt_eq_run,BoundedIteration.run] using
+        hf (2*k+1) (by omega)
+    have ha2 : Band r R (FiniteEstimates.twoHalf (o.sample j) h
+        (FiniteAccumulation.fineAt (o.sample j) h s0 k)).1 := by
+      simpa only [CalibratedRefinement.fineAt_eq_run,FiniteEstimates.twoHalf,
+        BoundedIteration.run] using hf (2*k+2) (by omega)
+    have hc1 : Band r R (FiniteEstimates.oneFull (o.sample i) h
+        (FiniteAccumulation.coarseAt (o.sample i) h s0 k)).1 := by
+      simpa only [CalibratedRefinement.coarseAt_eq_run,FiniteEstimates.oneFull,
+        BoundedIteration.run] using hc (k+1) (by omega)
+    exact ⟨hcross _ _ (d.contains_band _ ha1) (d.contains_band _ hb1),
+      hcross _ _ (d.contains_band _ ha2) (d.contains_band _ hb2),
+      samples_comparison_contract o.toOracle L hL i i (Nat.le_refl _) _ _
+        (d.contains_band _ hb1) (d.contains_band _ hc1),
+      samples_comparison_contract o.toOracle L hL i i (Nat.le_refl _) _ _
+        (d.contains_band _ hb2) (d.contains_band _ hc1)⟩
+  · intro k hk
+    exact hbi _ (shadow_bands o.region T B r R s0 d _
+      (sample_central o i) hbi m k (by omega)).1
+  · intro k hk
+    have hv := (run_invariant o.region T B r R s0 d _ (sample_central o i) hbi
+      (Fraction.add h h) hfull k (hct k (by omega))).velocity_bound
+    simpa only [CalibratedRefinement.coarseAt_eq_run] using
+      Fraction.magnitudes.le_trans hv (Fraction.add_le_add_left
+        (Fraction.mul_le_mul_nonnegative (hct k (by omega)) B d.bound_nonnegative) _)
+
+/-- Equivalent represented durations retain their own actual force samples.
+Membership of both arrival families is derived from the same regional frame. -/
+theorem sampled_equivalent_duration_bound (o : CentralOracle) (T B r R : Fraction)
+    (s0 : Point × Point) (f : Frame o.region T B r R s0)
+    (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num)
+    (i j : Nat) (hij : i ≤ j)
+    (hbi : ∀ p, Band r R p → Fraction.le (pointNorm (o.sample i p)) B)
+    (hbj : ∀ p, Band r R p → Fraction.le (pointNorm (o.sample j p)) B) (d e : Fraction) (hde : Fraction.equiv d e)
+    (hd : 0 ≤ d.num) (he : 0 ≤ e.num) (n : Nat)
+    (hdt : Fraction.le (BoundedIteration.time d n) T)
+    (het : Fraction.le (BoundedIteration.time e n) T)
+    (hs : TimeCalibration.Window tau d L htau n) :
+    Fraction.le (TimeCalibration.distance tau
+      (BoundedIteration.run (o.sample i) d s0 n) (BoundedIteration.run (o.sample j) e s0 n))
+      (Fraction.mul (Fraction.ofInt (2*(n : Int)))
+        (Fraction.mul (Fraction.mul tau d.abs)
+          (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i)))) := by
+  apply EquivalentDuration.run_uniform_error_at tau htau (o.sample i) (o.sample j)
+    d e L _ s0 hde hL.1
+    (Fraction.nonnegative_add _ _
+      (Fraction.nonnegative_add _ _ (o.error_nonnegative i) (o.error_nonnegative i))
+      (o.error_nonnegative i)) n hs
+  intro k hk
+  have hp := run_band o.region T B r R s0 f _ (sample_central o i) hbi d hd (k+1)
+    (Fraction.magnitudes.le_trans (BoundedIteration.time_monotone d hd (k+1) n (by omega)) hdt)
+  have hq := run_band o.region T B r R s0 f _ (sample_central o j) hbj e he (k+1)
+    (Fraction.magnitudes.le_trans (BoundedIteration.time_monotone e he (k+1) n (by omega)) het)
+  exact samples_comparison_contract o.toOracle L hL i j hij _ _
+    (f.contains_band _ hp) (f.contains_band _ hq)
+
 end NewtonLimitDynamics.Polygon.RegionConfinement

@@ -427,8 +427,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_le_cap
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source
+#check NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source_at
+#print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source_at
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_uniform_error
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_uniform_error
+#check NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_uniform_error_at
+#print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_uniform_error_at
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.blockSource_bound
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.blockSource_bound
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.blockSource_nonnegative
@@ -437,12 +441,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.coarseAt_eq_run
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.cross_block_error
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.cross_block_error
+#check NewtonLimitDynamics.Polygon.CalibratedRefinement.cross_block_error_at
+#print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.cross_block_error_at
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.fineAt_eq_run
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.fineAt_eq_run
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.localSource_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.localSource_nonnegative
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.twoHalf_local_error
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.twoHalf_local_error
+#check NewtonLimitDynamics.Polygon.CalibratedRefinement.twoHalf_local_error_at
+#print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.twoHalf_local_error_at
 #check NewtonLimitDynamics.Polygon.CauchyValues.add_lt_add_left
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.add_lt_add_left
 #check NewtonLimitDynamics.Polygon.CauchyValues.binaryValue_prefix_bound
@@ -691,8 +699,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.representative_sensitive_control
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.run_distance_le_source
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.run_distance_le_source
+#check NewtonLimitDynamics.Polygon.EquivalentDuration.run_distance_le_source_at
+#print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.run_distance_le_source_at
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.run_uniform_error
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.run_uniform_error
+#check NewtonLimitDynamics.Polygon.EquivalentDuration.run_uniform_error_at
+#print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.run_uniform_error_at
 #check NewtonLimitDynamics.Polygon.FiniteAccumulation.actual_error_le_budget
 #print axioms NewtonLimitDynamics.Polygon.FiniteAccumulation.actual_error_le_budget
 #check NewtonLimitDynamics.Polygon.FiniteAccumulation.actual_error_le_constant_budget
@@ -829,6 +841,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error_closed
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error_closed
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error_closed_at
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error_closed_at
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_sample_error
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_sample_error
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control
@@ -2257,6 +2271,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RegionConfinement.run_invariant
 #check NewtonLimitDynamics.Polygon.RegionConfinement.sampled_cell_comparison
 #print axioms NewtonLimitDynamics.Polygon.RegionConfinement.sampled_cell_comparison
+#check NewtonLimitDynamics.Polygon.RegionConfinement.sampled_equivalent_duration_bound
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.sampled_equivalent_duration_bound
+#check NewtonLimitDynamics.Polygon.RegionConfinement.sampled_refinement_bound
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.sampled_refinement_bound
 #check NewtonLimitDynamics.Polygon.RegionConfinement.shadow_bands
 #print axioms NewtonLimitDynamics.Polygon.RegionConfinement.shadow_bands
 #check NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection

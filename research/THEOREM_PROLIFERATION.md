@@ -227,3 +227,14 @@ repair for regional confinement, with no new completed quantity or score.
 The sequential Sol worker implemented only the three cell-estimate modules;
 its targeted compilation passed before its final reporting turn hit model
 capacity. Root Sol 6.1 reviewed, integrated and ran the complete checklist.
+
+The next A.6 increment adds seven pointwise accumulation theorem rows, one
+four-comparison bundle, and two live regional Newton clients. Global-contract
+statements wrap the shared proofs, and no separate recurrence is copied. The
+clients derive all sample locations from finite confinement, retaining both
+shadow arrivals and distinct represented durations. All 1,938 prior public
+names/signatures remain, with ten new names and nine rows. The existing
+heuristic labels both universal clients sample by their names; neither counts
+as a separate milestone. Root reviewed and compiled the sequential Sol
+worker edits after its reporting turn hit model capacity, then integrated the
+clients and ran the full checklist. Scores stay unchanged.

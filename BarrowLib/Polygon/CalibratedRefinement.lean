@@ -53,15 +53,23 @@ theorem blockSource_nonnegative (tau h L E B V : Fraction)
       (Fraction.nonnegative_mul _ _ (TimeCalibration.amplification_nonnegative tau h L ht hL) hS) hS)
     (localSource_nonnegative tau h L E B V ht hL hE hB hV)
 
-theorem twoHalf_local_error (tau : Fraction) (ht : 0 < tau.num)
+theorem twoHalf_local_error_at (tau : Fraction) (ht : 0 < tau.num)
     (b : Point → Point) (h L E B V : Fraction) (t : Point × Point)
-    (hL : 0 ≤ L.num) (hlocal : comparisonContract b b L E)
+    (hL : 0 ≤ L.num)
+    (hfirst : Fraction.le
+      (pointDistance (b (cell b h t).1) (b (oneFull b h t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell b h t).1 (oneFull b h t).1)) E))
+    (hsecond : Fraction.le
+      (pointDistance (b (twoHalf b h t).1) (b (oneFull b h t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (twoHalf b h t).1 (oneFull b h t).1)) E))
     (hB : Fraction.le (pointNorm (b (cell b h t).1)) B)
     (hV : Fraction.le (pointNorm t.2) V) :
     Fraction.le (TimeCalibration.distance tau (twoHalf b h t) (oneFull b h t))
       (localSource tau h L E B V) := by
   have hp := twoHalf_position_error b h B t hB
-  have hv := twoHalf_velocity_error_closed b h L E B t hL hB hlocal
+  have hv := twoHalf_velocity_error_closed_at b h L E B t hL hB hfirst hsecond
   have hvc := Fraction.add_le_add_right
     (Fraction.mul_le_mul_nonnegative_left
       (Fraction.mul_le_mul_nonnegative_left hV h.abs (Fraction.abs_num_nonnegative h)) L hL) E
@@ -73,11 +81,41 @@ theorem twoHalf_local_error (tau : Fraction) (ht : 0 < tau.num)
     (Fraction.mul_le_mul_nonnegative_left (Fraction.magnitudes.le_trans hv hvel)
       tau (Int.le_of_lt ht))
 
+theorem twoHalf_local_error (tau : Fraction) (ht : 0 < tau.num)
+    (b : Point → Point) (h L E B V : Fraction) (t : Point × Point)
+    (hL : 0 ≤ L.num) (hlocal : comparisonContract b b L E)
+    (hB : Fraction.le (pointNorm (b (cell b h t).1)) B)
+    (hV : Fraction.le (pointNorm t.2) V) :
+    Fraction.le (TimeCalibration.distance tau (twoHalf b h t) (oneFull b h t))
+      (localSource tau h L E B V) :=
+  twoHalf_local_error_at tau ht b h L E B V t hL
+    (hlocal (cell b h t).1 (oneFull b h t).1)
+    (hlocal (twoHalf b h t).1 (oneFull b h t).1) hB hV
+
+/-- Only the four comparisons made by the actual paired block are needed. -/
+structure BlockComparisons (a b : Point → Point) (h L E : Fraction)
+    (s t : Point × Point) : Prop where
+  firstCross : Fraction.le
+    (pointDistance (a (cell a h s).1) (b (cell b h t).1))
+    (Fraction.add (Fraction.mul L
+      (pointDistance (cell a h s).1 (cell b h t).1)) E)
+  secondCross : Fraction.le
+    (pointDistance (a (twoHalf a h s).1) (b (twoHalf b h t).1))
+    (Fraction.add (Fraction.mul L
+      (pointDistance (twoHalf a h s).1 (twoHalf b h t).1)) E)
+  firstLocal : Fraction.le
+    (pointDistance (b (cell b h t).1) (b (oneFull b h t).1))
+    (Fraction.add (Fraction.mul L
+      (pointDistance (cell b h t).1 (oneFull b h t).1)) E)
+  secondLocal : Fraction.le
+    (pointDistance (b (twoHalf b h t).1) (b (oneFull b h t).1))
+    (Fraction.add (Fraction.mul L
+      (pointDistance (twoHalf b h t).1 (oneFull b h t).1)) E)
+
 /-- Actual first and second fine-cell samples each contribute their own E. -/
-theorem cross_block_error (tau : Fraction) (ht : 0 < tau.num)
+theorem cross_block_error_at (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (h L E B V : Fraction) (s t : Point × Point)
-    (hL : 0 ≤ L.num) (hcross : comparisonContract a b L E)
-    (hlocal : comparisonContract b b L E)
+    (hL : 0 ≤ L.num) (hc : BlockComparisons a b h L E s t)
     (hB : Fraction.le (pointNorm (b (cell b h t).1)) B)
     (hV : Fraction.le (pointNorm t.2) V) :
     Fraction.le (TimeCalibration.distance tau (twoHalf a h s) (oneFull b h t))
@@ -87,18 +125,61 @@ theorem cross_block_error (tau : Fraction) (ht : 0 < tau.num)
   let K := TimeCalibration.amplification tau h L ht
   let S := Fraction.mul (Fraction.mul tau h.abs) E
   have hK := TimeCalibration.amplification_nonnegative tau h L ht hL
-  have h1 := TimeCalibration.cell_amplification tau ht a b h L E s t hL hcross
-  have h2 := TimeCalibration.cell_amplification tau ht a b h L E
-    (cell a h s) (cell b h t) hL hcross
+  have h1 := TimeCalibration.cell_amplification_at tau ht a b h L E s t hL hc.firstCross
+  have h2 := TimeCalibration.cell_amplification_at tau ht a b h L E
+    (cell a h s) (cell b h t) hL hc.secondCross
   have hprop := Fraction.magnitudes.le_trans h2
     (Fraction.add_le_add_right (Fraction.mul_le_mul_nonnegative_left h1 K hK) S)
-  have hl := twoHalf_local_error tau ht b h L E B V t hL hlocal hB hV
+  have hl := twoHalf_local_error_at tau ht b h L E B V t hL
+    hc.firstLocal hc.secondLocal hB hV
   have htri := TimeCalibration.distance_triangle tau ht
     (twoHalf a h s) (twoHalf b h t) (oneFull b h t)
   apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans htri (Fraction.add_le_add hprop hl))
   simp only [K,S,blockFactor,blockSource,Fraction.equiv,Fraction.add,Fraction.mul,
     Int.add_mul,Int.mul_add]
   ac_nf
+
+theorem cross_block_error (tau : Fraction) (ht : 0 < tau.num)
+    (a b : Point → Point) (h L E B V : Fraction) (s t : Point × Point)
+    (hL : 0 ≤ L.num) (hcross : comparisonContract a b L E)
+    (hlocal : comparisonContract b b L E)
+    (hB : Fraction.le (pointNorm (b (cell b h t).1)) B)
+    (hV : Fraction.le (pointNorm t.2) V) :
+    Fraction.le (TimeCalibration.distance tau (twoHalf a h s) (oneFull b h t))
+      (Fraction.add
+        (Fraction.mul (blockFactor tau h L ht) (TimeCalibration.distance tau s t))
+        (blockSource tau h L E B V ht)) :=
+  cross_block_error_at tau ht a b h L E B V s t hL
+    ⟨hcross (cell a h s).1 (cell b h t).1,
+      hcross (twoHalf a h s).1 (twoHalf b h t).1,
+      hlocal (cell b h t).1 (oneFull b h t).1,
+      hlocal (twoHalf b h t).1 (oneFull b h t).1⟩ hB hV
+
+theorem actual_error_le_source_at (tau : Fraction) (ht : 0 < tau.num)
+    (a b : Point → Point) (h L E B V : Fraction) (s : Point × Point)
+    (hL : 0 ≤ L.num) :
+    (n : Nat) →
+    (hc : ∀ k, k < n → BlockComparisons a b h L E
+      (fineAt a h s k) (coarseAt b h s k)) →
+    (hB : ∀ k, k < n → Fraction.le
+      (pointNorm (b (cell b h (coarseAt b h s k)).1)) B) →
+    (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V) →
+    Fraction.le (TimeCalibration.distance tau (fineAt a h s n) (coarseAt b h s n))
+      (FiniteRecurrence.sourceBudget (blockFactor tau h L ht)
+        (blockSource tau h L E B V ht) n)
+  | 0, _, _, _ => Fraction.le_of_equiv (TimeCalibration.distance_self_zero tau s)
+  | n+1, hc, hB, hV => by
+      have hs := cross_block_error_at tau ht a b h L E B V
+        (fineAt a h s n) (coarseAt b h s n) hL (hc n (by omega))
+        (hB n (by omega)) (hV n (by omega))
+      have hi := actual_error_le_source_at tau ht a b h L E B V s hL n
+        (fun k hk => hc k (by omega))
+        (fun k hk => hB k (by omega)) (fun k hk => hV k (by omega))
+      have hK := TimeCalibration.amplification_nonnegative tau h L ht hL
+      exact Fraction.magnitudes.le_trans hs
+        (Fraction.add_le_add_right
+          (Fraction.mul_le_mul_nonnegative_left hi (blockFactor tau h L ht)
+            (Fraction.nonnegative_mul _ _ hK hK)) (blockSource tau h L E B V ht))
 
 theorem actual_error_le_source (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (h L E B V : Fraction) (s : Point × Point)
@@ -110,25 +191,23 @@ theorem actual_error_le_source (tau : Fraction) (ht : 0 < tau.num)
     (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V) →
     Fraction.le (TimeCalibration.distance tau (fineAt a h s n) (coarseAt b h s n))
       (FiniteRecurrence.sourceBudget (blockFactor tau h L ht)
-        (blockSource tau h L E B V ht) n)
-  | 0, _, _ => Fraction.le_of_equiv (TimeCalibration.distance_self_zero tau s)
-  | n+1, hB, hV => by
-      have hs := cross_block_error tau ht a b h L E B V
-        (fineAt a h s n) (coarseAt b h s n) hL hcross hlocal
-        (hB n (by omega)) (hV n (by omega))
-      have hi := actual_error_le_source tau ht a b h L E B V s hL hcross hlocal n
-        (fun k hk => hB k (by omega)) (fun k hk => hV k (by omega))
-      have hK := TimeCalibration.amplification_nonnegative tau h L ht hL
-      exact Fraction.magnitudes.le_trans hs
-        (Fraction.add_le_add_right
-          (Fraction.mul_le_mul_nonnegative_left hi (blockFactor tau h L ht)
-            (Fraction.nonnegative_mul _ _ hK hK)) (blockSource tau h L E B V ht))
+        (blockSource tau h L E B V ht) n) :=
+  fun n hB hV => actual_error_le_source_at tau ht a b h L E B V s hL n
+    (fun k _ =>
+      ⟨hcross (cell a h (fineAt a h s k)).1 (cell b h (coarseAt b h s k)).1,
+       hcross (twoHalf a h (fineAt a h s k)).1
+         (twoHalf b h (coarseAt b h s k)).1,
+       hlocal (cell b h (coarseAt b h s k)).1
+         (oneFull b h (coarseAt b h s k)).1,
+       hlocal (twoHalf b h (coarseAt b h s k)).1
+         (oneFull b h (coarseAt b h s k)).1⟩) hB hV
 
-theorem actual_uniform_error (tau : Fraction) (ht : 0 < tau.num)
+theorem actual_uniform_error_at (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (h L E B V : Fraction) (s : Point × Point)
     (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hB0 : 0 ≤ B.num) (hV0 : 0 ≤ V.num)
-    (hcross : comparisonContract a b L E) (hlocal : comparisonContract b b L E)
     (n : Nat) (hs : TimeCalibration.Window tau h L ht (2*n))
+    (hc : ∀ k, k < n → BlockComparisons a b h L E
+      (fineAt a h s k) (coarseAt b h s k))
     (hB : ∀ k, k < n → Fraction.le
       (pointNorm (b (cell b h (coarseAt b h s k)).1)) B)
     (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V) :
@@ -150,8 +229,28 @@ theorem actual_uniform_error (tau : Fraction) (ht : 0 < tau.num)
   have hp := Fraction.le_equiv_left (FiniteFactorProducts.fpower_square K n)
     (TimeCalibration.amplification_power_le_two tau h L ht hL (2*n) hs)
   exact Fraction.magnitudes.le_trans
-    (actual_error_le_source tau ht a b h L E B V s hL hcross hlocal n hB hV)
+    (actual_error_le_source_at tau ht a b h L E B V s hL n hc hB hV)
     (FiniteRecurrence.sourceBudget_two_count R S n hR hS hone hp)
+
+theorem actual_uniform_error (tau : Fraction) (ht : 0 < tau.num)
+    (a b : Point → Point) (h L E B V : Fraction) (s : Point × Point)
+    (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hB0 : 0 ≤ B.num) (hV0 : 0 ≤ V.num)
+    (hcross : comparisonContract a b L E) (hlocal : comparisonContract b b L E)
+    (n : Nat) (hs : TimeCalibration.Window tau h L ht (2*n))
+    (hB : ∀ k, k < n → Fraction.le
+      (pointNorm (b (cell b h (coarseAt b h s k)).1)) B)
+    (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V) :
+    Fraction.le (TimeCalibration.distance tau (fineAt a h s n) (coarseAt b h s n))
+      (Fraction.mul (Fraction.ofInt (2*(n : Int))) (blockSource tau h L E B V ht)) :=
+  actual_uniform_error_at tau ht a b h L E B V s hL hE hB0 hV0 n hs
+    (fun k _ =>
+      ⟨hcross (cell a h (fineAt a h s k)).1 (cell b h (coarseAt b h s k)).1,
+       hcross (twoHalf a h (fineAt a h s k)).1
+         (twoHalf b h (coarseAt b h s k)).1,
+       hlocal (cell b h (coarseAt b h s k)).1
+         (oneFull b h (coarseAt b h s k)).1,
+       hlocal (twoHalf b h (coarseAt b h s k)).1
+         (oneFull b h (coarseAt b h s k)).1⟩) hB hV
 
 def consistencyCoefficient (tau T L B V : Fraction) : Fraction :=
   Fraction.add B (Fraction.mul (Fraction.mul tau L) (Fraction.add V (Fraction.mul T B)))

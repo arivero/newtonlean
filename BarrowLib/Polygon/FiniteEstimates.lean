@@ -454,11 +454,18 @@ theorem twoHalf_velocity_error (a : Point → Point) (h L E : Fraction)
 
 /-- A fully explicit local velocity bound follows once the first sampled
 value is bounded by `B` and the comparison coefficient is nonnegative. -/
-theorem twoHalf_velocity_error_closed (a : Point → Point)
+theorem twoHalf_velocity_error_closed_at (a : Point → Point)
     (h L E B : Fraction) (s : Point × Point)
     (hL : 0 ≤ L.num)
     (hB : Fraction.le (pointNorm (a (cell a h s).1)) B)
-    (hc : comparisonContract a a L E) :
+    (h₁ : Fraction.le
+      (pointDistance (a (cell a h s).1) (a (oneFull a h s).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell a h s).1 (oneFull a h s).1)) E))
+    (h₂ : Fraction.le
+      (pointDistance (a (twoHalf a h s).1) (a (oneFull a h s).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (twoHalf a h s).1 (oneFull a h s).1)) E)) :
     Fraction.le (pointDistance (twoHalf a h s).2 (oneFull a h s).2)
       (Fraction.mul h.abs
         (Fraction.add
@@ -478,8 +485,25 @@ theorem twoHalf_velocity_error_closed (a : Point → Point)
   have hsum := Fraction.add_le_add he₁ he₂
   have htimes := Fraction.mul_le_mul_nonnegative_left hsum h.abs
     (Fraction.abs_num_nonnegative h)
-  exact Fraction.magnitudes.le_trans (twoHalf_velocity_error a h L E s hc)
+  exact Fraction.magnitudes.le_trans
+    (twoHalf_velocity_sample_error a h _ _ s h₁ h₂)
     htimes
+
+theorem twoHalf_velocity_error_closed (a : Point → Point)
+    (h L E B : Fraction) (s : Point × Point)
+    (hL : 0 ≤ L.num)
+    (hB : Fraction.le (pointNorm (a (cell a h s).1)) B)
+    (hc : comparisonContract a a L E) :
+    Fraction.le (pointDistance (twoHalf a h s).2 (oneFull a h s).2)
+      (Fraction.mul h.abs
+        (Fraction.add
+          (Fraction.add (Fraction.mul L
+            (Fraction.mul h.abs (pointNorm s.2))) E)
+          (Fraction.add (Fraction.mul L
+            (Fraction.mul (Fraction.mul h h).abs B)) E))) :=
+  twoHalf_velocity_error_closed_at a h L E B s hL hB
+    (hc (cell a h s).1 (oneFull a h s).1)
+    (hc (twoHalf a h s).1 (oneFull a h s).1)
 
 /-- Combined local state error; the two sampled arrival displacements remain
 explicit so subsequent confinement estimates can be applied separately. -/

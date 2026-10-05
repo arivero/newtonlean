@@ -10,11 +10,14 @@ bound, without a supplied confinement trace or whole-plane force premise.
 The force-comparison theorem now accepts membership only at its two points;
 shared pointwise cell estimates use exactly that comparison. A live calibrated
 cell client derives both arrival certificates before applying it, with a proper
-annular oracle control that excludes the origin. Conditions and completed-force
-localization, completed curve confinement and an actual Euclidean Kepler oracle
-are still required to finish A.6. Task E and new completed quantities have not
-started. See the [finite confinement checkpoint](verification/region-confinement-2026-10-05.md)
-and [regional comparison checkpoint](verification/regional-cell-comparison-2026-10-05.md).
+annular oracle control that excludes the origin. Regional paired accumulation
+now derives all four comparison pairs, including both shadow arrivals; distinct
+value-equivalent durations retain their own certified samples. Conditions and
+completed-force localization, completed curve confinement and an actual
+Euclidean Kepler oracle are still required to finish A.6. Task E and new
+completed quantities have not started. See the [finite confinement checkpoint](verification/region-confinement-2026-10-05.md),
+[regional comparison checkpoint](verification/regional-cell-comparison-2026-10-05.md)
+and [regional accumulation checkpoint](verification/regional-accumulation-2026-10-05.md).
 
 GeneralForceGrowth now derives all three actual/coarse/shadow sample bounds
 from the whole-plane Lipschitz contract and initial state. Inward samples

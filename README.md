@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,510 checked
-library theorems, 1,121 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,519 checked
+library theorems, 1,128 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -47,7 +47,9 @@ force bounds from the initial state and whole-plane Lipschitz data. This still
 requires global_region and excludes singular Kepler laws; A.6 confinement is
 the required repair in progress. RegionConfinement now derives finite ball/annulus
 bounds and both shadow arrivals before sampling force. Regional cell comparison
-now uses those certificates and shared pointwise finite estimates. The construction and
+now uses those certificates and shared pointwise finite estimates. Regional
+paired accumulation and equivalent-duration comparison derive membership for
+every actual sample pair. The construction and
 completed-force domain still need localization, and the Euclidean Kepler
 instance is open. The harmonic instance equals the old endpoint value.
 The generic geometry, completion and binary-time layers are now in BarrowLib.
