@@ -1,6 +1,30 @@
 # Verification record
 
-## Current handoff: calibrated finite bounds, 5 October 2026
+## Current handoff: general sampled endpoint Cauchy values, 5 October 2026
+
+Targeted Lean core builds pass for monotone geometric force precision, actual
+equivalent-duration comparison, calibrated coarse/fine accumulation and
+GeneralForceEndpoint. Its adjacent estimate derives a Cauchy name/value from
+actual central-force schedules; its premises contain force regularity, a
+calibrated window and actual/shadow sampled-acceleration bounds, with no supplied
+motion error or Cauchy field. The harmonic instance derives the needed finite
+bounds and agrees with the retained endpoint name/value. Zero time and an
+exact representation-sensitive sample control compile. The Sol worker reached
+its usage limit after the small precision/algebra scaffold; root Sol 6.1
+completed the actual construction. A sequential nonauthor GPT-6 Luna verifier
+passed all 16 checks in order. The catalogue has 1,140 distinct theorem rows
+and 1,000 emitted references; live counts are 789 substantive, 188 plumbing,
+139 sample and 24 duplicate. All 1,347 prior public names/signatures remain
+unchanged, with 85 new names. All 406 Barrow rows have empty source lists.
+The graph remains 77 nodes/68 edges/249 passages; the axiom union is propext,
+Classical.choice and Quot.sound, with no sorryAx, project axiom, external
+package or Newton/Mathlib import in Barrow. Logs:
+/tmp/newton-sol61-general-endpoint-final-01.log through -16.log. Graph PDF dates
+were restored after checking every other byte against HEAD. Completion scores
+are unchanged. Full general time realization, local-annulus stability,
+restart/gluing, potential/P5 and between-path content remain open.
+
+### Calibrated finite bounds, 5 October 2026
 
 Targeted Lean core builds pass for the explicit weighted gauge, shared finite
 two-factor growth, actual sample-error accumulation and force instances. The

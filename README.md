@@ -33,17 +33,20 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,074 checked
-library theorems, 731 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,140 checked
+library theorems, 789 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
-They construct acceleration values, bound actual sampled polygons, derive
-mesh-uniform cross-sample refinement control and continuous local consistency.
+They construct acceleration values, bound actual sampled polygons and derive
+mesh-uniform refinement control and continuous local consistency. General
+Lipschitz central samples now have constructed fixed-time motion names/values,
+with calibrated windows and explicit actual/shadow force bounds. The harmonic
+instance derives these bounds and equals the old endpoint value.
 The generic geometry, completion and binary-time layers are now in BarrowLib.
 E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
 Actual integer-subdivision accumulation proves the dyadic agreement, including
-the three-tick completed values whose finite schedules differ. General motion
-convergence and polygon–curve area remain open. Explicit positive time
+the three-tick completed values whose finite schedules differ. The full general time map,
+local-annulus confinement/gluing and polygon–curve area remain open. Explicit positive time
 calibration now gives weighted finite bounds and dimensionless windows, with
 proved Cauchy-gauge and time-unit invariance; it fixes no universal constant.
 

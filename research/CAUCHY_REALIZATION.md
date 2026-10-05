@@ -22,9 +22,15 @@ uses explicit uniformly Cauchy force samples to construct acceleration names
 and values. Actual finite coarse/fine errors now have a derived mesh-uniform
 small-window bound in BarrowLib; bounded actual Newton schedules and
 continuous-force local consistency are also checked. These realize force data
-and control finite polygons, not the general motion. Geometric precision
-selection, general polygon Cauchy names and restart/gluing remain open; the
-generic extraction is complete. B.1/B.2 now have the bounded results below;
+and control finite polygons. GeneralForcePrecision now derives monotone
+geometric force precision. GeneralForceEndpoint uses actual calibrated
+coarse/fine accumulation and a separate equivalent-duration comparison to
+construct fixed-time central-force Cauchy names and values. This requires a
+global Lipschitz comparison and bounds at actual coarse and first-half shadow
+force arrivals; no motion-Cauchy field is assumed. The harmonic instance
+derives those sample bounds and agrees with the old endpoint value. Full
+general time realization, local-annulus stability and restart/gluing remain
+open; the generic extraction is complete. B.1/B.2 now have the bounded results below;
 integer-subdivision accumulation and dyadic E/G agreement are now proved. Both
 kinds of coarse polygon alias are handled; actual region/content is next.
 

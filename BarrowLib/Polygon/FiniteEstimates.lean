@@ -1,4 +1,5 @@
 import BarrowLib.Polygon.PointBounds
+import BarrowLib.Polygon.ConvexCover
 
 /-! Finite coordinate estimates for an arbitrary rational point map. The
 coordinate L1 magnitude is a chosen algebraic gauge; no trajectory or force
@@ -15,20 +16,11 @@ def pointDistance (p q : Point) : Fraction := pointNorm (pointSub p q)
 def stateDistance (s t : Point × Point) : Fraction :=
   Fraction.add (pointDistance s.1 t.1) (pointDistance s.2 t.2)
 
-private theorem point_difference_chain (p q r : Point) :
-    pointEquiv (pointSub p r)
-      (pointAdd (pointSub p q) (pointSub q r)) := by
-  constructor <;>
-    simp only [pointEquiv, pointSub, pointNeg, pointAdd, Fraction.equiv,
-      Fraction.add, Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
-    ac_nf <;> omega
-
-/-- Triangle inequality for the coordinate distance of rational points. -/
+/-- Reuse the generic point-subtraction triangle estimate. -/
 theorem pointDistance_triangle (p q r : Point) :
     Fraction.le (pointDistance p r)
       (Fraction.add (pointDistance p q) (pointDistance q r)) :=
-  Fraction.le_equiv_left (pointNorm_equiv (point_difference_chain p q r))
-    (pointNorm_add_le (pointSub p q) (pointSub q r))
+  ConvexCover.pointSub_triangle p q r
 
 theorem pointDistance_symm (p q : Point) :
     Fraction.equiv (pointDistance p q) (pointDistance q p) := by
@@ -66,18 +58,19 @@ theorem stateDistance_symm (s t : Point × Point) :
   Fraction.add_equiv (pointDistance_symm s.1 t.1) (pointDistance_symm s.2 t.2)
 
 theorem pointDistance_self_zero (p : Point) :
-    Fraction.equiv (pointDistance p p) (Fraction.ofInt 0) := by
-  have hz (a : Int) : (a + -a).natAbs = 0 := by omega
-  simp only [pointDistance, pointNorm, pointSub, pointNeg,
-    pointAdd, Fraction.equiv, Fraction.abs, Fraction.add, Fraction.ofInt,
-    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
-  simp only [hz, Int.ofNat_zero, Int.zero_mul, Int.mul_zero, Int.add_zero]
+    Fraction.equiv (pointDistance p p) (Fraction.ofInt 0) :=
+  ConvexCover.pointSub_self_zero p
 
 theorem stateDistance_self_zero (s : Point × Point) :
     Fraction.equiv (stateDistance s s) (Fraction.ofInt 0) :=
   Fraction.equiv_trans
     (Fraction.add_equiv (pointDistance_self_zero s.1) (pointDistance_self_zero s.2))
     (by simp [Fraction.equiv,Fraction.add,Fraction.ofInt])
+
+theorem pointDistance_equiv {p p' q q' : Point}
+    (hp : pointEquiv p p') (hq : pointEquiv q q') :
+    Fraction.equiv (pointDistance p q) (pointDistance p' q') :=
+  pointNorm_equiv (pointSub_congr hp hq)
 
 /-- Drift to the sampled arrival point, then update velocity. -/
 def cell (a : Point → Point) (h : Fraction) (s : Point × Point) : Point × Point :=
@@ -107,7 +100,7 @@ private theorem point_difference_scale (h : Fraction) (p q : Point) :
       Int.neg_mul, Int.mul_neg] <;>
     ac_nf <;> omega
 
-private theorem difference_add_bound (p q r t : Point) :
+theorem difference_add_bound (p q r t : Point) :
     Fraction.le (pointDistance (pointAdd p r) (pointAdd q t))
       (Fraction.add (pointDistance p q) (pointDistance r t)) := by
   exact Fraction.le_equiv_left
@@ -445,6 +438,13 @@ theorem twoHalf_state_error_closed (a : Point → Point)
   Fraction.add_le_add (twoHalf_position_error a h B s hB)
     (twoHalf_velocity_error_closed a h L E B s hL hB hc)
 
+/-- Any represented zero duration leaves state values unchanged, for every map. -/
+theorem zero_duration_cell (a : Point → Point) (h : Fraction)
+    (hh : h.num = 0) (s : Point × Point) : stateEquiv (cell a h s) s := by
+  constructor <;> constructor <;>
+    simp only [cell,stateEquiv,pointEquiv,pointAdd,pointScale,Fraction.equiv,
+      Fraction.add,Fraction.mul,hh,Int.zero_mul,Int.mul_zero,Int.add_zero] <;> ac_nf
+
 private def controlZero : Fraction := Fraction.ofInt 0
 private def controlHalf : Fraction := ⟨1, 2, by decide⟩
 private def controlEighth : Fraction := ⟨1, 8, by decide⟩
@@ -489,11 +489,7 @@ theorem unequal_sample_control_nonzero :
 
 /-- Zero duration covers arbitrary maps and states. -/
 theorem zero_duration_control (a : Point → Point) (s : Point × Point) :
-    stateEquiv (cell a controlZero s) s := by
-  constructor <;> constructor <;>
-    simp only [cell, controlZero, stateEquiv, pointEquiv, pointAdd,
-      pointScale, Fraction.equiv, Fraction.add, Fraction.mul,
-      Fraction.ofInt, Int.zero_mul, Int.mul_zero, Int.add_zero] <;>
-    ac_nf <;> omega
+    stateEquiv (cell a controlZero s) s :=
+  zero_duration_cell a controlZero rfl s
 
 end NewtonLimitDynamics.Polygon.FiniteEstimates

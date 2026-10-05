@@ -52,6 +52,25 @@ theorem pointScale_congr (d : Fraction) {p q : Point} (h : pointEquiv p q) :
     pointEquiv (pointScale d p) (pointScale d q) :=
   ⟨Fraction.mul_equiv_left d h.1, Fraction.mul_equiv_left d h.2⟩
 
+/-- Scaling respects rational value equivalence in both arguments. -/
+theorem pointScale_ratio_congr {d e : Fraction} {p q : Point}
+    (hde : Fraction.equiv d e) (hpq : pointEquiv p q) :
+    pointEquiv (pointScale d p) (pointScale e q) :=
+  ⟨Fraction.mul_equiv hde hpq.1, Fraction.mul_equiv hde hpq.2⟩
+
+theorem pointNeg_congr {p q : Point} (hpq : pointEquiv p q) :
+    pointEquiv (pointNeg p) (pointNeg q) := by
+  constructor
+  · change -p.1.num * q.1.den = -q.1.num * p.1.den
+    simpa only [Int.neg_mul] using congrArg Neg.neg hpq.1
+  · change -p.2.num * q.2.den = -q.2.num * p.2.den
+    simpa only [Int.neg_mul] using congrArg Neg.neg hpq.2
+
+theorem pointSub_congr {p p' q q' : Point}
+    (hpp' : pointEquiv p p') (hqq' : pointEquiv q q') :
+    pointEquiv (pointSub p q) (pointSub p' q') :=
+  pointAdd_congr hpp' (pointNeg_congr hqq')
+
 
 def det (p q : Point) : Fraction :=
   Fraction.add (Fraction.mul p.1 q.2) (⟨-(Fraction.mul p.2 q.1).num,

@@ -56,6 +56,11 @@ theorem abs_of_nonnegative (a : Fraction) (ha : 0 ≤ a.num) : equiv a.abs a := 
   dsimp
   rw [Int.natAbs_of_nonneg ha]
 
+/-- Nonnegative fractions retain their actual representative under abs. -/
+theorem abs_eq_of_nonnegative (a : Fraction) (ha : 0 ≤ a.num) : a.abs = a := by
+  cases a
+  simp only [Fraction.abs,Int.natAbs_of_nonneg ha]
+
 theorem abs_neg (a : Fraction) : equiv (⟨-a.num, a.den, a.den_pos⟩ : Fraction).abs a.abs := by
   unfold equiv abs
   dsimp

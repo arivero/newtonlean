@@ -181,14 +181,18 @@ theorem harmonic_comparison_contract (w : Fraction) :
     FiniteEstimates.comparisonContract (linearField w) (linearField w)
       w.abs (Fraction.ofInt 0) := linearField_comparison_contract w
 
-theorem harmonic_class_a_force (w : Fraction) (hw : 0 ≤ w.num) :
-    ClassAForce (harmonicOracle w hw) := by
-  refine ⟨harmonic_distance_only w hw, w.abs, Fraction.abs_num_nonnegative w, ?_⟩
+theorem harmonic_lipschitz_on (w : Fraction) (hw : 0 ≤ w.num) :
+    LipschitzOn (harmonicOracle w hw).toOracle w.abs := by
+  refine ⟨Fraction.abs_num_nonnegative w, ?_⟩
   intro n p q _ _
   have h := harmonic_comparison_contract w p q
   apply Fraction.le_equiv_right h
   exact Fraction.add_equiv (Fraction.equiv_refl _)
     (Fraction.equiv_symm (Fraction.add_zero (Fraction.ofInt 0)))
+
+theorem harmonic_class_a_force (w : Fraction) (hw : 0 ≤ w.num) :
+    ClassAForce (harmonicOracle w hw) :=
+  ⟨harmonic_distance_only w hw,w.abs,harmonic_lipschitz_on w hw⟩
 
 /-- The permitted centre-at-infinity instance is a uniform parallel field. -/
 def parallelOracle (a : Point) : Oracle := exactOracle (fun _ => a)

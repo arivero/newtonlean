@@ -14,9 +14,14 @@ mesh-uniform accumulation in the retained τ₀=1 gauge under T(1+L) ≤ 1/2. Th
 B and V bounds concern only the finite prefix used. [ForceClasses](GENERAL_FORCE_DESIGN.md)
 constructs acceleration values, connects bounded iterates to actual Newton
 schedules, and derives continuous-force local consistency from a modulus.
-Harmonic and parallel fields remain instances. These are Task A finite
-results, not general P3–P5; confinement, general names and restart/gluing
-remain explicit obligations. D.2 extracts the generic completion, geometry,
+Harmonic and parallel fields remain instances. GeneralForceEndpoint now
+constructs fixed-time endpoint Cauchy names/values from actual Lipschitz central
+sample schedules, with derived geometric precision and adjacent error. Its
+premises are global force comparison, a calibrated window, and bounded actual
+coarse/first-half shadow samples; coarse velocity is derived. Harmonic force
+bounds are derived on its short family, and the resulting general value equals
+the old harmonic endpoint value. Full general P3–P5, local-annulus stability,
+confinement and restart/gluing remain explicit obligations. D.2 extracts the generic completion, geometry,
 binary-time and position-value layers. B.1 proves E/G agreement at every
 dyadic rational time, with explicit finite numerator addresses and endpoint cases. B.2 constructs
 within-cell polygon names and a mesh-explicit whole-edge bound. Both same-cell

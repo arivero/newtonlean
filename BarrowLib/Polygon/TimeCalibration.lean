@@ -30,6 +30,24 @@ def norm (tau : Fraction) (s : Point × Point) : Fraction :=
 def distance (tau : Fraction) (s t : Point × Point) : Fraction :=
   Fraction.add (pointDistance s.1 t.1) (Fraction.mul tau (pointDistance s.2 t.2))
 
+theorem distance_self_zero (tau : Fraction) (s : Point × Point) :
+    Fraction.equiv (distance tau s s) (Fraction.ofInt 0) :=
+  Fraction.equiv_trans
+    (Fraction.add_equiv (pointDistance_self_zero s.1)
+      (Fraction.mul_equiv (Fraction.equiv_refl tau) (pointDistance_self_zero s.2)))
+    (by simp [Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt])
+
+theorem distance_triangle (tau : Fraction) (ht : 0 < tau.num)
+    (s t u : Point × Point) :
+    Fraction.le (distance tau s u)
+      (Fraction.add (distance tau s t) (distance tau t u)) := by
+  have hsum := Fraction.add_le_add (pointDistance_triangle s.1 t.1 u.1)
+    (Fraction.mul_le_mul_nonnegative_left (pointDistance_triangle s.2 t.2 u.2)
+      tau (Int.le_of_lt ht))
+  apply Fraction.le_equiv_right hsum
+  simp only [distance,Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add]
+  ac_nf
+
 def amplification (tau h L : Fraction) (ht : 0 < tau.num) : Fraction :=
   Fraction.mul (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs (inverse tau ht)))
     (Fraction.add (Fraction.ofInt 1) (Fraction.mul (Fraction.mul h.abs tau) L))
@@ -381,6 +399,22 @@ def Window (tau h L : Fraction) (ht : 0 < tau.num) (n : Nat) : Prop :=
   Fraction.le (Fraction.mul (Fraction.ofInt (n : Int))
     (Fraction.mul h.abs (rate tau L ht))) ⟨1,2,by decide⟩
 
+theorem rate_nonnegative (tau L : Fraction) (ht : 0 < tau.num)
+    (hL : 0 ≤ L.num) : 0 ≤ (rate tau L ht).num :=
+  Fraction.nonnegative_add _ _ (Int.le_of_lt tau.den_pos)
+    (Fraction.nonnegative_mul _ _ (Int.le_of_lt ht) hL)
+
+theorem window_of_elapsed (tau h T L : Fraction) (ht : 0 < tau.num)
+    (hL : 0 ≤ L.num) (n : Nat)
+    (he : Fraction.le (Fraction.mul (Fraction.ofInt (n : Int)) h.abs) T)
+    (hs : Fraction.le (Fraction.mul T (rate tau L ht)) ⟨1,2,by decide⟩) :
+    Window tau h L ht n := by
+  have hm := Fraction.mul_le_mul_nonnegative he (rate tau L ht)
+    (rate_nonnegative tau L ht hL)
+  exact Fraction.le_equiv_left
+    (Fraction.equiv_symm (Fraction.mul_assoc (Fraction.ofInt (n : Int)) h.abs (rate tau L ht)))
+    (Fraction.magnitudes.le_trans hm hs)
+
 /-- The factors are h/tau and tau*h*L; their product is h²*L. -/
 theorem amplification_expansion (tau h L : Fraction) (ht : 0 < tau.num) :
     Fraction.equiv (amplification tau h L ht)
@@ -448,20 +482,11 @@ theorem run_uniform_discrepancy (tau : Fraction) (ht : 0 < tau.num)
   have hK := amplification_nonnegative tau h L ht hL
   have hS : 0 ≤ S.num := Fraction.nonnegative_mul _ _
     (Fraction.nonnegative_mul _ _ (Int.le_of_lt ht) (Fraction.abs_num_nonnegative h)) hE
-  have hb := FiniteRecurrence.sourceBudget_power K S hK hS
-    (one_le_amplification tau h L ht hL) n
   have hp := amplification_power_le_two tau h L ht hL n hs
-  have hm := Fraction.mul_le_mul_nonnegative_left
-    (Fraction.mul_le_mul_nonnegative_left hp S hS)
-    (Fraction.ofInt (n : Int)) (Int.ofNat_nonneg n)
-  have he : Fraction.equiv
-      (Fraction.mul (Fraction.ofInt (n : Int)) (Fraction.mul S (Fraction.ofInt 2)))
-      (Fraction.mul (Fraction.ofInt (2 * (n : Int))) S) := by
-    simp only [Fraction.equiv,Fraction.mul,Fraction.ofInt]
-    ac_nf
   exact Fraction.magnitudes.le_trans
     (run_distance_le_source tau ht a b h L E s hL hc n)
-    (Fraction.magnitudes.le_trans hb (Fraction.le_equiv_right hm he))
+    (FiniteRecurrence.sourceBudget_two_count K S n hK hS
+      (one_le_amplification tau h L ht hL) hp)
 
 /-- Time-unit rescaling preserves the actual-family Cauchy condition. -/
 theorem cauchy_rescale (c tau : Fraction) (hc : 0 < c.num)

@@ -2,8 +2,13 @@
 
 Current handoff execution (Sol 6.1, 4–5 October): D.1, Task A's finite
 interface/estimate increments and D.2 are committed. The [force design](GENERAL_FORCE_DESIGN.md)
-constructs force values from uniform rational samples; general motion,
-restart/gluing and derived confinement remain open. The generic geometry,
+constructs force values from uniform rational samples. GeneralForceEndpoint
+now constructs fixed-time motion Cauchy names/values for globally compared
+Lipschitz central samples, with a calibrated short window and explicit bounds
+at actual coarse and first-half shadow sample locations. Geometric force
+precision and actual adjacent errors are derived; the harmonic instance derives
+those force bounds and agrees with its old endpoint value. A full general time
+map, local-annulus stability, restart/gluing and derived confinement remain open. The generic geometry,
 completion and binary-time infrastructure is in BarrowLib.
 B.1 now proves E/G agreement at every dyadic rational time, including zero/full
 window endpoints. Explicit finite addresses represent every numerator below

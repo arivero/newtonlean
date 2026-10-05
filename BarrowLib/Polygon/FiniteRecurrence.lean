@@ -120,4 +120,19 @@ theorem sourceBudget_power (r C : Fraction)
       simp only [Int.add_mul, Int.mul_add, Int.one_mul, Int.mul_one]
       ac_nf
 
+/-- Shared closing step for any actual recurrence with a finite factor ≤2. -/
+theorem sourceBudget_two_count (r C : Fraction) (n : Nat)
+    (hr : 0 ≤ r.num) (hC : 0 ≤ C.num)
+    (hone : Fraction.le (Fraction.ofInt 1) r)
+    (hp : Fraction.le (fpower r n) (Fraction.ofInt 2)) :
+    Fraction.le (sourceBudget r C n)
+      (Fraction.mul (Fraction.ofInt (2*(n : Int))) C) := by
+  have hb := sourceBudget_power r C hr hC hone n
+  have hm := Fraction.mul_le_mul_nonnegative_left
+    (Fraction.mul_le_mul_nonnegative_left hp C hC)
+    (Fraction.ofInt (n : Int)) (Int.ofNat_nonneg n)
+  apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans hb hm)
+  simp only [Fraction.equiv,Fraction.mul,Fraction.ofInt]
+  ac_nf
+
 end NewtonLimitDynamics.Polygon.FiniteRecurrence

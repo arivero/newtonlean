@@ -9,8 +9,12 @@ conditional diagnostics and cannot discharge the forward theorem.
 The [foundation inventory](BARROWLIB_BOUNDARY.md) is now extracted into
 BarrowLib, including geometry, Cauchy values, binary time and position values,
 alongside actual bounded iterates and mesh-uniform finite refinement estimates.
-These compare actual finite endpoints and retain force-sampling error; they
-do not define an intervening region or its content. B.2 now constructs
+These retain force-sampling error. GeneralForceEndpoint now also constructs
+fixed-time Cauchy names/values from actual central Lipschitz samples under named
+actual/shadow acceleration bounds and a calibrated window. The harmonic
+instance derives its required bounds and equals the old endpoint value. Neither
+construction defines an intervening region or its content; the full general
+time map and local-annulus/gluing steps remain separate. B.2 now constructs
 within-cell polygon position names and bounds their distance to the actual
 harmonic gammaPosition throughout cells. The bound decays uniformly over
 addresses. Same-cell and shared-boundary alias proofs now give one polygonMap

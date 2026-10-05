@@ -80,3 +80,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 79,70d7a68,2026-10-05T02:51:21+02:00,Prove reciprocal dyadic agreement and uniform whole-edge curve bounds,942,31,0,0,0,1,495,13053,13,615,181,128,18,1,115,143,30,630,24
 80,fc5b32a,2026-10-05T03:07:10+02:00,Construct the quotient polygon map and bound integer-cell local errors,985,43,0,0,0,0,505,13886,13,655,182,130,18,0,116,143,30,672,24
 81,34b742a,2026-10-05T03:41:54+02:00,Prove E/G agreement at every dyadic rational time,1041,56,0,0,1,0,514,14779,13,707,182,133,19,1,117,143,30,727,24
+82,e70c40f,2026-10-05T03:59:13+02:00,Make finite force bounds and Cauchy gauges time calibrated,1074,41,8,0,4,0,526,15401,13,731,186,136,21,4,117,143,30,760,24

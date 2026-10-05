@@ -252,6 +252,15 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.abs_eq_of_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : 0 ≤ a.num) : a.abs = a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Fraction.abs_neg",
     "private": false,
     "file": "BarrowLib/Common/RationalMagnitudes.lean",
@@ -945,6 +954,15 @@
     "interpretation_and_remaining_premises": "Generic binary-address time approximants, derived tail estimates and Cauchy names, proved address equivalence and its explicit quotient. The domain is constructed from rational approximants; no external real interval, mechanical motion or uninterrupted force is identified."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.BoundedIteration.zero_duration_run",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedIteration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (hh : h.num = 0) (s : Point × Point) : (n : Nat) → stateEquiv (run a h s n) s",
+    "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.BoundedIteration.run_commute",
     "private": false,
     "file": "BarrowLib/Polygon/BoundedIteration.lean",
@@ -960,6 +978,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(h : Fraction) (hh : 0 ≤ h.num) (n : Nat) : 0 ≤ (time h n).num",
+    "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedIteration.time_monotone",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedIteration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (hh : 0 ≤ h.num) (i n : Nat) (hin : i ≤ n) : Fraction.le (time h i) (time h n)",
     "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
   },
   {
@@ -1024,6 +1051,87 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (n : Nat) : (k : Nat) → run a h s (n+k) = run a h (run a h s n) k",
     "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.localSource_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h L E B V : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hB : 0 ≤ B.num) (hV : 0 ≤ V.num) : 0 ≤ (localSource tau h L E B V).num",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.blockSource_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h L E B V : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hB : 0 ≤ B.num) (hV : 0 ≤ V.num) : 0 ≤ (blockSource tau h L E B V ht).num",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.twoHalf_local_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (b : Point → Point) (h L E B V : Fraction) (t : Point × Point) (hL : 0 ≤ L.num) (hlocal : comparisonContract b b L E) (hB : Fraction.le (pointNorm (b (cell b h t).1)) B) (hV : Fraction.le (pointNorm t.2) V) : Fraction.le (TimeCalibration.distance tau (twoHalf b h t) (oneFull b h t)) (localSource tau h L E B V)",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.cross_block_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E B V : Fraction) (s t : Point × Point) (hL : 0 ≤ L.num) (hcross : comparisonContract a b L E) (hlocal : comparisonContract b b L E) (hB : Fraction.le (pointNorm (b (cell b h t).1)) B) (hV : Fraction.le (pointNorm t.2) V) : Fraction.le (TimeCalibration.distance tau (twoHalf a h s) (oneFull b h t)) (Fraction.add (Fraction.mul (blockFactor tau h L ht) (TimeCalibration.distance tau s t)) (blockSource tau h L E B V ht))",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E B V : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hcross : comparisonContract a b L E) (hlocal : comparisonContract b b L E) : (n : Nat) → (hB : ∀ k, k < n → Fraction.le (pointNorm (b (cell b h (coarseAt b h s k)).1)) B) → (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V) → Fraction.le (TimeCalibration.distance tau (fineAt a h s n) (coarseAt b h s n)) (FiniteRecurrence.sourceBudget (blockFactor tau h L ht) (blockSource tau h L E B V ht) n)",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_uniform_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E B V : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hB0 : 0 ≤ B.num) (hV0 : 0 ≤ V.num) (hcross : comparisonContract a b L E) (hlocal : comparisonContract b b L E) (n : Nat) (hs : TimeCalibration.Window tau h L ht (2*n)) (hB : ∀ k, k < n → Fraction.le (pointNorm (b (cell b h (coarseAt b h s k)).1)) B) (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V) : Fraction.le (TimeCalibration.distance tau (fineAt a h s n) (coarseAt b h s n)) (Fraction.mul (Fraction.ofInt (2*(n : Int))) (blockSource tau h L E B V ht))",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.blockSource_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (h T L E B V : Fraction) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hB : 0 ≤ B.num) (hHT : Fraction.le h.abs T) (hK : Fraction.le (TimeCalibration.amplification tau h L ht) (Fraction.ofInt 2)) : Fraction.le (blockSource tau h L E B V ht) (Fraction.add (Fraction.mul (Fraction.mul h.abs h.abs) (consistencyCoefficient tau T L B V)) (Fraction.mul (Fraction.ofInt 5) (Fraction.mul (Fraction.mul tau h.abs) E)))",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.coarseAt_eq_run",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : (n : Nat) → coarseAt a h s n = BoundedIteration.run a (Fraction.add h h) s n",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.fineAt_eq_run",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : (n : Nat) → fineAt a h s n = BoundedIteration.run a h s (2*n)",
+    "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.equiv_zero_num",
@@ -1620,6 +1728,78 @@
     "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.pointDistance_zero_of_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (hpq : pointEquiv p q) : Fraction.equiv (pointDistance p q) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{d e : Fraction} (a : Point → Point) (s : Point × Point) (hde : Fraction.equiv d e) : pointEquiv (cell a d s).1 (cell a e s).1",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_perturbation",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (d e : Fraction) (s t : Point × Point) (hde : Fraction.equiv d e) : Fraction.le (pointDistance (cell a d s).1 (cell b e t).1) (Fraction.add (pointDistance s.1 t.1) (Fraction.mul d.abs (pointDistance s.2 t.2)))",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_velocity_perturbation",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (d e L E : Fraction) (s t : Point × Point) (hde : Fraction.equiv d e) (hc : comparisonContract a b L E) : Fraction.le (pointDistance (cell a d s).2 (cell b e t).2) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul d.abs (Fraction.add (Fraction.mul L (pointDistance (cell a d s).1 (cell b e t).1)) E)))",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (d e L E : Fraction) (s t : Point × Point) (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : Fraction.le (TimeCalibration.distance tau (cell a d s) (cell b e t)) (Fraction.add (Fraction.mul (TimeCalibration.amplification tau d L ht) (TimeCalibration.distance tau s t)) (Fraction.mul (Fraction.mul tau d.abs) E))",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.run_distance_le_source",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (d e L E : Fraction) (s : Point × Point) (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : (n : Nat) → Fraction.le (TimeCalibration.distance tau (BoundedIteration.run a d s n) (BoundedIteration.run b e s n)) (FiniteRecurrence.sourceBudget (TimeCalibration.amplification tau d L ht) (Fraction.mul (Fraction.mul tau d.abs) E) n)",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.run_uniform_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (d e L E : Fraction) (s : Point × Point) (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hc : comparisonContract a b L E) (n : Nat) (hs : TimeCalibration.Window tau d L ht n) : Fraction.le (TimeCalibration.distance tau (BoundedIteration.run a d s n) (BoundedIteration.run b e s n)) (Fraction.mul (Fraction.ofInt (2*(n : Int))) (Fraction.mul (Fraction.mul tau d.abs) E))",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.representative_sensitive_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (Fraction.ofInt 1) (⟨2,2,by decide⟩ : Fraction) ∧ Fraction.equiv (TimeCalibration.distance (Fraction.ofInt 2) (cell representativeMap (Fraction.ofInt 1) rest) (cell representativeMap ⟨2,2,by decide⟩ rest)) (Fraction.ofInt 2) ∧ ¬ stateEquiv (cell representativeMap (Fraction.ofInt 1) rest) (cell representativeMap ⟨2,2,by decide⟩ rest)",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.localBudget_le_uniform",
     "private": false,
     "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
@@ -1953,15 +2133,6 @@
     "interpretation_and_remaining_premises": "Explicit terminating binary addresses for every finite numerator k<2^m. Finite prefix congruence, exact tick count and zero-tail proofs establish representation without an assumed external real interval or mechanical result."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.point_difference_chain",
-    "private": true,
-    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(p q r : Point) : pointEquiv (pointSub p r) (pointAdd (pointSub p q) (pointSub q r))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_triangle",
     "private": false,
     "file": "BarrowLib/Polygon/FiniteEstimates.lean",
@@ -2025,6 +2196,15 @@
     "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point} (hp : pointEquiv p p') (hq : pointEquiv q q') : Fraction.equiv (pointDistance p q) (pointDistance p' q')",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.point_difference_add",
     "private": true,
     "file": "BarrowLib/Polygon/FiniteEstimates.lean",
@@ -2044,7 +2224,7 @@
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.difference_add_bound",
-    "private": true,
+    "private": false,
     "file": "BarrowLib/Polygon/FiniteEstimates.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
@@ -2241,6 +2421,15 @@
     "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.zero_duration_cell",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (hh : h.num = 0) (s : Point × Point) : stateEquiv (cell a h s) s",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.linear_sample_control",
     "private": false,
     "file": "BarrowLib/Polygon/FiniteEstimates.lean",
@@ -2430,6 +2619,15 @@
     "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.sourceBudget_two_count",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r C : Fraction) (n : Nat) (hr : 0 ≤ r.num) (hC : 0 ≤ C.num) (hone : Fraction.le (Fraction.ofInt 1) r) (hp : Fraction.le (fpower r n) (Fraction.ofInt 2)) : Fraction.le (sourceBudget r C n) (Fraction.mul (Fraction.ofInt (2*(n : Int))) C)",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeometricTail.tail_halving",
     "private": false,
     "file": "BarrowLib/Polygon/GeometricTail.lean",
@@ -2598,6 +2796,33 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(d : Fraction) {p q : Point} (h : pointEquiv p q) : pointEquiv (pointScale d p) (pointScale d q)",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_ratio_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{d e : Fraction} {p q : Point} (hde : Fraction.equiv d e) (hpq : pointEquiv p q) : pointEquiv (pointScale d p) (pointScale e q)",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointNeg_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Point} (hpq : pointEquiv p q) : pointEquiv (pointNeg p) (pointNeg q)",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point} (hpp' : pointEquiv p p') (hqq' : pointEquiv q q') : pointEquiv (pointSub p q) (pointSub p' q')",
     "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
   },
   {
@@ -3033,6 +3258,24 @@
     "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_self_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (s : Point × Point) : Fraction.equiv (distance tau s s) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_triangle",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (s t u : Point × Point) : Fraction.le (distance tau s u) (Fraction.add (distance tau s t) (distance tau t u))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.norm_rescale",
     "private": false,
     "file": "BarrowLib/Polygon/TimeCalibration.lean",
@@ -3183,6 +3426,24 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) : Fraction.le (Fraction.ofInt 1) (amplification tau h L ht)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.rate_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) : 0 ≤ (rate tau L ht).num",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.window_of_elapsed",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h T L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (n : Nat) (he : Fraction.le (Fraction.mul (Fraction.ofInt (n : Int)) h.abs) T) (hs : Fraction.le (Fraction.mul T (rate tau L ht)) ⟨1,2,by decide⟩) : Window tau h L ht n",
     "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
@@ -5176,6 +5437,15 @@
     "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.harmonic_lipschitz_on",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (hw : 0 ≤ w.num) : LipschitzOn (harmonicOracle w hw).toOracle w.abs",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.ForceClasses.harmonic_class_a_force",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
@@ -5273,6 +5543,231 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : Oracle) (j : Nat) (h L B V : Fraction) (s : Point × Point) (n : Nat) (hh : 0 ≤ h.num) (hL : LipschitzOn o L) (hR : ∀ p, o.region p) (hB : BoundedOn o B) (hV : 0 ≤ V.num) (hs : FiniteAccumulation.SmallWindow h L n) (hvel : ∀ k, k < n → Fraction.le (pointNorm (FiniteAccumulation.coarseAt (o.sample j) h s k).2) V) : Fraction.le (FiniteEstimates.stateDistance (FiniteAccumulation.fineAt (o.sample (j+1)) h s n) (FiniteAccumulation.coarseAt (o.sample j) h s n)) (Fraction.mul (Fraction.ofInt 2) (Fraction.mul (FiniteAccumulation.count n) (FiniteAccumulation.uniformBlockSource h L (Fraction.add (Fraction.add (o.error j) (o.error j)) (o.error j)) B V)))",
     "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.sampleError_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 : Fraction) (hE : 0 < E0.num) (j : Nat) : 0 ≤ (sampleError o E0 hE j).num",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.cross_contract",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : FiniteEstimates.comparisonContract (field o E0 hE (j+1)) (field o E0 hE j) L (sampleError o E0 hE j)",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.local_contract",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : FiniteEstimates.comparisonContract (field o E0 hE j) (field o E0 hE j) L (sampleError o E0 hE j)",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.velocityCap_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T B : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hB : 0 ≤ B.num) : 0 ≤ (velocityCap T B s).num",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.duration_le_window",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (j : Nat) : Fraction.le (duration T j) T",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.fine_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) : Fraction.equiv (BoundedIteration.time (duration T (j+1)) (2*blocks j)) T",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.coarse_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) : Fraction.equiv (BoundedIteration.time (Fraction.add (duration T (j+1)) (duration T (j+1))) (blocks j)) T",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.coarse_velocity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j k : Nat) (hk : k < blocks j) : Fraction.le (pointNorm (FiniteAccumulation.coarseAt (field o E0 hE j) (duration T (j+1)) s k).2) (velocityCap T B s)",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.fine_window",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : TimeCalibration.Window tau (duration T (j+1)) L d.calibration_positive (2*blocks j)",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.coarse_window",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : TimeCalibration.Window tau (Fraction.add (duration T (j+1)) (duration T (j+1))) L d.calibration_positive (blocks j)",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.adjacent_finite_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : Fraction.le (TimeCalibration.distance tau (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j)) (Fraction.add (Fraction.mul (Fraction.ofInt (2*(blocks j : Int))) (CalibratedRefinement.blockSource tau (duration T (j+1)) L (sampleError o E0 hE j) B (velocityCap T B s) d.calibration_positive)) (Fraction.mul (Fraction.ofInt (2*(blocks j : Int))) (Fraction.mul (Fraction.mul tau (Fraction.add (duration T (j+1)) (duration T (j+1))).abs) (sampleError o E0 hE j))))",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.adjacent_mesh_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : Fraction.le (TimeCalibration.distance tau (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j)) (Fraction.add (Fraction.mul (Fraction.mul T (duration T (j+1))) (CalibratedRefinement.consistencyCoefficient tau T L B (velocityCap T B s))) (Fraction.mul (Fraction.ofInt 7) (Fraction.mul (Fraction.mul tau T) (sampleError o E0 hE j))))",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.weightedCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (weightedCoefficient E0 T tau L B s).num",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.adjacent_weighted_tail",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : Fraction.le (TimeCalibration.distance tau (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j)) (GeometricTail.tailCap (weightedCoefficient E0 T tau L B s) (j+1))",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.coefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (coefficient E0 T tau L B s ht).num",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.adjacent_tail",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : Fraction.le (FiniteEstimates.stateDistance (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j)) (GeometricTail.tailCap (coefficient E0 T tau L B s d.calibration_positive) (j+1))",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.approximants_converge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ n, N ≤ n → Within (embed (endpoint o E0 T hE s n)) (endpointValue o E0 T tau L B s hE d) eps",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_endpoint",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T : Fraction) (hE : 0 < E0.num) (s : Point × Point) (hT : T.num = 0) (j : Nat) : stateEquiv (endpoint o E0 T hE s j) s",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (hT : T.num = 0) : endpointValue o E0 T tau L B s hE d = embed s",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrecision.target_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrecision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 : Fraction) (hE : 0 < E0.num) (j : Nat) : 0 < (GeometricTail.tailCap E0 j).num",
+    "interpretation_and_remaining_premises": "Monotone precision selection from the oracle force-error vanishing condition, with an explicit positive acceleration precision scale E0. Actual chosen errors are below E0/2^j. Classical choice selects force precision only; no motion convergence, curve or numerical force value is assumed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrecision.threshold_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrecision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : Oracle) (E0 : Fraction) (hE : 0 < E0.num) (j n : Nat) (hn : threshold o E0 hE j ≤ n) : Fraction.lt (o.error n) (GeometricTail.tailCap E0 j)",
+    "interpretation_and_remaining_premises": "Monotone precision selection from the oracle force-error vanishing condition, with an explicit positive acceleration precision scale E0. Actual chosen errors are below E0/2^j. Classical choice selects force precision only; no motion convergence, curve or numerical force value is assumed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrecision.precision_successor",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrecision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : Oracle) (E0 : Fraction) (hE : 0 < E0.num) (j : Nat) : precision o E0 hE j ≤ precision o E0 hE (j + 1)",
+    "interpretation_and_remaining_premises": "Monotone precision selection from the oracle force-error vanishing condition, with an explicit positive acceleration precision scale E0. Actual chosen errors are below E0/2^j. Classical choice selects force precision only; no motion convergence, curve or numerical force value is assumed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrecision.precision_monotone",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrecision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : Oracle) (E0 : Fraction) (hE : 0 < E0.num) {i j : Nat} (hij : i ≤ j) : precision o E0 hE i ≤ precision o E0 hE j",
+    "interpretation_and_remaining_premises": "Monotone precision selection from the oracle force-error vanishing condition, with an explicit positive acceleration precision scale E0. Actual chosen errors are below E0/2^j. Classical choice selects force precision only; no motion convergence, curve or numerical force value is assumed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrecision.precision_threshold",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrecision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : Oracle) (E0 : Fraction) (hE : 0 < E0.num) : (j : Nat) → threshold o E0 hE j ≤ precision o E0 hE j",
+    "interpretation_and_remaining_premises": "Monotone precision selection from the oracle force-error vanishing condition, with an explicit positive acceleration precision scale E0. Actual chosen errors are below E0/2^j. Classical choice selects force precision only; no motion convergence, curve or numerical force value is assumed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrecision.precision_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrecision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : Oracle) (E0 : Fraction) (hE : 0 < E0.num) (j : Nat) : Fraction.lt (o.error (precision o E0 hE j)) (GeometricTail.tailCap E0 j)",
+    "interpretation_and_remaining_premises": "Monotone precision selection from the oracle force-error vanishing condition, with an explicit positive acceleration precision scale E0. Actual chosen errors are below E0/2^j. Classical choice selects force precision only; no motion convergence, curve or numerical force value is assumed."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_identity",
@@ -7556,6 +8051,105 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": ticks (finiteAddress 2 3) 2 = 3 ∧ finiteAddress 2 3 2 = false ∧ finiteAddress 2 3 5 = false",
     "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_field",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 : Fraction) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (j : Nat) : GeneralForceEndpoint.field (harmonicOracle w hw) E0 hE j = linearField w",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonicBound_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) : 0 ≤ (harmonicBound w s).num",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.linear_sample_norm",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (p : Point) : Fraction.equiv (pointNorm (linearField w p)) (Fraction.mul w.abs (pointNorm p))",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.linear_sample_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) (p : Point) (hp : Fraction.le (pointNorm p) (Fraction.mul (Fraction.ofInt 4) (stateNorm s))) : Fraction.le (pointNorm (linearField w p)) (harmonicBound w s)",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.full_run_state_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (j k : Nat) (hk : k ≤ blocks j) : Fraction.le (stateNorm (BoundedIteration.run (linearField w) (Fraction.add (duration T (j+1)) (duration T (j+1))) s k)) (Fraction.mul (Fraction.ofInt 2) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.two_to_four",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) : Fraction.le (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) (Fraction.mul (Fraction.ofInt 4) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.time_le_one",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : Fraction.le T (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.shadow_position_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (j k : Nat) (hk : k < blocks j) : Fraction.le (pointNorm (FiniteEstimates.cell (linearField w) (duration T (j+1)) (FiniteAccumulation.coarseAt (linearField w) (duration T (j+1)) s k)).1) (Fraction.mul (Fraction.ofInt 4) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_endpoint_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (j : Nat) : GeneralForceEndpoint.endpoint (harmonicOracle w hw) E0 T hE s j = HarmonicDyadic.endpoint w T s j",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_name_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : CauchyValues.NameEquiv (GeneralForceEndpoint.endpointName (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs)) (HarmonicDyadic.endpointName w T s hT hs)",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_value_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : GeneralForceEndpoint.endpointValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs) = CauchyValues.realize (HarmonicDyadic.endpointName w T s hT hs)",
+    "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_position_identity",

@@ -16,6 +16,15 @@ def run (a : Point → Point) (h : Fraction) (s : Point × Point) : Nat → Poin
   | 0 => s
   | n + 1 => cell a h (run a h s n)
 
+theorem zero_duration_run (a : Point → Point) (h : Fraction) (hh : h.num = 0)
+    (s : Point × Point) : (n : Nat) → stateEquiv (run a h s n) s
+  | 0 => ⟨⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩,
+      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
+  | n+1 => by
+      have hstep := zero_duration_cell a h hh (run a h s n)
+      have hi := zero_duration_run a h hh s n
+      exact ⟨pointEquiv_trans hstep.1 hi.1,pointEquiv_trans hstep.2 hi.2⟩
+
 def time (h : Fraction) (n : Nat) : Fraction := Fraction.mul (Fraction.ofInt (n : Int)) h
 
 theorem run_commute (a : Point → Point) (h : Fraction) (s : Point × Point) (n : Nat) :
@@ -30,6 +39,13 @@ def BoundedSamples (a : Point → Point) (h : Fraction) (s : Point × Point)
 
 theorem time_nonnegative (h : Fraction) (hh : 0 ≤ h.num) (n : Nat) :
     0 ≤ (time h n).num := Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _) hh
+
+theorem time_monotone (h : Fraction) (hh : 0 ≤ h.num) (i n : Nat) (hin : i ≤ n) :
+    Fraction.le (time h i) (time h n) := by
+  have hc : Fraction.le (Fraction.ofInt (i : Int)) (Fraction.ofInt (n : Int)) := by
+    simpa only [Fraction.le,Fraction.ofInt,Int.mul_one] using
+      (show (i : Int) ≤ (n : Int) by omega)
+  exact Fraction.mul_le_mul_nonnegative hc h hh
 
 theorem velocity_bound (a : Point → Point) (h : Fraction) (s : Point × Point)
     (B : Fraction) (hh : 0 ≤ h.num) (n : Nat) (hb : BoundedSamples a h s B n) :

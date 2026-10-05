@@ -106,6 +106,28 @@ must be covered. Unrestricted large-time amplification must not be called
 a small-window estimate. Counterexamples may refute an overstrong claim;
 compiler rejection alone is never an obstruction.
 
+GeneralForcePrecision now chooses a monotone precision q_j with
+`e_(q_j)<E0/2^j` from the proved error-vanishing contract. E0>0 is an explicit
+acceleration precision scale. GeneralForceEndpoint constructs fixed-time names
+from actual level-j central schedules at q_j. Under global approximate
+Lipschitz comparison, the calibrated window and uniform bounds B at actual
+coarse and first-half shadow arrivals, coarse speed is derived as
+`V=|v0|+TB`. The weighted adjacent bound is
+
+    T*h*C + 7*τ₀*T*E,  h=T/2^(j+1), E=3*e_(q_j),
+    C=B+τ₀*L*(V+TB).
+
+Equivalent duration values require a separate actual sample-error comparison;
+rounded maps need not agree at equal-valued point representations. The checked
+control in EquivalentDuration detects omission of this term. Hence the derived
+geometric coefficient is `T²*C+42*τ₀*T*E0`. Shared geometric tails then construct
+the motion name and value, without a supplied adjacent/Cauchy motion estimate.
+Zero time is included. HarmonicGeneralEndpoint derives its actual/shadow B on
+the short family and proves that these general names/values equal the retained
+harmonic endpoint construction. It does not assert a global harmonic force
+bound. The global-comparison version does not yet supply the confined-annulus
+comparison theorem, a full general time map, restart/gluing or P5.
+
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will
 not be replaced by a structure field asserting the desired trajectory.
