@@ -65,13 +65,19 @@ theorem stateDistance_symm (s t : Point × Point) :
     Fraction.equiv (stateDistance s t) (stateDistance t s) :=
   Fraction.add_equiv (pointDistance_symm s.1 t.1) (pointDistance_symm s.2 t.2)
 
-theorem stateDistance_self_zero (s : Point × Point) :
-    Fraction.equiv (stateDistance s s) (Fraction.ofInt 0) := by
+theorem pointDistance_self_zero (p : Point) :
+    Fraction.equiv (pointDistance p p) (Fraction.ofInt 0) := by
   have hz (a : Int) : (a + -a).natAbs = 0 := by omega
-  simp only [stateDistance, pointDistance, pointNorm, pointSub, pointNeg,
+  simp only [pointDistance, pointNorm, pointSub, pointNeg,
     pointAdd, Fraction.equiv, Fraction.abs, Fraction.add, Fraction.ofInt,
     Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
   simp only [hz, Int.ofNat_zero, Int.zero_mul, Int.mul_zero, Int.add_zero]
+
+theorem stateDistance_self_zero (s : Point × Point) :
+    Fraction.equiv (stateDistance s s) (Fraction.ofInt 0) :=
+  Fraction.equiv_trans
+    (Fraction.add_equiv (pointDistance_self_zero s.1) (pointDistance_self_zero s.2))
+    (by simp [Fraction.equiv,Fraction.add,Fraction.ofInt])
 
 /-- Drift to the sampled arrival point, then update velocity. -/
 def cell (a : Point → Point) (h : Fraction) (s : Point × Point) : Point × Point :=

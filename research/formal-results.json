@@ -1809,75 +1809,12 @@
     "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.growthDenom_pos",
-    "private": true,
+    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.factorPower_fpower",
+    "private": false,
     "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
-    "premise_signature": "(h L : Fraction) : 0 < growthDenom h L",
-    "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.driftWeight_nonnegative",
-    "private": true,
-    "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(h L : Fraction) (hh : 0 ≤ h.num) : 0 ≤ driftWeight h L",
-    "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.kickWeight_nonnegative",
-    "private": true,
-    "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(h L : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) : 0 ≤ kickWeight h L",
-    "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.growthWeights_nonnegative",
-    "private": true,
-    "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(h L : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) : (n : Nat) → NewtonLimitDynamics.FiniteGrowth.Nonnegative (growthWeights h L n)",
-    "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.growthWeights_sum",
-    "private": true,
-    "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(h L : Fraction) : (n : Nat) → NewtonLimitDynamics.FiniteGrowth.weightSum (growthWeights h L n) = (n : Int) * (2 * (driftWeight h L + kickWeight h L))",
-    "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.growthWeights_small",
-    "private": true,
-    "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(h L : Fraction) (n : Nat) (hs : SmallWindow h L n) : 2 * NewtonLimitDynamics.FiniteGrowth.weightSum (growthWeights h L n) ≤ growthDenom h L",
-    "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.growthBlock_equiv",
-    "private": true,
-    "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(h L : Fraction) (hh : 0 ≤ h.num) : Fraction.equiv (NewtonLimitDynamics.FiniteGrowth.amplification (growthDenom h L) (growthDenom_pos h L) [driftWeight h L, kickWeight h L, driftWeight h L, kickWeight h L]) (blockFactor h L)",
-    "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.growthPower_equiv",
-    "private": true,
-    "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(h L : Fraction) (hh : 0 ≤ h.num) : (n : Nat) → Fraction.equiv (NewtonLimitDynamics.FiniteGrowth.amplification (growthDenom h L) (growthDenom_pos h L) (growthWeights h L n)) (factorPower (blockFactor h L) n)",
+    "premise_signature": "(r : Fraction) : (n : Nat) → Fraction.equiv (factorPower r n) (HarmonicAccumulation.fpower r n)",
     "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
   },
   {
@@ -2067,6 +2004,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(s t : Point × Point) : Fraction.equiv (stateDistance s t) (stateDistance t s)",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_self_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) : Fraction.equiv (pointDistance p p) (Fraction.ofInt 0)",
     "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
@@ -2338,6 +2284,69 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (s : Point × Point) : stateEquiv (cell a controlZero s) s",
     "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteFactorProducts.pairWeights_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteFactorProducts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(P Q : Fraction) (hP : 0 ≤ P.num) (hQ : 0 ≤ Q.num) : (n : Nat) → FiniteGrowth.Nonnegative (pairWeights P Q n)",
+    "interpretation_and_remaining_premises": "Elementary repeated two-factor growth at arbitrary nonnegative rational increments P,Q. A common denominator and finite cofactor argument give amplification<=2 when n(P+Q)<=1/2, including n=0 and zero increments. Both calibrated and retained unit-gauge estimates instantiate this single finite product proof; no motion or limiting primitive is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteFactorProducts.pairWeights_sum",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteFactorProducts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(P Q : Fraction) : (n : Nat) → FiniteGrowth.weightSum (pairWeights P Q n) = (n : Int) * (P.num * Q.den + Q.num * P.den)",
+    "interpretation_and_remaining_premises": "Elementary repeated two-factor growth at arbitrary nonnegative rational increments P,Q. A common denominator and finite cofactor argument give amplification<=2 when n(P+Q)<=1/2, including n=0 and zero increments. Both calibrated and retained unit-gauge estimates instantiate this single finite product proof; no motion or limiting primitive is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteFactorProducts.pair_product",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteFactorProducts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(P Q : Fraction) : Fraction.equiv (FiniteGrowth.amplification (P.den * Q.den) (Int.mul_pos P.den_pos Q.den_pos) [P.num * Q.den,Q.num * P.den]) (Fraction.mul (Fraction.add (Fraction.ofInt 1) P) (Fraction.add (Fraction.ofInt 1) Q))",
+    "interpretation_and_remaining_premises": "Elementary repeated two-factor growth at arbitrary nonnegative rational increments P,Q. A common denominator and finite cofactor argument give amplification<=2 when n(P+Q)<=1/2, including n=0 and zero increments. Both calibrated and retained unit-gauge estimates instantiate this single finite product proof; no motion or limiting primitive is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteFactorProducts.repeated_pair_product",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteFactorProducts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(P Q : Fraction) : (n : Nat) → Fraction.equiv (FiniteGrowth.amplification (P.den * Q.den) (Int.mul_pos P.den_pos Q.den_pos) (pairWeights P Q n)) (fpower (Fraction.mul (Fraction.add (Fraction.ofInt 1) P) (Fraction.add (Fraction.ofInt 1) Q)) n)",
+    "interpretation_and_remaining_premises": "Elementary repeated two-factor growth at arbitrary nonnegative rational increments P,Q. A common denominator and finite cofactor argument give amplification<=2 when n(P+Q)<=1/2, including n=0 and zero increments. Both calibrated and retained unit-gauge estimates instantiate this single finite product proof; no motion or limiting primitive is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteFactorProducts.repeated_pair_le_two",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteFactorProducts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(P Q : Fraction) (n : Nat) (hP : 0 ≤ P.num) (hQ : 0 ≤ Q.num) (hs : Fraction.le (Fraction.mul (Fraction.ofInt (n : Int)) (Fraction.add P Q)) ⟨1,2,by decide⟩) : Fraction.le (fpower (Fraction.mul (Fraction.add (Fraction.ofInt 1) P) (Fraction.add (Fraction.ofInt 1) Q)) n) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Elementary repeated two-factor growth at arbitrary nonnegative rational increments P,Q. A common denominator and finite cofactor argument give amplification<=2 when n(P+Q)<=1/2, including n=0 and zero increments. Both calibrated and retained unit-gauge estimates instantiate this single finite product proof; no motion or limiting primitive is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteFactorProducts.fpower_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteFactorProducts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{r q : Fraction} (hrq : Fraction.equiv r q) : (n : Nat) → Fraction.equiv (fpower r n) (fpower q n)",
+    "interpretation_and_remaining_premises": "Elementary repeated two-factor growth at arbitrary nonnegative rational increments P,Q. A common denominator and finite cofactor argument give amplification<=2 when n(P+Q)<=1/2, including n=0 and zero increments. Both calibrated and retained unit-gauge estimates instantiate this single finite product proof; no motion or limiting primitive is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteFactorProducts.fpower_square",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteFactorProducts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r : Fraction) : (n : Nat) → Fraction.equiv (fpower (Fraction.mul r r) n) (fpower r (2*n))",
+    "interpretation_and_remaining_premises": "Elementary repeated two-factor growth at arbitrary nonnegative rational increments P,Q. A common denominator and finite cofactor argument give amplification<=2 when n(P+Q)<=1/2, including n=0 and zero increments. Both calibrated and retained unit-gauge estimates instantiate this single finite product proof; no motion or limiting primitive is a premise."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.fpower_nonnegative",
@@ -3004,6 +3013,258 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(s : Point × Point) : Fraction.equiv (stateNorm (stateSub s s)) (Fraction.ofInt 0)",
     "interpretation_and_remaining_premises": "Generic rational state subtraction, congruence, symmetry, triangle and zero-distance bounds. Existing harmonic namespace names remain compatibility names; no field or motion premise occurs. The triangle and zero results are instances of shared FiniteEstimates facts, not duplicated proofs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.inverse_positive",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) : 0 < (inverse tau ht).num",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.inverse_product",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) : Fraction.equiv (Fraction.mul tau (inverse tau ht)) (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.norm_rescale",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c tau : Fraction) (s : Point × Point) (hc : 0 < c.num) : Fraction.equiv (norm (Fraction.mul c tau) (rescaleState c hc s)) (norm tau s)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.amplification_rescale",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c tau h L : Fraction) (hc : 0 < c.num) (ht : 0 < tau.num) : Fraction.equiv (amplification (Fraction.mul c tau) (Fraction.mul c h) (rescaleConstant c L hc) (Int.mul_pos hc ht)) (amplification tau h L ht)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.window_rescale",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c tau T L : Fraction) (hc : 0 < c.num) (ht : 0 < tau.num) : Fraction.equiv (Fraction.mul (Fraction.mul c T) (rate (Fraction.mul c tau) (rescaleConstant c L hc) (Int.mul_pos hc ht))) (Fraction.mul T (rate tau L ht))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.component_amplification",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau P V H L E : Fraction) (ht : 0 < tau.num) (hP : 0 ≤ P.num) (hV : 0 ≤ V.num) (hH : 0 ≤ H.num) (hL : 0 ≤ L.num) : Fraction.le (Fraction.add (Fraction.add P (Fraction.mul H V)) (Fraction.mul tau (Fraction.add V (Fraction.mul H (Fraction.add (Fraction.mul L (Fraction.add P (Fraction.mul H V))) E))))) (Fraction.add (Fraction.mul (amplification tau H L ht) (Fraction.add P (Fraction.mul tau V))) (Fraction.mul (Fraction.mul tau H) E))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cell_amplification",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : Fraction.le (distance tau (cell a h s) (cell b h t)) (Fraction.add (Fraction.mul (amplification tau h L ht) (distance tau s t)) (Fraction.mul (Fraction.mul tau h.abs) E))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.sampling_term_rescale",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c tau h E : Fraction) (hc : 0 < c.num) : Fraction.equiv (Fraction.mul (Fraction.mul (Fraction.mul c tau) (Fraction.mul c h).abs) (rescaleConstant c E hc)) (Fraction.mul (Fraction.mul tau h.abs) E)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_rescale",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c tau : Fraction) (s t : Point × Point) (hc : 0 < c.num) : Fraction.equiv (distance (Fraction.mul c tau) (rescaleState c hc s) (rescaleState c hc t)) (distance tau s t)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.norm_unit_calibration",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) : Fraction.equiv (norm (Fraction.ofInt 1) s) (stateNorm s)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_le_uncalibrated",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (s t : Point × Point) : Fraction.le (distance tau s t) (Fraction.mul (Fraction.add (Fraction.ofInt 1) tau) (stateDistance s t))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.uncalibrated_le_distance",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (s t : Point × Point) : Fraction.le (stateDistance s t) (Fraction.mul (Fraction.add (Fraction.ofInt 1) (inverse tau ht)) (distance tau s t))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.calibrated_tolerance",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau eps : Fraction) (ht : 0 < tau.num) (s t : Point × Point) (hd : Fraction.lt (stateDistance s t) (HarmonicTimeRealization.factorDelta (Fraction.add (Fraction.ofInt 1) tau) eps (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt ht)))) : Fraction.lt (distance tau s t) eps",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.unit_tolerance",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau eps : Fraction) (ht : 0 < tau.num) (s t : Point × Point) (hd : Fraction.lt (distance tau s t) (HarmonicTimeRealization.factorDelta (Fraction.add (Fraction.ofInt 1) (inverse tau ht)) eps (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt tau.den_pos)))) : Fraction.lt (stateDistance s t) eps",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_unit_calibration",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s t : Point × Point) : Fraction.equiv (distance (Fraction.ofInt 1) s t) (stateDistance s t)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cauchy_calibration_iff",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a : Nat → Point × Point) : CalibratedCauchy tau a ↔ CalibratedCauchy (Fraction.ofInt 1) a",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.nameEquiv_calibration_iff",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : HarmonicDyadic.EndpointCauchyName) : CalibratedEquivalent tau a.approx b.approx ↔ CauchyValues.NameEquiv a b",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.amplification_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) : 0 ≤ (amplification tau h L ht).num",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.one_le_amplification",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) : Fraction.le (Fraction.ofInt 1) (amplification tau h L ht)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.amplification_expansion",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) : Fraction.equiv (amplification tau h L ht) (Fraction.add (Fraction.ofInt 1) (Fraction.add (Fraction.mul h.abs (rate tau L ht)) (Fraction.mul (Fraction.mul h.abs h.abs) L)))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.amplification_power_le_two",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (n : Nat) (hs : Window tau h L ht n) : Fraction.le (HarmonicAccumulation.fpower (amplification tau h L ht) n) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.run_distance_le_source",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : (n : Nat) → Fraction.le (distance tau (BoundedIteration.run a h s n) (BoundedIteration.run b h s n)) (FiniteRecurrence.sourceBudget (amplification tau h L ht) (Fraction.mul (Fraction.mul tau h.abs) E) n)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.run_uniform_discrepancy",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hc : comparisonContract a b L E) (n : Nat) (hs : Window tau h L ht n) : Fraction.le (distance tau (BoundedIteration.run a h s n) (BoundedIteration.run b h s n)) (Fraction.mul (Fraction.ofInt (2 * (n : Int))) (Fraction.mul (Fraction.mul tau h.abs) E))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cauchy_rescale",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c tau : Fraction) (hc : 0 < c.num) (a : Nat → Point × Point) : CalibratedCauchy (Fraction.mul c tau) (fun n => rescaleState c hc (a n)) ↔ CalibratedCauchy tau a",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.window_rescale_iff",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c tau h L : Fraction) (hc : 0 < c.num) (ht : 0 < tau.num) (n : Nat) : Window (Fraction.mul c tau) (Fraction.mul c h) (rescaleConstant c L hc) (Int.mul_pos hc ht) n ↔ Window tau h L ht n",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.rescaling_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (norm two sampleState) (norm (Fraction.mul three two) (rescaleState three (by decide) sampleState)) ∧ Fraction.equiv (amplification two quarter (Fraction.ofInt 1) (by decide)) (amplification (Fraction.mul three two) (Fraction.mul three quarter) (rescaleConstant three (Fraction.ofInt 1) (by decide)) (by decide))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.uncalibrated_norm_changes_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ¬ Fraction.equiv (stateNorm sampleState) (stateNorm (rescaleState two (by decide) sampleState))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.zero_lipschitz_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (amplification two half (Fraction.ofInt 0) (by decide)) ⟨5,4,by decide⟩",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TriangleBounds.det_abs_le_product",
@@ -3701,6 +3962,42 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": ¬ pointEquiv (cells (affine zero one) one 1 (one, zero)) (cells (affine zero one) half 2 (one, zero)) ∧ Fraction.equiv (area2 (cells (affine zero one) one 1 (zero, zero)) (cells (affine zero one) one 1 (one, zero)) (cells (affine zero one) one 1 (zero, one))) one ∧ Fraction.equiv (area2 (cells (affine zero one) half 2 (zero, zero)) (cells (affine zero one) half 2 (one, zero)) (cells (affine zero one) half 2 (zero, one))) one",
     "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedForces.sampled_calibrated_discrepancy",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CalibratedForces.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : Oracle) (tau h L : Fraction) (ht : 0 < tau.num) (hL : LipschitzOn o L) (hR : ∀ p, o.region p) (i j : Nat) (hij : i ≤ j) (s : Point × Point) (n : Nat) (hs : TimeCalibration.Window tau h L ht n) : Fraction.le (TimeCalibration.distance tau (schedule (o.sample i) (List.replicate n h) s) (schedule (o.sample j) (List.replicate n h) s)) (Fraction.mul (Fraction.ofInt (2 * (n : Int))) (Fraction.mul (Fraction.mul tau h.abs) (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i))))",
+    "interpretation_and_remaining_premises": "Modern sampled finite polygon discrepancy in the weighted gauge |x|+tau|v|, with tau>0 explicit. Harmonic and uniform parallel cell estimates instantiate the general calibrated bound; exact harmonic cell mechanics commute with a positive time-unit change. No general motion convergence, confinement, restart, P5, content or historical limiting premise is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedForces.harmonic_calibrated_cell",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CalibratedForces.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau w h : Fraction) (ht : 0 < tau.num) (s t : Point × Point) : Fraction.le (TimeCalibration.distance tau (cell (linearField w) h s) (cell (linearField w) h t)) (Fraction.add (Fraction.mul (TimeCalibration.amplification tau h w.abs ht) (TimeCalibration.distance tau s t)) (Fraction.mul (Fraction.mul tau h.abs) (Fraction.ofInt 0)))",
+    "interpretation_and_remaining_premises": "Modern sampled finite polygon discrepancy in the weighted gauge |x|+tau|v|, with tau>0 explicit. Harmonic and uniform parallel cell estimates instantiate the general calibrated bound; exact harmonic cell mechanics commute with a positive time-unit change. No general motion convergence, confinement, restart, P5, content or historical limiting premise is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedForces.parallel_calibrated_cell",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CalibratedForces.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h : Fraction) (ht : 0 < tau.num) (a : Point) (s t : Point × Point) : Fraction.le (TimeCalibration.distance tau (cell (fun _ => a) h s) (cell (fun _ => a) h t)) (Fraction.add (Fraction.mul (TimeCalibration.amplification tau h (Fraction.ofInt 0) ht) (TimeCalibration.distance tau s t)) (Fraction.mul (Fraction.mul tau h.abs) (Fraction.ofInt 0)))",
+    "interpretation_and_remaining_premises": "Modern sampled finite polygon discrepancy in the weighted gauge |x|+tau|v|, with tau>0 explicit. Harmonic and uniform parallel cell estimates instantiate the general calibrated bound; exact harmonic cell mechanics commute with a positive time-unit change. No general motion convergence, confinement, restart, P5, content or historical limiting premise is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedForces.harmonic_cell_rescale",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CalibratedForces.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c w h : Fraction) (hc : 0 < c.num) (s : Point × Point) : stateEquiv (TimeCalibration.rescaleState c hc (cell (linearField w) h s)) (cell (linearField (TimeCalibration.rescaleConstant c w hc)) (Fraction.mul c h) (TimeCalibration.rescaleState c hc s))",
+    "interpretation_and_remaining_premises": "Modern sampled finite polygon discrepancy in the weighted gauge |x|+tau|v|, with tau>0 explicit. Harmonic and uniform parallel cell estimates instantiate the general calibrated bound; exact harmonic cell mechanics commute with a positive time-unit change. No general motion convergence, confinement, restart, P5, content or historical limiting premise is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.timeValue_bound",

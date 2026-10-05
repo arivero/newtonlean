@@ -15,8 +15,10 @@ whole-edge distance bound tending to zero uniformly over addresses.
 Both same-cell and shared-boundary aliases now agree, and the actual coarse
 polygonMap descends to the same time quotient with uniform convergence.
 The integer-subdivision accumulation and dyadic E/G comparison are now proved.
-Explicit time calibration, general motion and the intervening content remain
-obligations. See the
+Explicit calibration now has weighted actual finite bounds, a shared
+finite growth proof, Cauchy-gauge equivalence and positive time-unit invariance;
+see the [calibration checkpoint](verification/calibrated-finite-bounds-2026-10-05.md).
+General motion and the intervening content remain obligations. See the
 [comparison checkpoint](verification/construction-and-whole-edge-2026-10-05.md).
 D_mesh, P5 and the remaining classes follow these open bridges in the handoff's
 order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted

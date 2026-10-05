@@ -18,6 +18,9 @@ on the constructed time quotient. Region/content is the remaining geometric
 step. Dyadic E/G agreement is now derived for every numerator; it identifies
 the two harmonic constructions, without supplying region area. Continuous-force
 local consistency is also checked, without a stability or uniqueness inference.
+The finite bounds now carry a free positive time calibration explicitly and
+prove Cauchy-gauge and time-unit invariance. This fixes the hidden-unit issue
+in those estimates; it adds no area object or universal action scale.
 The exact deflection triangles
 and potential steps in [Arg007](action-arguments/261004gpt6.1solv1Arg007.md)
 compare a next polygon point to its inertial continuation. They supply no

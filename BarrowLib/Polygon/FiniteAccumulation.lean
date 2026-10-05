@@ -1,3 +1,4 @@
+import BarrowLib.Polygon.FiniteFactorProducts
 import BarrowLib.Polygon.FiniteEstimates
 import BarrowLib.Common.FiniteGrowth
 
@@ -443,120 +444,38 @@ def SmallWindow (h L : Fraction) (n : Nat) : Prop :=
     (Fraction.mul (totalTime h n) (Fraction.add (Fraction.ofInt 1) L))
     ⟨1, 2, by decide⟩
 
-private def growthDenom (h L : Fraction) : Int := h.den * L.den
-private def driftWeight (h L : Fraction) : Int := h.num * L.den
-private def kickWeight (h L : Fraction) : Int := h.num * L.num
+/-- Compatibility of the retained finite-power name with the shared power. -/
+theorem factorPower_fpower (r : Fraction) :
+    (n : Nat) → Fraction.equiv (factorPower r n) (HarmonicAccumulation.fpower r n)
+  | 0 => Fraction.equiv_refl _
+  | n+1 => Fraction.mul_equiv (Fraction.equiv_refl r) (factorPower_fpower r n)
 
-private theorem growthDenom_pos (h L : Fraction) : 0 < growthDenom h L :=
-  Int.mul_pos h.den_pos L.den_pos
-
-private theorem driftWeight_nonnegative (h L : Fraction) (hh : 0 ≤ h.num) :
-    0 ≤ driftWeight h L :=
-  Int.mul_nonneg hh (Int.le_of_lt L.den_pos)
-
-private theorem kickWeight_nonnegative (h L : Fraction)
-    (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) :
-    0 ≤ kickWeight h L := Int.mul_nonneg hh hL
-
-private def growthWeights (h L : Fraction) : Nat → List Int
-  | 0 => []
-  | n + 1 => [driftWeight h L, kickWeight h L,
-      driftWeight h L, kickWeight h L] ++ growthWeights h L n
-
-private theorem growthWeights_nonnegative (h L : Fraction)
-    (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) :
-    (n : Nat) → NewtonLimitDynamics.FiniteGrowth.Nonnegative (growthWeights h L n)
-  | 0 => by simp [growthWeights, NewtonLimitDynamics.FiniteGrowth.Nonnegative]
-  | n + 1 => by
-      intro a ha
-      simp only [growthWeights, List.mem_append, List.mem_cons,
-        List.mem_nil_iff, or_false] at ha
-      rcases ha with ha | ha
-      · rcases ha with rfl | ha
-        · exact driftWeight_nonnegative h L hh
-        rcases ha with rfl | ha
-        · exact kickWeight_nonnegative h L hh hL
-        rcases ha with rfl | ha
-        · exact driftWeight_nonnegative h L hh
-        rcases ha with rfl | ha
-        · exact kickWeight_nonnegative h L hh hL
-      · exact growthWeights_nonnegative h L hh hL n a ha
-
-private theorem growthWeights_sum (h L : Fraction) :
-    (n : Nat) →
-      NewtonLimitDynamics.FiniteGrowth.weightSum (growthWeights h L n) =
-        (n : Int) * (2 * (driftWeight h L + kickWeight h L))
-  | 0 => by simp [growthWeights, NewtonLimitDynamics.FiniteGrowth.weightSum]
-  | n + 1 => by
-      simp only [growthWeights, NewtonLimitDynamics.FiniteGrowth.weightSum_append,
-        NewtonLimitDynamics.FiniteGrowth.weightSum, growthWeights_sum h L n,
-        Int.natCast_add, Int.natCast_one, Int.add_mul, Int.one_mul]
-      omega
-
-private theorem growthWeights_small (h L : Fraction) (n : Nat)
-    (hs : SmallWindow h L n) :
-    2 * NewtonLimitDynamics.FiniteGrowth.weightSum (growthWeights h L n) ≤
-      growthDenom h L := by
-  rw [growthWeights_sum]
-  unfold SmallWindow totalTime Fraction.le Fraction.mul Fraction.add
-    Fraction.ofInt at hs
-  dsimp at hs
-  unfold growthDenom driftWeight kickWeight
-  simp only [Int.mul_one, Int.one_mul, Int.add_zero] at hs
-  calc
-    2 * ((n : Int) * (2 * (h.num * L.den + h.num * L.num))) =
-        (2 * (n : Int) * h.num * (L.den + L.num)) * 2 := by
-          simp only [Int.mul_add, Int.add_mul]
-          ac_nf
-    _ ≤ h.den * L.den := hs
-
-private theorem growthBlock_equiv (h L : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.equiv
-      (NewtonLimitDynamics.FiniteGrowth.amplification
-        (growthDenom h L) (growthDenom_pos h L)
-        [driftWeight h L, kickWeight h L,
-          driftWeight h L, kickWeight h L])
-      (blockFactor h L) := by
-  simp only [NewtonLimitDynamics.FiniteGrowth.amplification,
-    NewtonLimitDynamics.FiniteGrowth.factorProduct, growthDenom,
-    driftWeight, kickWeight, blockFactor, amplification,
-    Fraction.equiv, Fraction.abs, Fraction.add, Fraction.mul, Fraction.ofInt,
-    List.length_cons, List.length_nil, Int.pow_succ, Int.pow_zero,
-    Int.mul_one, Int.one_mul, Int.natAbs_of_nonneg hh]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
-
-private theorem growthPower_equiv (h L : Fraction) (hh : 0 ≤ h.num) :
-    (n : Nat) → Fraction.equiv
-      (NewtonLimitDynamics.FiniteGrowth.amplification
-        (growthDenom h L) (growthDenom_pos h L) (growthWeights h L n))
-      (factorPower (blockFactor h L) n)
-  | 0 => NewtonLimitDynamics.FiniteGrowth.amplification_empty _ _
-  | n + 1 => by
-      have ha := NewtonLimitDynamics.FiniteGrowth.amplification_append
-        (growthDenom h L) (growthDenom_pos h L)
-        [driftWeight h L, kickWeight h L,
-          driftWeight h L, kickWeight h L] (growthWeights h L n)
-      have hb := growthBlock_equiv h L hh
-      have hi := growthPower_equiv h L hh n
-      change Fraction.equiv
-        (NewtonLimitDynamics.FiniteGrowth.amplification
-          (growthDenom h L) (growthDenom_pos h L)
-          ([driftWeight h L, kickWeight h L,
-            driftWeight h L, kickWeight h L] ++ growthWeights h L n))
-        (Fraction.mul (blockFactor h L) (factorPower (blockFactor h L) n))
-      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
-
-/-- The `T(1+L) ≤ 1/2` small window gives a uniform finite factor bound.
-This uses four positive factors per actual coarse block. -/
+/-- The old unit-gauge window is an instance of the shared dimensionless
+pair-factor estimate, with two fine cells in each coarse block. -/
 theorem blockFactor_power_le_two (h L : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hs : SmallWindow h L n) :
-    Fraction.le (factorPower (blockFactor h L) n) (Fraction.ofInt 2) :=
-  Fraction.le_equiv_left (Fraction.equiv_symm (growthPower_equiv h L hh n))
-    (NewtonLimitDynamics.FiniteGrowth.uniform_amplification
-      (growthDenom h L) (growthDenom_pos h L) (growthWeights h L n)
-      (growthWeights_nonnegative h L hh hL n)
-      (growthWeights_small h L n hs))
+    Fraction.le (factorPower (blockFactor h L) n) (Fraction.ofInt 2) := by
+  have hsmall : Fraction.le
+      (Fraction.mul (Fraction.ofInt ((2*n : Nat) : Int))
+        (Fraction.add h (Fraction.mul h L))) ⟨1,2,by decide⟩ := by
+    apply Fraction.le_equiv_left (b := Fraction.mul (totalTime h n)
+      (Fraction.add (Fraction.ofInt 1) L)) _ hs
+    simp only [totalTime,Fraction.equiv,Fraction.mul,Fraction.add,Fraction.ofInt,
+      Int.natCast_mul,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
+    ac_nf
+  have hb := FiniteFactorProducts.repeated_pair_le_two h (Fraction.mul h L) (2*n)
+    hh (Fraction.nonnegative_mul _ _ hh hL) hsmall
+  have hcoeff : Fraction.equiv (amplification L h)
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) h)
+        (Fraction.add (Fraction.ofInt 1) (Fraction.mul h L))) :=
+    Fraction.mul_equiv
+      (Fraction.add_equiv (Fraction.equiv_refl _) (Fraction.abs_of_nonnegative h hh))
+      (Fraction.add_equiv (Fraction.equiv_refl _)
+        (Fraction.mul_equiv (Fraction.abs_of_nonnegative h hh) (Fraction.equiv_refl L)))
+  have he := Fraction.equiv_trans (factorPower_fpower (blockFactor h L) n)
+    (Fraction.equiv_trans (FiniteFactorProducts.fpower_square (amplification L h) n)
+      (FiniteFactorProducts.fpower_congr hcoeff (2*n)))
+  exact Fraction.le_equiv_left he hb
 
 /-- Uniform finite cross-map comparison of actual polygon endpoints on a
 small window. `B` and `V` refer to the coarse map `b` on the finite prefix;

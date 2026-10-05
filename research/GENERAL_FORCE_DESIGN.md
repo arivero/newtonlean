@@ -56,16 +56,32 @@ region; its value depends on the law and the region, rescales with the unit
 of time, and fixes no universal constant. A modulus of continuity for classes
 (b) and (c) carries the same kind of scale without a single constant.
 
-The estimates as written fix a unit of time implicitly. The window
-`T·(1+L) ≤ 1/2` adds 1 to a quantity of units 1/time², and the coordinate
-state magnitude `|x|+|v|` adds a length to a velocity. The rational arithmetic
-is unitless, so the proofs are unaffected, but a scale read off these bounds
-may be the hidden unit. Carry the calibration explicitly, for example
-`|x|+τ₀·|v|` with windows on `h²·L` and `h/τ₀`, and check that conclusions
-are invariant under rescaling the time unit. Newton's counterpart of the
-contract is qualitative finiteness (1713 Lemma X *Vi finita*, Lemma XI
-*curvaturam finitam*): a bound asserted to exist, with no value given.
-Arg006 reads it as a local scale.
+The retained harmonic and finite refinement estimates use the numerical gauge
+τ₀=1. TimeCalibration now carries a positive rational τ₀ explicitly:
+
+    norm_τ(x,v) = |x|+τ₀|v|,
+    K_τ(h,L) = (1+|h|/τ₀)(1+τ₀|h|L)
+             = 1+|h|(1/τ₀+τ₀L)+h²L.
+
+For n actual cells, the derived dimensionless window
+`n|h|(1/τ₀+τ₀L) ≤ 1/2` gives `K_τ^n ≤ 2`. Cross-map sampling discrepancy E
+accumulates to at most `2nτ₀|h|E`. The old τ₀=1 product bound and the calibrated
+bound share one finite two-factor proof. Fixed positive calibration changes
+neither the Cauchy condition nor its completed equivalence class for the
+same coordinate family. Under a time-unit change c>0, use
+
+    h→ch, τ₀→cτ₀, v→v/c, L→L/c², E→E/c².
+
+Weighted norms/distances, dimensionless factors/windows and sampling budgets
+are proved invariant. Exact harmonic cell mechanics commute with the same
+rescaling. Lean controls detect the change in the unweighted state norm if
+the calibration is omitted. These are finite estimates and Cauchy-gauge facts;
+general motion and restart/gluing remain to be constructed.
+
+τ₀ is a free calibration, not a dynamical necessity or an action constant.
+Newton's counterpart is qualitative finiteness (1713 Lemma X *Vi finita*,
+Lemma XI *curvaturam finitam*), with no numerical value. Arg006 reads it as a
+local scale; no scale created by τ₀ is assigned to the motion itself.
 
 ## First estimate specification
 

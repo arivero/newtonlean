@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,041 checked
-library theorems, 707 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,074 checked
+library theorems, 731 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 They construct acceleration values, bound actual sampled polygons, derive
 mesh-uniform cross-sample refinement control and continuous local consistency.
@@ -43,7 +43,9 @@ E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
 Actual integer-subdivision accumulation proves the dyadic agreement, including
 the three-tick completed values whose finite schedules differ. General motion
-convergence, explicit time calibration and polygon–curve area remain open.
+convergence and polygon–curve area remain open. Explicit positive time
+calibration now gives weighted finite bounds and dimensionless windows, with
+proved Cauchy-gauge and time-unit invariance; it fixes no universal constant.
 
 Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
 `python3 scripts/progress_stats.py`; the per-commit numbers behind every plot

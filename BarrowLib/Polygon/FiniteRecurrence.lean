@@ -15,8 +15,7 @@ def sourceBudget (r C : Fraction) : Nat → Fraction
 /-- Compatibility between the two pre-existing public finite-power names. -/
 theorem factorPower_fpower (r : Fraction) :
     (n : Nat) → Fraction.equiv (FiniteAccumulation.factorPower r n) (fpower r n)
-  | 0 => Fraction.equiv_refl _
-  | n+1 => Fraction.mul_equiv (Fraction.equiv_refl r) (factorPower_fpower r n)
+  | n => FiniteAccumulation.factorPower_fpower r n
 
 /-- Reuse the pre-existing generic power lower bound. -/
 theorem one_le_fpower (r : Fraction) (hr : 0 ≤ r.num)
@@ -41,8 +40,7 @@ theorem fpower_add (r : Fraction) (m : Nat) :
 
 theorem fpower_congr {r q : Fraction} (hrq : Fraction.equiv r q) :
     (n : Nat) → Fraction.equiv (fpower r n) (fpower q n)
-  | 0 => Fraction.equiv_refl _
-  | n + 1 => Fraction.mul_equiv hrq (fpower_congr hrq n)
+  | n => FiniteFactorProducts.fpower_congr hrq n
 
 theorem fpower_integer_blocks (r : Fraction) (k : Nat) :
     (N : Nat) → Fraction.equiv (fpower (fpower r k) N)

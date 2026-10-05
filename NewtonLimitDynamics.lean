@@ -56,3 +56,4 @@ import NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement
 import NewtonLimitDynamics.Polygon.HarmonicPolygonCurve
 import NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision
 import NewtonLimitDynamics.Polygon.HarmonicDyadicAgreement
+import NewtonLimitDynamics.Polygon.CalibratedForces

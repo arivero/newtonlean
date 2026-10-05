@@ -4,8 +4,11 @@ This records the checked Cauchy-name, value and binary-time constructions and
 the remaining geometric and mechanical steps for Proposition I's construction
 variant. It is not a completed trajectory theorem. The mathematical layer is a modern
 reconstruction with explicit rational coordinates and a chosen L1 state
-gauge. Its time-unit calibration is still implicit in the existing bounds;
-explicit calibration and rescaling invariance remain a Task A obligation. It does not add a historical dependency or silently supply a curve.
+gauge. The retained harmonic formulas use τ₀=1; TimeCalibration now proves
+that any fixed positive rational calibration |x|+τ₀|v| has the same Cauchy
+condition. Weighted finite bounds and their dimensionless windows are invariant
+under a positive change of time unit. No historical dependency or supplied
+curve is added.
 The stage-local obligations remain in [the realization ledger](PROP_I_REALIZATION.md).
 
 The [foundation inventory](BARROWLIB_BOUNDARY.md) is now in BarrowLib:
@@ -82,7 +85,7 @@ For N=2^j and h=T/2^(m+j), this is C/2^j with
 C=4*(T/2^m)²*quadraticCap(w,s,k). The existing prefix Cauchy condition removes
 the finite shift m, proving equal names and values. The zero-tick case is
 handled directly. This proves dyadic E/G agreement, without asserting general
-confinement, P5 or time-unit invariance.
+confinement or P5. TimeCalibration separately proves finite/gauge unit invariance.
 
 ## Checked state-value construction
 

@@ -1,6 +1,27 @@
 # Verification record
 
-## Current handoff: E/G agreement at every dyadic rational time, 5 October 2026
+## Current handoff: calibrated finite bounds, 5 October 2026
+
+Targeted Lean core builds pass for the explicit weighted gauge, shared finite
+two-factor growth, actual sample-error accumulation and force instances. The
+retained unit-gauge power bound now uses the same generic product theorem.
+Positive time-unit changes preserve norms, distances, windows, growth and
+sampling budgets; Cauchy conditions are equivalent for each fixed positive
+calibration. Exact harmonic cell mechanics commute with the rescaling. The
+omitted-calibration control detects a changed state norm. A sequential nonauthor
+GPT-6 Luna verifier passed all 16 checks in order. The catalogue has 1,074 unique
+theorem rows and 932 emitted references; live counts are 731 substantive,
+186 plumbing, 136 sample and 21 duplicate. All previous public names and
+signatures are preserved; all 377 Barrow rows have empty source lists. The
+graph remains 77 nodes/68 edges/249 passages. The axiom union is propext,
+Classical.choice and Quot.sound; no sorryAx, project axiom, external package
+or Newton/Mathlib import in Barrow. Logs:
+/tmp/newton-sol61-calibration-final-01.log through -16.log. Generated PDF dates
+were restored after checking that all other bytes matched HEAD. Completion
+scores are unchanged. General motion, restart/gluing, confinement, D_mesh and
+P5 remain open; no historical edge or physical constant is added.
+
+### E/G agreement at every dyadic rational time, 5 October 2026
 
 Targeted Lean core builds pass for explicit finite dyadic addresses, actual
 integer-cell accumulation, its geometric error cap, E/G name and value

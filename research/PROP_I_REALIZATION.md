@@ -10,7 +10,7 @@ The 4 October handoff's [foundation inventory](BARROWLIB_BOUNDARY.md) is
 implemented for its minimal bootstrap. BarrowLib's generic finite triangular
 maps now have actual iteration bounds, cross-map perturbation (including
 sampling error E), local two-half/full-cell estimates and derived finite
-mesh-uniform accumulation under T(1+L) ≤ 1/2. The comparison contract is global;
+mesh-uniform accumulation in the retained τ₀=1 gauge under T(1+L) ≤ 1/2. The comparison contract is global;
 B and V bounds concern only the finite prefix used. [ForceClasses](GENERAL_FORCE_DESIGN.md)
 constructs acceleration values, connects bounded iterates to actual Newton
 schedules, and derives continuous-force local consistency from a modulus.
@@ -22,7 +22,10 @@ dyadic rational time, with explicit finite numerator addresses and endpoint case
 within-cell polygon names and a mesh-explicit whole-edge bound. Both same-cell
 and shared-boundary aliases agree before polygonMap is lifted to the time
 quotient. Fixed-integer harmonic subdivision and its actual accumulated bound
-now yield dyadic E/G agreement. Explicit time calibration remains a Task A obligation.
+now yield dyadic E/G agreement. TimeCalibration now proves the weighted gauge
+|x|+τ₀|v|, actual finite sample-error accumulation, dimensionless growth/windows,
+Cauchy-gauge equivalence and positive time-unit invariance. Harmonic and parallel
+cells are instances; exact harmonic mechanics commute with unit rescaling.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 
@@ -81,12 +84,12 @@ direction to control, which needs the radius bounded away from S
 (compare the vertex-at-S counterexample in `Converse.lean`).
 
 Any such regularity premise brings a scale. A Lipschitz bound `L` on the
-force defines a local dynamical time `1/√L`, and the polygon converges once
-the cell is small compared with it. Newton's clauses assert finiteness
+force defines a local dynamical time `1/√L`; the finite consistency estimates
+require the cell small compared with the relevant local scales. Newton's clauses assert finiteness
 without a value: they fix the existence of a scale, and its size depends on
-the law and the region. The current harmonic and general estimates also fix
-a unit of time implicitly, through the window `T·(1+L) ≤ 1/2` and the state
-magnitude `|x|+|v|`; see [scales and units](GENERAL_FORCE_DESIGN.md#scales-and-units).
+the law and the region. The retained harmonic bounds use τ₀=1. The new
+calibrated finite estimates use `|x|+τ₀|v|` and the dimensionless window
+`n|h|(1/τ₀+τ₀L) ≤ 1/2`, with proved positive time-unit invariance; see [scales and units](GENERAL_FORCE_DESIGN.md#scales-and-units).
 
 ## Converse side
 

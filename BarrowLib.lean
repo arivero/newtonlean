@@ -25,3 +25,5 @@ import BarrowLib.Polygon.IntegerSchedule
 import BarrowLib.Polygon.FiniteRecurrence
 import BarrowLib.Polygon.IntegerTime
 import BarrowLib.Polygon.FiniteAddress
+import BarrowLib.Polygon.FiniteFactorProducts
+import BarrowLib.Polygon.TimeCalibration
