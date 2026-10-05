@@ -163,6 +163,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.add_le_add_left
 #check NewtonLimitDynamics.Fraction.add_le_add_right
 #print axioms NewtonLimitDynamics.Fraction.add_le_add_right
+#check NewtonLimitDynamics.Fraction.add_lt_add
+#print axioms NewtonLimitDynamics.Fraction.add_lt_add
+#check NewtonLimitDynamics.Fraction.add_lt_add_left
+#print axioms NewtonLimitDynamics.Fraction.add_lt_add_left
+#check NewtonLimitDynamics.Fraction.add_lt_add_right
+#print axioms NewtonLimitDynamics.Fraction.add_lt_add_right
 #check NewtonLimitDynamics.Fraction.add_mul
 #print axioms NewtonLimitDynamics.Fraction.add_mul
 #check NewtonLimitDynamics.Fraction.add_zero
@@ -191,6 +197,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.le_equiv_left
 #check NewtonLimitDynamics.Fraction.le_equiv_right
 #print axioms NewtonLimitDynamics.Fraction.le_equiv_right
+#check NewtonLimitDynamics.Fraction.le_of_enlargements
+#print axioms NewtonLimitDynamics.Fraction.le_of_enlargements
 #check NewtonLimitDynamics.Fraction.le_of_equiv
 #print axioms NewtonLimitDynamics.Fraction.le_of_equiv
 #check NewtonLimitDynamics.Fraction.mul_add
@@ -423,6 +431,22 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CentralSchedule.swept_eq
 #check NewtonLimitDynamics.Polygon.CentralSchedule.unequal_cells_converse
 #print axioms NewtonLimitDynamics.Polygon.CentralSchedule.unequal_cells_converse
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.closure_contains
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.closure_contains
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.closure_idempotent
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.closure_idempotent
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.closure_image_bound
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.closure_image_bound
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.closure_mono
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.closure_mono
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.closure_square
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.closure_square
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.square_of_ball_bound
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.square_of_ball_bound
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedded_iff
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedded_iff
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.within_of_thickenings
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.within_of_thickenings
 #check NewtonLimitDynamics.Polygon.Converse.det_deflection
 #print axioms NewtonLimitDynamics.Polygon.Converse.det_deflection
 #check NewtonLimitDynamics.Polygon.Converse.det_sub
@@ -451,6 +475,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.ball_inside_square
 #check NewtonLimitDynamics.Polygon.ConvexCover.complement_abs
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.complement_abs
+#check NewtonLimitDynamics.Polygon.ConvexCover.complement_interval
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.complement_interval
 #check NewtonLimitDynamics.Polygon.ConvexCover.complement_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.complement_nonnegative
 #check NewtonLimitDynamics.Polygon.ConvexCover.drift_offset
@@ -461,6 +487,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.lerp_ball_bound
 #check NewtonLimitDynamics.Polygon.ConvexCover.lerp_offset
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.lerp_offset
+#check NewtonLimitDynamics.Polygon.ConvexCover.lerp_one
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.lerp_one
+#check NewtonLimitDynamics.Polygon.ConvexCover.lerp_swap
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.lerp_swap
+#check NewtonLimitDynamics.Polygon.ConvexCover.lerp_zero
+#print axioms NewtonLimitDynamics.Polygon.ConvexCover.lerp_zero
 #check NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_ball
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_ball
 #check NewtonLimitDynamics.Polygon.ConvexCover.matchedPatch_square
@@ -473,6 +505,42 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.pointSub_triangle
 #check NewtonLimitDynamics.Polygon.ConvexCover.weights_sum_one
 #print axioms NewtonLimitDynamics.Polygon.ConvexCover.weights_sum_one
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexName_ball
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexName_ball
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexName_equiv
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexName_equiv
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_one
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_one
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_square
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_square
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_swap
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_swap
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_zero
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_zero
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexState_anchor_bound
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexState_anchor_bound
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexState_distance
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexState_distance
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_ball
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_ball
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_one
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_one
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_position
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_position
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_swap
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_swap
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_zero
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_zero
+#check NewtonLimitDynamics.Polygon.ConvexValues.firstValue_convex
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.firstValue_convex
+#check NewtonLimitDynamics.Polygon.ConvexValues.first_convex_state
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.first_convex_state
+#check NewtonLimitDynamics.Polygon.ConvexValues.lerp_distance
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.lerp_distance
+#check NewtonLimitDynamics.Polygon.ConvexValues.secondValue_convex
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.secondValue_convex
+#check NewtonLimitDynamics.Polygon.ConvexValues.second_convex_state
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.second_convex_state
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_equiv
@@ -1165,6 +1233,38 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_velocity_identity
 #check NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.uniformSplitBudget_factor
 #print axioms NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.uniformSplitBudget_factor
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_bound
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_tends_zero
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_tends_zero
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_zero_window
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_zero_window
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.actual_budget_geometric
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.actual_budget_geometric
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.budgetCoefficient_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.budgetCoefficient_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.cellPatch_square
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.cellPatch_square
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.closed_cell_square
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.closed_cell_square
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.connector_in_region
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.connector_in_region
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.curve_in_region
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.curve_in_region
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.edgeRadius_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.edgeRadius_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.final_connector_in_region
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.final_connector_in_region
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.polygon_in_region
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.polygon_in_region
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.reversed_connector_in_region
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.reversed_connector_in_region
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.shared_initial_endpoint
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.shared_initial_endpoint
+#check NewtonLimitDynamics.Polygon.HarmonicPathRegion.simultaneous_endpoints_square
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.simultaneous_endpoints_square
 #check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeCoefficient_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeCoefficient_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeRadius_eventually_small
@@ -1175,6 +1275,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.half_time_distinct_coarse_cells
 #check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.half_time_polygon_alias
 #print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.half_time_polygon_alias
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygonMap_left
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygonMap_left
 #check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygonMap_uniform_convergence
 #print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygonMap_uniform_convergence
 #check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygonMap_whole_edge_bound
@@ -1683,6 +1785,30 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_equal_area_central
 #check NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.Cover.budget_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.Cover.budget_nonnegative
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.content_closed
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.content_closed
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.content_cover_bound
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.content_cover_bound
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.content_downward
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.content_downward
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.content_mono
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.content_mono
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.content_union_includes
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.content_union_includes
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.content_zero_lower
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.content_zero_lower
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.empty_content
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.empty_content
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.singleton_content
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.singleton_content
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.squareArea_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.squareArea_nonnegative
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.sumBudget_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.sumBudget_nonnegative
+#check NewtonLimitDynamics.Polygon.SquareOuterContent.uniform_budget
+#print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.uniform_budget
 #check NewtonLimitDynamics.Polygon.StripArea.all_triangles_equal
 #print axioms NewtonLimitDynamics.Polygon.StripArea.all_triangles_equal
 #check NewtonLimitDynamics.Polygon.StripArea.chord_is_position_diff

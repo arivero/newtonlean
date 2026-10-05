@@ -32,7 +32,10 @@ derives those sample bounds and agrees with the old endpoint value. Full
 general time realization, local-annulus stability and restart/gluing remain
 open; the generic extraction is complete. B.1/B.2 now have the bounded results below;
 integer-subdivision accumulation and dyadic E/G agreement are now proved. Both
-kinds of coarse polygon alias are handled; actual region/content is next.
+kinds of coarse polygon alias are handled. HarmonicPathRegion now constructs
+the matched region and finite-square outer-content lower cut, with a derived
+vanishing cover. The cut's Cauchy scalar realization and ordinary-area
+identification remain distinct.
 
 ## One global family
 
@@ -160,43 +163,44 @@ and zero cases. Completed coordinate squares have two closed coordinate bounds
 with a proved nonnegative radius. Eventual rational bounds imply membership;
 the radius-1 square's corner (1,1) has L1 distance 2.
 The same-time coarse polygon map is constructed on the binary-time quotient;
-the actual between-path region remains to be constructed. The velocity
+the actual harmonic matched region and its outer-content lower cut are now
+constructed in HarmonicPathRegion. The velocity
 coordinate still needs to be identified with position's rate of change, and
 acceleration with the sampled harmonic force. E/G identification is proved at
 all common dyadic rational times. Other rational parameters and arbitrary
 partition independence remain separate.
 
-## Between-path geometry specification
+## Constructed between-path region and content
 
-For a fixed coarse level m, compare its actual position at a constructed time
-with the position value of the constructed motion at that same time. The
-intervening set must consist of the connectors between these simultaneous
-positions, with endpoint connectors stated explicitly. It is separate from
-the radius-swept Kepler set. Retain every lobe when connectors cross and state
-whether an area is union content or a cover counted with multiplicity.
+For each coarse cell, HarmonicPathRegion takes all rational convex connectors
+between simultaneous quotient polygonMap and gammaPosition values, then their
+closure in the completed plane. The region is the finite union of these cell
+closures. It includes both maps, their shared initial endpoint and the final
+connector. Rational interpolation descends only after Cauchy and equivalence
+preservation are proved; completed coordinate squares are convex and remain
+closed under positive-rational exhaustion. Reversing a connector leaves the
+same region point, so opposite orientations cannot cancel.
 
-A candidate route is a square about each actual coarse start. Its radius must
-be derived from both a refinement tail and motion within that coarse cell.
-The checked whole-edge construction supplies the conservative radius
+The derived radius about the actual coarse start is
 
-    R_m = [2*T*stateNorm(s) + prefixCoefficient(w,T,s)] / 2^m,
-    proposed summed square budget = 4*2^m*R_m².
+    R_m = C/2^m, C = 2*T*stateNorm(s) + prefixCoefficient(w,T,s).
 
-The radius bound is checked; region inclusion and the resulting cover budget
-remain proof targets. The
-prefix tail controls later selected states relative to the level-m coarse
-start; the coarse edge itself needs its independently derived drift bound.
-Prove closure of the square predicate under name equivalence and rational
-convex interpolation before transferring any finite cover to quotient values.
-Then derive a finite nonnegative cover budget and its explicit positive-
-tolerance decay. A small square sum proves a small outer enclosure only after
-the intervening set is shown to lie in those squares; it does not define that
-set's area or establish measurability. Exact union/content or a stated outer-
-content construction remains necessary for an actual scalar D_mesh.
-The [region specification](TRAJECTORY_DEFECT_REGION.md) fixes the intended
-simultaneous-position connector set and finite-square outer content before
-the geometric proof is attempted.
+One actual square per coarse cell covers the whole closed region, with budget
 
-Partition independence, force identification, extension beyond the named short
-interval and the general central-field case remain separate. No Kepler-area
-cancellation, later ODE theorem or quantum premise closes any of them.
+    B_m = 4*2^m*R_m² = 4*C²/2^m.
+
+SquareOuterContent defines finite covers and their nonnegative summed budgets.
+D_mesh is the exact closed lower cut of their infimum: q belongs precisely
+when q is below every covering budget. Zero belongs, every lower bound is at
+most B_m, and all lower bounds are eventually below any positive rational
+tolerance. Empty/singleton regions have zero content; zero time gives D_mesh=0.
+This is an actual region-dependent outer-content definition, with no supplied
+area or curve. Crossings/overlaps count once in the region, whereas covering
+sums count with multiplicity. See TRAJECTORY_DEFECT_REGION.md and the
+[verification checkpoint](verification/constructed-path-content-2026-10-05.md).
+
+The representation is a rational lower cut, rather than the Cauchy quotient
+scalar. Cauchy scalar realization of that cut, equality with inner/ordinary
+area, Kepler swept-area transfer, arbitrary partition independence, P5 and the
+full general-field time map remain separate. No integral, ODE, measure theorem,
+action constant or historical limiting premise is imported.

@@ -29,3 +29,7 @@ import BarrowLib.Polygon.FiniteFactorProducts
 import BarrowLib.Polygon.TimeCalibration
 import BarrowLib.Polygon.EquivalentDuration
 import BarrowLib.Polygon.CalibratedRefinement
+import BarrowLib.Polygon.ConvexValues
+import BarrowLib.Polygon.CompletionGeometry
+import BarrowLib.Polygon.SquareOuterContent
+import BarrowLib.Common.RationalExhaustion

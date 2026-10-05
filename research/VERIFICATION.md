@@ -1,6 +1,32 @@
 # Verification record
 
-## Current handoff: general sampled endpoint Cauchy values, 5 October 2026
+## Current handoff: constructed harmonic region and outer content, 5 October 2026
+
+Targeted Lean core builds pass for rational convex Cauchy values, closed
+completed coordinate enclosures, finite square covers and HarmonicPathRegion.
+The actual closed matched region uses simultaneous polygonMap/gammaPosition
+values, includes both maps, the shared initial endpoint and final connector,
+and counts overlapping/crossing lobes without signed cancellation. D_mesh is
+the exact closed lower cut of all finite square-cover budgets. Its nonnegativity,
+derived budget 4*C²/2^m, zero-time content and geometric decay compile. Generic
+helpers belong to BarrowLib; old public names remain compatibility wrappers.
+The user requested a new progress estimate: it now credits checked construction
+bridges and Arg007, without awarding credit for counts or foundation migration.
+A sequential nonauthor GPT-6 Luna verifier passed all 16 checks in order.
+The catalogue has 1,203 distinct theorem rows and 1,063 emitted references;
+live counts are 848 substantive, 190 plumbing, 139 sample and 26 duplicate.
+All 1,432 prior public names/signatures are preserved; 86 names are new. All
+63 new catalogue rows and all 452 Barrow rows have empty source lists.
+The graph remains 77 nodes/68 edges/249 passages; the axiom union is propext,
+Classical.choice and Quot.sound, with no sorryAx, project axiom, external
+package or Newton/Mathlib foundation import. Logs:
+/tmp/newton-sol61-path-content-final-01.log through -16.log. The graph PDF
+passed rendering checks; its generated dates were restored after proving every
+other byte unchanged. The revised estimate is 37.24%, range 33.87–45.18%;
+Prop. I is 55.25%. Cauchy scalar and ordinary-area identification, full general
+time maps, gluing and P5 remain open.
+
+### General sampled endpoint Cauchy values, 5 October 2026
 
 Targeted Lean core builds pass for monotone geometric force precision, actual
 equivalent-duration comparison, calibrated coarse/fine accumulation and

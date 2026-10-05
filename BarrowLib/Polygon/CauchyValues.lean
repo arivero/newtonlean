@@ -207,28 +207,13 @@ theorem embed_eq_iff_stateEquiv (a b : Point × Point) :
 
 theorem add_lt_add_left {a b : Fraction}
     (hab : Fraction.lt a b) (c : Fraction) :
-    Fraction.lt (Fraction.add c a) (Fraction.add c b) := by
-  have hp : 0 < c.den * c.den := Int.mul_pos c.den_pos c.den_pos
-  have hm := Int.mul_lt_mul_of_pos_right hab hp
-  unfold Fraction.lt Fraction.add at *
-  dsimp at *
-  simp only [Int.add_mul, Int.mul_add] at *
-  have he₁ : c.num * a.den * (c.den * b.den) =
-      c.num * b.den * (c.den * a.den) := by ac_rfl
-  have he₂ : a.num * c.den * (c.den * b.den) =
-      (a.num * b.den) * (c.den * c.den) := by ac_rfl
-  have he₃ : b.num * c.den * (c.den * a.den) =
-      (b.num * a.den) * (c.den * c.den) := by ac_rfl
-  rw [he₁, he₂, he₃]
-  omega
+    Fraction.lt (Fraction.add c a) (Fraction.add c b) :=
+  Fraction.add_lt_add_left hab c
 
 private theorem add_lt_add_right {a b : Fraction}
     (hab : Fraction.lt a b) (c : Fraction) :
     Fraction.lt (Fraction.add a c) (Fraction.add b c) :=
-  Fraction.magnitudes.lt_of_le_lt
-    ((Fraction.equiv_iff_mutual_le _ _).mp (Fraction.add_comm a c)).1
-    (Fraction.magnitudes.lt_of_lt_le (add_lt_add_left hab c)
-      ((Fraction.equiv_iff_mutual_le _ _).mp (Fraction.add_comm c b)).1)
+  Fraction.add_lt_add_right hab c
 
 private theorem lt_equiv_left {a b c : Fraction}
     (hab : Fraction.equiv a b) (hbc : Fraction.lt b c) : Fraction.lt a c :=

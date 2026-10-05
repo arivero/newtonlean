@@ -23,10 +23,15 @@ The integer-subdivision accumulation and dyadic E/G comparison are now proved.
 Explicit calibration now has weighted actual finite bounds, a shared
 finite growth proof, Cauchy-gauge equivalence and positive time-unit invariance;
 see the [calibration checkpoint](verification/calibrated-finite-bounds-2026-10-05.md).
-General motion and the intervening content remain obligations. See the
-[comparison checkpoint](verification/construction-and-whole-edge-2026-10-05.md).
-D_mesh, P5 and the remaining classes follow these open bridges in the handoff's
-order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
+HarmonicPathRegion now constructs the actual matched between-path set from
+polygonMap and gammaPosition, closing rational connectors cell by cell. Its
+D_mesh is the nonnegative closed lower cut of the infimum over all finite square
+cover budgets. A derived cover has budget 4*C²/2^m and tends to zero, including
+zero time. Crossings and overlaps count once in the region; cover sums count
+multiplicity. Initial endpoints agree and the final connector is included.
+See the [content checkpoint](verification/constructed-path-content-2026-10-05.md).
+General motion, content/ordinary-area identification, P5 and the remaining
+classes remain obligations in the handoff's order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
 exact finite-cell potential identities. Completion scores are unchanged.
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
@@ -79,8 +84,10 @@ PositionValues now derives planar values and gammaPosition, preserving bounds,
 continuity and time identities. Its coordinate-square predicate transfers
 eventual rational bounds, and the positive sample position separation is proved.
 Same-time coarse polygon names, whole-edge distance and both kinds of address
-independence now construct a quotient coarse polygon map. Actual between-path
-region/content remains open; see
+independence now construct a quotient coarse polygon map. HarmonicPathRegion
+constructs its matched between-path region and a vanishing finite-square outer
+content lower cut; no scalar area is supplied. Its ordinary-area and mechanical
+identifications remain open; see
 [the construction specification](CAUCHY_REALIZATION.md).
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule

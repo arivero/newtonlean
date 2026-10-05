@@ -1,4 +1,5 @@
 import NewtonLimitDynamics.Polygon.ConvexCover
+import BarrowLib.Polygon.SquareOuterContent
 import NewtonLimitDynamics.Polygon.HarmonicUniform
 
 /-!
@@ -41,8 +42,7 @@ direct. `radius_formula` gives the equivalent compact expression. -/
 def radius (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
   Fraction.add (fullDriftBudget h s) (maxError w h s n)
 
-def squareArea (R : Fraction) : Fraction :=
-  Fraction.mul (Fraction.ofInt 4) (Fraction.mul R R)
+def squareArea (R : Fraction) : Fraction := SquareOuterContent.squareArea R
 
 /-- Sum of `n` square areas, counted with multiplicity. -/
 def coverBudget (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
@@ -74,8 +74,7 @@ theorem radius_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
     (maxError_nonnegative w h s n hh)
 
 theorem squareArea_nonnegative (R : Fraction) (hR : 0 ≤ R.num) :
-    0 ≤ (squareArea R).num :=
-  Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hR hR)
+    0 ≤ (squareArea R).num := SquareOuterContent.squareArea_nonnegative R hR
 
 theorem coverBudget_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) : 0 ≤ (coverBudget w h s n).num :=

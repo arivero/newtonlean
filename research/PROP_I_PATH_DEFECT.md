@@ -12,14 +12,17 @@ alongside actual bounded iterates and mesh-uniform finite refinement estimates.
 These retain force-sampling error. GeneralForceEndpoint now also constructs
 fixed-time Cauchy names/values from actual central Lipschitz samples under named
 actual/shadow acceleration bounds and a calibrated window. The harmonic
-instance derives its required bounds and equals the old endpoint value. Neither
-construction defines an intervening region or its content; the full general
-time map and local-annulus/gluing steps remain separate. B.2 now constructs
+instance derives its required bounds and equals the old endpoint value.
+HarmonicPathRegion now defines the actual closed matched intervening set and
+its finite-square outer content D_mesh as a closed rational lower cut. The
+full general time map and local-annulus/gluing steps remain separate. B.2 now constructs
 within-cell polygon position names and bounds their distance to the actual
 harmonic gammaPosition throughout cells. The bound decays uniformly over
 addresses. Same-cell and shared-boundary alias proofs now give one polygonMap
-on the constructed time quotient. Region/content is the remaining geometric
-step. Dyadic E/G agreement is now derived for every numerator; it identifies
+on the constructed time quotient. Rational completed connectors and their
+cell closures lie in a derived square about each actual coarse start. The
+resulting outer-content bound is 4*C²/2^m and tends to zero. Ordinary Euclidean
+area, Kepler-area transfer and P5 are still separate identifications. Dyadic E/G agreement is now derived for every numerator; it identifies
 the two harmonic constructions, without supplying region area. Continuous-force
 local consistency is also checked, without a stability or uniqueness inference.
 The finite bounds now carry a free positive time calibration explicitly and
@@ -102,10 +105,16 @@ proving representative invariance. BinaryTime and HarmonicTimeRealization now
 derive the time names, their proved quotient and a continuous state-value map
 on it. Equivalent addresses, endpoints and zero cases are checked. PositionValues
 now derives planar values, the continuous position map and coordinate-square
-predicates, including a positive position separation proof. Next construct the
-same-time polygon map and region, keeping
-partition independence explicit: rational approximants need not have rational
-limits. Then derive D_mesh
-geometry/enclosure and edition-local
-uninterrupted-force identification. No integral calculus, ODE theorem, measure
+predicates, including a positive position separation proof. HarmonicPolygonCurve
+constructs the same-time quotient polygon map. HarmonicPathRegion constructs
+cell closures of rational connectors to gammaPosition and their finite union.
+Initial endpoints agree; the explicit final connector remains even when finite
+endpoints differ. Reversing a connector leaves its region point unchanged.
+D_mesh is the closed lower cut of the infimum of all finite square-cover
+budgets, with nonnegativity, the derived 4*C²/2^m bound, zero-time content and
+positive-tolerance decay proved. This is a modern matched-region outer-content
+candidate, not a signed boundary area or an identified Euclidean measure.
+Cauchy scalar realization of the cut, arbitrary partition independence,
+ordinary-area/Kepler-area identification and edition-local uninterrupted-force
+identification remain separate. No integral calculus, ODE theorem, measure
 theorem, or silently supplied completion closes these obligations.

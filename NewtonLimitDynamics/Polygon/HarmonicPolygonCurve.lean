@@ -212,4 +212,25 @@ theorem half_time_polygon_alias (w T : Fraction) (s : Point × Point)
 theorem half_time_distinct_coarse_cells :
     ticks firstAlias 1 = 1 ∧ ticks secondAlias 1 = 0 := by decide
 
+theorem polygonMap_left (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (m : Nat) :
+    polygonMap w T s hT m (leftTime T hT) = embedPosition s.1 := by
+  apply Subtype.ext
+  change positionValue (realize (polygonName leftAddress w T s hT m)) =
+    positionValue (embed (s.1,zeroPoint))
+  apply congrArg positionValue
+  apply Quotient.sound
+  apply nameEquiv_of_levelwise_stateEquiv
+  intro j
+  have hp : prefixState leftAddress w T s m = s := all_zero_prefix w T s m
+  have hz : (HarmonicTimeComparison.durationDifference (timeApprox leftAddress T m)
+      (timeApprox leftAddress T (m+j))).num = 0 := by
+    have h0 : ticks leftAddress m = 0 := all_zero_ticks m
+    have h1 : ticks leftAddress (m+j) = 0 := all_zero_ticks (m+j)
+    simp [timeApprox,h0,h1,HarmonicTimeComparison.durationDifference,HarmonicStability.negF,
+      Fraction.add,Fraction.mul,Fraction.ofInt]
+  change stateEquiv (AffineValues.affineState _ _ _) (s.1,zeroPoint)
+  rw [hp]
+  exact AffineValues.affine_zero_phase s.1 s.2 _ hz
+
 end NewtonLimitDynamics.Polygon.HarmonicPolygonCurve

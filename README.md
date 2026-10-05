@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,140 checked
-library theorems, 789 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,203 checked
+library theorems, 848 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 They construct acceleration values, bound actual sampled polygons and derive
 mesh-uniform refinement control and continuous local consistency. General
@@ -46,7 +46,10 @@ E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
 Actual integer-subdivision accumulation proves the dyadic agreement, including
 the three-tick completed values whose finite schedules differ. The full general time map,
-local-annulus confinement/gluing and polygon–curve area remain open. Explicit positive time
+local-annulus confinement/gluing remain open. HarmonicPathRegion now constructs
+the actual matched polygon–curve region and its nonnegative square-cover outer
+content lower cut, with derived geometric decay; ordinary-area and P5
+identification remain separate. Explicit positive time
 calibration now gives weighted finite bounds and dimensionless windows, with
 proved Cauchy-gauge and time-unit invariance; it fixes no universal constant.
 
@@ -88,7 +91,7 @@ are in [history.csv](docs/progress/history.csv).
   <img alt="Cumulative theorems by proof obligation" src="docs/progress/theorems-by-area.svg">
 </picture>
 
-**Estimated completion: about 34% (31–42% under alternative weightings).**
+**Estimated completion: about 37% (34–45% under alternative weightings), reassessed 5 October.**
 This figure is an editorial judgement and certifies nothing. Each proposition
 is scored on four milestones weighted by expected difficulty: source map (10%),
 finite step in Lean (20%), limiting passage or realization (45%), and area and
@@ -103,22 +106,25 @@ action-hypothesis assessment 10%. Scores and the evidence for each are in
 
 | Target | Source map | Finite step | Limit / realization | Identification | Estimate |
 | --- | --- | --- | --- | --- | --- |
-| Prop. I | done | done | harmonic special case | cover budget only | 46% |
+| Prop. I | done | done | harmonic time map; general Lipschitz endpoints | harmonic outer content; finite force bridges | 55% |
 | Prop. II | done | done | stated | open | 32% |
 | Prop. III | done | done | open | open | 30% |
 | Prop. IV | done | finite core | routes documented | open | 30% |
-| Action assessment | | | | | 30% |
+| Action assessment | | | | | 40% |
 
 Under the stricter [completion ledger](research/CONTINUATION.md), no target is
-discharged yet. Source maps and finite steps are essentially finished; the
-remaining two thirds is the analytic core. Proposition I's realization exists
-for the harmonic field alone, and the general varying central force, the
-between-path area and force identification are open in every stage.
-The limiting passages of Propositions II–IV are likely to reuse that construction.
-Theorem count is therefore a poor proxy for completion: most of the recent
-growth serves one special force law, on a time window bounded by
-T*(1+|w|) ≤ 1/2. The duplicate merge changed no mathematical content, so the
-estimate is unchanged.
+discharged yet. Source maps and finite steps are essentially finished. The
+increase from 34% credits whole-edge convergence, agreement of the two harmonic
+constructions, calibrated general Lipschitz endpoint values and Arg007's exact
+finite potential identities and the harmonic matched-region outer content. It
+gives no extra credit for theorem count,
+helper consolidation or foundation migration. Full general time realization,
+local confinement and gluing, ordinary-area/Kepler-area identification and P5
+force identification remain open, as do the limiting passages of Propositions II–IV.
+The harmonic time map still uses a short window; the general endpoint result
+names its positive time calibration and actual/shadow force bounds explicitly.
+Modern reconstructions keep their premises separate from De Motu, 1687 and
+1713, so this estimate does not certify any historical proposition.
 
 ## Working hypothesis: what difficulties might Newton have recognized?
 

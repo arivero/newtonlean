@@ -448,5 +448,33 @@ theorem le_add_cancel_left (z a b : Fraction)
       (b.num * a.den) * (z.den * z.den) := by omega
   exact Int.le_of_mul_le_mul_right hm (Int.mul_pos z.den_pos z.den_pos)
 
+theorem add_lt_add_left {a b : Fraction}
+    (hab : lt a b) (c : Fraction) :
+    lt (add c a) (add c b) := by
+  have hp : 0 < c.den * c.den := Int.mul_pos c.den_pos c.den_pos
+  have hm := Int.mul_lt_mul_of_pos_right hab hp
+  unfold lt add at *
+  dsimp at *
+  simp only [Int.add_mul, Int.mul_add] at *
+  have he₁ : c.num * a.den * (c.den * b.den) =
+      c.num * b.den * (c.den * a.den) := by ac_rfl
+  have he₂ : a.num * c.den * (c.den * b.den) =
+      (a.num * b.den) * (c.den * c.den) := by ac_rfl
+  have he₃ : b.num * c.den * (c.den * a.den) =
+      (b.num * a.den) * (c.den * c.den) := by ac_rfl
+  rw [he₁, he₂, he₃]
+  omega
+
+theorem add_lt_add_right {a b : Fraction}
+    (hab : lt a b) (c : Fraction) : lt (add a c) (add b c) :=
+  magnitudes.lt_of_le_lt (le_of_equiv (add_comm a c))
+    (magnitudes.lt_of_lt_le (add_lt_add_left hab c)
+      (le_of_equiv (add_comm c b)))
+
+theorem add_lt_add {a b c d : Fraction} (hab : lt a b) (hcd : lt c d) :
+    lt (add a c) (add b d) :=
+  magnitudes.lt_of_lt_le (add_lt_add_right hab c)
+    (magnitudes.lt_implies_le (add_lt_add_left hcd b))
+
 end Fraction
 end NewtonLimitDynamics

@@ -169,4 +169,28 @@ theorem matchedPatch_square (theta lambda : Fraction)
   ball_inside_square anchor _ R
     (matchedPatch_ball theta lambda ht hl anchor c0 c1 f0 f1 R hc0 hc1 hf0 hf1)
 
+theorem complement_interval (a : Fraction) (ha : UnitInterval a) :
+    UnitInterval (complement a) := by
+  obtain ⟨hl,hu⟩ := ha
+  unfold UnitInterval complement
+  dsimp
+  omega
+
+theorem lerp_zero (p q : Point) : pointEquiv (lerp (Fraction.ofInt 0) p q) p := by
+  constructor <;>
+    simp [lerp,complement,pointAdd,pointScale,Fraction.equiv,Fraction.add,
+      Fraction.mul,Fraction.ofInt] <;> ac_nf
+
+theorem lerp_one (p q : Point) : pointEquiv (lerp (Fraction.ofInt 1) p q) q := by
+  constructor <;>
+    simp [lerp,complement,pointAdd,pointScale,Fraction.equiv,Fraction.add,
+      Fraction.mul,Fraction.ofInt] <;> ac_nf
+
+theorem lerp_swap (a : Fraction) (p q : Point) :
+    pointEquiv (lerp a p q) (lerp (complement a) q p) := by
+  constructor <;>
+    simp only [lerp,complement,pointAdd,pointScale,Fraction.equiv,Fraction.add,
+      Fraction.mul,Int.add_mul,Int.mul_add,Int.sub_mul,Int.mul_sub] <;>
+    ac_nf <;> omega
+
 end NewtonLimitDynamics.Polygon.ConvexCover

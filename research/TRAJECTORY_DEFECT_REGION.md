@@ -1,107 +1,69 @@
 # Area of the constructed intervening region
 
-This is a specification for the next geometric proof, not a checked area
-theorem. It concerns the primary Proposition I variant that constructs its
-motion from actual impulse polygons. The harmonic construction is a modern
-rational-coordinate reconstruction, separate from the historical claims in
-De Motu, 1687 and 1713. See [the path-area distinction](PROP_I_PATH_DEFECT.md)
-and [the construction ledger](CAUCHY_REALIZATION.md).
+HarmonicPathRegion now constructs a matched polygon–curve region and its
+finite-square outer content in Lean. This is a `modern_reconstruction`,
+separate from the historical claims in De Motu, 1687 and 1713. The curve is
+constructed from the actual harmonic polygons; no curve, area function or
+covering inequality is supplied. See [path defect](PROP_I_PATH_DEFECT.md) and
+[the construction ledger](CAUCHY_REALIZATION.md).
 
-## Region to construct
+Fix T>=0, initial state s and harmonic coefficient w with
+T*(1+abs(w))<=1/2 in the retained tau=1 compatibility gauge. The completed
+planar type is PositionValue. The continuous curve gammaPosition and the
+level-m coarse polygonMap are already proved maps on the same binary-time
+quotient. Equivalent same-cell and shared-boundary addresses give one polygon
+point. E/G agreement at every dyadic rational time is retained.
 
-The binary time quotient and its continuous state map are proved.
-PositionValues now derives the nonexpansive position and coordinate projections
-on rational states, their Cauchy-name maps and equivalence preservation before
-quotient lifting. Position values are the values fixed by the proved idempotent
-position projection. Its gammaPosition map inherits continuity, time aliases,
-endpoints and zero cases. Completed coordinate squares use two closed
-coordinate bounds and a nonnegative radius; eventual rational bounds imply
-membership. State values retain velocity as well; planar area uses PositionValue.
+For cell k, take every rational convex connector between simultaneous
+polygonMap(t) and gammaPosition(t), where an address of t has level-m tick k.
+ConvexValues constructs the interpolated Cauchy name and proves name-equivalence
+preservation before quotient lifting. The cell region is the closure of these
+connector points, using every positive rational tolerance in the completed
+plane. The whole region is the union of the 2^m cell closures. This is a named
+closed-rational-connector candidate; identification with a different Euclidean
+bounded-region convention requires its own proof.
 
-The production example w=1,T=1/4,s=((1,0),(0,1)) now has a checked position
-separation proof: the two-cell endpoint at level 1 has distance 135/512 from
-the initial point, its state tail is 3/16, and every later position distance
-is at least 39/512. The projected right and left values differ. A radius-1
-coordinate square contains (1,1) at centre (0,0), whose L1 distance is 2.
-These controls use the disclosed production inputs, not an independent oracle.
+Both maps belong to the region. Their initial endpoints are proved equal to
+the initial point. The explicit final connector from polygonMap(T) to the
+constructed endpoint value is included even when finite endpoints differ.
+Reversing a connector leaves the same point. All crossing lobes therefore
+remain in this unsigned point set; overlapping portions count once. Finite
+square budgets count overlap with multiplicity and serve as upper bounds.
+No absolute value of a signed Kepler difference defines the region or content.
 
-HarmonicPolygonCurve now constructs level-m polygon position names from actual
-coarse vertices and within-cell inertial drifts at every binary address. Their
-whole-cell distance to gammaPosition is bounded uniformly by an explicit
-geometric radius. Both same-cell and shared-boundary equivalent addresses agree,
-including zero time. A single polygonMap P_m now descends to the time quotient
-and inherits the uniform bound. An address choice cannot change its position.
-E/G agreement at every dyadic rational time is now derived from actual integer
-subdivision, with both constructions kept. This identifies the curves at
-common sample times and does not define the intervening area.
+CompletionGeometry proves closed coordinate-square bounds by rational
+exhaustion, square preservation under closure, and exact closed bounds for
+embedded rational points. Rational convex interpolation preserves a square
+containing both endpoints. The harmonic polygon drift and prefix-to-curve
+tail put both actual simultaneous endpoints in the square about their actual
+coarse start with radius
 
-Define the intervening region as the union of segments joining simultaneous
-positions P_m(t) and gamma(t). The segment parameter must range over the
-constructed unit interval, with its values and interpolation derived from
-rational approximants. The last connector P_m(T) to gamma(T) is included;
-their endpoints need not coincide at a finite mesh. The first endpoints must
-be proved equal. Crossings and opposite lobes remain in this nonnegative
-point set. The definition is a union, while a finite covering sum counts
-overlap with multiplicity. Keep these two conventions distinct.
+    R_m = C/2^m,
+    C = 2*T*stateNorm(s) + prefixCoefficient(w,T,s).
 
-## Same-time coarse polygon map to construct
+One square per coarse cell therefore covers the entire region, with derived
+nonnegative budget
 
-For address b and coarse level m, let (x_m,v_m) be its actual coarse prefix
-state and t_m its elapsed time. Use the later actual times t_(m+j) and form
-the rational position x_m+(t_(m+j)-t_m)*v_m. Derive that its phase lies between
-0 and H_m from the binary ticks. This shift keeps every approximant inside
-the selected coarse cell, including at early name indices.
+    B_m = 4*2^m*R_m² = 4*C²/2^m.
 
-Derive a uniform time-difference bound for arbitrary coarse cells and phases
-from actual drift steps. Across different cells, split the difference into the
-first remaining drift, the intervening coarse vertices and the last partial
-drift. Their nonnegative durations sum to the actual time difference. Within
-one cell, use the same incoming velocity. This proves both the name's Cauchy
-condition and agreement for equivalent time addresses before any quotient lift.
-An address alias at a coarse vertex must yield one polygon position.
+SquareOuterContent defines an arbitrary finite square cover by its actual
+square family and containment proof. Its budget is the sum of 4*R². The
+outer content is the closed rational lower cut of the infimum of *all* such
+budgets: q belongs exactly when it is below every cover budget. The definition
+depends on the actual region, independently of the selected upper cover.
+Zero belongs, lower bounds are downward closed, rational exhaustion closes
+the cut, and region inclusion preserves content order. Empty and singleton
+regions have exactly zero content.
 
-The left endpoint must be the initial point and the right endpoint the actual
-level-m full-schedule position. Then derive enclosures about each coarse start:
-the existing prefix tail suggests radius R_m for gamma's position, while the
-coarse drift has radius 2*H_m*M. Prove the latter fits R_m. No supplied polygon
-curve, full-time interpolation, limiting point or scalar area enters this step.
+HarmonicPathRegion.D_mesh is this cut for the actual matched region. Every
+lower bound is at most B_m, and an explicit positive-tolerance modulus makes
+all lower bounds less than any prescribed positive rational tolerance. Zero
+time has zero content. These are checked geometric containment and exhaustion
+results. The lower cut is not yet realized as a scalar in CauchyValues; equality
+with inner content, ordinary Euclidean area or a measure is also separate.
+Mechanical P5, leading curved potential steps, arbitrary-partition independence,
+gluing and the full general central-force time map remain open. No integral,
+ODE, measure or quantum premise closes them.
 
-## Nonnegative area to construct
-
-For this region, define finite-square outer content by its upper rational cut:
-q is an upper value if there exists a finite coordinate-square cover of the
-region whose summed square areas are less than q. A square of nonnegative
-rational radius R has area 4*R^2. This definition depends on the region and
-actual covers; it does not set the area equal to a proposed budget.
-
-Prove the cut is proper, inhabited, upward closed and rounded from
-nonnegative cover areas and a derived finite cover. This constructs the stated
-outer-content value without a supplied scalar area or imported measure theorem.
-Equality with an inner content or a different conventional area notion needs
-its own proof. A signed Kepler-sector difference is not this quantity.
-
-## Candidate enclosure and decay
-
-Write H_m=T/2^m and C=2*(1+|w|)+3*T*|w|. The checked binary-prefix state tail
-suggests a square of radius R_m=H_m*M*C about each actual coarse start.
-Derive the position bound for every later approximant and the coarse edge's
-drift bound before passing to quotient values. Prove representative invariance
-and convex closure of the completed-coordinate square. Then show every
-simultaneous-position connector lies in its coarse-cell square, including
-the last endpoint connector.
-
-One square per coarse cell has the candidate nonnegative budget
-
-    B_m = 4*2^m*R_m^2 = 4*T*H_m*M^2*C^2.
-
-This is a future theorem target. Once the region containment and identity are
-proved, the outer-content bound follows from that actual cover. Finite integer
-arithmetic should construct a mesh index making B_m less than each positive
-rational tolerance, uniformly at all later levels. Zero time and zero initial
-state must remain included. Neither signed cancellation nor equality of Kepler
-areas supplies any of these premises.
-
-Mechanical identification of gamma with the uninterrupted harmonic force,
-partition independence and the general central-field construction remain
-separate. A geometric bound for the constructed path cannot silently certify
-its acceleration law or a historical limiting argument.
+Verification details are in the
+[content checkpoint](verification/constructed-path-content-2026-10-05.md).

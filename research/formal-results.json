@@ -207,6 +207,15 @@
     "interpretation_and_remaining_premises": "Logical reconstruction of eventual enclosure; all Magnitudes fields are parameters."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.le_of_enlargements",
+    "private": false,
+    "file": "BarrowLib/Common/RationalExhaustion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (h : ∀ eps : Fraction, 0 < eps.num → le a (add b eps)) : le a b",
+    "interpretation_and_remaining_premises": "Elementary rational exhaustion of a closed order bound via an explicit positive half-gap witness. No completeness, real order, calculus or historical premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Fraction.abs_num_nonnegative",
     "private": false,
     "file": "BarrowLib/Common/RationalMagnitudes.lean",
@@ -681,6 +690,33 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(z a b : Fraction) (h : le (add z a) (add z b)) : le a b",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_lt_add_left",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (hab : lt a b) (c : Fraction) : lt (add c a) (add c b)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_lt_add_right",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (hab : lt a b) (c : Fraction) : lt (add a c) (add b c)",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Fraction.add_lt_add",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b c d : Fraction} (hab : lt a b) (hcd : lt c d) : lt (add a c) (add b d)",
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
@@ -1458,6 +1494,78 @@
     "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.within_of_thickenings",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R : Fraction) (h : ∀ eps : Fraction, 0 < eps.num → Within x y (Fraction.add R eps)) : Within x y R",
+    "interpretation_and_remaining_premises": "Elementary metric closure defined by positive rational tolerances in the constructed position plane. Membership, monotonicity, idempotence and preservation of closed coordinate-square bounds are proved. Closed Within bounds follow by rational exhaustion of enlargements; rational embeddings retain exact distance order. No external topology, supplied completion, measure or curve is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedded_iff",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) (R : Fraction) : Within (embed a) (embed b) R ↔ Fraction.le (distance a b) R",
+    "interpretation_and_remaining_premises": "Elementary metric closure defined by positive rational tolerances in the constructed position plane. Membership, monotonicity, idempotence and preservation of closed coordinate-square bounds are proved. Closed Within bounds follow by rational exhaustion of enlargements; rational embeddings retain exact distance order. No external topology, supplied completion, measure or curve is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.closure_contains",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (x : PositionValue) (hx : A x) : Closure A x",
+    "interpretation_and_remaining_premises": "Elementary metric closure defined by positive rational tolerances in the constructed position plane. Membership, monotonicity, idempotence and preservation of closed coordinate-square bounds are proved. Closed Within bounds follow by rational exhaustion of enlargements; rational embeddings retain exact distance order. No external topology, supplied completion, measure or curve is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.closure_mono",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A B : PositionValue → Prop) (h : ∀ x, A x → B x) (x : PositionValue) (hx : Closure A x) : Closure B x",
+    "interpretation_and_remaining_premises": "Elementary metric closure defined by positive rational tolerances in the constructed position plane. Membership, monotonicity, idempotence and preservation of closed coordinate-square bounds are proved. Closed Within bounds follow by rational exhaustion of enlargements; rational embeddings retain exact distance order. No external topology, supplied completion, measure or curve is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.closure_idempotent",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (x : PositionValue) : Closure (Closure A) x ↔ Closure A x",
+    "interpretation_and_remaining_premises": "Elementary metric closure defined by positive rational tolerances in the constructed position plane. Membership, monotonicity, idempotence and preservation of closed coordinate-square bounds are proved. Closed Within bounds follow by rational exhaustion of enlargements; rational embeddings retain exact distance order. No external topology, supplied completion, measure or curve is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.closure_image_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (x : PositionValue) (hx : Closure A x) (f : Value → Value) (hf : ∀ u v R, Within u v R → Within (f u) (f v) R) (centre : Value) (R : Fraction) (hA : ∀ y, A y → Within (f y.val) centre R) : Within (f x.val) centre R",
+    "interpretation_and_remaining_premises": "Elementary metric closure defined by positive rational tolerances in the constructed position plane. Membership, monotonicity, idempotence and preservation of closed coordinate-square bounds are proved. Closed Within bounds follow by rational exhaustion of enlargements; rational embeddings retain exact distance order. No external topology, supplied completion, measure or curve is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.closure_square",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (x : PositionValue) (hx : Closure A x) (centre : Point) (R : NonnegativeRadius) (hA : ∀ y, A y → CoordinateSquare centre R y) : CoordinateSquare centre R x",
+    "interpretation_and_remaining_premises": "Elementary metric closure defined by positive rational tolerances in the constructed position plane. Membership, monotonicity, idempotence and preservation of closed coordinate-square bounds are proved. Closed Within bounds follow by rational exhaustion of enlargements; rational embeddings retain exact distance order. No external topology, supplied completion, measure or curve is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.square_of_ball_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x : PositionValue) (centre : Point) (R : NonnegativeRadius) (h : Within x.val (embed (centre,zeroPoint)) R.val) : CoordinateSquare centre R x",
+    "interpretation_and_remaining_premises": "Elementary metric closure defined by positive rational tolerances in the constructed position plane. Membership, monotonicity, idempotence and preservation of closed coordinate-square bounds are proved. Closed Within bounds follow by rational exhaustion of enlargements; rational embeddings retain exact distance order. No external topology, supplied completion, measure or curve is imported."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.ConvexCover.complement_nonnegative",
     "private": false,
     "file": "BarrowLib/Polygon/ConvexCover.lean",
@@ -1573,6 +1681,204 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(theta lambda : Fraction) (ht : UnitInterval theta) (hl : UnitInterval lambda) (anchor c0 c1 f0 f1 : Point) (R : Fraction) (hc0 : Fraction.le (pointNorm (pointSub c0 anchor)) R) (hc1 : Fraction.le (pointNorm (pointSub c1 anchor)) R) (hf0 : Fraction.le (pointNorm (pointSub f0 anchor)) R) (hf1 : Fraction.le (pointNorm (pointSub f1 anchor)) R) : SquareContains anchor R (matchedPatch theta lambda c0 c1 f0 f1)",
     "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.complement_interval",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) : UnitInterval (complement a)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.lerp_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) : pointEquiv (lerp (Fraction.ofInt 0) p q) p",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.lerp_one",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) : pointEquiv (lerp (Fraction.ofInt 1) p q) q",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexCover.lerp_swap",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexCover.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (p q : Point) : pointEquiv (lerp a p q) (lerp (complement a) q p)",
+    "interpretation_and_remaining_premises": "Modern finite rational convex enclosure, with no claimed historical dependency. Rational interpolation uses explicitly nonnegative complementary weights; endpoint L1 bounds imply a bound for every convex interpolant. Matched patches use the same physical-time fraction on both polygon edges, then interpolate between simultaneous positions. Every patch point fits the derived coordinate square. This constructs a finite point-set enclosure; it supplies no union-area semantics, completion or trajectory."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.lerp_distance",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (p q p' q' : Point) : Fraction.le (pointDistance (lerp a p q) (lerp a p' q')) (Fraction.add (pointDistance p p') (pointDistance q q'))",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexState_distance",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (s t s' t' : Point × Point) : Fraction.le (distance (convexState a s t) (convexState a s' t')) (Fraction.add (distance s s') (distance t t'))",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexName_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (s t s' t' : EndpointCauchyName) (hs : NameEquiv s s') (ht : NameEquiv t t') : NameEquiv (convexName a ha s t) (convexName a ha s' t')",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexState_anchor_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (s t : Point × Point) (centre : Point) (R : Fraction) (hs : Fraction.le (distance s (centre,zeroPoint)) R) (ht : Fraction.le (distance t (centre,zeroPoint)) R) : Fraction.le (distance (convexState a s t) (centre,zeroPoint)) R",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexName_ball",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (s t : EndpointCauchyName) (centre : Point) (R : Fraction) (hs : NameBound s (constantName (centre,zeroPoint)) R) (ht : NameBound t (constantName (centre,zeroPoint)) R) : NameBound (convexName a ha s t) (constantName (centre,zeroPoint)) R",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexValue_ball",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : Value) (centre : Point) (R : Fraction) (hx : Within x (embed (centre,zeroPoint)) R) (hy : Within y (embed (centre,zeroPoint)) R) : Within (convexValue a ha x y) (embed (centre,zeroPoint)) R",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexValue_position",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : Value) : positionValue (convexValue a ha x y) = convexValue a ha x y",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.first_convex_state",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (s t : Point × Point) : stateEquiv (firstState (convexState a s t)) (convexState a (firstState s) (firstState t))",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.second_convex_state",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (s t : Point × Point) : stateEquiv (secondState (convexState a s t)) (convexState a (secondState s) (secondState t))",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.firstValue_convex",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : Value) : firstValue (convexValue a ha x y) = convexValue a ha (firstValue x) (firstValue y)",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.secondValue_convex",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : Value) : secondValue (convexValue a ha x y) = convexValue a ha (secondValue x) (secondValue y)",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_square",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : PositionValue) (centre : Point) (R : NonnegativeRadius) (hx : CoordinateSquare centre R x) (hy : CoordinateSquare centre R y) : CoordinateSquare centre R (convexPosition a ha x y)",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexValue_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(ha : UnitInterval (Fraction.ofInt 0)) (x y : Value) : convexValue (Fraction.ofInt 0) ha x y = positionValue x",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexValue_one",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(ha : UnitInterval (Fraction.ofInt 1)) (x y : Value) : convexValue (Fraction.ofInt 1) ha x y = positionValue y",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(ha : UnitInterval (Fraction.ofInt 0)) (x y : PositionValue) : convexPosition (Fraction.ofInt 0) ha x y = x",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_one",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(ha : UnitInterval (Fraction.ofInt 1)) (x y : PositionValue) : convexPosition (Fraction.ofInt 1) ha x y = y",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexValue_swap",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : Value) : convexValue a ha x y = convexValue (complement a) (complement_interval a ha) y x",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_swap",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : PositionValue) : convexPosition a ha x y = convexPosition (complement a) (complement_interval a ha) y x",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.blocks_succ",
@@ -3184,6 +3490,114 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(x y : Value) (R S : Fraction) (hRS : Fraction.le R S) (h : Within x y R) : Within x y S",
     "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.squareArea_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(R : Fraction) (hR : 0 ≤ R.num) : 0 ≤ (squareArea R).num",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.sumBudget_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(squares : Nat → Square) : ∀ n, 0 ≤ (sumBudget squares n).num",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.Cover.budget_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{A : PositionValue → Prop} (c : Cover A) : 0 ≤ c.budget.num",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.uniform_budget",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(centres : Nat → Point) (R : NonnegativeRadius) : ∀ n, Fraction.equiv (sumBudget (fun k => ⟨centres k,R⟩) n) (Fraction.mul (Fraction.ofInt (n : Int)) (squareArea R.val))",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.content_zero_lower",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) : LowerContent A (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.content_downward",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (p q : Fraction) (hpq : Fraction.le p q) (hq : LowerContent A q) : LowerContent A p",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.content_closed",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (q : Fraction) (h : ∀ eps : Fraction, 0 < eps.num → ∃ p, LowerContent A p ∧ Fraction.le q (Fraction.add p eps)) : LowerContent A q",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.content_cover_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (c : Cover A) (q : Fraction) (hq : LowerContent A q) : Fraction.le q c.budget",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.content_mono",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A B : PositionValue → Prop) (hAB : ∀ x, A x → B x) (q : Fraction) (hq : LowerContent A q) : LowerContent B q",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.content_union_includes",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A B : PositionValue → Prop) (q : Fraction) (h : LowerContent A q ∨ LowerContent B q) : LowerContent (fun x => A x ∨ B x) q",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.empty_content",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) : LowerContent (fun _ => False) q ↔ Fraction.le q (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.singleton_content",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareOuterContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) (q : Fraction) : LowerContent (fun x => x = embedPosition p) q ↔ Fraction.le q (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Finite closed-coordinate-square covers of an explicit completed planar set, nonnegative summed budgets and constant-radius budget formula. Outer content is the exact closed lower cut of the infimum of all finite covering budgets; zero is a lower bound, downward closure and exhaustion closure, set monotonicity and union inclusion are proved. Empty and singleton regions have zero content. A union counts overlaps once; budgets count covers with multiplicity. This cut representation is not an imported measure, inner-content theorem, Euclidean area identification or supplied scalar budget."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.pointNeg_congr",
@@ -8485,6 +8899,150 @@
     "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.edgeRadius_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat) : 0 ≤ (edgeRadius w T s m).num",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.simultaneous_endpoints_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : CoordinateSquare (cellStart w T s m (ticks b m)) (coverRadius w T s hT m) (polygonMap w T s hT m (Quotient.mk _ b)) ∧ CoordinateSquare (cellStart w T s m (ticks b m)) (coverRadius w T s hT m) (gammaPosition w T s hT hs (Quotient.mk _ b))",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.cellPatch_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m k : Nat) (x : PositionValue) (hx : cellPatch w T s hT hs m k x) : CoordinateSquare (cellStart w T s m k) (coverRadius w T s hT m) x",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.closed_cell_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m k : Nat) (x : PositionValue) (hx : Closure (cellPatch w T s hT hs m k) x) : CoordinateSquare (cellStart w T s m k) (coverRadius w T s hT m) x",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.connector_in_region",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (t : BinaryTime T hT) (a : Fraction) (ha : UnitInterval a) : Region w T s hT hs m (convexPosition a ha (polygonMap w T s hT m t) (gammaPosition w T s hT hs t))",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.reversed_connector_in_region",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (t : BinaryTime T hT) (a : Fraction) (ha : UnitInterval a) : Region w T s hT hs m (convexPosition a ha (gammaPosition w T s hT hs t) (polygonMap w T s hT m t))",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.polygon_in_region",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (t : BinaryTime T hT) : Region w T s hT hs m (polygonMap w T s hT m t)",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.curve_in_region",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (t : BinaryTime T hT) : Region w T s hT hs m (gammaPosition w T s hT hs t)",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.shared_initial_endpoint",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : polygonMap w T s hT m (leftTime T hT) = gammaPosition w T s hT hs (leftTime T hT)",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.final_connector_in_region",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (a : Fraction) (ha : UnitInterval a) : Region w T s hT hs m (convexPosition a ha (polygonMap w T s hT m (rightTime T hT)) (asPosition (endpointValue w T s hT hs)))",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.budgetCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) : 0 ≤ (budgetCoefficient w T s).num",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.actual_budget_geometric",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : Fraction.equiv (actualCover w T s hT hs m).budget (duration (budgetCoefficient w T s) m)",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : D_mesh w T s hT hs m (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (q : Fraction) (hq : D_mesh w T s hT hs m q) : Fraction.le q (duration (budgetCoefficient w T s) m)",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_tends_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (eps : Fraction) (heps : 0 < eps.num) : ∃ N, ∀ m, N ≤ m → ∀ q, D_mesh w T s hT hs m q → Fraction.lt q eps",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_zero_window",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (hz : T.num = 0) (q : Fraction) : D_mesh w T s hT hs m q ↔ Fraction.le q (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern actual polygon/constructed-curve matched region and finite-square outer content on the proved binary-time quotient. Each actual cell takes the closure of rational simultaneous connectors, using polygonMap and gammaPosition; the finite union counts overlapping/crossing lobes once, with no signed cancellation. Rational interpolation preserves name equivalence and completed squares. Both maps, shared initial endpoint and explicit final connector belong to the region. One derived square per cell has budget 4*C^2/2^m; D_mesh is the exact closed lower cut of the infimum over all finite covers of this actual point set, nonnegative, bounded and tending to zero. Zero time has zero content. It is not a supplied scalar budget, a signed Kepler difference, a mass/time action, an inner-content/measure identification, P5, general-force time realization or a historical limiting proof."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeCoefficient_nonnegative",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
@@ -8617,6 +9175,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": ticks firstAlias 1 = 1 ∧ ticks secondAlias 1 = 0",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Both same-cell and adjacent-cell alias independence are proved from actual cell endpoints and affine distance control, including zero time. The coarse polygonMap descends to the same constructed time quotient and satisfies the uniform whole-edge bound. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygonMap_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat) : polygonMap w T s hT m (leftTime T hT) = embedPosition s.1",
     "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Both same-cell and adjacent-cell alias independence are proved from actual cell endpoints and affine distance control, including zero time. The coarse polygonMap descends to the same constructed time quotient and satisfies the uniform whole-edge bound. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
   },
   {
