@@ -155,7 +155,7 @@ from the left-node velocity by at most H_m*B. Time continuity adds H_m*K against
 the target velocity, so these bracketing secants converge uniformly over every
 binary address, including the right boundary. The retained harmonic result is
 a corollary. This is the first constructed P5 rate bridge; unrestricted
-difference quotients and acceleration identification remain open.
+difference quotients remain open; the acceleration secant bridge is now proved below.
 
 CompletedForce now extends the same actual sampled force to the completed
 position plane. SampledValues derives a diagonal Cauchy name from ordered
@@ -168,8 +168,14 @@ on the position and has zero velocity slots. No assumption q_j>=j is used;
 zero-error precisions may remain constant. Actual prefix force samples have
 closed error (A*L+3*E0)/2^j against the force at the constructed gammaValue,
 uniformly over addresses. The harmonic extension equals scaling by -w and
-applies to the retained curve. Acceleration identification, motion precision
-independence and region-local confinement remain separate.
+applies to the retained curve. GeneralForceAccelerationSecants now derives
+completed dyadic velocity secants from actual finite remainders. The finite
+quotient error is L*H_m*V+3e(q_(m+j)); rounding-error exhaustion leaves L*H_m*V
+at the left node. Force continuity gives H_m*L*(V+K) against the target time,
+uniformly over addresses and including the final boundary. SampledValues proves
+precision-offset invariance first, so the target force is the same extension.
+The retained harmonic result is a corollary. Unrestricted differentiation,
+motion precision independence and region-local confinement remain separate.
 
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will

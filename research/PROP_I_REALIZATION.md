@@ -49,8 +49,11 @@ secants alone. CompletedForce now constructs force values at completed
 positions from the actual oracle samples, with representative independence,
 Lipschitz control and precision-scale independence. Actual prefix force samples
 converge uniformly to the force at the constructed curve; the retained harmonic
-extension equals scaling by -w. Ordinary-area identification, unrestricted difference quotients
-and acceleration/force identification remain open.
+extension equals scaling by -w. GeneralForceAccelerationSecants now proves
+uniform convergence of completed dyadic velocity secants to the force at the
+constructed position, with derived bound H_m*L*(V+K) and a retained harmonic
+corollary. Ordinary-area identification and unrestricted difference quotients
+remain open.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 
@@ -86,7 +89,7 @@ with no numbered limiting lemma (M2.md).
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
 | P3 existence of the ultimate curve | **Open for the general historical claim.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate/residual bounds and harmonic finite stability/refinement bounds are checked. For the harmonic field under T≥0 and T*(1+abs(w))≤1/2, actual prefixes of one global dyadic family now construct Cauchy names, quotient state values and a continuous map on the constructed binary-time quotient. BinaryTime derives the time names; HarmonicTimeRealization proves same-grid control by 2*(1+abs(w))*M times actual time difference, address independence, endpoint/alias identities and zero cases. No curve or limit point is supplied. See CAUCHY_REALIZATION.md and HARMONIC_REFINEMENT.md for the estimates and premises. PositionValues now derives the planar gammaPosition map, coordinate squares and positive sample position separation. Identification with independently rescaled values is proved at every dyadic rational time. GeneralForceTime now gives the local binary-time map for globally compared Lipschitz central samples with explicit actual/coarse/shadow bounds and calibration, with uniform prefix convergence and full-endpoint agreement; the old harmonic map is an exact corollary. Local-annulus stability, gluing, other general E/G time parameters, precision/partition independence, external real-time identification and merely continuous-force existence/uniqueness remain separate. |
 | P4 intervening defect and area law | **Outer-content candidate checked for the constructed harmonic curve.** HarmonicPathRegion defines the cell closures of rational connectors between simultaneous polygonMap/gammaPosition values and their finite union. Initial endpoints agree and the final connector is included. Crossings and overlaps count once in the set; square budgets count multiplicity. D_mesh is the closed lower cut of the infimum of all finite square-cover budgets, with nonnegativity, a derived 4*C²/2^m bound, zero time and decay proved. HarmonicPathContent now realizes this cut as a cover-independent Cauchy scalar with the same bound, nonnegativity, zero time and decay. Ordinary-area identification, general-field whole-edge/content extension and transfer of the separate Kepler law K_mesh remain open. HarmonicCover's polygon/refinement budget remains a distinct finite object. |
-| P5 force identification | **Partial constructed rate bridge checked.** GeneralForceSecants proves that completed bracketing dyadic position secants converge uniformly to the constructed velocity under the stated global Lipschitz comparison, calibrated window and actual/coarse/shadow sample bounds. Finite O(t²) drift remainders are derived from restarted runs and pass to the completed curve; the harmonic result is a corollary. Unrestricted difference-quotient differentiation and acceleration identification with the completed sampled force remain open. "Aget indesinenter" is not imported as a modern proof premise. |
+| P5 force identification | **Partial constructed rate bridge checked.** GeneralForceSecants proves that completed bracketing dyadic position secants converge uniformly to the constructed velocity under the stated global Lipschitz comparison, calibrated window and actual/coarse/shadow sample bounds. Finite O(t²) drift remainders are derived from restarted runs and pass to the completed curve; the harmonic result is a corollary. CompletedForce constructs the force at completed positions; GeneralForceAccelerationSecants now proves uniform convergence of completed bracketing dyadic velocity secants to this force with bound H_m*L*(V+K), including the final boundary. Finite force variation, rounding-error exhaustion and precision-offset invariance are derived; the retained harmonic acceleration-secant result is a corollary. Unrestricted difference-quotient differentiation remains open. "Aget indesinenter" is not imported as a modern proof premise. |
 
 ## Candidate permitted premise for P3
 
@@ -145,8 +148,8 @@ constructs the closed matched region, its all-cover infimum lower cut and a
 derived vanishing square enclosure. See TRAJECTORY_DEFECT_REGION.md.
 Cauchy scalar realization and cover independence are now proved in
 HarmonicPathContent. Ordinary-area and Kepler-area identification, P5 and partition
-independence remain distinct. A general represented-point force also needs compatibility
-with point value equivalence; finite centrality alone does not supply it.
+independence remain distinct. CompletedForce now proves representative compatibility for globally Lipschitz
+sampled force data; finite centrality alone does not supply it.
 The [construction ledger](CAUCHY_REALIZATION.md) records the checked quotient
 and time-domain steps and the remaining geometric obligations.
 

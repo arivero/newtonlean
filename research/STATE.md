@@ -47,15 +47,19 @@ agrees with rational force values, depends only on position and is independent
 of the precision scale. Actual prefix force samples converge uniformly to the
 force at the constructed curve, with budget (A*L+3*E0)/2^j. The harmonic
 extension equals completed scaling by -w and applies to the retained curve.
-Acceleration/force identification and unrestricted
-difference quotients remain open.
+GeneralForceAccelerationSecants now passes finite velocity remainders to
+completed dyadic velocity secants and proves uniform convergence to that force.
+The bound H_m*L*(V+K) includes the final boundary; precision-offset invariance
+and vanishing rounding error are derived. HarmonicAccelerationSecants gives
+the retained-curve corollary. Unrestricted difference quotients remain open.
 General-force whole-edge geometry, ordinary-area/Kepler-area identification and the remaining
 classes remain obligations in the handoff's order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
 exact finite-cell potential identities. The progress estimate now credits the
-constructed general local time map and dyadic velocity-secants bridge, about
+constructed general local time map and dyadic velocity/force-secants bridges, about
 38% overall (35–46% under alternative weights); no target is discharged.
 See the [general time checkpoint](verification/general-central-time-map-2026-10-05.md).
 See the [completed force checkpoint](verification/completed-central-force-2026-10-05.md).
+See the [acceleration secants checkpoint](verification/constructed-acceleration-secants-2026-10-05.md).
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation

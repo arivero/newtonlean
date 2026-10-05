@@ -12,6 +12,13 @@ open TimeSubdivision PointBounds FiniteEstimates BoundedIteration
 def inertialPosition (h : Fraction) (s : Point × Point) (n : Nat) : Point :=
   pointAdd s.1 (pointScale (time h n) s.2)
 
+theorem inertial_zero (h : Fraction) (s : Point × Point) :
+    pointEquiv (inertialPosition h s 0) s.1 := by
+  constructor <;>
+    simp only [inertialPosition,time,pointEquiv,pointAdd,pointScale,Fraction.equiv,
+      Fraction.add,Fraction.mul,Fraction.ofInt,Int.natCast_zero,Int.zero_mul,
+      Int.mul_zero,Int.add_zero,Int.one_mul,Int.mul_one] <;> ac_nf
+
 theorem inertial_step (h : Fraction) (s : Point × Point) (n : Nat) :
     pointEquiv (inertialPosition h s (n+1))
       (pointAdd (inertialPosition h s n) (pointScale h s.2)) := by
@@ -65,11 +72,7 @@ theorem position_remainder (a : Point → Point) (h : Fraction) (s : Point × Po
       (Fraction.mul (Fraction.mul (time h n) (time h n)) B) := by
   induction n with
   | zero =>
-    have he : pointEquiv (inertialPosition h s 0) s.1 := by
-      constructor <;>
-        simp only [inertialPosition,time,pointEquiv,pointAdd,pointScale,Fraction.equiv,
-          Fraction.add,Fraction.mul,Fraction.ofInt,Int.natCast_zero,Int.zero_mul,
-          Int.mul_zero,Int.add_zero,Int.one_mul,Int.mul_one] <;> ac_nf
+    have he := inertial_zero h s
     apply Fraction.le_of_equiv
     apply Fraction.equiv_trans (pointDistance_equiv
       ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ he)

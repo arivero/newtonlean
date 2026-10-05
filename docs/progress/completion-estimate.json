@@ -1,7 +1,7 @@
 {
   "as_of": "2026-10-05",
-  "commit": "ee889fe",
-  "note": "Editorial estimate toward research/GOALS.md, reassessed at the user request on 5 October against checked commits through ee889fe and the completed central-force increment. The force extension is an ingredient of the next acceleration bridge and receives no separate score increase. Scores are judgements against maintained obligations and certify nothing. Modern construction does not discharge edition-local historical premises. No target is yet discharged.",
+  "commit": "9931c3d",
+  "note": "Editorial estimate toward research/GOALS.md, reassessed at the user request on 5 October against checked commits through 9931c3d and the constructed dyadic acceleration-secants increment. Scores are judgements against maintained obligations and certify nothing. Modern construction does not discharge edition-local historical premises. No target is yet discharged.",
   "milestones": {
     "source_map": {
       "label": "Source map",
@@ -43,13 +43,13 @@
         "source_map": 1.0,
         "finite_step": 1.0,
         "limit_realization": 0.5,
-        "identification": 0.25
+        "identification": 0.3
       },
       "basis": {
         "source_map": "De Motu Theorem 1, 1687 and 1713 passages and edges in SECTION_II.md; all 10 edges carry Lean references.",
         "finite_step": "Stage-local AreaLaw / PropositionI files; CentralSchedule.swept_eq for any central field and unequal cells.",
         "limit_realization": "Harmonic continuous state/position maps, quotient polygon map, whole-edge convergence and E/G agreement at every dyadic rational time (34b742a). General sampled Lipschitz central endpoints and continuous local binary-time state/position maps now have derived Cauchy names, uniform prefix convergence, address independence, initial/zero cases and full-endpoint E/G agreement, under explicit calibration, global comparison and actual/coarse/shadow force bounds. The harmonic objects are exact corollaries with all sample bounds derived. Limit score rises from 0.45 to 0.50 for the constructed general local map; it awards no credit for counts or helper migration. Local-annulus stability, confinement/gluing, general interior-time E/G, precision/partition independence, external real-time identification and merely continuous-force existence/uniqueness remain open.",
-        "identification": "HarmonicPathRegion constructs the actual matched polygon/curve set and all-finite-cover nonnegative outer-content cut; HarmonicPathContent realizes it as a cover-independent Cauchy scalar with derived 4*C^2/2^m bound, decay and zero time (3dad1c2, 8a0651f). Exact Galilean/harmonic deflection/potential identities are checked (Arg007). GeneralForceSecants now derives uniform convergence of completed bracketing dyadic position secants to constructed velocity using actual finite restarted-run remainders; HarmonicSecants gives the retained harmonic-map corollary. Identification score rises from 0.20 to 0.25 for this constructed rate bridge, with no credit for helper counts. CompletedForce now constructs the force at completed positions with precision independence and uniformly convergent actual prefix force samples; the harmonic extension equals scaling by -w. This ingredient receives no additional score before the acceleration bridge. Unrestricted differentiation, acceleration/force identification, ordinary-area identification, general whole-edge/content extension and constructed Kepler-area transfer remain open."
+        "identification": "HarmonicPathRegion/Content construct the actual matched region and cover-independent nonnegative outer-content scalar with derived decay (3dad1c2, 8a0651f). Arg007 checks finite Galilean/harmonic potential identities. GeneralForceSecants derives uniform completed bracketing position-secants convergence to constructed velocity (ee889fe). CompletedForce constructs force at completed positions independently of precision (9931c3d). GeneralForceAccelerationSecants now derives uniform convergence of completed bracketing velocity secants to that force, with H_m*L*(V+K) error after actual rounding-error exhaustion and proved precision-offset invariance. The retained harmonic curve inherits both secant results with all sample bounds derived. Identification rises from 0.25 to 0.30 for this complementary acceleration/force bridge, with no helper-count credit. Unrestricted differentiation, ordinary-area identification, general whole-edge/content extension, curve potential asymptotics and constructed Kepler-area transfer remain open."
       }
     },
     {

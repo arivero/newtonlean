@@ -34,7 +34,9 @@ CompletedForce extends the sampled force to completed positions, independently
 of precision scale, and proves uniform convergence of actual polygon force
 samples to that force along the constructed curve. Its harmonic specialization
 equals completed scaling by -w.
-Unrestricted difference quotients and acceleration/force identification remain open. Dyadic E/G agreement is now derived for every numerator; it identifies
+GeneralForceAccelerationSecants now proves uniform convergence of completed
+dyadic velocity secants to that force, with the retained harmonic corollary.
+Unrestricted difference quotients remain open. Dyadic E/G agreement is now derived for every numerator; it identifies
 the two harmonic constructions, without supplying region area. Continuous-force
 local consistency is also checked, without a stability or uniqueness inference.
 The finite bounds now carry a free positive time calibration explicitly and

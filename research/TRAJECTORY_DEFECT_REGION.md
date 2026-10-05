@@ -10,7 +10,8 @@ covering inequality is supplied. See [path defect](PROP_I_PATH_DEFECT.md) and
 The general map's constructed velocity now has the completed dyadic secant
 bridge. CompletedForce additionally constructs the force at completed positions
 and uniformly identifies the limit of actual prefix force samples. This force
-extension also applies to the retained harmonic curve; acceleration/secant and
+extension also applies to the retained harmonic curve. Completed dyadic
+velocity secants now converge uniformly to that force; unrestricted-rate and
 area interpretations remain separate.
 
 Fix T>=0, initial state s and harmonic coefficient w with
@@ -71,15 +72,16 @@ lower comparisons are exactly the all-cover infimum cut. The value is independen
 of the initial cover and inherits scalar nonnegativity, budget control, zero
 time and decay. Equality with inner content, ordinary Euclidean area or a
 measure remains separate.
-P5 acceleration/unrestricted-rate, leading curved potential steps, arbitrary-partition independence,
+P5 unrestricted-rate, leading curved potential steps, arbitrary-partition independence,
 gluing and general central-force whole-edge/content extension remain open.
 GeneralForceTime now constructs a local continuous binary-time state/position
 map under explicit global Lipschitz comparison and actual/coarse/shadow sampled
 force bounds; its harmonic instance equals the maps used in this region.
 GeneralForceSecants now identifies constructed velocity as the uniform limit
 of the actual completed curve's bracketing dyadic position secants; the
-retained harmonic curve inherits this result. It does not supply the acceleration
-bridge or the leading curved potential step. No integral,
+retained harmonic curve inherits this result. GeneralForceAccelerationSecants
+now gives the complementary completed dyadic velocity-secants/force bridge.
+Unrestricted differentiation and the leading curved potential step remain open. No integral,
 ODE, measure or quantum premise closes them.
 
 Verification details are in the

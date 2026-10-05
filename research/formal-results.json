@@ -720,6 +720,87 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.position_increment",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : Fraction.equiv (pointDistance (cell a h s).1 s.1) (Fraction.mul h.abs (pointNorm s.2))",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.position_displacement",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (V : Fraction) (hh : 0 ≤ h.num) (N n : Nat) (hn : n ≤ N) (hv : ∀ i, i < N → Fraction.le (pointNorm (run a h s i).2) V) : Fraction.le (pointDistance (run a h s n).1 s.1) (Fraction.mul (time h n) V)",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.velocity_remainder_from_samples",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (C : Fraction) (hh : 0 ≤ h.num) (N : Nat) (hs : ∀ i, i<N → Fraction.le (pointDistance (a (run a h s (i+1)).1) (a s.1)) C) : ∀ n, n ≤ N → Fraction.le (pointDistance (run a h s n).2 (predictedVelocity a h s n)) (Fraction.mul (time h n) C)",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.force_variation",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (N i : Nat) (hi : i<N) (hv : ∀ k, k<N → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (a (run a h s (i+1)).1) (a s.1)) (source L E (time h N) V)",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.velocity_remainder",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (n : Nat) (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (run a h s n).2 (predictedVelocity a h s n)) (Fraction.mul (time h n) (source L E (time h n) V))",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num) (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (pointScale (TimeCalibration.inverse (time h n) ht) (pointSub (run a h s n).2 s.2)) (a s.1)) (source L E (time h n) V)",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_equivalent_time",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num) (hu : 0 < u.num) (he : Fraction.equiv u (time h n)) (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (pointScale (TimeCalibration.inverse u hu) (pointSub (run a h s n).2 s.2)) (a s.1)) (source L E u V)",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.two_cell_acceleration_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (pointDistance (pointScale (TimeCalibration.inverse (time controlHalf 2) (by decide)) (pointSub (run pointNeg controlHalf controlState 2).2 controlState.2)) (pointNeg controlState.1)) ⟨1,8,by decide⟩",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AccelerationEstimates.zero_bound_rejects_acceleration_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/AccelerationEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ¬ Fraction.le (pointDistance (pointScale (TimeCalibration.inverse (time controlHalf 2) (by decide)) (pointSub (run pointNeg controlHalf controlState 2).2 controlState.2)) (pointNeg controlState.1)) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Generic actual finite position displacement from bounded preceding velocities and finite velocity remainder from actual force variation. Approximate rational Lipschitz comparison yields velocity remainder <=t*(L*t*V+E) and positive-time velocity quotient error <=L*t*V+E; represented elapsed-time equivalence is proved. The variation bound is derived at every actual arrival, not supplied as a curve equation. A two-cell negative identity-map control has exact finite quotient error 1/8 and rejects a zero bound. No completed curve, derivative, integral, ODE or Newton import occurs."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.AffineValues.edge_boundary_names",
     "private": false,
     "file": "BarrowLib/Polygon/AffineBoundary.lean",
@@ -3474,6 +3555,15 @@
     "interpretation_and_remaining_premises": "Field-free binary-time, recursive integer-duration and dyadic ratio identities, plus nonnegative time approximants. Names with harmonic prefixes are compatibility names only; no Newton import or mechanical premise occurs."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.inertial_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point) : pointEquiv (inertialPosition h s 0) s.1",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.inertial_step",
     "private": false,
     "file": "BarrowLib/Polygon/KinematicEstimates.lean",
@@ -4002,7 +4092,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(C eps d e : Fraction) (hC : 0 ≤ C.num) (hd : 0 ≤ d.num) (hdelta : Fraction.lt d (factorDelta C eps.half hC)) (he : Fraction.lt e eps.half) : Fraction.lt (Fraction.add (Fraction.mul d C) e) eps",
-    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SampledValues.sampledName_equiv",
@@ -4011,7 +4101,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(f : Family) (a b : EndpointCauchyName) (hab : NameEquiv a b) : NameEquiv (sampledName f a) (sampledName f b)",
-    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SampledValues.sampledValue_realize",
@@ -4020,7 +4110,34 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(f : Family) (a : EndpointCauchyName) : sampledValue f (realize a) = realize (sampledName f a)",
-    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.sampledName_offset_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Family) (a : EndpointCauchyName) (m : Nat) : NameEquiv (sampledName f a) (sampledName (offsetFamily f m) a)",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.sampledValue_offset",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Family) (x : Value) (m : Nat) : sampledValue (offsetFamily f m) x = sampledValue f x",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.nameBound_of_vanishing_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : EndpointCauchyName) (R : Fraction) (e : Nat → Fraction) (he : ∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ n, N≤n → Fraction.lt (e n) eps) (hlevel : ∀ n, Fraction.le (distance (a.approx n) (b.approx n)) (Fraction.add R (e n))) : NameBound a b R",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SampledValues.nameBound_scale_error",
@@ -4029,7 +4146,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b ta tb : EndpointCauchyName) (C R : Fraction) (hC : 0 ≤ C.num) (e : Nat → Fraction) (he : ∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ n, N ≤ n → Fraction.lt (e n) eps) (hlevel : ∀ n, Fraction.le (distance (a.approx n) (b.approx n)) (Fraction.add (Fraction.mul (distance (ta.approx n) (tb.approx n)) C) (e n))) (hnear : NameBound ta tb R) : NameBound a b (Fraction.mul R C)",
-    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SampledValues.sampledValue_within",
@@ -4038,7 +4155,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(f : Family) (x y : Value) (R : Fraction) (hxy : Within x y R) : Within (sampledValue f x) (sampledValue f y) (Fraction.mul R f.coefficient)",
-    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SampledValues.nameBound_affine",
@@ -4047,7 +4164,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b ta tb : EndpointCauchyName) (C R E : Fraction) (hC : 0 ≤ C.num) (M : Nat) (hlevel : ∀ n, M ≤ n → Fraction.le (distance (a.approx n) (b.approx n)) (Fraction.add (Fraction.mul (distance (ta.approx n) (tb.approx n)) C) E)) (hnear : NameBound ta tb R) : NameBound a b (Fraction.add (Fraction.mul R C) E)",
-    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SampledValues.sampled_approximant_bound",
@@ -4056,7 +4173,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(f : Family) (a : EndpointCauchyName) (m : Nat) (R : Fraction) (hnear : Within (embed (a.approx m)) (realize a) R) : Within (embed (f.sample m (a.approx m))) (sampledValue f (realize a)) (Fraction.add (Fraction.mul R f.coefficient) (f.error m))",
-    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. Finite precision offsets preserve the same completed map, and a derived vanishing additive error transfers a finite estimate to a closed completed bound. No Newton import, force, derivative, integral, ODE or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.ScalarOrder.first_coordinate_gap",
@@ -6958,6 +7075,42 @@
     "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.cell_acceleration_secant_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceAccelerationSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m k : Nat) (hk : k+1≤blocks m) : Within (cellAccelerationSecant o E0 T tau L B s hE d hT m k) (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))) (Fraction.mul L (Fraction.mul (duration T m) (velocityCap T B s)))",
+    "interpretation_and_remaining_premises": "Modern completed bracketing dyadic velocity-secants bridge for the actual globally compared Lipschitz inward central-force map. Actual restarted-run force variation gives quotient error <=L*H_m*V+3e(q_(m+j)); the derived error vanishes through completion. A proved precision-offset identity makes the comparison target the same completed force at the actual left node. Completed force Lipschitz control and time truncation give uniform error H_m*L*(V+stateTimeFactor), including the final endpoint. This identifies the dyadic acceleration/secant limit with constructed force, without a supplied force equation. Unrestricted differentiation, external real interval, annular confinement, gluing, potentials, ordinary area and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.accelerationCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceAccelerationSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T tau L B : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (accelerationCoefficient T tau L B s ht).num",
+    "interpretation_and_remaining_premises": "Modern completed bracketing dyadic velocity-secants bridge for the actual globally compared Lipschitz inward central-force map. Actual restarted-run force variation gives quotient error <=L*H_m*V+3e(q_(m+j)); the derived error vanishes through completion. A proved precision-offset identity makes the comparison target the same completed force at the actual left node. Completed force Lipschitz control and time truncation give uniform error H_m*L*(V+stateTimeFactor), including the final endpoint. This identifies the dyadic acceleration/secant limit with constructed force, without a supplied force equation. Unrestricted differentiation, external real interval, annular confinement, gluing, potentials, ordinary area and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.bracketing_acceleration_secant_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceAccelerationSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) : Within (cellAccelerationSecant o E0 T tau L B s hE d hT m (ticks b m)) (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) (Fraction.mul (duration T m) (accelerationCoefficient T tau L B s d.calibration_positive))",
+    "interpretation_and_remaining_premises": "Modern completed bracketing dyadic velocity-secants bridge for the actual globally compared Lipschitz inward central-force map. Actual restarted-run force variation gives quotient error <=L*H_m*V+3e(q_(m+j)); the derived error vanishes through completion. A proved precision-offset identity makes the comparison target the same completed force at the actual left node. Completed force Lipschitz control and time truncation give uniform error H_m*L*(V+stateTimeFactor), including the final endpoint. This identifies the dyadic acceleration/secant limit with constructed force, without a supplied force equation. Unrestricted differentiation, external real interval, annular confinement, gluing, potentials, ordinary area and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.dyadic_acceleration_uniform_identification",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceAccelerationSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ b : Nat → Bool, Within (cellAccelerationSecant o E0 T tau L B s hE d hT m (ticks b m)) (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Modern completed bracketing dyadic velocity-secants bridge for the actual globally compared Lipschitz inward central-force map. Actual restarted-run force variation gives quotient error <=L*H_m*V+3e(q_(m+j)); the derived error vanishes through completion. A proved precision-offset identity makes the comparison target the same completed force at the actual left node. Completed force Lipschitz control and time truncation give uniform error H_m*L*(V+stateTimeFactor), including the final endpoint. This identifies the dyadic acceleration/secant limit with constructed force, without a supplied force equation. Unrestricted differentiation, external real interval, annular confinement, gluing, potentials, ordinary area and historical P5 remain separate."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.sampleError_nonnegative",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
@@ -7514,6 +7667,24 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : gammaValue o E0 T tau L B s hE d (rightTime T d.time_nonnegative) = endpointValue o E0 T tau L B s hE d.toConditions",
     "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccelerationSecants.cellAccelerationSecant_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccelerationSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num) (m k : Nat) : GeneralForceAccelerationSecants.cellAccelerationSecant (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (HarmonicGeneralEndpoint.harmonicBound w s) s hE (HarmonicGeneralTime.conditions w E0 T s hw hE hT hs) ht m k = cellAccelerationSecant w T s hT hs ht m k",
+    "interpretation_and_remaining_premises": "Actual retained harmonic curve corollary of the general completed dyadic velocity-secants identification. General curve maps equal the old harmonic maps, all sample bounds are derived, and completed force is exactly the retained scalar -w operator. Uniform convergence includes the final boundary. No unrestricted derivative, potential asymptotic, area interpretation or historical edge is added."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicAccelerationSecants.acceleration_secants_converge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicAccelerationSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ b : Nat → Bool, Within (cellAccelerationSecant w T s hT hs ht m (ticks b m)) (HarmonicCompletedForce.linearValue w (HarmonicTimeRealization.gammaValue w T s hT hs (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Actual retained harmonic curve corollary of the general completed dyadic velocity-secants identification. General curve maps equal the old harmonic maps, all sample bounds are derived, and completed force is exactly the retained scalar -w operator. Uniform convergence includes the final boundary. No unrestricted derivative, potential asymptotic, area interpretation or historical edge is added."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_identity",

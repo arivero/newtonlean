@@ -1,6 +1,36 @@
 # Verification record
 
-## Current handoff: completed central-force values, 5 October 2026
+## Current handoff: constructed acceleration secants, 5 October 2026
+
+Targeted Lean core builds pass for AccelerationEstimates, generic sample-
+precision offsets and vanishing-error transfer, GeneralForceAccelerationSecants
+and HarmonicAccelerationSecants. Actual position displacement controls force
+variation; finite velocity remainders give quotient error L*t*V+E. A two-cell
+negative identity-map control has exact finite error 1/8 and rejects a zero
+bound. The actual completed velocity secants have error L*H_m*V at the left
+node after the explicit 3e(q_(m+j)) error vanishes. Precision-offset invariance
+makes that target the same completed force. Force/time continuity gives the
+uniform H_m*L*(V+K) bound against the target address, including the final
+boundary. The retained harmonic curve inherits the result with all sample
+bounds derived. No acceleration equation or desired derivative is a premise.
+A sequential nonauthor GPT-6 Luna verifier reported all 16 checklist commands
+passing and all 1,716 prior public names/signatures at 9931c3d preserved, with
+25 new names. The catalogue has 1,371 distinct rows and 1,231 emitted
+references; live counts are 995 substantive, 195 plumbing, 155 sample and 26
+duplicate. All 19 new rows and all 565 Barrow rows are source-free. The graph
+remains 77 nodes/68 edges/249 passages; source collation has 10 witnesses,
+246 XML anchors and 3 supplements. The axiom union is propext, Classical.choice
+and Quot.sound, with no sorryAx, project axiom, external dependency or
+Newton/Mathlib foundation import. Logs:
+/tmp/newton-sol61-acceleration-secants-final-01.log through -16.log. The graph
+PDF passed rendering checks; its dates were restored after proving all other
+bytes unchanged. Unrestricted differentiation, external real time,
+potentials, general geometry, confinement/gluing and motion precision/partition
+independence remain open. Identification rises from 0.25 to 0.30 for this
+complementary constructed bridge: 38.31% overall, range 34.94–46.08%, with
+Proposition I at 60%; no historical target is discharged.
+
+### Completed central-force values, 5 October 2026
 
 Targeted Lean core builds pass for SampledValues, CompletedForce and
 HarmonicCompletedForce. Ordered rational sample comparisons and vanishing

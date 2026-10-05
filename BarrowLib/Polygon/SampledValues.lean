@@ -65,6 +65,50 @@ def sampledValue (f : Family) : Value → Value :=
 theorem sampledValue_realize (f : Family) (a : EndpointCauchyName) :
     sampledValue f (realize a) = realize (sampledName f a) := rfl
 
+def offsetFamily (f : Family) (m : Nat) : Family where
+  sample := fun j => f.sample (m+j)
+  coefficient := f.coefficient
+  coefficient_nonnegative := f.coefficient_nonnegative
+  error := fun j => f.error (m+j)
+  error_nonnegative := fun j => f.error_nonnegative (m+j)
+  error_vanishes := by
+    intro eps heps
+    obtain ⟨N,hN⟩ := f.error_vanishes eps heps
+    exact ⟨N,fun j hj => hN (m+j) (by omega)⟩
+  ordered_bound := fun i j hij => f.ordered_bound (m+i) (m+j) (by omega)
+
+theorem sampledName_offset_equiv (f : Family) (a : EndpointCauchyName) (m : Nat) :
+    NameEquiv (sampledName f a) (sampledName (offsetFamily f m) a) := by
+  intro eps heps
+  obtain ⟨N,hN⟩ := f.error_vanishes eps heps
+  refine ⟨N,fun j hj => ?_⟩
+  have hc := f.ordered_bound j (m+j) (by omega) (a.approx j) (a.approx j)
+  have hz : Fraction.equiv
+      (Fraction.add (Fraction.mul (distance (a.approx j) (a.approx j)) f.coefficient) (f.error j))
+      (f.error j) := by
+    apply Fraction.equiv_trans (Fraction.add_equiv
+      (Fraction.mul_equiv (HarmonicAccumulation.stateSub_self_norm_zero _) (Fraction.equiv_refl _))
+      (Fraction.equiv_refl _))
+    simp only [Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,
+      Int.zero_mul,Int.mul_zero,Int.zero_add,Int.mul_one,Int.one_mul]
+    ac_nf
+  exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hc hz) (hN j hj)
+
+theorem sampledValue_offset (f : Family) (x : Value) (m : Nat) :
+    sampledValue (offsetFamily f m) x = sampledValue f x := by
+  induction x using Quotient.inductionOn with
+  | _ a => exact Quotient.sound (nameEquiv_symm (sampledName_offset_equiv f a m))
+
+theorem nameBound_of_vanishing_error (a b : EndpointCauchyName) (R : Fraction)
+    (e : Nat → Fraction)
+    (he : ∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ n, N≤n → Fraction.lt (e n) eps)
+    (hlevel : ∀ n, Fraction.le (distance (a.approx n) (b.approx n)) (Fraction.add R (e n))) :
+    NameBound a b R := by
+  intro eps heps
+  obtain ⟨N,hN⟩ := he eps heps
+  exact ⟨N,fun n hn => Fraction.magnitudes.lt_of_le_lt (hlevel n)
+    (CauchyValues.add_lt_add_left (hN n hn) R)⟩
+
 theorem nameBound_scale_error (a b ta tb : EndpointCauchyName)
     (C R : Fraction) (hC : 0 ≤ C.num) (e : Nat → Fraction)
     (he : ∀ eps : Fraction, 0 < eps.num →

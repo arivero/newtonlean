@@ -54,7 +54,8 @@ address to its constructed velocity, with error H_m*(B+K), including the right
 boundary. HarmonicSecants gives the retained-map corollary. KinematicEstimates,
 SecantValues and DyadicNodes contain the derived finite remainders, proved
 completed operators and actual time nodes; no desired rate is a field.
-Unrestricted differentiation and acceleration/force identification remain open.
+Unrestricted differentiation remains open; the acceleration secant bridge is
+now derived below.
 
 SampledValues now completes rational map samples using ordered comparisons and
 vanishing error, deriving Cauchy and representative independence first.
@@ -63,8 +64,15 @@ extension is Lipschitz at completed positions, position-only, agrees with the
 retained rational force values and is independent of the precision scale.
 Actual prefix force samples have uniform budget (A*L+3*E0)/2^j against the
 force at gammaValue. The harmonic extension equals scaling by -w along the
-retained curve. This supplies the force value needed for the next acceleration
-secant bridge; it supplies no acceleration equation.
+retained curve. GeneralForceAccelerationSecants now transfers actual finite
+velocity remainders to completed dyadic velocity secants. At the left node the
+error is L*H_m*V after the explicit rounding error vanishes. Force continuity
+adds L*H_m*K against the target time. Precision-offset invariance is proved,
+so the target is the same completed force at the actual constructed position.
+Uniform convergence includes the right boundary; HarmonicAccelerationSecants
+gives the retained-curve corollary. No force equation or desired derivative is
+a premise. This is the dyadic bracketing criterion; unrestricted quotients and
+external real-time identification remain open.
 
 ## One global family
 
@@ -194,9 +202,9 @@ the radius-1 square's corner (1,1) has L1 distance 2.
 The same-time coarse polygon map is constructed on the binary-time quotient;
 the actual harmonic matched region and its outer-content lower cut are now
 constructed in HarmonicPathRegion. The velocity coordinate is now identified
-as the uniform limit of completed bracketing dyadic position secants. Unrestricted
-difference quotients and acceleration identification with the now completed
-sampled harmonic force remain open. E/G identification is proved at
+as the uniform limit of completed bracketing dyadic position secants. Completed
+dyadic velocity secants now converge uniformly to the completed sampled force.
+Unrestricted difference quotients remain open. E/G identification is proved at
 all common dyadic rational times. Other rational parameters and arbitrary
 partition independence remain separate.
 
