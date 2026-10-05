@@ -3627,6 +3627,15 @@
     "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) : pointEquiv (pointSub p (Fraction.ofInt 0,Fraction.ofInt 0)) p",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_right",
     "private": false,
     "file": "BarrowLib/Polygon/PointAlgebra.lean",
@@ -3985,6 +3994,69 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Fraction) : Fraction.equiv (durationDifference (midpoint a b) b) (durationDifference a b).half",
     "interpretation_and_remaining_premises": "Elementary half-congruence/order and rational midpoint containment and half-gap identities, for explicit bisection. No completeness, geometry, force or calculus premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.scaled_add_small",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C eps d e : Fraction) (hC : 0 ≤ C.num) (hd : 0 ≤ d.num) (hdelta : Fraction.lt d (factorDelta C eps.half hC)) (he : Fraction.lt e eps.half) : Fraction.lt (Fraction.add (Fraction.mul d C) e) eps",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.sampledName_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Family) (a b : EndpointCauchyName) (hab : NameEquiv a b) : NameEquiv (sampledName f a) (sampledName f b)",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.sampledValue_realize",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Family) (a : EndpointCauchyName) : sampledValue f (realize a) = realize (sampledName f a)",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.nameBound_scale_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b ta tb : EndpointCauchyName) (C R : Fraction) (hC : 0 ≤ C.num) (e : Nat → Fraction) (he : ∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ n, N ≤ n → Fraction.lt (e n) eps) (hlevel : ∀ n, Fraction.le (distance (a.approx n) (b.approx n)) (Fraction.add (Fraction.mul (distance (ta.approx n) (tb.approx n)) C) (e n))) (hnear : NameBound ta tb R) : NameBound a b (Fraction.mul R C)",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.sampledValue_within",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Family) (x y : Value) (R : Fraction) (hxy : Within x y R) : Within (sampledValue f x) (sampledValue f y) (Fraction.mul R f.coefficient)",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.nameBound_affine",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b ta tb : EndpointCauchyName) (C R E : Fraction) (hC : 0 ≤ C.num) (M : Nat) (hlevel : ∀ n, M ≤ n → Fraction.le (distance (a.approx n) (b.approx n)) (Fraction.add (Fraction.mul (distance (ta.approx n) (tb.approx n)) C) E)) (hnear : NameBound ta tb R) : NameBound a b (Fraction.add (Fraction.mul R C) E)",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SampledValues.sampled_approximant_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/SampledValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Family) (a : EndpointCauchyName) (m : Nat) (R : Fraction) (hnear : Within (embed (a.approx m)) (realize a) R) : Within (embed (f.sample m (a.approx m))) (sampledValue f (realize a)) (Fraction.add (Fraction.mul R f.coefficient) (f.error m))",
+    "interpretation_and_remaining_premises": "Generic completion of a rational map-sample family from ordered finite Lipschitz comparisons and vanishing additive error. Diagonal names are proved Cauchy and name-equivalent before quotient lifting; no completed map or continuity is supplied. Affine and vanishing-error transfer bounds give the completed Lipschitz estimate and actual sampled-approximant error budget. No Newton import, force, derivative, integral, ODE or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.ScalarOrder.first_coordinate_gap",
@@ -5802,6 +5874,105 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": Fraction.equiv (swept harmonic [half, half] exampleState) (swept harmonic [Fraction.add half half] exampleState)",
     "interpretation_and_remaining_premises": "Modern rational reconstruction for an arbitrary position-dependent field with impulses at arrival vertices. For any central field and arbitrary unequal rational cells, areal velocity is invariant and swept doubled area equals elapsed time times it (Newton uses equal cells). For any field, one-cell refinement moves the endpoint by exactly h*k*a(y), and changes velocity by h*(a y - a X) + k*(a z - a X); a harmonic example makes both nonzero. The unequal-cell converse gives a radial impulse when areas are proportional to nonzero durations. No curve, limit, force regularity, or force identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.precisionError_le_sampleError",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 : Fraction) (hE : 0 < E0.num) (j : Nat) : Fraction.le (o.error (precision o.toOracle E0 hE j)) (sampleError o E0 hE j)",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.sampleError_tail",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 : Fraction) (hE : 0 < E0.num) (j : Nat) : Fraction.le (sampleError o E0 hE j) (duration (errorCoefficient E0) j)",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.sampleError_vanishes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 : Fraction) (hE : 0 < E0.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ j, N ≤ j → Fraction.lt (sampleError o E0 hE j) eps",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.forceValue_realize",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num) (hL : LipschitzOn o.toOracle L) (hR : ∀ p, o.region p) (a : EndpointCauchyName) : forceValue o E0 L hE hL hR (realize a) = realize (forceName o E0 L hE hL hR a)",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.forceValue_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num) (hL : LipschitzOn o.toOracle L) (hR : ∀ p, o.region p) (x y : Value) (R : Fraction) (hxy : Within x y R) : Within (forceValue o E0 L hE hL hR x) (forceValue o E0 L hE hL hR y) (Fraction.mul R L)",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.force_input_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num) (hL : LipschitzOn o.toOracle L) (hR : ∀ p, o.region p) (x : Value) : forceValue o E0 L hE hL hR (PositionValues.positionValue x) = forceValue o E0 L hE hL hR x",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.force_output_position",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num) (hL : LipschitzOn o.toOracle L) (hR : ∀ p, o.region p) (x : Value) : PositionValues.positionValue (forceValue o E0 L hE hL hR x) = forceValue o E0 L hE hL hR x",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.force_rational_agreement",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num) (hL : LipschitzOn o.toOracle L) (hR : ∀ p, o.region p) (s : Point × Point) : forceValue o E0 L hE hL hR (embed s) = accelerationValue o.toOracle s.1 (hR s.1)",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.force_precision_independent",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 E1 L L' : Fraction) (hE : 0 < E0.num) (hE' : 0 < E1.num) (hL : LipschitzOn o.toOracle L) (hL' : LipschitzOn o.toOracle L') (hR : ∀ p, o.region p) (x : Value) : forceValue o E0 L hE hL hR x = forceValue o E1 L' hE' hL' hR x",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.prefix_force_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j : Nat) : Within (embed (accelerationState (field o E0 hE j (GeneralForcePrefix.prefixState b o E0 T s hE j).1))) (forceValue o E0 L hE d.lipschitz d.global_region (GeneralForceTime.gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) (duration (curveErrorCoefficient (GeneralForcePrefix.coefficient E0 T tau L B s d.calibration_positive) E0 L) j)",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CompletedForce.prefix_force_uniform_convergence",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/CompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ j, N ≤ j → ∀ b : Nat → Bool, Within (embed (accelerationState (field o E0 hE j (GeneralForcePrefix.prefixState b o E0 T s hE j).1))) (forceValue o E0 L hE d.lipschitz d.global_region (GeneralForceTime.gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Modern completed-force extension from the actual inward central sample oracle and the same monotone geometric precision used by motion. Ordered point/precision comparisons and vanishing error construct diagonal force Cauchy names and representative-independent completed values. The extension is Lipschitz, depends only on position, has zero velocity slots, agrees with the retained force at rational points, and is independent of precision scale and valid Lipschitz bound. Actual prefix force samples lie within [A*L+3*E0]/2^j of the force at the constructed curve positions, uniformly over binary addresses. Global-region comparison remains explicit; this is not yet acceleration/secant identification, annular confinement, a potential, motion precision independence, P5 or a historical proof."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.velocityContact_position",
@@ -8477,6 +8648,24 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": Fraction.le (stateNorm (cell (linearField one) half sample)) (Fraction.mul (kappa one half) (stateNorm sample))",
     "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCompletedForce.completed_linear_force",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 : Fraction) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hL : LipschitzOn (harmonicOracle w hw).toOracle w.abs) (hR : ∀ p, (harmonicOracle w hw).region p) (x : Value) : CompletedForce.forceValue (harmonicOracle w hw) E0 w.abs hE hL hR x = linearValue w x",
+    "interpretation_and_remaining_premises": "Exact harmonic corollary of the general completed-force extension: at every completed position it equals rational scaling by -w, expressed through the existing proved secant operator. Actual retained harmonic prefix force samples converge uniformly to that completed force along the retained curve, with all motion/sample bounds derived. It supplies no acceleration equation, derivative, potential asymptotic, area interpretation or historical edge."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicCompletedForce.retained_curve_force_samples_converge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicCompletedForce.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ j, N ≤ j → ∀ b : Nat → Bool, Within (embed (accelerationState (linearField w (prefixState b w T s j).1))) (linearValue w (HarmonicTimeRealization.gammaValue w T s hT hs (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Exact harmonic corollary of the general completed-force extension: at every completed position it equals rational scaling by -w, expressed through the existing proved secant operator. Actual retained harmonic prefix force samples converge uniformly to that completed force along the retained curve, with all motion/sample bounds derived. It supplies no acceleration equation, derivative, potential asymptotic, area interpretation or historical edge."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.factor_nonnegative",

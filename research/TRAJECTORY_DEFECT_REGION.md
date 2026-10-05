@@ -7,6 +7,12 @@ constructed from the actual harmonic polygons; no curve, area function or
 covering inequality is supplied. See [path defect](PROP_I_PATH_DEFECT.md) and
 [the construction ledger](CAUCHY_REALIZATION.md).
 
+The general map's constructed velocity now has the completed dyadic secant
+bridge. CompletedForce additionally constructs the force at completed positions
+and uniformly identifies the limit of actual prefix force samples. This force
+extension also applies to the retained harmonic curve; acceleration/secant and
+area interpretations remain separate.
+
 Fix T>=0, initial state s and harmonic coefficient w with
 T*(1+abs(w))<=1/2 in the retained tau=1 compatibility gauge. The completed
 planar type is PositionValue. The continuous curve gammaPosition and the

@@ -56,6 +56,16 @@ SecantValues and DyadicNodes contain the derived finite remainders, proved
 completed operators and actual time nodes; no desired rate is a field.
 Unrestricted differentiation and acceleration/force identification remain open.
 
+SampledValues now completes rational map samples using ordered comparisons and
+vanishing error, deriving Cauchy and representative independence first.
+CompletedForce applies it to the actual central-force precision family. The
+extension is Lipschitz at completed positions, position-only, agrees with the
+retained rational force values and is independent of the precision scale.
+Actual prefix force samples have uniform budget (A*L+3*E0)/2^j against the
+force at gammaValue. The harmonic extension equals scaling by -w along the
+retained curve. This supplies the force value needed for the next acceleration
+secant bridge; it supplies no acceleration equation.
+
 ## One global family
 
 Fix nonnegative rational T, initial state s, and harmonic coefficient w, with
@@ -183,9 +193,10 @@ with a proved nonnegative radius. Eventual rational bounds imply membership;
 the radius-1 square's corner (1,1) has L1 distance 2.
 The same-time coarse polygon map is constructed on the binary-time quotient;
 the actual harmonic matched region and its outer-content lower cut are now
-constructed in HarmonicPathRegion. The velocity
-coordinate still needs to be identified with position's rate of change, and
-acceleration with the sampled harmonic force. E/G identification is proved at
+constructed in HarmonicPathRegion. The velocity coordinate is now identified
+as the uniform limit of completed bracketing dyadic position secants. Unrestricted
+difference quotients and acceleration identification with the now completed
+sampled harmonic force remain open. E/G identification is proved at
 all common dyadic rational times. Other rational parameters and arbitrary
 partition independence remain separate.
 

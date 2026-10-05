@@ -475,6 +475,28 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CentralSchedule.swept_eq
 #check NewtonLimitDynamics.Polygon.CentralSchedule.unequal_cells_converse
 #print axioms NewtonLimitDynamics.Polygon.CentralSchedule.unequal_cells_converse
+#check NewtonLimitDynamics.Polygon.CompletedForce.forceValue_realize
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.forceValue_realize
+#check NewtonLimitDynamics.Polygon.CompletedForce.forceValue_within
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.forceValue_within
+#check NewtonLimitDynamics.Polygon.CompletedForce.force_input_position
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.force_input_position
+#check NewtonLimitDynamics.Polygon.CompletedForce.force_output_position
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.force_output_position
+#check NewtonLimitDynamics.Polygon.CompletedForce.force_precision_independent
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.force_precision_independent
+#check NewtonLimitDynamics.Polygon.CompletedForce.force_rational_agreement
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.force_rational_agreement
+#check NewtonLimitDynamics.Polygon.CompletedForce.precisionError_le_sampleError
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.precisionError_le_sampleError
+#check NewtonLimitDynamics.Polygon.CompletedForce.prefix_force_bound
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.prefix_force_bound
+#check NewtonLimitDynamics.Polygon.CompletedForce.prefix_force_uniform_convergence
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.prefix_force_uniform_convergence
+#check NewtonLimitDynamics.Polygon.CompletedForce.sampleError_tail
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.sampleError_tail
+#check NewtonLimitDynamics.Polygon.CompletedForce.sampleError_vanishes
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.sampleError_vanishes
 #check NewtonLimitDynamics.Polygon.CompletionGeometry.closure_contains
 #print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.closure_contains
 #check NewtonLimitDynamics.Polygon.CompletionGeometry.closure_idempotent
@@ -1115,6 +1137,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step
 #check NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm
+#check NewtonLimitDynamics.Polygon.HarmonicCompletedForce.completed_linear_force
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCompletedForce.completed_linear_force
+#check NewtonLimitDynamics.Polygon.HarmonicCompletedForce.retained_curve_force_samples_converge
+#print axioms NewtonLimitDynamics.Polygon.HarmonicCompletedForce.retained_curve_force_samples_converge
 #check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadicIntegerCoefficient_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadicIntegerCoefficient_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadicTime_exact
@@ -1981,6 +2007,20 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_equal_area_central
 #check NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
+#check NewtonLimitDynamics.Polygon.SampledValues.nameBound_affine
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.nameBound_affine
+#check NewtonLimitDynamics.Polygon.SampledValues.nameBound_scale_error
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.nameBound_scale_error
+#check NewtonLimitDynamics.Polygon.SampledValues.sampledName_equiv
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.sampledName_equiv
+#check NewtonLimitDynamics.Polygon.SampledValues.sampledValue_realize
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.sampledValue_realize
+#check NewtonLimitDynamics.Polygon.SampledValues.sampledValue_within
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.sampledValue_within
+#check NewtonLimitDynamics.Polygon.SampledValues.sampled_approximant_bound
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.sampled_approximant_bound
+#check NewtonLimitDynamics.Polygon.SampledValues.scaled_add_small
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.scaled_add_small
 #check NewtonLimitDynamics.Polygon.ScalarOrder.below_downward
 #print axioms NewtonLimitDynamics.Polygon.ScalarOrder.below_downward
 #check NewtonLimitDynamics.Polygon.ScalarOrder.below_embed_iff
@@ -2181,6 +2221,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_ratio_congr
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_congr
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_congr
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_zero
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_zero
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
 #check NewtonLimitDynamics.Polygon.TriangleBounds.det_abs_le_product

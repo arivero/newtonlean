@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,331 checked
-library theorems, 968 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,352 checked
+library theorems, 980 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 They construct acceleration values, bound actual sampled polygons and derive
 mesh-uniform refinement control and continuous local consistency. General
@@ -55,7 +55,10 @@ content cut and its cover-independent Cauchy scalar, with derived geometric
 decay. GeneralForceSecants now identifies constructed velocity as the uniform
 limit of completed bracketing dyadic position secants; the harmonic curve is
 a proved corollary. Acceleration/force, unrestricted-rate and ordinary-area
-identification remain separate. Explicit positive time
+identification remain separate. CompletedForce now constructs the force at
+completed positions and bounds actual prefix force samples uniformly by
+(A*L+3*E0)/2^j, independently of the force precision scale. Its harmonic
+specialization equals completed scaling by -w. Explicit positive time
 calibration now gives weighted finite bounds and dimensionless windows, with
 proved Cauchy-gauge and time-unit invariance; it fixes no universal constant.
 
@@ -203,9 +206,11 @@ duration times elapsed time. The harmonic construction now derives geometric
 Cauchy tails for actual prefixes of one dyadic polygon family and realizes
 their state values in an explicitly proved quotient. A continuous state map
 now descends to the constructed binary-time domain; its planar projection,
-coordinate squares and sample position separation are proved. The coarse
-polygon map, between-path region/content and mechanical identification remain
-separate. General central-force realization remains unproved.
+coordinate squares and sample position separation are proved. The harmonic
+coarse polygon map and between-path outer content are now constructed.
+Globally compared Lipschitz central samples also have a continuous local map
+and completed force values, under named sample bounds. Mechanical identification
+and the full general central-force programme remain open.
 See [the constructed partition comparison](research/PARTITION_CONTROL.md).
 
 **Zero-force support.** The [first inertial suite](research/ZERO_FORCE.md)

@@ -41,7 +41,13 @@ GeneralForceSecants now proves that completed bracketing dyadic position
 secants converge uniformly to the constructed velocity, including the right
 boundary; HarmonicSecants gives the old harmonic-map corollary. Finite
 restarted drift/kick remainders, completed secants and dyadic time nodes are
-derived in BarrowLib. Acceleration/force identification and unrestricted
+derived in BarrowLib. CompletedForce now extends the actual sampled force to
+completed positions by a proved diagonal Cauchy construction. It is Lipschitz,
+agrees with rational force values, depends only on position and is independent
+of the precision scale. Actual prefix force samples converge uniformly to the
+force at the constructed curve, with budget (A*L+3*E0)/2^j. The harmonic
+extension equals completed scaling by -w and applies to the retained curve.
+Acceleration/force identification and unrestricted
 difference quotients remain open.
 General-force whole-edge geometry, ordinary-area/Kepler-area identification and the remaining
 classes remain obligations in the handoff's order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
@@ -49,6 +55,7 @@ exact finite-cell potential identities. The progress estimate now credits the
 constructed general local time map and dyadic velocity-secants bridge, about
 38% overall (35–46% under alternative weights); no target is discharged.
 See the [general time checkpoint](verification/general-central-time-map-2026-10-05.md).
+See the [completed force checkpoint](verification/completed-central-force-2026-10-05.md).
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation

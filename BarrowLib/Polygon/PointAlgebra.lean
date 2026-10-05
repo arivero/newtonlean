@@ -71,6 +71,11 @@ theorem pointSub_congr {p p' q q' : Point}
     pointEquiv (pointSub p q) (pointSub p' q') :=
   pointAdd_congr hpp' (pointNeg_congr hqq')
 
+theorem pointSub_zero (p : Point) :
+    pointEquiv (pointSub p (Fraction.ofInt 0,Fraction.ofInt 0)) p := by
+  constructor <;> simp only [pointSub,pointAdd,pointNeg,Fraction.equiv,Fraction.add,
+    Fraction.ofInt,Int.neg_zero,Int.zero_mul,Int.mul_one,Int.add_zero]
+
 
 def det (p q : Point) : Fraction :=
   Fraction.add (Fraction.mul p.1 q.2) (⟨-(Fraction.mul p.2 q.1).num,

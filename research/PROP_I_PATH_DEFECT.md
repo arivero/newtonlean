@@ -30,6 +30,10 @@ resulting outer-content bound is 4*C²/2^m and tends to zero. Ordinary Euclidean
 area and Kepler-area transfer are still separate identifications. GeneralForceSecants
 now identifies constructed velocity as the uniform limit of completed
 bracketing dyadic position secants; the retained harmonic curve is a corollary.
+CompletedForce extends the sampled force to completed positions, independently
+of precision scale, and proves uniform convergence of actual polygon force
+samples to that force along the constructed curve. Its harmonic specialization
+equals completed scaling by -w.
 Unrestricted difference quotients and acceleration/force identification remain open. Dyadic E/G agreement is now derived for every numerator; it identifies
 the two harmonic constructions, without supplying region area. Continuous-force
 local consistency is also checked, without a stability or uniqueness inference.

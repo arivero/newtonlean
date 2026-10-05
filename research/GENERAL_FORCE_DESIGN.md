@@ -157,6 +157,20 @@ binary address, including the right boundary. The retained harmonic result is
 a corollary. This is the first constructed P5 rate bridge; unrestricted
 difference quotients and acceleration identification remain open.
 
+CompletedForce now extends the same actual sampled force to the completed
+position plane. SampledValues derives a diagonal Cauchy name from ordered
+sample comparisons and vanishing error, proves name-equivalence transport and
+then lifts the value. CompletedForce derives these comparisons with coefficient
+L and additive 3*e(q_j); samples need not individually be exactly Lipschitz.
+The completed extension is Lipschitz, agrees with accelerationValue at rational
+points and is independent of E0 and the valid Lipschitz bound. It depends only
+on the position and has zero velocity slots. No assumption q_j>=j is used;
+zero-error precisions may remain constant. Actual prefix force samples have
+closed error (A*L+3*E0)/2^j against the force at the constructed gammaValue,
+uniformly over addresses. The harmonic extension equals scaling by -w and
+applies to the retained curve. Acceleration identification, motion precision
+independence and region-local confinement remain separate.
+
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will
 not be replaced by a structure field asserting the desired trajectory.

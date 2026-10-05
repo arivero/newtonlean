@@ -43,3 +43,4 @@ import BarrowLib.Polygon.TailValues
 import BarrowLib.Polygon.KinematicEstimates
 import BarrowLib.Polygon.SecantValues
 import BarrowLib.Polygon.DyadicNodes
+import BarrowLib.Polygon.SampledValues

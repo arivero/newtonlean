@@ -1,6 +1,32 @@
 # Verification record
 
-## Current handoff: constructed dyadic velocity secants, 5 October 2026
+## Current handoff: completed central-force values, 5 October 2026
+
+Targeted Lean core builds pass for SampledValues, CompletedForce and
+HarmonicCompletedForce. Ordered rational sample comparisons and vanishing
+error derive diagonal Cauchy names and representative independence before
+lifting. Completed force values are Lipschitz, position-only, agree with the
+retained rational force values and are independent of the force precision
+scale. Actual prefix force samples have uniform budget (A*L+3*E0)/2^j against
+the force at the constructed curve. The harmonic extension equals completed
+scaling by -w and gives the retained-curve corollary. Constant zero-error
+precision is permitted; no precision(j)>=j premise is used. A sequential
+nonauthor GPT-6 Luna verifier passed all 16 checks. All 1,685 prior public
+names/signatures at ee889fe remain, with 31 new names. The catalogue has 1,352
+distinct rows and 1,212 emitted references; live counts are 980 substantive,
+195 plumbing, 151 sample and 26 duplicate. All 21 new rows and all 552 Barrow
+rows are source-free. The graph remains 77 nodes/68 edges/249 passages, with
+10 witnesses, 246 XML anchors and 3 supplements. The axiom union is propext,
+Classical.choice and Quot.sound; no sorryAx, project axiom, external package or
+Newton/Mathlib foundation import occurs. Logs:
+/tmp/newton-sol61-completed-force-final-01.log through -16.log. The graph PDF
+passed rendering checks; its dates were restored after proving all other bytes
+unchanged.
+Acceleration/secant identification, unrestricted differentiation, region-local
+confinement, motion precision independence and the remaining area obligations
+stay open. The editorial estimate remains 38.03%; no target is discharged.
+
+### Constructed dyadic velocity secants, 5 October 2026
 
 Targeted Lean core builds pass for finite kinematic remainders, completed
 secant/velocity operators, actual dyadic nodes, GeneralForceSecants and

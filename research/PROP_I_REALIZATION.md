@@ -45,7 +45,11 @@ area or Cauchy premise is supplied. GeneralForceSecants now derives uniform
 convergence of completed bracketing dyadic position secants to constructed
 velocity; HarmonicSecants applies it to the retained harmonic curve. These
 are actual curve endpoints, including the final boundary, not finite polygon
-secants alone. Ordinary-area identification, unrestricted difference quotients
+secants alone. CompletedForce now constructs force values at completed
+positions from the actual oracle samples, with representative independence,
+Lipschitz control and precision-scale independence. Actual prefix force samples
+converge uniformly to the force at the constructed curve; the retained harmonic
+extension equals scaling by -w. Ordinary-area identification, unrestricted difference quotients
 and acceleration/force identification remain open.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
