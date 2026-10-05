@@ -53,6 +53,34 @@ separate action-hypothesis layer all apply unchanged.
   constructions need the same estimate for different constants, prove it once
   with the constant as a parameter.
 
+## Update, 5 October, after commit caff2aa
+
+Done since the handoff: the BarrowLib migration; the sampled-force interface
+(`ForceClasses.Oracle`, classes A–D, the parallel field); general finite
+estimates and accumulation; calibrated time units; general endpoint values,
+prefix curve, E/G agreement at every dyadic time, whole-edge bounds; the
+polygon–curve region with outer content decreasing like `4C²/2^m`; velocity
+and force identified through secants; the deflection-triangle and
+potential-step limits; Arg007. The harmonic field is an instance throughout.
+The uncommitted `GeneralForceGrowth` derives the sample bounds of
+`Conditions` from the Lipschitz contract and the window; finish and commit it
+first.
+
+Two gaps remain, and they come before any new completed quantity:
+
+- **Whole plane.** `LipschitzOn` is stated on `o.region`, but
+  `Conditions.global_region : ∀ p, o.region p` (and `GeneralForceGrowth.Data`)
+  make every general theorem a whole-plane theorem; the only instance built,
+  the harmonic one, discharges it with `True.intro`. Nothing proves that the
+  polygons stay in a region. Task A.6 below replaces this.
+- **Proposition I's own conclusion.** No theorem states the area law for the
+  constructed curve. Task E below adds it.
+
+A code review of the 1,476 theorems found no loop (statement shapes repeat at
+about 5 %, and the new theorems are used downstream) but a tower: each new
+completed quantity rebuilds the same five-step kit, and all of it rests on the
+`Conditions` bundle. Task D.4 addresses the kit.
+
 ## Task A — general force classes (main goal)
 
 Generalise the realization chain to an arbitrary central force, as
@@ -102,6 +130,27 @@ Technical guidance (verify each point; none is a premise):
 - Laws singular at S need an annulus `r ≥ r₀ > 0`. Derive confinement where
   the class allows (energy, angular momentum) or name it as an explicit
   premise. Arg003 records why the inverse cube marks this boundary.
+- **A.6, region instead of whole plane (added 5 October).** Remove
+  `global_region` from `Conditions` and `GeneralForceGrowth.Data`. In its
+  place take a region `R` with `LipschitzOn` and the sample bound on `R`, and
+  a *confinement* proof that every point at which the construction samples
+  the force lies in `R`: polygon vertices at every level, coarse vertices,
+  shadow arrivals, and, in the completed layer, the curve points. Derive
+  confinement rather than assume it:
+  - For laws regular at the origin, `R` is the ball of radius
+    `|x₀| + T·V` about the origin, where `V` is the velocity cap; every
+    vertex within the window lies in it, so a Lipschitz bound on that ball
+    suffices. Class (a) then genuinely means locally Lipschitz.
+  - For singular laws, `R` is an annulus `r₀ ≤ r ≤ R₀`. A lower bound on the
+    radius comes from Proposition I's own finite content: the areal product
+    `det(x, v) = ℓ` is exactly constant along every polygon
+    (`CentralSchedule.schedule_momentum`), and `|det(x,v)| ≤ |x|₁ |v|₁`, so
+    every vertex has `|x|₁ ≥ ℓ / V`. With `V = |v₀| + T·B(r₀)` this is a
+    condition on `T` that gives `|x|₁ ≥ r₀` throughout the window; check that
+    the shadow arrivals and curve points obey the same bound. The outer radius
+    comes from the ball above. This derivation is to be checked, and it is
+    the test case for Kepler's `1/r²`, which must become an instance.
+  - The harmonic instance keeps `R` = everything and must still go through.
 - Keep units explicit. The Lipschitz constant `L` has units 1/time² and
   defines the local dynamical time `τ_L = 1/√L` (harmonic: `1/ω`; gravity
   near radius r: about `√(r³/GM)`); a mesh converges when `h ≪ τ_L`. Only the
@@ -190,6 +239,37 @@ target is the polygon–curve object itself.
 3. With a definition fixed, prove the area bound for the constructed curve in
    class (a), then wherever the other classes allow.
 
+## Task E — Proposition I's own conclusion on the constructed curve (added 5 October)
+
+The theorem Newton states is that the constructed motion sweeps areas
+proportional to the times, in one plane. Nothing yet says this about the
+curve; the finite law `swept_eq` is exact on every polygon, and the three
+edition files only carry the conditional interface
+`polygon_trajectory_defect_control`, whose enclosure is a hypothesis.
+
+1. **Differential form.** For the constructed curve `γ` with its identified
+   velocity `v` (Task B.3), prove that the areal product `γ(t) × v(t)` is
+   constant in the value space: `pairingValue detForm (γ t) (v t) =
+   pairingValue detForm (γ 0) (v 0)`. The proof passes `schedule_momentum`
+   through the vertex convergence (`binaryValue_prefix_bound`) and the
+   velocity secants; `PairingValues.detForm` already lifts `det`.
+2. **Newton's form.** Define the swept area of the curve up to time `t` as
+   the limit, along the dyadic levels, of the polygon fan sums `swept`. By
+   `swept_eq` every level gives exactly `ℓ·t/2`, so the limit is immediate;
+   the content is that this limit is the area of the sector `S γ(0) γ(t)`:
+   the sector and the polygon fan differ by the between-path region, whose
+   content vanishes (Task C.3, or the winding-number definition of C.1). State
+   the theorem as "sector area = `ℓ·t/2`", that is, proportional to the time.
+3. **Edition wrappers.** Derive, in `Principia1687/PropositionI`,
+   `Principia1713/PropositionI` and `DeMotu1684/AreaLaw`, the realized theorem
+   for each stage from the construction, discharging the enclosure hypothesis
+   of `polygon_trajectory_defect_control` instead of assuming it, and keeping
+   the stage-local passage citations and classifications. Planarity is built
+   into the planar model; say so in the docstring rather than claim it as a
+   result.
+4. Update PROP_I_REALIZATION.md's obligation table (P3–P5) and the completion
+   estimate only with the theorems named.
+
 ## Task D — a period-appropriate foundation library (subsidiary)
 
 The user excludes mathlib for two reasons: its size (disk space and
@@ -222,18 +302,38 @@ primitives.
 3. Generic estimates produced by Task A (Lipschitz-field bounds, geometric
    tails with the coefficient as a parameter) belong in the foundation library
    from the start.
+4. **One lifting kit (added 5 October).** `SecantValues`, `PairingValues`,
+   `QuadraticPotentialValues`, `TangentTriangleValues` and `SampledValues`
+   each repeat the same five steps for a new operation: finite distance
+   bound, Cauchy name, equivalence invariance, quotient value, embedding
+   identity. `mapValue` does this once for one-argument nonexpansive maps;
+   `PairingValues.Form` is nearly the two-argument version. Write the generic
+   two-argument lift (a bilinear or Lipschitz-on-bounded-sets operation with
+   its bound as data) in BarrowLib and derive the existing operations from it;
+   introduce no further completed quantity without it.
 
 ## Order
 
-1. Task D.1: the inventory and boundary rule (short).
-2. Task A: the general force interface and the class (a) and (b) estimates,
-   with the harmonic field and the (∞) case as instances.
-3. Task D.2: the migration.
-4. Task B.1 and B.2.
-5. Task C.1 and C.2. The exact finite-cell identities of C.2 can run
-   alongside step 2.
-6. Task B.3 and C.3.
-7. Classes (c) and (d).
+Original order: D.1, A, D.2, B.1–B.2, C.1–C.2, B.3 and C.3, classes (c)
+and (d). Steps D.1, A (first pass), D.2, B.1–B.3 and C.2 are done.
+
+Order from 5 October:
+
+1. Finish and commit the current increment (`GeneralForceGrowth`: sample
+   bounds derived from force data).
+2. Task A.6: region confinement replacing `global_region`; the ball case,
+   then the annulus from the areal product, with Kepler's `1/r²` as the
+   instance that must go through.
+3. Task E.1: the areal product constant along the curve.
+4. Task C.1 and C.3: the between-path region's definition and vanishing.
+5. Task E.2 and E.3: the sector area proportional to time, and the three
+   edition wrappers.
+6. Gluing of windows and partition independence.
+7. Classes (c) and (d). Task D.4 applies from step 3 on: no new completed
+   quantity without the generic lift.
+
+Build downward before upward: no new layer on `Conditions` until A.6 and E
+are in.
 
 Commit each verified increment.
 
