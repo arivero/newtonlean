@@ -49,7 +49,12 @@ proposition. If a historical premise cannot be recovered, continue independent
 obligations while retaining that gap. A source-map entry is not a Lean theorem.
 
 Order 4, current handoff: D.1 and the minimal foundation bootstrap are
-recorded. Task A has a [sampling interface](GENERAL_FORCE_DESIGN.md),
+recorded. The user-requested [theorem-growth study](THEOREM_PROLIFERATION.md)
+and one explicitly requested sequential Astra review recommend the next bounded
+unit: a shared finite-vertex polygon core and actual general whole-edge map,
+followed by matched-region geometry. Existing APIs and explicit sample bounds
+remain; raw counts receive no completion credit.
+Task A has a [sampling interface](GENERAL_FORCE_DESIGN.md),
 constructed acceleration values, actual bounded polygon iterates and finite
 mesh-uniform refinement accumulation. GeneralForceEndpoint now derives
 fixed-time Cauchy names/values for globally compared Lipschitz central samples,

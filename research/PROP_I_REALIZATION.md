@@ -6,6 +6,11 @@ realization of the motion needs for a **varying** central force. Lean results
 are modern rational-coordinate reconstructions (`modern_reconstruction`),
 not historical proofs.
 
+The [theorem-growth study](THEOREM_PROLIFERATION.md) separates implementation
+inventory from discharged obligations. The next construction will share the
+finite polygon alias/joining proof and instantiate the general whole-edge map;
+the historical P1–P5 boundaries below stay unchanged.
+
 The 4 October handoff's [foundation inventory](BARROWLIB_BOUNDARY.md) is
 implemented for its minimal bootstrap. BarrowLib's generic finite triangular
 maps now have actual iteration bounds, cross-map perturbation (including

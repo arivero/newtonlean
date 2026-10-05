@@ -1,5 +1,15 @@
 # Research state
 
+The user-requested [theorem-growth study](THEOREM_PROLIFERATION.md) compares
+the handoff's 793 declarations with the current 1,371. Most additions build the
+elementary foundation or Proposition I's modern construction; count-based
+classification also mislabels universal sampled results and thin quotient
+interfaces. The next implementation will share finite-vertex polygon alias
+proofs, then construct the general whole-edge map, preserving existing names
+and the explicit sample premises. One sequential Astra architectural review
+was explicitly requested for this study; the usual sequential v6 policy
+continues afterward.
+
 Current handoff execution (Sol 6.1, 4–5 October): D.1, Task A's finite
 interface/estimate increments and D.2 are committed. The [force design](GENERAL_FORCE_DESIGN.md)
 constructs force values from uniform rational samples. GeneralForceEndpoint

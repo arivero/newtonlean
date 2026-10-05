@@ -6,6 +6,11 @@ and the required partition independence, then prove its mechanical properties
 and control the area between it and the polygons. Supplied-curve estimates are
 conditional diagnostics and cannot discharge the forward theorem.
 
+The [theorem-growth study](THEOREM_PROLIFERATION.md) routes the next general
+whole-edge construction through shared finite-vertex geometry, followed by
+the actual matched region. A growing helper inventory adds no area premise
+or historical completion credit.
+
 The [foundation inventory](BARROWLIB_BOUNDARY.md) is now extracted into
 BarrowLib, including geometry, Cauchy values, binary time and position values,
 alongside actual bounded iterates and mesh-uniform finite refinement estimates.

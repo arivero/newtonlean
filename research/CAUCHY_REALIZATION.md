@@ -11,6 +11,11 @@ under a positive change of time unit. No historical dependency or supplied
 curve is added.
 The stage-local obligations remain in [the realization ledger](PROP_I_REALIZATION.md).
 
+The [theorem-growth study](THEOREM_PROLIFERATION.md) recommends one shared
+finite-vertex polygon implementation for the next general whole-edge map.
+Completion, alias and interface counts are not separate motion-existence
+milestones; the construction and remaining identifications below stay explicit.
+
 The [foundation inventory](BARROWLIB_BOUNDARY.md) is now in BarrowLib:
 generic point/triangle/convex geometry, state distances, Cauchy names and
 quotient values, binary time, planar projections and coordinate squares.

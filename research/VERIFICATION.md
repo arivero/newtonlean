@@ -1,6 +1,28 @@
 # Verification record
 
-## Current handoff: constructed acceleration secants, 5 October 2026
+## Current handoff: theorem-growth study, 5 October 2026
+
+A source-only snapshot comparison at 6a8aa5c and 3f6d359 records 793 to 1,371
+library theorems: 579 additions, one deletion, zero surviving baseline statement
+changes. The existing heuristic counts are 501 to 995 substantive; this is an
+inventory category, with concrete sample-name and definitional-interface biases,
+not a theorem-depth or milestone measure. One explicitly user-requested
+sequential GPT-6 Astra reviewer inspected representative modules and counting
+code, without rebuilding or mathematical recertification. It recommends a
+shared finite-vertex polygon core and the actual general whole-edge map as the
+next increment, preserving all current public APIs and sample premises.
+No Lean declaration or completion score changes in this documentation unit.
+All 16 sequential checklist commands pass, including all three build targets,
+catalogue/reference and axiom checks, source/graph checks, rendering tests and
+hash verification. The catalogue remains at 1,371 rows and 1,231 references;
+the graph is 77/68/249 and the axiom union remains propext, Classical.choice
+and Quot.sound, with no sorryAx, project axiom or external dependency. No
+Lean-library source changed. Logs: /tmp/newton-sol61-proliferation-final-01.log
+through -16.log. The graph PDF's dates were restored after proving every other
+byte unchanged. Root Sol 6.1 commits the study and resumes the general polygon
+construction.
+
+### Constructed acceleration secants, 5 October 2026
 
 Targeted Lean core builds pass for AccelerationEstimates, generic sample-
 precision offsets and vanishing-error transfer, GeneralForceAccelerationSecants
