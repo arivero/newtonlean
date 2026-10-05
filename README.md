@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,443 checked
-library theorems, 1,065 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,469 checked
+library theorems, 1,087 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -79,8 +79,16 @@ with both coefficients halved. GeneralForceQuadraticSecants now derives the
 normalized half-coefficient departure criterion on the actual general curve:
 2*(Delta_x/H-v_left)/H converges uniformly to completed force, with error
 H*L*(2V+K), including the final boundary. It reuses the existing completed
-secants; the harmonic curve is a corollary. General curved potential and area
-relations remain open.
+secants; the harmonic curve is a corollary. ConstructedHarmonicPotential now evaluates the harmonic polynomial potential
+on the actual completed curve and its tangent continuation. PairingValues
+shares one derived Cauchy/representative proof for dot products and determinants;
+QuadraticPotentialValues composes it with existing completed secants. The finite
+work identity identifies the polynomial with the harmonic force. Actual node
+bounds and the shared finite second-order estimate give a uniform O(H) bound:
+Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
+including the last one. No potential-step asymptotic is assumed. General radial
+potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
+remain open. This law test receives no extra completion score.
 
 Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
 `python3 scripts/progress_stats.py`; the per-commit numbers behind every plot

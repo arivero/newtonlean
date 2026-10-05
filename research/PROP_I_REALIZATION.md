@@ -80,8 +80,16 @@ position departure 2*(Delta_x/H-v_left)/H converges uniformly to the completed
 force with error H*L*(2V+K), including the final boundary. Cauchy-name tail
 boundedness proves that mesh times the actual force sample magnitude vanishes;
 no extra force-bound or Taylor field is supplied. The retained harmonic curve
-inherits the result. Curved potential steps, unrestricted second-order
-quotients and the D_mesh relation remain open. Completion scores stay unchanged.
+inherits the result. ConstructedHarmonicPotential now evaluates the harmonic polynomial potential
+on the actual completed curve and its tangent continuation. PairingValues
+shares one derived Cauchy/representative proof for dot products and determinants;
+QuadraticPotentialValues composes it with existing completed secants. The finite
+work identity identifies the polynomial with the harmonic force. Actual node
+bounds and the shared finite second-order estimate give a uniform O(H) bound:
+Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
+including the last one. No potential-step asymptotic is assumed. General radial
+potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
+remain open. This law test receives no extra completion score.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 

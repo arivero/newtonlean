@@ -8,8 +8,8 @@ interfaces. PolygonValues now shares finite-vertex polygon alias proofs, and
 GeneralForcePolygonCurve constructs the general whole-edge map, preserving
 existing names and explicit sample premises. MatchedRegion now shares closed-cell connector and cover geometry between the
 retained harmonic and actual general regions. Their completed outer contents
-have derived geometric decay. The next obligations include curved potential
-steps, local confinement/gluing and general interior-time E/G agreement. One sequential Astra architectural review
+have derived geometric decay. The next obligations include general radial potentials and their curved steps,
+the D_mesh relation, local confinement/gluing and general interior-time E/G agreement. One sequential Astra architectural review
 was explicitly requested for this study; the usual sequential v6 policy
 continues afterward.
 
@@ -87,10 +87,19 @@ now passes the finite estimate to the actual completed central curve: the
 normalized departure 2*(Delta_x/H-v_left)/H converges uniformly to completed
 force, with error H*L*(2V+K). Force-name Cauchy boundedness derives half-mesh
 bias decay; sampling and precision-offset errors are handled explicitly. The
-retained harmonic curve inherits this criterion. General curved potential
-steps and the D_mesh relation remain open. See the
+retained harmonic curve inherits this criterion. ConstructedHarmonicPotential now evaluates the harmonic polynomial potential
+on the actual completed curve and its tangent continuation. PairingValues
+shares one derived Cauchy/representative proof for dot products and determinants;
+QuadraticPotentialValues composes it with existing completed secants. The finite
+work identity identifies the polynomial with the harmonic force. Actual node
+bounds and the shared finite second-order estimate give a uniform O(H) bound:
+Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
+including the last one. No potential-step asymptotic is assumed. General radial
+potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
+remain open. This law test receives no extra completion score. See the
 [quadratic checkpoint](verification/quadratic-finite-parallel-endpoints-2026-10-05.md)
 and [constructed second-order checkpoint](verification/constructed-quadratic-secants-2026-10-05.md).
+See the [constructed harmonic potential checkpoint](verification/constructed-harmonic-potential-2026-10-05.md).
 The progress estimate now credits the
 constructed general local time map, dyadic velocity/force-secants bridges and
 actual general outer content, about

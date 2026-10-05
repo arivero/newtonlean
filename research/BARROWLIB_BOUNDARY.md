@@ -84,3 +84,27 @@ foundation file imports a Newton-specific file. Cauchy completion remains
 explicitly modern elementary infrastructure, with no derivative, integral
 or ODE result used as a primitive. Counts and catalogue paths include both
 library roots; this reorganization alone changes no completion score.
+
+## Completed pairings and quadratic values, 5 October
+
+PairingValues completes dot products and determinants of position values with
+one Cauchy and representative-independence argument. It uses finite bilinear
+difference identities, coordinate L1 bounds and boundedness on a proved
+Cauchy tail. Globally Lipschitz SampledValues cannot complete these maps on
+an unbounded plane. Reach for PairingValues for scalar products or directed
+areas of completed points; use SampledValues for globally compared sampled
+maps. Pairing outputs are scalar-coded values. Determinants are signed doubled
+areas, and dot products define the Euclidean squared magnitude, distinct from
+the L1 error gauge.
+
+QuadraticPotentialValues constructs c*dot(p,p) and its normalized increment
+between a completed endpoint and the tangent continuation. The finite
+remainder bound uses the existing normalized second departure and explicit
+finite point/velocity/departure bounds. It states no mechanical potential
+relation. The Newton diagnostic ConstructedHarmonicPotential supplies that
+relation by a finite work identity and actual node estimates. Its all-cell
+leading potential result is the live client. Rational embedding compatibility,
+the finite nonzero polynomial remainder control, Lean kernel reference checks
+and all three library/default builds validate the construction; the rational
+control is not an independent numerical oracle. No derivative, integral, ODE,
+Newton-specific foundation import or historical edge is added.

@@ -192,7 +192,7 @@ connector is included, overlaps count once in the unsigned set, and content is
 nonnegative, cover-independent and tends to zero, including zero time. Exact
 harmonic region and scalar equality holds despite different covering bounds.
 This is the finite-square outer-content candidate; ordinary area, constructed
-Kepler-area transfer and curved potential steps remain separate.
+Kepler-area transfer and general curved potential steps remain separate.
 
 QuadraticEstimates now derives the actual finite second-order position
 comparison. Its constant-map coefficient is t*(t-h)/2; the variable-map
@@ -211,8 +211,16 @@ proved tail bound makes its sample magnitude times 1/2^j vanish. Together
 with force-error exhaustion and precision-offset invariance this leaves
 2*L*H*V against the left-node force. Force/time continuity gives the uniform
 H*L*(2V+K) target bound, including the final boundary. HarmonicQuadraticSecants
-gives the retained-curve corollary. Unrestricted second-order quotients,
-curved potential steps and area relations remain open.
+gives the retained-curve corollary. ConstructedHarmonicPotential now evaluates the harmonic polynomial potential
+on the actual completed curve and its tangent continuation. PairingValues
+shares one derived Cauchy/representative proof for dot products and determinants;
+QuadraticPotentialValues composes it with existing completed secants. The finite
+work identity identifies the polynomial with the harmonic force. Actual node
+bounds and the shared finite second-order estimate give a uniform O(H) bound:
+Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
+including the last one. No potential-step asymptotic is assumed. General radial
+potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
+remain open. This law test receives no extra completion score.
 
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will

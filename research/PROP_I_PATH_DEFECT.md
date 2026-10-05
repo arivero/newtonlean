@@ -68,8 +68,16 @@ with both leading coefficients halved. GeneralForceQuadraticSecants now
 derives the half-coefficient position departure criterion for the actual
 constructed central curve along dyadic cells, with uniform completed-force
 error H*L*(2V+K). It keeps sampling and half-mesh terms until their derived
-decay. Curved potential values and the identity relating tangent-deflection
-triangles or lobes to D_mesh remain open.
+decay. ConstructedHarmonicPotential now evaluates the harmonic polynomial potential
+on the actual completed curve and its tangent continuation. PairingValues
+shares one derived Cauchy/representative proof for dot products and determinants;
+QuadraticPotentialValues composes it with existing completed secants. The finite
+work identity identifies the polynomial with the harmonic force. Actual node
+bounds and the shared finite second-order estimate give a uniform O(H) bound:
+Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
+including the last one. No potential-step asymptotic is assumed. General radial
+potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
+remain open. This law test receives no extra completion score.
 
 ## The two areas
 

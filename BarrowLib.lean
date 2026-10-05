@@ -49,3 +49,5 @@ import BarrowLib.Polygon.PolygonValues
 import BarrowLib.Polygon.MatchedRegion
 import BarrowLib.Polygon.QuadraticEstimates
 import BarrowLib.Polygon.QuadraticSecants
+import BarrowLib.Polygon.PairingValues
+import BarrowLib.Polygon.QuadraticPotentialValues

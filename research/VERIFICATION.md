@@ -1,6 +1,34 @@
 # Verification record
 
-## Current handoff: constructed central quadratic secants, 5 October 2026
+## Current handoff: constructed harmonic potential, 5 October 2026
+
+PairingValues shares dot/determinant completion with derived Cauchy tail
+boundedness. QuadraticPotentialValues composes existing secants to construct
+polynomial potential values and their normalized tangent-continuation increment.
+The finite work identity identifies the harmonic polynomial with its force.
+ConstructedHarmonicPotential applies the shared actual finite node-second
+estimate and derived node bounds. Finite normalized potential error H*C+2^-j*Q
+passes to completed error H*C after geometric exhaustion. Uniform convergence
+to -mass*dot(a_left,a_left)/2 covers every dyadic cell, including the last one.
+The finite quadratic control distinguishes -15/128 from leading -1/8; it is
+not an independent numerical orbit. General radial potentials and the D_mesh
+relation remain open; scores stay unchanged. Targeted Lean 4.19 core compilation
+passes. All 16 sequential checklist commands pass, including the default and both
+explicit library builds, catalogue/reference and axiom inspection, source/graph,
+rendering, hashes and whitespace. The catalogue has 1,469 distinct rows and
+1,325 emitted reference checks; live heuristic counts are 1,087 substantive,
+197 plumbing, 159 sample and 26 duplicate. All 26 new rows and all 613 Barrow
+rows are source-free modern reconstructions. All 1,844 prior public names and
+signatures at fe732e4 are preserved, with 40 new names (bounded source-reader
+inventory plus kernel compilation). The graph remains 77/68/249; the axiom
+union is propext, Classical.choice and Quot.sound, with no sorryAx, project
+axiom, external package or Newton/Mathlib foundation import. Graph PDF dates
+are restored only after proving all other bytes unchanged. Logs:
+/tmp/newton-sol61-constructed-potential-final-01.log through -16.log; API audit:
+/tmp/newton-sol61-constructed-potential-api.json. Root Sol 6.1 commits the
+verified increment; unrelated conversation archives are preserved.
+
+### Constructed central quadratic secants, 5 October 2026
 
 QuadraticSecants composes the existing proved secant and velocity operators.
 Its finite normalized departure has force error 2*(L*t*V+E)+(h/t)*|a(x0)|,

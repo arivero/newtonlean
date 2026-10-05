@@ -11,23 +11,30 @@ open HarmonicDyadic
 
 def distance (a b : Point × Point) : Fraction := stateNorm (stateSub a b)
 
+/-- Position magnitudes on a Cauchy tail are bounded by the magnitude of one
+actual approximant plus one. This is derived, rather than a field of a name. -/
+theorem position_bounded_tail (a : EndpointCauchyName) :
+    ∃ R : Fraction, 0 ≤ R.num ∧ ∃ N : Nat, ∀ j, N≤j →
+      Fraction.le (pointNorm (a.approx j).1) R := by
+  obtain ⟨N,hN⟩ := a.cauchy (Fraction.ofInt 1) (by decide)
+  let R := Fraction.add (Fraction.ofInt 1) (pointNorm (a.approx N).1)
+  refine ⟨R,Fraction.nonnegative_add _ _ (by decide) (pointNorm_nonnegative _),N,fun j hj => ?_⟩
+  have hp := Fraction.magnitudes.le_trans (point_le_state (stateSub (a.approx j) (a.approx N)))
+    (Fraction.magnitudes.lt_implies_le (hN j N hj (Nat.le_refl _)))
+  exact Fraction.magnitudes.le_trans
+    (FiniteEstimates.pointNorm_le_distance_add (a.approx j).1 (a.approx N).1)
+    (Fraction.add_le_add_right hp (pointNorm (a.approx N).1))
+
 /-- A Cauchy name is bounded on a proved tail, so its position magnitude
 times a geometric mesh tends to zero. No boundedness field is supplied. -/
 theorem mesh_position_product_vanishes (a : EndpointCauchyName)
     (eps : Fraction) (heps : 0 < eps.num) :
     ∃ N : Nat, ∀ j, N≤j →
       Fraction.lt (Fraction.mul (duration (Fraction.ofInt 1) j) (pointNorm (a.approx j).1)) eps := by
-  obtain ⟨N,hN⟩ := a.cauchy (Fraction.ofInt 1) (by decide)
-  let R := Fraction.add (Fraction.ofInt 1) (pointNorm (a.approx N).1)
-  have hR : 0 ≤ R.num := Fraction.nonnegative_add _ _ (by decide) (pointNorm_nonnegative _)
+  obtain ⟨R,hR,N,hN⟩ := position_bounded_tail a
   obtain ⟨M,hM⟩ := HarmonicTimeRealization.duration_eventually_small R eps hR heps
   refine ⟨max N M,fun j hj => ?_⟩
-  have hp := Fraction.magnitudes.le_trans (point_le_state (stateSub (a.approx j) (a.approx N)))
-    (Fraction.magnitudes.lt_implies_le (hN j N (by omega) (Nat.le_refl _)))
-  have hb := Fraction.magnitudes.le_trans
-    (FiniteEstimates.pointNorm_le_distance_add (a.approx j).1 (a.approx N).1)
-    (Fraction.add_le_add_right hp (pointNorm (a.approx N).1))
-  have hc := Fraction.mul_le_mul_nonnegative_left hb (duration (Fraction.ofInt 1) j)
+  have hc := Fraction.mul_le_mul_nonnegative_left (hN j (by omega)) (duration (Fraction.ofInt 1) j)
     (by change (0 : Int)≤1; omega)
   have he : Fraction.equiv (Fraction.mul (duration (Fraction.ofInt 1) j) R) (duration R j) := by
     simp only [duration,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.one_mul,Int.mul_one]

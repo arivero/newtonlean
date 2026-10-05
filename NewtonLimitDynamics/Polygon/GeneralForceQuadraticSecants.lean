@@ -19,6 +19,64 @@ noncomputable def cellSecondSecant (o : CentralOracle) (E0 T tau L B : Fraction)
     (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
     (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m (k+1)))
 
+/-- The actual finite node approximants retain their sample and half-mesh
+errors. Both the completed second-order bridge and potential calculations use
+this estimate, rather than repeating the restarted-run proof. -/
+theorem node_second_sample_bound (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
+    (m k : Nat) (hk : k+1≤blocks m) (j : Nat) :
+    Fraction.le
+      (FiniteEstimates.pointDistance (QuadraticSecants.secondState (duration T m) hT
+        ((nodeName o E0 T tau L B s hE d m k).approx j)
+        ((nodeName o E0 T tau L B s hE d m (k+1)).approx j)).1
+        (field o E0 hE (m+j) ((nodeName o E0 T tau L B s hE d m k).approx j).1))
+      (Fraction.add
+        (Fraction.mul (Fraction.ofInt 2) (Fraction.mul L (Fraction.mul (duration T m) (velocityCap T B s))))
+        (Fraction.add (Fraction.mul (sampleError o E0 hE (m+j)) (Fraction.ofInt 2))
+          (Fraction.mul (duration (Fraction.ofInt 1) j)
+            (pointNorm (field o E0 hE (m+j) ((nodeName o E0 T tau L B s hE d m k).approx j).1))))) := by
+  rw [node_approx o E0 T tau L B s hE d m k (by omega) j,
+    node_approx o E0 T tau L B s hE d m (k+1) hk j]
+  let a := field o E0 hE (m+j)
+  let h := duration T (m+j)
+  let n := k*blocks j
+  let q := GeneralForcePrefix.countState o E0 T s hE (m+j) n
+  have hn : n+blocks j ≤ blocks (m+j) := by
+    rw [blocks_add]
+    have hm := Nat.mul_le_mul_right (blocks j) hk
+    simpa only [n,Nat.add_mul,Nat.one_mul] using hm
+  have hp : 0 < (blocks j : Int) := Int.ofNat_pos.mpr (by unfold blocks; exact Nat.pow_pos (by decide))
+  have ht : 0 < (BoundedIteration.time h (blocks j)).num := Int.mul_pos hp hT
+  have hv : ∀ i, i<blocks j → Fraction.le
+      (pointNorm (BoundedIteration.run a h q i).2) (velocityCap T B s) := by
+    intro i hi
+    change Fraction.le (pointNorm (BoundedIteration.run a h (BoundedIteration.run a h s n) i).2) _
+    rw [← BoundedIteration.run_add]
+    exact GeneralForcePrefix.count_velocity o E0 T tau L B s hE d (m+j) (n+i) (by omega)
+  have hr := QuadraticSecants.finite_second_equivalent_time a h q L (sampleError o E0 hE (m+j))
+    (velocityCap T B s) (duration T m) (Int.le_of_lt hT) d.lipschitz.1
+    (sampleError_nonnegative o E0 hE (m+j))
+    (velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative)
+    (local_contract o E0 T tau L B s hE d.toConditions (m+j)) (blocks j) ht hT
+    (Fraction.equiv_symm (grid_time T m j)) hv
+  have he : n+blocks j=(k+1)*blocks j := by simp only [n,Nat.add_mul,Nat.one_mul]
+  change Fraction.le (FiniteEstimates.pointDistance
+    (QuadraticSecants.secondState (duration T m) hT (BoundedIteration.run a h s n)
+      (BoundedIteration.run a h (BoundedIteration.run a h s n) (blocks j))).1
+    (a (BoundedIteration.run a h s n).1)) _ at hr
+  rw [← BoundedIteration.run_add,he] at hr
+  have hbias : Fraction.equiv (Fraction.mul h (TimeCalibration.inverse (duration T m) hT))
+      (duration (Fraction.ofInt 1) j) := by
+    simp only [h,duration,TimeCalibration.inverse,Fraction.equiv,Fraction.mul,Fraction.ofInt,
+      FiniteGrowth.denominator_power_add]
+    ac_nf
+  apply Fraction.le_equiv_right hr
+  apply Fraction.equiv_trans (Fraction.add_equiv (Fraction.equiv_refl _)
+    (Fraction.mul_equiv hbias (Fraction.equiv_refl _)))
+  simp only [AccelerationEstimates.source,Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add]
+  ac_nf
+
 theorem cell_second_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
@@ -59,47 +117,8 @@ theorem cell_second_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
       (Fraction.add _ (Fraction.add (Fraction.mul (sampleError o E0 hE (m+j)) (Fraction.ofInt 2))
         (Fraction.mul (duration (Fraction.ofInt 1) j)
           (pointNorm (field o E0 hE (m+j) ((nodeName o E0 T tau L B s hE d m k).approx j).1)))))
-    rw [node_approx o E0 T tau L B s hE d m k (by omega) j,
-      node_approx o E0 T tau L B s hE d m (k+1) hk j]
-    let a := field o E0 hE (m+j)
-    let h := duration T (m+j)
-    let n := k*blocks j
-    let q := GeneralForcePrefix.countState o E0 T s hE (m+j) n
-    have hn : n+blocks j ≤ blocks (m+j) := by
-      rw [blocks_add]
-      have hm := Nat.mul_le_mul_right (blocks j) hk
-      simpa only [n,Nat.add_mul,Nat.one_mul] using hm
-    have hp : 0 < (blocks j : Int) := Int.ofNat_pos.mpr (by unfold blocks; exact Nat.pow_pos (by decide))
-    have ht : 0 < (BoundedIteration.time h (blocks j)).num := Int.mul_pos hp hT
-    have hv : ∀ i, i<blocks j → Fraction.le
-        (pointNorm (BoundedIteration.run a h q i).2) (velocityCap T B s) := by
-      intro i hi
-      change Fraction.le (pointNorm (BoundedIteration.run a h (BoundedIteration.run a h s n) i).2) _
-      rw [← BoundedIteration.run_add]
-      exact GeneralForcePrefix.count_velocity o E0 T tau L B s hE d (m+j) (n+i) (by omega)
-    have hr := QuadraticSecants.finite_second_equivalent_time a h q L (sampleError o E0 hE (m+j))
-      (velocityCap T B s) (duration T m) (Int.le_of_lt hT) d.lipschitz.1
-      (sampleError_nonnegative o E0 hE (m+j))
-      (velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative)
-      (local_contract o E0 T tau L B s hE d.toConditions (m+j)) (blocks j) ht hT
-      (Fraction.equiv_symm (grid_time T m j)) hv
-    have he : n+blocks j=(k+1)*blocks j := by simp only [n,Nat.add_mul,Nat.one_mul]
-    change Fraction.le (FiniteEstimates.pointDistance
-      (QuadraticSecants.secondState (duration T m) hT (BoundedIteration.run a h s n)
-        (BoundedIteration.run a h (BoundedIteration.run a h s n) (blocks j))).1
-      (a (BoundedIteration.run a h s n).1)) _ at hr
-    rw [← BoundedIteration.run_add,he] at hr
-    have hbias : Fraction.equiv (Fraction.mul h (TimeCalibration.inverse (duration T m) hT))
-        (duration (Fraction.ofInt 1) j) := by
-      simp only [h,duration,TimeCalibration.inverse,Fraction.equiv,Fraction.mul,Fraction.ofInt,
-        FiniteGrowth.denominator_power_add]
-      ac_nf
-    have hb := Fraction.le_equiv_left (pointState_distance _ _) hr
-    apply Fraction.le_equiv_right hb
-    apply Fraction.equiv_trans (Fraction.add_equiv (Fraction.equiv_refl _)
-      (Fraction.mul_equiv hbias (Fraction.equiv_refl _)))
-    simp only [AccelerationEstimates.source,Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add]
-    ac_nf
+    exact Fraction.le_equiv_left (pointState_distance _ _)
+      (node_second_sample_bound o E0 T tau L B s hE d hT m k hk j)
 
 noncomputable def secondCoefficient (T tau L B : Fraction) (s : Point × Point)
     (ht : 0 < tau.num) : Fraction :=

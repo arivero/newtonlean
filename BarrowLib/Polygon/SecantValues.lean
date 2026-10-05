@@ -91,6 +91,17 @@ theorem secantValue_realize (q : Fraction) (a b : EndpointCauchyName) :
 theorem secantValue_embed (q : Fraction) (s t : Point × Point) :
     secantValue q (embed s) (embed t) = embed (secantState q s t) := rfl
 
+/-- Position of the tangent continuation, using the existing completed
+difference and velocity operators. -/
+def inertialName (h : Fraction) (a : EndpointCauchyName) : EndpointCauchyName :=
+  secantName (Fraction.ofInt 1) a
+    (secantName (HarmonicStability.negF h) (mapName velocityState velocity_nonexpansive a)
+      (constantName (zeroPoint,zeroPoint)))
+
+def inertialValue (h : Fraction) (x : Value) : Value :=
+  secantValue (Fraction.ofInt 1) x
+    (secantValue (HarmonicStability.negF h) (velocityValue x) (embed (zeroPoint,zeroPoint)))
+
 def shiftedName (a : EndpointCauchyName) (m : Nat) : EndpointCauchyName where
   approx := fun j => a.approx (m+j)
   cauchy := by

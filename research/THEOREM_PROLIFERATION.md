@@ -176,3 +176,13 @@ constructed central curve. Its second-order completed operator composes the
 existing secant and velocity maps; it has no second completion implementation.
 One retained-harmonic corollary uses those maps directly. Cauchy-name tail
 boundedness derives half-mesh decay, rather than adding another bound field.
+
+PairingValues now shares one completion proof for dot products and determinants,
+using a derived bounded Cauchy tail. QuadraticPotentialValues composes this
+with existing secants rather than adding a nonlinear quotient implementation
+per force law. GeneralForceQuadraticSecants exposes its actual finite node
+estimate once: both its old completed bridge and the new constructed harmonic
+potential client use the same restarted-run proof. The latter derives an
+actual potential increment, not another interface asserting its leading term.
+These additions have a live C.2 client; count growth still receives no separate
+completion credit.

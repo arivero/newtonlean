@@ -106,8 +106,17 @@ half-mesh product with actual force samples vanish: their constructed force
 name is Cauchy, which derives a bounded tail. Precision-offset invariance
 keeps the same force target. Time continuity gives uniform target error
 H*L*(2V+K), including the final boundary; the retained harmonic curve is a
-corollary. Unrestricted second-order quotients, curved potential steps, the
-parallel binary-time map and D_mesh identification remain separate.
+corollary. ConstructedHarmonicPotential now evaluates the harmonic polynomial potential
+on the actual completed curve and its tangent continuation. PairingValues
+shares one derived Cauchy/representative proof for dot products and determinants;
+QuadraticPotentialValues composes it with existing completed secants. The finite
+work identity identifies the polynomial with the harmonic force. Actual node
+bounds and the shared finite second-order estimate give a uniform O(H) bound:
+Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
+including the last one. No potential-step asymptotic is assumed. General radial
+potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
+remain open. This law test receives no extra completion score.
+The parallel binary-time map remains separate.
 
 ## One global family
 
