@@ -60,10 +60,14 @@ $\mathbf a \times \mathbf b = a_1 b_2 - a_2 b_1$.
 After each Definition, Law, Lemma, Proposition or Scholium, the theorems of
 the Lean reconstruction whose catalogued source passages cite that item are
 printed as complete modules in a smaller monospace face: definitions,
-docstrings, statements and proofs, verbatim, in import order. The catalogue
-(`research/formal-results.json`) assigns each theorem to Newton Project
-paragraph anchors; a module whose theorems cite several items is printed
-under the item most of them cite, with a cross-reference under the others.
+docstrings, statements and proofs, verbatim, in the order of the library
+import lists. The catalogue (`research/formal-results.json`) assigns each
+theorem to Newton Project paragraph anchors; a module whose theorems cite
+several items is printed under the item most of them cite, with a
+cross-reference under the others. Each item collects the anchors of the same
+proposition in De Motu, 1687 and 1713, so the stage-local modules
+(`DeMotu1684/*`, `Principia1687/*`, `Principia1713/*`) appear together under
+the 1687 item while keeping their own namespaces.
 Items that no theorem cites say so. The Lean is a modern reconstruction in
 rational arithmetic with Lean 4 core only: it supplies no historical premise,
 and its appearance under an item records that the item motivated it, not that
@@ -127,7 +131,7 @@ accurate pendulum experiments show (shown later).
 > **1713.** The example adds: in triple the space, sextuple.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded. The model has no mass: forces are accelerative (Definition VII). A `mass` parameter appears only in the potential and circular diagnostics (`Diagnostic/ConstructedHarmonicPotential`, `Comparison/CircleCompare`).}}
+\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded. The model has no mass: forces are accelerative (Definition VII). A `mass` parameter appears only in the potential diagnostics (`Diagnostic/DeflectionPotential`, `Diagnostic/QuadraticEndpointPotential`, `Diagnostic/ConstructedHarmonicPotential`).}}
 
 
 **Definition II.** *The quantity of motion is its measure, arising from the
@@ -168,7 +172,7 @@ the body perseveres in any new state by the force of inertia alone. Impressed
 force has various origins: percussion, pressure, centripetal force.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Encoded, not proved: the velocity kick `pointAdd s.2 (pointScale d (a y))` at the arrival vertex of every cell (`CentralSchedule.cell`, `TimeSubdivision.endKick`).}}
+\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Encoded, not proved: the velocity kick `pointAdd s.2 (pointScale d (a y))` of every cell, with the field evaluated at the arrival vertex in `CentralSchedule.cell`; `TimeSubdivision.endKick` is the same kick for a constant acceleration.}}
 
 
 **Definition V.** *Centripetal force is that by which a body is drawn,
@@ -423,7 +427,7 @@ and conversely, is taught more fully in what follows; the treatise was
 composed for this purpose.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Absolute time is the rational parameter of every schedule and, in the completed layer, the constructed `BinaryTime` quotient; absolute space is the rational plane `Point := Fraction × Fraction` (`TimeSubdivision`). Relative motion appears only as the uniformly moving centre of Proposition II, Case 2.}}
+\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Absolute time is the rational parameter of every schedule and, in the completed layer, the constructed `BinaryTime` quotient; absolute space is the rational plane `Point := Fraction × Fraction` (`BarrowLib/Polygon/PointAlgebra`, in the `TimeSubdivision` namespace). Relative motion appears only as the uniformly moving centre of Proposition II, Case 2.}}
 
 
 # Axioms, or Laws of Motion
@@ -441,7 +445,7 @@ retards it. The greater bodies of planets and comets keep their progressive
 and circular motions longer in less resisting spaces.
 
 
-\noindent{\small\textit{Lean reconstruction: 37 theorems in 3 modules cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 37 theorems in 3 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{Also encoded as the drift in every cell, and stated as `RelativeMotion.lawI\_uniform` (printed under Proposition III, which cites it).}}
 
@@ -1248,9 +1252,9 @@ the same arcs.
 $acE$) are not rectilinear, but curvilinear limits of rectilinear figures.
 
 
-\noindent{\small\textit{Lean reconstruction: 6 theorems in 1 module cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 6 theorems in 1 module cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
-\noindent{\small\textit{Corollary 4, the passage Proposition I cites for its limit, is the premise named `PolygonTrajectoryEnclosure` in `Polygon/PathDefect.lean`: assumed by the edition theorems, not derived.}}
+\noindent{\small\textit{Corollary 4, the passage Proposition I cites for its limit, is the premise named `PolygonTrajectoryEnclosure` in `Polygon/PathDefect.lean`: assumed by the edition theorems, not derived. The `Contact/FiniteSums` step sums printed under Lemma XI by their catalogue anchor are Lemma II–III material.}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/Enclosure.lean}}{\small, 6 theorems, 69 lines}
 
@@ -1474,13 +1478,9 @@ the sides $AD$, $AE$.
 > points $B$, $C$ coalesce with $A$ *while the length $Ae$ stays fixed*.
 
 
-\noindent{\small\textit{Lean reconstruction: 1 theorem in 2 modules cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 1 theorem in 1 module cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
-\noindent{\small\texttt{NewtonLimitDynamics/Common/RationalMagnitudes.lean}}{\small, definitions only, 1 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Common.RationalMagnitudes
-\end{Verbatim}
+\noindent{\small\textit{The catalogue anchors this module to Lemma IX; its `Ultimate` conclusions are conditional on `Ultimate` hypotheses (the limit interface transports limits, it does not produce one).}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Principia1687/ConstructedRatio.lean}}{\small, 1 theorem, 25 lines}
 
@@ -1573,7 +1573,9 @@ body.
 > ratio.
 
 
-\noindent{\small\textit{Lean reconstruction: 15 theorems in 5 modules cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 15 theorems in 5 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+
+\noindent{\small\textit{`LemmaXPremises` (both editions) is a bundle of `Ultimate` fields whose theorem is their squeeze; no instance is ever built, and the 1713 structure only wraps the 1687 one, so the 1713 force clause has no separate formal content. `MonotoneEnclosure` formalizes that clause on finite cells, unconnected to the theorem.}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Principia1687/LemmaX.lean}}{\small, 2 theorems, 33 lines}
 
@@ -2020,7 +2022,9 @@ and segments are in the triplicate ratio both of the tangents $AD$, $Ad$ and of
 the chords and arcs $AB$, $Ab$.
 
 
-\noindent{\small\textit{Lean reconstruction: 13 theorems in 2 modules cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 13 theorems in 2 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+
+\noindent{\small\textit{`ContactEnclosure` is likewise a bundle of limit fields with no instance; its docstring says establishing them from an actual curved diagram remains open.}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Contact/Bounds.lean}}{\small, 4 theorems, 64 lines}
 
@@ -2395,7 +2399,9 @@ consequentia*.
 > not at rest but move uniformly in a straight line.
 
 
-\noindent{\small\textit{Lean reconstruction: 435 theorems in 26 modules cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 435 theorems in 24 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+
+\noindent{\small\textit{The finite part is exact for any central field (`CentralSchedule.swept\_eq`). The limiting step is the assumed premise `PolygonTrajectoryEnclosure`; the twelve stage-local theorems in `DeMotu1684/AreaLaw` and the two `PropositionI` files are one-line aliases of three Polygon theorems, kept apart by stage. The convergence result `HarmonicPathRegion.D\_mesh\_tends\_zero` is not yet connected to that premise (handoff Task E). De Motu and 1713 anchors of this proposition are collected under this item.}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/Finite.lean}}{\small, 16 theorems, 183 lines}
 
@@ -4579,18 +4585,6 @@ theorem sample_closed_defect_nonzero :
     ¬ Fraction.equiv (closedDefect one half sample) zero := by decide
 
 end NewtonLimitDynamics.Polygon.HarmonicRefinement
-\end{Verbatim}
-
-\noindent{\small\texttt{NewtonLimitDynamics/Polygon/PointBounds.lean}}{\small, definitions only, 1 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.PointBounds
-\end{Verbatim}
-
-\noindent{\small\texttt{NewtonLimitDynamics/Polygon/TriangleBounds.lean}}{\small, definitions only, 1 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.TriangleBounds
 \end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/HarmonicComparison.lean}}{\small, 18 theorems, 214 lines}
@@ -8493,7 +8487,9 @@ $S$.
 > radii meet toward the direction of motion.
 
 
-\noindent{\small\textit{Lean reconstruction: 12 theorems in 1 module cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 12 theorems in 1 module cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+
+\noindent{\small\textit{Also `CentralSchedule.unequal\_cells\_converse` (printed under Proposition I): the finite converse for unequal cells.}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/Converse.lean}}{\small, 12 theorems, 141 lines}
 
@@ -8703,7 +8699,7 @@ body moves in any way, provided the centripetal force taken is what remains
 after subtracting the total force acting on that other body.
 
 
-\noindent{\small\textit{Lean reconstruction: 17 theorems in 1 module cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 17 theorems in 1 module cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/RelativeMotion.lean}}{\small, 17 theorems, 272 lines}
 
@@ -9116,7 +9112,9 @@ placed centres, by applying the preceding proof to those cases.
 > periodic times inversely.
 
 
-\noindent{\small\textit{Lean reconstruction: 15 theorems in 3 modules cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 15 theorems in 3 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+
+\noindent{\small\textit{No Lean reconstructs the proposition's proof. `Comparison/CircleCompare` gives the finite sagitta core only, with the 1687 and 1713 limiting routes deliberately not derived; `HarmonicStability` is anchored here by its reference to Corollary 3 though its content serves Proposition I; `InverseCubeAreal` is a diagnostic.}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/HarmonicStability.lean}}{\small, 11 theorems, 136 lines}
 
@@ -9558,7 +9556,7 @@ end NewtonLimitDynamics.Comparison
 
 # Appendix B. The foundation: modules with no source anchor
 
-95 modules with 1002 theorems have no Newton anchor. They build the rational arithmetic, point algebra, finite estimates, Cauchy names and quotient values, binary time, square covers and the lifting of operations to completed values on which the anchored proofs stand. In full, in import order, followed by the two library root files.
+92 modules with 1002 theorems have no Newton anchor. They build the rational arithmetic, point algebra, finite estimates, Cauchy names and quotient values, binary time, square covers and the lifting of operations to completed values on which the anchored proofs stand. In full, in import order, followed by the two library root files.
 
 \noindent{\small\texttt{BarrowLib/Common/Quadratic.lean}}{\small, 4 theorems, 72 lines}
 
@@ -19463,12 +19461,6 @@ theorem sampled_uniform_refinement (o : Oracle) (j : Nat)
 end NewtonLimitDynamics.Polygon.ForceClasses
 \end{Verbatim}
 
-\noindent{\small\texttt{NewtonLimitDynamics/Polygon/ConvexCover.lean}}{\small, definitions only, 1 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.ConvexCover
-\end{Verbatim}
-
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/CauchyValues.lean}}{\small, 7 theorems, 130 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -19602,12 +19594,6 @@ theorem sample_endpoint_value_ne_initial :
   exact (Fraction.magnitudes.lt_irrefl sampleLower) hloop'
 
 end NewtonLimitDynamics.Polygon.CauchyValues
-\end{Verbatim}
-
-\noindent{\small\texttt{NewtonLimitDynamics/Polygon/BinaryTime.lean}}{\small, definitions only, 1 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.BinaryTime
 \end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/PositionValues.lean}}{\small, 14 theorems, 208 lines}
@@ -25430,12 +25416,6 @@ theorem normalized_triangles_converge (o : CentralOracle) (E0 T tau L B : Fracti
 end NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle
 \end{Verbatim}
 
-\noindent{\small\texttt{NewtonLimitDynamics/Common/Quadratic.lean}}{\small, definitions only, 1 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Common.Quadratic
-\end{Verbatim}
-
 \noindent{\small\texttt{BarrowLib.lean}}{\small, definitions only, 55 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -25585,4 +25565,29 @@ import NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants
 import NewtonLimitDynamics.Polygon.HarmonicQuadraticSecants
 import NewtonLimitDynamics.Diagnostic.ConstructedHarmonicPotential
 import NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle
+\end{Verbatim}
+
+
+## Compatibility import stubs
+
+6 files in `NewtonLimitDynamics/` consist of a single import line and keep old module names valid after the migration into BarrowLib. They are not counted as modules above.
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+-- NewtonLimitDynamics/Common/RationalMagnitudes.lean
+import BarrowLib.Common.RationalMagnitudes
+
+-- NewtonLimitDynamics/Polygon/PointBounds.lean
+import BarrowLib.Polygon.PointBounds
+
+-- NewtonLimitDynamics/Polygon/TriangleBounds.lean
+import BarrowLib.Polygon.TriangleBounds
+
+-- NewtonLimitDynamics/Polygon/ConvexCover.lean
+import BarrowLib.Polygon.ConvexCover
+
+-- NewtonLimitDynamics/Polygon/BinaryTime.lean
+import BarrowLib.Polygon.BinaryTime
+
+-- NewtonLimitDynamics/Common/Quadratic.lean
+import BarrowLib.Common.Quadratic
 \end{Verbatim}

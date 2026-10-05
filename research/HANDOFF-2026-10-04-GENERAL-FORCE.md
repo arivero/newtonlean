@@ -365,3 +365,58 @@ Commit each verified increment.
   record the exact statement, its premises and the countermodel. Lean
   rejection alone proves no obstruction.
 - Preserve the unrelated conversation-export files.
+
+## Review findings on the Lean, 5 October evening
+
+A full read of every module as printed in `docs/reference/principia-with-lean.md`
+(report: [review-principia-with-lean-2026-10-05.md](review-principia-with-lean-2026-10-05.md))
+found no `sorry`, axiom, non-structural recursion or circular definition, and
+every quotient lift carries its invariance proof. What it found is softer and
+goes on the queue, in this order:
+
+1. **The limit layer is never grounded.** Every theorem concluding `Ultimate`,
+   `Near`, `Vanishes` or `QuadraticInitialDeflection` has a hypothesis of the
+   same kind; no unconditional instance exists. In particular
+   `PolygonTrajectoryEnclosure` is never proved for any concrete pair, so the
+   four edition theorems for Proposition I's last step stay conditional even
+   for the harmonic field, where `HarmonicPathRegion.D_mesh_tends_zero`
+   already holds but is not connected to `Vanishes`. This is Task E.2's first
+   concrete step: derive `PolygonTrajectoryEnclosure` for the harmonic
+   instance from `D_mesh_tends_zero`, then for the general regional
+   construction.
+2. **Premise bundles with no instance.** `Principia1687.LemmaXPremises`,
+   `Principia1713.LemmaXPremises` and `ContactEnclosure` are bundles of limit
+   fields whose theorems are their squeeze, never instantiated; the 1713
+   structure only wraps the 1687 one, so the 1713 *Vi finita* clause has no
+   formal content, while `MonotoneEnclosure` formalizes it on finite cells
+   unconnected to the theorem. Either build instances from the finite
+   results or rename these as interfaces in their docstrings and the
+   catalogue notes.
+3. **The force oracle is only ever exact.** `exactOracle`, `harmonicOracle` and
+   `parallelOracle` all set `error := 0`; `error_vanishes` and `coherent` are
+   never discharged. The Kepler `1/r²` instance of A.6 is the first real test;
+   `GeneralForceGrowth.Data` is also never instantiated, and no annular
+   `Frame` constructor exists although the docstring says singular laws use
+   one.
+4. **Vacuous or unused classes.** `ClassDForce := True`; `ClassBForce`,
+   `ClassCForce`, `ContinuousOn`, `BoundedOn`, `CalibratedGrowth.Growth`
+   appear only as hypotheses. Give class (d) honest content (finite centrality
+   only) or remove it, and establish B/C for at least one oracle each when
+   classes (c)–(d) are reached.
+5. **Docstrings that overclaim.** `Comparison/CircleCompare`: `sagitta_chord`
+   is used by no theorem and `force_ratio_is_sagitta_ratio` is
+   cross-multiplication, yet the docstring calls them a checked core, and it
+   attributes the sagitta-over-`t²` measure to Proposition II (it is Lemma X
+   Cor. 2 / 1713 Prop. I Cor. 4). `ZeroForce.inertialAt` says it is built from
+   the recurrence; it is the closed formula, with agreement proved afterwards.
+6. **Housekeeping.** Dead declarations `Contact.Quantities`,
+   `PartitionControl.positiveWeights`, `SeqVanishes`; one file declaring into
+   six namespaces (`BarrowLib/Polygon/DyadicArithmetic`, also `PointAlgebra`,
+   `StateDistance`), which hides where names live; `decide` on large nested
+   rationals in four sample theorems. Catalogue anchors to revisit:
+   `Contact/FiniteSums` is Lemma II–III material anchored to Lemma XI, and
+   `HarmonicStability` serves Proposition I but is anchored to Prop. IV Cor. 3.
+
+Items 1 and 3 are part of Tasks E and A.6; items 2, 4 and 5 are small and can
+be done when their modules are next touched; item 6 is housekeeping for a
+quiet moment. None changes a completion score.

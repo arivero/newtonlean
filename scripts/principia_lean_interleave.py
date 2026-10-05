@@ -90,15 +90,15 @@ ITEMS = [
 # Where each item lives in the Lean when no theorem cites it, or in addition
 # to the theorems that do.  Editorial; verified against the sources at HEAD.
 NOTES = {
-    0: "Not encoded. The model has no mass: forces are accelerative (Definition VII). A `mass` parameter appears only in the potential and circular diagnostics (`Diagnostic/ConstructedHarmonicPotential`, `Comparison/CircleCompare`).",
+    0: "Not encoded. The model has no mass: forces are accelerative (Definition VII). A `mass` parameter appears only in the potential diagnostics (`Diagnostic/DeflectionPotential`, `Diagnostic/QuadraticEndpointPotential`, `Diagnostic/ConstructedHarmonicPotential`).",
     1: "Not encoded; with mass absent, velocity stands in for quantity of motion.",
     2: "Encoded, not proved: the inertial drift `pointAdd s.1 (pointScale d s.2)` that opens every cell (`CentralSchedule.cell`), and `ZeroForce.inertialAt`.",
-    3: "Encoded, not proved: the velocity kick `pointAdd s.2 (pointScale d (a y))` at the arrival vertex of every cell (`CentralSchedule.cell`, `TimeSubdivision.endKick`).",
+    3: "Encoded, not proved: the velocity kick `pointAdd s.2 (pointScale d (a y))` of every cell, with the field evaluated at the arrival vertex in `CentralSchedule.cell`; `TimeSubdivision.endKick` is the same kick for a constant acceleration.",
     4: "Encoded as the predicate `CentralSchedule.central` (`det p (a p) = 0`: the force is parallel to the radius) and the `inward` field of `ForceClasses.CentralOracle` (every sample a nonnegative multiple of `-p`).",
     5: "Not encoded.",
     6: "Encoded: a force is a map `Field := Point → Point` from positions to accelerations (`CentralSchedule`), or its rational samples with error (`ForceClasses.Oracle`).",
     7: "Not encoded (no mass).",
-    8: "Absolute time is the rational parameter of every schedule and, in the completed layer, the constructed `BinaryTime` quotient; absolute space is the rational plane `Point := Fraction × Fraction` (`TimeSubdivision`). Relative motion appears only as the uniformly moving centre of Proposition II, Case 2.",
+    8: "Absolute time is the rational parameter of every schedule and, in the completed layer, the constructed `BinaryTime` quotient; absolute space is the rational plane `Point := Fraction × Fraction` (`BarrowLib/Polygon/PointAlgebra`, in the `TimeSubdivision` namespace). Relative motion appears only as the uniformly moving centre of Proposition II, Case 2.",
     9: "Also encoded as the drift in every cell, and stated as `RelativeMotion.lawI_uniform` (printed under Proposition III, which cites it).",
     10: "Encoded in impulse form by the kick of `CentralSchedule.cell`: the change of velocity is `d · a(y)`, along the force and proportional to it; and by `Finite.EuclideanConstruction.kick`, which displaces the vertex parallel to the radius.",
     11: "Not encoded: the model is single-body. Proposition III cancels the second body's force by Corollary VI, not by Law III.",
@@ -111,7 +111,13 @@ NOTES = {
     18: "Not encoded, except that Galileo's parabola is the parallel-force instance `ForceClasses.parallelOracle` and `Polygon/ParallelQuadraticEndpoint`.",
     19: "Encoded as the limit interface of `BarrowLib/Common/Quadratic.lean`: `Near` and `Ultimate` (ultimate equality is approach closer than any given difference), used by `enclosure_reconstruction`, the squeeze; and as the `Within` and `Vanishes` predicates of `CauchyValues` and `Enclosure`.",
     20: "Not separately encoded; its equal-base step sums appear with Lemma III.",
-    21: "Corollary 4, the passage Proposition I cites for its limit, is the premise named `PolygonTrajectoryEnclosure` in `Polygon/PathDefect.lean`: assumed by the edition theorems, not derived.",
+    21: "Corollary 4, the passage Proposition I cites for its limit, is the premise named `PolygonTrajectoryEnclosure` in `Polygon/PathDefect.lean`: assumed by the edition theorems, not derived. The `Contact/FiniteSums` step sums printed under Lemma XI by their catalogue anchor are Lemma II–III material.",
+    27: "The catalogue anchors this module to Lemma IX; its `Ultimate` conclusions are conditional on `Ultimate` hypotheses (the limit interface transports limits, it does not produce one).",
+    28: "`LemmaXPremises` (both editions) is a bundle of `Ultimate` fields whose theorem is their squeeze; no instance is ever built, and the 1713 structure only wraps the 1687 one, so the 1713 force clause has no separate formal content. `MonotoneEnclosure` formalizes that clause on finite cells, unconnected to the theorem.",
+    29: "`ContactEnclosure` is likewise a bundle of limit fields with no instance; its docstring says establishing them from an actual curved diagram remains open.",
+    31: "The finite part is exact for any central field (`CentralSchedule.swept_eq`). The limiting step is the assumed premise `PolygonTrajectoryEnclosure`; the twelve stage-local theorems in `DeMotu1684/AreaLaw` and the two `PropositionI` files are one-line aliases of three Polygon theorems, kept apart by stage. The convergence result `HarmonicPathRegion.D_mesh_tends_zero` is not yet connected to that premise (handoff Task E). De Motu and 1713 anchors of this proposition are collected under this item.",
+    32: "Also `CentralSchedule.unequal_cells_converse` (printed under Proposition I): the finite converse for unequal cells.",
+    36: "No Lean reconstructs the proposition's proof. `Comparison/CircleCompare` gives the finite sagitta core only, with the 1687 and 1713 limiting routes deliberately not derived; `HarmonicStability` is anchored here by its reference to Corollary 3 though its content serves Proposition I; `InverseCubeAreal` is a diagnostic.",
     22: "Not encoded.",
     23: "Not encoded; Proposition IV's limiting route through it is documented as an editorial interpretation, not derived.",
     24: "Not encoded; the chord, tangent and arc comparison is not needed by the finite steps of Propositions I–IV.",
@@ -257,9 +263,12 @@ def main():
             home[f] = hit if hit is not None else (-1 if anchors else -2)
         else:
             home[f] = max(v.items(), key=lambda kv: (kv[1], -kv[0]))[0]
+    def is_stub(f):
+        return all(l.startswith('import ') for l in texts[f].split('\n') if l.strip())
+    stubs = [f for f in files if f in texts and is_stub(f)]
     per_item = defaultdict(list)
     for f in files:
-        if f in home:
+        if f in home and f not in stubs:
             per_item[home[f]].append(f)
     # also the two root import files, so that every library line appears
     roots = []
@@ -295,7 +304,7 @@ def main():
         n = sum(votes[f][idx] for f in fs)
         head = (f'\\noindent{{\\small\\textit{{Lean reconstruction: {n} theorem{"s" if n != 1 else ""} '
                 f'in {len(fs)} module{"s" if len(fs) != 1 else ""} cite this item; the modules follow in full, '
-                f'in import order.}}}}\n')
+                f'in the order of the library import lists (a module may import one printed under another item).}}}}\n')
         if others:
             names = [f'{ITEMS[home[f]][0].strip("*#").strip()} ({f.split("/")[-1]}, {c})' for f, c in others]
             head += ('\n\\noindent{\\small\\textit{Also cited by theorems printed under: ' + '; '.join(names) + '.}}\n')
@@ -356,10 +365,14 @@ def main():
 After each Definition, Law, Lemma, Proposition or Scholium, the theorems of
 the Lean reconstruction whose catalogued source passages cite that item are
 printed as complete modules in a smaller monospace face: definitions,
-docstrings, statements and proofs, verbatim, in import order. The catalogue
-(`research/formal-results.json`) assigns each theorem to Newton Project
-paragraph anchors; a module whose theorems cite several items is printed
-under the item most of them cite, with a cross-reference under the others.
+docstrings, statements and proofs, verbatim, in the order of the library
+import lists. The catalogue (`research/formal-results.json`) assigns each
+theorem to Newton Project paragraph anchors; a module whose theorems cite
+several items is printed under the item most of them cite, with a
+cross-reference under the others. Each item collects the anchors of the same
+proposition in De Motu, 1687 and 1713, so the stage-local modules
+(`DeMotu1684/*`, `Principia1687/*`, `Principia1713/*`) appear together under
+the 1687 item while keeping their own namespaces.
 Items that no theorem cites say so. The Lean is a modern reconstruction in
 rational arithmetic with Lean 4 core only: it supplies no historical premise,
 and its appearance under an item records that the item motivated it, not that
@@ -388,6 +401,10 @@ not included.
              'square covers and the lifting of operations to completed values on which the anchored proofs '
              'stand. In full, in import order, followed by the two library root files.\n\n')
     text += render_files(found_files + roots)
+    text += '\n\n## Compatibility import stubs\n\n'
+    text += (f'{len(stubs)} files in `NewtonLimitDynamics/` consist of a single import line and keep old module '
+             'names valid after the migration into BarrowLib. They are not counted as modules above.\n\n')
+    text += verbatim('\n\n'.join(f'-- {f}\n{texts[f].rstrip()}' for f in stubs))
     OUT.write_text(text.rstrip('\n') + '\n')
     n_items = sum(len(v) for k, v in per_item.items() if k >= 0)
     multi = [f for f in files if f in votes and len([k for k in votes[f] if k >= 0]) > 1]
