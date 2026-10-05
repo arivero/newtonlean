@@ -20,7 +20,8 @@ small-window bound in BarrowLib; bounded actual Newton schedules and
 continuous-force local consistency are also checked. These realize force data
 and control finite polygons, not the general motion. Geometric precision
 selection, general polygon Cauchy names and restart/gluing remain open; the
-generic extraction is complete; B.1/B.2 follow next.
+generic extraction is complete. B.1/B.2 now have the bounded results below;
+the remaining comparison and alias bridges precede C.1.
 
 ## One global family
 
@@ -28,8 +29,12 @@ Fix nonnegative rational T, initial state s, and harmonic coefficient w, with
 T*(1+|w|)<=1/2. The level-j polygon has 2^j actual end-kick cells of duration
 H_j=T/2^j. Existing HarmonicDyadic endpoint names instead rescale a complete
 schedule separately for each rational sample time. Their uniform rational-time
-control is checked, but identifying those values with prefixes of this global
-family requires a further comparison. It is not an identity of schedules.
+control is checked. HarmonicConstructionAgreement now identifies their values
+at reciprocal dyadic times with global prefixes by an exact finite index shift
+and rational duration congruence. Zero/full-window endpoints agree as well.
+Arbitrary numerators need an integer-refinement comparison: their schedules
+have different cell counts, and an exact three-tick example disproves finite
+schedule equality without disproving limit agreement.
 
 Use a binary address b to select intermediate times directly in the global
 family: k_0=0, k_(j+1)=2*k_j+b_j, with b_j either0 or1. The intended level-j
@@ -40,6 +45,24 @@ finite-gap bounds construct these state Cauchy names; see
 [the checkpoint](OVERNIGHT-2026-10-03.md). BinaryTime now constructs their time
 names and quotients the addresses by proved time-name equivalence. Identification
 with an external real interval remains separate.
+
+## Actual within-cell polygon names
+
+HarmonicPolygonCurve constructs the affine position name at address b and
+coarse level m from its actual prefix (x_m,v_m), with approximants
+`x_m + (t_(m+j)-t_m)*v_m`. AffineValues proves the Cauchy condition and
+`0 ≤ t_(m+j)-t_m ≤ H_m`; every approximant is on the actual coarse cell.
+The planar value has distance at most
+
+    R_m = [2*T*stateNorm(s) + prefixCoefficient(w,T,s)] / 2^m
+
+to gammaPosition at the same address. Both terms are derived: the coarse
+drift is bounded by H_m*2M, and the already proved prefix-to-value tail
+supplies the other term. A positive-tolerance modulus gives convergence
+uniformly over every address. These are whole-cell bounds, beyond vertices.
+Equivalent time addresses in the same coarse cell give the same polygon
+position value. Different-cell boundary aliases and the single quotient
+polygon map remain open; no planar content or D_mesh is inferred.
 
 ## Checked state-value construction
 

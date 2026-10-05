@@ -54,8 +54,12 @@ constructed acceleration values, actual bounded polygon iterates and finite
 mesh-uniform refinement accumulation. Continuous class (b) has local consistency
 through its own modulus; full-family convergence and uniqueness are separate.
 D.2 extracts the remaining generic completion/geometry/time layers into the
-foundation; B.1/B.2 follow in the handoff's order. General motion realization,
-restart/gluing and derived confinement remain obligations.
+foundation. B.1 now closes reciprocal-dyadic E/G agreement and endpoint cases;
+arbitrary numerators need an integer-refinement estimate. B.2 constructs
+within-cell polygon names and a uniform whole-edge bound. Complete different-cell
+alias independence and the quotient coarse map before the region/content
+work in C.1. General motion realization, restart/gluing and derived confinement
+remain obligations.
 Task C.2's permitted parallel finite identities are in
 [Arg007](action-arguments/261004gpt6.1solv1Arg007.md), without identifying D_mesh.
 

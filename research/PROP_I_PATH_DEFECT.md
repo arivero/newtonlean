@@ -10,8 +10,11 @@ The [foundation inventory](BARROWLIB_BOUNDARY.md) is now extracted into
 BarrowLib, including geometry, Cauchy values, binary time and position values,
 alongside actual bounded iterates and mesh-uniform finite refinement estimates.
 These compare actual finite endpoints and retain force-sampling error; they
-do not define an intervening region or its content. Continuous-force local
-consistency is also checked, without a stability or uniqueness inference.
+do not define an intervening region or its content. B.2 now constructs
+within-cell polygon position names and bounds their distance to the actual
+harmonic gammaPosition throughout cells. The bound decays uniformly over
+addresses; the different-cell alias bridge remains open. Continuous-force
+local consistency is also checked, without a stability or uniqueness inference.
 The exact deflection triangles
 and potential steps in [Arg007](action-arguments/261004gpt6.1solv1Arg007.md)
 compare a next polygon point to its inertial continuation. They supply no

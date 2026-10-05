@@ -25,10 +25,12 @@ is at least 39/512. The projected right and left values differ. A radius-1
 coordinate square contains (1,1) at centre (0,0), whose L1 distance is 2.
 These controls use the disclosed production inputs, not an independent oracle.
 
-Next construct the level-m polygon map P_m on the same time quotient from its
-actual coarse vertices and within-cell inertial drifts. Prove this map agrees
-for equivalent time descriptions; an address choice must not change the
-polygon position.
+HarmonicPolygonCurve now constructs level-m polygon position names from actual
+coarse vertices and within-cell inertial drifts at every binary address. Their
+whole-cell distance to gammaPosition is bounded uniformly by an explicit
+geometric radius. Same-cell equivalent addresses agree. Complete the
+different-cell boundary alias bridge before lifting a single P_m to the time
+quotient; an address choice must not change the polygon position.
 
 Define the intervening region as the union of segments joining simultaneous
 positions P_m(t) and gamma(t). The segment parameter must range over the

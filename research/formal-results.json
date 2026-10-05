@@ -109,7 +109,7 @@
   },
   {
     "name": "NewtonLimitDynamics.FiniteGrowth.denominator_power_add",
-    "private": true,
+    "private": false,
     "file": "BarrowLib/Common/FiniteGrowth.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
@@ -612,6 +612,15 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.nonnegative_equiv",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (he : equiv a b) (hb : 0 ≤ b.num) : 0 ≤ a.num",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Fraction.mul_zero",
     "private": false,
     "file": "BarrowLib/Common/RationalMagnitudes.lean",
@@ -646,6 +655,87 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(z a b : Fraction) (h : le (add z a) (add z b)) : le a b",
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.affine_difference",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v : Point) (t u : Fraction) : stateEquiv (stateSub (affineState x v t) (affineState x v u)) (pointScale (durationDifference u t) v, zeroPoint)",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.affine_distance",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v : Point) (t u : Fraction) : Fraction.equiv (distance (affineState x v t) (affineState x v u)) (Fraction.mul (durationDifference u t).abs (pointNorm v))",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.shift_difference",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c t u : Fraction) : Fraction.equiv (durationDifference (durationDifference c u) (durationDifference c t)) (durationDifference u t)",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.affine_vertex_distance",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x v : Point) (t : Fraction) : Fraction.equiv (distance (affineState x v t) (x, zeroPoint)) (Fraction.mul t.abs (pointNorm v))",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.phase_abs_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m j : Nat) : Fraction.le (durationDifference (timeApprox b T m) (timeApprox b T (m+j))).abs (duration T m)",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.phase_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) : (j : Nat) → 0 ≤ (durationDifference (timeApprox b T m) (timeApprox b T (m+j))).num",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.phase_interval",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m j : Nat) : 0 ≤ (durationDifference (timeApprox b T m) (timeApprox b T (m+j))).num ∧ Fraction.le (durationDifference (timeApprox b T m) (timeApprox b T (m+j))) (duration T m)",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.edge_vertex_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (x v : Point) (m : Nat) : Within (realize (edgeName b T hT x v m)) (embed (x, zeroPoint)) (Fraction.mul (duration T m) (pointNorm v))",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.AffineValues.edgeName_same_start",
+    "private": false,
+    "file": "BarrowLib/Polygon/AffineValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (x v : Point) (m : Nat) (hbase : timeApprox b T m = timeApprox c T m) (htime : AddressEquiv T hT b c) : NameEquiv (edgeName b T hT x v m) (edgeName c T hT x v m)",
+    "interpretation_and_remaining_premises": "Constructed affine planar Cauchy names on shifted binary-time approximants. Exact distance formulas, a proved phase in the coarse cell interval and a closed vertex bound support whole-edge comparisons. Equivalent time addresses with the same rational starting time give equivalent affine names. No field, limiting curve, global piecewise polygon map or area content is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.BinaryTime.scalarState_distance",
@@ -933,6 +1023,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point × Point) : Fraction.equiv (distance a b) (Fraction.ofInt 0) ↔ stateEquiv a b",
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_of_levelwise_stateEquiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : EndpointCauchyName) (h : ∀ n, stateEquiv (a.approx n) (b.approx n)) : NameEquiv a b",
     "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
@@ -1320,6 +1419,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (j : Nat) : ticks b (j + 1) = ticks b j + ticks b j + bit b j",
+    "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeComparison.durationDifference_chain",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicArithmetic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c : Fraction) : Fraction.equiv (durationDifference a c) (Fraction.add (durationDifference a b) (durationDifference b c))",
     "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
   },
   {
@@ -2070,6 +2178,24 @@
     "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_zero_tail",
+    "private": false,
+    "file": "BarrowLib/Polygon/IntegerRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (m : Nat) (hz : ∀ j, m ≤ j → b j = false) : (j : Nat) → ticks b (m + j) = ticks b m * blocks j",
+    "interpretation_and_remaining_premises": "Elementary zero-tail binary tick and nested dyadic-duration arithmetic. This file currently supplies the exact one-tick schedule indexing bridge; it does not yet contain an arbitrary-integer finite refinement estimate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.duration_nested",
+    "private": false,
+    "file": "BarrowLib/Polygon/IntegerRefinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (m j : Nat) : Fraction.equiv (duration (duration T m) j) (duration T (m + j))",
+    "interpretation_and_remaining_premises": "Elementary zero-tail binary tick and nested dyadic-duration arithmetic. This file currently supplies the exact one-tick schedule indexing bridge; it does not yet contain an arbitrary-integer finite refinement estimate."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm",
     "private": false,
     "file": "BarrowLib/Polygon/PointAlgebra.lean",
@@ -2410,6 +2536,60 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(p centre : Point) (radius : NonnegativeRadius) (hx : Fraction.le (distance (firstState (p, zeroPoint)) (firstState (centre, zeroPoint))) radius.val) (hy : Fraction.le (distance (secondState (p, zeroPoint)) (secondState (centre, zeroPoint))) radius.val) : CoordinateSquare centre radius (embedPosition p)",
     "interpretation_and_remaining_premises": "Generic nonexpansive rational projections and quotient maps, planar position values and completed coordinate squares. Name and representative preservation precede value lifting. Coordinate-square membership transfers eventual rational bounds; it does not define planar content or a polygon-curve region."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factorDenominator_positive",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScaledTolerance.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C : Fraction) (hC : 0 ≤ C.num) : 0 < (factorDenominator C).num",
+    "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factorDelta_positive",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScaledTolerance.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C eps : Fraction) (hC : 0 ≤ C.num) (heps : 0 < eps.num) : 0 < (factorDelta C eps hC).num",
+    "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factor_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScaledTolerance.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C eps d : Fraction) (hC : 0 ≤ C.num) (hd : 0 ≤ d.num) (hdelta : Fraction.lt d (factorDelta C eps hC)) : Fraction.lt (Fraction.mul d C) eps",
+    "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factor_delta_weak",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScaledTolerance.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(C eps : Fraction) (hC : 0 ≤ C.num) (heps : 0 ≤ eps.num) : Fraction.le (Fraction.mul (factorDelta C eps hC) C) eps",
+    "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_mono",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScaledTolerance.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : EndpointCauchyName) (R S : Fraction) (hRS : Fraction.le R S) (h : NameBound a b R) : NameBound a b S",
+    "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.within_mono",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScaledTolerance.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R S : Fraction) (hRS : Fraction.le R S) (h : Within x y R) : Within x y S",
+    "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.neg_equiv",
@@ -5595,6 +5775,87 @@
     "interpretation_and_remaining_premises": "Modern finite comparison of the actual harmonic end-kick cell. Drift and kick estimates derive amplification by kappa=(1+abs(h))*(1+abs(h)*abs(w)); subtracting two actual outputs equals applying the cell to the input difference, giving a one-step perturbation bound. Signed and zero parameters are covered. No regularity assumption or stability field replaces the actual calculation. Global schedule comparison, the nonnegative region between polygons, trajectory existence and mechanical limit identification remain open."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.factor_nonnegative",
+    "private": true,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.subduration_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : DyadicSmallTime w (duration T m)",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_level",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m j : Nat) (htick : ticks b m = 1) (hz : ∀ i, m ≤ i → b i = false) : stateEquiv (endpoint w (duration T m) s j) (prefixState b w T s (m + j))",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_names",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (htick : ticks b m = 1) (hz : ∀ i, m ≤ i → b i = false) : NameEquiv (endpointName w (duration T m) s hT (subduration_small w T m hT hs)) (prefixName b w T s hT hs)",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (htick : ticks b m = 1) (hz : ∀ i, m ≤ i → b i = false) : timeValue w s ⟨duration T m, hT, subduration_small w T m hT hs⟩ = gammaValue w T s hT hs (Quotient.mk _ b)",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.full_window_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : timeValue w s ⟨T,hT,hs⟩ = gammaValue w T s hT hs (rightTime T hT)",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.zero_window_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hz : T.num = 0) : timeValue w s ⟨T,hT,hs⟩ = gammaValue w T s hT hs (Quotient.mk _ b)",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_finite_control",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (distance (endpoint one threeSixteenths testState 0) (prefixState threeQuarterAddress one quarter testState 2)) ⟨426975,16777216,by decide⟩",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_finite_identity_false",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicConstructionAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ¬ stateEquiv (endpoint one threeSixteenths testState 0) (prefixState threeQuarterAddress one quarter testState 2)",
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicCover.totalTime_nonnegative",
     "private": true,
     "file": "NewtonLimitDynamics/Polygon/HarmonicCover.lean",
@@ -6503,6 +6764,78 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": Fraction.equiv (tailCap sampleOne sampleTime sampleState 0) ⟨3, 8, by decide⟩",
     "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) : 0 ≤ (edgeCoefficient w T s).num",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Same-cell address independence is proved; different-cell boundary aliases and a single global coarse polygon map on the time quotient remain open. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeRadius_geometric",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (m : Nat) : Fraction.equiv (edgeRadius w T s m) (duration (edgeCoefficient w T s) m)",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Same-cell address independence is proved; different-cell boundary aliases and a single global coarse polygon map on the time quotient remain open. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeRadius_eventually_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N ≤ m → Fraction.lt (edgeRadius w T s m) eps",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Same-cell address independence is proved; different-cell boundary aliases and a single global coarse polygon map on the time quotient remain open. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_phase_interval",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m j : Nat) : 0 ≤ (HarmonicTimeComparison.durationDifference (timeApprox b T m) (timeApprox b T (m+j))).num ∧ Fraction.le (HarmonicTimeComparison.durationDifference (timeApprox b T m) (timeApprox b T (m+j))) (duration T m)",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Same-cell address independence is proved; different-cell boundary aliases and a single global coarse polygon map on the time quotient remain open. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_vertex_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : Within (polygonPosition b w T s hT m).val (positionValue (embed (prefixState b w T s m))) (Fraction.mul (duration T m) (Fraction.mul (Fraction.ofInt 2) (stateNorm s)))",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Same-cell address independence is proved; different-cell boundary aliases and a single global coarse polygon map on the time quotient remain open. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.whole_edge_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : Within (polygonPosition b w T s hT m).val (gammaPosition w T s hT hs (Quotient.mk _ b)).val (edgeRadius w T s m)",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Same-cell address independence is proved; different-cell boundary aliases and a single global coarse polygon map on the time quotient remain open. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.uniform_whole_edge_convergence",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N ≤ m → ∀ b : Nat → Bool, Within (polygonPosition b w T s hT m).val (gammaPosition w T s hT hs (Quotient.mk _ b)).val eps",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Same-cell address independence is proved; different-cell boundary aliases and a single global coarse polygon map on the time quotient remain open. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_same_cell_address_independent",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat) (hcell : ticks b m = ticks c m) (htime : AddressEquiv T hT b c) : polygonPosition b w T s hT m = polygonPosition c w T s hT m",
+    "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Same-cell address independence is proved; different-cell boundary aliases and a single global coarse polygon map on the time quotient remain open. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.position_mismatch",
@@ -7485,62 +7818,6 @@
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factorDenominator_positive",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(C : Fraction) (hC : 0 ≤ C.num) : 0 < (factorDenominator C).num",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factorDelta_positive",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(C eps : Fraction) (hC : 0 ≤ C.num) (heps : 0 < eps.num) : 0 < (factorDelta C eps hC).num",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factor_control",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(C eps d : Fraction) (hC : 0 ≤ C.num) (hd : 0 ≤ d.num) (hdelta : Fraction.lt d (factorDelta C eps hC)) : Fraction.lt (Fraction.mul d C) eps",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factor_delta_weak",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(C eps : Fraction) (hC : 0 ≤ C.num) (heps : 0 ≤ eps.num) : Fraction.le (Fraction.mul (factorDelta C eps hC) C) eps",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_scale",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
@@ -7622,34 +7899,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (x y : BinaryTime T hT) (R : Fraction) (_hR : 0 ≤ R.num) (hxy : TimeWithin T hT x y R) : Within (gammaValue w T s hT hs x) (gammaValue w T s hT hs y) (Fraction.mul R (stateTimeFactor w s))",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_mono",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : EndpointCauchyName) (R S : Fraction) (hRS : Fraction.le R S) (h : NameBound a b R) : NameBound a b S",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.within_mono",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(x y : Value) (R S : Fraction) (hRS : Fraction.le R S) (h : Within x y R) : Within x y S",
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {

@@ -52,3 +52,5 @@ import NewtonLimitDynamics.Contact.AreaCoefficient
 import NewtonLimitDynamics.Diagnostic.InverseCubeAreal
 import NewtonLimitDynamics.Diagnostic.PhaseArea
 import NewtonLimitDynamics.Diagnostic.DeflectionPotential
+import NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement
+import NewtonLimitDynamics.Polygon.HarmonicPolygonCurve

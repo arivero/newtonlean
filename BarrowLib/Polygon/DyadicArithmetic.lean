@@ -74,4 +74,12 @@ open HarmonicStability
 def durationDifference (sigma tau : Fraction) : Fraction :=
   Fraction.add tau (negF sigma)
 
+theorem durationDifference_chain (a b c : Fraction) :
+    Fraction.equiv (durationDifference a c)
+      (Fraction.add (durationDifference a b) (durationDifference b c)) := by
+  simp only [durationDifference, negF, Fraction.equiv, Fraction.add,
+    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
+  ac_nf
+  omega
+
 end NewtonLimitDynamics.Polygon.HarmonicTimeComparison

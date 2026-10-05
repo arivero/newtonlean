@@ -107,6 +107,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.FiniteGrowth.cofactor_bound
 #check NewtonLimitDynamics.FiniteGrowth.cofactor_step
 #print axioms NewtonLimitDynamics.FiniteGrowth.cofactor_step
+#check NewtonLimitDynamics.FiniteGrowth.denominator_power_add
+#print axioms NewtonLimitDynamics.FiniteGrowth.denominator_power_add
 #check NewtonLimitDynamics.FiniteGrowth.factorProduct_append
 #print axioms NewtonLimitDynamics.FiniteGrowth.factorProduct_append
 #check NewtonLimitDynamics.FiniteGrowth.factorProduct_nonnegative
@@ -207,6 +209,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.mul_zero
 #check NewtonLimitDynamics.Fraction.nonnegative_add
 #print axioms NewtonLimitDynamics.Fraction.nonnegative_add
+#check NewtonLimitDynamics.Fraction.nonnegative_equiv
+#print axioms NewtonLimitDynamics.Fraction.nonnegative_equiv
 #check NewtonLimitDynamics.Fraction.nonnegative_mul
 #print axioms NewtonLimitDynamics.Fraction.nonnegative_mul
 #check NewtonLimitDynamics.Fraction.positive_iff_zero_lt
@@ -221,6 +225,24 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.triangle_normalized_limit
 #check NewtonLimitDynamics.Fraction.ultimate_congr
 #print axioms NewtonLimitDynamics.Fraction.ultimate_congr
+#check NewtonLimitDynamics.Polygon.AffineValues.affine_difference
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.affine_difference
+#check NewtonLimitDynamics.Polygon.AffineValues.affine_distance
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.affine_distance
+#check NewtonLimitDynamics.Polygon.AffineValues.affine_vertex_distance
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.affine_vertex_distance
+#check NewtonLimitDynamics.Polygon.AffineValues.edgeName_same_start
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.edgeName_same_start
+#check NewtonLimitDynamics.Polygon.AffineValues.edge_vertex_bound
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.edge_vertex_bound
+#check NewtonLimitDynamics.Polygon.AffineValues.phase_abs_bound
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.phase_abs_bound
+#check NewtonLimitDynamics.Polygon.AffineValues.phase_interval
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.phase_interval
+#check NewtonLimitDynamics.Polygon.AffineValues.phase_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.phase_nonnegative
+#check NewtonLimitDynamics.Polygon.AffineValues.shift_difference
+#print axioms NewtonLimitDynamics.Polygon.AffineValues.shift_difference
 #check NewtonLimitDynamics.Polygon.BinaryTime.addressEquiv_refl
 #print axioms NewtonLimitDynamics.Polygon.BinaryTime.addressEquiv_refl
 #check NewtonLimitDynamics.Polygon.BinaryTime.addressEquiv_symm
@@ -289,6 +311,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameBound_triangle
 #check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_zero_iff
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameBound_zero_iff
+#check NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_of_levelwise_stateEquiv
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_of_levelwise_stateEquiv
 #check NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_refl
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_refl
 #check NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_symm
@@ -677,6 +701,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_lt_blocks
 #check NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_next
 #print axioms NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_next
+#check NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_zero_tail
+#print axioms NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_zero_tail
 #check NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.two_sided_error
 #print axioms NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.two_sided_error
 #check NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.zero_time_prefix
@@ -709,6 +735,22 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step
 #check NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm
 #print axioms NewtonLimitDynamics.Polygon.HarmonicComparison.zero_step_norm
+#check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.full_window_value
+#print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.full_window_value
+#check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.subduration_small
+#print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.subduration_small
+#check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_finite_control
+#print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_finite_control
+#check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_finite_identity_false
+#print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_finite_identity_false
+#check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_level
+#print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_level
+#check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_names
+#print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_names
+#check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_value
+#print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_value
+#check NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.zero_window_value
+#print axioms NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.zero_window_value
 #check NewtonLimitDynamics.Polygon.HarmonicCover.actual_corners_in_ball
 #print axioms NewtonLimitDynamics.Polygon.HarmonicCover.actual_corners_in_ball
 #check NewtonLimitDynamics.Polygon.HarmonicCover.coverBudget_formula
@@ -759,6 +801,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.doubleTail_lt_tolerance
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.duration_halving
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.duration_halving
+#check NewtonLimitDynamics.Polygon.HarmonicDyadic.duration_nested
+#print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.duration_nested
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.dyadic_smallTime
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.dyadic_smallTime
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.elapsed_replicate_congr
@@ -807,6 +851,22 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.zero_duration_schedule
 #check NewtonLimitDynamics.Polygon.HarmonicDyadic.zero_time_endpoint
 #print axioms NewtonLimitDynamics.Polygon.HarmonicDyadic.zero_time_endpoint
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeCoefficient_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeCoefficient_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeRadius_eventually_small
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeRadius_eventually_small
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeRadius_geometric
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeRadius_geometric
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_phase_interval
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_phase_interval
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_same_cell_address_independent
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_same_cell_address_independent
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_vertex_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.polygon_vertex_bound
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.uniform_whole_edge_convergence
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.uniform_whole_edge_convergence
+#check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.whole_edge_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.whole_edge_bound
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absolute_closed_defect_cubic
@@ -871,6 +931,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_abs_duration_difference
 #check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_duration_difference
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.count_duration_difference
+#check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.durationDifference_chain
+#print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.durationDifference_chain
 #check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.duration_le_time
 #print axioms NewtonLimitDynamics.Polygon.HarmonicTimeComparison.duration_le_time
 #check NewtonLimitDynamics.Polygon.HarmonicTimeComparison.dyadic_time_le_half

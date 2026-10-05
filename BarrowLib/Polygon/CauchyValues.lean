@@ -157,6 +157,20 @@ def constantName (s : Point × Point) : EndpointCauchyName where
 
 def embed (s : Point × Point) : Value := realize (constantName s)
 
+theorem nameEquiv_of_levelwise_stateEquiv (a b : EndpointCauchyName)
+    (h : ∀ n, stateEquiv (a.approx n) (b.approx n)) : NameEquiv a b := by
+  intro eps heps
+  refine ⟨0, ?_⟩
+  intro n _
+  have hr : stateEquiv (b.approx n) (b.approx n) :=
+    ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
+      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
+  have he : Fraction.equiv (distance (a.approx n) (b.approx n))
+      (distance (b.approx n) (b.approx n)) :=
+    stateNorm_equiv (stateSub_congr (h n) hr)
+  exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv he)
+    (distance_self_lt _ eps heps)
+
 theorem constantName_equiv_iff (a b : Point × Point) :
     NameEquiv (constantName a) (constantName b) ↔ stateEquiv a b := by
   constructor

@@ -128,7 +128,7 @@ theorem factorProduct_append (D : Int) (xs ys : List Int) :
   | nil => simp [factorProduct]
   | cons a xs ih => simp only [List.cons_append, factorProduct, ih, Int.mul_assoc]
 
-private theorem denominator_power_add (D : Int) (m n : Nat) :
+theorem denominator_power_add (D : Int) (m n : Nat) :
     D ^ (m + n) = D ^ m * D ^ n := by
   induction n with
   | zero => simp

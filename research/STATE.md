@@ -1,18 +1,22 @@
 # Research state
 
-Current handoff execution (Sol 6.1, 4 October): D.1 and Task A's finite
-interface/estimate increments are committed. The [force design](GENERAL_FORCE_DESIGN.md)
-uses uniform rational samples for possibly irrational accelerations, constructs
-their quotient values and derives actual mesh-uniform finite cross-sample
-refinement control. Bounded force and region confinement remain explicit.
-Continuous laws have local consistency through their own modulus.
-D.2 now extracts the remaining generic geometry, Cauchy quotient, binary-time
-and position-value infrastructure into BarrowLib, preserving declaration names.
-Shared coefficient-parameter exhaustion keeps endpoint and prefix constants
-distinct. Next is B.1/B.2: E/G agreement and whole-edge polygon/curve control.
-General motion realization, restart/gluing and derived confinement remain open.
-[Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the exact finite-cell
-potential identities allowed alongside Task A. Completion scores are unchanged.
+Current handoff execution (Sol 6.1, 4–5 October): D.1, Task A's finite
+interface/estimate increments and D.2 are committed. The [force design](GENERAL_FORCE_DESIGN.md)
+constructs force values from uniform rational samples; general motion,
+restart/gluing and derived confinement remain open. The generic geometry,
+completion and binary-time infrastructure is in BarrowLib.
+B.1 now proves E/G agreement at reciprocal dyadic times and the zero/full
+window endpoints. Arbitrary numerators need a further integer-refinement
+comparison; finite three-tick schedules are proved unequal, which does not
+refute their limit agreement. B.2 constructs actual within-cell polygon
+position names, proves their phases lie inside each cell, and derives a
+whole-edge distance bound tending to zero uniformly over addresses.
+Same-cell aliases agree; different-cell boundary aliases and a single coarse
+polygon map on the time quotient remain open. See the
+[comparison checkpoint](verification/construction-and-whole-edge-2026-10-05.md).
+D_mesh, P5 and the remaining classes follow these open bridges in the handoff's
+order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
+exact finite-cell potential identities. Completion scores are unchanged.
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation
@@ -63,8 +67,9 @@ same value, and continuity, endpoint/alias identities and zero cases are proved.
 PositionValues now derives planar values and gammaPosition, preserving bounds,
 continuity and time identities. Its coordinate-square predicate transfers
 eventual rational bounds, and the positive sample position separation is proved.
-The same-time coarse polygon map and actual between-path region/content remain
-open; see
+Addresswise same-time coarse polygon names and their whole-edge distance are
+now constructed. Different-cell alias independence, the quotient coarse map
+and actual between-path region/content remain open; see
 [the construction specification](CAUCHY_REALIZATION.md).
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule

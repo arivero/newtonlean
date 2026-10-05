@@ -16,3 +16,6 @@ import BarrowLib.Polygon.CauchyValues
 import BarrowLib.Polygon.GeometricTail
 import BarrowLib.Polygon.BinaryTime
 import BarrowLib.Polygon.PositionValues
+import BarrowLib.Polygon.ScaledTolerance
+import BarrowLib.Polygon.AffineValues
+import BarrowLib.Polygon.IntegerRefinement

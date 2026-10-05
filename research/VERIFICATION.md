@@ -1,6 +1,29 @@
 # Verification record
 
-## Current handoff: D.2 foundation extraction, 4 October 2026
+## Current handoff: reciprocal E/G agreement and whole-edge control, 5 October 2026
+
+Targeted core Lean builds pass for constructed affine position names, phase
+intervals, reciprocal-dyadic E/G agreement, endpoint cases and the explicit
+whole-edge radius. The finite three-tick control has exact state distance
+426975/16777216 and rejects finite schedule equality at the same time.
+The Sol worker reached its usage limit during this task; the primary Sol 6.1
+agent corrected its unfinished compilation errors and completed this bounded
+patch. A sequential nonauthor GPT-6 Luna verifier passed all 16 checklist
+commands in order: the three builds, catalogues/collation/graph/edition checks,
+rendering/progress, reference/axiom inspection, declaration/evidence/rendering
+controls, source hashes and whitespace. There are 942 distinct theorem rows
+and 792 checked public/reference declarations; live counts are 615 substantive,
+181 plumbing, 128 sample and 18 duplicate. All 1,139 prior public names and
+statement signatures remain unchanged. All 309 Barrow rows have empty source
+lists; Barrow imports no Newton module. The graph is 77 nodes/68 edges/249
+passages. The axiom union is `propext`, `Classical.choice`, `Quot.sound`;
+no `sorryAx`, project axiom or external package. Logs:
+`/tmp/newton-sol61-B12-final-01.log` through `-16.log`. Generated graph dates
+were restored after checking that every other byte was unchanged.
+Arbitrary dyadic numerators, different-cell aliases, explicit time calibration,
+general motion, D_mesh and P5 remain open; completion scores are unchanged.
+
+### D.2 foundation extraction, 4 October 2026
 
 The remaining generic geometry, state-distance, Cauchy quotient, dyadic-time
 and position-value layers move into BarrowLib, with old declaration names

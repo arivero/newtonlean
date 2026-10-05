@@ -379,6 +379,17 @@ theorem nonnegative_add (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
 theorem nonnegative_mul (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
     0 ≤ (mul a b).num := Int.mul_nonneg ha hb
 
+theorem nonnegative_equiv {a b : Fraction} (he : equiv a b)
+    (hb : 0 ≤ b.num) : 0 ≤ a.num := by
+  by_cases ha : 0 ≤ a.num
+  · exact ha
+  · have hn : a.num < 0 := by omega
+    have hm := Int.mul_lt_mul_of_pos_right hn b.den_pos
+    have hp := Int.mul_nonneg hb (Int.le_of_lt a.den_pos)
+    simp only [Int.zero_mul] at hm
+    unfold equiv at he
+    omega
+
 theorem mul_zero (d : Fraction) :
     equiv (mul d (ofInt 0)) (ofInt 0) := by
   unfold equiv mul ofInt
