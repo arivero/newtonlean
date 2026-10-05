@@ -3780,6 +3780,15 @@
     "interpretation_and_remaining_premises": "Generic completed scalar pairings, with one Cauchy and representative-independence proof for dot products and determinants. Finite bilinear difference identities and L1 magnitude bounds are proved for both forms; position bounds on Cauchy tails are derived. Rational embedding, scalar projection and scaled-approximant compatibility follow from the same completion. These maps are Lipschitz on bounded sets, rather than globally, so the globally compared SampledValues constructor does not cover them. Determinants remain signed doubled areas and dot products use Euclidean squared magnitude, distinct from the error gauge. No force, derivative, integral, ODE, Newton import or historical dependency occurs."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.PairingValues.fixed_left_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/PairingValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Form) (s t u : Point × Point) : Fraction.le (distance (pairingState f s t) (pairingState f s u)) (Fraction.mul (distance t u) (pointNorm s.1))",
+    "interpretation_and_remaining_premises": "Generic completed scalar pairings, with one Cauchy and representative-independence proof for dot products and determinants. Finite bilinear difference identities and L1 magnitude bounds are proved for both forms; position bounds on Cauchy tails are derived. Rational embedding, scalar projection and scaled-approximant compatibility follow from the same completion. These maps are Lipschitz on bounded sets, rather than globally, so the globally compared SampledValues constructor does not cover them. Determinants remain signed doubled areas and dot products use Euclidean squared magnitude, distinct from the error gauge. No force, derivative, integral, ODE, Newton import or historical dependency occurs."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.PairingValues.pairing_small",
     "private": true,
     "file": "BarrowLib/Polygon/PairingValues.lean",
@@ -3822,6 +3831,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(f : Form) (c : Fraction) (a b : EndpointCauchyName) (j : Nat) : stateEquiv ((secantName c (pairingName f a b) (constantName (PositionValues.zeroPoint,PositionValues.zeroPoint))).approx j) (scalarState (Fraction.mul c (f.apply (a.approx j).1 (b.approx j).1)))",
+    "interpretation_and_remaining_premises": "Generic completed scalar pairings, with one Cauchy and representative-independence proof for dot products and determinants. Finite bilinear difference identities and L1 magnitude bounds are proved for both forms; position bounds on Cauchy tails are derived. Rational embedding, scalar projection and scaled-approximant compatibility follow from the same completion. These maps are Lipschitz on bounded sets, rather than globally, so the globally compared SampledValues constructor does not cover them. Determinants remain signed doubled areas and dot products use Euclidean squared magnitude, distinct from the error gauge. No force, derivative, integral, ODE, Newton import or historical dependency occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PairingValues.pairing_name_bound_right",
+    "private": false,
+    "file": "BarrowLib/Polygon/PairingValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Form) (a b c : EndpointCauchyName) (R S : Fraction) (hR : 0 ≤ R.num) (M : Nat) (ha : ∀ j, M≤j → Fraction.le (pointNorm (a.approx j).1) R) (hbc : NameBound b c S) : NameBound (pairingName f a b) (pairingName f a c) (Fraction.mul S R)",
     "interpretation_and_remaining_premises": "Generic completed scalar pairings, with one Cauchy and representative-independence proof for dot products and determinants. Finite bilinear difference identities and L1 magnitude bounds are proved for both forms; position bounds on Cauchy tails are derived. Rational embedding, scalar projection and scaled-approximant compatibility follow from the same completion. These maps are Lipschitz on bounded sets, rather than globally, so the globally compared SampledValues constructor does not cover them. Determinants remain signed doubled areas and dot products use Euclidean squared magnitude, distinct from the error gauge. No force, derivative, integral, ODE, Newton import or historical dependency occurs."
   },
   {
@@ -5056,6 +5074,24 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(a : EndpointCauchyName) (A : Fraction) (hA : 0 ≤ A.num) (hadj : ∀ j, Fraction.le (distance (a.approx (j+1)) (a.approx j)) (GeometricTail.tailCap A (j+1))) (m : Nat) : Within (embed (a.approx m)) (realize a) (GeometricTail.tailCap A m)",
     "interpretation_and_remaining_premises": "Generic closed completed-value bound from a Cauchy name with an explicitly derived adjacent geometric estimate. An actual level-m approximant lies within coefficient/2^m of its realized value. Harmonic and general central-force instances share this estimate without equating coefficients or assuming a curve."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TangentTriangleValues.triangleValue_embed",
+    "private": false,
+    "file": "BarrowLib/Polygon/TangentTriangleValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s u : Point × Point) : triangleValue h (embed s) (embed u) = embed (scalarState (TriangleBounds.triangleTwice s.1 (pointAdd s.1 (pointScale h s.2)) u.1))",
+    "interpretation_and_remaining_premises": "Generic signed doubled triangle of a completed point, its tangent continuation and a completed next point, constructed with the existing pairing and secant operators. Its rational embedding equals triangleTwice of the three actual points. Exact completed algebra identifies triangle/H^3 with half the determinant of velocity and normalized second departure for every positive rational H and arbitrary endpoints. Cauchy and representative proofs are inherited, without a supplied curve expansion, force, potential or area premise. Signed doubled area is distinct from unsigned area, lobe sums and region content; no derivative, integral, ODE, Newton import or historical dependency occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TangentTriangleValues.normalized_triangle_identity",
+    "private": false,
+    "file": "BarrowLib/Polygon/TangentTriangleValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (ht : 0 < h.num) (x y : Value) : normalizedTriangleValue h ht x y = secantValue (Fraction.ofInt 1).half (pairingValue detForm (velocityValue x) (QuadraticSecants.secondValue h ht x y)) (embed (zeroPoint,zeroPoint))",
+    "interpretation_and_remaining_premises": "Generic signed doubled triangle of a completed point, its tangent continuation and a completed next point, constructed with the existing pairing and secant operators. Its rational embedding equals triangleTwice of the three actual points. Exact completed algebra identifies triangle/H^3 with half the determinant of velocity and normalized second departure for every positive rational H and arbitrary endpoints. Cauchy and representative proofs are inherited, without a supplied curve expansion, force, potential or area premise. Signed doubled area is distinct from unsigned area, lobe sums and region content; no derivative, integral, ODE, Newton import or historical dependency occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.inverse_positive",
@@ -8324,6 +8360,33 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → Within (cellSecant o E0 T tau L B s hE d hT m (ticks b m)) (velocityValue (GeneralForceTime.gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) eps",
     "interpretation_and_remaining_premises": "Modern actual completed position-secants bridge for globally compared Lipschitz inward central-force samples with calibrated windows and explicit actual/coarse/shadow force bounds. Shifted endpoint/prefix names realize the actual dyadic nodes of the same general time map. Finite restarted-run remainders bound a completed cell secant from the left-node velocity by H_m*B. Time continuity bounds left-node velocity from the target velocity, giving H_m*(B+stateTimeFactor), uniformly over all binary addresses and including the right endpoint. Constructed velocity is the uniform limit of these completed bracketing dyadic position secants. Unrestricted difference-quotient differentiation, acceleration/force identification, potential asymptotics, local-annulus confinement, gluing, partition independence, general content and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.coefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTangentTriangle.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T L B : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (coefficient T L B s).num",
+    "interpretation_and_remaining_premises": "Modern signed doubled tangent-deflection triangle on the actual constructed sampled Lipschitz central-force curve. The triangle uses the constructed left point, its tangent continuation with constructed velocity, and the actual completed right point. The shared exact completed determinant identity transfers the proved second-order bound through actual velocity-name caps, yielding normalized triangle/H^3 error at most H*L*V^2 against det(v_left,a_left)/2. Uniform exhaustion covers all dyadic cells, including the last. No area expansion, desired curve, potential relation or new half-mesh argument is assumed. This signed doubled triangle is distinct from unsigned lobe area and matched-region D_mesh; ordinary/inner area, general radial potentials, unrestricted quotients, confinement/gluing and historical claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.cell_triangle_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTangentTriangle.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m k : Nat) (hk : k+1≤blocks m) : Within (normalizedTriangleValue (duration T m) hT (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)) (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m (k+1)))) (secantValue (Fraction.ofInt 1).half (pairingValue detForm (velocityValue (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))) (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))) (embed (zeroPoint,zeroPoint))) (Fraction.mul (duration T m) (coefficient T L B s))",
+    "interpretation_and_remaining_premises": "Modern signed doubled tangent-deflection triangle on the actual constructed sampled Lipschitz central-force curve. The triangle uses the constructed left point, its tangent continuation with constructed velocity, and the actual completed right point. The shared exact completed determinant identity transfers the proved second-order bound through actual velocity-name caps, yielding normalized triangle/H^3 error at most H*L*V^2 against det(v_left,a_left)/2. Uniform exhaustion covers all dyadic cells, including the last. No area expansion, desired curve, potential relation or new half-mesh argument is assumed. This signed doubled triangle is distinct from unsigned lobe area and matched-region D_mesh; ordinary/inner area, general radial potentials, unrestricted quotients, confinement/gluing and historical claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.normalized_triangles_converge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTangentTriangle.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ k, k+1≤blocks m → Within (normalizedTriangleValue (duration T m) hT (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)) (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m (k+1)))) (secantValue (Fraction.ofInt 1).half (pairingValue detForm (velocityValue (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))) (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))) (embed (zeroPoint,zeroPoint))) eps",
+    "interpretation_and_remaining_premises": "Modern signed doubled tangent-deflection triangle on the actual constructed sampled Lipschitz central-force curve. The triangle uses the constructed left point, its tangent continuation with constructed velocity, and the actual completed right point. The shared exact completed determinant identity transfers the proved second-order bound through actual velocity-name caps, yielding normalized triangle/H^3 error at most H*L*V^2 against det(v_left,a_left)/2. Uniform exhaustion covers all dyadic cells, including the last. No area expansion, desired curve, potential relation or new half-mesh argument is assumed. This signed doubled triangle is distinct from unsigned lobe area and matched-region D_mesh; ordinary/inner area, general radial potentials, unrestricted quotients, confinement/gluing and historical claims remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.stateTimeFactor_nonnegative",

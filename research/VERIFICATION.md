@@ -1,6 +1,33 @@
 # Verification record
 
-## Current handoff: constructed harmonic potential, 5 October 2026
+## Current handoff: general constructed tangent triangle, 5 October 2026
+
+TangentTriangleValues constructs the signed doubled triangle of the actual
+completed left point, its tangent continuation and the right point. Its rational
+embedding equals triangleTwice, and exact completed algebra identifies
+triangle/H³ with det(v_left,z_left)/2. The actual velocity cap and the existing
+second-order comparison give H*L*V² error against det(v_left,a_left)/2.
+Exhaustion is uniform over every cell, including the last. Sampling and
+half-mesh proofs are reused through the established second-order bridge.
+This is a signed doubled tangent triangle, distinct from unsigned lobe geometry
+and D_mesh. General radial potential construction and their relation remain
+open; scores stay unchanged. Targeted Lean 4.19 core compilation passes.
+All 16 sequential checklist commands pass, including the default and both
+explicit library builds, catalogue/reference and standard-axiom inspection,
+source/graph, rendering, hashes and whitespace. The catalogue has 1,476 distinct
+rows and 1,332 emitted reference checks; live heuristic counts are 1,094
+substantive, 197 plumbing, 159 sample and 26 duplicate. All seven new rows
+and all 617 Barrow rows are source-free modern reconstructions. All 1,884 prior
+public names/signatures at fd1f45a remain unchanged, with ten new names (bounded
+source inventory plus kernel compilation). The graph remains 77/68/249; the
+axiom union is propext, Classical.choice and Quot.sound, with no sorryAx,
+project axiom, external package or Newton/Mathlib foundation import. Graph PDF
+dates are restored only after proving all other bytes unchanged. Logs:
+/tmp/newton-sol61-general-triangle-final-01.log through -16.log; API audit:
+/tmp/newton-sol61-general-triangle-api.json. Root Sol 6.1 commits the verified
+increment, preserving unrelated conversation archives.
+
+### Constructed harmonic potential, 5 October 2026
 
 PairingValues shares dot/determinant completion with derived Cauchy tail
 boundedness. QuadraticPotentialValues composes existing secants to construct

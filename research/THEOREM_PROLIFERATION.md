@@ -186,3 +186,12 @@ potential client use the same restarted-run proof. The latter derives an
 actual potential increment, not another interface asserting its leading term.
 These additions have a live C.2 client; count growth still receives no separate
 completion credit.
+
+TangentTriangleValues is now a second live client of the shared completed
+pairings: it constructs the actual tangent-deflection determinant and proves
+its normalized identity. GeneralForceTangentTriangle transfers the already
+proved second-order bound through actual velocity caps, without repeating the
+force sampling/half-mesh argument. Only seven theorem rows are added, with
+prior public names/signatures preserved. The existing classifier calls all
+seven substantive, including coefficient positivity and operator interfaces;
+that does not supply seven milestones or justify a completion-score increase.

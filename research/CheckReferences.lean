@@ -1047,6 +1047,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.node_value
 #check NewtonLimitDynamics.Polygon.GeneralForceSecants.rateCoefficient_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.rateCoefficient_nonnegative
+#check NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.cell_triangle_bound
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.cell_triangle_bound
+#check NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.coefficient_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.coefficient_nonnegative
+#check NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.normalized_triangles_converge
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle.normalized_triangles_converge
 #check NewtonLimitDynamics.Polygon.GeneralForceTime.address_state_equiv
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.address_state_equiv
 #check NewtonLimitDynamics.Polygon.GeneralForceTime.count_gap
@@ -1949,12 +1955,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PairingValues.dot_abs_le_product
 #check NewtonLimitDynamics.Polygon.PairingValues.dot_congr
 #print axioms NewtonLimitDynamics.Polygon.PairingValues.dot_congr
+#check NewtonLimitDynamics.Polygon.PairingValues.fixed_left_bound
+#print axioms NewtonLimitDynamics.Polygon.PairingValues.fixed_left_bound
 #check NewtonLimitDynamics.Polygon.PairingValues.pairingName_equiv
 #print axioms NewtonLimitDynamics.Polygon.PairingValues.pairingName_equiv
 #check NewtonLimitDynamics.Polygon.PairingValues.pairingValue_embed
 #print axioms NewtonLimitDynamics.Polygon.PairingValues.pairingValue_embed
 #check NewtonLimitDynamics.Polygon.PairingValues.pairingValue_scalar
 #print axioms NewtonLimitDynamics.Polygon.PairingValues.pairingValue_scalar
+#check NewtonLimitDynamics.Polygon.PairingValues.pairing_name_bound_right
+#print axioms NewtonLimitDynamics.Polygon.PairingValues.pairing_name_bound_right
 #check NewtonLimitDynamics.Polygon.PairingValues.pairing_state_bound
 #print axioms NewtonLimitDynamics.Polygon.PairingValues.pairing_state_bound
 #check NewtonLimitDynamics.Polygon.PairingValues.scaled_pairing_approximant
@@ -2335,6 +2345,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.StripArea.vel_det_constant
 #check NewtonLimitDynamics.Polygon.TailValues.approximant_bound
 #print axioms NewtonLimitDynamics.Polygon.TailValues.approximant_bound
+#check NewtonLimitDynamics.Polygon.TangentTriangleValues.normalized_triangle_identity
+#print axioms NewtonLimitDynamics.Polygon.TangentTriangleValues.normalized_triangle_identity
+#check NewtonLimitDynamics.Polygon.TangentTriangleValues.triangleValue_embed
+#print axioms NewtonLimitDynamics.Polygon.TangentTriangleValues.triangleValue_embed
 #check NewtonLimitDynamics.Polygon.TimeCalibration.amplification_expansion
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.amplification_expansion
 #check NewtonLimitDynamics.Polygon.TimeCalibration.amplification_nonnegative

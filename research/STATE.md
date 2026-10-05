@@ -96,10 +96,20 @@ bounds and the shared finite second-order estimate give a uniform O(H) bound:
 Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
 including the last one. No potential-step asymptotic is assumed. General radial
 potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
-remain open. This law test receives no extra completion score. See the
+remain open. This law test receives no extra completion score.
+GeneralForceTangentTriangle now constructs the signed doubled triangle between
+the actual left curve point, its tangent continuation and the actual right
+curve point. TangentTriangleValues proves its rational embedding and exact
+completed identity: triangle/H³ equals half the determinant of velocity and
+normalized second departure. The proved second-order bound and actual velocity
+caps give error H*L*V² against det(v_left,a_left)/2, uniformly over every dyadic
+cell including the last. The signed doubled triangle is distinct from unsigned
+lobe area and matched-region D_mesh; their geometric identification and general
+radial potential steps remain open. Completion scores stay unchanged. See the
 [quadratic checkpoint](verification/quadratic-finite-parallel-endpoints-2026-10-05.md)
 and [constructed second-order checkpoint](verification/constructed-quadratic-secants-2026-10-05.md).
-See the [constructed harmonic potential checkpoint](verification/constructed-harmonic-potential-2026-10-05.md).
+See the [constructed harmonic potential checkpoint](verification/constructed-harmonic-potential-2026-10-05.md)
+and [general tangent-triangle checkpoint](verification/general-tangent-triangle-2026-10-05.md).
 The progress estimate now credits the
 constructed general local time map, dyadic velocity/force-secants bridges and
 actual general outer content, about

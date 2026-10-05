@@ -51,3 +51,4 @@ import BarrowLib.Polygon.QuadraticEstimates
 import BarrowLib.Polygon.QuadraticSecants
 import BarrowLib.Polygon.PairingValues
 import BarrowLib.Polygon.QuadraticPotentialValues
+import BarrowLib.Polygon.TangentTriangleValues

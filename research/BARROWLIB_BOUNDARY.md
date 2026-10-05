@@ -108,3 +108,15 @@ the finite nonzero polynomial remainder control, Lean kernel reference checks
 and all three library/default builds validate the construction; the rational
 control is not an independent numerical oracle. No derivative, integral, ODE,
 Newton-specific foundation import or historical edge is added.
+
+TangentTriangleValues adds the signed doubled triangle of a completed point,
+its tangent continuation and a completed next point. Reach for it for that
+three-point geometry, rather than for area of a lobe or a matched region.
+Rational embeddings agree with triangleTwice, and exact completed algebra
+identifies its H^-3 normalization with half the determinant of velocity and
+normalized second departure. PairingValues now transfers a closed bound in
+one input under proved bounds on the other name's tail. The actual general
+curve supplies its velocity cap and existing second-order bound, yielding
+H*L*V² error for the normalized triangle. Shared completion, finite embedding
+identities and all library/reference checks validate the construction; no
+potential, area expansion or new historical premise enters the foundation.

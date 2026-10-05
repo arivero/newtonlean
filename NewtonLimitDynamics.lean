@@ -81,3 +81,4 @@ import NewtonLimitDynamics.Diagnostic.QuadraticEndpointPotential
 import NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants
 import NewtonLimitDynamics.Polygon.HarmonicQuadraticSecants
 import NewtonLimitDynamics.Diagnostic.ConstructedHarmonicPotential
+import NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle

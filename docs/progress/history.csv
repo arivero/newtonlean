@@ -93,3 +93,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 92,be2d00e,2026-10-05T11:47:12+02:00,Construct general matched-region content with shared geometry,1413,27,0,0,8,0,650,20308,13,1037,195,155,26,8,122,147,30,1090,24
 93,921b3a9,2026-10-05T12:04:38+02:00,Derive finite quadratic remainders and actual parallel endpoints,1432,19,0,0,0,0,661,20609,13,1054,195,157,26,0,122,147,30,1105,28
 94,fe732e4,2026-10-05T12:26:59+02:00,Derive second-order departure on the constructed central curve,1443,11,0,0,0,0,665,20917,13,1065,195,157,26,0,122,147,30,1116,28
+95,fd1f45a,2026-10-05T13:06:19+02:00,Construct harmonic potential values and derive actual curve increments,1469,26,0,0,2,0,686,21549,13,1087,197,159,26,2,137,147,30,1118,37

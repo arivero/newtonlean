@@ -1,6 +1,7 @@
 import BarrowLib.Polygon.SecantValues
 import BarrowLib.Polygon.BinaryTime
 import BarrowLib.Polygon.TriangleBounds
+import BarrowLib.Polygon.SampledValues
 
 /-! Dot products and determinants of completed positions, with one shared
 Cauchy and representative-independence proof. Finite bilinear differences
@@ -88,6 +89,24 @@ theorem pairing_state_bound (f : Form) (R : Fraction) (hR : 0 ≤ R.num)
     (Fraction.le_equiv_right (Fraction.magnitudes.le_trans hb (Fraction.add_le_add h3 h4))
       (Fraction.equiv_symm (Fraction.add_mul _ _ _)))
 
+theorem fixed_left_bound (f : Form) (s t u : Point × Point) :
+    Fraction.le (distance (pairingState f s t) (pairingState f s u))
+      (Fraction.mul (distance t u) (pointNorm s.1)) := by
+  have hb := difference_bound f s.1 t.1 s.1 u.1
+  have hz : Fraction.equiv
+      (Fraction.add (Fraction.mul (pointDistance s.1 s.1) (pointNorm t.1))
+        (Fraction.mul (pointNorm s.1) (pointDistance t.1 u.1)))
+      (Fraction.mul (pointDistance t.1 u.1) (pointNorm s.1)) := by
+    apply Fraction.equiv_trans (Fraction.add_equiv
+      (Fraction.mul_equiv (pointDistance_self_zero _) (Fraction.equiv_refl _)) (Fraction.equiv_refl _))
+    simp only [Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,
+      Int.zero_mul,Int.mul_zero,Int.add_zero,Int.zero_add,Int.one_mul,Int.mul_one]
+    ac_nf
+  exact Fraction.le_equiv_left (Fraction.equiv_trans (stateSub_norm_symm _ _) (scalarState_distance _ _))
+    (Fraction.magnitudes.le_trans (Fraction.le_equiv_right hb hz)
+      (Fraction.mul_le_mul_nonnegative (point_le_state (stateSub t u)) (pointNorm s.1)
+        (pointNorm_nonnegative _)))
+
 private theorem pairing_small (f : Form) (R eps : Fraction) (hR : 0 ≤ R.num)
     (s t u v : Point × Point)
     (hu : Fraction.le (pointNorm u.1) R) (ht : Fraction.le (pointNorm t.1) R)
@@ -167,5 +186,21 @@ theorem scaled_pairing_approximant (f : Form) (c : Fraction) (a b : EndpointCauc
         Fraction.mul,Fraction.ofInt,Int.zero_mul,Int.mul_zero,Int.neg_zero,Int.add_zero,
         Int.zero_add,Int.mul_one,Int.one_mul]
   · exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+
+/-- A proved bound on the fixed input tail transfers a completed bound in
+the other input. The client supplies actual name estimates, not a bilinear
+continuity premise on completed values. -/
+theorem pairing_name_bound_right (f : Form) (a b c : EndpointCauchyName)
+    (R S : Fraction) (hR : 0 ≤ R.num) (M : Nat)
+    (ha : ∀ j, M≤j → Fraction.le (pointNorm (a.approx j).1) R)
+    (hbc : NameBound b c S) :
+    NameBound (pairingName f a b) (pairingName f a c) (Fraction.mul S R) := by
+  have hb := SampledValues.nameBound_affine (pairingName f a b) (pairingName f a c)
+    b c R S (Fraction.ofInt 0) hR M (fun j hj => by
+      have hlevel := Fraction.magnitudes.le_trans (fixed_left_bound f _ _ _)
+        (Fraction.mul_le_mul_nonnegative_left (ha j hj) (distance (b.approx j) (c.approx j))
+          (stateNorm_nonnegative _))
+      exact Fraction.le_equiv_right hlevel (Fraction.equiv_symm (Fraction.add_zero _))) hbc
+  exact nameBound_mono _ _ _ _ (Fraction.le_of_equiv (Fraction.add_zero _)) hb
 
 end NewtonLimitDynamics.Polygon.PairingValues

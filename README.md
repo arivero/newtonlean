@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,469 checked
-library theorems, 1,087 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,476 checked
+library theorems, 1,094 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -89,6 +89,15 @@ Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
 including the last one. No potential-step asymptotic is assumed. General radial
 potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
 remain open. This law test receives no extra completion score.
+GeneralForceTangentTriangle now constructs the signed doubled triangle between
+the actual left curve point, its tangent continuation and the actual right
+curve point. TangentTriangleValues proves its rational embedding and exact
+completed identity: triangle/H³ equals half the determinant of velocity and
+normalized second departure. The proved second-order bound and actual velocity
+caps give error H*L*V² against det(v_left,a_left)/2, uniformly over every dyadic
+cell including the last. The signed doubled triangle is distinct from unsigned
+lobe area and matched-region D_mesh; their geometric identification and general
+radial potential steps remain open. Completion scores stay unchanged.
 
 Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
 `python3 scripts/progress_stats.py`; the per-commit numbers behind every plot
