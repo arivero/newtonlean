@@ -6,9 +6,9 @@ and the required partition independence, then prove its mechanical properties
 and control the area between it and the polygons. Supplied-curve estimates are
 conditional diagnostics and cannot discharge the forward theorem.
 
-The [theorem-growth study](THEOREM_PROLIFERATION.md) routes the next general
-whole-edge construction through shared finite-vertex geometry, followed by
-the actual matched region. A growing helper inventory adds no area premise
+The [theorem-growth study](THEOREM_PROLIFERATION.md) routed the now constructed
+general whole-edge map through shared finite-vertex geometry. The next unit
+is the actual general matched region. A growing helper inventory adds no area premise
 or historical completion credit.
 
 The [foundation inventory](BARROWLIB_BOUNDARY.md) is now extracted into
@@ -25,7 +25,11 @@ proves exact lower-cut identification and independence of the initial cover. The
 general local binary-time state/position map is now constructed, with derived
 uniform prefix convergence and full-endpoint E/G agreement. HarmonicGeneralTime
 derives actual-grid force bounds and identifies the old harmonic maps. General
-whole-edge/content extension and local-annulus/gluing steps remain separate. B.2 now constructs
+content extension and local-annulus/gluing steps remain separate.
+GeneralForcePolygonCurve now constructs the actual quotient polygon and proves
+uniform whole-edge error (T*V+A)/2^m, with shared initial endpoint and exact
+harmonic specialization. PolygonValues shares its alias and joining proofs
+with the retained harmonic module, preserving every theorem statement. B.2 constructs
 within-cell polygon position names and bounds their distance to the actual
 harmonic gammaPosition throughout cells. The bound decays uniformly over
 addresses. Same-cell and shared-boundary alias proofs now give one polygonMap

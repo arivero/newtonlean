@@ -45,3 +45,4 @@ import BarrowLib.Polygon.SecantValues
 import BarrowLib.Polygon.DyadicNodes
 import BarrowLib.Polygon.SampledValues
 import BarrowLib.Polygon.AccelerationEstimates
+import BarrowLib.Polygon.PolygonValues

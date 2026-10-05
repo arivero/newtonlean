@@ -69,5 +69,7 @@ import NewtonLimitDynamics.Polygon.CompletedForce
 import NewtonLimitDynamics.Polygon.HarmonicCompletedForce
 import NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants
 import NewtonLimitDynamics.Polygon.HarmonicAccelerationSecants
+import NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve
+import NewtonLimitDynamics.Polygon.HarmonicGeneralPolygon
 import NewtonLimitDynamics.Polygon.HarmonicPathRegion
 import NewtonLimitDynamics.Polygon.HarmonicPathContent

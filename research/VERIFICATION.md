@@ -1,6 +1,28 @@
 # Verification record
 
-## Current handoff: theorem-growth study, 5 October 2026
+## Current handoff: shared polygon geometry and general map, 5 October 2026
+
+PolygonValues constructs one finite-vertex polygon quotient from proved actual
+position joins. GeneralForcePolygonCurve uses the actual sampled runs and the
+derived velocity cap to obtain uniform whole-edge error (T*V+A)/2^m against
+the already constructed curve, including all boundaries. HarmonicGeneralPolygon
+identifies the sampled harmonic polygon exactly with the retained map. Six
+retained harmonic proof bodies now use the shared core, with all old statements
+unchanged. General matched-region/content work is the next bounded unit.
+Completion scores remain unchanged; raw counts receive no independent credit.
+All 16 sequential checklist commands pass, including all three build targets,
+reference/axiom inspection, source/graph and rendering tests, hash verification
+and whitespace checks. All 1,741 prior public names/signatures at a83f44d remain
+unchanged, with 23 new names. The catalogue has 1,386 distinct rows and 1,246
+references; live counts are 1,010 substantive, 195 plumbing, 155 sample and 26
+duplicate. All 15 new rows and all 572 Barrow rows are source-free. The graph
+remains 77/68/249, with 10 witnesses, 246 XML anchors and 3 supplements. The
+axiom union is propext, Classical.choice and Quot.sound, with no sorryAx, project
+axiom or external package. Logs: /tmp/newton-sol61-general-polygon-final-01.log
+through -16.log. The graph PDF dates are restored only after proving all other
+bytes unchanged. Root Sol 6.1 commits the verified increment.
+
+### Theorem-growth study, 5 October 2026
 
 A source-only snapshot comparison at 6a8aa5c and 3f6d359 records 793 to 1,371
 library theorems: 579 additions, one deletion, zero surviving baseline statement

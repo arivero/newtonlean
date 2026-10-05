@@ -141,7 +141,7 @@ state/position map to BinaryTime, along with uniform prefix convergence,
 continuity, initial/zero values and full-endpoint E/G agreement.
 HarmonicGeneralTime derives the additional actual-grid force bounds and equals
 the retained harmonic maps. General interior-time E/G, arbitrary-partition or
-precision-choice independence, whole-edge/content extension and identification
+precision-choice independence, content extension and identification
 with an external real-time interval remain separate.
 
 GeneralForceSecants now transfers finite drift remainders to completed curve
@@ -176,6 +176,15 @@ uniformly over addresses and including the final boundary. SampledValues proves
 precision-offset invariance first, so the target force is the same extension.
 The retained harmonic result is a corollary. Unrestricted differentiation,
 motion precision independence and region-local confinement remain separate.
+
+GeneralForcePolygonCurve now constructs the actual coarse polygon on the same
+BinaryTime quotient as gammaPosition. PolygonValues derives same-cell, adjacent
+and zero-window aliases from shared-position joins; harmonic and general
+vertices both instantiate it. Whole-edge error is (T*V+A)/2^m, uniformly over
+time, and initial endpoints agree. Six retained harmonic proofs now use that
+core, and the general harmonic polygon equals the old map. This shares proof
+implementation while preserving public statements. The next unit is actual
+general matched-region content.
 
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will

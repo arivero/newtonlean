@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,371 checked
-library theorems, 995 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,386 checked
+library theorems, 1,010 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -45,14 +45,17 @@ Lipschitz central samples now have constructed fixed-time motion names/values,
 with calibrated windows and explicit actual/shadow force bounds. The harmonic
 instance derives these bounds and equals the old endpoint value.
 The generic geometry, completion and binary-time layers are now in BarrowLib.
-E/G agreement at every dyadic rational time and whole-edge convergence are
+Harmonic E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
 Actual integer-subdivision accumulation proves the dyadic agreement, including
 the three-tick completed values whose finite schedules differ. GeneralForceTime now constructs a continuous local binary-time state/position
 map from actual central samples, with uniform prefix convergence, initial/zero
 cases and full-endpoint E/G agreement. Its harmonic instance derives the extra
 actual-grid bounds and equals the old maps. Local-annulus confinement/gluing,
-general interior-time E/G and whole-edge/content extension remain open. HarmonicPathRegion now constructs
+general interior-time E/G and content extension remain open.
+GeneralForcePolygonCurve now constructs the general coarse polygon quotient
+and proves uniform whole-edge error (T*V+A)/2^m, reusing the same finite-vertex
+alias proofs as the harmonic map. HarmonicPathRegion constructs
 the actual matched polygon–curve region and its nonnegative square-cover outer
 content cut and its cover-independent Cauchy scalar, with derived geometric
 decay. GeneralForceSecants now identifies constructed velocity as the uniform
@@ -133,7 +136,7 @@ constructions, calibrated general Lipschitz endpoint and local binary-time maps,
 finite potential identities, harmonic matched-region outer content and
 constructed dyadic velocity/force-secants identification. It
 gives no extra credit for theorem count,
-helper consolidation or foundation migration. General whole-edge/content extension,
+helper consolidation or foundation migration. General content extension,
 local confinement and gluing, ordinary-area/Kepler-area identification and
 P5 unrestricted-rate identification remains open, as do the limiting passages of Propositions II–IV.
 The harmonic time map still uses a short window; the general time map names

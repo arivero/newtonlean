@@ -73,7 +73,11 @@ of the initial cover and inherits scalar nonnegativity, budget control, zero
 time and decay. Equality with inner content, ordinary Euclidean area or a
 measure remains separate.
 P5 unrestricted-rate, leading curved potential steps, arbitrary-partition independence,
-gluing and general central-force whole-edge/content extension remain open.
+gluing and general central-force content extension remain open.
+GeneralForcePolygonCurve now supplies the actual general quotient polygon and
+uniform whole-edge bound (T*V+A)/2^m. Its finite joining and alias geometry is
+shared with the retained harmonic map; exact harmonic specialization is proved.
+Constructing the general matched region and its actual content is the next unit.
 GeneralForceTime now constructs a local continuous binary-time state/position
 map under explicit global Lipschitz comparison and actual/coarse/shadow sampled
 force bounds; its harmonic instance equals the maps used in this region.

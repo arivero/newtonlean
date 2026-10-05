@@ -917,6 +917,20 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_endpoint
 #check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_value
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_value
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeCoefficient_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeCoefficient_nonnegative
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_left
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_left
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_uniform_convergence
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_uniform_convergence
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_whole_edge_bound
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_whole_edge_bound
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygon_vertex_bound
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygon_vertex_bound
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.shared_initial_endpoint
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.shared_initial_endpoint
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.whole_edge_bound
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.whole_edge_bound
 #check NewtonLimitDynamics.Polygon.GeneralForcePrecision.precision_error
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrecision.precision_error
 #check NewtonLimitDynamics.Polygon.GeneralForcePrecision.precision_monotone
@@ -1345,6 +1359,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.time_le_one
 #check NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.two_to_four
 #print axioms NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.two_to_four
+#check NewtonLimitDynamics.Polygon.HarmonicGeneralPolygon.harmonic_polygonMap_eq
+#print axioms NewtonLimitDynamics.Polygon.HarmonicGeneralPolygon.harmonic_polygonMap_eq
 #check NewtonLimitDynamics.Polygon.HarmonicGeneralTime.actual_run_state_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicGeneralTime.actual_run_state_bound
 #check NewtonLimitDynamics.Polygon.HarmonicGeneralTime.harmonic_name_equiv
@@ -1929,6 +1945,20 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.stateNorm_scale
 #check NewtonLimitDynamics.Polygon.PointBounds.velocity_le_state
 #print axioms NewtonLimitDynamics.Polygon.PointBounds.velocity_le_state
+#check NewtonLimitDynamics.Polygon.PolygonValues.polygonMap_left
+#print axioms NewtonLimitDynamics.Polygon.PolygonValues.polygonMap_left
+#check NewtonLimitDynamics.Polygon.PolygonValues.polygon_address_independent
+#print axioms NewtonLimitDynamics.Polygon.PolygonValues.polygon_address_independent
+#check NewtonLimitDynamics.Polygon.PolygonValues.polygon_adjacent_cells
+#print axioms NewtonLimitDynamics.Polygon.PolygonValues.polygon_adjacent_cells
+#check NewtonLimitDynamics.Polygon.PolygonValues.polygon_same_cell
+#print axioms NewtonLimitDynamics.Polygon.PolygonValues.polygon_same_cell
+#check NewtonLimitDynamics.Polygon.PolygonValues.polygon_vertex_bound
+#print axioms NewtonLimitDynamics.Polygon.PolygonValues.polygon_vertex_bound
+#check NewtonLimitDynamics.Polygon.PolygonValues.polygon_zero_window
+#print axioms NewtonLimitDynamics.Polygon.PolygonValues.polygon_zero_window
+#check NewtonLimitDynamics.Polygon.PolygonValues.zero_window_vertices
+#print axioms NewtonLimitDynamics.Polygon.PolygonValues.zero_window_vertices
 #check NewtonLimitDynamics.Polygon.PositionValues.firstValue_embed
 #print axioms NewtonLimitDynamics.Polygon.PositionValues.firstValue_embed
 #check NewtonLimitDynamics.Polygon.PositionValues.firstValue_positionValue

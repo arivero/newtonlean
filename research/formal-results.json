@@ -3834,6 +3834,69 @@
     "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.PolygonValues.polygon_same_cell",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) (v : VertexChain T m) (hcell : ticks b m=ticks c m) (htime : AddressEquiv T hT b c) : polygonPosition b T hT m v = polygonPosition c T hT m v",
+    "interpretation_and_remaining_premises": "Generic polygon quotient on constructed binary time from a rational finite-vertex chain with proved shared-position joins. Same-cell, adjacent-cell and zero-window address invariance are proved once before quotient lifting; affine vertex control and initial endpoint follow without a force, curve, Cauchy motion field or mechanical premise. Both retained harmonic and general central-force polygon constructions instantiate the same core. No Newton import, derivative, integral, ODE or historical claim occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonValues.polygon_adjacent_cells",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) (v : VertexChain T m) (hcell : ticks b m+1=ticks c m) (htime : AddressEquiv T hT b c) : polygonPosition b T hT m v = polygonPosition c T hT m v",
+    "interpretation_and_remaining_premises": "Generic polygon quotient on constructed binary time from a rational finite-vertex chain with proved shared-position joins. Same-cell, adjacent-cell and zero-window address invariance are proved once before quotient lifting; affine vertex control and initial endpoint follow without a force, curve, Cauchy motion field or mechanical premise. Both retained harmonic and general central-force polygon constructions instantiate the same core. No Newton import, derivative, integral, ODE or historical claim occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonValues.zero_window_vertices",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (m : Nat) (v : VertexChain T m) (hz : T.num=0) : ∀ k, pointEquiv (v.state k).1 (v.state 0).1",
+    "interpretation_and_remaining_premises": "Generic polygon quotient on constructed binary time from a rational finite-vertex chain with proved shared-position joins. Same-cell, adjacent-cell and zero-window address invariance are proved once before quotient lifting; affine vertex control and initial endpoint follow without a force, curve, Cauchy motion field or mechanical premise. Both retained harmonic and general central-force polygon constructions instantiate the same core. No Newton import, derivative, integral, ODE or historical claim occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonValues.polygon_zero_window",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) (v : VertexChain T m) (hz : T.num=0) : polygonPosition b T hT m v = asPosition (embed ((v.state 0).1,AffineValues.zeroPoint))",
+    "interpretation_and_remaining_premises": "Generic polygon quotient on constructed binary time from a rational finite-vertex chain with proved shared-position joins. Same-cell, adjacent-cell and zero-window address invariance are proved once before quotient lifting; affine vertex control and initial endpoint follow without a force, curve, Cauchy motion field or mechanical premise. Both retained harmonic and general central-force polygon constructions instantiate the same core. No Newton import, derivative, integral, ODE or historical claim occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonValues.polygon_address_independent",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) (v : VertexChain T m) (htime : AddressEquiv T hT b c) : polygonPosition b T hT m v = polygonPosition c T hT m v",
+    "interpretation_and_remaining_premises": "Generic polygon quotient on constructed binary time from a rational finite-vertex chain with proved shared-position joins. Same-cell, adjacent-cell and zero-window address invariance are proved once before quotient lifting; affine vertex control and initial endpoint follow without a force, curve, Cauchy motion field or mechanical premise. Both retained harmonic and general central-force polygon constructions instantiate the same core. No Newton import, derivative, integral, ODE or historical claim occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonValues.polygon_vertex_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) (v : VertexChain T m) (V : Fraction) (hv : Fraction.le (pointNorm (v.state (ticks b m)).2) V) : Within (polygonPosition b T hT m v).val (positionValue (embed (v.state (ticks b m)))) (Fraction.mul (duration T m) V)",
+    "interpretation_and_remaining_premises": "Generic polygon quotient on constructed binary time from a rational finite-vertex chain with proved shared-position joins. Same-cell, adjacent-cell and zero-window address invariance are proved once before quotient lifting; affine vertex control and initial endpoint follow without a force, curve, Cauchy motion field or mechanical premise. Both retained harmonic and general central-force polygon constructions instantiate the same core. No Newton import, derivative, integral, ODE or historical claim occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonValues.polygonMap_left",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (m : Nat) (v : VertexChain T m) : polygonMap T hT m v (leftTime T hT) = embedPosition (v.state 0).1",
+    "interpretation_and_remaining_premises": "Generic polygon quotient on constructed binary time from a rational finite-vertex chain with proved shared-position joins. Same-cell, adjacent-cell and zero-window address invariance are proved once before quotient lifting; affine vertex control and initial endpoint follow without a force, curve, Cauchy motion field or mechanical premise. Both retained harmonic and general central-force polygon constructions instantiate the same core. No Newton import, derivative, integral, ODE or historical claim occurs."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.PositionValues.distance_decompose",
     "private": true,
     "file": "BarrowLib/Polygon/PositionValues.lean",
@@ -7309,6 +7372,69 @@
     "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (edgeCoefficient E0 T tau L B s ht).num",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygon_vertex_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Within (polygonMap o E0 T s hE d.time_nonnegative m (Quotient.mk _ b)).val (positionValue (embed (prefixState b o E0 T s hE m))) (Fraction.mul (duration T m) (velocityCap T B s))",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.whole_edge_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Within (polygonMap o E0 T s hE d.time_nonnegative m (Quotient.mk _ b)).val (gammaPosition o E0 T tau L B s hE d (Quotient.mk _ b)).val (duration (edgeCoefficient E0 T tau L B s d.calibration_positive) m)",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_whole_edge_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (t : BinaryTime T d.time_nonnegative) : Within (polygonMap o E0 T s hE d.time_nonnegative m t).val (gammaPosition o E0 T tau L B s hE d t).val (duration (edgeCoefficient E0 T tau L B s d.calibration_positive) m)",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_uniform_convergence",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ t : BinaryTime T d.time_nonnegative, Within (polygonMap o E0 T s hE d.time_nonnegative m t).val (gammaPosition o E0 T tau L B s hE d t).val eps",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_left",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (m : Nat) : polygonMap o E0 T s hE hT m (leftTime T hT) = embedPosition s.1",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.shared_initial_endpoint",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : polygonMap o E0 T s hE d.time_nonnegative m (leftTime T d.time_nonnegative) = gammaPosition o E0 T tau L B s hE d (leftTime T d.time_nonnegative)",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePrecision.target_positive",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/GeneralForcePrecision.lean",
@@ -10071,6 +10197,15 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : GeneralForceEndpoint.endpointValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs) = CauchyValues.realize (HarmonicDyadic.endpointName w T s hT hs)",
     "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralPolygon.harmonic_polygonMap_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralPolygon.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (m : Nat) (t : BinaryTime.BinaryTime T hT) : GeneralForcePolygonCurve.polygonMap (harmonicOracle w hw) E0 T s hE hT m t = HarmonicPolygonCurve.polygonMap w T s hT m t",
+    "interpretation_and_remaining_premises": "Exact equality of the general sampled polygon instance and the retained harmonic quotient polygon. Actual sampled run vertices equal the retained finite schedules, and completed affine names agree pointwise. No small-window or curve premise is needed for this finite polygon identity. The existing harmonic theorem names and signatures remain intact through shared generic geometry."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralTime.actual_run_state_bound",

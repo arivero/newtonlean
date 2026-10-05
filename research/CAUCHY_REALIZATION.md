@@ -11,8 +11,9 @@ under a positive change of time unit. No historical dependency or supplied
 curve is added.
 The stage-local obligations remain in [the realization ledger](PROP_I_REALIZATION.md).
 
-The [theorem-growth study](THEOREM_PROLIFERATION.md) recommends one shared
-finite-vertex polygon implementation for the next general whole-edge map.
+The [theorem-growth study](THEOREM_PROLIFERATION.md) recommendation is now
+implemented: PolygonValues is one shared finite-vertex polygon implementation
+for the retained harmonic and constructed general whole-edge maps.
 Completion, alias and interface counts are not separate motion-existence
 milestones; the construction and remaining identifications below stay explicit.
 
@@ -48,7 +49,13 @@ kinds of coarse polygon alias are handled. HarmonicPathRegion now constructs
 the matched region and finite-square outer-content lower cut, with a derived
 vanishing cover. HarmonicPathContent realizes the cut as a Cauchy scalar
 through proved shrinking intervals, independently of the initial cover.
-Ordinary-area/Kepler-area identification remains distinct.
+GeneralForcePolygonCurve now constructs the actual coarse polygon quotient,
+with (T*V+A)/2^m whole-edge error and uniform convergence. Actual sample bounds
+derive V, and the existing prefix tail derives A. Six retained harmonic
+proofs reuse PolygonValues; their statements are unchanged, and the harmonic
+instance of the general polygon equals the retained map. General matched-region
+content is the next bounded unit. Ordinary-area/Kepler-area identification
+remains distinct.
 
 GeneralForceSecants now transfers the actual finite O(t²) position remainder
 to rationally divided position differences of constructed curve values. Every
@@ -252,5 +259,5 @@ is independent of the chosen initial cover and inherits nonnegativity, the
 closed budget bound, zero time and convergence to zero. A known rational 1/3
 cut recovers its embedded value for different initial budgets. Equality with
 inner/ordinary area, Kepler swept-area transfer, arbitrary partition
-independence, P5 and general-field whole-edge/content extension remain separate. No integral, ODE, measure theorem,
+independence, P5 and general-field content extension remain separate. No integral, ODE, measure theorem,
 action constant or historical limiting premise is imported.

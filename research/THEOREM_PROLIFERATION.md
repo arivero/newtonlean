@@ -149,3 +149,11 @@ evidence/rendering tests. The catalogue remains at 1,371 distinct rows and
 1,231 references, with the same standard axiom union and no Lean-library
 source change. Logs: /tmp/newton-sol61-proliferation-final-01.log through -16.log.
 Root Sol 6.1 commits this study and continues with the shared polygon core.
+
+The follow-up now implements PolygonValues and GeneralForcePolygonCurve.
+The harmonic alias, zero-window, affine-vertex and initial-endpoint proofs use
+the same core, preserving their statements; the general map has uniform
+whole-edge bound (T*V+A)/2^m. HarmonicGeneralPolygon identifies its harmonic
+instance exactly with the retained map. This is a concrete second client,
+without copying the harmonic polygon's alias proof suite. The next extraction
+will accompany the actual general matched region.

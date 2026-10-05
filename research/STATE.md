@@ -1,12 +1,13 @@
 # Research state
 
 The user-requested [theorem-growth study](THEOREM_PROLIFERATION.md) compares
-the handoff's 793 declarations with the current 1,371. Most additions build the
+the handoff's 793 declarations with 1,371 at the study snapshot. Most additions build the
 elementary foundation or Proposition I's modern construction; count-based
 classification also mislabels universal sampled results and thin quotient
-interfaces. The next implementation will share finite-vertex polygon alias
-proofs, then construct the general whole-edge map, preserving existing names
-and the explicit sample premises. One sequential Astra architectural review
+interfaces. PolygonValues now shares finite-vertex polygon alias proofs, and
+GeneralForcePolygonCurve constructs the general whole-edge map, preserving
+existing names and explicit sample premises. The next bounded unit is the
+actual general matched region and its content. One sequential Astra architectural review
 was explicitly requested for this study; the usual sequential v6 policy
 continues afterward.
 
@@ -62,7 +63,12 @@ completed dyadic velocity secants and proves uniform convergence to that force.
 The bound H_m*L*(V+K) includes the final boundary; precision-offset invariance
 and vanishing rounding error are derived. HarmonicAccelerationSecants gives
 the retained-curve corollary. Unrestricted difference quotients remain open.
-General-force whole-edge geometry, ordinary-area/Kepler-area identification and the remaining
+GeneralForcePolygonCurve now constructs the coarse polygon quotient from actual
+run vertices and shares the finite-vertex alias/joining proof with the retained
+harmonic polygon. Whole-edge error is (T*V+A)/2^m uniformly over the constructed
+time domain, with actual V and the derived prefix coefficient A. The shared
+initial endpoint and exact harmonic polygon specialization compile. General
+content, ordinary-area/Kepler-area identification and the remaining
 classes remain obligations in the handoff's order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
 exact finite-cell potential identities. The progress estimate now credits the
 constructed general local time map and dyadic velocity/force-secants bridges, about
@@ -70,6 +76,7 @@ constructed general local time map and dyadic velocity/force-secants bridges, ab
 See the [general time checkpoint](verification/general-central-time-map-2026-10-05.md).
 See the [completed force checkpoint](verification/completed-central-force-2026-10-05.md).
 See the [acceleration secants checkpoint](verification/constructed-acceleration-secants-2026-10-05.md).
+See the [general polygon checkpoint](verification/general-polygon-map-2026-10-05.md).
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation

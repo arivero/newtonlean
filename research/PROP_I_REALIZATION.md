@@ -7,8 +7,8 @@ are modern rational-coordinate reconstructions (`modern_reconstruction`),
 not historical proofs.
 
 The [theorem-growth study](THEOREM_PROLIFERATION.md) separates implementation
-inventory from discharged obligations. The next construction will share the
-finite polygon alias/joining proof and instantiate the general whole-edge map;
+inventory from discharged obligations. PolygonValues now shares the finite polygon alias/joining proof, and
+GeneralForcePolygonCurve constructs the general whole-edge map;
 the historical P1–P5 boundaries below stay unchanged.
 
 The 4 October handoff's [foundation inventory](BARROWLIB_BOUNDARY.md) is
@@ -30,7 +30,7 @@ construct a continuous local binary-time state/position map with uniform prefix
 convergence, address independence, initial/zero values and full-endpoint E/G
 agreement. The harmonic map is an exact corollary with all its bounds derived.
 Local-annulus stability, confinement, restart/gluing, interior-time E/G and
-precision/partition independence, general whole-edge geometry and P5 remain
+precision/partition independence, general content and unrestricted P5 remain
 explicit obligations. D.2 extracts the generic completion, geometry,
 binary-time and position-value layers. B.1 proves E/G agreement at every
 dyadic rational time, with explicit finite numerator addresses and endpoint cases. B.2 constructs
@@ -59,6 +59,11 @@ uniform convergence of completed dyadic velocity secants to the force at the
 constructed position, with derived bound H_m*L*(V+K) and a retained harmonic
 corollary. Ordinary-area identification and unrestricted difference quotients
 remain open.
+GeneralForcePolygonCurve now constructs the actual quotient coarse polygon
+with whole-edge error (T*V+A)/2^m and uniform convergence, including zero time
+and shared initial endpoint. Six retained harmonic proofs now instantiate the
+shared PolygonValues core with unchanged theorem statements; the general
+harmonic polygon equals the retained map. General content remains open.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 
@@ -93,7 +98,7 @@ with no numbered limiting lemma (M2.md).
 | P1 finite area law | **Checked in the rational planar model, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
 | P3 existence of the ultimate curve | **Open for the general historical claim.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate/residual bounds and harmonic finite stability/refinement bounds are checked. For the harmonic field under T≥0 and T*(1+abs(w))≤1/2, actual prefixes of one global dyadic family now construct Cauchy names, quotient state values and a continuous map on the constructed binary-time quotient. BinaryTime derives the time names; HarmonicTimeRealization proves same-grid control by 2*(1+abs(w))*M times actual time difference, address independence, endpoint/alias identities and zero cases. No curve or limit point is supplied. See CAUCHY_REALIZATION.md and HARMONIC_REFINEMENT.md for the estimates and premises. PositionValues now derives the planar gammaPosition map, coordinate squares and positive sample position separation. Identification with independently rescaled values is proved at every dyadic rational time. GeneralForceTime now gives the local binary-time map for globally compared Lipschitz central samples with explicit actual/coarse/shadow bounds and calibration, with uniform prefix convergence and full-endpoint agreement; the old harmonic map is an exact corollary. Local-annulus stability, gluing, other general E/G time parameters, precision/partition independence, external real-time identification and merely continuous-force existence/uniqueness remain separate. |
-| P4 intervening defect and area law | **Outer-content candidate checked for the constructed harmonic curve.** HarmonicPathRegion defines the cell closures of rational connectors between simultaneous polygonMap/gammaPosition values and their finite union. Initial endpoints agree and the final connector is included. Crossings and overlaps count once in the set; square budgets count multiplicity. D_mesh is the closed lower cut of the infimum of all finite square-cover budgets, with nonnegativity, a derived 4*C²/2^m bound, zero time and decay proved. HarmonicPathContent now realizes this cut as a cover-independent Cauchy scalar with the same bound, nonnegativity, zero time and decay. Ordinary-area identification, general-field whole-edge/content extension and transfer of the separate Kepler law K_mesh remain open. HarmonicCover's polygon/refinement budget remains a distinct finite object. |
+| P4 intervening defect and area law | **Outer-content candidate checked for the constructed harmonic curve.** HarmonicPathRegion defines the cell closures of rational connectors between simultaneous polygonMap/gammaPosition values and their finite union. Initial endpoints agree and the final connector is included. Crossings and overlaps count once in the set; square budgets count multiplicity. D_mesh is the closed lower cut of the infimum of all finite square-cover budgets, with nonnegativity, a derived 4*C²/2^m bound, zero time and decay proved. HarmonicPathContent now realizes this cut as a cover-independent Cauchy scalar with the same bound, nonnegativity, zero time and decay. Ordinary-area identification, general-field content extension and transfer of the separate Kepler law K_mesh remain open. HarmonicCover's polygon/refinement budget remains a distinct finite object. |
 | P5 force identification | **Partial constructed rate bridge checked.** GeneralForceSecants proves that completed bracketing dyadic position secants converge uniformly to the constructed velocity under the stated global Lipschitz comparison, calibrated window and actual/coarse/shadow sample bounds. Finite O(t²) drift remainders are derived from restarted runs and pass to the completed curve; the harmonic result is a corollary. CompletedForce constructs the force at completed positions; GeneralForceAccelerationSecants now proves uniform convergence of completed bracketing dyadic velocity secants to this force with bound H_m*L*(V+K), including the final boundary. Finite force variation, rounding-error exhaustion and precision-offset invariance are derived; the retained harmonic acceleration-secant result is a corollary. Unrestricted difference-quotient differentiation remains open. "Aget indesinenter" is not imported as a modern proof premise. |
 
 ## Candidate permitted premise for P3

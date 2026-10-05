@@ -1,5 +1,6 @@
 import NewtonLimitDynamics.Polygon.PositionValues
 import BarrowLib.Polygon.AffineBoundary
+import BarrowLib.Polygon.PolygonValues
 
 /-!
 Actual within-cell polygon positions and their distance from the constructed
@@ -14,6 +15,16 @@ open NewtonLimitDynamics
 open TimeSubdivision PointBounds
 open HarmonicDyadic HarmonicBinaryPrefix HarmonicTimeRealization
 open BinaryTime CauchyValues PositionValues
+
+def vertices (w T : Fraction) (s : Point × Point) (m : Nat) :
+    PolygonValues.VertexChain T m where
+  state := countState w T s m
+  join := by
+    intro k
+    change pointEquiv (CentralSchedule.schedule (HarmonicStability.linearField w)
+      (List.replicate (k+1) (duration T m)) s).1 _
+    rw [schedule_replicate_step]
+    exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
 
 def polygonName (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (m : Nat) : EndpointCauchyName :=
@@ -71,11 +82,7 @@ theorem polygon_vertex_bound (b : Nat → Bool) (w T : Fraction)
       (Fraction.mul (duration T m) (Fraction.mul (Fraction.ofInt 2) (stateNorm s))) := by
   have hv := Fraction.magnitudes.le_trans (velocity_le_state (prefixState b w T s m))
     (prefix_state_le_two b w T s m hT hs)
-  have hr := Fraction.mul_le_mul_nonnegative_left hv (duration T m) hT
-  have he := AffineValues.edge_vertex_bound b T hT
-    (prefixState b w T s m).1 (prefixState b w T s m).2 m
-  apply within_mono _ _ _ _ hr
-  exact positionValue_within _ _ _ he
+  exact PolygonValues.polygon_vertex_bound b T hT m (vertices w T s m) _ hv
 
 /-- Whole-cell polygon/curve bound, including every interior binary time.
 Its radius is an explicit sum of two geometric mesh terms. -/
@@ -106,72 +113,26 @@ theorem polygon_same_cell_address_independent (b c : Nat → Bool)
     (hcell : ticks b m = ticks c m)
     (htime : AddressEquiv T hT b c) :
     polygonPosition b w T s hT m = polygonPosition c w T s hT m := by
-  have hp : prefixState b w T s m = prefixState c w T s m := by
-    simp only [prefixState, hcell]
-  have hb : timeApprox b T m = timeApprox c T m := by
-    simp only [timeApprox, hcell]
-  unfold polygonPosition polygonName
-  rw [hp]
-  exact congrArg asPosition (Quotient.sound
-    (AffineValues.edgeName_same_start b c T hT
-      (prefixState c w T s m).1 (prefixState c w T s m).2 m hb htime))
+  exact PolygonValues.polygon_same_cell b c T hT m (vertices w T s m) hcell htime
 
 theorem polygon_adjacent_address_independent (b c : Nat → Bool)
     (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat)
     (hcell : ticks b m + 1 = ticks c m)
     (htime : AddressEquiv T hT b c) :
     polygonPosition b w T s hT m = polygonPosition c w T s hT m := by
-  have hb : Fraction.equiv (timeApprox c T m)
-      (Fraction.add (timeApprox b T m) (duration T m)) := by
-    have hk := congrArg (fun n : Nat => (n:Int)) hcell
-    simp only [Int.natCast_add, Int.natCast_one] at hk
-    simpa only [hk, timeApprox] using Fraction.equiv_symm (coarse_upper b T m)
-  have hp : prefixState c w T s m =
-      CentralSchedule.cell (HarmonicStability.linearField w) (duration T m)
-        (prefixState b w T s m) := by
-    simp only [prefixState, ← hcell]
-    exact schedule_replicate_step w (duration T m) s (ticks b m)
-  have hx : pointEquiv (prefixState c w T s m).1
-      (pointAdd (prefixState b w T s m).1
-        (pointScale (duration T m) (prefixState b w T s m).2)) := by
-    rw [hp]
-    exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
-  exact congrArg asPosition (Quotient.sound (AffineValues.edge_boundary_names
-    b c T hT (prefixState b w T s m).1 (prefixState b w T s m).2
-    (prefixState c w T s m).1 (prefixState c w T s m).2 m hb hx htime))
+  exact PolygonValues.polygon_adjacent_cells b c T hT m (vertices w T s m) hcell htime
 
 theorem polygon_zero_window (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat) (hz : T.num = 0) :
     polygonPosition b w T s hT m =
       asPosition (embed (s.1,AffineValues.zeroPoint)) := by
-  apply congrArg asPosition
-  apply Quotient.sound
-  apply nameEquiv_of_levelwise_stateEquiv
-  intro j
-  have ht : (HarmonicTimeComparison.durationDifference (timeApprox b T m)
-      (timeApprox b T (m+j))).num = 0 := by
-    simp only [HarmonicTimeComparison.durationDifference,
-      HarmonicStability.negF, timeApprox, duration, Fraction.add,
-      Fraction.mul, Fraction.ofInt, hz, Int.mul_zero, Int.zero_mul,
-      Int.neg_zero, Int.zero_add]
-  have hp := AffineValues.affine_zero_phase (prefixState b w T s m).1
-    (prefixState b w T s m).2 _ ht
-  have hs := zero_time_prefix b w T s m hz
-  exact ⟨pointEquiv_trans hp.1 hs.1,hp.2⟩
+  exact PolygonValues.polygon_zero_window b T hT m (vertices w T s m) hz
 
 theorem polygon_address_independent (b c : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat)
     (htime : AddressEquiv T hT b c) :
     polygonPosition b w T s hT m = polygonPosition c w T s hT m := by
-  by_cases hz : T.num = 0
-  · exact (polygon_zero_window b w T s hT m hz).trans
-      (polygon_zero_window c w T s hT m hz).symm
-  · have hpos : 0 < T.num := by omega
-    obtain hcell | hcell | hcell := address_equiv_cell_cases b c T hT hpos m htime
-    · exact polygon_same_cell_address_independent b c w T s hT m hcell htime
-    · exact polygon_adjacent_address_independent b c w T s hT m hcell htime
-    · exact (polygon_adjacent_address_independent c b w T s hT m hcell
-        (addressEquiv_symm T hT htime)).symm
+  exact PolygonValues.polygon_address_independent b c T hT m (vertices w T s m) htime
 
 /-- The actual coarse polygon, lifted to the same constructed time quotient
 as the trajectory after proving both kinds of address invariance. -/
@@ -215,22 +176,6 @@ theorem half_time_distinct_coarse_cells :
 theorem polygonMap_left (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (m : Nat) :
     polygonMap w T s hT m (leftTime T hT) = embedPosition s.1 := by
-  apply Subtype.ext
-  change positionValue (realize (polygonName leftAddress w T s hT m)) =
-    positionValue (embed (s.1,zeroPoint))
-  apply congrArg positionValue
-  apply Quotient.sound
-  apply nameEquiv_of_levelwise_stateEquiv
-  intro j
-  have hp : prefixState leftAddress w T s m = s := all_zero_prefix w T s m
-  have hz : (HarmonicTimeComparison.durationDifference (timeApprox leftAddress T m)
-      (timeApprox leftAddress T (m+j))).num = 0 := by
-    have h0 : ticks leftAddress m = 0 := all_zero_ticks m
-    have h1 : ticks leftAddress (m+j) = 0 := all_zero_ticks (m+j)
-    simp [timeApprox,h0,h1,HarmonicTimeComparison.durationDifference,HarmonicStability.negF,
-      Fraction.add,Fraction.mul,Fraction.ofInt]
-  change stateEquiv (AffineValues.affineState _ _ _) (s.1,zeroPoint)
-  rw [hp]
-  exact AffineValues.affine_zero_phase s.1 s.2 _ hz
+  exact PolygonValues.polygonMap_left T hT m (vertices w T s m)
 
 end NewtonLimitDynamics.Polygon.HarmonicPolygonCurve
