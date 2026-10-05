@@ -1123,3 +1123,14 @@ of 1687, 1713 and 1726). `catalogue_m1.py` now takes a per-witness retrieval
 date, leaving the existing companions unchanged. The passage store has 249
 entries; graph validation, evidence validation, checksums and whitespace
 pass. No proof edge or formal reference is added.
+
+1726 Definitions and Laws, 5 October (Claude Code): the TEI and both HTML views
+of NATP00085 (Definitiones, 1726) and NATP00086 (Axiomata sive Leges Motus,
+1726) are stored in `docs/m4` beside the 1726 Book I. Four anchors enter the
+passage store with identifying translations: Definition V's explanation and the
+accelerative/motive paragraph (par10, par18), Corollary I and the Scholium with
+the new passage deriving Galileo's results from equal impulses in equal
+particles of time (par8, par25). All four extracts match and both views carry
+the anchors. The passage store has 253 entries; graph validation, evidence
+validation, checksums and whitespace pass. No proof edge or formal reference is
+added.

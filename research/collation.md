@@ -2,7 +2,7 @@
 
 Generated 2026-09-21 by `scripts/collate_sources.py`. This report checks the local TEI/XML transcription against selected passage extracts and the presence of corresponding anchors in normalized and diplomatic HTML. It records page and facsimile metadata but does not inspect or download manuscript images, and it does not establish historical proof dependency.
 
-Primary witnesses: 10; selected XML anchors: 246; exact generated-extract matches: 246; revision-tagged anchors: 59.
+Primary witnesses: 12; selected XML anchors: 250; exact generated-extract matches: 250; revision-tagged anchors: 59.
 
 ## Witness layers
 
@@ -18,6 +18,8 @@ Primary witnesses: 10; selected XML anchors: 246; exact generated-extract matche
 | NATP00081 | 1713 | Printed | 13 | 8/8 | 8/8 |
 | NATP00087 | 1726 | Printed | 202 | 46/46 | 46/46 |
 | NATP00091 | NATP00091 | Manuscript | 4 | 1/3 | 3/3 |
+| NATP00085 | 1726 | Printed | 12 | 2/2 | 2/2 |
+| NATP00086 | 1726 | Printed | 15 | 2/2 | 2/2 |
 
 A missing local HTML view is reported as absent; its official URL remains in the JSON record. XML is the machine-readable authority for exact revision markup.
 
@@ -376,6 +378,32 @@ Library/facsimile record: https://cudl.lib.cam.ac.uk/view/MS-ADD-03965/49
 | par10 | 26r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00011.jpg | add:8, choice:1, del:7, gap:1, orig:1, reg:1, unclear:1 | match | present | present |
 | par21 | 26r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00011.jpg | add:6, choice:1, del:7, gap:1, orig:1, reg:1, unclear:2 | match | anchor missing | present |
 | par24 | 23r | http://cudl.lib.cam.ac.uk/newton/images/MS-ADD-03965-005-00005.jpg | del:1 | match | anchor missing | present |
+
+## NATP00085 — Definitiones (1726)
+
+Source: Philosophiae Naturalis Principia Mathematica (London: 1726).
+Date: 1726
+Hand: Print
+XML: [docs/m4/NATP00085.xml](../docs/m4/NATP00085.xml)
+Library/facsimile record: none encoded
+
+| Anchor | Page | Facsimile target | Revision tags | Extract | Normalized | Diplomatic |
+|---|---:|---|---|---|---|---|
+| par10 | 3 | — | none | match | present | present |
+| par18 | 5 | — | none | match | present | present |
+
+## NATP00086 — Axiomata Sive Leges Motus (1726)
+
+Source: Philosophiae Naturalis Principia Mathematica (London: 1726).
+Date: 1726
+Hand: Print
+XML: [docs/m4/NATP00086.xml](../docs/m4/NATP00086.xml)
+Library/facsimile record: none encoded
+
+| Anchor | Page | Facsimile target | Revision tags | Extract | Normalized | Diplomatic |
+|---|---:|---|---|---|---|---|
+| par8 | 14 | — | none | match | present | present |
+| par25 | 21 | — | none | match | present | present |
 
 ## Supplementary records
 

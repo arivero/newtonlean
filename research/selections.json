@@ -315,5 +315,25 @@
     ],
     "revision_layer": "draft, MS Add. 3965.5, late 1684/5 per TEI origDate; all marked additions and deletions retained (par21 and par24 are deleted in full); renumbering of the definitions unresolved",
     "retrieved": "2026-10-04"
+  },
+  "NATP00085": {
+    "stage": "1726",
+    "path": "docs/m4/NATP00085.xml",
+    "anchors": [
+      "par10",
+      "par18"
+    ],
+    "revision_layer": "printed 1726 edition; transcription corrections retained",
+    "retrieved": "2026-10-05"
+  },
+  "NATP00086": {
+    "stage": "1726",
+    "path": "docs/m4/NATP00086.xml",
+    "anchors": [
+      "par8",
+      "par25"
+    ],
+    "revision_layer": "printed 1726 edition; transcription corrections retained",
+    "retrieved": "2026-10-05"
   }
 }

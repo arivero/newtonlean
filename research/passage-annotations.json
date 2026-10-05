@@ -348,5 +348,17 @@
   },
   "NATP00091.par21": {
     "translation": "Deleted in the manuscript: Def. 14. The exerted force of a body is that by which it endeavours to conserve the part of its state of moving or resting that it loses in single moments; it is proportional to that change, and is not improperly called the body's reluctance or resistance. One species of it is the centrifugal force of revolving bodies."
+  },
+  "NATP00085.par10": {
+    "translation": "Definition V explanation (1726): the sling, the projectile fired horizontally from a mountain whose range grows with its velocity until it circles the Earth or goes off into the heavens, the Moon held in its orbit by a force of the right size, and the two inverse tasks of mathematicians: the force for a given orbit and the orbit for a given force. 1726 adds \"for its quantity of matter\"."
+  },
+  "NATP00085.par18": {
+    "translation": "Accelerative force is to motive force as velocity to motion; 1726 states motive force as arising from accelerative force and quantity of matter jointly, and weight as the body and accelerative gravity jointly, where 1687 and 1713 say multiplied into."
+  },
+  "NATP00086.par8": {
+    "translation": "Corollary I (1726): forces M and N impressed at the place A carry the body uniformly to B and to C; together they carry it along the diagonal to D in the same time, because N, parallel to BD, does not change the velocity of approach to BD (Law II); it then moves straight from A to D (Law I)."
+  },
+  "NATP00086.par25": {
+    "translation": "Scholium to the Laws (1726): uniform gravity, acting equally in equal particles of time, impresses equal forces and generates equal velocities, so the whole velocity is proportional to the time and the spaces are in the duplicate ratio of the times; for upward motion the heights are in the duplicate ratio of the velocities; a projectile compounds projection and fall, describing a parabola tangent to AB at A with ordinate BD as AB squared. Then the collision rules of Wren, Wallis and Huygens and the corrected pendulum experiment."
   }
 }

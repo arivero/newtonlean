@@ -34,6 +34,8 @@ request authorizes the following additional witnesses and selected passages:
 - Rouse Ball's edited Royal Society-copy reprint, pp.35–37: independent H4
   numbering, visually checked; direct earliest manuscript chronology unresolved.
 - NATP00087: 1726 Book I TEI, selected chain in docs/m4, separate from 1713.
+- NATP00085 and NATP00086: 1726 Definitions and Laws TEI in docs/m4, retrieved
+  5 October 2026; anchors par10, par18 (Definitions) and par8, par25 (Laws).
 - Gregory C44 edited Latin: separate-booklet proposal and manuscript identity
   checked visually. **Not** C42; the latter's direct text remains a source gap.
 - Brackenridge's publisher edition, chapter 8 and notes: secondary locator
