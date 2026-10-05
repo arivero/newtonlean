@@ -195,6 +195,12 @@ Cauchy scalar realization and cover independence are now proved in
 HarmonicPathContent. Ordinary-area and Kepler-area identification, P5 and partition
 independence remain distinct. CompletedForce now proves representative compatibility for globally Lipschitz
 sampled force data; finite centrality alone does not supply it.
+All general-force results so far assume `global_region : ∀ p, o.region p`, a
+force Lipschitz on the whole plane, which excludes every law singular at S;
+only the harmonic instance exists. The repair is handoff Task A.6. P3's
+general claim therefore stays open for Newton's own laws, and P4's area law
+on the constructed curve, Proposition I's conclusion, is not yet stated for
+any instance (handoff Task E).
 The [construction ledger](CAUCHY_REALIZATION.md) records the checked quotient
 and time-domain steps and the remaining geometric obligations.
 

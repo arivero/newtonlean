@@ -64,6 +64,10 @@ constructed acceleration values, actual bounded polygon iterates and finite
 mesh-uniform refinement accumulation. GeneralForceEndpoint now derives
 fixed-time Cauchy names/values for globally compared Lipschitz central samples,
 using geometric precision selection and bounded actual/shadow force arrivals.
+"Globally compared" is the whole-plane premise `global_region`; it excludes
+the laws singular at the centre, so order 4 is not advanced for Newton's
+target laws until region confinement replaces it (handoff Task A.6), and the
+curve's own area law remains unstated (handoff Task E).
 Its harmonic instance derives the required sample bounds and equals the old
 endpoint construction. GeneralForceTime now constructs the continuous local
 binary-time map, including uniform prefix convergence, address independence and

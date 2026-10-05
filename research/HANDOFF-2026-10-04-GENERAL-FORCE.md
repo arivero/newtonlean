@@ -68,11 +68,18 @@ first.
 
 Two gaps remain, and they come before any new completed quantity:
 
-- **Whole plane.** `LipschitzOn` is stated on `o.region`, but
-  `Conditions.global_region : ∀ p, o.region p` (and `GeneralForceGrowth.Data`)
-  make every general theorem a whole-plane theorem; the only instance built,
-  the harmonic one, discharges it with `True.intro`. Nothing proves that the
-  polygons stay in a region. Task A.6 below replaces this.
+- **Whole plane: a required repair, first in order.** `LipschitzOn` is
+  stated on `o.region`, but `Conditions.global_region : ∀ p, o.region p` (and
+  `GeneralForceGrowth.Data`) make every general theorem a whole-plane
+  theorem; the only instance built, the harmonic one, discharges it with
+  `True.intro`. Nothing proves that the polygons stay in a region. A force
+  Lipschitz on the whole plane is outside Newton's expectations: Proposition I
+  concerns a force toward a point, and every law he applies it to (`1/r²`
+  above all) is singular at that point. The whole-plane results therefore do
+  not instantiate to the historical target; they are conditional diagnostics
+  until A.6 is done. Do not build on `global_region` again, and re-derive the
+  existing general theorems on the region premise rather than keeping two
+  versions.
 - **Proposition I's own conclusion.** No theorem states the area law for the
   constructed curve. Task E below adds it.
 
@@ -320,10 +327,11 @@ and (d). Steps D.1, A (first pass), D.2, B.1–B.3 and C.2 are done.
 Order from 5 October:
 
 1. Finish and commit the current increment (`GeneralForceGrowth`: sample
-   bounds derived from force data).
-2. Task A.6: region confinement replacing `global_region`; the ball case,
-   then the annulus from the areal product, with Kepler's `1/r²` as the
-   instance that must go through.
+   bounds derived from force data), without extending it.
+2. Task A.6, required: region confinement replacing `global_region`
+   everywhere; the ball case, then the annulus from the areal product, with
+   Kepler's `1/r²` as the instance that must go through. Nothing else is to
+   be started before this is committed.
 3. Task E.1: the areal product constant along the curve.
 4. Task C.1 and C.3: the between-path region's definition and vanishing.
 5. Task E.2 and E.3: the sector area proportional to time, and the three

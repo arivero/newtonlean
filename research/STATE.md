@@ -13,6 +13,15 @@ the D_mesh relation, local confinement/gluing and general interior-time E/G agre
 was explicitly requested for this study; the usual sequential v6 policy
 continues afterward.
 
+**Caveat on "general" (5 October).** Every general-force result below
+rests on the premise `global_region : ∀ p, o.region p`: the sampled force is
+Lipschitz on the whole plane. That excludes every law singular at the centre,
+`1/r²` first of all, so these results do not yet instantiate to the laws
+Proposition I was written for; the harmonic field is the only instance built.
+Replacing the premise by derived region confinement is the required first
+repair (handoff Task A.6), and the area law for the constructed curve itself
+is not yet stated for any instance (handoff Task E).
+
 Current handoff execution (Sol 6.1, 4–5 October): D.1, Task A's finite
 interface/estimate increments and D.2 are committed. The [force design](GENERAL_FORCE_DESIGN.md)
 constructs force values from uniform rational samples. GeneralForceEndpoint
