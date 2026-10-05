@@ -1,9 +1,10 @@
 # Area of the constructed intervening region
 
-HarmonicPathRegion now constructs a matched polygon–curve region and its
+HarmonicPathRegion and GeneralForcePathRegion now construct actual matched
+polygon–curve regions and their
 finite-square outer content in Lean. This is a `modern_reconstruction`,
-separate from the historical claims in De Motu, 1687 and 1713. The curve is
-constructed from the actual harmonic polygons; no curve, area function or
+separate from the historical claims in De Motu, 1687 and 1713. Each curve is
+constructed from its actual polygon family; no curve, area function or
 covering inequality is supplied. See [path defect](PROP_I_PATH_DEFECT.md) and
 [the construction ledger](CAUCHY_REALIZATION.md).
 
@@ -72,12 +73,19 @@ lower comparisons are exactly the all-cover infimum cut. The value is independen
 of the initial cover and inherits scalar nonnegativity, budget control, zero
 time and decay. Equality with inner content, ordinary Euclidean area or a
 measure remains separate.
-P5 unrestricted-rate, leading curved potential steps, arbitrary-partition independence,
-gluing and general central-force content extension remain open.
+P5 unrestricted-rate, leading curved potential steps, arbitrary-partition
+independence and gluing remain open.
 GeneralForcePolygonCurve now supplies the actual general quotient polygon and
 uniform whole-edge bound (T*V+A)/2^m. Its finite joining and alias geometry is
 shared with the retained harmonic map; exact harmonic specialization is proved.
-Constructing the general matched region and its actual content is the next unit.
+MatchedRegion now shares the closed-cell connector and cover geometry with
+the retained harmonic client. GeneralForcePathRegion/Content construct the
+actual general closed-cell union, all-cover cut and cover-independent Cauchy
+scalar. The derived general cover has radius C/2^m, C=T*V+A, and budget
+4*C²/2^m. It preserves final connectors and counts overlaps once. Nonnegativity,
+zero time and decay follow. HarmonicGeneralPathContent proves exact equality
+with the retained region and content; the larger general cover changes only
+the bound, not the object.
 GeneralForceTime now constructs a local continuous binary-time state/position
 map under explicit global Lipschitz comparison and actual/coarse/shadow sampled
 force bounds; its harmonic instance equals the maps used in this region.

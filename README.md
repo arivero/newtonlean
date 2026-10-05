@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,386 checked
-library theorems, 1,010 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,413 checked
+library theorems, 1,037 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -52,13 +52,15 @@ the three-tick completed values whose finite schedules differ. GeneralForceTime 
 map from actual central samples, with uniform prefix convergence, initial/zero
 cases and full-endpoint E/G agreement. Its harmonic instance derives the extra
 actual-grid bounds and equals the old maps. Local-annulus confinement/gluing,
-general interior-time E/G and content extension remain open.
+general interior-time E/G remain open.
 GeneralForcePolygonCurve now constructs the general coarse polygon quotient
 and proves uniform whole-edge error (T*V+A)/2^m, reusing the same finite-vertex
-alias proofs as the harmonic map. HarmonicPathRegion constructs
-the actual matched polygon–curve region and its nonnegative square-cover outer
-content cut and its cover-independent Cauchy scalar, with derived geometric
-decay. GeneralForceSecants now identifies constructed velocity as the uniform
+alias proofs as the harmonic map. GeneralForcePathRegion/Content now construct
+the actual general matched region and its cover-independent nonnegative
+outer-content scalar, with bound 4*C²/2^m and geometric decay. MatchedRegion
+shares cell-closure and connector geometry with the retained harmonic region;
+the general harmonic specialization has exactly its old region and content.
+GeneralForceSecants now identifies constructed velocity as the uniform
 limit of completed bracketing dyadic position secants; the harmonic curve is
 a proved corollary. GeneralForceAccelerationSecants now proves uniform
 convergence of completed dyadic velocity secants to the force at the constructed
@@ -108,7 +110,7 @@ are in [history.csv](docs/progress/history.csv).
   <img alt="Cumulative theorems by proof obligation" src="docs/progress/theorems-by-area.svg">
 </picture>
 
-**Estimated completion: about 38% (35–46% under alternative weightings), reassessed 5 October.**
+**Estimated completion: about 39% (35–46% under alternative weightings), reassessed 5 October.**
 This figure is an editorial judgement and certifies nothing. Each proposition
 is scored on four milestones weighted by expected difficulty: source map (10%),
 finite step in Lean (20%), limiting passage or realization (45%), and area and
@@ -123,7 +125,7 @@ action-hypothesis assessment 10%. Scores and the evidence for each are in
 
 | Target | Source map | Finite step | Limit / realization | Identification | Estimate |
 | --- | --- | --- | --- | --- | --- |
-| Prop. I | done | done | harmonic and general Lipschitz local time maps | harmonic outer content; constructed dyadic velocity/force secants | 60% |
+| Prop. I | done | done | harmonic and general Lipschitz local time maps | general Lipschitz outer content; constructed dyadic velocity/force secants | 61% |
 | Prop. II | done | done | stated | open | 32% |
 | Prop. III | done | done | open | open | 30% |
 | Prop. IV | done | finite core | routes documented | open | 30% |
@@ -133,12 +135,12 @@ Under the stricter [completion ledger](research/CONTINUATION.md), no target is
 discharged yet. Source maps and finite steps are essentially finished. The
 increase from 34% credits whole-edge convergence, agreement of the two harmonic
 constructions, calibrated general Lipschitz endpoint and local binary-time maps, and Arg007's exact
-finite potential identities, harmonic matched-region outer content and
+finite potential identities, harmonic and general matched-region outer content and
 constructed dyadic velocity/force-secants identification. It
 gives no extra credit for theorem count,
-helper consolidation or foundation migration. General content extension,
-local confinement and gluing, ordinary-area/Kepler-area identification and
-P5 unrestricted-rate identification remains open, as do the limiting passages of Propositions II–IV.
+helper consolidation or foundation migration. Local confinement and gluing,
+ordinary-area/Kepler-area identification and P5 unrestricted-rate identification
+remain open, as do the limiting passages of Propositions II–IV.
 The harmonic time map still uses a short window; the general time map names
 its positive calibration, global Lipschitz comparison and actual/coarse/shadow
 force bounds explicitly. It constructs BinaryTime rather than assuming a real

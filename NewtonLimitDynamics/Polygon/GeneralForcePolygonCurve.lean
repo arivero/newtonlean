@@ -31,6 +31,16 @@ theorem edgeCoefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × Poin
     (Fraction.nonnegative_mul _ _ hT (velocityCap_nonnegative T B s hT hB))
     (GeneralForcePrefix.coefficient_nonnegative E0 T tau L B s hE hT ht hL hB)
 
+theorem edgeRadius_geometric (E0 T tau L B : Fraction) (s : Point × Point)
+    (ht : 0 < tau.num) (m : Nat) :
+    Fraction.equiv
+      (Fraction.add (Fraction.mul (duration T m) (velocityCap T B s))
+        (GeometricTail.tailCap (GeneralForcePrefix.coefficient E0 T tau L B s ht) m))
+      (duration (edgeCoefficient E0 T tau L B s ht) m) := by
+  simp only [edgeCoefficient,GeometricTail.tailCap,duration,Fraction.equiv,Fraction.add,
+    Fraction.mul,Int.add_mul,Int.mul_add]
+  ac_nf
+
 theorem polygon_vertex_bound (b : Nat → Bool) (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -51,11 +61,8 @@ theorem whole_edge_bound (b : Nat → Bool) (o : ForceClasses.CentralOracle)
   have hp := polygon_vertex_bound b o E0 T tau L B s hE d m
   have hg := positionValue_within _ _ _ (prefix_value_bound b o E0 T tau L B s hE d m)
   have hb := within_triangle _ _ _ _ _ hp hg
-  apply within_mono _ _ _ _ ?_ hb
-  apply Fraction.le_of_equiv
-  simp only [edgeCoefficient,GeometricTail.tailCap,duration,Fraction.equiv,Fraction.add,
-    Fraction.mul,Int.add_mul,Int.mul_add]
-  ac_nf
+  exact within_mono _ _ _ _
+    (Fraction.le_of_equiv (edgeRadius_geometric E0 T tau L B s d.calibration_positive m)) hb
 
 theorem polygonMap_whole_edge_bound (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)

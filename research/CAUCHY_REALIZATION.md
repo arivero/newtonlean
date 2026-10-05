@@ -53,9 +53,13 @@ GeneralForcePolygonCurve now constructs the actual coarse polygon quotient,
 with (T*V+A)/2^m whole-edge error and uniform convergence. Actual sample bounds
 derive V, and the existing prefix tail derives A. Six retained harmonic
 proofs reuse PolygonValues; their statements are unchanged, and the harmonic
-instance of the general polygon equals the retained map. General matched-region
-content is the next bounded unit. Ordinary-area/Kepler-area identification
-remains distinct.
+instance of the general polygon equals the retained map. MatchedRegion now
+shares cell-closure, connector and covering geometry with both clients.
+GeneralForcePathRegion/Content construct the actual general region, all-cover
+cut and canonical Cauchy scalar. Actual vertex/prefix bounds give 4*C²/2^m
+control, nonnegativity, zero time and decay. Cover independence and exact
+harmonic region/content specialization are proved. Ordinary-area/Kepler-area
+identification remains distinct.
 
 GeneralForceSecants now transfers the actual finite O(t²) position remainder
 to rationally divided position differences of constructed curve values. Every

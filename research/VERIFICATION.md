@@ -1,6 +1,34 @@
 # Verification record
 
-## Current handoff: shared polygon geometry and general map, 5 October 2026
+## Current handoff: general matched region and content, 5 October 2026
+
+MatchedRegion shares simultaneous rational connectors, cell closures and finite
+covers between the retained harmonic and constructed general polygon/curve
+maps. Actual vertex and prefix bounds derive one square per cell, with radius
+C/2^m and budget 4*C²/2^m, C=T*V+A. GeneralForcePathRegion/Content construct
+the actual unsigned set, all-cover lower cut and canonical Cauchy scalar.
+Nonnegativity, zero time, geometric decay, the final connector and independence
+of the initial cover are proved. HarmonicGeneralPathContent proves exact
+region and scalar equality with the retained objects despite different covers.
+The existing harmonic statements and point-set definition are preserved.
+Identification rises from 0.30 to 0.35 for this general geometric construction,
+without count or extraction credit: 38.59% overall, range 35.16–46.30%, Prop I
+61.25%. Ordinary-area/Kepler-area identification and curved potential steps
+remain open. All 16 sequential checklist commands pass, including all three
+build targets, source/graph, catalogue/reference and standard-axiom checks,
+rendering tests, hashes and whitespace. All 1,764 prior public names and types
+at 3425dde remain, with 38 new names; old theorem statements are unchanged.
+The where-body of harmonic actualCover changed, while its declared type and
+point set are retained. The catalogue has 1,413 distinct rows and 1,273
+references; live counts are 1,037 substantive, 195 plumbing, 155 sample and 26
+duplicate. All 27 new rows and all 580 Barrow rows are source-free. The graph
+is unchanged at 77/68/249; axiom union propext, Classical.choice and Quot.sound,
+with no sorryAx, project axiom or external package. Logs:
+/tmp/newton-sol61-general-content-final-01.log through -16.log. Graph PDF
+dates are restored only after every other byte is proved unchanged. Root Sol
+6.1 commits the increment and preserves unrelated conversation archives.
+
+### Shared polygon geometry and general map, 5 October 2026
 
 PolygonValues constructs one finite-vertex polygon quotient from proved actual
 position joins. GeneralForcePolygonCurve uses the actual sampled runs and the

@@ -73,3 +73,6 @@ import NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve
 import NewtonLimitDynamics.Polygon.HarmonicGeneralPolygon
 import NewtonLimitDynamics.Polygon.HarmonicPathRegion
 import NewtonLimitDynamics.Polygon.HarmonicPathContent
+import NewtonLimitDynamics.Polygon.GeneralForcePathRegion
+import NewtonLimitDynamics.Polygon.GeneralForcePathContent
+import NewtonLimitDynamics.Polygon.HarmonicGeneralPathContent

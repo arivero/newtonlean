@@ -40,6 +40,15 @@ theorem contentValue_independent_cover (A : PositionValue → Prop) (c d : Cover
     contentValue A c = contentValue A d :=
   BoundedCuts.value_eq_of_lower_iff (contentCut A c) (contentCut A d) (fun _ => Iff.rfl)
 
+/-- Equal point sets have the same scalar content, even when their proved
+initial covers and bounds differ. -/
+theorem contentValue_region_congr (A B : PositionValue → Prop)
+    (h : ∀ x, A x ↔ B x) (c : Cover A) (d : Cover B) :
+    contentValue A c = contentValue B d :=
+  BoundedCuts.value_eq_of_lower_iff (contentCut A c) (contentCut B d) (fun q =>
+    ⟨content_mono A B (fun x hx => (h x).mp hx) q,
+     content_mono B A (fun x hx => (h x).mpr hx) q⟩)
+
 /-- Any actual cover bounds the canonical value, regardless of the cover used
 for its bisection construction. -/
 theorem contentValue_any_cover_bound (A : PositionValue → Prop) (c d : Cover A) :

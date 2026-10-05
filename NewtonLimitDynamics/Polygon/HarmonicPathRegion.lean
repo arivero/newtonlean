@@ -1,5 +1,6 @@
 import NewtonLimitDynamics.Polygon.HarmonicPolygonCurve
 import BarrowLib.Polygon.SquareOuterContent
+import BarrowLib.Polygon.MatchedRegion
 
 /-! The actual nonnegative matched region between the constructed harmonic
 curve and the coarse polygon. Each cell uses simultaneous polygon/curve
@@ -20,17 +21,14 @@ def cellStart (w T : Fraction) (s : Point × Point) (m k : Nat) : Point :=
 /-- Simultaneous positions, using quotient maps rather than a supplied curve. -/
 def cellPatch (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) (m k : Nat) (x : PositionValue) : Prop :=
-  ∃ b : Nat → Bool, ticks b m = k ∧
-    ∃ a : Fraction, ∃ ha : UnitInterval a,
-      x = convexPosition a ha
-        (polygonMap w T s hT m (Quotient.mk _ b))
-        (gammaPosition w T s hT hs (Quotient.mk _ b))
+  MatchedRegion.cellPatch T hT (polygonMap w T s hT m)
+    (gammaPosition w T s hT hs) m k x
 
 /-- Cell closures give all limit connector points, including their endpoints.
 The finite union is an unsigned point set, not a determinant sum. -/
 def Region (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) (m : Nat) (x : PositionValue) : Prop :=
-  ∃ k, k < blocks m ∧ Closure (cellPatch w T s hT hs m k) x
+  MatchedRegion.Region T hT (polygonMap w T s hT m) (gammaPosition w T s hT hs) m x
 
 theorem edgeRadius_nonnegative (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (m : Nat) : 0 ≤ (edgeRadius w T s m).num :=
@@ -68,60 +66,46 @@ theorem cellPatch_square (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m k : Nat)
     (x : PositionValue) (hx : cellPatch w T s hT hs m k x) :
     CoordinateSquare (cellStart w T s m k) (coverRadius w T s hT m) x := by
-  obtain ⟨b,hb,a,ha,hx⟩ := hx
-  subst x
-  obtain ⟨hp,hg⟩ := simultaneous_endpoints_square b w T s hT hs m
-  rw [hb] at hp hg
-  exact convexPosition_square a ha _ _ _ _ hp hg
+  exact MatchedRegion.cellPatch_square T hT _ _ m (cellStart w T s m)
+    (coverRadius w T s hT m) (fun b => simultaneous_endpoints_square b w T s hT hs m) k x hx
 
 theorem closed_cell_square (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m k : Nat)
     (x : PositionValue) (hx : Closure (cellPatch w T s hT hs m k) x) :
     CoordinateSquare (cellStart w T s m k) (coverRadius w T s hT m) x :=
-  closure_square _ x hx _ _ (fun y hy => cellPatch_square w T s hT hs m k y hy)
+  MatchedRegion.closed_cell_square T hT _ _ m (cellStart w T s m)
+    (coverRadius w T s hT m) (fun b => simultaneous_endpoints_square b w T s hT hs m) k x hx
 
 /-- One derived coordinate square per actual coarse cell. -/
 def actualCover (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num)
-    (hs : DyadicSmallTime w T) (m : Nat) : Cover (Region w T s hT hs m) where
-  count := blocks m
-  squares := fun k => ⟨cellStart w T s m k,coverRadius w T s hT m⟩
-  covers := by
-    intro x hx
-    obtain ⟨k,hk,hx⟩ := hx
-    exact ⟨k,hk,closed_cell_square w T s hT hs m k x hx⟩
+    (hs : DyadicSmallTime w T) (m : Nat) : Cover (Region w T s hT hs m) :=
+  MatchedRegion.actualCover T hT _ _ m (cellStart w T s m) (coverRadius w T s hT m)
+    (fun b => simultaneous_endpoints_square b w T s hT hs m)
 
 theorem connector_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (t : BinaryTime T hT) (a : Fraction) (ha : UnitInterval a) :
     Region w T s hT hs m (convexPosition a ha
-      (polygonMap w T s hT m t) (gammaPosition w T s hT hs t)) := by
-  induction t using Quotient.inductionOn with
-  | _ b =>
-    refine ⟨ticks b m,ticks_lt_blocks b m,closure_contains _ _ ?_⟩
-    exact ⟨b,rfl,a,ha,rfl⟩
+      (polygonMap w T s hT m t) (gammaPosition w T s hT hs t)) :=
+  MatchedRegion.connector_in_region T hT _ _ m t a ha
 
 /-- Reversing a connector changes no unsigned region point. -/
 theorem reversed_connector_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (t : BinaryTime T hT) (a : Fraction) (ha : UnitInterval a) :
     Region w T s hT hs m (convexPosition a ha
-      (gammaPosition w T s hT hs t) (polygonMap w T s hT m t)) := by
-  rw [convexPosition_swap]
-  exact connector_in_region w T s hT hs m t _ (complement_interval a ha)
+      (gammaPosition w T s hT hs t) (polygonMap w T s hT m t)) :=
+  MatchedRegion.reversed_connector_in_region T hT _ _ m t a ha
 
 theorem polygon_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
-    (t : BinaryTime T hT) : Region w T s hT hs m (polygonMap w T s hT m t) := by
-  have ha : UnitInterval (Fraction.ofInt 0) := by constructor <;> decide
-  have h := connector_in_region w T s hT hs m t (Fraction.ofInt 0) ha
-  rwa [convexPosition_zero] at h
+    (t : BinaryTime T hT) : Region w T s hT hs m (polygonMap w T s hT m t) :=
+  MatchedRegion.polygon_in_region T hT _ _ m t
 
 theorem curve_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
-    (t : BinaryTime T hT) : Region w T s hT hs m (gammaPosition w T s hT hs t) := by
-  have ha : UnitInterval (Fraction.ofInt 1) := by constructor <;> decide
-  have h := connector_in_region w T s hT hs m t (Fraction.ofInt 1) ha
-  rwa [convexPosition_one] at h
+    (t : BinaryTime T hT) : Region w T s hT hs m (gammaPosition w T s hT hs t) :=
+  MatchedRegion.curve_in_region T hT _ _ m t
 
 theorem shared_initial_endpoint (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
@@ -150,16 +134,8 @@ theorem actual_budget_geometric (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
     Fraction.equiv (actualCover w T s hT hs m).budget
       (duration (budgetCoefficient w T s) m) := by
-  have he := uniform_budget (cellStart w T s m) (coverRadius w T s hT m) (blocks m)
-  have hr := edgeRadius_geometric w T s m
-  have hsq := Fraction.mul_equiv hr hr
-  have hc := Fraction.mul_equiv (Fraction.equiv_refl (Fraction.ofInt (blocks m : Int)))
-    (Fraction.mul_equiv (Fraction.equiv_refl (Fraction.ofInt 4)) hsq)
-  apply Fraction.equiv_trans he
-  apply Fraction.equiv_trans hc
-  simp only [budgetCoefficient,SquareOuterContent.squareArea,duration,blocks,
-    Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
-  ac_nf
+  exact MatchedRegion.uniform_budget_geometric (cellStart w T s m)
+    (coverRadius w T s hT m) m (edgeCoefficient w T s) (edgeRadius_geometric w T s m)
 
 /-- Polygon/constructed-curve outer content, represented exactly by its lower
 cut. The definition quantifies over all finite square covers of the actual set. -/

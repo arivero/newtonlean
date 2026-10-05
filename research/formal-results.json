@@ -3654,6 +3654,69 @@
     "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.MatchedRegion.cellPatch_square",
+    "private": false,
+    "file": "BarrowLib/Polygon/MatchedRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (p g : BinaryTime T hT → PositionValue) (m : Nat) (centres : Nat → Point) (R : NonnegativeRadius) (h : ∀ b : Nat → Bool, CoordinateSquare (centres (ticks b m)) R (p (Quotient.mk _ b)) ∧ CoordinateSquare (centres (ticks b m)) R (g (Quotient.mk _ b))) (k : Nat) (x : PositionValue) (hx : cellPatch T hT p g m k x) : CoordinateSquare (centres k) R x",
+    "interpretation_and_remaining_premises": "Generic unsigned cell-closure union of simultaneous rational connectors between two proved maps on constructed binary time. A shared endpoint square yields convex-connector and closed-cell containment, hence an actual finite cover. Every connector, reversed connector and each map lies in the set; the right endpoint is retained. One square of radius C/2^m per dyadic cell has budget 4*C^2/2^m. Map construction is supplied by each client, not asserted by this geometry. Harmonic and general constructed maps are distinct actual clients. No force, derivative, integral, ODE, Newton import or historical dependency is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MatchedRegion.closed_cell_square",
+    "private": false,
+    "file": "BarrowLib/Polygon/MatchedRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (p g : BinaryTime T hT → PositionValue) (m : Nat) (centres : Nat → Point) (R : NonnegativeRadius) (h : ∀ b : Nat → Bool, CoordinateSquare (centres (ticks b m)) R (p (Quotient.mk _ b)) ∧ CoordinateSquare (centres (ticks b m)) R (g (Quotient.mk _ b))) (k : Nat) (x : PositionValue) (hx : Closure (cellPatch T hT p g m k) x) : CoordinateSquare (centres k) R x",
+    "interpretation_and_remaining_premises": "Generic unsigned cell-closure union of simultaneous rational connectors between two proved maps on constructed binary time. A shared endpoint square yields convex-connector and closed-cell containment, hence an actual finite cover. Every connector, reversed connector and each map lies in the set; the right endpoint is retained. One square of radius C/2^m per dyadic cell has budget 4*C^2/2^m. Map construction is supplied by each client, not asserted by this geometry. Harmonic and general constructed maps are distinct actual clients. No force, derivative, integral, ODE, Newton import or historical dependency is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MatchedRegion.connector_in_region",
+    "private": false,
+    "file": "BarrowLib/Polygon/MatchedRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (p g : BinaryTime T hT → PositionValue) (m : Nat) (t : BinaryTime T hT) (a : Fraction) (ha : UnitInterval a) : Region T hT p g m (convexPosition a ha (p t) (g t))",
+    "interpretation_and_remaining_premises": "Generic unsigned cell-closure union of simultaneous rational connectors between two proved maps on constructed binary time. A shared endpoint square yields convex-connector and closed-cell containment, hence an actual finite cover. Every connector, reversed connector and each map lies in the set; the right endpoint is retained. One square of radius C/2^m per dyadic cell has budget 4*C^2/2^m. Map construction is supplied by each client, not asserted by this geometry. Harmonic and general constructed maps are distinct actual clients. No force, derivative, integral, ODE, Newton import or historical dependency is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MatchedRegion.reversed_connector_in_region",
+    "private": false,
+    "file": "BarrowLib/Polygon/MatchedRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (p g : BinaryTime T hT → PositionValue) (m : Nat) (t : BinaryTime T hT) (a : Fraction) (ha : UnitInterval a) : Region T hT p g m (convexPosition a ha (g t) (p t))",
+    "interpretation_and_remaining_premises": "Generic unsigned cell-closure union of simultaneous rational connectors between two proved maps on constructed binary time. A shared endpoint square yields convex-connector and closed-cell containment, hence an actual finite cover. Every connector, reversed connector and each map lies in the set; the right endpoint is retained. One square of radius C/2^m per dyadic cell has budget 4*C^2/2^m. Map construction is supplied by each client, not asserted by this geometry. Harmonic and general constructed maps are distinct actual clients. No force, derivative, integral, ODE, Newton import or historical dependency is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MatchedRegion.polygon_in_region",
+    "private": false,
+    "file": "BarrowLib/Polygon/MatchedRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (p g : BinaryTime T hT → PositionValue) (m : Nat) (t : BinaryTime T hT) : Region T hT p g m (p t)",
+    "interpretation_and_remaining_premises": "Generic unsigned cell-closure union of simultaneous rational connectors between two proved maps on constructed binary time. A shared endpoint square yields convex-connector and closed-cell containment, hence an actual finite cover. Every connector, reversed connector and each map lies in the set; the right endpoint is retained. One square of radius C/2^m per dyadic cell has budget 4*C^2/2^m. Map construction is supplied by each client, not asserted by this geometry. Harmonic and general constructed maps are distinct actual clients. No force, derivative, integral, ODE, Newton import or historical dependency is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MatchedRegion.curve_in_region",
+    "private": false,
+    "file": "BarrowLib/Polygon/MatchedRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (p g : BinaryTime T hT → PositionValue) (m : Nat) (t : BinaryTime T hT) : Region T hT p g m (g t)",
+    "interpretation_and_remaining_premises": "Generic unsigned cell-closure union of simultaneous rational connectors between two proved maps on constructed binary time. A shared endpoint square yields convex-connector and closed-cell containment, hence an actual finite cover. Every connector, reversed connector and each map lies in the set; the right endpoint is retained. One square of radius C/2^m per dyadic cell has budget 4*C^2/2^m. Map construction is supplied by each client, not asserted by this geometry. Harmonic and general constructed maps are distinct actual clients. No force, derivative, integral, ODE, Newton import or historical dependency is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MatchedRegion.uniform_budget_geometric",
+    "private": false,
+    "file": "BarrowLib/Polygon/MatchedRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(centres : Nat → Point) (R : NonnegativeRadius) (m : Nat) (C : Fraction) (hr : Fraction.equiv R.val (duration C m)) : Fraction.equiv (sumBudget (fun k => ⟨centres k,R⟩) (blocks m)) (duration (squareArea C) m)",
+    "interpretation_and_remaining_premises": "Generic unsigned cell-closure union of simultaneous rational connectors between two proved maps on constructed binary time. A shared endpoint square yields convex-connector and closed-cell containment, hence an actual finite cover. Every connector, reversed connector and each map lies in the set; the right endpoint is retained. One square of radius C/2^m per dyadic cell has budget 4*C^2/2^m. Map construction is supplied by each client, not asserted by this geometry. Harmonic and general constructed maps are distinct actual clients. No force, derivative, integral, ODE, Newton import or historical dependency is a premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm",
     "private": false,
     "file": "BarrowLib/Polygon/PointAlgebra.lean",
@@ -4488,6 +4551,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(A : PositionValue → Prop) (c d : Cover A) : contentValue A c = contentValue A d",
+    "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_region_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareContentValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A B : PositionValue → Prop) (h : ∀ x, A x ↔ B x) (c : Cover A) (d : Cover B) : contentValue A c = contentValue B d",
     "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
   },
   {
@@ -7372,12 +7444,165 @@
     "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_lower_cut",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (q : Fraction) : Below q (D_meshValue o E0 T tau L B s hE d m).val ↔ D_mesh o E0 T tau L B s hE d m q",
+    "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Below (Fraction.ofInt 0) (D_meshValue o E0 T tau L B s hE d m).val",
+    "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_budget_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Within (D_meshValue o E0 T tau L B s hE d m).val (embed (scalarState (Fraction.ofInt 0))) (duration (budgetCoefficient E0 T tau L B s d.calibration_positive) m)",
+    "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_tends_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) : ∃ N, ∀ m, N≤m → Within (D_meshValue o E0 T tau L B s hE d m).val (embed (scalarState (Fraction.ofInt 0))) eps",
+    "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_independent_cover",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (c : Cover (Region o E0 T tau L B s hE d m)) : D_meshValue o E0 T tau L B s hE d m = contentValue (Region o E0 T tau L B s hE d m) c",
+    "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_zero_window",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (hz : T.num=0) : (D_meshValue o E0 T tau L B s hE d m).val = embed (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.simultaneous_endpoints_square",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : CoordinateSquare (cellStart o E0 T s hE m (ticks b m)) (coverRadius o E0 T tau L B s hE d m) (polygonMap o E0 T s hE d.time_nonnegative m (Quotient.mk _ b)) ∧ CoordinateSquare (cellStart o E0 T s hE m (ticks b m)) (coverRadius o E0 T tau L B s hE d m) (gammaPosition o E0 T tau L B s hE d (Quotient.mk _ b))",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.connector_in_region",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (t : BinaryTime T d.time_nonnegative) (a : Fraction) (ha : UnitInterval a) : Region o E0 T tau L B s hE d m (convexPosition a ha (polygonMap o E0 T s hE d.time_nonnegative m t) (gammaPosition o E0 T tau L B s hE d t))",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.final_connector_in_region",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (a : Fraction) (ha : UnitInterval a) : Region o E0 T tau L B s hE d m (convexPosition a ha (polygonMap o E0 T s hE d.time_nonnegative m (rightTime T d.time_nonnegative)) (asPosition (endpointValue o E0 T tau L B s hE d.toConditions)))",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.budgetCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (budgetCoefficient E0 T tau L B s ht).num",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.actual_budget_geometric",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Fraction.equiv (actualCover o E0 T tau L B s hE d m).budget (duration (budgetCoefficient E0 T tau L B s d.calibration_positive) m)",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.D_mesh_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : D_mesh o E0 T tau L B s hE d m (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.D_mesh_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (q : Fraction) (hq : D_mesh o E0 T tau L B s hE d m q) : Fraction.le q (duration (budgetCoefficient E0 T tau L B s d.calibration_positive) m)",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.D_mesh_tends_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) : ∃ N, ∀ m, N≤m → ∀ q, D_mesh o E0 T tau L B s hE d m q → Fraction.lt q eps",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.budget_zero_window",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (ht : 0 < tau.num) (m : Nat) (hz : T.num=0) : Fraction.equiv (duration (budgetCoefficient E0 T tau L B s ht) m) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathRegion.D_mesh_zero_window",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathRegion.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (hz : T.num=0) (q : Fraction) : D_mesh o E0 T tau L B s hE d m q ↔ Fraction.le q (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern actual matched region between the proved general sampled central-force polygon and constructed local curve. Shared elementary geometry closes simultaneous rational connectors cell by cell, then takes their finite union; crossings and overlaps count once in the unsigned point set. Actual polygon-vertex and prefix-to-curve bounds derive one coordinate square per cell, with total budget 4*C^2/2^m, C=T*V+A. The final connector to the constructed endpoint value is included explicitly. D_mesh is the all-finite-square-cover infimum lower cut, with nonnegativity, budget control, zero time and decay derived. Global Lipschitz comparison, calibrated short window and actual/coarse/shadow samples remain explicit; no ordinary area, annular confinement, gluing, arbitrary partition independence, curved potential step or historical proof is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeCoefficient_nonnegative",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (edgeCoefficient E0 T tau L B s ht).num",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeRadius_geometric",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (ht : 0 < tau.num) (m : Nat) : Fraction.equiv (Fraction.add (Fraction.mul (duration T m) (velocityCap T B s)) (GeometricTail.tailCap (GeneralForcePrefix.coefficient E0 T tau L B s ht) m)) (duration (edgeCoefficient E0 T tau L B s ht) m)",
     "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed globally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, global comparison and actual/coarse/shadow sample bounds remain premises. No area, confinement, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
   },
   {
@@ -10197,6 +10422,24 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : GeneralForceEndpoint.endpointValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs) = CauchyValues.realize (HarmonicDyadic.endpointName w T s hT hs)",
     "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralPathContent.harmonic_region_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (x : PositionValue) : GeneralForcePathRegion.Region (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs) m x ↔ HarmonicPathRegion.Region w T s hT hs m x",
+    "interpretation_and_remaining_premises": "Exact harmonic specialization of the general matched region and scalar outer content. Actual general polygon and curve maps equal the retained harmonic maps, so their closed cell unions are equal point sets. Proved region congruence gives identical all-cover scalar contents despite different initial cover coefficients. All sample premises are derived by the retained harmonic instance; old declarations remain intact. No ordinary-area interpretation or historical edge is added."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralPathContent.harmonic_content_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : GeneralForcePathContent.D_meshValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs) m = HarmonicPathContent.D_meshValue w T s hT hs m",
+    "interpretation_and_remaining_premises": "Exact harmonic specialization of the general matched region and scalar outer content. Actual general polygon and curve maps equal the retained harmonic maps, so their closed cell unions are equal point sets. Proved region congruence gives identical all-cover scalar contents despite different initial cover coefficients. All sample premises are derived by the retained harmonic instance; old declarations remain intact. No ordinary-area interpretation or historical edge is added."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralPolygon.harmonic_polygonMap_eq",

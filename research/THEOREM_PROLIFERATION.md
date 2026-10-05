@@ -156,4 +156,10 @@ the same core, preserving their statements; the general map has uniform
 whole-edge bound (T*V+A)/2^m. HarmonicGeneralPolygon identifies its harmonic
 instance exactly with the retained map. This is a concrete second client,
 without copying the harmonic polygon's alias proof suite. The next extraction
-will accompany the actual general matched region.
+also now implements MatchedRegion with actual harmonic and general clients.
+Cell closure, simultaneous connectors and covers share one proof suite; the
+old harmonic statements and region remain intact. GeneralForcePathRegion/Content
+construct the actual general all-cover cut and scalar with geometric decay.
+The harmonic instance has exactly the retained region and scalar despite a
+different cover bound. More public interfaces are added, while repeated proof
+implementation is consolidated; raw growth is not itself a duplication finding.

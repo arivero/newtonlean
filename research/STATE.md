@@ -6,8 +6,10 @@ elementary foundation or Proposition I's modern construction; count-based
 classification also mislabels universal sampled results and thin quotient
 interfaces. PolygonValues now shares finite-vertex polygon alias proofs, and
 GeneralForcePolygonCurve constructs the general whole-edge map, preserving
-existing names and explicit sample premises. The next bounded unit is the
-actual general matched region and its content. One sequential Astra architectural review
+existing names and explicit sample premises. MatchedRegion now shares closed-cell connector and cover geometry between the
+retained harmonic and actual general regions. Their completed outer contents
+have derived geometric decay. The next obligations include curved potential
+steps, local confinement/gluing and general interior-time E/G agreement. One sequential Astra architectural review
 was explicitly requested for this study; the usual sequential v6 policy
 continues afterward.
 
@@ -67,16 +69,23 @@ GeneralForcePolygonCurve now constructs the coarse polygon quotient from actual
 run vertices and shares the finite-vertex alias/joining proof with the retained
 harmonic polygon. Whole-edge error is (T*V+A)/2^m uniformly over the constructed
 time domain, with actual V and the derived prefix coefficient A. The shared
-initial endpoint and exact harmonic polygon specialization compile. General
-content, ordinary-area/Kepler-area identification and the remaining
-classes remain obligations in the handoff's order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
+initial endpoint and exact harmonic polygon specialization compile. Ordinary-
+area/Kepler-area identification and the remaining classes stay open.
+GeneralForcePathRegion/Content now construct the actual general closed-cell
+connector union and its all-cover cut and canonical Cauchy scalar. Actual
+vertex and prefix bounds derive one square per cell with budget 4*C²/2^m,
+C=T*V+A; nonnegativity, zero time, decay and initial-cover independence follow.
+The final connector is included. HarmonicGeneralPathContent proves exact
+region and scalar equality with the retained harmonic objects. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
 exact finite-cell potential identities. The progress estimate now credits the
-constructed general local time map and dyadic velocity/force-secants bridges, about
-38% overall (35–46% under alternative weights); no target is discharged.
+constructed general local time map, dyadic velocity/force-secants bridges and
+actual general outer content, about
+39% overall (35–46% under alternative weights); no target is discharged.
 See the [general time checkpoint](verification/general-central-time-map-2026-10-05.md).
 See the [completed force checkpoint](verification/completed-central-force-2026-10-05.md).
 See the [acceleration secants checkpoint](verification/constructed-acceleration-secants-2026-10-05.md).
-See the [general polygon checkpoint](verification/general-polygon-map-2026-10-05.md).
+See the [general polygon checkpoint](verification/general-polygon-map-2026-10-05.md)
+and [general content checkpoint](verification/general-path-content-2026-10-05.md).
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation

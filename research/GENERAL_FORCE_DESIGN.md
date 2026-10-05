@@ -141,7 +141,7 @@ state/position map to BinaryTime, along with uniform prefix convergence,
 continuity, initial/zero values and full-endpoint E/G agreement.
 HarmonicGeneralTime derives the additional actual-grid force bounds and equals
 the retained harmonic maps. General interior-time E/G, arbitrary-partition or
-precision-choice independence, content extension and identification
+precision-choice independence and identification
 with an external real-time interval remain separate.
 
 GeneralForceSecants now transfers finite drift remainders to completed curve
@@ -183,8 +183,16 @@ and zero-window aliases from shared-position joins; harmonic and general
 vertices both instantiate it. Whole-edge error is (T*V+A)/2^m, uniformly over
 time, and initial endpoints agree. Six retained harmonic proofs now use that
 core, and the general harmonic polygon equals the old map. This shares proof
-implementation while preserving public statements. The next unit is actual
-general matched-region content.
+implementation while preserving public statements. MatchedRegion now shares
+closed-cell connector and cover geometry with the retained harmonic client.
+GeneralForcePathRegion/Content define the actual general region and all-cover
+cut and construct its canonical Cauchy scalar. The actual vertex and prefix
+bounds derive a square radius C/2^m and budget 4*C²/2^m, C=T*V+A. The final
+connector is included, overlaps count once in the unsigned set, and content is
+nonnegative, cover-independent and tends to zero, including zero time. Exact
+harmonic region and scalar equality holds despite different covering bounds.
+This is the finite-square outer-content candidate; ordinary area, constructed
+Kepler-area transfer and curved potential steps remain separate.
 
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will
