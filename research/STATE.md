@@ -5,17 +5,18 @@ interface/estimate increments and D.2 are committed. The [force design](GENERAL_
 constructs force values from uniform rational samples; general motion,
 restart/gluing and derived confinement remain open. The generic geometry,
 completion and binary-time infrastructure is in BarrowLib.
-B.1 now proves E/G agreement at reciprocal dyadic times and the zero/full
-window endpoints. Arbitrary numerators need a further integer-refinement
-comparison; finite three-tick schedules are proved unequal, which does not
-refute their limit agreement. B.2 constructs actual within-cell polygon
+B.1 now proves E/G agreement at every dyadic rational time, including zero/full
+window endpoints. Explicit finite addresses represent every numerator below
+2^m. Actual integer-cell accumulation gives geometric error C/2^j; prefix
+Cauchy control removes the index shift. Three-tick finite schedules are proved
+unequal while their completed values agree. B.2 constructs actual within-cell polygon
 position names, proves their phases lie inside each cell, and derives a
 whole-edge distance bound tending to zero uniformly over addresses.
 Both same-cell and shared-boundary aliases now agree, and the actual coarse
 polygonMap descends to the same time quotient with uniform convergence.
-Fixed-integer subdivision has a derived local h² bound; its accumulated
-E/G limit comparison remains open. Explicit time calibration, general motion
-and the intervening content remain obligations. See the
+The integer-subdivision accumulation and dyadic E/G comparison are now proved.
+Explicit time calibration, general motion and the intervening content remain
+obligations. See the
 [comparison checkpoint](verification/construction-and-whole-edge-2026-10-05.md).
 D_mesh, P5 and the remaining classes follow these open bridges in the handoff's
 order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
@@ -53,9 +54,9 @@ actual fixed-rational-time endpoint Cauchy data, with arbitrary finite-gap
 bound 3*T²*|w|*M/2^j and an explicit positive-tolerance modulus.
 HarmonicTimeComparison derives the rational-time map
 of these names with uniform bound 4*(1+2*|w|)*M*|U-T| and explicit positive
-delta=eps/(L+1). Identification with prefixes of one global polygon family,
-partition independence and mechanical force identification
-remain separate.
+delta=eps/(L+1). Identification with prefixes of one global polygon family is
+now proved at dyadic rational times. Other time parameters, partition
+independence and mechanical force identification remain separate.
 HarmonicBinaryPrefix now constructs Cauchy data at intermediate times from
 actual prefixes of one global dyadic family. Every binary address has a
 derived geometric tail and explicit positive-tolerance modulus. CauchyValues

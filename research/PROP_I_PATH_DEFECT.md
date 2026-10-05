@@ -15,7 +15,8 @@ within-cell polygon position names and bounds their distance to the actual
 harmonic gammaPosition throughout cells. The bound decays uniformly over
 addresses. Same-cell and shared-boundary alias proofs now give one polygonMap
 on the constructed time quotient. Region/content is the remaining geometric
-step. Continuous-force
+step. Dyadic E/G agreement is now derived for every numerator; it identifies
+the two harmonic constructions, without supplying region area. Continuous-force
 local consistency is also checked, without a stability or uniqueness inference.
 The exact deflection triangles
 and potential steps in [Arg007](action-arguments/261004gpt6.1solv1Arg007.md)

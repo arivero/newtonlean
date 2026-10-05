@@ -1,6 +1,28 @@
 # Verification record
 
-## Current handoff: quotient polygon map and integer-cell local error, 5 October 2026
+## Current handoff: E/G agreement at every dyadic rational time, 5 October 2026
+
+Targeted Lean core builds pass for explicit finite dyadic addresses, actual
+integer-cell accumulation, its geometric error cap, E/G name and value
+agreement, equivalent represented time parameters, and the full endpoint.
+The earlier three-tick finite inequality remains proved alongside the new
+completed-value equality. Root Sol 6.1 finished the dyadic indexing/decay bridge
+from the sequential Sol worker's checked finite accumulation. Generic source
+recurrences and scalar indexing are in BarrowLib; coefficient and motion
+instances stay Newton-side. A sequential nonauthor GPT-6 Luna verifier passed
+all 16 checks in order. There are 1,041 distinct theorem rows and 891 checked
+public/reference declarations; live counts are 707 substantive, 182 plumbing,
+133 sample and 19 duplicate. All 1,230 previous public names/signatures are
+preserved, including the generic move of HarmonicUniform.totalTime. All 348
+Barrow theorem rows have empty source lists; Barrow has no Newton imports.
+The graph remains 77 nodes/68 edges/249 passages. The axiom union is propext,
+Classical.choice and Quot.sound; no sorryAx, project axiom or external package.
+Logs: /tmp/newton-sol61-B1-dyadic-final-01.log through -16.log. The graph PDF
+passed rendering checks; its generated dates were restored after comparing
+all other bytes. Completion scores are unchanged. General motion, explicit
+time calibration, D_mesh and P5 remain open.
+
+### Quotient polygon map and integer-cell local error, 5 October 2026
 
 Targeted Lean 4.19 core builds pass for BinaryCells, AffineBoundary,
 HarmonicPolygonCurve and HarmonicIntegerSubdivision. Equivalent binary

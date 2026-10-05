@@ -72,7 +72,7 @@ FINITE = {'Contact', 'RefinementStrip', 'TimeSubdivision', 'PartitionControl', '
 PROP1 = {'CentralSchedule', 'PathDefect', 'PointBounds', 'TriangleBounds', 'ConvexCover',
          'CauchyValues', 'BinaryTime', 'PositionValues', 'FiniteEstimates', 'FiniteAccumulation', 'BoundedIteration', 'ForceClasses',
          'StateDistance', 'EndpointCauchyName', 'DyadicArithmetic', 'FinitePower', 'GeometricTail',
-         'ScaledTolerance', 'AffineValues', 'IntegerRefinement', 'BinaryCells', 'AffineBoundary', 'IntegerSchedule'}
+         'ScaledTolerance', 'AffineValues', 'IntegerRefinement', 'BinaryCells', 'AffineBoundary', 'IntegerSchedule', 'FiniteAddress', 'FiniteRecurrence', 'IntegerTime'}
 
 
 def group_of(path):

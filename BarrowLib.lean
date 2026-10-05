@@ -22,3 +22,6 @@ import BarrowLib.Polygon.IntegerRefinement
 import BarrowLib.Polygon.BinaryCells
 import BarrowLib.Polygon.AffineBoundary
 import BarrowLib.Polygon.IntegerSchedule
+import BarrowLib.Polygon.FiniteRecurrence
+import BarrowLib.Polygon.IntegerTime
+import BarrowLib.Polygon.FiniteAddress

@@ -49,11 +49,8 @@ theorem nameEquiv_symm {a b : EndpointCauchyName}
     ((Fraction.equiv_iff_mutual_le _ _).mp hs).1 (hN n hn)
 
 private theorem half_add_equiv (eps : Fraction) :
-    Fraction.equiv (Fraction.add eps.half eps.half) eps := by
-  simp only [Fraction.equiv, Fraction.add, Fraction.half]
-  simp only [show (2 : Int) = 1 + 1 by rfl]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
+    Fraction.equiv (Fraction.add eps.half eps.half) eps :=
+  Fraction.half_add_self eps
 
 private theorem half_lt (eps : Fraction) (heps : 0 < eps.num) :
     Fraction.lt eps.half eps := Fraction.half_lt eps heps

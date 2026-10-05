@@ -55,3 +55,4 @@ import NewtonLimitDynamics.Diagnostic.DeflectionPotential
 import NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement
 import NewtonLimitDynamics.Polygon.HarmonicPolygonCurve
 import NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision
+import NewtonLimitDynamics.Polygon.HarmonicDyadicAgreement

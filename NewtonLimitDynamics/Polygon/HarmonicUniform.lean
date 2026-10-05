@@ -1,3 +1,4 @@
+import BarrowLib.Polygon.IntegerSchedule
 import NewtonLimitDynamics.Polygon.HarmonicAccumulation
 import NewtonLimitDynamics.Common.FiniteGrowth
 
@@ -91,11 +92,6 @@ private theorem common_weight_sum (w h : Fraction) :
       · rw [hf]
         simp only [Int.add_mul, Int.mul_add]
         omega
-
-/-- Actual represented total time `T=2nh` and the smallness hypothesis
-`T(1+|w|) ≤ 1/2`. Zero cell count and zero duration are included. -/
-def totalTime (h : Fraction) (n : Nat) : Fraction :=
-  Fraction.mul (Fraction.ofInt (2 * (n : Int))) h
 
 def SmallTime (w h : Fraction) (n : Nat) : Prop :=
   Fraction.le

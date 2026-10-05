@@ -31,6 +31,9 @@ whole-cell distance to gammaPosition is bounded uniformly by an explicit
 geometric radius. Both same-cell and shared-boundary equivalent addresses agree,
 including zero time. A single polygonMap P_m now descends to the time quotient
 and inherits the uniform bound. An address choice cannot change its position.
+E/G agreement at every dyadic rational time is now derived from actual integer
+subdivision, with both constructions kept. This identifies the curves at
+common sample times and does not define the intervening area.
 
 Define the intervening region as the union of segments joining simultaneous
 positions P_m(t) and gamma(t). The segment parameter must range over the

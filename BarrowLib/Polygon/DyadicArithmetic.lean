@@ -26,6 +26,16 @@ theorem duration_halving (T : Fraction) (j : Nat) :
   simp only [show (2 : Int) = 1 + 1 by rfl, Int.add_mul, Int.mul_add]
   ac_nf
 
+theorem duration_congr {T U : Fraction} (h : Fraction.equiv T U) (j : Nat) :
+    Fraction.equiv (duration T j) (duration U j) := by
+  have hm := congrArg (fun z : Int => z*(2:Int)^j) h
+  simpa only [duration,Fraction.equiv,Int.mul_assoc] using hm
+
+theorem blocks_duration (T : Fraction) (m : Nat) :
+    Fraction.equiv (Fraction.mul (Fraction.ofInt (blocks m:Int)) (duration T m)) T := by
+  simp only [blocks,duration,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
+  ac_nf
+
 theorem two_pow_ge_succ (N : Nat) :
     (N : Int) + 1 ≤ (2 : Int) ^ N := by
   induction N with

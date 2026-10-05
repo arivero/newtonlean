@@ -78,3 +78,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 77,39fef70,2026-10-04T23:45:49+02:00,Ask the handoff to keep the Lipschitz scale and time unit explicit,911,0,0,0,0,0,483,12576,13,588,179,127,17,0,114,143,30,600,24
 78,02f2c6f,2026-10-04T23:47:12+02:00,Document the Lipschitz scale and the hidden time unit,911,0,0,0,0,0,483,12576,13,588,179,127,17,0,114,143,30,600,24
 79,70d7a68,2026-10-05T02:51:21+02:00,Prove reciprocal dyadic agreement and uniform whole-edge curve bounds,942,31,0,0,0,1,495,13053,13,615,181,128,18,1,115,143,30,630,24
+80,fc5b32a,2026-10-05T03:07:10+02:00,Construct the quotient polygon map and bound integer-cell local errors,985,43,0,0,0,0,505,13886,13,655,182,130,18,0,116,143,30,672,24

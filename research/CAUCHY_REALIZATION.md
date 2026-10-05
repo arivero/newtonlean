@@ -22,8 +22,8 @@ continuous-force local consistency are also checked. These realize force data
 and control finite polygons, not the general motion. Geometric precision
 selection, general polygon Cauchy names and restart/gluing remain open; the
 generic extraction is complete. B.1/B.2 now have the bounded results below;
-the remaining integer-subdivision accumulation precedes C.1. Both kinds of
-coarse polygon alias are now handled.
+integer-subdivision accumulation and dyadic E/G agreement are now proved. Both
+kinds of coarse polygon alias are handled; actual region/content is next.
 
 ## One global family
 
@@ -33,10 +33,12 @@ H_j=T/2^j. Existing HarmonicDyadic endpoint names instead rescale a complete
 schedule separately for each rational sample time. Their uniform rational-time
 control is checked. HarmonicConstructionAgreement now identifies their values
 at reciprocal dyadic times with global prefixes by an exact finite index shift
-and rational duration congruence. Zero/full-window endpoints agree as well.
-Arbitrary numerators need an integer-refinement comparison: their schedules
-have different cell counts, and an exact three-tick example disproves finite
-schedule equality without disproving limit agreement.
+and rational duration congruence. HarmonicDyadicAgreement now covers every
+dyadic numerator using actual integer-subdivision accumulation. Explicit
+finiteAddress constructions represent every k<2^m; zero/full-window endpoints
+and equivalent represented Fraction parameters agree as well. An exact
+three-tick example disproves finite schedule equality, while its completed
+values are proved equal.
 
 Use a binary address b to select intermediate times directly in the global
 family: k_0=0, k_(j+1)=2*k_j+b_j, with b_j either0 or1. The intended level-j
@@ -73,9 +75,14 @@ different-cell control. No planar content or D_mesh is inferred.
 HarmonicIntegerSubdivision derives exact unequal-cell defects and a finite
 recurrence for k fine h-cells versus one k*h cell. With nonnegative h, h≤1 and
 each finite partial duration≤1, the state discrepancy is at most h²*C(k,w,s),
-where the coefficient is independent of h. This is a local block comparison;
-propagation over 2^j blocks and arbitrary-numerator E/G limit agreement remain
-unproved. It does not assert confinement, P5 or time-unit invariance.
+where the coefficient is independent of h. Actual propagation over N blocks
+now gives distance≤4*N*h²*quadraticCap(w,s,k). The same short window derives
+all local-prefix conditions, coarse-state≤2M and both amplification bounds≤2.
+For N=2^j and h=T/2^(m+j), this is C/2^j with
+C=4*(T/2^m)²*quadraticCap(w,s,k). The existing prefix Cauchy condition removes
+the finite shift m, proving equal names and values. The zero-tick case is
+handled directly. This proves dyadic E/G agreement, without asserting general
+confinement, P5 or time-unit invariance.
 
 ## Checked state-value construction
 
@@ -143,11 +150,12 @@ zero velocity component; gammaPosition inherits continuity, aliases, endpoints
 and zero cases. Completed coordinate squares have two closed coordinate bounds
 with a proved nonnegative radius. Eventual rational bounds imply membership;
 the radius-1 square's corner (1,1) has L1 distance 2.
-The same-time coarse polygon map and actual between-path region are next.
-The velocity coordinate still needs to be identified
-with position's rate of change, and acceleration with the sampled harmonic
-force. Partition independence and identification with independently rescaled
-rational-time endpoint values remain separate.
+The same-time coarse polygon map is constructed on the binary-time quotient;
+the actual between-path region remains to be constructed. The velocity
+coordinate still needs to be identified with position's rate of change, and
+acceleration with the sampled harmonic force. E/G identification is proved at
+all common dyadic rational times. Other rational parameters and arbitrary
+partition independence remain separate.
 
 ## Between-path geometry specification
 
@@ -160,12 +168,13 @@ whether an area is union content or a cover counted with multiplicity.
 
 A candidate route is a square about each actual coarse start. Its radius must
 be derived from both a refinement tail and motion within that coarse cell.
-The twelfth unit's checked state tail suggests the conservative radius
+The checked whole-edge construction supplies the conservative radius
 
-    R_m = H_m*M*C,  C=2*(1+|w|)+3*T*|w|,
-    summed square budget = 4*T*H_m*M²*C².
+    R_m = [2*T*stateNorm(s) + prefixCoefficient(w,T,s)] / 2^m,
+    proposed summed square budget = 4*2^m*R_m².
 
-These are future proof targets, not checked trajectory-cover theorems. The
+The radius bound is checked; region inclusion and the resulting cover budget
+remain proof targets. The
 prefix tail controls later selected states relative to the level-m coarse
 start; the coarse edge itself needs its independently derived drift bound.
 Prove closure of the square predicate under name equivalence and rational

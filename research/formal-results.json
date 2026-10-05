@@ -297,6 +297,15 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.half_add_self",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : equiv (add a.half a.half) a",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Fraction.half_lt",
     "private": false,
     "file": "BarrowLib/Common/RationalMagnitudes.lean",
@@ -1008,6 +1017,15 @@
     "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.BoundedIteration.run_add",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedIteration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (n : Nat) : (k : Nat) → run a h s (n+k) = run a h (run a h s n) k",
+    "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.equiv_zero_num",
     "private": true,
     "file": "BarrowLib/Polygon/CauchyValues.lean",
@@ -1464,6 +1482,24 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(T : Fraction) (j : Nat) : Fraction.equiv (duration T j) (Fraction.add (duration T (j + 1)) (duration T (j + 1)))",
+    "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.duration_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicArithmetic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{T U : Fraction} (h : Fraction.equiv T U) (j : Nat) : Fraction.equiv (duration T j) (duration U j)",
+    "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.blocks_duration",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicArithmetic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (m : Nat) : Fraction.equiv (Fraction.mul (Fraction.ofInt (blocks m:Int)) (duration T m)) T",
     "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
   },
   {
@@ -1953,6 +1989,33 @@
     "interpretation_and_remaining_premises": "Actual coarse/two-half finite iterates and derived error recurrence. The small-window comparison has explicit nonnegative L, additive sampling error E, finite-prefix acceleration B and velocity V bounds, and a global force comparison contract. The finite product estimate gives a mesh-uniform endpoint bound without a supplied adjacent-error or Cauchy field. It is not a general realized trajectory, region confinement, partition independence or P5."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.finiteAddress_tail",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteAddress.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": (m k j : Nat) → m ≤ j → finiteAddress m k j = false",
+    "interpretation_and_remaining_premises": "Explicit terminating binary addresses for every finite numerator k<2^m. Finite prefix congruence, exact tick count and zero-tail proofs establish representation without an assumed external real interval or mechanical result."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_congr_before",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteAddress.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) : (m : Nat) → (∀ i, i<m → b i=c i) → ticks b m=ticks c m",
+    "interpretation_and_remaining_premises": "Explicit terminating binary addresses for every finite numerator k<2^m. Finite prefix congruence, exact tick count and zero-tail proofs establish representation without an assumed external real interval or mechanical result."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.finiteAddress_ticks",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteAddress.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": (m k : Nat) → k<blocks m → ticks (finiteAddress m k) m=k",
+    "interpretation_and_remaining_premises": "Explicit terminating binary addresses for every finite numerator k<2^m. Finite prefix congruence, exact tick count and zero-tail proofs establish representation without an assumed external real interval or mechanical result."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.point_difference_chain",
     "private": true,
     "file": "BarrowLib/Polygon/FiniteEstimates.lean",
@@ -2286,6 +2349,78 @@
     "interpretation_and_remaining_premises": "Generic finite rational powers and nonnegativity, with the existing namespace retained. No particular field, force or limiting result is used."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.factorPower_fpower",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r : Fraction) : (n : Nat) → Fraction.equiv (FiniteAccumulation.factorPower r n) (fpower r n)",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.one_le_fpower",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r : Fraction) (hr : 0 ≤ r.num) (hone : Fraction.le (Fraction.ofInt 1) r) (n : Nat) : Fraction.le (Fraction.ofInt 1) (fpower r n)",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.fpower_add",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r : Fraction) (m : Nat) : (n : Nat) → Fraction.equiv (fpower r (m + n)) (Fraction.mul (fpower r m) (fpower r n))",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.fpower_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{r q : Fraction} (hrq : Fraction.equiv r q) : (n : Nat) → Fraction.equiv (fpower r n) (fpower q n)",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.fpower_integer_blocks",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r : Fraction) (k : Nat) : (N : Nat) → Fraction.equiv (fpower (fpower r k) N) (fpower r (k * N))",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.fpower_prefix_le",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r : Fraction) (hr : 0 ≤ r.num) (hone : Fraction.le (Fraction.ofInt 1) r) (i N : Nat) (hi : i ≤ N) : Fraction.le (fpower r i) (fpower r N)",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.sourceBudget_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r C : Fraction) (hr : 0 ≤ r.num) (hC : 0 ≤ C.num) : (n : Nat) → 0 ≤ (sourceBudget r C n).num",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteRecurrence.sourceBudget_power",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteRecurrence.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r C : Fraction) (hr : 0 ≤ r.num) (hC : 0 ≤ C.num) (hone : Fraction.le (Fraction.ofInt 1) r) : (n : Nat) → Fraction.le (sourceBudget r C n) (Fraction.mul (Fraction.ofInt (n : Int)) (Fraction.mul C (fpower r n)))",
+    "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeometricTail.tail_halving",
     "private": false,
     "file": "BarrowLib/Polygon/GeometricTail.lean",
@@ -2355,7 +2490,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(h : Fraction) : (k : Nat) → Fraction.equiv (integerDuration h k) (Fraction.mul (Fraction.ofInt (k : Int)) h)",
-    "interpretation_and_remaining_premises": "Recursive rational duration for an integer cell count, its exact k*h value and nonnegativity. No mechanical, force, limiting or historical premise occurs."
+    "interpretation_and_remaining_premises": "Recursive rational duration for an integer cell count, its exact k*h value, monotonicity and nonnegativity, plus the retained represented full/double-time arithmetic and integer block totals. No mechanical, force, limiting or historical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.IntegerSchedule.integerDuration_nonnegative",
@@ -2364,7 +2499,61 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(h : Fraction) (hh : 0 ≤ h.num) : (k : Nat) → 0 ≤ (integerDuration h k).num",
-    "interpretation_and_remaining_premises": "Recursive rational duration for an integer cell count, its exact k*h value and nonnegativity. No mechanical, force, limiting or historical premise occurs."
+    "interpretation_and_remaining_premises": "Recursive rational duration for an integer cell count, its exact k*h value, monotonicity and nonnegativity, plus the retained represented full/double-time arithmetic and integer block totals. No mechanical, force, limiting or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.IntegerSchedule.integerDuration_le",
+    "private": false,
+    "file": "BarrowLib/Polygon/IntegerSchedule.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (hh : 0 ≤ h.num) (i k : Nat) (hik : i ≤ k) : Fraction.le (integerDuration h i) (integerDuration h k)",
+    "interpretation_and_remaining_premises": "Recursive rational duration for an integer cell count, its exact k*h value, monotonicity and nonnegativity, plus the retained represented full/double-time arithmetic and integer block totals. No mechanical, force, limiting or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.half_totalTime",
+    "private": false,
+    "file": "BarrowLib/Polygon/IntegerSchedule.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (N : Nat) : Fraction.equiv (totalTime d.half N) (fullTime d N)",
+    "interpretation_and_remaining_premises": "Recursive rational duration for an integer cell count, its exact k*h value, monotonicity and nonnegativity, plus the retained represented full/double-time arithmetic and integer block totals. No mechanical, force, limiting or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integer_fullTime",
+    "private": false,
+    "file": "BarrowLib/Polygon/IntegerSchedule.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (k N : Nat) : Fraction.equiv (fullTime h (k * N)) (fullTime (integerDuration h k) N)",
+    "interpretation_and_remaining_premises": "Recursive rational duration for an integer cell count, its exact k*h value, monotonicity and nonnegativity, plus the retained represented full/double-time arithmetic and integer block totals. No mechanical, force, limiting or historical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.dyadic_integer_duration",
+    "private": false,
+    "file": "BarrowLib/Polygon/IntegerTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (m j : Nat) : Fraction.equiv (integerDuration (duration T (m+j)) (ticks b m)) (duration (timeApprox b T m) j)",
+    "interpretation_and_remaining_premises": "Field-free binary-time, recursive integer-duration and dyadic ratio identities, plus nonnegative time approximants. Names with harmonic prefixes are compatibility names only; no Newton import or mechanical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.dyadic_fullTime",
+    "private": false,
+    "file": "BarrowLib/Polygon/IntegerTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (m j : Nat) : Fraction.equiv (fullTime (integerDuration (duration T (m+j)) (ticks b m)) (blocks j)) (timeApprox b T m)",
+    "interpretation_and_remaining_premises": "Field-free binary-time, recursive integer-duration and dyadic ratio identities, plus nonnegative time approximants. Names with harmonic prefixes are compatibility names only; no Newton import or mechanical premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryTime.timeApprox_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/IntegerTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (m : Nat) (hT : 0 ≤ T.num) : 0 ≤ (timeApprox b T m).num",
+    "interpretation_and_remaining_premises": "Field-free binary-time, recursive integer-duration and dyadic ratio identities, plus nonnegative time approximants. Names with harmonic prefixes are compatibility names only; no Newton import or mechanical premise occurs."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm",
@@ -5943,7 +6132,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w : Fraction) : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.subduration_small",
@@ -5952,7 +6141,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w T : Fraction) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : DyadicSmallTime w (duration T m)",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_level",
@@ -5961,7 +6150,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m j : Nat) (htick : ticks b m = 1) (hz : ∀ i, m ≤ i → b i = false) : stateEquiv (endpoint w (duration T m) s j) (prefixState b w T s (m + j))",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_names",
@@ -5970,7 +6159,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (htick : ticks b m = 1) (hz : ∀ i, m ≤ i → b i = false) : NameEquiv (endpointName w (duration T m) s hT (subduration_small w T m hT hs)) (prefixName b w T s hT hs)",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.unit_tail_value",
@@ -5979,7 +6168,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (htick : ticks b m = 1) (hz : ∀ i, m ≤ i → b i = false) : timeValue w s ⟨duration T m, hT, subduration_small w T m hT hs⟩ = gammaValue w T s hT hs (Quotient.mk _ b)",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.full_window_value",
@@ -5988,7 +6177,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : timeValue w s ⟨T,hT,hs⟩ = gammaValue w T s hT hs (rightTime T hT)",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.zero_window_value",
@@ -5997,7 +6186,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hz : T.num = 0) : timeValue w s ⟨T,hT,hs⟩ = gammaValue w T s hT hs (Quotient.mk _ b)",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_finite_control",
@@ -6006,7 +6195,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": Fraction.equiv (distance (endpoint one threeSixteenths testState 0) (prefixState threeQuarterAddress one quarter testState 2)) ⟨426975,16777216,by decide⟩",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_finite_identity_false",
@@ -6015,7 +6204,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": ¬ stateEquiv (endpoint one threeSixteenths testState 0) (prefixState threeQuarterAddress one quarter testState 2)",
-    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators still need an integer-subdivision estimate; the finite counterexample does not refute limit agreement."
+    "interpretation_and_remaining_premises": "Modern E/G value agreement for reciprocal dyadic times selected by an eventually-zero one-tick address, and the zero/full-window endpoint cases. The actual schedules agree after a proved finite index shift and rational duration congruence; Cauchy names then descend to equal values. An exact three-tick same-time finite example refutes direct equality of the more general finite schedules. Arbitrary dyadic numerators are identified in HarmonicDyadicAgreement through a derived integer-subdivision estimate; the finite counterexample distinguishes finite equality from proved limit agreement."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicCover.totalTime_nonnegative",
@@ -6928,13 +7117,157 @@
     "interpretation_and_remaining_premises": "Modern construction of actual harmonic dyadic endpoint Cauchy data at a fixed represented rational time. Each level runs 2^j actual cells of duration T/2^j; rational value equivalence identifies the coarser schedule and exact list identity identifies the finer one, with actual elapsed time T. Under T>=0 and T*(1+abs(w))<=1/2, adjacent error is at most 3*T*(T/2^(j+1))*abs(w)*M and arbitrary finite level-gap error is at most A/2^j, A=3*T^2*abs(w)*M. Two later levels have error at most 2*A/2^N. Finite integer induction supplies an explicit positive-tolerance modulus and endpointName constructs its approximants and Cauchy proof. Zero time and exact adjacent/cap controls compile. No limit point, completeness, supplied curve, continuous time-domain trajectory, partition independence, intervening-area content or uninterrupted-force identification is assumed or inferred. The time bound has a chosen coordinate/unit calibration; Kepler swept area is separate."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.timeApprox_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : DyadicSmallTime w (timeApprox b T m)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadic_integer_small",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (m j : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : FullSmallTime w (integerDuration (duration T (m+j)) (ticks b m)) (blocks j)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadicIntegerCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m : Nat) (hT : 0 ≤ T.num) : 0 ≤ (dyadicIntegerCoefficient b w T s m).num",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadic_integer_error_cap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m j : Nat) : Fraction.equiv (Fraction.mul (Fraction.ofInt 2) (Fraction.mul (Fraction.ofInt (blocks j:Int)) (blockSource w (duration T (m+j)) (ticks b m) s))) (duration (dyadicIntegerCoefficient b w T s m) j)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadic_fine_prefix",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m j : Nat) (hz : ∀ i, m ≤ i → b i = false) : fineBlocks w (duration T (m+j)) (ticks b m) s (blocks j) = prefixState b w T s (m+j)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadic_coarse_endpoint",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m j : Nat) : stateEquiv (coarseBlocks w (duration T (m+j)) (ticks b m) s (blocks j)) (endpoint w (timeApprox b T m) s j)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.finite_tail_level_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m j : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hk : 0 < ticks b m) (hz : ∀ i, m ≤ i → b i = false) : Fraction.le (distance (endpoint w (timeApprox b T m) s j) (prefixState b w T s (m+j))) (duration (dyadicIntegerCoefficient b w T s m) j)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.finite_tail_names",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hz : ∀ i, m ≤ i → b i = false) : NameEquiv (endpointName w (timeApprox b T m) s (timeApprox_nonnegative b T m hT) (timeApprox_small b w T m hT hs)) (prefixName b w T s hT hs)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.finite_tail_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hz : ∀ i, m ≤ i → b i = false) : CauchyValues.timeValue w s ⟨timeApprox b T m,timeApprox_nonnegative b T m hT,timeApprox_small b w T m hT hs⟩ = gammaValue w T s hT hs (Quotient.mk _ b)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadicTime_exact",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (k m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hk : k<blocks m) : (dyadicTime w T k m hT hs hk).val = Fraction.mul (Fraction.ofInt (k:Int)) (duration T m)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadic_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (k m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hk : k<blocks m) : CauchyValues.timeValue w s (dyadicTime w T k m hT hs hk) = gammaValue w T s hT hs (Quotient.mk _ (finiteAddress m k))",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.timeValue_equiv_parameter",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s : Point × Point) (t u : ShortRationalTime w) (ht : Fraction.equiv t.val u.val) : CauchyValues.timeValue w s t = CauchyValues.timeValue w s u",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.full_dyadic_value_at_represented_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (t : ShortRationalTime w) (ht : Fraction.equiv t.val (Fraction.mul (Fraction.ofInt (blocks m:Int)) (duration T m))) : CauchyValues.timeValue w s t = gammaValue w T s hT hs (rightTime T hT)",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.dyadic_value_at_represented_time",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (k m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hk : k<blocks m) (t : ShortRationalTime w) (ht : Fraction.equiv t.val (Fraction.mul (Fraction.ofInt (k:Int)) (duration T m))) : CauchyValues.timeValue w s t = gammaValue w T s hT hs (Quotient.mk _ (finiteAddress m k))",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_value_agreement",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : CauchyValues.timeValue w s (dyadicTime w T 3 2 hT hs (by decide)) = gammaValue w T s hT hs (Quotient.mk _ (finiteAddress 2 3))",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement.three_tick_address_control",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicDyadicAgreement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ticks (finiteAddress 2 3) 2 = 3 ∧ finiteAddress 2 3 2 = false ∧ finiteAddress 2 3 5 = false",
+    "interpretation_and_remaining_premises": "Modern E/G agreement at every dyadic rational time in a nonnegative short harmonic window. Actual integer-cell accumulation gives endpoint_j versus global-prefix_(m+j) error <= C/2^j with C=4*(T/2^m)^2*quadraticCap(w,s,k). The proved prefix Cauchy condition removes the finite index shift. Explicit terminating addresses represent every 0<=k<2^m; zero ticks, zero duration, the full endpoint and equivalent represented Fraction times are covered. Both constructions remain. Exact three-tick finite inequality coexists with completed-value equality. Arbitrary partitions, non-dyadic time identification, external real intervals, general force realization, unit calibration, D_mesh, P5 and historical limiting proof are not inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_position_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w a b : Fraction) (s : Point × Point) : pointEquiv (stateSub (cell (linearField w) b (cell (linearField w) a s)) (cell (linearField w) (Fraction.add a b) s)).1 (pointScale (Fraction.mul a b) (linearField w (cell (linearField w) a s).1))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_velocity_identity",
@@ -6943,7 +7276,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w a b : Fraction) (s : Point × Point) : pointEquiv (stateSub (cell (linearField w) b (cell (linearField w) a s)) (cell (linearField w) (Fraction.add a b) s)).2 (pointAdd (pointScale (negF (Fraction.mul a b)) (linearField w s.2)) (pointScale (Fraction.mul b (Fraction.mul a b)) (linearField w (linearField w (cell (linearField w) a s).1))))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_state_sample_bound",
@@ -6952,7 +7285,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w a b : Fraction) (s : Point × Point) : Fraction.le (stateNorm (stateSub (cell (linearField w) b (cell (linearField w) a s)) (cell (linearField w) (Fraction.add a b) s))) (Fraction.add (Fraction.mul (Fraction.mul a b).abs (pointNorm (linearField w (cell (linearField w) a s).1))) (Fraction.add (Fraction.mul (Fraction.mul a b).abs (pointNorm (linearField w s.2))) (Fraction.mul (Fraction.mul b (Fraction.mul a b)).abs (pointNorm (linearField w (linearField w (cell (linearField w) a s).1))))))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.linearField_norm",
@@ -6961,7 +7294,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w : Fraction) (p : Point) : Fraction.equiv (pointNorm (linearField w p)) (Fraction.mul w.abs (pointNorm p))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_state_harmonic_bound",
@@ -6970,7 +7303,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w a b : Fraction) (s : Point × Point) : Fraction.le (stateNorm (stateSub (cell (linearField w) b (cell (linearField w) a s)) (cell (linearField w) (Fraction.add a b) s))) (Fraction.add (Fraction.mul (Fraction.mul a b).abs (Fraction.mul w.abs (pointNorm (cell (linearField w) a s).1))) (Fraction.add (Fraction.mul (Fraction.mul a b).abs (Fraction.mul w.abs (pointNorm s.2))) (Fraction.mul (Fraction.mul b (Fraction.mul a b)).abs (Fraction.mul w.abs (Fraction.mul w.abs (pointNorm (cell (linearField w) a s).1))))))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_state_uniform_bound",
@@ -6979,7 +7312,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w a b M : Fraction) (s : Point × Point) (hb : Fraction.le b.abs (Fraction.ofInt 1)) (hP : Fraction.le (pointNorm (cell (linearField w) a s).1) M) (hV : Fraction.le (pointNorm s.2) M) : Fraction.le (stateNorm (stateSub (cell (linearField w) b (cell (linearField w) a s)) (cell (linearField w) (Fraction.add a b) s))) (uniformSplitBudget w a b M)",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.first_arrival_le_state",
@@ -6988,7 +7321,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w a : Fraction) (s : Point × Point) (ha : Fraction.le a.abs (Fraction.ofInt 1)) : Fraction.le (pointNorm (cell (linearField w) a s).1) (stateNorm s)",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_state_short_bound",
@@ -6997,7 +7330,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w a b : Fraction) (s : Point × Point) (ha : Fraction.le a.abs (Fraction.ofInt 1)) (hb : Fraction.le b.abs (Fraction.ofInt 1)) : Fraction.le (stateNorm (stateSub (cell (linearField w) b (cell (linearField w) a s)) (cell (linearField w) (Fraction.add a b) s))) (uniformSplitBudget w a b (stateNorm s))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.uniformSplitBudget_factor",
@@ -7006,7 +7339,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w a b : Fraction) (s : Point × Point) : Fraction.equiv (uniformSplitBudget w a b (stateNorm s)) (Fraction.mul (Fraction.mul a b).abs (splitFactor w s))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.splitFactor_nonnegative",
@@ -7015,7 +7348,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w : Fraction) (s : Point × Point) : 0 ≤ (splitFactor w s).num",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integer_duration_product_abs",
@@ -7024,7 +7357,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(h : Fraction) (k : Nat) (hh : 0 ≤ h.num) : Fraction.equiv (Fraction.mul (IntegerSchedule.integerDuration h k) h).abs (Fraction.mul (Fraction.ofInt (k : Int)) (Fraction.mul h h))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.kappaCap_nonnegative",
@@ -7033,7 +7366,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w : Fraction) : 0 ≤ (kappaCap w).num",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.kappa_le_cap",
@@ -7042,7 +7375,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (hh : Fraction.le h.abs (Fraction.ofInt 1)) : Fraction.le (kappa w h) (kappaCap w)",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integer_error_step",
@@ -7051,7 +7384,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (s : Point × Point) (k : Nat) : Fraction.le (stateNorm (stateSub (integerFine w h s (k + 1)) (integerCoarse w h s (k + 1)))) (Fraction.add (Fraction.mul (kappa w h) (stateNorm (stateSub (integerFine w h s k) (integerCoarse w h s k)))) (integerLocalBudget w h s k))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integer_error_step_quadratic",
@@ -7060,7 +7393,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (s : Point × Point) (k : Nat) (hh : 0 ≤ h.num) (ha : Fraction.le (integerDuration h k).abs (Fraction.ofInt 1)) (hb : Fraction.le h.abs (Fraction.ofInt 1)) : Fraction.le (stateNorm (stateSub (integerFine w h s (k + 1)) (integerCoarse w h s (k + 1)))) (Fraction.add (Fraction.mul (kappa w h) (stateNorm (stateSub (integerFine w h s k) (integerCoarse w h s k)))) (Fraction.mul (Fraction.mul (Fraction.ofInt (k : Int)) (Fraction.mul h h)) (splitFactor w s)))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integer_error_le_budget",
@@ -7069,7 +7402,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (s : Point × Point) : (k : Nat) → Fraction.le (stateNorm (stateSub (integerFine w h s k) (integerCoarse w h s k))) (integerErrorBudget w h s k)",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.quadraticCap_nonnegative",
@@ -7078,7 +7411,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w : Fraction) (s : Point × Point) : (k : Nat) → 0 ≤ (quadraticCap w s k).num",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integer_error_quadratic",
@@ -7087,7 +7420,178 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(w h : Fraction) (s : Point × Point) (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1)) : (k : Nat) → (∀ i, i ≤ k → Fraction.le (integerDuration h i).abs (Fraction.ofInt 1)) → Fraction.le (stateNorm (stateSub (integerFine w h s k) (integerCoarse w h s k))) (Fraction.mul (Fraction.mul h h) (quadraticCap w s k))",
-    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. This supplies a local ingredient for arbitrary-numerator E/G agreement, not its accumulated limit estimate, a general force realization, unit-calibration invariance, P5 or a historical proof."
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integerFine_perturbation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s t : Point × Point) : (k : Nat) → Fraction.le (stateNorm (stateSub (integerFine w h s k) (integerFine w h t k))) (Fraction.mul (fpower (kappa w h) k) (stateNorm (stateSub s t)))",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.block_error_step",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k : Nat) (s : Point × Point) (N : Nat) (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1)) (hshort : ∀ i, i ≤ k → Fraction.le (integerDuration h i).abs (Fraction.ofInt 1)) : Fraction.le (stateNorm (stateSub (fineBlocks w h k s (N + 1)) (coarseBlocks w h k s (N + 1)))) (Fraction.add (Fraction.mul (fpower (kappa w h) k) (stateNorm (stateSub (fineBlocks w h k s N) (coarseBlocks w h k s N)))) (Fraction.mul (Fraction.mul h h) (quadraticCap w (coarseBlocks w h k s N) k)))",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.splitFactor_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s t : Point × Point) (hst : Fraction.le (stateNorm s) (stateNorm t)) : Fraction.le (splitFactor w s) (splitFactor w t)",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.splitFactor_double",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s t : Point × Point) (hst : Fraction.le (stateNorm s) (Fraction.mul (Fraction.ofInt 2) (stateNorm t))) : Fraction.le (splitFactor w s) (Fraction.mul (Fraction.ofInt 2) (splitFactor w t))",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.quadraticCap_double",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w : Fraction) (s t : Point × Point) (hst : Fraction.le (stateNorm s) (Fraction.mul (Fraction.ofInt 2) (stateNorm t))) : (k : Nat) → Fraction.le (quadraticCap w s k) (Fraction.mul (Fraction.ofInt 2) (quadraticCap w t k))",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.coarseBlocks_norm_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k : Nat) (s : Point × Point) : (N : Nat) → Fraction.le (stateNorm (coarseBlocks w h k s N)) (Fraction.mul (fpower (kappa w (integerDuration h k)) N) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.coarseBlocks_state_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k : Nat) (s : Point × Point) (N : Nat) (hpower : Fraction.le (fpower (kappa w (integerDuration h k)) N) (Fraction.ofInt 2)) : (i : Nat) → i ≤ N → Fraction.le (stateNorm (coarseBlocks w h k s i)) (Fraction.mul (Fraction.ofInt 2) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.blockSource_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k : Nat) (s : Point × Point) (hh : 0 ≤ h.num) : 0 ≤ (blockSource w h k s).num",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.block_error_le_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k : Nat) (s : Point × Point) (N : Nat) (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1)) (hshort : ∀ j, j ≤ k → Fraction.le (integerDuration h j).abs (Fraction.ofInt 1)) (hcoarsePower : Fraction.le (fpower (kappa w (integerDuration h k)) N) (Fraction.ofInt 2)) : (i : Nat) → i ≤ N → Fraction.le (stateNorm (stateSub (fineBlocks w h k s i) (coarseBlocks w h k s i))) (sourceBudget (fpower (kappa w h) k) (blockSource w h k s) i)",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.kappa_duration_congr",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w a b : Fraction) (hab : Fraction.equiv a b) : Fraction.equiv (kappa w a) (kappa w b)",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.full_power_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w d : Fraction) (N : Nat) (hd : 0 ≤ d.num) (hs : FullSmallTime w d N) : Fraction.le (fpower (kappa w d) N) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.block_power_le_two",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k N : Nat) (hh : 0 ≤ h.num) (hs : FullSmallTime w (integerDuration h k) N) : Fraction.le (fpower (fpower (kappa w h) k) N) (Fraction.ofInt 2)",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.accumulated_integer_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k N : Nat) (s : Point × Point) (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1)) (hshort : ∀ j, j ≤ k → Fraction.le (integerDuration h j).abs (Fraction.ofInt 1)) (hs : FullSmallTime w (integerDuration h k) N) : Fraction.le (stateNorm (stateSub (fineBlocks w h k s N) (coarseBlocks w h k s N))) (Fraction.mul (Fraction.ofInt 2) (Fraction.mul (Fraction.ofInt (N : Int)) (blockSource w h k s)))",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.full_window_duration_le_one",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w d : Fraction) (N : Nat) (hd : 0 ≤ d.num) (hN : 0 < N) (hs : FullSmallTime w d N) : Fraction.le d (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integer_window_short",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k N : Nat) (hh : 0 ≤ h.num) (hk : 0 < k) (hN : 0 < N) (hs : FullSmallTime w (integerDuration h k) N) : Fraction.le h.abs (Fraction.ofInt 1) ∧ ∀ j, j ≤ k → Fraction.le (integerDuration h j).abs (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.accumulated_integer_error_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k N : Nat) (s : Point × Point) (hh : 0 ≤ h.num) (hk : 0 < k) (hN : 0 < N) (hs : FullSmallTime w (integerDuration h k) N) : Fraction.le (stateNorm (stateSub (fineBlocks w h k s N) (coarseBlocks w h k s N))) (Fraction.mul (Fraction.ofInt 2) (Fraction.mul (Fraction.ofInt (N : Int)) (blockSource w h k s)))",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.integerFine_eq_run",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (s : Point × Point) : (n : Nat) → integerFine w h s n = BoundedIteration.run (linearField w) h s n",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.fineBlocks_eq_schedule",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k : Nat) (s : Point × Point) : (N : Nat) → fineBlocks w h k s N = integerFine w h s (k*N)",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.coarseBlocks_eq_schedule",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w h : Fraction) (k : Nat) (s : Point × Point) : (N : Nat) → coarseBlocks w h k s N = integerFine w (integerDuration h k) s N",
+    "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.edgeCoefficient_nonnegative",

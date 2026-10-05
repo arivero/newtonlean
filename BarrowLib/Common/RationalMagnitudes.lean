@@ -109,6 +109,11 @@ private theorem mixed' {a b c : Fraction} (h : le a b) (k : lt b c) : lt a c := 
   rw [l, r] at z
   exact Int.lt_of_mul_lt_mul_right z (Int.le_of_lt b.den_pos)
 
+theorem half_add_self (a : Fraction) : equiv (add a.half a.half) a := by
+  simp only [equiv, add, half]
+  simp only [show (2 : Int)=1+1 by rfl, Int.add_mul, Int.mul_add]
+  ac_nf
+
 theorem half_lt (a : Fraction) (h : positive a) : lt a.half a := by
   have hp := Int.mul_pos h a.den_pos
   unfold lt half

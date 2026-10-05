@@ -1,4 +1,6 @@
+import BarrowLib.Polygon.BoundedIteration
 import BarrowLib.Polygon.IntegerSchedule
+import BarrowLib.Polygon.FiniteRecurrence
 import NewtonLimitDynamics.Polygon.HarmonicTimeRealization
 
 /-! Finite unequal subdivision identities for the actual harmonic end-kick cell. -/
@@ -10,10 +12,13 @@ open TimeSubdivision
 open CentralSchedule
 open HarmonicStability
 open HarmonicDyadic
+open HarmonicBinaryPrefix
 open HarmonicComparison
 open PointBounds
 open HarmonicAccumulation
+open HarmonicUniform
 open IntegerSchedule
+open FiniteRecurrence
 
 def integerFine (w h : Fraction) (s : Point × Point) (k : Nat) : Point × Point :=
   schedule (linearField w) (List.replicate k h) s
@@ -465,5 +470,385 @@ theorem integer_error_quadratic (w h : Fraction) (s : Point × Point)
         Fraction.add, Fraction.ofInt]
       simp only [Int.add_mul, Int.mul_add]
       ac_nf
+
+/-- Lipschitz control of an actual block of `k` end-kick cells. -/
+theorem integerFine_perturbation (w h : Fraction)
+    (s t : Point × Point) :
+    (k : Nat) → Fraction.le
+      (stateNorm (stateSub (integerFine w h s k) (integerFine w h t k)))
+      (Fraction.mul (fpower (kappa w h) k) (stateNorm (stateSub s t)))
+  | 0 => by
+      apply Fraction.le_of_equiv
+      simp only [integerFine, List.replicate_zero, schedule,
+        fpower, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+      simp
+  | k + 1 => by
+      have hp := cell_perturbation w h (integerFine w h s k)
+        (integerFine w h t k)
+      have hi := integerFine_perturbation w h s t k
+      have hm := Fraction.mul_le_mul_nonnegative_left hi (kappa w h)
+        (kappa_nonnegative w h)
+      have hchain := Fraction.magnitudes.le_trans hp hm
+      have hfinal := Fraction.le_equiv_right hchain
+        (Fraction.equiv_symm (Fraction.mul_assoc
+          (kappa w h) (fpower (kappa w h) k)
+          (stateNorm (stateSub s t))))
+      simpa only [integerFine, HarmonicBinaryPrefix.schedule_replicate_step,
+        fpower] using hfinal
+
+def fineBlocks (w h : Fraction) (k : Nat) (s : Point × Point) :
+    Nat → Point × Point
+  | 0 => s
+  | N + 1 => integerFine w h (fineBlocks w h k s N) k
+
+def coarseBlocks (w h : Fraction) (k : Nat) (s : Point × Point) :
+    Nat → Point × Point
+  | 0 => s
+  | N + 1 => integerCoarse w h (coarseBlocks w h k s N) k
+
+theorem block_error_step (w h : Fraction) (k : Nat)
+    (s : Point × Point) (N : Nat)
+    (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
+    (hshort : ∀ i, i ≤ k →
+      Fraction.le (integerDuration h i).abs (Fraction.ofInt 1)) :
+    Fraction.le
+      (stateNorm (stateSub
+        (fineBlocks w h k s (N + 1)) (coarseBlocks w h k s (N + 1))))
+      (Fraction.add
+        (Fraction.mul (fpower (kappa w h) k)
+          (stateNorm (stateSub
+            (fineBlocks w h k s N) (coarseBlocks w h k s N))))
+        (Fraction.mul (Fraction.mul h h)
+          (quadraticCap w (coarseBlocks w h k s N) k))) := by
+  let f := fineBlocks w h k s N
+  let c := coarseBlocks w h k s N
+  have htri := stateSub_triangle
+    (integerFine w h f k) (integerFine w h c k)
+    (integerCoarse w h c k)
+  have hp := integerFine_perturbation w h f c k
+  have hl := integer_error_quadratic w h c hh hb k hshort
+  have hbound := Fraction.magnitudes.le_trans htri
+    (Fraction.add_le_add hp hl)
+  simpa only [fineBlocks, coarseBlocks] using hbound
+
+theorem splitFactor_le (w : Fraction) (s t : Point × Point)
+    (hst : Fraction.le (stateNorm s) (stateNorm t)) :
+    Fraction.le (splitFactor w s) (splitFactor w t) := by
+  have h₁ := Fraction.mul_le_mul_nonnegative_left hst w.abs
+    (Fraction.abs_num_nonnegative w)
+  have h₂ := Fraction.mul_le_mul_nonnegative_left h₁ w.abs
+    (Fraction.abs_num_nonnegative w)
+  exact Fraction.add_le_add h₁ (Fraction.add_le_add h₁ h₂)
+
+theorem splitFactor_double (w : Fraction) (s t : Point × Point)
+    (hst : Fraction.le (stateNorm s)
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm t))) :
+    Fraction.le (splitFactor w s)
+      (Fraction.mul (Fraction.ofInt 2) (splitFactor w t)) := by
+  have h₁ := Fraction.mul_le_mul_nonnegative_left hst w.abs
+    (Fraction.abs_num_nonnegative w)
+  have h₂ := Fraction.mul_le_mul_nonnegative_left h₁ w.abs
+    (Fraction.abs_num_nonnegative w)
+  have hsum := Fraction.add_le_add h₁ (Fraction.add_le_add h₁ h₂)
+  apply Fraction.le_equiv_right hsum
+  simp only [splitFactor, Fraction.equiv, Fraction.add, Fraction.mul,
+    Fraction.ofInt]
+  simp only [Int.add_mul, Int.mul_add]
+  ac_nf
+
+theorem quadraticCap_double (w : Fraction) (s t : Point × Point)
+    (hst : Fraction.le (stateNorm s)
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm t))) :
+    (k : Nat) → Fraction.le (quadraticCap w s k)
+      (Fraction.mul (Fraction.ofInt 2) (quadraticCap w t k))
+  | 0 => by
+      apply Fraction.le_of_equiv
+      simp only [quadraticCap, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+      simp
+  | k + 1 => by
+      have hi := quadraticCap_double w s t hst k
+      have hs := splitFactor_double w s t hst
+      have h₁ := Fraction.mul_le_mul_nonnegative_left hi (kappaCap w)
+        (kappaCap_nonnegative w)
+      have h₂ := Fraction.mul_le_mul_nonnegative_left hs
+        (Fraction.ofInt (k : Int)) (Int.ofNat_nonneg k)
+      have hsum := Fraction.add_le_add h₁ h₂
+      apply Fraction.le_equiv_right hsum
+      simp only [quadraticCap, Fraction.equiv, Fraction.add,
+        Fraction.mul, Fraction.ofInt]
+      simp only [Int.add_mul, Int.mul_add]
+      ac_nf
+
+theorem coarseBlocks_norm_bound (w h : Fraction) (k : Nat)
+    (s : Point × Point) :
+    (N : Nat) → Fraction.le (stateNorm (coarseBlocks w h k s N))
+      (Fraction.mul (fpower (kappa w (integerDuration h k)) N)
+        (stateNorm s))
+  | 0 => by
+      apply Fraction.le_of_equiv
+      simp only [coarseBlocks, fpower, Fraction.equiv,
+        Fraction.mul, Fraction.ofInt]
+      simp
+  | N + 1 => by
+      have hc := cell_bound w (integerDuration h k)
+        (coarseBlocks w h k s N)
+      have hi := coarseBlocks_norm_bound w h k s N
+      have hm := Fraction.mul_le_mul_nonnegative_left hi
+        (kappa w (integerDuration h k))
+        (kappa_nonnegative w (integerDuration h k))
+      have hbound := Fraction.magnitudes.le_trans hc hm
+      apply Fraction.le_equiv_right hbound
+      simp only [coarseBlocks, integerCoarse, fpower, Fraction.equiv,
+        Fraction.mul]
+      ac_nf
+
+theorem coarseBlocks_state_le_two (w h : Fraction) (k : Nat)
+    (s : Point × Point) (N : Nat)
+    (hpower : Fraction.le
+      (fpower (kappa w (integerDuration h k)) N) (Fraction.ofInt 2)) :
+    (i : Nat) → i ≤ N → Fraction.le
+      (stateNorm (coarseBlocks w h k s i))
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) := by
+  intro i hi
+  let r := kappa w (integerDuration h k)
+  have hpref := fpower_prefix_le r (kappa_nonnegative w _) (one_le_kappa w _)
+    i N hi
+  have hp := Fraction.magnitudes.le_trans hpref hpower
+  have hm := Fraction.mul_le_mul_nonnegative hp (stateNorm s)
+    (stateNorm_nonnegative s)
+  exact Fraction.magnitudes.le_trans (coarseBlocks_norm_bound w h k s i) hm
+
+def blockSource (w h : Fraction) (k : Nat) (s : Point × Point) : Fraction :=
+  Fraction.mul (Fraction.mul h h)
+    (Fraction.mul (Fraction.ofInt 2) (quadraticCap w s k))
+
+theorem blockSource_nonnegative (w h : Fraction) (k : Nat)
+    (s : Point × Point) (hh : 0 ≤ h.num) :
+    0 ≤ (blockSource w h k s).num :=
+  Fraction.nonnegative_mul _ _
+    (Fraction.nonnegative_mul _ _ hh hh)
+    (Fraction.nonnegative_mul _ _ (by decide)
+      (quadraticCap_nonnegative w s k))
+
+/-- Finite accumulation with a measured coarse-state confinement and an
+explicit short-prefix premise. No Cauchy or partition-independence field. -/
+theorem block_error_le_budget (w h : Fraction) (k : Nat)
+    (s : Point × Point) (N : Nat)
+    (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
+    (hshort : ∀ j, j ≤ k →
+      Fraction.le (integerDuration h j).abs (Fraction.ofInt 1))
+    (hcoarsePower : Fraction.le
+      (fpower (kappa w (integerDuration h k)) N) (Fraction.ofInt 2)) :
+    (i : Nat) → i ≤ N →
+      Fraction.le
+        (stateNorm (stateSub
+          (fineBlocks w h k s i) (coarseBlocks w h k s i)))
+        (sourceBudget (fpower (kappa w h) k) (blockSource w h k s) i)
+  | 0, _ => by
+      have hz := stateSub_self_norm_zero s
+      exact Fraction.le_of_equiv (by
+        simpa only [fineBlocks, coarseBlocks, sourceBudget] using hz)
+  | i + 1, hi => by
+      have hiprev : i ≤ N := by omega
+      have hprev := block_error_le_budget w h k s N hh hb hshort
+        hcoarsePower i hiprev
+      have hstep := block_error_step w h k s i hh hb hshort
+      have hstate := coarseBlocks_state_le_two w h k s N hcoarsePower i hiprev
+      have hcap := quadraticCap_double w (coarseBlocks w h k s i) s hstate k
+      have h₂ : 0 ≤ (Fraction.mul h h).num :=
+        Fraction.nonnegative_mul _ _ hh hh
+      have hlocal := Fraction.mul_le_mul_nonnegative_left hcap
+        (Fraction.mul h h) h₂
+      have h₁ := Fraction.mul_le_mul_nonnegative_left hprev
+        (fpower (kappa w h) k)
+        (fpower_nonnegative _ (kappa_nonnegative w h) k)
+      have hsum := Fraction.add_le_add h₁ hlocal
+      have hbound := Fraction.magnitudes.le_trans hstep hsum
+      simpa only [sourceBudget, blockSource] using hbound
+
+def FullSmallTime (w d : Fraction) (N : Nat) : Prop :=
+  Fraction.le
+    (Fraction.mul (fullTime d N)
+      (Fraction.add (Fraction.ofInt 1) w.abs)) halfThreshold
+
+theorem kappa_duration_congr (w a b : Fraction)
+    (hab : Fraction.equiv a b) :
+    Fraction.equiv (kappa w a) (kappa w b) := by
+  unfold kappa
+  have ha := Fraction.abs_equiv hab
+  exact Fraction.mul_equiv
+    (Fraction.add_equiv (Fraction.equiv_refl _) ha)
+    (Fraction.add_equiv (Fraction.equiv_refl _)
+      (Fraction.mul_equiv ha (Fraction.equiv_refl _)))
+
+theorem full_power_le_two (w d : Fraction) (N : Nat)
+    (hd : 0 ≤ d.num) (hs : FullSmallTime w d N) :
+    Fraction.le (fpower (kappa w d) N) (Fraction.ofInt 2) := by
+  have htime := Fraction.mul_equiv (half_totalTime d N)
+    (Fraction.equiv_refl (Fraction.add (Fraction.ofInt 1) w.abs))
+  have hsmall : SmallTime w d.half N :=
+    Fraction.le_equiv_left htime hs
+  have hpower := coarse_power_le_two w d.half N hd hsmall
+  have he := kappa_duration_congr w
+    (Fraction.add d.half d.half) d (Fraction.half_add_self d)
+  exact Fraction.le_equiv_left
+    (Fraction.equiv_symm (fpower_congr he N)) hpower
+
+theorem block_power_le_two (w h : Fraction) (k N : Nat)
+    (hh : 0 ≤ h.num)
+    (hs : FullSmallTime w (integerDuration h k) N) :
+    Fraction.le
+      (fpower (fpower (kappa w h) k) N) (Fraction.ofInt 2) := by
+  have htime := Fraction.mul_equiv (integer_fullTime h k N)
+    (Fraction.equiv_refl (Fraction.add (Fraction.ofInt 1) w.abs))
+  have hsmall : FullSmallTime w h (k * N) :=
+    Fraction.le_equiv_left htime hs
+  have hpower := full_power_le_two w h (k * N) hh hsmall
+  exact Fraction.le_equiv_left
+    (fpower_integer_blocks (kappa w h) k N) hpower
+
+/-- Accumulated comparison of `N` actual coarse cells of duration `k*h`
+with `k*N` actual fine cells. The finite short-prefix inequalities ensure
+each local split is inside the calibrated unit window. -/
+theorem accumulated_integer_error (w h : Fraction) (k N : Nat)
+    (s : Point × Point)
+    (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
+    (hshort : ∀ j, j ≤ k →
+      Fraction.le (integerDuration h j).abs (Fraction.ofInt 1))
+    (hs : FullSmallTime w (integerDuration h k) N) :
+    Fraction.le
+      (stateNorm (stateSub
+        (fineBlocks w h k s N) (coarseBlocks w h k s N)))
+      (Fraction.mul (Fraction.ofInt 2)
+        (Fraction.mul (Fraction.ofInt (N : Int))
+          (blockSource w h k s))) := by
+  let r := fpower (kappa w h) k
+  let C := blockSource w h k s
+  have hd : 0 ≤ (integerDuration h k).num :=
+    integerDuration_nonnegative h hh k
+  have hcoarse := full_power_le_two w (integerDuration h k) N hd hs
+  have hfine := block_power_le_two w h k N hh hs
+  have h₀ := block_error_le_budget w h k s N hh hb hshort
+    hcoarse N (Nat.le_refl N)
+  have hr : 0 ≤ r.num := fpower_nonnegative _ (kappa_nonnegative w h) k
+  have hone : Fraction.le (Fraction.ofInt 1) r :=
+    one_le_fpower (kappa w h) (kappa_nonnegative w h)
+      (one_le_kappa w h) k
+  have hC : 0 ≤ C.num := blockSource_nonnegative w h k s hh
+  have h₁ := sourceBudget_power r C hr hC hone N
+  have hm₁ := Fraction.mul_le_mul_nonnegative hfine C hC
+  have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁
+    (Fraction.ofInt (N : Int)) (Int.ofNat_nonneg N)
+  have h₁' := Fraction.le_equiv_right h₁
+    (Fraction.mul_equiv (Fraction.equiv_refl _)
+      (Fraction.mul_comm C (fpower r N)))
+  have hbound := Fraction.magnitudes.le_trans h₀
+    (Fraction.magnitudes.le_trans h₁' hm₂)
+  apply Fraction.le_equiv_right hbound
+  simp only [C, r, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+  ac_nf
+
+theorem full_window_duration_le_one (w d : Fraction) (N : Nat)
+    (hd : 0 ≤ d.num) (hN : 0 < N)
+    (hs : FullSmallTime w d N) :
+    Fraction.le d (Fraction.ofInt 1) := by
+  have hc : Fraction.le (Fraction.ofInt 1)
+      (Fraction.ofInt (N : Int)) := by
+    unfold Fraction.le Fraction.ofInt
+    dsimp
+    simp only [Int.mul_one]
+    exact Int.ofNat_le.mpr hN
+  have hdtime₁ := Fraction.mul_le_mul_nonnegative hc d hd
+  have hdtime : Fraction.le d (fullTime d N) := by
+    apply Fraction.le_equiv_left (by
+      simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+      simp) hdtime₁
+  have hfactor : Fraction.le (Fraction.ofInt 1)
+      (Fraction.add (Fraction.ofInt 1) w.abs) :=
+    Fraction.le_add_nonnegative _ _ (Fraction.abs_num_nonnegative w)
+  have htime : 0 ≤ (fullTime d N).num :=
+    Int.mul_nonneg (Int.ofNat_nonneg N) hd
+  have hfactorTime := Fraction.mul_le_mul_nonnegative_left hfactor
+    (fullTime d N) htime
+  have htimeWeighted : Fraction.le (fullTime d N)
+      (Fraction.mul (fullTime d N)
+        (Fraction.add (Fraction.ofInt 1) w.abs)) := by
+    have he : Fraction.equiv (fullTime d N)
+        (Fraction.mul (fullTime d N) (Fraction.ofInt 1)) := by
+      simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+      simp
+    exact Fraction.le_equiv_left he hfactorTime
+  have hhalf : Fraction.le halfThreshold (Fraction.ofInt 1) := by
+    unfold halfThreshold Fraction.le Fraction.ofInt
+    decide
+  exact Fraction.magnitudes.le_trans hdtime
+    (Fraction.magnitudes.le_trans htimeWeighted
+      (Fraction.magnitudes.le_trans hs hhalf))
+
+theorem integer_window_short (w h : Fraction) (k N : Nat)
+    (hh : 0 ≤ h.num) (hk : 0 < k) (hN : 0 < N)
+    (hs : FullSmallTime w (integerDuration h k) N) :
+    Fraction.le h.abs (Fraction.ofInt 1) ∧
+      ∀ j, j ≤ k →
+        Fraction.le (integerDuration h j).abs (Fraction.ofInt 1) := by
+  let d := integerDuration h k
+  have hd : 0 ≤ d.num := integerDuration_nonnegative h hh k
+  have hdle := full_window_duration_le_one w d N hd hN hs
+  have hfirst := integerDuration_le h hh 1 k hk
+  have hfirstEq : Fraction.equiv (integerDuration h 1) h := by
+    simp only [integerDuration, Fraction.equiv, Fraction.add, Fraction.ofInt]
+    simp
+  have hhle : Fraction.le h (Fraction.ofInt 1) :=
+    Fraction.magnitudes.le_trans
+      (Fraction.le_equiv_left (Fraction.equiv_symm hfirstEq) hfirst) hdle
+  constructor
+  · exact Fraction.le_equiv_left
+      (Fraction.abs_of_nonnegative h hh) hhle
+  · intro j hj
+    have hprefix := integerDuration_le h hh j k hj
+    have hjle := Fraction.magnitudes.le_trans hprefix hdle
+    exact Fraction.le_equiv_left
+      (Fraction.abs_of_nonnegative (integerDuration h j)
+        (integerDuration_nonnegative h hh j)) hjle
+
+/-- The positive-count small-window form needs no separate local
+shortness assumptions. -/
+theorem accumulated_integer_error_positive (w h : Fraction) (k N : Nat)
+    (s : Point × Point)
+    (hh : 0 ≤ h.num) (hk : 0 < k) (hN : 0 < N)
+    (hs : FullSmallTime w (integerDuration h k) N) :
+    Fraction.le
+      (stateNorm (stateSub
+        (fineBlocks w h k s N) (coarseBlocks w h k s N)))
+      (Fraction.mul (Fraction.ofInt 2)
+        (Fraction.mul (Fraction.ofInt (N : Int))
+          (blockSource w h k s))) := by
+  obtain ⟨hb, hshort⟩ := integer_window_short w h k N hh hk hN hs
+  exact accumulated_integer_error w h k N s hh hb hshort hs
+
+theorem integerFine_eq_run (w h : Fraction) (s : Point × Point) :
+    (n : Nat) → integerFine w h s n = BoundedIteration.run (linearField w) h s n
+  | 0 => rfl
+  | n+1 => by
+      simp only [integerFine, schedule_replicate_step, BoundedIteration.run]
+      rw [← integerFine, integerFine_eq_run w h s n]
+      rfl
+
+theorem fineBlocks_eq_schedule (w h : Fraction) (k : Nat) (s : Point × Point) :
+    (N : Nat) → fineBlocks w h k s N = integerFine w h s (k*N)
+  | 0 => rfl
+  | N+1 => by
+      rw [fineBlocks, fineBlocks_eq_schedule w h k s N]
+      simp only [integerFine_eq_run]
+      rw [← BoundedIteration.run_add]
+      congr 1
+
+theorem coarseBlocks_eq_schedule (w h : Fraction) (k : Nat) (s : Point × Point) :
+    (N : Nat) → coarseBlocks w h k s N = integerFine w (integerDuration h k) s N
+  | 0 => rfl
+  | N+1 => by
+      rw [coarseBlocks, coarseBlocks_eq_schedule w h k s N]
+      simp only [integerCoarse, integerFine, schedule_replicate_step]
+
 
 end NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision

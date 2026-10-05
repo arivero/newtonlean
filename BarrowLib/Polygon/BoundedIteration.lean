@@ -147,4 +147,12 @@ theorem state_bound_at_time (a : Point → Point) (h : Fraction)
   Fraction.add_le_add (position_bound_at_time a h s B T hh hB hT n hb ht)
     (velocity_bound_at_time a h s B T hh hB n hb ht)
 
+theorem run_add (a : Point → Point) (h : Fraction) (s : Point × Point) (n : Nat) :
+    (k : Nat) → run a h s (n+k) = run a h (run a h s n) k
+  | 0 => rfl
+  | k+1 => by
+      change FiniteEstimates.cell a h (run a h s (n+k)) =
+        FiniteEstimates.cell a h (run a h (run a h s n) k)
+      rw [run_add a h s n k]
+
 end NewtonLimitDynamics.Polygon.BoundedIteration
