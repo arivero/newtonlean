@@ -77,3 +77,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 76,9eb9e63,2026-10-04T22:39:16+02:00,Extract the generic geometry and Cauchy foundation into BarrowLib,911,7,1,0,18,0,483,12576,13,588,179,127,17,18,114,143,30,600,24
 77,39fef70,2026-10-04T23:45:49+02:00,Ask the handoff to keep the Lipschitz scale and time unit explicit,911,0,0,0,0,0,483,12576,13,588,179,127,17,0,114,143,30,600,24
 78,02f2c6f,2026-10-04T23:47:12+02:00,Document the Lipschitz scale and the hidden time unit,911,0,0,0,0,0,483,12576,13,588,179,127,17,0,114,143,30,600,24
+79,70d7a68,2026-10-05T02:51:21+02:00,Prove reciprocal dyadic agreement and uniform whole-edge curve bounds,942,31,0,0,0,1,495,13053,13,615,181,128,18,1,115,143,30,630,24

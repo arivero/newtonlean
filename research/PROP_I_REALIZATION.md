@@ -19,9 +19,10 @@ results, not general P3–P5; confinement, general names and restart/gluing
 remain explicit obligations. D.2 extracts the generic completion, geometry,
 binary-time and position-value layers. B.1 proves reciprocal-dyadic E/G
 agreement and endpoint cases; arbitrary numerators remain open. B.2 constructs
-within-cell polygon names and a mesh-explicit whole-edge bound, with same-cell
-alias independence. Different-cell boundary aliases and the quotient coarse
-map are the next geometric bridge.
+within-cell polygon names and a mesh-explicit whole-edge bound. Both same-cell
+and shared-boundary aliases agree before polygonMap is lifted to the time
+quotient. Fixed-integer harmonic subdivision now has a derived local h² bound;
+the arbitrary-numerator E/G accumulation and explicit time calibration remain open.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 
@@ -110,9 +111,9 @@ HarmonicTimeRealization now construct the time quotient and continuous state
 map, including endpoint/alias identities. PositionValues now derives the planar
 position map, completed coordinate squares and positive position separation.
 Addresswise same-time coarse polygon names and uniform whole-edge distance
-control are now proved in HarmonicPolygonCurve. Complete different-cell alias
-independence and the quotient coarse map, then construct the intervening
-region. See TRAJECTORY_DEFECT_REGION.md.
+control are now proved in HarmonicPolygonCurve. Both kinds of alias independence
+construct polygonMap on the same time quotient. The intervening region is
+the next geometric construction. See TRAJECTORY_DEFECT_REGION.md.
 Transfer of the cover to that region, content/area identification and partition independence
 remain distinct. A general represented-point force also needs compatibility
 with point value equivalence; finite centrality alone does not supply it.

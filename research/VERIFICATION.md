@@ -1,6 +1,35 @@
 # Verification record
 
-## Current handoff: reciprocal E/G agreement and whole-edge control, 5 October 2026
+## Current handoff: quotient polygon map and integer-cell local error, 5 October 2026
+
+Targeted Lean 4.19 core builds pass for BinaryCells, AffineBoundary,
+HarmonicPolygonCurve and HarmonicIntegerSubdivision. Equivalent binary
+addresses occupy the same cell or adjacent cells; actual neighboring affine
+edges meet at their common vertex. This proves polygonMap address independence
+before quotient lifting, including zero time. The actual map inherits the
+whole-edge radius and uniform convergence. The standard half-time aliases
+provide a distinct-cell control.
+
+The sequential GPT-6 Sol worker derived exact unequal split formulas and a
+fixed-k local h² bound independent of h, then the service reported that the
+selected model was at capacity. Root continues the accumulated E/G comparison;
+no failed tactic or service interruption is treated as a mathematical obstruction.
+A sequential nonauthor GPT-6 Luna verifier passed all 16 checks in order.
+The catalogue has 985 distinct theorem rows and 835 checked public/reference
+declarations; live counts are 655 substantive, 182 plumbing, 130 sample and
+18 duplicate. All 1,177 prior public names and signatures remain unchanged;
+`neg_equiv` retains both after its generic move. There are 1,230 public
+declarations, and all 327 Barrow theorem rows have empty source lists. The
+graph remains 77 nodes/68 edges/249 passages. The axiom union is `propext`,
+`Classical.choice`, `Quot.sound`; no `sorryAx`, project axiom, Newton import
+in Barrow or external package. Logs:
+`/tmp/newton-sol61-B2-quotient-final-01.log` through `-16.log`. The seven-page
+PDF passed rendering checks; only its generated dates changed, restored
+after byte comparison. Completion scores are unchanged. General motion,
+explicit time calibration, arbitrary-numerator E/G agreement, D_mesh and P5
+remain open.
+
+### Reciprocal E/G agreement and whole-edge control, 5 October 2026
 
 Targeted core Lean builds pass for constructed affine position names, phase
 intervals, reciprocal-dyadic E/G agreement, endpoint cases and the explicit

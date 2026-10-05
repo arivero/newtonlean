@@ -13,6 +13,14 @@ def zeroPoint : Point := (Fraction.ofInt 0, Fraction.ofInt 0)
 def affineState (x v : Point) (t : Fraction) : Point × Point :=
   (pointAdd x (pointScale t v), zeroPoint)
 
+theorem affine_zero_phase (x v : Point) (t : Fraction) (ht : t.num = 0) :
+    stateEquiv (affineState x v t) (x,zeroPoint) := by
+  constructor
+  · constructor <;> simp only [affineState, pointAdd, pointScale,
+      Fraction.equiv, Fraction.add, Fraction.mul, ht, Int.zero_mul,
+      Int.zero_add] <;> ac_nf
+  · exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+
 theorem affine_difference (x v : Point) (t u : Fraction) :
     stateEquiv (stateSub (affineState x v t) (affineState x v u))
       (pointScale (durationDifference u t) v, zeroPoint) := by

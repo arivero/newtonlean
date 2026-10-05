@@ -19,3 +19,6 @@ import BarrowLib.Polygon.PositionValues
 import BarrowLib.Polygon.ScaledTolerance
 import BarrowLib.Polygon.AffineValues
 import BarrowLib.Polygon.IntegerRefinement
+import BarrowLib.Polygon.BinaryCells
+import BarrowLib.Polygon.AffineBoundary
+import BarrowLib.Polygon.IntegerSchedule

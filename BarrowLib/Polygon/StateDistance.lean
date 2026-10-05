@@ -1,4 +1,5 @@
 import BarrowLib.Polygon.FiniteEstimates
+import BarrowLib.Polygon.DyadicArithmetic
 
 namespace NewtonLimitDynamics.Polygon.HarmonicComparison
 open NewtonLimitDynamics
@@ -13,12 +14,6 @@ open NewtonLimitDynamics
 open TimeSubdivision
 open PointBounds
 open HarmonicComparison
-theorem neg_equiv {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv ⟨-a.num, a.den, a.den_pos⟩ ⟨-b.num, b.den, b.den_pos⟩ := by
-  unfold Fraction.equiv at *
-  dsimp
-  simp only [Int.neg_mul, h]
-
 private theorem pointNeg_congr {p q : Point} (hp : pointEquiv p q) :
     pointEquiv (pointNeg p) (pointNeg q) :=
   ⟨neg_equiv hp.1, neg_equiv hp.2⟩

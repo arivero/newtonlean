@@ -35,6 +35,12 @@ theorem two_pow_ge_succ (N : Nat) :
       have hp : 0 ≤ (2 : Int) ^ n := Int.le_of_lt (Int.pow_pos (by decide))
       omega
 
+theorem neg_equiv {a b : Fraction} (h : Fraction.equiv a b) :
+    Fraction.equiv ⟨-a.num, a.den, a.den_pos⟩ ⟨-b.num, b.den, b.den_pos⟩ := by
+  unfold Fraction.equiv at *
+  dsimp
+  simp only [Int.neg_mul, h]
+
 end NewtonLimitDynamics.Polygon.HarmonicDyadic
 
 namespace NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
@@ -82,4 +88,59 @@ theorem durationDifference_chain (a b c : Fraction) :
   ac_nf
   omega
 
+theorem add_difference_cancel (a b : Fraction) :
+    Fraction.equiv (Fraction.add a (durationDifference a b)) b := by
+  simp only [durationDifference, negF, Fraction.equiv, Fraction.add,
+    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
+  ac_nf
+  omega
+
+theorem difference_nonnegative_iff (a b : Fraction) :
+    0 ≤ (durationDifference a b).num ↔ Fraction.le a b := by
+  simp only [durationDifference, negF, Fraction.add, Fraction.le, Int.neg_mul]
+  omega
+
+theorem difference_add_bound (a b H : Fraction)
+    (h : Fraction.le (durationDifference a b) H) :
+    Fraction.le b (Fraction.add a H) :=
+  Fraction.le_equiv_left (Fraction.equiv_symm (add_difference_cancel a b))
+    (Fraction.add_le_add_left h a)
+
+theorem difference_congr {a b c d : Fraction}
+    (hac : Fraction.equiv a c) (hbd : Fraction.equiv b d) :
+    Fraction.equiv (durationDifference a b) (durationDifference c d) :=
+  Fraction.add_equiv hbd (HarmonicDyadic.neg_equiv hac)
+
+theorem phase_end_difference (a H t : Fraction) :
+    Fraction.equiv (durationDifference (durationDifference a t) H)
+      (durationDifference t (Fraction.add a H)) := by
+  simp only [durationDifference, negF, Fraction.equiv, Fraction.add,
+    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
+  ac_nf
+  omega
+
+theorem difference_interval_gaps (a e c : Fraction)
+    (ha : Fraction.le a e) (hc : Fraction.le e c) :
+    Fraction.le (durationDifference a e).abs (durationDifference a c).abs ∧
+    Fraction.le (durationDifference e c).abs (durationDifference a c).abs := by
+  have hae := (difference_nonnegative_iff a e).mpr ha
+  have hec := (difference_nonnegative_iff e c).mpr hc
+  have hac := (difference_nonnegative_iff a c).mpr
+    (Fraction.magnitudes.le_trans ha hc)
+  have he := durationDifference_chain a e c
+  have hb1 := Fraction.le_add_nonnegative (durationDifference a e)
+    (durationDifference e c) hec
+  have hb2 := Fraction.le_equiv_right
+    (Fraction.le_add_nonnegative (durationDifference e c)
+      (durationDifference a e) hae)
+    (Fraction.add_comm _ _)
+  have h1 := Fraction.le_equiv_right hb1 (Fraction.equiv_symm he)
+  have h2 := Fraction.le_equiv_right hb2 (Fraction.equiv_symm he)
+  constructor
+  · exact Fraction.le_equiv_right
+      (Fraction.le_equiv_left (Fraction.abs_of_nonnegative _ hae) h1)
+      (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ hac))
+  · exact Fraction.le_equiv_right
+      (Fraction.le_equiv_left (Fraction.abs_of_nonnegative _ hec) h2)
+      (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ hac))
 end NewtonLimitDynamics.Polygon.HarmonicTimeComparison

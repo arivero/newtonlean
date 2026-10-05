@@ -3,8 +3,9 @@
 This records the checked Cauchy-name, value and binary-time constructions and
 the remaining geometric and mechanical steps for Proposition I's construction
 variant. It is not a completed trajectory theorem. The mathematical layer is a modern
-reconstruction with explicit rational coordinates and the calibrated L1 state
-magnitude. It does not add a historical dependency or silently supply a curve.
+reconstruction with explicit rational coordinates and a chosen L1 state
+gauge. Its time-unit calibration is still implicit in the existing bounds;
+explicit calibration and rescaling invariance remain a Task A obligation. It does not add a historical dependency or silently supply a curve.
 The stage-local obligations remain in [the realization ledger](PROP_I_REALIZATION.md).
 
 The [foundation inventory](BARROWLIB_BOUNDARY.md) is now in BarrowLib:
@@ -21,7 +22,8 @@ continuous-force local consistency are also checked. These realize force data
 and control finite polygons, not the general motion. Geometric precision
 selection, general polygon Cauchy names and restart/gluing remain open; the
 generic extraction is complete. B.1/B.2 now have the bounded results below;
-the remaining comparison and alias bridges precede C.1.
+the remaining integer-subdivision accumulation precedes C.1. Both kinds of
+coarse polygon alias are now handled.
 
 ## One global family
 
@@ -60,9 +62,20 @@ to gammaPosition at the same address. Both terms are derived: the coarse
 drift is bounded by H_m*2M, and the already proved prefix-to-value tail
 supplies the other term. A positive-tolerance modulus gives convergence
 uniformly over every address. These are whole-cell bounds, beyond vertices.
-Equivalent time addresses in the same coarse cell give the same polygon
-position value. Different-cell boundary aliases and the single quotient
-polygon map remain open; no planar content or D_mesh is inferred.
+Equivalent addresses occupy the same coarse cell or adjacent cells. In the
+adjacent case, actual neighboring cell positions share their vertex and affine
+distance is controlled by the time-name gap. This proves boundary invariance
+before polygonMap is lifted to the binary-time quotient. Zero time is handled
+without dividing by T. The map inherits the whole-edge bound and uniform
+convergence. The terminating/nonterminating half-time addresses give an explicit
+different-cell control. No planar content or D_mesh is inferred.
+
+HarmonicIntegerSubdivision derives exact unequal-cell defects and a finite
+recurrence for k fine h-cells versus one k*h cell. With nonnegative h, h≤1 and
+each finite partial duration≤1, the state discrepancy is at most h²*C(k,w,s),
+where the coefficient is independent of h. This is a local block comparison;
+propagation over 2^j blocks and arbitrary-numerator E/G limit agreement remain
+unproved. It does not assert confinement, P5 or time-unit invariance.
 
 ## Checked state-value construction
 

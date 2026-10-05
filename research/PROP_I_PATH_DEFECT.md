@@ -13,7 +13,9 @@ These compare actual finite endpoints and retain force-sampling error; they
 do not define an intervening region or its content. B.2 now constructs
 within-cell polygon position names and bounds their distance to the actual
 harmonic gammaPosition throughout cells. The bound decays uniformly over
-addresses; the different-cell alias bridge remains open. Continuous-force
+addresses. Same-cell and shared-boundary alias proofs now give one polygonMap
+on the constructed time quotient. Region/content is the remaining geometric
+step. Continuous-force
 local consistency is also checked, without a stability or uniqueness inference.
 The exact deflection triangles
 and potential steps in [Arg007](action-arguments/261004gpt6.1solv1Arg007.md)

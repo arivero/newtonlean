@@ -11,8 +11,11 @@ comparison; finite three-tick schedules are proved unequal, which does not
 refute their limit agreement. B.2 constructs actual within-cell polygon
 position names, proves their phases lie inside each cell, and derives a
 whole-edge distance bound tending to zero uniformly over addresses.
-Same-cell aliases agree; different-cell boundary aliases and a single coarse
-polygon map on the time quotient remain open. See the
+Both same-cell and shared-boundary aliases now agree, and the actual coarse
+polygonMap descends to the same time quotient with uniform convergence.
+Fixed-integer subdivision has a derived local h² bound; its accumulated
+E/G limit comparison remains open. Explicit time calibration, general motion
+and the intervening content remain obligations. See the
 [comparison checkpoint](verification/construction-and-whole-edge-2026-10-05.md).
 D_mesh, P5 and the remaining classes follow these open bridges in the handoff's
 order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
@@ -67,9 +70,9 @@ same value, and continuity, endpoint/alias identities and zero cases are proved.
 PositionValues now derives planar values and gammaPosition, preserving bounds,
 continuity and time identities. Its coordinate-square predicate transfers
 eventual rational bounds, and the positive sample position separation is proved.
-Addresswise same-time coarse polygon names and their whole-edge distance are
-now constructed. Different-cell alias independence, the quotient coarse map
-and actual between-path region/content remain open; see
+Same-time coarse polygon names, whole-edge distance and both kinds of address
+independence now construct a quotient coarse polygon map. Actual between-path
+region/content remains open; see
 [the construction specification](CAUCHY_REALIZATION.md).
 The first finite suite
 is implemented in `Polygon/ZeroForce.lean`: actual-cell and finite-schedule

@@ -28,9 +28,9 @@ These controls use the disclosed production inputs, not an independent oracle.
 HarmonicPolygonCurve now constructs level-m polygon position names from actual
 coarse vertices and within-cell inertial drifts at every binary address. Their
 whole-cell distance to gammaPosition is bounded uniformly by an explicit
-geometric radius. Same-cell equivalent addresses agree. Complete the
-different-cell boundary alias bridge before lifting a single P_m to the time
-quotient; an address choice must not change the polygon position.
+geometric radius. Both same-cell and shared-boundary equivalent addresses agree,
+including zero time. A single polygonMap P_m now descends to the time quotient
+and inherits the uniform bound. An address choice cannot change its position.
 
 Define the intervening region as the union of segments joining simultaneous
 positions P_m(t) and gamma(t). The segment parameter must range over the

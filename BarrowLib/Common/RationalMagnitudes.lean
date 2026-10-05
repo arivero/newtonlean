@@ -28,6 +28,14 @@ def abs (a : Fraction) : Fraction := ⟨a.num.natAbs, a.den, a.den_pos⟩
 
 theorem abs_num_nonnegative (a : Fraction) : 0 ≤ a.abs.num := Int.ofNat_nonneg _
 
+/-- Every signed rational value is at most its unsigned magnitude. -/
+theorem le_abs (a : Fraction) : le a a.abs := by
+  unfold le abs
+  dsimp
+  exact Int.mul_le_mul_of_nonneg_right (Int.le_natAbs (a:=a.num))
+    (Int.le_of_lt a.den_pos)
+
+
 /-- Unsigned magnitude respects equality of rational values, not just equality
     of their unnormalised representations. -/
 theorem abs_equiv {a b : Fraction} (h : equiv a b) : equiv a.abs b.abs := by
