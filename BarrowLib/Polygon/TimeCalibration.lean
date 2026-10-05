@@ -30,12 +30,43 @@ def norm (tau : Fraction) (s : Point × Point) : Fraction :=
 def distance (tau : Fraction) (s t : Point × Point) : Fraction :=
   Fraction.add (pointDistance s.1 t.1) (Fraction.mul tau (pointDistance s.2 t.2))
 
+/-- The actual drift and kick increments, in the chosen calibrated gauge. -/
+theorem cell_increment (tau h : Fraction) (a : Point → Point) (s : Point × Point) :
+    Fraction.equiv (distance tau (cell a h s) s)
+      (Fraction.mul h.abs
+        (Fraction.add (pointNorm s.2) (Fraction.mul tau (pointNorm (a (cell a h s).1))))) := by
+  have hp := Fraction.equiv_trans
+    (pointNorm_equiv (ConvexCover.drift_offset h s.1 s.2)) (pointNorm_scale h s.2)
+  have hv := Fraction.equiv_trans
+    (pointNorm_equiv (ConvexCover.drift_offset h s.2 (a (cell a h s).1)))
+    (pointNorm_scale h (a (cell a h s).1))
+  exact Fraction.equiv_trans
+    (Fraction.add_equiv hp (Fraction.mul_equiv_left tau hv)) (by
+      simp only [Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add]
+      ac_nf)
+
+theorem cell_increment_bound (tau h B V : Fraction) (a : Point → Point)
+    (s : Point × Point) (ht : 0 ≤ tau.num)
+    (hv : Fraction.le (pointNorm s.2) V)
+    (ha : Fraction.le (pointNorm (a (cell a h s).1)) B) :
+    Fraction.le (distance tau (cell a h s) s)
+      (Fraction.mul h.abs (Fraction.add V (Fraction.mul tau B))) :=
+  Fraction.le_equiv_left (cell_increment tau h a s)
+    (Fraction.mul_le_mul_nonnegative_left
+      (Fraction.add_le_add hv (Fraction.mul_le_mul_nonnegative_left ha tau ht))
+      h.abs (Fraction.abs_num_nonnegative h))
+
 theorem distance_self_zero (tau : Fraction) (s : Point × Point) :
     Fraction.equiv (distance tau s s) (Fraction.ofInt 0) :=
   Fraction.equiv_trans
     (Fraction.add_equiv (pointDistance_self_zero s.1)
       (Fraction.mul_equiv (Fraction.equiv_refl tau) (pointDistance_self_zero s.2)))
     (by simp [Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt])
+
+theorem distance_symm (tau : Fraction) (s t : Point × Point) :
+    Fraction.equiv (distance tau s t) (distance tau t s) :=
+  Fraction.add_equiv (pointDistance_symm s.1 t.1)
+    (Fraction.mul_equiv_left tau (pointDistance_symm s.2 t.2))
 
 theorem distance_triangle (tau : Fraction) (ht : 0 < tau.num)
     (s t u : Point × Point) :
@@ -403,6 +434,17 @@ theorem rate_nonnegative (tau L : Fraction) (ht : 0 < tau.num)
     (hL : 0 ≤ L.num) : 0 ≤ (rate tau L ht).num :=
   Fraction.nonnegative_add _ _ (Int.le_of_lt tau.den_pos)
     (Fraction.nonnegative_mul _ _ (Int.le_of_lt ht) hL)
+
+theorem window_mono (tau h L : Fraction) (ht : 0 < tau.num)
+    (hL : 0 ≤ L.num) (n N : Nat) (hn : n ≤ N) (hs : Window tau h L ht N) :
+    Window tau h L ht n := by
+  have hc : Fraction.le (Fraction.ofInt (n : Int)) (Fraction.ofInt (N : Int)) := by
+    simpa only [Fraction.le,Fraction.ofInt,Int.mul_one] using
+      (show (n : Int) ≤ (N : Int) by omega)
+  exact Fraction.magnitudes.le_trans
+    (Fraction.mul_le_mul_nonnegative hc (Fraction.mul h.abs (rate tau L ht))
+      (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative h)
+        (rate_nonnegative tau L ht hL))) hs
 
 theorem window_of_elapsed (tau h T L : Fraction) (ht : 0 < tau.num)
     (hL : 0 ≤ L.num) (n : Nat)

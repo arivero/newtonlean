@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,250 checked
-library theorems, 889 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,291 checked
+library theorems, 929 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 They construct acceleration values, bound actual sampled polygons and derive
 mesh-uniform refinement control and continuous local consistency. General
@@ -45,8 +45,11 @@ The generic geometry, completion and binary-time layers are now in BarrowLib.
 E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
 Actual integer-subdivision accumulation proves the dyadic agreement, including
-the three-tick completed values whose finite schedules differ. The full general time map,
-local-annulus confinement/gluing remain open. HarmonicPathRegion now constructs
+the three-tick completed values whose finite schedules differ. GeneralForceTime now constructs a continuous local binary-time state/position
+map from actual central samples, with uniform prefix convergence, initial/zero
+cases and full-endpoint E/G agreement. Its harmonic instance derives the extra
+actual-grid bounds and equals the old maps. Local-annulus confinement/gluing,
+general interior-time E/G and whole-edge/content extension remain open. HarmonicPathRegion now constructs
 the actual matched polygon–curve region and its nonnegative square-cover outer
 content cut and its cover-independent Cauchy scalar, with derived geometric
 decay; ordinary-area and P5
@@ -92,7 +95,7 @@ are in [history.csv](docs/progress/history.csv).
   <img alt="Cumulative theorems by proof obligation" src="docs/progress/theorems-by-area.svg">
 </picture>
 
-**Estimated completion: about 37% (34–45% under alternative weightings), reassessed 5 October.**
+**Estimated completion: about 38% (34–46% under alternative weightings), reassessed 5 October.**
 This figure is an editorial judgement and certifies nothing. Each proposition
 is scored on four milestones weighted by expected difficulty: source map (10%),
 finite step in Lean (20%), limiting passage or realization (45%), and area and
@@ -107,7 +110,7 @@ action-hypothesis assessment 10%. Scores and the evidence for each are in
 
 | Target | Source map | Finite step | Limit / realization | Identification | Estimate |
 | --- | --- | --- | --- | --- | --- |
-| Prop. I | done | done | harmonic time map; general Lipschitz endpoints | harmonic outer content; finite force bridges | 55% |
+| Prop. I | done | done | harmonic and general Lipschitz local time maps | harmonic outer content; finite force bridges | 58% |
 | Prop. II | done | done | stated | open | 32% |
 | Prop. III | done | done | open | open | 30% |
 | Prop. IV | done | finite core | routes documented | open | 30% |
@@ -116,14 +119,17 @@ action-hypothesis assessment 10%. Scores and the evidence for each are in
 Under the stricter [completion ledger](research/CONTINUATION.md), no target is
 discharged yet. Source maps and finite steps are essentially finished. The
 increase from 34% credits whole-edge convergence, agreement of the two harmonic
-constructions, calibrated general Lipschitz endpoint values and Arg007's exact
+constructions, calibrated general Lipschitz endpoint and local binary-time maps, and Arg007's exact
 finite potential identities and the harmonic matched-region outer content. It
 gives no extra credit for theorem count,
-helper consolidation or foundation migration. Full general time realization,
+helper consolidation or foundation migration. General whole-edge/content extension,
 local confinement and gluing, ordinary-area/Kepler-area identification and P5
 force identification remain open, as do the limiting passages of Propositions II–IV.
-The harmonic time map still uses a short window; the general endpoint result
-names its positive time calibration and actual/shadow force bounds explicitly.
+The harmonic time map still uses a short window; the general time map names
+its positive calibration, global Lipschitz comparison and actual/coarse/shadow
+force bounds explicitly. It constructs BinaryTime rather than assuming a real
+trajectory. General interior-time E/G, precision/partition independence and
+merely continuous-force existence/uniqueness also remain open.
 Modern reconstructions keep their premises separate from De Motu, 1687 and
 1713, so this estimate does not certify any historical proposition.
 

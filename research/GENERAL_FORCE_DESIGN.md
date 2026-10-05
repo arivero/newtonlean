@@ -76,7 +76,8 @@ Weighted norms/distances, dimensionless factors/windows and sampling budgets
 are proved invariant. Exact harmonic cell mechanics commute with the same
 rescaling. Lean controls detect the change in the unweighted state norm if
 the calibration is omitted. These are finite estimates and Cauchy-gauge facts;
-general motion and restart/gluing remain to be constructed.
+the general local binary-time map is now constructed under the named global
+comparison and actual sample bounds; restart/gluing remains open.
 
 τ₀ is a free calibration, not a dynamical necessity or an action constant.
 Newton's counterpart is qualitative finiteness (1713 Lemma X *Vi finita*,
@@ -126,7 +127,22 @@ Zero time is included. HarmonicGeneralEndpoint derives its actual/shadow B on
 the short family and proves that these general names/values equal the retained
 harmonic endpoint construction. It does not assert a global harmonic force
 bound. The global-comparison version does not yet supply the confined-annulus
-comparison theorem, a full general time map, restart/gluing or P5.
+comparison theorem, restart/gluing or P5.
+
+GeneralForcePrefix extends these conditions with bounds at actual represented
+grid arrivals. Paired refinement holds at every prefix with the same full-window
+budget. The optional next cell has weighted distance at most
+`h*(V+τ₀B)`, so the adjacent prefix coefficient is
+`T²*C+42*τ₀*T*E0+T*(V+τ₀B)`. The shared geometric-tail proof constructs
+its Cauchy name. Same-grid increments give a calibrated time-distance bound
+`(V+τ₀B)*|t-u|`; ordinary distance uses the explicit factor `1+1/τ₀`.
+GeneralForceTime proves address independence before lifting the local
+state/position map to BinaryTime, along with uniform prefix convergence,
+continuity, initial/zero values and full-endpoint E/G agreement.
+HarmonicGeneralTime derives the additional actual-grid force bounds and equals
+the retained harmonic maps. General interior-time E/G, arbitrary-partition or
+precision-choice independence, whole-edge/content extension and identification
+with an external real-time interval remain separate.
 
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will

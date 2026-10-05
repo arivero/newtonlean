@@ -137,12 +137,13 @@ theorem coarse_window (o : CentralOracle) (E0 T tau L B : Fraction)
   exact TimeCalibration.window_of_elapsed _ _ T _ d.calibration_positive d.lipschitz.1 _
     (Fraction.le_of_equiv ht) d.window
 
-/-- Derived actual adjacent comparison; the second term retains duration-representation error. -/
-theorem adjacent_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
+/-- Actual prefix comparison with a full-window budget, including representation error. -/
+theorem paired_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
-    (j : Nat) :
+    (j n : Nat) (hn : n ≤ blocks j) :
     Fraction.le (TimeCalibration.distance tau
-      (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j))
+      (BoundedIteration.run (field o E0 hE (j+1)) (duration T (j+1)) s (2*n))
+      (BoundedIteration.run (field o E0 hE j) (duration T j) s n))
       (Fraction.add
         (Fraction.mul (Fraction.ofInt (2*(blocks j : Int)))
           (CalibratedRefinement.blockSource tau (duration T (j+1)) L
@@ -157,31 +158,66 @@ theorem adjacent_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     B (velocityCap T B s) s d.lipschitz.1 (sampleError_nonnegative o E0 hE j)
     d.bound_nonnegative (velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative)
     (cross_contract o E0 T tau L B s hE d j) (local_contract o E0 T tau L B s hE d j)
-    (blocks j) (fine_window o E0 T tau L B s hE d j) (d.shadow_samples j)
-    (fun k hk => coarse_velocity o E0 T tau L B s hE d j k hk)
+    n (TimeCalibration.window_mono _ _ _ d.calibration_positive d.lipschitz.1
+      (2*n) (2*blocks j) (by omega) (fine_window o E0 T tau L B s hE d j))
+    (fun k hk => d.shadow_samples j k (by omega))
+    (fun k hk => coarse_velocity o E0 T tau L B s hE d j k (by omega))
   have h2 := EquivalentDuration.run_uniform_error tau d.calibration_positive
     (field o E0 hE j) (field o E0 hE j)
     (Fraction.add (duration T (j+1)) (duration T (j+1))) (duration T j) L
     (sampleError o E0 hE j) s (Fraction.equiv_symm (duration_halving T j)) d.lipschitz.1
     (sampleError_nonnegative o E0 hE j) (local_contract o E0 T tau L B s hE d j)
-    (blocks j) (coarse_window o E0 T tau L B s hE d j)
+    n (TimeCalibration.window_mono _ _ _ d.calibration_positive d.lipschitz.1
+      n (blocks j) hn (coarse_window o E0 T tau L B s hE d j))
   have htri := TimeCalibration.distance_triangle tau d.calibration_positive
-    (FiniteAccumulation.fineAt (field o E0 hE (j+1)) (duration T (j+1)) s (blocks j))
-    (FiniteAccumulation.coarseAt (field o E0 hE j) (duration T (j+1)) s (blocks j))
-    (endpoint o E0 T hE s j)
+    (FiniteAccumulation.fineAt (field o E0 hE (j+1)) (duration T (j+1)) s n)
+    (FiniteAccumulation.coarseAt (field o E0 hE j) (duration T (j+1)) s n)
+    (BoundedIteration.run (field o E0 hE j) (duration T j) s n)
   have hb := Fraction.magnitudes.le_trans htri (Fraction.add_le_add h1
     (by simpa only [CalibratedRefinement.coarseAt_eq_run] using h2))
   rw [CalibratedRefinement.fineAt_eq_run] at hb
-  have hn : 2*blocks j = blocks (j+1) := by rw [blocks_succ]; omega
-  rw [hn] at hb
-  exact hb
+  have hc : Fraction.le (Fraction.ofInt (2*(n : Int)))
+      (Fraction.ofInt (2*(blocks j : Int))) := by
+    simpa only [Fraction.le,Fraction.ofInt,Int.mul_one] using
+      (show 2*(n : Int) ≤ 2*(blocks j : Int) by omega)
+  have hs := CalibratedRefinement.blockSource_nonnegative tau (duration T (j+1)) L
+    (sampleError o E0 hE j) B (velocityCap T B s) d.calibration_positive d.lipschitz.1
+    (sampleError_nonnegative o E0 hE j) d.bound_nonnegative
+    (velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative)
+  have he : 0 ≤ (Fraction.mul
+      (Fraction.mul tau (Fraction.add (duration T (j+1)) (duration T (j+1))).abs)
+      (sampleError o E0 hE j)).num := Fraction.nonnegative_mul _ _
+    (Fraction.nonnegative_mul _ _ (Int.le_of_lt d.calibration_positive)
+      (Fraction.abs_num_nonnegative _)) (sampleError_nonnegative o E0 hE j)
+  exact Fraction.magnitudes.le_trans hb (Fraction.add_le_add
+    (Fraction.mul_le_mul_nonnegative hc _ hs) (Fraction.mul_le_mul_nonnegative hc _ he))
 
-/-- Both error sources have an explicit O(h)+O(force precision) endpoint bound. -/
-theorem adjacent_mesh_bound (o : CentralOracle) (E0 T tau L B : Fraction)
+theorem adjacent_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
     Fraction.le (TimeCalibration.distance tau
       (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j))
+      (Fraction.add
+        (Fraction.mul (Fraction.ofInt (2*(blocks j : Int)))
+          (CalibratedRefinement.blockSource tau (duration T (j+1)) L
+            (sampleError o E0 hE j) B (velocityCap T B s) d.calibration_positive))
+        (Fraction.mul (Fraction.ofInt (2*(blocks j : Int)))
+          (Fraction.mul
+            (Fraction.mul tau
+              (Fraction.add (duration T (j+1)) (duration T (j+1))).abs)
+            (sampleError o E0 hE j)))) := by
+  have hb := paired_finite_bound o E0 T tau L B s hE d j (blocks j) (Nat.le_refl _)
+  have hn : 2*blocks j = blocks (j+1) := by rw [blocks_succ]; omega
+  rw [hn] at hb
+  exact hb
+
+/-- The same mesh estimate holds uniformly at every paired prefix. -/
+theorem paired_mesh_bound (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
+    (j n : Nat) (hn : n ≤ blocks j) :
+    Fraction.le (TimeCalibration.distance tau
+      (BoundedIteration.run (field o E0 hE (j+1)) (duration T (j+1)) s (2*n))
+      (BoundedIteration.run (field o E0 hE j) (duration T j) s n))
       (Fraction.add
         (Fraction.mul (Fraction.mul T (duration T (j+1)))
           (CalibratedRefinement.consistencyCoefficient tau T L B (velocityCap T B s)))
@@ -209,7 +245,7 @@ theorem adjacent_mesh_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     d.lipschitz.1 (sampleError_nonnegative o E0 hE j) d.bound_nonnegative hHT hK
   have hm := Fraction.mul_le_mul_nonnegative_left hsrc
     (Fraction.ofInt (2*(blocks j : Int))) (by dsimp [Fraction.ofInt]; omega)
-  have hb := Fraction.magnitudes.le_trans (adjacent_finite_bound o E0 T tau L B s hE d j)
+  have hb := Fraction.magnitudes.le_trans (paired_finite_bound o E0 T tau L B s hE d j n hn)
     (Fraction.add_le_add_right hm
       (Fraction.mul (Fraction.ofInt (2*(blocks j : Int)))
         (Fraction.mul (Fraction.mul tau (Fraction.add h h).abs) E)))
@@ -219,6 +255,21 @@ theorem adjacent_mesh_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     Int.natCast_pow,Int.pow_succ,show (7 : Int) = 5+1+1 by rfl,
     Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
   ac_nf
+
+theorem adjacent_mesh_bound (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
+    (j : Nat) :
+    Fraction.le (TimeCalibration.distance tau
+      (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j))
+      (Fraction.add
+        (Fraction.mul (Fraction.mul T (duration T (j+1)))
+          (CalibratedRefinement.consistencyCoefficient tau T L B (velocityCap T B s)))
+        (Fraction.mul (Fraction.ofInt 7)
+          (Fraction.mul (Fraction.mul tau T) (sampleError o E0 hE j)))) := by
+  have hb := paired_mesh_bound o E0 T tau L B s hE d j (blocks j) (Nat.le_refl _)
+  have hn : 2*blocks j = blocks (j+1) := by rw [blocks_succ]; omega
+  rw [hn] at hb
+  exact hb
 
 /-- A dimensioned acceleration precision scale remains explicit. -/
 def weightedCoefficient (E0 T tau L B : Fraction) (s : Point × Point) : Fraction :=
@@ -243,11 +294,12 @@ theorem weightedCoefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × 
         (Int.le_of_lt hE)))
 
 /-- Geometric force precision and actual mesh consistency give a derived adjacent tail. -/
-theorem adjacent_weighted_tail (o : CentralOracle) (E0 T tau L B : Fraction)
+theorem paired_weighted_tail (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
-    (j : Nat) :
+    (j n : Nat) (hn : n ≤ blocks j) :
     Fraction.le (TimeCalibration.distance tau
-      (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j))
+      (BoundedIteration.run (field o E0 hE (j+1)) (duration T (j+1)) s (2*n))
+      (BoundedIteration.run (field o E0 hE j) (duration T j) s n))
       (GeometricTail.tailCap (weightedCoefficient E0 T tau L B s) (j+1)) := by
   have he0 := Fraction.magnitudes.lt_implies_le (precision_error o.toOracle E0 hE j)
   have he := Fraction.add_le_add (Fraction.add_le_add he0 he0) he0
@@ -261,7 +313,7 @@ theorem adjacent_weighted_tail (o : CentralOracle) (E0 T tau L B : Fraction)
     (Fraction.mul_le_mul_nonnegative_left he3 (Fraction.mul tau T)
       (Fraction.nonnegative_mul _ _ (Int.le_of_lt d.calibration_positive) d.time_nonnegative))
     (Fraction.ofInt 7) (by decide)
-  have hb := Fraction.magnitudes.le_trans (adjacent_mesh_bound o E0 T tau L B s hE d j)
+  have hb := Fraction.magnitudes.le_trans (paired_mesh_bound o E0 T tau L B s hE d j n hn)
     (Fraction.add_le_add_left hm
       (Fraction.mul (Fraction.mul T (duration T (j+1)))
         (CalibratedRefinement.consistencyCoefficient tau T L B (velocityCap T B s))))
@@ -270,6 +322,17 @@ theorem adjacent_weighted_tail (o : CentralOracle) (E0 T tau L B : Fraction)
     Fraction.add,Fraction.mul,Fraction.ofInt,Int.pow_succ,
     show (42 : Int) = 7*3*2 by rfl,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
   ac_nf
+
+theorem adjacent_weighted_tail (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
+    (j : Nat) :
+    Fraction.le (TimeCalibration.distance tau
+      (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j))
+      (GeometricTail.tailCap (weightedCoefficient E0 T tau L B s) (j+1)) := by
+  have hb := paired_weighted_tail o E0 T tau L B s hE d j (blocks j) (Nat.le_refl _)
+  have hn : 2*blocks j = blocks (j+1) := by rw [blocks_succ]; omega
+  rw [hn] at hb
+  exact hb
 
 noncomputable def coefficient (E0 T tau L B : Fraction) (s : Point × Point)
     (ht : 0 < tau.num) : Fraction :=

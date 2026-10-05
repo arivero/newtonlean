@@ -1,6 +1,8 @@
 import NewtonLimitDynamics.Polygon.CauchyValues
 import NewtonLimitDynamics.Polygon.BinaryTime
 import BarrowLib.Polygon.ScaledTolerance
+import BarrowLib.Polygon.BinaryEndpoints
+import BarrowLib.Polygon.FiniteSequenceGap
 
 /-!
 Actual harmonic state values indexed by the constructed binary-time quotient.
@@ -103,54 +105,10 @@ theorem countState_gap (w T : Fraction) (s : Point × Point)
         (countState w T s j n))
         (Fraction.mul (Fraction.ofInt (k : Int))
           (Fraction.mul (duration T j) (stateTimeFactor w s)))
-  | n, 0, _ => by
-      have hz := stateSub_self_norm_zero (countState w T s j n)
-      apply Fraction.le_of_equiv
-      apply Fraction.equiv_trans hz
-      simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-      simp
-  | n, k + 1, hnk => by
-      have hk : n + k ≤ blocks j := by omega
-      have htri := stateSub_triangle
-        (countState w T s j (n + (k + 1)))
-        (countState w T s j (n + k)) (countState w T s j n)
-      have hstep : Fraction.le
-          (distance (countState w T s j (n + (k + 1)))
-            (countState w T s j (n + k)))
-          (Fraction.mul (duration T j) (stateTimeFactor w s)) := by
-        simpa only [Nat.add_succ] using
-          countState_step_bound w T s j (n + k) hT hs hk
-      have hprev := countState_gap w T s j hT hs n k hk
-      have hsum := Fraction.add_le_add hstep hprev
-      apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans htri hsum)
-      simp only [Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt,
-        Int.natCast_add, Int.natCast_one]
-      simp only [Int.add_mul, Int.mul_add, Int.one_mul, Int.mul_one]
-      ac_nf
-
-def countTime (T : Fraction) (j n : Nat) : Fraction :=
-  Fraction.mul (Fraction.ofInt (n : Int)) (duration T j)
-
-theorem countTime_difference (T : Fraction) (j n k : Nat) :
-    Fraction.equiv
-      (durationDifference (countTime T j n) (countTime T j (n + k)))
-      (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j)) := by
-  simp only [countTime, durationDifference, negF, Fraction.equiv,
-    Fraction.add, Fraction.mul, Fraction.ofInt, Int.natCast_add]
-  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg,
-    Int.one_mul, Int.mul_one]
-  ac_nf <;> omega
-
-theorem countTime_abs_difference (T : Fraction) (j n k : Nat)
-    (hT : 0 ≤ T.num) :
-    Fraction.equiv
-      (durationDifference (countTime T j n) (countTime T j (n + k))).abs
-      (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j)) := by
-  have hs := Fraction.abs_equiv (countTime_difference T j n k)
-  have hnon : 0 ≤ (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j)).num :=
-    Int.mul_nonneg (Int.ofNat_nonneg _) hT
-  exact Fraction.equiv_trans hs
-    (Fraction.abs_of_nonnegative _ hnon)
+  | n, k, hnk => FiniteSequenceGap.finite_gap distance stateSub_self_norm_zero
+      stateSub_triangle (countState w T s j) (blocks j)
+      (Fraction.mul (duration T j) (stateTimeFactor w s))
+      (fun i hi => countState_step_bound w T s j i hT hs (Nat.le_of_lt hi)) n k hnk
 
 theorem stateTimeFactor_nonnegative (w : Fraction) (s : Point × Point) :
     0 ≤ (stateTimeFactor w s).num := by
@@ -178,19 +136,6 @@ theorem countState_ordered_bound (w T : Fraction) (s : Point × Point)
     (Fraction.mul_equiv he (Fraction.equiv_refl _))
   simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
-
-theorem durationDifference_abs_symm (a b : Fraction) :
-    Fraction.equiv (durationDifference a b).abs
-      (durationDifference b a).abs := by
-  have he : Fraction.equiv (durationDifference a b)
-      (negF (durationDifference b a)) := by
-    simp only [durationDifference, negF, Fraction.equiv,
-      Fraction.add]
-    simp only [Int.mul_add, Int.mul_neg, Int.neg_mul, Int.neg_add,
-      Int.neg_neg]
-    ac_nf <;> omega
-  exact Fraction.equiv_trans (Fraction.abs_equiv he)
-    (Fraction.abs_neg _)
 
 theorem countState_same_grid_bound (w T : Fraction) (s : Point × Point)
     (j m n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -232,34 +177,6 @@ theorem prefix_time_bound (b c : Nat → Bool) (w T : Fraction)
       (timeApprox b T j) (timeApprox c T j)))
     (Fraction.equiv_refl _)
 
-theorem nameBound_scale (a b ta tb : EndpointCauchyName)
-    (C R : Fraction) (hC : 0 ≤ C.num)
-    (hlevel : ∀ n : Nat,
-      Fraction.le (distance (a.approx n) (b.approx n))
-        (Fraction.mul (distance (ta.approx n) (tb.approx n)) C))
-    (hnear : NameBound ta tb R) :
-    NameBound a b (Fraction.mul R C) := by
-  intro eps heps
-  let q := eps.half
-  let delta := factorDelta C q hC
-  obtain ⟨N, hN⟩ := hnear delta
-    (factorDelta_positive C q hC heps)
-  refine ⟨N, ?_⟩
-  intro n hn
-  have hmul := Fraction.mul_le_mul_nonnegative
-    (Fraction.magnitudes.lt_implies_le (hN n hn)) C hC
-  have hsum := Fraction.le_equiv_right hmul (Fraction.add_mul R delta C)
-  have hdelta := factor_delta_weak C q hC
-    (by simpa only [q, Fraction.half] using Int.le_of_lt heps)
-  have htotal := Fraction.add_le_add_left hdelta (Fraction.mul R C)
-  have hsmall : Fraction.lt
-      (Fraction.add (Fraction.mul R C) q)
-      (Fraction.add (Fraction.mul R C) eps) :=
-    CauchyValues.add_lt_add_left (Fraction.half_lt eps heps) _
-  exact Fraction.magnitudes.lt_of_le_lt
-    (Fraction.magnitudes.le_trans (hlevel n)
-      (Fraction.magnitudes.le_trans hsum htotal)) hsmall
-
 theorem address_state_equiv (b c : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T)
@@ -292,35 +209,6 @@ theorem gammaValue_address (b : Nat → Bool) (w T : Fraction)
     (hs : DyadicSmallTime w T) :
     gammaValue w T s hT hs (Quotient.mk _ b) =
       binaryValue b w T s hT hs := rfl
-
-def timeCoordinate (T : Fraction) (hT : 0 ≤ T.num) :
-    BinaryTime T hT → Value :=
-  Quotient.lift (fun b => BinaryTime.timeValue b T hT)
-    (fun _ _ h => Quotient.sound h)
-
-theorem timeCoordinate_injective (T : Fraction) (hT : 0 ≤ T.num) :
-    ∀ x y : BinaryTime T hT,
-      timeCoordinate T hT x = timeCoordinate T hT y → x = y := by
-  intro x y hxy
-  induction x using Quotient.inductionOn with
-  | _ b =>
-    induction y using Quotient.inductionOn with
-    | _ c =>
-      change BinaryTime.timeValue b T hT =
-        BinaryTime.timeValue c T hT at hxy
-      have hnames : NameEquiv (BinaryTime.timeName b T hT)
-          (BinaryTime.timeName c T hT) := Quotient.exact hxy
-      exact Quotient.sound hnames
-
-def TimeWithin (T : Fraction) (hT : 0 ≤ T.num)
-    (x y : BinaryTime T hT) (R : Fraction) : Prop :=
-  Within (timeCoordinate T hT x) (timeCoordinate T hT y) R
-
-theorem timeWithin_address (b c : Nat → Bool) (T : Fraction)
-    (hT : 0 ≤ T.num) (R : Fraction) :
-    TimeWithin T hT (Quotient.mk _ b) (Quotient.mk _ c) R ↔
-      NameBound (BinaryTime.timeName b T hT)
-        (BinaryTime.timeName c T hT) R := Iff.rfl
 
 theorem gamma_within (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -385,49 +273,6 @@ theorem duration_factor_eventually_small (w T : Fraction)
   exact factor_control C eps (duration T j)
     (stateTimeFactor_nonnegative w s) hT (hN j hj)
 
-def leftAddress : Nat → Bool := fun _ => false
-def rightAddress : Nat → Bool := fun _ => true
-
-def leftTime (T : Fraction) (hT : 0 ≤ T.num) : BinaryTime T hT :=
-  Quotient.mk _ leftAddress
-def rightTime (T : Fraction) (hT : 0 ≤ T.num) : BinaryTime T hT :=
-  Quotient.mk _ rightAddress
-
-theorem left_time_state_equiv (T : Fraction) (j : Nat) :
-    stateEquiv (timeState leftAddress T j)
-      (scalarState (Fraction.ofInt 0)) := by
-  have ht : Fraction.equiv (timeApprox leftAddress T j)
-      (Fraction.ofInt 0) := by
-    have hz : ticks leftAddress j = 0 :=
-      all_zero_ticks j
-    simp only [timeApprox, hz, Fraction.equiv, Fraction.mul,
-      Fraction.ofInt]
-    simp
-  exact ⟨⟨ht, Fraction.equiv_refl _⟩,
-    ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
-
-theorem left_time_coordinate (T : Fraction) (hT : 0 ≤ T.num) :
-    timeCoordinate T hT (leftTime T hT) =
-      embed (scalarState (Fraction.ofInt 0)) := by
-  apply Quotient.sound
-  intro eps heps
-  refine ⟨0, ?_⟩
-  intro j _
-  have he := (distance_zero_iff_stateEquiv
-    (timeState leftAddress T j)
-    (scalarState (Fraction.ofInt 0))).mpr
-      (left_time_state_equiv T j)
-  have hself := stateSub_self_norm_zero
-    (scalarState (Fraction.ofInt 0))
-  have hle : Fraction.le
-      (distance (timeState leftAddress T j)
-        (scalarState (Fraction.ofInt 0)))
-      (distance (scalarState (Fraction.ofInt 0))
-        (scalarState (Fraction.ofInt 0))) := Fraction.le_of_equiv
-    (Fraction.equiv_trans he (Fraction.equiv_symm hself))
-  exact Fraction.magnitudes.lt_of_le_lt hle
-    (distance_self_lt _ eps heps)
-
 theorem left_endpoint_value (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     gammaValue w T s hT hs (leftTime T hT) = embed s := by
@@ -439,53 +284,6 @@ theorem left_endpoint_value (w T : Fraction) (s : Point × Point)
   rw [show prefixState leftAddress w T s j = s from
     all_zero_prefix w T s j]
   exact distance_self_lt s eps heps
-
-theorem right_ticks (j : Nat) : ticks rightAddress j + 1 = blocks j := by
-  induction j with
-  | zero => simp [ticks, rightAddress, bit, blocks]
-  | succ j ih =>
-      rw [ticks, blocks_succ]
-      simp only [rightAddress, bit, ite_true]
-      omega
-
-theorem right_time_difference (T : Fraction) (j : Nat) :
-    Fraction.equiv (durationDifference (timeApprox rightAddress T j) T)
-      (duration T j) := by
-  have hk : (ticks rightAddress j : Int) + 1 = (2 : Int) ^ j := by
-    have hr := right_ticks j
-    have hr' := congrArg Int.ofNat hr
-    change ((ticks rightAddress j + 1 : Nat) : Int) =
-      ((2 ^ j : Nat) : Int) at hr'
-    rw [Int.natCast_add, Int.natCast_one, Int.natCast_pow] at hr'
-    exact hr'
-  simp only [timeApprox, durationDifference, negF, Fraction.equiv,
-    Fraction.add, Fraction.mul, Fraction.ofInt, duration]
-  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
-  rw [← hk]
-  simp only [Int.add_mul, Int.mul_add, Int.one_mul, Int.mul_one]
-  ac_nf <;> omega
-
-theorem right_time_distance (T : Fraction) (j : Nat)
-    (hT : 0 ≤ T.num) :
-    Fraction.equiv (distance (timeState rightAddress T j)
-      (scalarState T)) (duration T j) := by
-  have h₁ := scalarState_distance (timeApprox rightAddress T j) T
-  have h₂ := durationDifference_abs_symm T (timeApprox rightAddress T j)
-  have h₃ := Fraction.abs_equiv (right_time_difference T j)
-  have h₄ := Fraction.abs_of_nonnegative (duration T j) hT
-  exact Fraction.equiv_trans h₁
-    (Fraction.equiv_trans h₂ (Fraction.equiv_trans h₃ h₄))
-
-theorem right_time_coordinate (T : Fraction) (hT : 0 ≤ T.num) :
-    timeCoordinate T hT (rightTime T hT) = embed (scalarState T) := by
-  apply Quotient.sound
-  intro eps heps
-  obtain ⟨N, hN⟩ := duration_eventually_small T eps hT heps
-  refine ⟨N, ?_⟩
-  intro j hj
-  exact Fraction.magnitudes.lt_of_le_lt
-    ((Fraction.equiv_iff_mutual_le _ _).mp
-      (right_time_distance T j hT)).1 (hN j hj)
 
 theorem right_prefix_endpoint_bound (w T : Fraction)
     (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)

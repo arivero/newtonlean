@@ -1,4 +1,4 @@
-# Constructing motion from the harmonic polygon family
+# Constructing motion from sampled central polygon families
 
 This records the checked Cauchy-name, value and binary-time constructions and
 the remaining geometric and mechanical steps for Proposition I's construction
@@ -28,9 +28,16 @@ coarse/fine accumulation and a separate equivalent-duration comparison to
 construct fixed-time central-force Cauchy names and values. This requires a
 global Lipschitz comparison and bounds at actual coarse and first-half shadow
 force arrivals; no motion-Cauchy field is assumed. The harmonic instance
-derives those sample bounds and agrees with the old endpoint value. Full
-general time realization, local-annulus stability and restart/gluing remain
-open; the generic extraction is complete. B.1/B.2 now have the bounded results below;
+derives those sample bounds and agrees with the old endpoint value.
+GeneralForcePrefix adds bounds at actual represented-grid arrivals and derives
+Cauchy names for every binary prefix. GeneralForceTime derives same-grid time
+control, address independence, uniform prefix convergence and a continuous local
+state/position map, with initial/zero cases and full-endpoint E/G agreement.
+HarmonicGeneralTime derives all actual-grid bounds and equals the retained
+harmonic maps. Generic finite telescoping, scalar grid differences, name-bound
+scaling, time endpoints and prefix-to-value tails live in BarrowLib with old
+public names preserved. Local-annulus stability, restart/gluing, general
+interior-time E/G agreement and precision/partition independence remain open. B.1/B.2 now have the bounded results below;
 integer-subdivision accumulation and dyadic E/G agreement are now proved. Both
 kinds of coarse polygon alias are handled. HarmonicPathRegion now constructs
 the matched region and finite-square outer-content lower cut, with a derived
@@ -210,5 +217,5 @@ is independent of the chosen initial cover and inherits nonnegativity, the
 closed budget bound, zero time and convergence to zero. A known rational 1/3
 cut recovers its embedded value for different initial budgets. Equality with
 inner/ordinary area, Kepler swept-area transfer, arbitrary partition
-independence, P5 and the full general-field time map remain separate. No integral, ODE, measure theorem,
+independence, P5 and general-field whole-edge/content extension remain separate. No integral, ODE, measure theorem,
 action constant or historical limiting premise is imported.

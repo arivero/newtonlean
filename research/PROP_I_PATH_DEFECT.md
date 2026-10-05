@@ -17,7 +17,10 @@ HarmonicPathRegion now defines the actual closed matched intervening set and
 its finite-square outer content D_mesh as a closed rational lower cut.
 HarmonicPathContent now constructs its Cauchy scalar by rational bisection,
 proves exact lower-cut identification and independence of the initial cover. The
-full general time map and local-annulus/gluing steps remain separate. B.2 now constructs
+general local binary-time state/position map is now constructed, with derived
+uniform prefix convergence and full-endpoint E/G agreement. HarmonicGeneralTime
+derives actual-grid force bounds and identifies the old harmonic maps. General
+whole-edge/content extension and local-annulus/gluing steps remain separate. B.2 now constructs
 within-cell polygon position names and bounds their distance to the actual
 harmonic gammaPosition throughout cells. The bound decays uniformly over
 addresses. Same-cell and shared-boundary alias proofs now give one polygonMap

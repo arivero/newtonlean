@@ -66,7 +66,10 @@ of the initial cover and inherits scalar nonnegativity, budget control, zero
 time and decay. Equality with inner content, ordinary Euclidean area or a
 measure remains separate.
 Mechanical P5, leading curved potential steps, arbitrary-partition independence,
-gluing and the full general central-force time map remain open. No integral,
+gluing and general central-force whole-edge/content extension remain open.
+GeneralForceTime now constructs a local continuous binary-time state/position
+map under explicit global Lipschitz comparison and actual/coarse/shadow sampled
+force bounds; its harmonic instance equals the maps used in this region. No integral,
 ODE, measure or quantum premise closes them.
 
 Verification details are in the

@@ -83,3 +83,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 82,e70c40f,2026-10-05T03:59:13+02:00,Make finite force bounds and Cauchy gauges time calibrated,1074,41,8,0,4,0,526,15401,13,731,186,136,21,4,117,143,30,760,24
 83,39c41ae,2026-10-05T08:20:16+02:00,Construct calibrated general central-force endpoint values,1140,67,1,0,5,1,545,16399,13,789,188,139,24,6,118,146,30,822,24
 84,3dad1c2,2026-10-05T08:49:29+02:00,Construct harmonic polygon-curve region and outer content,1203,63,0,0,3,0,568,17212,13,848,190,139,26,3,122,146,30,881,24
+85,8a0651f,2026-10-05T09:12:21+02:00,Realize polygon-curve outer content as a Cauchy scalar,1250,47,0,0,0,0,585,17745,13,889,193,142,26,0,122,146,30,928,24

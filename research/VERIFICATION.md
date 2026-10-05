@@ -1,6 +1,36 @@
 # Verification record
 
-## Current handoff: outer content as a Cauchy scalar, 5 October 2026
+## Current handoff: general local binary-time maps, 5 October 2026
+
+Targeted Lean core builds pass for the paired-prefix endpoint estimates,
+GeneralForcePrefix, GeneralForceTime and HarmonicGeneralTime. Actual grid,
+coarse and shadow sample bounds are explicit; velocity caps, optional-cell
+increments, adjacent tails and motion Cauchy names are derived. Actual same-grid
+increments prove address independence before quotient lifting. Uniform prefix
+convergence, uniform continuity, initial/zero values and full-endpoint E/G
+agreement compile. Changing calibration or verified bounds for the same actual
+family preserves the value. The harmonic instance derives its sample bounds and
+equals the old prefix, state and position maps. Generic finite telescoping,
+scalar grid differences, name-bound scaling, time endpoints and approximant
+tails are shared in BarrowLib with old names/signatures preserved.
+A sequential nonauthor GPT-6 Luna verifier passed all 16 checks in order.
+The catalogue has 1,291 distinct theorem rows and 1,151 emitted references;
+live counts are 929 substantive, 194 plumbing, 142 sample and 26 duplicate.
+All 1,579 prior public names/signatures remain unchanged; 53 names are new.
+All 41 new catalogue rows and all 513 Barrow rows have empty source lists.
+The graph remains 77 nodes/68 edges/249 passages, with 10 witnesses, 246 XML
+anchors and 3 supplements. The axiom union is propext, Classical.choice and
+Quot.sound; there is no sorryAx, project axiom, external package or Newton/Mathlib
+foundation import. Logs: /tmp/newton-sol61-general-time-final-01.log through
+-16.log. The graph PDF passed rendering checks; its dates were restored after
+proving every other byte unchanged. The computed estimate is 37.75%, range
+34.49–45.63%, with Proposition I at 57.5%. The
+editorial limit score credits the constructed general local map: about 38%
+overall, with no historical target discharged. Local-annulus stability,
+confinement/gluing, general interior-time E/G and precision/partition independence,
+merely continuous existence/uniqueness, P5 and general geometry remain open.
+
+### Outer content as a Cauchy scalar, 5 October 2026
 
 Targeted Lean core builds pass for rational interval bisection, representative-
 invariant scalar lower comparison, bounded-cut Cauchy realization and the

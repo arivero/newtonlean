@@ -487,11 +487,6 @@ def prefixName (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
   approx := prefixState b w T s
   cauchy := prefix_cauchy b w T s hT hs
 
-theorem all_zero_ticks (j : Nat) : ticks (fun _ => false) j = 0 := by
-  induction j with
-  | zero => rfl
-  | succ j ih => simp [ticks, bit, ih]
-
 theorem all_zero_prefix (w T : Fraction) (s : Point × Point) (j : Nat) :
     prefixState (fun _ => false) w T s j = s := by
   simp [prefixState, all_zero_ticks, schedule]

@@ -154,3 +154,54 @@ theorem difference_interval_gaps (a e c : Fraction)
       (Fraction.le_equiv_left (Fraction.abs_of_nonnegative _ hec) h2)
       (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ hac))
 end NewtonLimitDynamics.Polygon.HarmonicTimeComparison
+
+namespace NewtonLimitDynamics.Polygon.HarmonicTimeRealization
+open NewtonLimitDynamics
+open HarmonicStability HarmonicDyadic HarmonicTimeComparison
+
+def countTime (T : Fraction) (j n : Nat) : Fraction :=
+  Fraction.mul (Fraction.ofInt (n : Int)) (duration T j)
+
+theorem countTime_difference (T : Fraction) (j n k : Nat) :
+    Fraction.equiv
+      (durationDifference (countTime T j n) (countTime T j (n + k)))
+      (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j)) := by
+  simp only [countTime, durationDifference, negF, Fraction.equiv,
+    Fraction.add, Fraction.mul, Fraction.ofInt, Int.natCast_add]
+  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg,
+    Int.one_mul, Int.mul_one]
+  ac_nf <;> omega
+
+theorem countTime_abs_difference (T : Fraction) (j n k : Nat)
+    (hT : 0 ≤ T.num) :
+    Fraction.equiv
+      (durationDifference (countTime T j n) (countTime T j (n + k))).abs
+      (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j)) := by
+  have hs := Fraction.abs_equiv (countTime_difference T j n k)
+  have hnon : 0 ≤ (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j)).num :=
+    Int.mul_nonneg (Int.ofNat_nonneg _) hT
+  exact Fraction.equiv_trans hs
+    (Fraction.abs_of_nonnegative _ hnon)
+
+theorem durationDifference_abs_symm (a b : Fraction) :
+    Fraction.equiv (durationDifference a b).abs
+      (durationDifference b a).abs := by
+  have he : Fraction.equiv (durationDifference a b)
+      (negF (durationDifference b a)) := by
+    simp only [durationDifference, negF, Fraction.equiv,
+      Fraction.add]
+    simp only [Int.mul_add, Int.mul_neg, Int.neg_mul, Int.neg_add,
+      Int.neg_neg]
+    ac_nf <;> omega
+  exact Fraction.equiv_trans (Fraction.abs_equiv he)
+    (Fraction.abs_neg _)
+
+end NewtonLimitDynamics.Polygon.HarmonicTimeRealization
+
+namespace NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
+theorem all_zero_ticks (j : Nat) : ticks (fun _ => false) j = 0 := by
+  induction j with
+  | zero => rfl
+  | succ j ih => simp [ticks, bit, ih]
+
+end NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix

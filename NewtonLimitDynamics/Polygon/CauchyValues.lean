@@ -1,4 +1,5 @@
 import BarrowLib.Polygon.CauchyValues
+import BarrowLib.Polygon.TailValues
 import NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
 
 namespace NewtonLimitDynamics.Polygon.CauchyValues
@@ -33,13 +34,9 @@ theorem binaryValue_prefix_bound (b : Nat → Bool) (w T : Fraction)
     (hs : DyadicSmallTime w T) (m : Nat) :
     Within (embed (prefixState b w T s m))
       (binaryValue b w T s hT hs) (HarmonicBinaryPrefix.tailCap w T s m) := by
-  apply nameBound_of_eventual_le _ _ _ m
-  intro n hn
-  have hgap : m + (n - m) = n := by omega
-  have hb := HarmonicBinaryPrefix.finite_gap_error b w T s hT hs (n - m) m
-  rw [hgap] at hb
-  exact Fraction.le_equiv_left
-    (stateSub_norm_symm (prefixState b w T s m) (prefixState b w T s n)) hb
+  exact TailValues.approximant_bound (prefixName b w T s hT hs)
+    (HarmonicBinaryPrefix.coefficient w T s) (HarmonicBinaryPrefix.coefficient_nonnegative w T s hT)
+    (fun j => HarmonicBinaryPrefix.adjacent_error_le b w T s j hT hs) m
 
 theorem rational_time_uniform_value_bound (w : Fraction) (s : Point × Point)
     (eps : Fraction) (heps : 0 < eps.num)

@@ -37,3 +37,6 @@ import BarrowLib.Polygon.RationalIntervals
 import BarrowLib.Polygon.ScalarOrder
 import BarrowLib.Polygon.BoundedCuts
 import BarrowLib.Polygon.SquareContentValues
+import BarrowLib.Polygon.FiniteSequenceGap
+import BarrowLib.Polygon.BinaryEndpoints
+import BarrowLib.Polygon.TailValues

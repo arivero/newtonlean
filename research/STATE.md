@@ -7,8 +7,14 @@ now constructs fixed-time motion Cauchy names/values for globally compared
 Lipschitz central samples, with a calibrated short window and explicit bounds
 at actual coarse and first-half shadow sample locations. Geometric force
 precision and actual adjacent errors are derived; the harmonic instance derives
-those force bounds and agrees with its old endpoint value. A full general time
-map, local-annulus stability, restart/gluing and derived confinement remain open. The generic geometry,
+those force bounds and agrees with its old endpoint value. GeneralForcePrefix
+and GeneralForceTime now construct Cauchy prefix names and a continuous local
+state/position map on BinaryTime. Actual grid sample bounds derive optional-cell
+and same-grid estimates; address independence precedes quotient lifting. Uniform
+prefix convergence, initial/zero-time values and E/G agreement at the full
+endpoint are proved. HarmonicGeneralTime derives the extra actual-grid bounds
+and equals the retained harmonic maps. Local-annulus stability, restart/gluing,
+derived confinement and general interior-time E/G agreement remain open. The generic geometry,
 completion and binary-time infrastructure is in BarrowLib.
 B.1 now proves E/G agreement at every dyadic rational time, including zero/full
 window endpoints. Explicit finite addresses represent every numerator below
@@ -31,9 +37,11 @@ proved shrinking rational intervals, independently of the initial cover budget. 
 zero time. Crossings and overlaps count once in the region; cover sums count
 multiplicity. Initial endpoints agree and the final connector is included.
 See the [content checkpoint](verification/constructed-path-content-2026-10-05.md).
-General motion, ordinary-area/Kepler-area identification, P5 and the remaining
+General-force whole-edge geometry, ordinary-area/Kepler-area identification, P5 and the remaining
 classes remain obligations in the handoff's order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
-exact finite-cell potential identities. Completion scores are unchanged.
+exact finite-cell potential identities. The progress estimate now credits the
+constructed general local time map, about 38% overall; no target is discharged.
+See the [general time checkpoint](verification/general-central-time-map-2026-10-05.md).
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
 (4 October: general central forces, the polygon–curve defect and a foundation
@@ -61,8 +69,8 @@ mesh-uniform power/state bounds and actual error ≤3*T*h*|w|*M under its named
 small-time condition. ConvexCover and HarmonicCover now enclose every rational
 matched half-cell patch between the actual paths in a derived square. Their
 nonnegative, multiplicity-counted cover budget is
-2*T*h*M²*(4+3*T*|w|)². Trajectory construction and identification of the
-intervening region's actual area remain open. HarmonicDyadic now constructs
+2*T*h*M²*(4+3*T*|w|)². The harmonic and globally compared Lipschitz central-force local time maps
+are constructed; ordinary-area identification remains open. HarmonicDyadic now constructs
 actual fixed-rational-time endpoint Cauchy data, with arbitrary finite-gap
 bound 3*T²*|w|*M/2^j and an explicit positive-tolerance modulus.
 HarmonicTimeComparison derives the rational-time map

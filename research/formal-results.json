@@ -882,6 +882,78 @@
     "interpretation_and_remaining_premises": "Elementary intervals for binary-time approximants. Equivalent addresses at positive duration occupy the same coarse cell or adjacent cells; separated cells have a fixed positive time gap. No mechanical, force, curve or historical premise is used."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.timeCoordinate_injective",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryEndpoints.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) : ∀ x y : BinaryTime T hT, timeCoordinate T hT x = timeCoordinate T hT y → x = y",
+    "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.timeWithin_address",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryEndpoints.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (R : Fraction) : TimeWithin T hT (Quotient.mk _ b) (Quotient.mk _ c) R ↔ NameBound (BinaryTime.timeName b T hT) (BinaryTime.timeName c T hT) R",
+    "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_state_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryEndpoints.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) : stateEquiv (timeState leftAddress T j) (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_coordinate",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryEndpoints.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) : timeCoordinate T hT (leftTime T hT) = embed (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_ticks",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryEndpoints.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(j : Nat) : ticks rightAddress j + 1 = blocks j",
+    "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_difference",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryEndpoints.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) : Fraction.equiv (durationDifference (timeApprox rightAddress T j) T) (duration T j)",
+    "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_distance",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryEndpoints.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) (hT : 0 ≤ T.num) : Fraction.equiv (distance (timeState rightAddress T j) (scalarState T)) (duration T j)",
+    "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_coordinate",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryEndpoints.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) : timeCoordinate T hT (rightTime T hT) = embed (scalarState T)",
+    "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.BinaryTime.scalarState_distance",
     "private": false,
     "file": "BarrowLib/Polygon/BinaryTime.lean",
@@ -2223,6 +2295,42 @@
     "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countTime_difference",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicArithmetic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j n k : Nat) : Fraction.equiv (durationDifference (countTime T j n) (countTime T j (n + k))) (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j))",
+    "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countTime_abs_difference",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicArithmetic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j n k : Nat) (hT : 0 ≤ T.num) : Fraction.equiv (durationDifference (countTime T j n) (countTime T j (n + k))).abs (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j))",
+    "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.durationDifference_abs_symm",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicArithmetic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : Fraction.equiv (durationDifference a b).abs (durationDifference b a).abs",
+    "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.all_zero_ticks",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicArithmetic.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(j : Nat) : ticks (fun _ => false) j = 0",
+    "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.pointDistance_zero_of_equiv",
     "private": false,
     "file": "BarrowLib/Polygon/EquivalentDuration.lean",
@@ -3123,6 +3231,15 @@
     "interpretation_and_remaining_premises": "Finite nonnegative source recurrence and its n*C*r^n bound, rational power composition and prefix control. The pre-existing power lower bound is reused through a proved compatibility bridge between the retained power names. No motion convergence or Cauchy error is a premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.FiniteSequenceGap.finite_gap",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteSequenceGap.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(D : (Point × Point) → (Point × Point) → Fraction) (hz : ∀ s, Fraction.equiv (D s s) (Fraction.ofInt 0)) (htri : ∀ s t u, Fraction.le (D s u) (Fraction.add (D s t) (D t u))) (f : Nat → Point × Point) (N : Nat) (C : Fraction) (hstep : ∀ i, i < N → Fraction.le (D (f (i+1)) (f i)) C) : (n k : Nat) → n+k ≤ N → Fraction.le (D (f (n+k)) (f n)) (Fraction.mul (Fraction.ofInt (k : Int)) C)",
+    "interpretation_and_remaining_premises": "Generic finite telescoping bound for any rational-valued state distance with zero diagonal and triangle inequality. Bounded actual adjacent increments give count times step budget. Both harmonic and calibrated general motion reuse this estimate; no convergence or force premise is supplied."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeometricTail.tail_halving",
     "private": false,
     "file": "BarrowLib/Polygon/GeometricTail.lean",
@@ -3807,6 +3924,15 @@
     "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_scale",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScaledTolerance.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b ta tb : EndpointCauchyName) (C R : Fraction) (hC : 0 ≤ C.num) (hlevel : ∀ n : Nat, Fraction.le (distance (a.approx n) (b.approx n)) (Fraction.mul (distance (ta.approx n) (tb.approx n)) C)) (hnear : NameBound ta tb R) : NameBound a b (Fraction.mul R C)",
+    "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_lower_cut",
     "private": false,
     "file": "BarrowLib/Polygon/SquareContentValues.lean",
@@ -4032,6 +4158,15 @@
     "interpretation_and_remaining_premises": "Generic rational state subtraction, congruence, symmetry, triangle and zero-distance bounds. Existing harmonic namespace names remain compatibility names; no field or motion premise occurs. The triangle and zero results are instances of shared FiniteEstimates facts, not duplicated proofs."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TailValues.approximant_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/TailValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : EndpointCauchyName) (A : Fraction) (hA : 0 ≤ A.num) (hadj : ∀ j, Fraction.le (distance (a.approx (j+1)) (a.approx j)) (GeometricTail.tailCap A (j+1))) (m : Nat) : Within (embed (a.approx m)) (realize a) (GeometricTail.tailCap A m)",
+    "interpretation_and_remaining_premises": "Generic closed completed-value bound from a Cauchy name with an explicitly derived adjacent geometric estimate. An actual level-m approximant lies within coefficient/2^m of its realized value. Harmonic and general central-force instances share this estimate without equating coefficients or assuming a curve."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.inverse_positive",
     "private": false,
     "file": "BarrowLib/Polygon/TimeCalibration.lean",
@@ -4050,12 +4185,39 @@
     "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cell_increment",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h : Fraction) (a : Point → Point) (s : Point × Point) : Fraction.equiv (distance tau (cell a h s) s) (Fraction.mul h.abs (Fraction.add (pointNorm s.2) (Fraction.mul tau (pointNorm (a (cell a h s).1)))))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cell_increment_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h B V : Fraction) (a : Point → Point) (s : Point × Point) (ht : 0 ≤ tau.num) (hv : Fraction.le (pointNorm s.2) V) (ha : Fraction.le (pointNorm (a (cell a h s).1)) B) : Fraction.le (distance tau (cell a h s) s) (Fraction.mul h.abs (Fraction.add V (Fraction.mul tau B)))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_self_zero",
     "private": false,
     "file": "BarrowLib/Polygon/TimeCalibration.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (s : Point × Point) : Fraction.equiv (distance tau s s) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_symm",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (s t : Point × Point) : Fraction.equiv (distance tau s t) (distance tau t s)",
     "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
@@ -4227,6 +4389,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) : 0 ≤ (rate tau L ht).num",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.window_mono",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (n N : Nat) (hn : n ≤ N) (hs : Window tau h L ht N) : Window tau h L ht n",
     "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
@@ -6427,12 +6598,30 @@
     "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.paired_finite_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j n : Nat) (hn : n ≤ blocks j) : Fraction.le (TimeCalibration.distance tau (BoundedIteration.run (field o E0 hE (j+1)) (duration T (j+1)) s (2*n)) (BoundedIteration.run (field o E0 hE j) (duration T j) s n)) (Fraction.add (Fraction.mul (Fraction.ofInt (2*(blocks j : Int))) (CalibratedRefinement.blockSource tau (duration T (j+1)) L (sampleError o E0 hE j) B (velocityCap T B s) d.calibration_positive)) (Fraction.mul (Fraction.ofInt (2*(blocks j : Int))) (Fraction.mul (Fraction.mul tau (Fraction.add (duration T (j+1)) (duration T (j+1))).abs) (sampleError o E0 hE j))))",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.adjacent_finite_bound",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : Fraction.le (TimeCalibration.distance tau (endpoint o E0 T hE s (j+1)) (endpoint o E0 T hE s j)) (Fraction.add (Fraction.mul (Fraction.ofInt (2*(blocks j : Int))) (CalibratedRefinement.blockSource tau (duration T (j+1)) L (sampleError o E0 hE j) B (velocityCap T B s) d.calibration_positive)) (Fraction.mul (Fraction.ofInt (2*(blocks j : Int))) (Fraction.mul (Fraction.mul tau (Fraction.add (duration T (j+1)) (duration T (j+1))).abs) (sampleError o E0 hE j))))",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.paired_mesh_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j n : Nat) (hn : n ≤ blocks j) : Fraction.le (TimeCalibration.distance tau (BoundedIteration.run (field o E0 hE (j+1)) (duration T (j+1)) s (2*n)) (BoundedIteration.run (field o E0 hE j) (duration T j) s n)) (Fraction.add (Fraction.mul (Fraction.mul T (duration T (j+1))) (CalibratedRefinement.consistencyCoefficient tau T L B (velocityCap T B s))) (Fraction.mul (Fraction.ofInt 7) (Fraction.mul (Fraction.mul tau T) (sampleError o E0 hE j))))",
     "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
   },
   {
@@ -6451,6 +6640,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (weightedCoefficient E0 T tau L B s).num",
+    "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.paired_weighted_tail",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j n : Nat) (hn : n ≤ blocks j) : Fraction.le (TimeCalibration.distance tau (BoundedIteration.run (field o E0 hE (j+1)) (duration T (j+1)) s (2*n)) (BoundedIteration.run (field o E0 hE j) (duration T j) s n)) (GeometricTail.tailCap (weightedCoefficient E0 T tau L B s) (j+1))",
     "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
   },
   {
@@ -6560,6 +6758,249 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : Oracle) (E0 : Fraction) (hE : 0 < E0.num) (j : Nat) : Fraction.lt (o.error (precision o E0 hE j)) (GeometricTail.tailCap E0 j)",
     "interpretation_and_remaining_premises": "Monotone precision selection from the oracle force-error vanishing condition, with an explicit positive acceleration precision scale E0. Actual chosen errors are below E0/2^j. Classical choice selects force precision only; no motion convergence, curve or numerical force value is assumed."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_time_le",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (j n : Nat) (hn : n ≤ blocks j) : Fraction.le (BoundedIteration.time (duration T j) n) T",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_velocity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j n : Nat) (hn : n ≤ blocks j) : Fraction.le (pointNorm (countState o E0 T s hE j n).2) (velocityCap T B s)",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.speedCap_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T tau B : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hB : 0 ≤ B.num) : 0 ≤ (speedCap T tau B s).num",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_step_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j n : Nat) (hn : n < blocks j) : Fraction.le (TimeCalibration.distance tau (countState o E0 T s hE j (n+1)) (countState o E0 T s hE j n)) (Fraction.mul (duration T j) (speedCap T tau B s))",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.prefix_next",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T : Fraction) (s : Point × Point) (hE : 0 < E0.num) (j : Nat) : prefixState b o E0 T s hE (j+1) = if b j then countState o E0 T s hE (j+1) (2*ticks b j+1) else countState o E0 T s hE (j+1) (2*ticks b j)",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.weightedCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (weightedCoefficient E0 T tau L B s).num",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.adjacent_weighted_tail",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : Fraction.le (TimeCalibration.distance tau (prefixState b o E0 T s hE (j+1)) (prefixState b o E0 T s hE j)) (GeometricTail.tailCap (weightedCoefficient E0 T tau L B s) (j+1))",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.coefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (coefficient E0 T tau L B s ht).num",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.adjacent_tail",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (j : Nat) : Fraction.le (FiniteEstimates.stateDistance (prefixState b o E0 T s hE (j+1)) (prefixState b o E0 T s hE j)) (GeometricTail.tailCap (coefficient E0 T tau L B s d.calibration_positive) (j+1))",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePrefix.zero_time_prefix",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePrefix.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : T.num = 0) (j : Nat) : stateEquiv (prefixState b o E0 T s hE j) s",
+    "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.stateTimeFactor_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T tau B : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hB : 0 ≤ B.num) : 0 ≤ (stateTimeFactor T tau B s ht).num",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.count_gap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j n k : Nat) (hnk : n+k ≤ blocks j) : Fraction.le (TimeCalibration.distance tau (countState o E0 T s hE j (n+k)) (countState o E0 T s hE j n)) (Fraction.mul (Fraction.ofInt (k : Int)) (Fraction.mul (duration T j) (speedCap T tau B s)))",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.count_ordered_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j n k : Nat) (hnk : n+k ≤ blocks j) : Fraction.le (TimeCalibration.distance tau (countState o E0 T s hE j (n+k)) (countState o E0 T s hE j n)) (Fraction.mul (durationDifference (countTime T j n) (countTime T j (n+k))).abs (speedCap T tau B s))",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.count_same_grid_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j m n : Nat) (hm : m ≤ blocks j) (hn : n ≤ blocks j) : Fraction.le (TimeCalibration.distance tau (countState o E0 T s hE j m) (countState o E0 T s hE j n)) (Fraction.mul (durationDifference (countTime T j n) (countTime T j m)).abs (speedCap T tau B s))",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_time_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j : Nat) : Fraction.le (distance (prefixState b o E0 T s hE j) (prefixState c o E0 T s hE j)) (Fraction.mul (distance (timeState b T j) (timeState c T j)) (stateTimeFactor T tau B s d.calibration_positive))",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.address_state_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b c : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hbc : AddressEquiv T d.time_nonnegative b c) : NameEquiv (prefixName b o E0 T tau L B s hE d) (prefixName c o E0 T tau L B s hE d)",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_conditions_independent",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B tau' L' B' : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (e : GeneralForcePrefix.Conditions o E0 T tau' L' B' s hE) (x : BinaryTime T d.time_nonnegative) : gammaValue o E0 T tau L B s hE d x = gammaValue o E0 T tau' L' B' s hE e x",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.gammaValue_address",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : gammaValue o E0 T tau L B s hE d (Quotient.mk _ b) = realize (prefixName b o E0 T tau L B s hE d)",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_value_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Within (embed (prefixState b o E0 T s hE m)) (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b)) (GeometricTail.tailCap (GeneralForcePrefix.coefficient E0 T tau L B s d.calibration_positive) m)",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_uniform_convergence",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N ≤ m → ∀ b : Nat → Bool, Within (embed (prefixState b o E0 T s hE m)) (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b)) eps",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (x y : BinaryTime T d.time_nonnegative) (R : Fraction) (hxy : TimeWithin T d.time_nonnegative x y R) : Within (gammaValue o E0 T tau L B s hE d x) (gammaValue o E0 T tau L B s hE d y) (Fraction.mul R (stateTimeFactor T tau B s d.calibration_positive))",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.timeTolerance_positive",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T tau B : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hB : 0 ≤ B.num) (eps : Fraction) (heps : 0 < eps.num) : 0 < (timeTolerance T tau B s hT ht hB eps).num",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_uniform_continuity",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) (x y : BinaryTime T d.time_nonnegative) (hxy : TimeWithin T d.time_nonnegative x y (timeTolerance T tau B s d.time_nonnegative d.calibration_positive d.bound_nonnegative eps)) : Within (gammaValue o E0 T tau L B s hE d x) (gammaValue o E0 T tau L B s hE d y) eps.half",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.gammaPosition_within",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (x y : BinaryTime T d.time_nonnegative) (R : Fraction) (hxy : TimeWithin T d.time_nonnegative x y R) : Within (gammaPosition o E0 T tau L B s hE d x).val (gammaPosition o E0 T tau L B s hE d y).val (Fraction.mul R (stateTimeFactor T tau B s d.calibration_positive))",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.left_endpoint_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : gammaValue o E0 T tau L B s hE d (leftTime T d.time_nonnegative) = embed s",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.zero_time_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : T.num = 0) (x : BinaryTime T d.time_nonnegative) : gammaValue o E0 T tau L B s hE d x = embed s",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.right_endpoint_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : gammaValue o E0 T tau L B s hE d (rightTime T d.time_nonnegative) = endpointValue o E0 T tau L B s hE d.toConditions",
+    "interpretation_and_remaining_premises": "Modern local binary-time state and position maps constructed from actual general inward central-force prefixes. Finite drift/kick increments give a same-grid time-distance bound; equivalent time addresses give equivalent motion names before quotient lifting. Uniform prefix-to-value tails, uniform continuity, initial/zero-time values and E/G agreement at the full window endpoint are derived. Global approximate Lipschitz comparison, a calibrated window, and actual/coarse/shadow force-sample bounds are explicit premises. This is a constructed binary-time domain; no external real interval, local-annulus theorem, restart/gluing, precision-choice or arbitrary-partition independence, general interior-time E/G agreement, potential, P5 or area identification is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccumulation.local_error_identity",
@@ -7357,20 +7798,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : ∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n → Fraction.lt (stateNorm (stateSub (prefixState b w T s m) (prefixState b w T s n))) eps",
-    "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.all_zero_ticks",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicBinaryPrefix.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(j : Nat) : ticks (fun _ => false) j = 0",
     "interpretation_and_remaining_premises": "Modern construction of intermediate-time Cauchy data from actual prefixes of one global harmonic dyadic polygon family. For arbitrary binary addresses, ticks0=0 and ticks(j+1)=2*ticksj+bitj give ticksj<2^j. The actual prefix has ticksj cells of duration T/2^j and elapsed time <=T; actual coarse/fine prefix states have magnitude <=2M under T>=0 and T*(1+abs(w))<=1/2. Actual common-time refinement plus the optional extra fine cell derive adjacent error <=A/2^(j+1), A=T*M*(2*(1+abs(w))+3*T*abs(w)). Finite geometric-tail arithmetic derives arbitrary level-gap and two-sided bounds, an explicit positive-tolerance modulus and prefixName. All-zero address, zero time and exact first/two-level controls compile. No curve, limit point or Cauchy premise for the actual prefixes is supplied. Quotient point/time realization, address independence, partition independence, force identification and actual intervening-region area remain open. Source locators motivate the construction only; Kepler area is separate."
   },
   {
@@ -8944,6 +9371,51 @@
     "interpretation_and_remaining_premises": "Actual harmonic instance of the general sampled endpoint construction, on the retained nonnegative short window with explicit tau=1 compatibility. The uniform force bound 4*abs(w)*stateNorm(s) is derived at actual full and first-half shadow sample locations from measured coarse states and within-cell drift, not asserted globally. Zero-error precision selection leaves each actual endpoint unchanged; general names and values equal the retained harmonic endpoint names/values. These are modern corollaries without a new historical dependency, generic annular confinement, restart, P5 or area."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralTime.actual_run_state_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (j k : Nat) (hk : k ≤ blocks j) : Fraction.le (stateNorm (BoundedIteration.run (linearField w) (duration T j) s k)) (Fraction.mul (Fraction.ofInt 2) (stateNorm s))",
+    "interpretation_and_remaining_premises": "Actual harmonic corollary of the general sampled prefix/time construction. On the retained short window, actual represented-grid sample bounds follow from measured harmonic count states; the old endpoint premises are also derived. Zero-error precision leaves every prefix unchanged, so the general Cauchy names, quotient state map and planar position map equal the retained harmonic objects. No new historical edge, globally bounded harmonic field, confinement, gluing, P5 or area theorem is asserted."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralTime.harmonic_prefix_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (j : Nat) : GeneralForcePrefix.prefixState b (harmonicOracle w hw) E0 T s hE j = HarmonicBinaryPrefix.prefixState b w T s j",
+    "interpretation_and_remaining_premises": "Actual harmonic corollary of the general sampled prefix/time construction. On the retained short window, actual represented-grid sample bounds follow from measured harmonic count states; the old endpoint premises are also derived. Zero-error precision leaves every prefix unchanged, so the general Cauchy names, quotient state map and planar position map equal the retained harmonic objects. No new historical edge, globally bounded harmonic field, confinement, gluing, P5 or area theorem is asserted."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralTime.harmonic_name_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : CauchyValues.NameEquiv (GeneralForcePrefix.prefixName b (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs)) (HarmonicBinaryPrefix.prefixName b w T s hT hs)",
+    "interpretation_and_remaining_premises": "Actual harmonic corollary of the general sampled prefix/time construction. On the retained short window, actual represented-grid sample bounds follow from measured harmonic count states; the old endpoint premises are also derived. Zero-error precision leaves every prefix unchanged, so the general Cauchy names, quotient state map and planar position map equal the retained harmonic objects. No new historical edge, globally bounded harmonic field, confinement, gluing, P5 or area theorem is asserted."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralTime.harmonic_value_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (x : BinaryTime.BinaryTime T hT) : GeneralForceTime.gammaValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs) x = HarmonicTimeRealization.gammaValue w T s hT hs x",
+    "interpretation_and_remaining_premises": "Actual harmonic corollary of the general sampled prefix/time construction. On the retained short window, actual represented-grid sample bounds follow from measured harmonic count states; the old endpoint premises are also derived. Zero-error precision leaves every prefix unchanged, so the general Cauchy names, quotient state map and planar position map equal the retained harmonic objects. No new historical edge, globally bounded harmonic field, confinement, gluing, P5 or area theorem is asserted."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicGeneralTime.harmonic_position_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicGeneralTime.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (x : BinaryTime.BinaryTime T hT) : GeneralForceTime.gammaPosition (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE (conditions w E0 T s hw hE hT hs) x = PositionValues.gammaPosition w T s hT hs x",
+    "interpretation_and_remaining_premises": "Actual harmonic corollary of the general sampled prefix/time construction. On the retained short window, actual represented-grid sample bounds follow from measured harmonic count states; the old endpoint premises are also derived. Zero-error precision leaves every prefix unchanged, so the general Cauchy names, quotient state map and planar position map equal the retained harmonic objects. No new historical edge, globally bounded harmonic field, confinement, gluing, P5 or area theorem is asserted."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_position_identity",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicIntegerSubdivision.lean",
@@ -10501,34 +10973,6 @@
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countTime_difference",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T : Fraction) (j n k : Nat) : Fraction.equiv (durationDifference (countTime T j n) (countTime T j (n + k))) (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j))",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.countTime_abs_difference",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T : Fraction) (j n k : Nat) (hT : 0 ≤ T.num) : Fraction.equiv (durationDifference (countTime T j n) (countTime T j (n + k))).abs (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j))",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.stateTimeFactor_nonnegative",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
@@ -10554,20 +10998,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(w T : Fraction) (s : Point × Point) (j n k : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hnk : n + k ≤ blocks j) : Fraction.le (distance (countState w T s j (n + k)) (countState w T s j n)) (Fraction.mul (durationDifference (countTime T j n) (countTime T j (n + k))).abs (stateTimeFactor w s))",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.durationDifference_abs_symm",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b : Fraction) : Fraction.equiv (durationDifference a b).abs (durationDifference b a).abs",
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {
@@ -10599,20 +11029,6 @@
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.nameBound_scale",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(a b ta tb : EndpointCauchyName) (C R : Fraction) (hC : 0 ≤ C.num) (hlevel : ∀ n : Nat, Fraction.le (distance (a.approx n) (b.approx n)) (Fraction.mul (distance (ta.approx n) (tb.approx n)) C)) (hnear : NameBound ta tb R) : NameBound a b (Fraction.mul R C)",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.address_state_equiv",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
@@ -10638,34 +11054,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : gammaValue w T s hT hs (Quotient.mk _ b) = binaryValue b w T s hT hs",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.timeCoordinate_injective",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) : ∀ x y : BinaryTime T hT, timeCoordinate T hT x = timeCoordinate T hT y → x = y",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.timeWithin_address",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (R : Fraction) : TimeWithin T hT (Quotient.mk _ b) (Quotient.mk _ c) R ↔ NameBound (BinaryTime.timeName b T hT) (BinaryTime.timeName c T hT) R",
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {
@@ -10725,34 +11113,6 @@
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_state_equiv",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T : Fraction) (j : Nat) : stateEquiv (timeState leftAddress T j) (scalarState (Fraction.ofInt 0))",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_time_coordinate",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) : timeCoordinate T hT (leftTime T hT) = embed (scalarState (Fraction.ofInt 0))",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.left_endpoint_value",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
@@ -10764,62 +11124,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : gammaValue w T s hT hs (leftTime T hT) = embed s",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_ticks",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(j : Nat) : ticks rightAddress j + 1 = blocks j",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_difference",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T : Fraction) (j : Nat) : Fraction.equiv (durationDifference (timeApprox rightAddress T j) T) (duration T j)",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_distance",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T : Fraction) (j : Nat) (hT : 0 ≤ T.num) : Fraction.equiv (distance (timeState rightAddress T j) (scalarState T)) (duration T j)",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.right_time_coordinate",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) : timeCoordinate T hT (rightTime T hT) = embed (scalarState T)",
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {

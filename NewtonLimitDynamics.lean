@@ -60,5 +60,8 @@ import NewtonLimitDynamics.Polygon.CalibratedForces
 import NewtonLimitDynamics.Polygon.GeneralForcePrecision
 import NewtonLimitDynamics.Polygon.GeneralForceEndpoint
 import NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint
+import NewtonLimitDynamics.Polygon.GeneralForcePrefix
+import NewtonLimitDynamics.Polygon.GeneralForceTime
+import NewtonLimitDynamics.Polygon.HarmonicGeneralTime
 import NewtonLimitDynamics.Polygon.HarmonicPathRegion
 import NewtonLimitDynamics.Polygon.HarmonicPathContent
