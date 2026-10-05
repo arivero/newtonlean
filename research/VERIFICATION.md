@@ -1,6 +1,32 @@
 # Verification record
 
-## Current handoff: general matched region and content, 5 October 2026
+## Current handoff: finite quadratic control and parallel endpoints, 5 October 2026
+
+QuadraticEstimates proves the exact constant-map state, with finite position
+coefficient t*(t-h)/2. Actual force and velocity variation derive the variable-
+map position remainder t²*(L*t*V+E); the extra half-mesh bias is exactly
+t*h*|a(x0)|/2. A two-cell parallel control has distance 1/4 and refutes finite
+equality with the t²/2 predictor. ParallelQuadraticEndpoint constructs actual
+endpoint Cauchy names at every nonnegative rational time and identifies their
+completed full quadratic state. QuadraticEndpointPotential identifies its
+Galilean comparison point with that constructed value and proves the halved
+triangle/potential coefficients and unchanged motion-dependent cross relation.
+These are disclosed rational proof controls, not independent numerical oracles.
+General central curve second-order/potential estimates and D_mesh identification
+remain open. Completion scores stay unchanged. Targeted Lean core compilation
+and all 16 sequential checklist commands pass, including all three build targets
+and source/graph, catalogue/reference, standard-axiom, rendering, hash and
+whitespace checks. All 1,802 prior public names/signatures at be2d00e remain
+unchanged, with 27 new names. The catalogue has 1,432 distinct rows and 1,292
+references; live counts are 1,054 substantive, 195 plumbing, 157 sample and 26
+duplicate. All 19 new rows and all 591 Barrow rows are source-free. The graph
+remains 77/68/249; the axiom union is propext, Classical.choice and Quot.sound,
+with no sorryAx, project axiom or external package. Logs:
+/tmp/newton-sol61-quadratic-parallel-final-01.log through -16.log. Graph PDF
+dates are restored only after all other bytes are proved unchanged. Root Sol
+6.1 commits the increment; unrelated conversation archives are preserved.
+
+### General matched region and content, 5 October 2026
 
 MatchedRegion shares simultaneous rational connectors, cell closures and finite
 covers between the retained harmonic and constructed general polygon/curve

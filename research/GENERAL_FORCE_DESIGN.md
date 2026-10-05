@@ -194,6 +194,17 @@ harmonic region and scalar equality holds despite different covering bounds.
 This is the finite-square outer-content candidate; ordinary area, constructed
 Kepler-area transfer and curved potential steps remain separate.
 
+QuadraticEstimates now derives the actual finite second-order position
+comparison. Its constant-map coefficient is t*(t-h)/2; the variable-map
+remainder is t²*(L*t*V+E), with explicit half-mesh distance
+t*h*|a(x0)|/2 from the t²/2 predictor. ParallelQuadraticEndpoint uses this
+exact finite error to construct endpoint Cauchy values at every nonnegative
+rational time and identifies their full quadratic state. This is the permitted
+centre-at-infinity instance, not a general central curve or external real-time
+map. Its actual Galilean endpoint has potential drop -m*g²*t²/2 and doubled
+tangent-deflection area t³*det(v,a)/2, preserving the same motion-dependent
+time ratio. General central second-order/potential estimates remain open.
+
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will
 not be replaced by a structure field asserting the desired trajectory.

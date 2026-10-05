@@ -90,6 +90,17 @@ gives the retained-curve corollary. No force equation or desired derivative is
 a premise. This is the dyadic bracketing criterion; unrestricted quotients and
 external real-time identification remain open.
 
+QuadraticEstimates now distinguishes the finite discrete predictor
+x0+t*v0+t*(t-h)*a(x0)/2 from x0+t*v0+t²*a(x0)/2. Actual force variation gives
+position remainder t²*(L*t*V+E) and the exact additional half-mesh bias
+t*h*|a(x0)|/2. ParallelQuadraticEndpoint constructs actual endpoint names for
+every nonnegative rational time from this vanishing bias and proves their
+quadratic completed value. No small window or supplied curve is needed for
+this constant-force instance. QuadraticEndpointPotential identifies its
+Galilean comparison point with that constructed value before deriving the
+triangle/potential relations. The general central second-order bridge,
+parallel binary-time map and D_mesh identification remain separate.
+
 ## One global family
 
 Fix nonnegative rational T, initial state s, and harmonic coefficient w, with

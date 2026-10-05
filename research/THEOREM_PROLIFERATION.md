@@ -163,3 +163,10 @@ construct the actual general all-cover cut and scalar with geometric decay.
 The harmonic instance has exactly the retained region and scalar despite a
 different cover bound. More public interfaces are added, while repeated proof
 implementation is consolidated; raw growth is not itself a duplication finding.
+
+QuadraticEstimates next supports a live handoff C.2 comparison, rather than a
+count-reduction project. Its exact constant-map formula constructs actual
+parallel endpoint Cauchy values, and its variable-map remainder retains force
+sampling and half-mesh errors for the general curve bridge. Public helper
+counts give no separate completion credit; the closed numeric controls are
+disclosed as controls, not independent numerical verification.

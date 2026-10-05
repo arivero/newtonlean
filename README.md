@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,413 checked
-library theorems, 1,037 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,432 checked
+library theorems, 1,054 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -71,6 +71,11 @@ completed positions and bounds actual prefix force samples uniformly by
 specialization equals completed scaling by -w. Explicit positive time
 calibration now gives weighted finite bounds and dimensionless windows, with
 proved Cauchy-gauge and time-unit invariance; it fixes no universal constant.
+QuadraticEstimates now derives finite second-order position control with the
+explicit half-mesh bias. Actual parallel-force endpoint Cauchy values have the
+exact quadratic formula at every nonnegative rational time. The Galilean
+potential and tangent-triangle relations apply to those constructed endpoints,
+with both coefficients halved; general central curve asymptotics remain open.
 
 Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
 `python3 scripts/progress_stats.py`; the per-commit numbers behind every plot

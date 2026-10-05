@@ -76,3 +76,5 @@ import NewtonLimitDynamics.Polygon.HarmonicPathContent
 import NewtonLimitDynamics.Polygon.GeneralForcePathRegion
 import NewtonLimitDynamics.Polygon.GeneralForcePathContent
 import NewtonLimitDynamics.Polygon.HarmonicGeneralPathContent
+import NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint
+import NewtonLimitDynamics.Diagnostic.QuadraticEndpointPotential

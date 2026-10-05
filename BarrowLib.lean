@@ -47,3 +47,4 @@ import BarrowLib.Polygon.SampledValues
 import BarrowLib.Polygon.AccelerationEstimates
 import BarrowLib.Polygon.PolygonValues
 import BarrowLib.Polygon.MatchedRegion
+import BarrowLib.Polygon.QuadraticEstimates

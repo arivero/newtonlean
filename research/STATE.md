@@ -77,7 +77,15 @@ vertex and prefix bounds derive one square per cell with budget 4*C²/2^m,
 C=T*V+A; nonnegativity, zero time, decay and initial-cover independence follow.
 The final connector is included. HarmonicGeneralPathContent proves exact
 region and scalar equality with the retained harmonic objects. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
-exact finite-cell potential identities. The progress estimate now credits the
+exact finite-cell potential identities and now the actual Galilean rational-
+endpoint comparison. QuadraticEstimates derives the finite cubic/error remainder
+and exact half-mesh bias; ParallelQuadraticEndpoint constructs endpoint Cauchy
+values with position x0+t*v0+t²*a/2 at every nonnegative rational time. The
+parallel potential drop and doubled tangent-deflection area are both half their
+kick counterparts, with the same motion-dependent ratio. General central curve
+asymptotics and the D_mesh relation remain open. See the
+[quadratic checkpoint](verification/quadratic-finite-parallel-endpoints-2026-10-05.md).
+The progress estimate now credits the
 constructed general local time map, dyadic velocity/force-secants bridges and
 actual general outer content, about
 39% overall (35–46% under alternative weights); no target is discharged.

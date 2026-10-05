@@ -4158,6 +4158,105 @@
     "interpretation_and_remaining_premises": "Generic nonexpansive rational projections and quotient maps, planar position values and completed coordinate squares. Name and representative preservation precede value lifting. Coordinate-square membership transfers eventual rational bounds; it does not define planar content or a polygon-curve region."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.quadratic_time_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(t u : Fraction) (s : Point × Point) (a : Point) (he : Fraction.equiv t u) : pointEquiv (quadraticPosition t s a) (quadraticPosition u s a)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.discrete_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point) (a : Point) : pointEquiv (discretePosition h s a 0) s.1",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.discrete_step",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point) (a : Point) (n : Nat) : pointEquiv (discretePosition h s a (n+1)) (pointAdd (discretePosition h s a n) (pointScale h (inertialPosition h (s.2,a) n)))",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.constant_run_formula",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point) (h : Fraction) (s : Point × Point) (n : Nat) : stateEquiv (run (fun _ => a) h s n) (discretePosition h s a n,inertialPosition h (s.2,a) n)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.position_remainder_from_samples",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (C : Fraction) (hh : 0 ≤ h.num) (hC : 0 ≤ C.num) (N : Nat) (hs : ∀ i, i<N → Fraction.le (pointDistance (a (run a h s (i+1)).1) (a s.1)) C) : ∀ n, n≤N → Fraction.le (pointDistance (run a h s n).1 (discretePosition h s (a s.1) n)) (Fraction.mul (Fraction.mul (time h n) (time h n)) C)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.position_remainder",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (n : Nat) (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (run a h s n).1 (discretePosition h s (a s.1) n)) (Fraction.mul (Fraction.mul (time h n) (time h n)) (source L E (time h n) V))",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.discrete_quadratic_offset",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point) (a : Point) (n : Nat) : pointEquiv (pointSub (quadraticPosition (time h n) s a) (discretePosition h s a n)) (pointScale (Fraction.mul (time h n) h).half a)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.half_mesh_bias",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point) (a : Point) (hh : 0 ≤ h.num) (n : Nat) : Fraction.equiv (pointDistance (discretePosition h s a n) (quadraticPosition (time h n) s a)) (Fraction.mul (Fraction.mul (time h n) h).half (pointNorm a))",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.position_quadratic_remainder",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (n : Nat) (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (run a h s n).1 (quadraticPosition (time h n) s (a s.1))) (Fraction.add (Fraction.mul (Fraction.mul (time h n) (time h n)) (source L E (time h n) V)) (Fraction.mul (Fraction.mul (time h n) h).half (pointNorm (a s.1))))",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.two_cell_half_mesh_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (pointDistance (run (fun _ => controlForce) controlHalf controlState 2).1 (quadraticPosition (time controlHalf 2) controlState controlForce)) ⟨1,4,by decide⟩",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticEstimates.exact_quadratic_rejects_finite_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ¬ pointEquiv (run (fun _ => controlForce) controlHalf controlState 2).1 (quadraticPosition (time controlHalf 2) controlState controlForce)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.RationalIntervals.half_equiv",
     "private": false,
     "file": "BarrowLib/Polygon/RationalIntervals.lean",
@@ -5789,6 +5888,42 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": ¬ pointEquiv (cells (affine zero one) one 1 (one, zero)) (cells (affine zero one) half 2 (one, zero)) ∧ Fraction.equiv (area2 (cells (affine zero one) one 1 (zero, zero)) (cells (affine zero one) one 1 (one, zero)) (cells (affine zero one) one 1 (zero, one))) one ∧ Fraction.equiv (area2 (cells (affine zero one) half 2 (zero, zero)) (cells (affine zero one) half 2 (one, zero)) (cells (affine zero one) half 2 (zero, one))) one",
     "interpretation_and_remaining_premises": "Action diagnostic layer, not a historical proof (Arg004): one-dimensional phase plane for the cell of the Proposition I construction (Law I drift, then the impulse at the arrival point), the same cell in De Motu, 1687 and 1713. For every field each step carries lines of one coordinate rigidly (Cavalieri shears); for affine fields every phase triangle keeps its doubled area at every duration; the exact energy-type invariant of the constant-force cell depends on the duration. Area preservation for nonlinear fields, limits, curves and any constant value are not inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.QuadraticEndpointPotential.quadratic_deflection_triangle",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/QuadraticEndpointPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (B v a : Point) : Fraction.equiv (triangleTwice B (inertial h B v) (quadraticPosition h (B,v) a)) (Fraction.mul (Fraction.mul (Fraction.mul h h) h) (det v a)).half",
+    "interpretation_and_remaining_premises": "Modern exact quadratic deflection triangle and Galilean linear-potential comparison for the actual constructed nonnegative rational-time parallel endpoint. The doubled signed triangle is h^3*det(v,a)/2 and the potential drop is -m*g^2*h^2/2. Their division-free cross relation has the same motion-dependent time factor as the finite kick case. An explicit witness theorem identifies the comparison point with the completed value of actual refining polygons before applying the identities. This is a tangent-deflection triangle, not the matched-region D_mesh or a chord-arc lobe. General central curved potential asymptotics, partition-stable action and a universal scale remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.QuadraticEndpointPotential.galilean_quadratic_potential_step",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/QuadraticEndpointPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(m g h : Fraction) (B v : Point) : Fraction.equiv (potentialStep (linearPotential m g) (inertial h B v) (quadraticPosition h (B,v) (fallAcceleration g))) (negF (Fraction.mul (Fraction.mul m (Fraction.mul g g)) (Fraction.mul h h))).half",
+    "interpretation_and_remaining_premises": "Modern exact quadratic deflection triangle and Galilean linear-potential comparison for the actual constructed nonnegative rational-time parallel endpoint. The doubled signed triangle is h^3*det(v,a)/2 and the potential drop is -m*g^2*h^2/2. Their division-free cross relation has the same motion-dependent time factor as the finite kick case. An explicit witness theorem identifies the comparison point with the completed value of actual refining polygons before applying the identities. This is a tangent-deflection triangle, not the matched-region D_mesh or a chord-arc lobe. General central curved potential asymptotics, partition-stable action and a universal scale remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.QuadraticEndpointPotential.galilean_quadratic_cross_relation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/QuadraticEndpointPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(m g h : Fraction) (B v : Point) : Fraction.equiv (Fraction.mul (Fraction.mul m g) (triangleTwice B (inertial h B v) (quadraticPosition h (B,v) (fallAcceleration g)))) (Fraction.mul (Fraction.mul h v.1) (potentialStep (linearPotential m g) (inertial h B v) (quadraticPosition h (B,v) (fallAcceleration g))))",
+    "interpretation_and_remaining_premises": "Modern exact quadratic deflection triangle and Galilean linear-potential comparison for the actual constructed nonnegative rational-time parallel endpoint. The doubled signed triangle is h^3*det(v,a)/2 and the potential drop is -m*g^2*h^2/2. Their division-free cross relation has the same motion-dependent time factor as the finite kick case. An explicit witness theorem identifies the comparison point with the completed value of actual refining polygons before applying the identities. This is a tangent-deflection triangle, not the matched-region D_mesh or a chord-arc lobe. General central curved potential asymptotics, partition-stable action and a universal scale remain open."
+  },
+  {
+    "name": "NewtonLimitDynamics.Diagnostic.QuadraticEndpointPotential.galilean_constructed_endpoint_relation",
+    "private": false,
+    "file": "NewtonLimitDynamics/Diagnostic/QuadraticEndpointPotential.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(m g h : Fraction) (B v : Point) (hh : 0 ≤ h.num) : ∃ C : Point, asPosition (endpointValue (fallAcceleration g) h (B,v) hh)=embedPosition C ∧ Fraction.equiv (triangleTwice B (inertial h B v) C) (Fraction.mul (Fraction.mul (Fraction.mul h h) h) (det v (fallAcceleration g))).half ∧ Fraction.equiv (potentialStep (linearPotential m g) (inertial h B v) C) (negF (Fraction.mul (Fraction.mul m (Fraction.mul g g)) (Fraction.mul h h))).half ∧ Fraction.equiv (Fraction.mul (Fraction.mul m g) (triangleTwice B (inertial h B v) C)) (Fraction.mul (Fraction.mul h v.1) (potentialStep (linearPotential m g) (inertial h B v) C))",
+    "interpretation_and_remaining_premises": "Modern exact quadratic deflection triangle and Galilean linear-potential comparison for the actual constructed nonnegative rational-time parallel endpoint. The doubled signed triangle is h^3*det(v,a)/2 and the potential drop is -m*g^2*h^2/2. Their division-free cross relation has the same motion-dependent time factor as the finite kick case. An explicit witness theorem identifies the comparison point with the completed value of actual refining polygons before applying the identities. This is a tangent-deflection triangle, not the matched-region D_mesh or a chord-arc lobe. General central curved potential asymptotics, partition-stable action and a universal scale remain open."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CalibratedForces.sampled_calibrated_discrepancy",
@@ -13412,6 +13547,42 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": pos (fun i => if i = 1 then 5 else 0) 3 = 5 ∧ (fun i => if i = 1 then (5 : Int) else 0) 0 * tri 3 = 0 ∧ (fun i => if i = 1 then (5 : Int) else 0) 2 * tri 3 = 0",
     "interpretation_and_remaining_premises": "Modern finite reconstruction of the enclosure behind Lemma X under the 1713 force clause (Vi finita, constant or continually increasing or decreasing; 1687 has vi regulari). Integer magnitudes, unit cells, start at rest: impulses between lo and hi enclose the space described between the constant-force spaces; monotone and antitone histories give the initial/final-force enclosure; a finite rising-and-falling history escapes it. No limit, continuous force, or velocity-area identification of a given curve is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint.coefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ParallelQuadraticEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point) (T : Fraction) (hT : 0 ≤ T.num) : 0 ≤ (coefficient a T).num",
+    "interpretation_and_remaining_premises": "Modern actual uniform-parallel-force polygon endpoint construction at every nonnegative rational time. Exact constant-map run formula and represented elapsed-time equivalence give the finite half-mesh position error C/2^j, C=T^2*|a|/2; velocity has zero error. This derived estimate constructs actual endpoint Cauchy names and identifies their completed values with x0+T*v0+T^2*a/2 and v0+T*a. No supplied curve, small-window premise, derivative or integral is used. This is the permitted centre-at-infinity law test, not a general central-force curve asymptotic, arbitrary binary-time map, partition-independence theorem, ordinary area or historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint.full_elapsed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ParallelQuadraticEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (j : Nat) : Fraction.equiv (time (duration T j) (blocks j)) T",
+    "interpretation_and_remaining_premises": "Modern actual uniform-parallel-force polygon endpoint construction at every nonnegative rational time. Exact constant-map run formula and represented elapsed-time equivalence give the finite half-mesh position error C/2^j, C=T^2*|a|/2; velocity has zero error. This derived estimate constructs actual endpoint Cauchy names and identifies their completed values with x0+T*v0+T^2*a/2 and v0+T*a. No supplied curve, small-window premise, derivative or integral is used. This is the permitted centre-at-infinity law test, not a general central-force curve asymptotic, arbitrary binary-time map, partition-independence theorem, ordinary area or historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint.endpoint_error",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ParallelQuadraticEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point) (T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (j : Nat) : Fraction.equiv (distance (endpoint a T s j) (quadraticState a T s)) (duration (coefficient a T) j)",
+    "interpretation_and_remaining_premises": "Modern actual uniform-parallel-force polygon endpoint construction at every nonnegative rational time. Exact constant-map run formula and represented elapsed-time equivalence give the finite half-mesh position error C/2^j, C=T^2*|a|/2; velocity has zero error. This derived estimate constructs actual endpoint Cauchy names and identifies their completed values with x0+T*v0+T^2*a/2 and v0+T*a. No supplied curve, small-window premise, derivative or integral is used. This is the permitted centre-at-infinity law test, not a general central-force curve asymptotic, arbitrary binary-time map, partition-independence theorem, ordinary area or historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint.endpointValue_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ParallelQuadraticEndpoint.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point) (T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) : endpointValue a T s hT = embed (quadraticState a T s)",
+    "interpretation_and_remaining_premises": "Modern actual uniform-parallel-force polygon endpoint construction at every nonnegative rational time. Exact constant-map run formula and represented elapsed-time equivalence give the finite half-mesh position error C/2^j, C=T^2*|a|/2; velocity has zero error. This derived estimate constructs actual endpoint Cauchy names and identifies their completed values with x0+T*v0+T^2*a/2 and v0+T*a. No supplied curve, small-window premise, derivative or integral is used. This is the permitted centre-at-infinity law test, not a general central-force curve asymptotic, arbitrary binary-time map, partition-independence theorem, ordinary area or historical proof."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PartialCell.partialState_position",

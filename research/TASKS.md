@@ -95,8 +95,17 @@ to that force along the constructed curve, including the retained harmonic
 specialization. GeneralForceAccelerationSecants now identifies the uniform completed dyadic
 velocity-secant limit with that force, with error H_m*L*(V+K) and a retained
 harmonic corollary. Unrestricted differentiation remains open.
-Task C.2's permitted parallel finite identities are in
-[Arg007](action-arguments/261004gpt6.1solv1Arg007.md), without identifying D_mesh.
+Task C.2's finite quadratic comparison now has a derived remainder
+t²*(L*t*V+E) plus the exact half-mesh bias t*h*|a(x0)|/2. A two-cell
+parallel control rejects finite equality with the t²/2 predictor.
+ParallelQuadraticEndpoint constructs actual Cauchy endpoint values for every
+nonnegative rational time with the exact quadratic state. The Galilean triangle
+and potential relations apply to those completed endpoints; both acquire a
+half while their motion-dependent time ratio remains unchanged. See
+[Arg007](action-arguments/261004gpt6.1solv1Arg007.md) and the
+[quadratic checkpoint](verification/quadratic-finite-parallel-endpoints-2026-10-05.md).
+The general central curve second-order and potential bridge, binary-time
+parallel map and identification with D_mesh remain separate.
 
 Validation is sequential and delegated. The final verification agent runs both
 build targets and source/reference checks after implementation agents finish.

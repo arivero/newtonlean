@@ -69,6 +69,13 @@ and canonical scalar, with budget 4*C²/2^m, nonnegativity, zero time and decay.
 MatchedRegion shares closure/connector/cover geometry with the retained harmonic
 client. Their harmonic instance has exactly the old region and scalar content,
 independently of the different initial cover bounds.
+QuadraticEstimates now derives the actual finite second-order position
+remainder t²*(L*t*V+E) and exact t*h*|a(x0)|/2 half-mesh bias. The actual
+parallel endpoint family constructs Cauchy values at every nonnegative rational
+time and proves the exact quadratic state. Galilean potential and triangle
+identities apply to those completed endpoints with the half coefficients; the
+ratio stays motion-dependent. General central curve asymptotics and the
+D_mesh relation remain open. This law test adds no completion-count credit.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 

@@ -59,8 +59,13 @@ prove Cauchy-gauge and time-unit invariance. This fixes the hidden-unit issue
 in those estimates; it adds no area object or universal action scale.
 The exact deflection triangles
 and potential steps in [Arg007](action-arguments/261004gpt6.1solv1Arg007.md)
-compare a next polygon point to its inertial continuation. They supply no
-D_mesh definition or polygon–curve estimate.
+compare a next polygon point to its inertial continuation. QuadraticEstimates
+now derives the finite second-order position remainder and explicit half-mesh
+bias. ParallelQuadraticEndpoint constructs actual endpoint Cauchy values at
+every nonnegative rational time, equal to x0+t*v0+t²*a/2. The Galilean potential
+and triangle identities are now checked at those constructed endpoint values,
+with both leading coefficients halved. They still supply no identity relating
+that tangent-deflection triangle to D_mesh.
 
 ## The two areas
 
