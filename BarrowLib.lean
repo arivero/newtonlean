@@ -40,3 +40,6 @@ import BarrowLib.Polygon.SquareContentValues
 import BarrowLib.Polygon.FiniteSequenceGap
 import BarrowLib.Polygon.BinaryEndpoints
 import BarrowLib.Polygon.TailValues
+import BarrowLib.Polygon.KinematicEstimates
+import BarrowLib.Polygon.SecantValues
+import BarrowLib.Polygon.DyadicNodes

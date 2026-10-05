@@ -24,6 +24,10 @@ theorem inverse_product (tau : Fraction) (ht : 0 < tau.num) :
   simp only [inverse, Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
+theorem inverse_congr {tau rho : Fraction} (ht : 0 < tau.num) (hr : 0 < rho.num)
+    (h : Fraction.equiv tau rho) : Fraction.equiv (inverse tau ht) (inverse rho hr) := by
+  simpa only [inverse,Fraction.equiv,Int.mul_comm] using h.symm
+
 def norm (tau : Fraction) (s : Point × Point) : Fraction :=
   Fraction.add (pointNorm s.1) (Fraction.mul tau (pointNorm s.2))
 

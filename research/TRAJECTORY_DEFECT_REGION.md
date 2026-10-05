@@ -65,11 +65,15 @@ lower comparisons are exactly the all-cover infimum cut. The value is independen
 of the initial cover and inherits scalar nonnegativity, budget control, zero
 time and decay. Equality with inner content, ordinary Euclidean area or a
 measure remains separate.
-Mechanical P5, leading curved potential steps, arbitrary-partition independence,
+P5 acceleration/unrestricted-rate, leading curved potential steps, arbitrary-partition independence,
 gluing and general central-force whole-edge/content extension remain open.
 GeneralForceTime now constructs a local continuous binary-time state/position
 map under explicit global Lipschitz comparison and actual/coarse/shadow sampled
-force bounds; its harmonic instance equals the maps used in this region. No integral,
+force bounds; its harmonic instance equals the maps used in this region.
+GeneralForceSecants now identifies constructed velocity as the uniform limit
+of the actual completed curve's bracketing dyadic position secants; the
+retained harmonic curve inherits this result. It does not supply the acceleration
+bridge or the leading curved potential step. No integral,
 ODE, measure or quantum premise closes them.
 
 Verification details are in the

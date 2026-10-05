@@ -1350,6 +1350,15 @@
     "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.BoundedIteration.boundedSamples_restart",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedIteration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (B : Fraction) (N n k : Nat) (hnk : n+k ≤ N) (hb : BoundedSamples a h s B N) : BoundedSamples a h (run a h s n) B k",
+    "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.localSource_nonnegative",
     "private": false,
     "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
@@ -2331,6 +2340,60 @@
     "interpretation_and_remaining_premises": "Elementary binary counts, represented rational dyadic durations, halving, power-of-two lower bound and scalar differences. Existing namespaces are preserved as compatibility names. No force, schedule, limiting trajectory or external real interval is a premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.DyadicNodes.blocks_add",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicNodes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(m j : Nat) : blocks (m+j)=blocks m*blocks j",
+    "interpretation_and_remaining_premises": "Generic dyadic nodes on the constructed binary-time domain, including the right boundary. Actual later tick counts and represented durations identify each node coordinate with its rational embedded time; truncation lies within one dyadic cell of the original time value. No force, motion, external real interval, rate or historical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.DyadicNodes.finiteAddress_later_ticks",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicNodes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(m k j : Nat) (hk : k<blocks m) : ticks (finiteAddress m k) (m+j)=k*blocks j",
+    "interpretation_and_remaining_premises": "Generic dyadic nodes on the constructed binary-time domain, including the right boundary. Actual later tick counts and represented durations identify each node coordinate with its rational embedded time; truncation lies within one dyadic cell of the original time value. No force, motion, external real interval, rate or historical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.DyadicNodes.grid_time",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicNodes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (m j : Nat) : Fraction.equiv (Fraction.mul (Fraction.ofInt (blocks j : Int)) (duration T (m+j))) (duration T m)",
+    "interpretation_and_remaining_premises": "Generic dyadic nodes on the constructed binary-time domain, including the right boundary. Actual later tick counts and represented durations identify each node coordinate with its rational embedded time; truncation lies within one dyadic cell of the original time value. No force, motion, external real interval, rate or historical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.DyadicNodes.finiteAddress_time",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicNodes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (m k j : Nat) (hk : k<blocks m) : Fraction.equiv (timeApprox (finiteAddress m k) T (m+j)) (countTime T m k)",
+    "interpretation_and_remaining_premises": "Generic dyadic nodes on the constructed binary-time domain, including the right boundary. Actual later tick counts and represented durations identify each node coordinate with its rational embedded time; truncation lies within one dyadic cell of the original time value. No force, motion, external real interval, rate or historical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.DyadicNodes.node_time_coordinate",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicNodes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (m k : Nat) (hk : k≤blocks m) : timeCoordinate T hT (nodeTime T hT m k) = embed (scalarState (countTime T m k))",
+    "interpretation_and_remaining_premises": "Generic dyadic nodes on the constructed binary-time domain, including the right boundary. Actual later tick counts and represented durations identify each node coordinate with its rational embedded time; truncation lies within one dyadic cell of the original time value. No force, motion, external real interval, rate or historical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.DyadicNodes.truncation_time_within",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicNodes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) : TimeWithin T hT (nodeTime T hT m (ticks b m)) (Quotient.mk _ b) (duration T m)",
+    "interpretation_and_remaining_premises": "Generic dyadic nodes on the constructed binary-time domain, including the right boundary. Actual later tick counts and represented durations identify each node coordinate with its rational embedded time; truncation lies within one dyadic cell of the original time value. No force, motion, external real interval, rate or historical premise is imported."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.pointDistance_zero_of_equiv",
     "private": false,
     "file": "BarrowLib/Polygon/EquivalentDuration.lean",
@@ -2832,6 +2895,24 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q r t : Point) : Fraction.le (pointDistance (pointAdd p r) (pointAdd q t)) (Fraction.add (pointDistance p q) (pointDistance r t))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_neg",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) : Fraction.equiv (pointDistance (pointNeg p) (pointNeg q)) (pointDistance p q)",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.difference_sub_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r t : Point) : Fraction.le (pointDistance (pointSub p r) (pointSub q t)) (Fraction.add (pointDistance p q) (pointDistance r t))",
     "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
@@ -3393,6 +3474,96 @@
     "interpretation_and_remaining_premises": "Field-free binary-time, recursive integer-duration and dyadic ratio identities, plus nonnegative time approximants. Names with harmonic prefixes are compatibility names only; no Newton import or mechanical premise occurs."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.inertial_step",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h : Fraction) (s : Point × Point) (n : Nat) : pointEquiv (inertialPosition h s (n+1)) (pointAdd (inertialPosition h s n) (pointScale h s.2))",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.velocity_increment",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : Fraction.equiv (pointDistance (cell a h s).2 s.2) (Fraction.mul h.abs (pointNorm (a (cell a h s).1)))",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.velocity_displacement",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (B : Fraction) (hh : 0 ≤ h.num) (n : Nat) (hb : BoundedSamples a h s B n) : Fraction.le (pointDistance (run a h s n).2 s.2) (Fraction.mul (time h n) B)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.quadratic_step",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(h B : Fraction) (hh : 0 ≤ h.num) (hB : 0 ≤ B.num) (n : Nat) : Fraction.le (Fraction.add (Fraction.mul (Fraction.mul (time h n) (time h n)) B) (Fraction.mul h (Fraction.mul (time h n) B))) (Fraction.mul (Fraction.mul (time h (n+1)) (time h (n+1))) B)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.position_remainder",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (B : Fraction) (hh : 0 ≤ h.num) (hB : 0 ≤ B.num) (n : Nat) (hb : BoundedSamples a h s B n) : Fraction.le (pointDistance (run a h s n).1 (inertialPosition h s n)) (Fraction.mul (Fraction.mul (time h n) (time h n)) B)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.secant_identity",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(t : Fraction) (ht : 0 < t.num) (p x v : Point) : pointEquiv (pointSub (pointScale (TimeCalibration.inverse t ht) (pointSub p x)) v) (pointScale (TimeCalibration.inverse t ht) (pointSub p (pointAdd x (pointScale t v))))",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.position_secant_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (B : Fraction) (hh : 0 ≤ h.num) (hB : 0 ≤ B.num) (n : Nat) (ht : 0 < (time h n).num) (hb : BoundedSamples a h s B n) : Fraction.le (pointDistance (pointScale (TimeCalibration.inverse (time h n) ht) (pointSub (run a h s n).1 s.1)) s.2) (Fraction.mul (time h n) B)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.position_secant_equivalent_time",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (B u : Fraction) (hh : 0 ≤ h.num) (hB : 0 ≤ B.num) (n : Nat) (ht : 0 < (time h n).num) (hu : 0 < u.num) (he : Fraction.equiv u (time h n)) (hb : BoundedSamples a h s B n) : Fraction.le (pointDistance (pointScale (TimeCalibration.inverse u hu) (pointSub (run a h s n).1 s.1)) s.2) (Fraction.mul u B)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.two_cell_secant_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": Fraction.equiv (pointDistance (pointScale (TimeCalibration.inverse (time controlHalf 2) (by decide)) (pointSub (run controlForce controlHalf controlState 2).1 controlState.1)) controlState.2) ⟨1,4,by decide⟩",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.KinematicEstimates.zero_bound_rejects_secant_control",
+    "private": false,
+    "file": "BarrowLib/Polygon/KinematicEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": ¬ Fraction.le (pointDistance (pointScale (TimeCalibration.inverse (time controlHalf 2) (by decide)) (pointSub (run controlForce controlHalf controlState 2).1 controlState.1)) controlState.2) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Generic actual finite drift/kick remainders from bounded arrival samples: velocity displacement <=elapsed*B, position remainder from initial inertial continuation <=elapsed^2*B, and positive-time secant error <=elapsed*B. All estimates follow from recursively constructed runs, finite telescoping and rational arithmetic; equivalent represented elapsed times are included. A two-cell parallel-force exact control has secant error 1/4 and rejects a zero bound. No curve, supplied rate, derivative, integral, ODE or mechanical identification is a premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm",
     "private": false,
     "file": "BarrowLib/Polygon/PointAlgebra.lean",
@@ -3933,6 +4104,105 @@
     "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.pointState_distance",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) : Fraction.equiv (distance (pointState p) (pointState q)) (pointDistance p q)",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.velocity_nonexpansive",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s t : Point × Point) : Fraction.le (distance (velocityState s) (velocityState t)) (distance s t)",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.velocityValue_within",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R : Fraction) (h : Within x y R) : Within (velocityValue x) (velocityValue y) R",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.velocityValue_embed",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s : Point × Point) : velocityValue (embed s) = embed (velocityState s)",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.secant_distance_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) (a b c d : Point × Point) : Fraction.le (distance (secantState q a b) (secantState q c d)) (Fraction.mul q.abs (Fraction.add (distance a c) (distance b d)))",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.two_scaled_small",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q eps r s : Fraction) (_heps : 0 < eps.num) (hr : 0 ≤ r.num) (hs : 0 ≤ s.num) (h1 : Fraction.lt r (factorDelta q.abs eps.half (Fraction.abs_num_nonnegative q))) (h2 : Fraction.lt s (factorDelta q.abs eps.half (Fraction.abs_num_nonnegative q))) : Fraction.lt (Fraction.mul q.abs (Fraction.add r s)) eps",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.secantName_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) (a b a' b' : EndpointCauchyName) (ha : NameEquiv a a') (hb : NameEquiv b b') : NameEquiv (secantName q a b) (secantName q a' b')",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.secantValue_realize",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) (a b : EndpointCauchyName) : secantValue q (realize a) (realize b) = realize (secantName q a b)",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.secantValue_embed",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) (s t : Point × Point) : secantValue q (embed s) (embed t) = embed (secantState q s t)",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.shiftedName_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : EndpointCauchyName) (m : Nat) : NameEquiv (shiftedName a m) a",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SecantValues.shiftedValue",
+    "private": false,
+    "file": "BarrowLib/Polygon/SecantValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : EndpointCauchyName) (m : Nat) : realize (shiftedName a m) = realize a",
+    "interpretation_and_remaining_premises": "Generic velocity projection and rationally scaled position differences of explicit Cauchy values. Finite coordinate Lipschitz bounds derive the Cauchy/name-equivalence proofs before quotient lifting. Realized-name and rational-embedding compatibility and finite name-shift invariance are proved. These define secants of actual completed values, without supplying a derivative, force or rate-of-change theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_lower_cut",
     "private": false,
     "file": "BarrowLib/Polygon/SquareContentValues.lean",
@@ -4182,6 +4452,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) : Fraction.equiv (Fraction.mul tau (inverse tau ht)) (Fraction.ofInt 1)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.inverse_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{tau rho : Fraction} (ht : 0 < tau.num) (hr : 0 < rho.num) (h : Fraction.equiv tau rho) : Fraction.equiv (inverse tau ht) (inverse rho hr)",
     "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
@@ -6848,6 +7127,69 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : T.num = 0) (j : Nat) : stateEquiv (prefixState b o E0 T s hE j) s",
     "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceSecants.node_approx",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k : Nat) (hk : k≤blocks m) (j : Nat) : (nodeName o E0 T tau L B s hE d m k).approx j = GeneralForcePrefix.countState o E0 T s hE (m+j) (k*blocks j)",
+    "interpretation_and_remaining_premises": "Modern actual completed position-secants bridge for globally compared Lipschitz inward central-force samples with calibrated windows and explicit actual/coarse/shadow force bounds. Shifted endpoint/prefix names realize the actual dyadic nodes of the same general time map. Finite restarted-run remainders bound a completed cell secant from the left-node velocity by H_m*B. Time continuity bounds left-node velocity from the target velocity, giving H_m*(B+stateTimeFactor), uniformly over all binary addresses and including the right endpoint. Constructed velocity is the uniform limit of these completed bracketing dyadic position secants. Unrestricted difference-quotient differentiation, acceleration/force identification, potential asymptotics, local-annulus confinement, gluing, partition independence, general content and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceSecants.node_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k : Nat) : realize (nodeName o E0 T tau L B s hE d m k) = GeneralForceTime.gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)",
+    "interpretation_and_remaining_premises": "Modern actual completed position-secants bridge for globally compared Lipschitz inward central-force samples with calibrated windows and explicit actual/coarse/shadow force bounds. Shifted endpoint/prefix names realize the actual dyadic nodes of the same general time map. Finite restarted-run remainders bound a completed cell secant from the left-node velocity by H_m*B. Time continuity bounds left-node velocity from the target velocity, giving H_m*(B+stateTimeFactor), uniformly over all binary addresses and including the right endpoint. Constructed velocity is the uniform limit of these completed bracketing dyadic position secants. Unrestricted difference-quotient differentiation, acceleration/force identification, potential asymptotics, local-annulus confinement, gluing, partition independence, general content and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceSecants.cell_secant_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m k : Nat) (hk : k+1≤blocks m) : Within (cellSecant o E0 T tau L B s hE d hT m k) (velocityValue (GeneralForceTime.gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))) (Fraction.mul (duration T m) B)",
+    "interpretation_and_remaining_premises": "Modern actual completed position-secants bridge for globally compared Lipschitz inward central-force samples with calibrated windows and explicit actual/coarse/shadow force bounds. Shifted endpoint/prefix names realize the actual dyadic nodes of the same general time map. Finite restarted-run remainders bound a completed cell secant from the left-node velocity by H_m*B. Time continuity bounds left-node velocity from the target velocity, giving H_m*(B+stateTimeFactor), uniformly over all binary addresses and including the right endpoint. Constructed velocity is the uniform limit of these completed bracketing dyadic position secants. Unrestricted difference-quotient differentiation, acceleration/force identification, potential asymptotics, local-annulus confinement, gluing, partition independence, general content and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceSecants.rateCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T tau B : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hB : 0 ≤ B.num) : 0 ≤ (rateCoefficient T tau B s ht).num",
+    "interpretation_and_remaining_premises": "Modern actual completed position-secants bridge for globally compared Lipschitz inward central-force samples with calibrated windows and explicit actual/coarse/shadow force bounds. Shifted endpoint/prefix names realize the actual dyadic nodes of the same general time map. Finite restarted-run remainders bound a completed cell secant from the left-node velocity by H_m*B. Time continuity bounds left-node velocity from the target velocity, giving H_m*(B+stateTimeFactor), uniformly over all binary addresses and including the right endpoint. Constructed velocity is the uniform limit of these completed bracketing dyadic position secants. Unrestricted difference-quotient differentiation, acceleration/force identification, potential asymptotics, local-annulus confinement, gluing, partition independence, general content and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceSecants.bracketing_secant_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) : Within (cellSecant o E0 T tau L B s hE d hT m (ticks b m)) (velocityValue (GeneralForceTime.gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) (Fraction.mul (duration T m) (rateCoefficient T tau B s d.calibration_positive))",
+    "interpretation_and_remaining_premises": "Modern actual completed position-secants bridge for globally compared Lipschitz inward central-force samples with calibrated windows and explicit actual/coarse/shadow force bounds. Shifted endpoint/prefix names realize the actual dyadic nodes of the same general time map. Finite restarted-run remainders bound a completed cell secant from the left-node velocity by H_m*B. Time continuity bounds left-node velocity from the target velocity, giving H_m*(B+stateTimeFactor), uniformly over all binary addresses and including the right endpoint. Constructed velocity is the uniform limit of these completed bracketing dyadic position secants. Unrestricted difference-quotient differentiation, acceleration/force identification, potential asymptotics, local-annulus confinement, gluing, partition independence, general content and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceSecants.dyadic_velocity_uniform_identification",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ b : Nat → Bool, Within (cellSecant o E0 T tau L B s hE d hT m (ticks b m)) (velocityValue (GeneralForceTime.gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Modern actual completed position-secants bridge for globally compared Lipschitz inward central-force samples with calibrated windows and explicit actual/coarse/shadow force bounds. Shifted endpoint/prefix names realize the actual dyadic nodes of the same general time map. Finite restarted-run remainders bound a completed cell secant from the left-node velocity by H_m*B. Time continuity bounds left-node velocity from the target velocity, giving H_m*(B+stateTimeFactor), uniformly over all binary addresses and including the right endpoint. Constructed velocity is the uniform limit of these completed bracketing dyadic position secants. Unrestricted difference-quotient differentiation, acceleration/force identification, potential asymptotics, local-annulus confinement, gluing, partition independence, general content and historical P5 remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceSecants.dyadic_velocity_identification",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → Within (cellSecant o E0 T tau L B s hE d hT m (ticks b m)) (velocityValue (GeneralForceTime.gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Modern actual completed position-secants bridge for globally compared Lipschitz inward central-force samples with calibrated windows and explicit actual/coarse/shadow force bounds. Shifted endpoint/prefix names realize the actual dyadic nodes of the same general time map. Finite restarted-run remainders bound a completed cell secant from the left-node velocity by H_m*B. Time continuity bounds left-node velocity from the target velocity, giving H_m*(B+stateTimeFactor), uniformly over all binary addresses and including the right endpoint. Constructed velocity is the uniform limit of these completed bracketing dyadic position secants. Unrestricted difference-quotient differentiation, acceleration/force identification, potential asymptotics, local-annulus confinement, gluing, partition independence, general content and historical P5 remain separate."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForceTime.stateTimeFactor_nonnegative",
@@ -10299,6 +10641,24 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": ¬ Fraction.equiv (closedDefect one half sample) zero",
     "interpretation_and_remaining_premises": "Modern finite common-time comparison of two actual cells h and one actual cell h+h of the same harmonic field and initial state. Fine position differs by -h^2*w*y and velocity by h^2*w*v+h^3*w^2*y. An explicit nonmechanical endpoint connector closes the comparison; the closed signed doubled defect reduces to triangle y,z,X and equals -h^3*w*det(x,v). Its local absolute magnitude is nonnegative. Kepler sums agree while this defect can be nonzero. Physical time/inward interpretations additionally need h>0/w>0. No global accumulation, multi-lobe region theorem, actual trajectory, convergence or force identification is proved."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicSecants.cellSecant_eq",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num) (m k : Nat) : GeneralForceSecants.cellSecant (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (HarmonicGeneralEndpoint.harmonicBound w s) s hE (HarmonicGeneralTime.conditions w E0 T s hw hE hT hs) ht m k = cellSecant w T s hT hs ht m k",
+    "interpretation_and_remaining_premises": "Actual corollary identifying the retained harmonic curve velocity as the uniform limit of its completed bracketing dyadic position secants. All general force-data/sample premises are derived by HarmonicGeneralTime under the retained inward short-window conditions; the general and old harmonic maps are equal. It assumes no supplied derivative and does not identify acceleration, unrestricted differentiation, a potential, ordinary area or a historical force bridge."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicSecants.velocity_secants_converge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ b : Nat → Bool, Within (cellSecant w T s hT hs ht m (ticks b m)) (velocityValue (HarmonicTimeRealization.gammaValue w T s hT hs (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Actual corollary identifying the retained harmonic curve velocity as the uniform limit of its completed bracketing dyadic position secants. All general force-data/sample premises are derived by HarmonicGeneralTime under the retained inward short-window conditions; the general and old harmonic maps are equal. It assumes no supplied derivative and does not identify acceleration, unrestricted differentiation, a potential, ordinary area or a historical force bridge."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicStability.linearField_central",

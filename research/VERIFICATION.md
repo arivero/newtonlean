@@ -1,6 +1,36 @@
 # Verification record
 
-## Current handoff: general local binary-time maps, 5 October 2026
+## Current handoff: constructed dyadic velocity secants, 5 October 2026
+
+Targeted Lean core builds pass for finite kinematic remainders, completed
+secant/velocity operators, actual dyadic nodes, GeneralForceSecants and
+HarmonicSecants. The finite position remainder is bounded by t²*B and its
+positive-time quotient by t*B, using only actual bounded arrival samples.
+Restarted finite runs pass this bound to position differences of completed
+curve endpoints. Every bracketing dyadic secant is within H_m*(B+K) of the
+constructed velocity, uniformly over every binary address and including the
+right endpoint; positive-tolerance decay is derived. The retained harmonic
+curve is a corollary with all sample bounds derived. A two-cell parallel-force
+control has exact secant error 1/4 and rejects a zero bound. Representative
+invariance and Cauchy proofs precede lifting the completed secant operators.
+A sequential nonauthor GPT-6 Luna verifier passed all 16 checks in order.
+The catalogue has 1,331 distinct theorem rows and 1,191 emitted references;
+live counts are 968 substantive, 194 plumbing, 143 sample and 26 duplicate.
+All 1,632 prior public names/signatures remain unchanged; 53 names are new.
+All 40 new catalogue rows and all 544 Barrow rows have empty source lists.
+The graph remains 77 nodes/68 edges/249 passages, with 10 witnesses, 246 XML
+anchors and 3 supplements. The axiom union is propext, Classical.choice and
+Quot.sound; no sorryAx, project axiom, external package or Newton/Mathlib
+foundation import occurs. Logs: /tmp/newton-sol61-velocity-secants-final-01.log
+through -16.log. The graph PDF passed rendering checks; its dates were restored
+after proving every other byte unchanged. The estimate is 38.03%, range
+34.71–45.85%, with Proposition I at 58.75%.
+The identification estimate credits this actual completed-curve bridge, about
+38% overall. Unrestricted difference quotients, acceleration/force identification,
+curved potential steps, general content, confinement/gluing and partition
+independence remain open; no historical target is discharged.
+
+### General local binary-time maps, 5 October 2026
 
 Targeted Lean core builds pass for the paired-prefix endpoint estimates,
 GeneralForcePrefix, GeneralForceTime and HarmonicGeneralTime. Actual grid,

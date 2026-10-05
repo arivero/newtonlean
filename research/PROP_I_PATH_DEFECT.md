@@ -27,7 +27,10 @@ addresses. Same-cell and shared-boundary alias proofs now give one polygonMap
 on the constructed time quotient. Rational completed connectors and their
 cell closures lie in a derived square about each actual coarse start. The
 resulting outer-content bound is 4*C²/2^m and tends to zero. Ordinary Euclidean
-area, Kepler-area transfer and P5 are still separate identifications. Dyadic E/G agreement is now derived for every numerator; it identifies
+area and Kepler-area transfer are still separate identifications. GeneralForceSecants
+now identifies constructed velocity as the uniform limit of completed
+bracketing dyadic position secants; the retained harmonic curve is a corollary.
+Unrestricted difference quotients and acceleration/force identification remain open. Dyadic E/G agreement is now derived for every numerator; it identifies
 the two harmonic constructions, without supplying region area. Continuous-force
 local consistency is also checked, without a stability or uniqueness inference.
 The finite bounds now carry a free positive time calibration explicitly and

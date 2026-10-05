@@ -171,4 +171,12 @@ theorem run_add (a : Point → Point) (h : Fraction) (s : Point × Point) (n : N
         FiniteEstimates.cell a h (run a h (run a h s n) k)
       rw [run_add a h s n k]
 
+theorem boundedSamples_restart (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (B : Fraction) (N n k : Nat) (hnk : n+k ≤ N) (hb : BoundedSamples a h s B N) :
+    BoundedSamples a h (run a h s n) B k := by
+  intro i hi
+  have h := hb (n+i) (by omega)
+  rw [show n+i+1=n+(i+1) by omega,run_add] at h
+  exact h
+
 end NewtonLimitDynamics.Polygon.BoundedIteration

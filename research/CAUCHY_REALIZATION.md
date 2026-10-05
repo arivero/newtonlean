@@ -45,6 +45,17 @@ vanishing cover. HarmonicPathContent realizes the cut as a Cauchy scalar
 through proved shrinking intervals, independently of the initial cover.
 Ordinary-area/Kepler-area identification remains distinct.
 
+GeneralForceSecants now transfers the actual finite O(t²) position remainder
+to rationally divided position differences of constructed curve values. Every
+dyadic cell secant differs from its left-node velocity by at most H_m*B;
+time continuity controls that node velocity against the target by H_m*K.
+Thus the completed bracketing secants converge uniformly over every binary
+address to its constructed velocity, with error H_m*(B+K), including the right
+boundary. HarmonicSecants gives the retained-map corollary. KinematicEstimates,
+SecantValues and DyadicNodes contain the derived finite remainders, proved
+completed operators and actual time nodes; no desired rate is a field.
+Unrestricted differentiation and acceleration/force identification remain open.
+
 ## One global family
 
 Fix nonnegative rational T, initial state s, and harmonic coefficient w, with

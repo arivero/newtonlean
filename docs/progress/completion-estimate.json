@@ -1,7 +1,7 @@
 {
   "as_of": "2026-10-05",
-  "commit": "8a0651f",
-  "note": "Editorial estimate toward research/GOALS.md, reassessed at the user request on 5 October against checked commits through 8a0651f and the constructed general local binary-time map increment. Scores are judgements against maintained obligations and certify nothing. Modern construction does not discharge edition-local historical premises. No target is yet discharged.",
+  "commit": "d479459",
+  "note": "Editorial estimate toward research/GOALS.md, reassessed at the user request on 5 October against checked commits through d479459 and the constructed dyadic velocity-secants increment. Scores are judgements against maintained obligations and certify nothing. Modern construction does not discharge edition-local historical premises. No target is yet discharged.",
   "milestones": {
     "source_map": {
       "label": "Source map",
@@ -43,13 +43,13 @@
         "source_map": 1.0,
         "finite_step": 1.0,
         "limit_realization": 0.5,
-        "identification": 0.2
+        "identification": 0.25
       },
       "basis": {
         "source_map": "De Motu Theorem 1, 1687 and 1713 passages and edges in SECTION_II.md; all 10 edges carry Lean references.",
         "finite_step": "Stage-local AreaLaw / PropositionI files; CentralSchedule.swept_eq for any central field and unequal cells.",
         "limit_realization": "Harmonic continuous state/position maps, quotient polygon map, whole-edge convergence and E/G agreement at every dyadic rational time (34b742a). General sampled Lipschitz central endpoints and continuous local binary-time state/position maps now have derived Cauchy names, uniform prefix convergence, address independence, initial/zero cases and full-endpoint E/G agreement, under explicit calibration, global comparison and actual/coarse/shadow force bounds. The harmonic objects are exact corollaries with all sample bounds derived. Limit score rises from 0.45 to 0.50 for the constructed general local map; it awards no credit for counts or helper migration. Local-annulus stability, confinement/gluing, general interior-time E/G, precision/partition independence, external real-time identification and merely continuous-force existence/uniqueness remain open.",
-        "identification": "HarmonicPathRegion constructs the actual matched polygon/constructed-curve point set, with cell closures of rational connectors, explicit endpoint connectors and nonnegative all-cover outer-content cut. HarmonicPathContent realizes it exactly as a cover-independent Cauchy scalar, with derived nonnegativity, budget control, zero time and decay. Its derived one-square-per-cell budget is 4*C\u00b2/2^m and tends to zero. Actual finite sampled-force consistency and exact Galilean/harmonic deflection/potential identities (FinitePotential, Arg007) are checked. Score rises from 0.10 to 0.20 for these actual geometry and finite force bridges. Ordinary-area identification, general-field time/area extension, constructed Kepler-area transfer and P5 remain open."
+        "identification": "HarmonicPathRegion constructs the actual matched polygon/curve set and all-finite-cover nonnegative outer-content cut; HarmonicPathContent realizes it as a cover-independent Cauchy scalar with derived 4*C^2/2^m bound, decay and zero time (3dad1c2, 8a0651f). Exact Galilean/harmonic deflection/potential identities are checked (Arg007). GeneralForceSecants now derives uniform convergence of completed bracketing dyadic position secants to constructed velocity using actual finite restarted-run remainders; HarmonicSecants gives the retained harmonic-map corollary. Identification score rises from 0.20 to 0.25 for this constructed rate bridge, with no credit for helper counts. Unrestricted differentiation, acceleration/force identification, ordinary-area identification, general whole-edge/content extension and constructed Kepler-area transfer remain open."
       }
     },
     {

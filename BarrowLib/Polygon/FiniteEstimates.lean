@@ -107,6 +107,20 @@ theorem difference_add_bound (p q r t : Point) :
     (pointNorm_equiv (point_difference_add p q r t))
     (pointNorm_add_le (pointSub p q) (pointSub r t))
 
+theorem pointDistance_neg (p q : Point) :
+    Fraction.equiv (pointDistance (pointNeg p) (pointNeg q)) (pointDistance p q) := by
+  have he : pointEquiv (pointSub (pointNeg p) (pointNeg q)) (pointNeg (pointSub p q)) := by
+    constructor <;>
+      simp only [pointEquiv,pointSub,pointNeg,pointAdd,Fraction.equiv,Fraction.add,
+        Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg,Int.neg_neg] <;> ac_nf <;> omega
+  exact Fraction.equiv_trans (pointNorm_equiv he) (pointNorm_neg (pointSub p q))
+
+theorem difference_sub_bound (p q r t : Point) :
+    Fraction.le (pointDistance (pointSub p r) (pointSub q t))
+      (Fraction.add (pointDistance p q) (pointDistance r t)) :=
+  Fraction.le_equiv_right (difference_add_bound p q (pointNeg r) (pointNeg t))
+    (Fraction.add_equiv (Fraction.equiv_refl _) (pointDistance_neg r t))
+
 theorem difference_scale (h : Fraction) (p q : Point) :
     Fraction.equiv (pointDistance (pointScale h p) (pointScale h q))
       (Fraction.mul h.abs (pointDistance p q)) :=

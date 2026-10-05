@@ -37,10 +37,17 @@ proved shrinking rational intervals, independently of the initial cover budget. 
 zero time. Crossings and overlaps count once in the region; cover sums count
 multiplicity. Initial endpoints agree and the final connector is included.
 See the [content checkpoint](verification/constructed-path-content-2026-10-05.md).
-General-force whole-edge geometry, ordinary-area/Kepler-area identification, P5 and the remaining
+GeneralForceSecants now proves that completed bracketing dyadic position
+secants converge uniformly to the constructed velocity, including the right
+boundary; HarmonicSecants gives the old harmonic-map corollary. Finite
+restarted drift/kick remainders, completed secants and dyadic time nodes are
+derived in BarrowLib. Acceleration/force identification and unrestricted
+difference quotients remain open.
+General-force whole-edge geometry, ordinary-area/Kepler-area identification and the remaining
 classes remain obligations in the handoff's order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
 exact finite-cell potential identities. The progress estimate now credits the
-constructed general local time map, about 38% overall; no target is discharged.
+constructed general local time map and dyadic velocity-secants bridge, about
+38% overall (35–46% under alternative weights); no target is discharged.
 See the [general time checkpoint](verification/general-central-time-map-2026-10-05.md).
 
 Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)

@@ -144,6 +144,19 @@ the retained harmonic maps. General interior-time E/G, arbitrary-partition or
 precision-choice independence, whole-edge/content extension and identification
 with an external real-time interval remain separate.
 
+GeneralForceSecants now transfers finite drift remainders to completed curve
+secants. Bounded actual acceleration gives velocity change at most t*B and
+position remainder from inertial continuation at most t²*B; neither finite
+estimate uses regularity or a supplied rate. SecantValues proves Cauchy and
+representative invariance before defining rationally divided completed position
+differences and velocity projections. DyadicNodes derives the actual node times.
+On the constructed general local map, each completed dyadic cell secant differs
+from the left-node velocity by at most H_m*B. Time continuity adds H_m*K against
+the target velocity, so these bracketing secants converge uniformly over every
+binary address, including the right boundary. The retained harmonic result is
+a corollary. This is the first constructed P5 rate bridge; unrestricted
+difference quotients and acceleration identification remain open.
+
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will
 not be replaced by a structure field asserting the desired trajectory.
