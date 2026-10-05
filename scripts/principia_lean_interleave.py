@@ -3,11 +3,13 @@
 Reads docs/reference/principia-1687-modern.md, research/formal-results.json
 and the Lean sources at a git revision (default HEAD), and writes
 docs/reference/principia-with-lean.md: after each Definition, Law, Lemma,
-Proposition or Scholium, the theorems whose catalogued source passages cite
-that item appear in a smaller monospace face, statement and proof, grouped by
-module in import order and preceded by the module's docstring.  Theorems with
-no source passage (the foundation) are listed by statement only in an
-appendix, as are theorems anchored outside the rendered range.
+Proposition or Scholium, every module whose theorems cite that item is
+printed in full, verbatim, in a smaller monospace face (definitions,
+docstrings, statements and proofs), in import order.  A module whose theorems
+cite several items is printed under the item most of them cite, with a
+cross-reference under the others.  Modules with no source anchor (the
+foundation) and modules anchored outside the rendered range are printed in
+full in two appendices.  Every line of the two libraries appears exactly once.
 
 Build the PDF with
 
@@ -85,6 +87,42 @@ ITEMS = [
      + rng('NATP00089', 10, 11) + rng('NATP00090', 18, 19)),
     ('### Scholium', rng('NATP00077', 69, 72) + rng('NATP00082', 82, 84)),
 ]
+# Where each item lives in the Lean when no theorem cites it, or in addition
+# to the theorems that do.  Editorial; verified against the sources at HEAD.
+NOTES = {
+    0: "Not encoded. The model has no mass: forces are accelerative (Definition VII). A `mass` parameter appears only in the potential and circular diagnostics (`Diagnostic/ConstructedHarmonicPotential`, `Comparison/CircleCompare`).",
+    1: "Not encoded; with mass absent, velocity stands in for quantity of motion.",
+    2: "Encoded, not proved: the inertial drift `pointAdd s.1 (pointScale d s.2)` that opens every cell (`CentralSchedule.cell`), and `ZeroForce.inertialAt`.",
+    3: "Encoded, not proved: the velocity kick `pointAdd s.2 (pointScale d (a y))` at the arrival vertex of every cell (`CentralSchedule.cell`, `TimeSubdivision.endKick`).",
+    4: "Encoded as the predicate `CentralSchedule.central` (`det p (a p) = 0`: the force is parallel to the radius) and the `inward` field of `ForceClasses.CentralOracle` (every sample a nonnegative multiple of `-p`).",
+    5: "Not encoded.",
+    6: "Encoded: a force is a map `Field := Point → Point` from positions to accelerations (`CentralSchedule`), or its rational samples with error (`ForceClasses.Oracle`).",
+    7: "Not encoded (no mass).",
+    8: "Absolute time is the rational parameter of every schedule and, in the completed layer, the constructed `BinaryTime` quotient; absolute space is the rational plane `Point := Fraction × Fraction` (`TimeSubdivision`). Relative motion appears only as the uniformly moving centre of Proposition II, Case 2.",
+    9: "Also encoded as the drift in every cell, and stated as `RelativeMotion.lawI_uniform` (printed under Proposition III, which cites it).",
+    10: "Encoded in impulse form by the kick of `CentralSchedule.cell`: the change of velocity is `d · a(y)`, along the force and proportional to it; and by `Finite.EuclideanConstruction.kick`, which displaces the vertex parallel to the radius.",
+    11: "Not encoded: the model is single-body. Proposition III cancels the second body's force by Corollary VI, not by Law III.",
+    12: "Encoded as `Finite.step g p q j = g.kick q (g.extend p q) j` with the field `same_base_parallels` of `EuclideanConstruction`: the displaced vertex lies on the line through the inertial point parallel to the radius, Newton's parallelogram.",
+    13: "Not encoded.",
+    14: "Not encoded (no mass, single body).",
+    15: "Not encoded.",
+    16: "Used as `Converse.moving_centre_equal_areas_central`, Proposition II, Case 2 (printed under Proposition II).",
+    17: "Stated and used as `RelativeMotion.corVI_relative` (printed under Proposition III, whose dependency edge in `research/dependencies.json` names it).",
+    18: "Not encoded, except that Galileo's parabola is the parallel-force instance `ForceClasses.parallelOracle` and `Polygon/ParallelQuadraticEndpoint`.",
+    19: "Encoded as the limit interface of `BarrowLib/Common/Quadratic.lean`: `Near` and `Ultimate` (ultimate equality is approach closer than any given difference), used by `enclosure_reconstruction`, the squeeze; and as the `Within` and `Vanishes` predicates of `CauchyValues` and `Enclosure`.",
+    20: "Not separately encoded; its equal-base step sums appear with Lemma III.",
+    21: "Corollary 4, the passage Proposition I cites for its limit, is the premise named `PolygonTrajectoryEnclosure` in `Polygon/PathDefect.lean`: assumed by the edition theorems, not derived.",
+    22: "Not encoded.",
+    23: "Not encoded; Proposition IV's limiting route through it is documented as an editorial interpretation, not derived.",
+    24: "Not encoded; the chord, tangent and arc comparison is not needed by the finite steps of Propositions I–IV.",
+    25: "Not encoded (see Lemma VI).",
+    26: "Not encoded (see Lemma VI).",
+    30: "Not encoded; its distinction between vanishing divisible quantities and indivisibles is the reading the rational construction follows.",
+    33: "Not encoded.",
+    35: "Not encoded.",
+    37: "Not encoded; the polygon-reflection argument has no counterpart.",
+}
+
 ANCHOR_TO_ITEM = {}
 for idx, (_, anchors) in enumerate(ITEMS):
     for a in anchors:
@@ -171,54 +209,80 @@ def main():
         sources[f] = source_blocks(text)
         docs[f] = docstring(text)
 
-    per_item = defaultdict(lambda: OrderedDict())   # item idx -> file -> [entries]
-    outside = OrderedDict()
-    foundation = OrderedDict()
+    texts = {}
+    for f in files:
+        try:
+            texts[f] = git('show', f'{REV}:{f}')
+        except subprocess.CalledProcessError:
+            pass
+    # item votes per file: which items its theorems cite
+    votes = defaultdict(lambda: defaultdict(int))
+    outside_files, foundation_files = [], []
     for r in catalogue:
         target = None
         for a in r['source_passages']:
             if a in ANCHOR_TO_ITEM:
                 target = ANCHOR_TO_ITEM[a]
                 break
-        if r['source_passages'] and target is None:
-            outside.setdefault(r['file'], []).append(r)
-        elif target is None:
-            foundation.setdefault(r['file'], []).append(r)
+        if target is not None:
+            votes[r['file']][target] += 1
+        elif r['source_passages']:
+            votes[r['file']][-1] += 1       # outside the rendered range
         else:
-            per_item[target].setdefault(r['file'], []).append(r)
+            votes[r['file']][-2] += 1       # foundation
+    home = {}                               # file -> item index, -1 outside, -2 foundation
+    for f in files:
+        if f not in texts:
+            continue
+        v = votes.get(f)
+        if not v:
+            home[f] = -2
+        else:
+            home[f] = max(v.items(), key=lambda kv: (kv[1], -kv[0]))[0]
+    per_item = defaultdict(list)
+    for f in files:
+        if f in home:
+            per_item[home[f]].append(f)
+    # also the two root import files, so that every library line appears
+    roots = []
+    for lib in ('BarrowLib.lean', 'NewtonLimitDynamics.lean'):
+        try:
+            texts[lib] = git('show', f'{REV}:{lib}')
+            roots.append(lib)
+        except subprocess.CalledProcessError:
+            pass
 
     def verbatim(text, size='scriptsize'):
-        return f'\\begin{{Verbatim}}[breaklines,breakanywhere,fontsize=\\{size}]\n{text}\n\\end{{Verbatim}}\n'
+        return f'\\begin{{Verbatim}}[breaklines,breakanywhere,fontsize=\\{size}]\n{text.rstrip()}\n\\end{{Verbatim}}\n'
 
-    def block_for(r, with_proof):
-        local = r['name'].split('.')[-1]
-        if with_proof:
-            src = sources.get(r['file'], {})
-            body = src.get(r['name']) or next((v for k, v in src.items() if k.endswith('.' + local)), None)
-            if body:
-                return body
-        head = 'private theorem' if r['private'] else 'theorem'
-        return f"{head} {local} {r['premise_signature']}"
-
-    def render_group(groups, with_proof, size='scriptsize'):
+    def render_files(fs, size='scriptsize'):
         parts = []
-        for f, entries in groups.items():
-            doc = docs.get(f, '')
-            if len(doc) > 600:
-                doc = doc[:600].rsplit(' ', 1)[0] + ' …'
-            parts.append(f'\\noindent{{\\small\\texttt{{{f}}}}}{" — " + doc if doc else ""}\n')
-            parts.append(verbatim('\n\n'.join(block_for(r, with_proof) for r in entries), size))
+        for f in fs:
+            n = sum(votes[f].values()) if f in votes else 0
+            parts.append(f'\\noindent{{\\small\\texttt{{{f}}}}}{{\\small, {n} theorem{"s" if n != 1 else ""}, '
+                         f'{texts[f].count(chr(10))} lines}}\n')
+            parts.append(verbatim(texts[f], size))
         return '\n'.join(parts)
 
     def item_block(idx):
-        groups = per_item.get(idx)
-        if not groups:
-            return ('\\noindent{\\small\\textit{No theorem of the Lean reconstruction cites this item.}}\n')
-        n = sum(len(v) for v in groups.values())
+        fs = per_item.get(idx, [])
+        others = [(f, votes[f][idx]) for f in files if f in home and home[f] != idx and votes.get(f, {}).get(idx)]
+        note = NOTES.get(idx)
+        if not fs and not others:
+            txt = 'No theorem of the Lean reconstruction cites this item.'
+            if note:
+                txt += ' ' + note
+            return '\\noindent{\\small\\textit{' + txt.replace('_', '\\_') + '}}\n'
+        n = sum(votes[f][idx] for f in fs)
         head = (f'\\noindent{{\\small\\textit{{Lean reconstruction: {n} theorem{"s" if n != 1 else ""} '
-                f'in {len(groups)} module{"s" if len(groups) != 1 else ""} cite this item; statements and proofs follow, '
-                f'by module in import order.}}}}\n')
-        return head + '\n' + render_group(groups, with_proof=True)
+                f'in {len(fs)} module{"s" if len(fs) != 1 else ""} cite this item; the modules follow in full, '
+                f'in import order.}}}}\n')
+        if others:
+            names = [f'{ITEMS[home[f]][0].strip("*#").strip()} ({f.split("/")[-1]}, {c})' for f, c in others]
+            head += ('\n\\noindent{\\small\\textit{Also cited by theorems printed under: ' + '; '.join(names) + '.}}\n')
+        if note:
+            head += '\n\\noindent{\\small\\textit{' + note.replace('_', '\\_') + '}}\n'
+        return head + '\n' + render_files(fs)
 
     # ---- walk the rendering and insert after each item
     lines = SRC.read_text().split('\n')
@@ -272,38 +336,43 @@ def main():
 
 After each Definition, Law, Lemma, Proposition or Scholium, the theorems of
 the Lean reconstruction whose catalogued source passages cite that item are
-printed in a smaller monospace face, with their docstrings, statements and
-proofs, grouped by module in import order. The catalogue
+printed as complete modules in a smaller monospace face: definitions,
+docstrings, statements and proofs, verbatim, in import order. The catalogue
 (`research/formal-results.json`) assigns each theorem to Newton Project
-paragraph anchors; a theorem citing several items is printed under the first.
+paragraph anchors; a module whose theorems cite several items is printed
+under the item most of them cite, with a cross-reference under the others.
 Items that no theorem cites say so. The Lean is a modern reconstruction in
 rational arithmetic with Lean 4 core only: it supplies no historical premise,
 and its appearance under an item records that the item motivated it, not that
-the item is thereby proved. Two appendices list, by statement only, the
-theorems anchored outside the rendered range and the foundation theorems
-with no source anchor, which are most of the code.
+the item is thereby proved. Two appendices print, in full, the modules
+anchored outside the rendered range and the foundation modules with no source
+anchor, which are most of the code. Every line of the two libraries appears
+exactly once; the verification harnesses under `research/verification` are
+not included.
 """
     text = '\n'.join(out)
     text = text.replace('\n## How the editions differ', intro + '\n## How the editions differ', 1)
 
     # ---- appendices
-    n_out = sum(len(v) for v in outside.values())
-    n_found = sum(len(v) for v in foundation.values())
-    text += '\n\n# Appendix A. Theorems anchored outside Sections I–II\n\n'
-    text += (f'{n_out} theorems cite passages outside the rendered range (Proposition VI and its '
-             'later-edition counterparts, the Section I Scholium on vanishing quantities as cited '
-             'for Lemma X, and the De Motu comparison chain). Statements only.\n\n')
-    text += render_group(outside, with_proof=False)
-    text += '\n\n# Appendix B. The foundation: theorems with no source anchor\n\n'
-    text += (f'{n_found} theorems have no Newton anchor. They build the rational arithmetic, '
-             'point algebra, finite estimates, Cauchy names and quotient values, binary time, '
-             'square covers and the generic lifting of operations to completed values on which '
-             'the anchored proofs stand. Statements only, by module in import order.\n\n')
-    text += render_group(foundation, with_proof=False)
+    out_files = per_item.get(-1, [])
+    found_files = per_item.get(-2, [])
+    n_out = sum(sum(votes[f].values()) for f in out_files)
+    n_found = sum(len([r for r in catalogue if r['file'] == f]) for f in found_files)
+    text += '\n\n# Appendix A. Modules anchored outside Sections I–II\n\n'
+    text += (f'{len(out_files)} module{"s" if len(out_files) != 1 else ""} with {n_out} theorems cite passages '
+             'outside the rendered range (Proposition VI and its later-edition counterparts).\n\n')
+    text += render_files(out_files)
+    text += '\n\n# Appendix B. The foundation: modules with no source anchor\n\n'
+    text += (f'{len(found_files)} modules with {n_found} theorems have no Newton anchor. They build the rational '
+             'arithmetic, point algebra, finite estimates, Cauchy names and quotient values, binary time, '
+             'square covers and the lifting of operations to completed values on which the anchored proofs '
+             'stand. In full, in import order, followed by the two library root files.\n\n')
+    text += render_files(found_files + roots)
     OUT.write_text(text.rstrip('\n') + '\n')
-    n_items = sum(len(v) for g in per_item.values() for v in g.values())
-    print(f'{OUT.relative_to(root)}: {n_items} anchored theorems under {len(per_item)} items, '
-          f'{n_out} outside, {n_found} foundation; {len(text):,} chars')
+    n_items = sum(len(v) for k, v in per_item.items() if k >= 0)
+    multi = [f for f in files if f in votes and len([k for k in votes[f] if k >= 0]) > 1]
+    print(f'{OUT.relative_to(root)}: {n_items} modules under {len([k for k in per_item if k >= 0])} items, '
+          f'{len(out_files)} outside, {len(found_files)} foundation, {len(multi)} multi-item; {len(text):,} chars')
 
 
 if __name__ == '__main__':
