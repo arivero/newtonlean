@@ -98,7 +98,15 @@ every nonnegative rational time from this vanishing bias and proves their
 quadratic completed value. No small window or supplied curve is needed for
 this constant-force instance. QuadraticEndpointPotential identifies its
 Galilean comparison point with that constructed value before deriving the
-triangle/potential relations. The general central second-order bridge,
+triangle/potential relations. GeneralForceQuadraticSecants now passes the
+actual finite quadratic estimate to completed central curve values through
+composed secant operators. The normalized departure 2*(Delta_x/H-v_left)/H
+is within 2*L*H*V of the completed left-node force. Sampling errors and the
+half-mesh product with actual force samples vanish: their constructed force
+name is Cauchy, which derives a bounded tail. Precision-offset invariance
+keeps the same force target. Time continuity gives uniform target error
+H*L*(2V+K), including the final boundary; the retained harmonic curve is a
+corollary. Unrestricted second-order quotients, curved potential steps, the
 parallel binary-time map and D_mesh identification remain separate.
 
 ## One global family

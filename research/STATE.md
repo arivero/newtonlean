@@ -82,9 +82,15 @@ endpoint comparison. QuadraticEstimates derives the finite cubic/error remainder
 and exact half-mesh bias; ParallelQuadraticEndpoint constructs endpoint Cauchy
 values with position x0+t*v0+t²*a/2 at every nonnegative rational time. The
 parallel potential drop and doubled tangent-deflection area are both half their
-kick counterparts, with the same motion-dependent ratio. General central curve
-asymptotics and the D_mesh relation remain open. See the
-[quadratic checkpoint](verification/quadratic-finite-parallel-endpoints-2026-10-05.md).
+kick counterparts, with the same motion-dependent ratio. GeneralForceQuadraticSecants
+now passes the finite estimate to the actual completed central curve: the
+normalized departure 2*(Delta_x/H-v_left)/H converges uniformly to completed
+force, with error H*L*(2V+K). Force-name Cauchy boundedness derives half-mesh
+bias decay; sampling and precision-offset errors are handled explicitly. The
+retained harmonic curve inherits this criterion. General curved potential
+steps and the D_mesh relation remain open. See the
+[quadratic checkpoint](verification/quadratic-finite-parallel-endpoints-2026-10-05.md)
+and [constructed second-order checkpoint](verification/constructed-quadratic-secants-2026-10-05.md).
 The progress estimate now credits the
 constructed general local time map, dyadic velocity/force-secants bridges and
 actual general outer content, about

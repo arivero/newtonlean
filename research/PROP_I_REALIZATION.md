@@ -74,8 +74,14 @@ remainder t²*(L*t*V+E) and exact t*h*|a(x0)|/2 half-mesh bias. The actual
 parallel endpoint family constructs Cauchy values at every nonnegative rational
 time and proves the exact quadratic state. Galilean potential and triangle
 identities apply to those completed endpoints with the half coefficients; the
-ratio stays motion-dependent. General central curve asymptotics and the
-D_mesh relation remain open. This law test adds no completion-count credit.
+ratio stays motion-dependent. GeneralForceQuadraticSecants now passes the
+actual finite remainders to completed central curve values. The normalized
+position departure 2*(Delta_x/H-v_left)/H converges uniformly to the completed
+force with error H*L*(2V+K), including the final boundary. Cauchy-name tail
+boundedness proves that mesh times the actual force sample magnitude vanishes;
+no extra force-bound or Taylor field is supplied. The retained harmonic curve
+inherits the result. Curved potential steps, unrestricted second-order
+quotients and the D_mesh relation remain open. Completion scores stay unchanged.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 

@@ -437,6 +437,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.le_add_cancel_left
 #check NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_right
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_right
+#check NewtonLimitDynamics.Polygon.CauchyValues.mesh_position_product_vanishes
+#print axioms NewtonLimitDynamics.Polygon.CauchyValues.mesh_position_product_vanishes
 #check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_congr
 #print axioms NewtonLimitDynamics.Polygon.CauchyValues.nameBound_congr
 #check NewtonLimitDynamics.Polygon.CauchyValues.nameBound_of_eventual_le
@@ -769,6 +771,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_symm
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_triangle
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_triangle
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.pointNorm_le_distance_add
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.pointNorm_le_distance_add
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_self_zero
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_self_zero
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_symm
@@ -1005,6 +1009,14 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.weightedCoefficient_nonnegative
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.zero_time_prefix
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.zero_time_prefix
+#check NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.bracketing_second_secant_bound
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.bracketing_second_secant_bound
+#check NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.cell_second_secant_bound
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.cell_second_secant_bound
+#check NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.dyadic_second_uniform_identification
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.dyadic_second_uniform_identification
+#check NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.secondCoefficient_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.secondCoefficient_nonnegative
 #check NewtonLimitDynamics.Polygon.GeneralForceSecants.bracketing_secant_bound
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.bracketing_secant_bound
 #check NewtonLimitDynamics.Polygon.GeneralForceSecants.cell_secant_bound
@@ -1575,6 +1587,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.uniform_whole_edge_convergence
 #check NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.whole_edge_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicPolygonCurve.whole_edge_bound
+#check NewtonLimitDynamics.Polygon.HarmonicQuadraticSecants.second_secants_converge
+#print axioms NewtonLimitDynamics.Polygon.HarmonicQuadraticSecants.second_secants_converge
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicRefinement.absoluteClosedGap_nonnegative
 #check NewtonLimitDynamics.Polygon.HarmonicRefinement.absolute_closed_defect_cubic
@@ -2113,6 +2127,14 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.QuadraticEstimates.quadratic_time_congr
 #check NewtonLimitDynamics.Polygon.QuadraticEstimates.two_cell_half_mesh_control
 #print axioms NewtonLimitDynamics.Polygon.QuadraticEstimates.two_cell_half_mesh_control
+#check NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_bound
+#print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_bound
+#check NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_equivalent_time
+#print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_equivalent_time
+#check NewtonLimitDynamics.Polygon.QuadraticSecants.second_identity
+#print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.second_identity
+#check NewtonLimitDynamics.Polygon.QuadraticSecants.second_state_time_congr
+#print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.second_state_time_congr
 #check NewtonLimitDynamics.Polygon.RationalIntervals.half_double
 #print axioms NewtonLimitDynamics.Polygon.RationalIntervals.half_double
 #check NewtonLimitDynamics.Polygon.RationalIntervals.half_equiv

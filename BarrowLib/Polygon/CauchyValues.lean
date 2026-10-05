@@ -1,4 +1,5 @@
 import BarrowLib.Polygon.EndpointCauchyName
+import BarrowLib.Polygon.GeometricTail
 
 namespace NewtonLimitDynamics.Polygon.CauchyValues
 open NewtonLimitDynamics
@@ -9,6 +10,29 @@ open HarmonicAccumulation
 open HarmonicDyadic
 
 def distance (a b : Point × Point) : Fraction := stateNorm (stateSub a b)
+
+/-- A Cauchy name is bounded on a proved tail, so its position magnitude
+times a geometric mesh tends to zero. No boundedness field is supplied. -/
+theorem mesh_position_product_vanishes (a : EndpointCauchyName)
+    (eps : Fraction) (heps : 0 < eps.num) :
+    ∃ N : Nat, ∀ j, N≤j →
+      Fraction.lt (Fraction.mul (duration (Fraction.ofInt 1) j) (pointNorm (a.approx j).1)) eps := by
+  obtain ⟨N,hN⟩ := a.cauchy (Fraction.ofInt 1) (by decide)
+  let R := Fraction.add (Fraction.ofInt 1) (pointNorm (a.approx N).1)
+  have hR : 0 ≤ R.num := Fraction.nonnegative_add _ _ (by decide) (pointNorm_nonnegative _)
+  obtain ⟨M,hM⟩ := HarmonicTimeRealization.duration_eventually_small R eps hR heps
+  refine ⟨max N M,fun j hj => ?_⟩
+  have hp := Fraction.magnitudes.le_trans (point_le_state (stateSub (a.approx j) (a.approx N)))
+    (Fraction.magnitudes.lt_implies_le (hN j N (by omega) (Nat.le_refl _)))
+  have hb := Fraction.magnitudes.le_trans
+    (FiniteEstimates.pointNorm_le_distance_add (a.approx j).1 (a.approx N).1)
+    (Fraction.add_le_add_right hp (pointNorm (a.approx N).1))
+  have hc := Fraction.mul_le_mul_nonnegative_left hb (duration (Fraction.ofInt 1) j)
+    (by change (0 : Int)≤1; omega)
+  have he : Fraction.equiv (Fraction.mul (duration (Fraction.ofInt 1) j) R) (duration R j) := by
+    simp only [duration,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.one_mul,Int.mul_one]
+    ac_nf
+  exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hc he) (hM j (by omega))
 
 private theorem equiv_zero_num (a : Fraction)
     (h : Fraction.equiv a (Fraction.ofInt 0)) : a.num = 0 := by

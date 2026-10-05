@@ -16,6 +16,13 @@ def pointDistance (p q : Point) : Fraction := pointNorm (pointSub p q)
 def stateDistance (s t : Point × Point) : Fraction :=
   Fraction.add (pointDistance s.1 t.1) (pointDistance s.2 t.2)
 
+theorem pointNorm_le_distance_add (p q : Point) :
+    Fraction.le (pointNorm p) (Fraction.add (pointDistance p q) (pointNorm q)) := by
+  have he : pointEquiv p (pointAdd (pointSub p q) q) := by
+    constructor <;> simp only [pointEquiv,pointSub,pointNeg,pointAdd,Fraction.equiv,
+      Fraction.add,Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+  exact Fraction.le_equiv_left (pointNorm_equiv he) (pointNorm_add_le _ _)
+
 /-- Reuse the generic point-subtraction triangle estimate. -/
 theorem pointDistance_triangle (p q r : Point) :
     Fraction.le (pointDistance p r)

@@ -78,3 +78,5 @@ import NewtonLimitDynamics.Polygon.GeneralForcePathContent
 import NewtonLimitDynamics.Polygon.HarmonicGeneralPathContent
 import NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint
 import NewtonLimitDynamics.Diagnostic.QuadraticEndpointPotential
+import NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants
+import NewtonLimitDynamics.Polygon.HarmonicQuadraticSecants

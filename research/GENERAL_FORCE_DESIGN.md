@@ -203,7 +203,16 @@ rational time and identifies their full quadratic state. This is the permitted
 centre-at-infinity instance, not a general central curve or external real-time
 map. Its actual Galilean endpoint has potential drop -m*g²*t²/2 and doubled
 tangent-deflection area t³*det(v,a)/2, preserving the same motion-dependent
-time ratio. General central second-order/potential estimates remain open.
+time ratio. GeneralForceQuadraticSecants now derives the half-coefficient
+position departure on the actual completed central curve. QuadraticSecants
+composes the existing completed operators; its finite normalized error is
+2*(L*t*V+E)+(h/t)*|a(x0)|. The actual shifted force name is Cauchy, so a
+proved tail bound makes its sample magnitude times 1/2^j vanish. Together
+with force-error exhaustion and precision-offset invariance this leaves
+2*L*H*V against the left-node force. Force/time continuity gives the uniform
+H*L*(2V+K) target bound, including the final boundary. HarmonicQuadraticSecants
+gives the retained-curve corollary. Unrestricted second-order quotients,
+curved potential steps and area relations remain open.
 
 For merely continuous fields, existence (possibly by a subsequence),
 full-sequence convergence and uniqueness are separate obligations. They will

@@ -170,3 +170,9 @@ parallel endpoint Cauchy values, and its variable-map remainder retains force
 sampling and half-mesh errors for the general curve bridge. Public helper
 counts give no separate completion credit; the closed numeric controls are
 disclosed as controls, not independent numerical verification.
+
+GeneralForceQuadraticSecants then passes that finite mechanism to the actual
+constructed central curve. Its second-order completed operator composes the
+existing secant and velocity maps; it has no second completion implementation.
+One retained-harmonic corollary uses those maps directly. Cauchy-name tail
+boundedness derives half-mesh decay, rather than adding another bound field.

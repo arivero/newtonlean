@@ -64,8 +64,12 @@ now derives the finite second-order position remainder and explicit half-mesh
 bias. ParallelQuadraticEndpoint constructs actual endpoint Cauchy values at
 every nonnegative rational time, equal to x0+t*v0+t²*a/2. The Galilean potential
 and triangle identities are now checked at those constructed endpoint values,
-with both leading coefficients halved. They still supply no identity relating
-that tangent-deflection triangle to D_mesh.
+with both leading coefficients halved. GeneralForceQuadraticSecants now
+derives the half-coefficient position departure criterion for the actual
+constructed central curve along dyadic cells, with uniform completed-force
+error H*L*(2V+K). It keeps sampling and half-mesh terms until their derived
+decay. Curved potential values and the identity relating tangent-deflection
+triangles or lobes to D_mesh remain open.
 
 ## The two areas
 

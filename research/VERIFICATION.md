@@ -1,6 +1,34 @@
 # Verification record
 
-## Current handoff: finite quadratic control and parallel endpoints, 5 October 2026
+## Current handoff: constructed central quadratic secants, 5 October 2026
+
+QuadraticSecants composes the existing proved secant and velocity operators.
+Its finite normalized departure has force error 2*(L*t*V+E)+(h/t)*|a(x0)|,
+including value-equivalent positive elapsed times. Cauchy-name boundedness on
+a proved tail makes mesh times its position magnitude vanish. On the actual
+central-force curve, GeneralForceQuadraticSecants applies this to the actual
+shifted force name; sampling errors and half-mesh bias vanish only through
+completion. Precision-offset invariance gives the same completed force. The
+normalized departure 2*(Delta_x/H-v_left)/H is within 2*L*H*V at the left node,
+and within H*L*(2V+K) at the target address. Exhaustion gives uniform decay,
+including the final boundary. HarmonicQuadraticSecants gives one direct retained-
+curve corollary with derived sample bounds. No Taylor or second-order equation
+is a premise. Curved potential and area relations, unrestricted quotients,
+confinement/gluing and the other force classes remain open; scores stay unchanged.
+Targeted Lean 4.19 core compilation and all 16 sequential checklist commands
+pass, including all three builds and catalogue/reference/standard-axiom, source/
+graph, rendering, hash and whitespace checks. All 1,829 prior public names/
+signatures at 921b3a9 remain unchanged, with 15 new names. The catalogue has
+1,443 distinct rows and 1,303 references; live counts are 1,065 substantive,
+195 plumbing, 157 sample and 26 duplicate. All 11 new rows and all 597 Barrow
+rows are source-free. The graph remains 77/68/249, with 10 witnesses, 246 XML
+anchors and 3 supplements; axiom union propext, Classical.choice and Quot.sound,
+with no sorryAx, project axiom or external package. Logs:
+/tmp/newton-sol61-quadratic-secants-final-01.log through -16.log. Graph PDF
+dates are restored only after all other bytes are proved unchanged. Root Sol
+6.1 commits the verified increment, preserving unrelated conversation archives.
+
+### Finite quadratic control and parallel endpoints, 5 October 2026
 
 QuadraticEstimates proves the exact constant-map state, with finite position
 coefficient t*(t-h)/2. Actual force and velocity variation derive the variable-

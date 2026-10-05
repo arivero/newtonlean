@@ -1521,13 +1521,22 @@
     "interpretation_and_remaining_premises": "Actual calibrated cross-map coarse/two-half-cell recurrence, with force bounds at first-half shadow arrivals and actual coarse-velocity bounds explicit. Its derived source budget has n-step bound 2n*S on a dimensionless small window. S<=h^2*C+5*tau*h*E with C=B+tau*L*(V+T*B), using actual K<=2 and |h|<=T. Fine/coarse iterates are identified with their actual uniform runs. No motion error, Cauchy trajectory, field/potential law, confinement or limiting premise is supplied."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.CauchyValues.mesh_position_product_vanishes",
+    "private": false,
+    "file": "BarrowLib/Polygon/CauchyValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : EndpointCauchyName) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ j, N≤j → Fraction.lt (Fraction.mul (duration (Fraction.ofInt 1) j) (pointNorm (a.approx j).1)) eps",
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.equiv_zero_num",
     "private": true,
     "file": "BarrowLib/Polygon/CauchyValues.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Fraction) (h : Fraction.equiv a (Fraction.ofInt 0)) : a.num = 0",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.zero_lt_positive",
@@ -1536,7 +1545,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(eps : Fraction) (heps : 0 < eps.num) : Fraction.lt (Fraction.ofInt 0) eps",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.distance_self_lt",
@@ -1545,7 +1554,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point × Point) (eps : Fraction) (heps : 0 < eps.num) : Fraction.lt (distance a a) eps",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_refl",
@@ -1554,7 +1563,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : EndpointCauchyName) : NameEquiv a a",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_symm",
@@ -1563,7 +1572,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : EndpointCauchyName} (hab : NameEquiv a b) : NameEquiv b a",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.half_add_equiv",
@@ -1572,7 +1581,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(eps : Fraction) : Fraction.equiv (Fraction.add eps.half eps.half) eps",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.half_lt",
@@ -1581,7 +1590,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(eps : Fraction) (heps : 0 < eps.num) : Fraction.lt eps.half eps",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_trans",
@@ -1590,7 +1599,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b c : EndpointCauchyName} (hab : NameEquiv a b) (hbc : NameEquiv b c) : NameEquiv a c",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.add_zero_split",
@@ -1599,7 +1608,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) (h : Fraction.equiv (Fraction.add a b) (Fraction.ofInt 0)) : a.num = 0 ∧ b.num = 0",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.pointNorm_zero_coords",
@@ -1608,7 +1617,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p : Point) (h : (pointNorm p).num = 0) : p.1.num = 0 ∧ p.2.num = 0",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.fraction_sub_zero_equiv",
@@ -1617,7 +1626,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Fraction) (h : (Fraction.add a ⟨-b.num, b.den, b.den_pos⟩).num = 0) : Fraction.equiv a b",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.distance_zero_iff_stateEquiv",
@@ -1626,7 +1635,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point × Point) : Fraction.equiv (distance a b) (Fraction.ofInt 0) ↔ stateEquiv a b",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameEquiv_of_levelwise_stateEquiv",
@@ -1635,7 +1644,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : EndpointCauchyName) (h : ∀ n, stateEquiv (a.approx n) (b.approx n)) : NameEquiv a b",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.constantName_equiv_iff",
@@ -1644,7 +1653,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point × Point) : NameEquiv (constantName a) (constantName b) ↔ stateEquiv a b",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.embed_eq_iff_stateEquiv",
@@ -1653,7 +1662,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point × Point) : embed a = embed b ↔ stateEquiv a b",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.add_lt_add_left",
@@ -1662,7 +1671,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : Fraction} (hab : Fraction.lt a b) (c : Fraction) : Fraction.lt (Fraction.add c a) (Fraction.add c b)",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.add_lt_add_right",
@@ -1671,7 +1680,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : Fraction} (hab : Fraction.lt a b) (c : Fraction) : Fraction.lt (Fraction.add a c) (Fraction.add b c)",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_left",
@@ -1680,7 +1689,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b c : Fraction} (hab : Fraction.equiv a b) (hbc : Fraction.lt b c) : Fraction.lt a c",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.lt_equiv_right",
@@ -1689,7 +1698,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b c : Fraction} (hab : Fraction.lt a b) (hbc : Fraction.equiv b c) : Fraction.lt a c",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.three_quarters_lt",
@@ -1698,7 +1707,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(R eps : Fraction) (heps : 0 < eps.num) : Fraction.lt (Fraction.add (Fraction.add (Fraction.add R eps.half.half) eps.half.half) eps.half.half) (Fraction.add R eps)",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_symm",
@@ -1707,7 +1716,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b : EndpointCauchyName} {R : Fraction} (h : NameBound a b R) : NameBound b a R",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.distance_three",
@@ -1716,7 +1725,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a a' b b' : Point × Point) : Fraction.le (distance a' b') (Fraction.add (distance a' a) (Fraction.add (distance a b) (distance b b')))",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.three_quarters_reordered",
@@ -1725,7 +1734,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(R eps : Fraction) (heps : 0 < eps.num) : Fraction.lt (Fraction.add eps.half.half (Fraction.add (Fraction.add R eps.half.half) eps.half.half)) (Fraction.add R eps)",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_transport",
@@ -1734,7 +1743,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a a' b b' : EndpointCauchyName} {R : Fraction} (ha : NameEquiv a a') (hb : NameEquiv b b') : NameBound a b R → NameBound a' b' R",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_congr",
@@ -1743,7 +1752,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a a' b b' : EndpointCauchyName} {R : Fraction} (ha : NameEquiv a a') (hb : NameEquiv b b') : NameBound a b R ↔ NameBound a' b' R",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.within_realize",
@@ -1752,7 +1761,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : EndpointCauchyName) (R : Fraction) : Within (realize a) (realize b) R ↔ NameBound a b R",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.within_symm",
@@ -1761,7 +1770,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(x y : Value) (R : Fraction) (h : Within x y R) : Within y x R",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.two_quarters_lt",
@@ -1770,7 +1779,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(R S eps : Fraction) (heps : 0 < eps.num) : Fraction.lt (Fraction.add (Fraction.add R eps.half.half) (Fraction.add S eps.half.half)) (Fraction.add (Fraction.add R S) eps)",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_triangle",
@@ -1779,7 +1788,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{a b c : EndpointCauchyName} {R S : Fraction} (hab : NameBound a b R) (hbc : NameBound b c S) : NameBound a c (Fraction.add R S)",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.within_triangle",
@@ -1788,7 +1797,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(x y z : Value) (R S : Fraction) (hxy : Within x y R) (hyz : Within y z S) : Within x z (Fraction.add R S)",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.lt_self_add_positive",
@@ -1797,7 +1806,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(R eps : Fraction) (heps : 0 < eps.num) : Fraction.lt R (Fraction.add R eps)",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_of_eventual_le",
@@ -1806,7 +1815,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : EndpointCauchyName) (R : Fraction) (N : Nat) (h : ∀ n : Nat, N ≤ n → Fraction.le (distance (a.approx n) (b.approx n)) R) : NameBound a b R",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.constant_approximants_converge",
@@ -1815,7 +1824,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : EndpointCauchyName) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m : Nat, N ≤ m → Within (embed (a.approx m)) (realize a) eps",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.nameBound_zero_iff",
@@ -1824,7 +1833,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : EndpointCauchyName) : NameBound a b (Fraction.ofInt 0) ↔ NameEquiv a b",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.within_zero_iff",
@@ -1833,7 +1842,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(x y : Value) : Within x y (Fraction.ofInt 0) ↔ x = y",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CauchyValues.le_add_cancel_left",
@@ -1842,7 +1851,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(z a b : Fraction) (h : Fraction.le (Fraction.add z a) (Fraction.add z b)) : Fraction.le a b",
-    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results and convergence of rational approximants. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
+    "interpretation_and_remaining_premises": "Generic explicit quotient of rational-state Cauchy names, embedding, eventual name bounds, representative invariance, closed-radius triangle/symmetry/zero results, convergence of rational approximants and decay of geometric mesh times a Cauchy-name position magnitude through a derived tail bound. Only standard Lean logical axioms are used. No harmonic force, motion, area, external complete space or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.within_of_thickenings",
@@ -2878,6 +2887,15 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": (m k : Nat) → k<blocks m → ticks (finiteAddress m k) m=k",
     "interpretation_and_remaining_premises": "Explicit terminating binary addresses for every finite numerator k<2^m. Finite prefix congruence, exact tick count and zero-tail proofs establish representation without an assumed external real interval or mechanical result."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointNorm_le_distance_add",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) : Fraction.le (pointNorm p) (Fraction.add (pointDistance p q) (pointNorm q))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_triangle",
@@ -4255,6 +4273,42 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": ¬ pointEquiv (run (fun _ => controlForce) controlHalf controlState 2).1 (quadraticPosition (time controlHalf 2) controlState controlForce)",
     "interpretation_and_remaining_premises": "Generic actual finite drift-then-kick quadratic comparison. Constant-map runs have exact position x0+t*v0+t*(t-h)*a/2 and velocity v0+t*a. Actual force-variation and velocity remainders derive position error <=t^2*(L*t*V+E) against that discrete predictor. Its distance from x0+t*v0+t^2*a/2 is exactly t*h*|a|/2. A two-cell parallel control has error 1/4 and refutes exact finite equality with the continuous quadratic predictor. These are finite rational identities and estimates, not a curve, derivative, integral, ODE, potential identification or historical dependency."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticSecants.second_identity",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(t : Fraction) (ht : 0 < t.num) (s u : Point × Point) (a : Point) : pointEquiv (pointSub (secondState t ht s u).1 a) (pointScale (Fraction.mul (Fraction.ofInt 2) (Fraction.mul (TimeCalibration.inverse t ht) (TimeCalibration.inverse t ht))) (pointSub u.1 (quadraticPosition t s a)))",
+    "interpretation_and_remaining_premises": "Generic normalized second-order position departure composed from the existing completed secant and velocity operators. Finite point identity transfers the actual quadratic remainder to force error 2*(L*t*V+E)+(h/t)*|a(x0)|; equivalent positive elapsed-time representations are covered. All Cauchy and representative proofs are inherited from the existing operators before composition. No desired force equation, derivative, integral, ODE, Newton import or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticSecants.second_state_time_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(t u : Fraction) (ht : 0 < t.num) (hu : 0 < u.num) (he : Fraction.equiv t u) (s v : Point × Point) : pointEquiv (secondState t ht s v).1 (secondState u hu s v).1",
+    "interpretation_and_remaining_premises": "Generic normalized second-order position departure composed from the existing completed secant and velocity operators. Finite point identity transfers the actual quadratic remainder to force error 2*(L*t*V+E)+(h/t)*|a(x0)|; equivalent positive elapsed-time representations are covered. All Cauchy and representative proofs are inherited from the existing operators before composition. No desired force equation, derivative, integral, ODE, Newton import or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num) (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (secondState (time h n) ht s (run a h s n)).1 (a s.1)) (Fraction.add (Fraction.mul (Fraction.ofInt 2) (source L E (time h n) V)) (Fraction.mul (Fraction.mul h (TimeCalibration.inverse (time h n) ht)) (pointNorm (a s.1))))",
+    "interpretation_and_remaining_premises": "Generic normalized second-order position departure composed from the existing completed secant and velocity operators. Finite point identity transfers the actual quadratic remainder to force error 2*(L*t*V+E)+(h/t)*|a(x0)|; equivalent positive elapsed-time representations are covered. All Cauchy and representative proofs are inherited from the existing operators before composition. No desired force equation, derivative, integral, ODE, Newton import or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_equivalent_time",
+    "private": false,
+    "file": "BarrowLib/Polygon/QuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num) (hu : 0 < u.num) (he : Fraction.equiv u (time h n)) (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (secondState u hu s (run a h s n)).1 (a s.1)) (Fraction.add (Fraction.mul (Fraction.ofInt 2) (source L E u V)) (Fraction.mul (Fraction.mul h (TimeCalibration.inverse u hu)) (pointNorm (a s.1))))",
+    "interpretation_and_remaining_premises": "Generic normalized second-order position departure composed from the existing completed secant and velocity operators. Finite point identity transfers the actual quadratic remainder to force error 2*(L*t*V+E)+(h/t)*|a(x0)|; equivalent positive elapsed-time representations are covered. All Cauchy and representative proofs are inherited from the existing operators before composition. No desired force equation, derivative, integral, ODE, Newton import or historical premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RationalIntervals.half_equiv",
@@ -7939,6 +7993,42 @@
     "interpretation_and_remaining_premises": "Modern actual prefixes of one dyadic inward central-force sample family. Existing endpoint conditions are augmented by uniform acceleration bounds at actual represented grid arrivals. A paired-prefix version of calibrated refinement and equivalent-duration comparison retains sampling/representation errors; the optional fine cell is bounded from its actual sample and derived velocity. The weighted adjacent coefficient is endpointCoefficient+T*(velocityCap+tau*B), which constructs prefix Cauchy names without a supplied motion-Cauchy field. Global approximate Lipschitz comparison and a calibrated short window remain explicit; continuous non-Lipschitz convergence, annular confinement, gluing, arbitrary partitions and P5 are not inferred. Zero time is included."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.cell_second_secant_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceQuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m k : Nat) (hk : k+1≤blocks m) : Within (cellSecondSecant o E0 T tau L B s hE d hT m k) (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))) (Fraction.mul (Fraction.ofInt 2) (Fraction.mul L (Fraction.mul (duration T m) (velocityCap T B s))))",
+    "interpretation_and_remaining_premises": "Modern second-order position departure criterion for the actual constructed sampled Lipschitz central-force curve. The composed completed secant 2/H_m*((gamma_right-gamma_left)/H_m-v_left) is within 2*L*H_m*V of the completed left-node force. Actual finite force-sampling error and half-mesh bias are retained, then vanish: the constructed shifted force name is Cauchy, which derives tail boundedness and mesh times sample magnitude decay without an added boundedness field. Precision-offset invariance gives the same completed force. Force/time continuity yields uniform error H_m*L*(2*V+stateTimeFactor) at each target address, including the final boundary. This derives the half-coefficient along completed bracketing dyadic cells, not an unrestricted Taylor theorem, potential value, polygon-curve area relation, annular confinement, gluing or historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.secondCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceQuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T tau L B : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (secondCoefficient T tau L B s ht).num",
+    "interpretation_and_remaining_premises": "Modern second-order position departure criterion for the actual constructed sampled Lipschitz central-force curve. The composed completed secant 2/H_m*((gamma_right-gamma_left)/H_m-v_left) is within 2*L*H_m*V of the completed left-node force. Actual finite force-sampling error and half-mesh bias are retained, then vanish: the constructed shifted force name is Cauchy, which derives tail boundedness and mesh times sample magnitude decay without an added boundedness field. Precision-offset invariance gives the same completed force. Force/time continuity yields uniform error H_m*L*(2*V+stateTimeFactor) at each target address, including the final boundary. This derives the half-coefficient along completed bracketing dyadic cells, not an unrestricted Taylor theorem, potential value, polygon-curve area relation, annular confinement, gluing or historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.bracketing_second_secant_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceQuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) : Within (cellSecondSecant o E0 T tau L B s hE d hT m (ticks b m)) (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) (Fraction.mul (duration T m) (secondCoefficient T tau L B s d.calibration_positive))",
+    "interpretation_and_remaining_premises": "Modern second-order position departure criterion for the actual constructed sampled Lipschitz central-force curve. The composed completed secant 2/H_m*((gamma_right-gamma_left)/H_m-v_left) is within 2*L*H_m*V of the completed left-node force. Actual finite force-sampling error and half-mesh bias are retained, then vanish: the constructed shifted force name is Cauchy, which derives tail boundedness and mesh times sample magnitude decay without an added boundedness field. Precision-offset invariance gives the same completed force. Force/time continuity yields uniform error H_m*L*(2*V+stateTimeFactor) at each target address, including the final boundary. This derives the half-coefficient along completed bracketing dyadic cells, not an unrestricted Taylor theorem, potential value, polygon-curve area relation, annular confinement, gluing or historical proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants.dyadic_second_uniform_identification",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceQuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ b : Nat → Bool, Within (cellSecondSecant o E0 T tau L B s hE d hT m (ticks b m)) (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Modern second-order position departure criterion for the actual constructed sampled Lipschitz central-force curve. The composed completed secant 2/H_m*((gamma_right-gamma_left)/H_m-v_left) is within 2*L*H_m*V of the completed left-node force. Actual finite force-sampling error and half-mesh bias are retained, then vanish: the constructed shifted force name is Cauchy, which derives tail boundedness and mesh times sample magnitude decay without an added boundedness field. Precision-offset invariance gives the same completed force. Force/time continuity yields uniform error H_m*L*(2*V+stateTimeFactor) at each target address, including the final boundary. This derives the half-coefficient along completed bracketing dyadic cells, not an unrestricted Taylor theorem, potential value, polygon-curve area relation, annular confinement, gluing or historical proof."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeneralForceSecants.node_approx",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/GeneralForceSecants.lean",
@@ -11304,6 +11394,15 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat) : polygonMap w T s hT m (leftTime T hT) = embedPosition s.1",
     "interpretation_and_remaining_premises": "Modern constructed within-cell polygon position names from actual coarse harmonic prefix positions/velocities and later binary-time approximants. Every phase lies between the cell boundaries. Whole-edge distance to constructed gammaPosition is bounded by R_m=[2T stateNorm(s)+prefixCoefficient]/2^m, with uniform geometric convergence for all addresses. Both same-cell and adjacent-cell alias independence are proved from actual cell endpoints and affine distance control, including zero time. The coarse polygonMap descends to the same constructed time quotient and satisfies the uniform whole-edge bound. No D_mesh, region content, arbitrary-force realization, P5 or historical limiting proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicQuadraticSecants.second_secants_converge",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicQuadraticSecants.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ b : Nat → Bool, Within (QuadraticSecants.secondValue (duration T m) ht (HarmonicTimeRealization.gammaValue w T s hT hs (nodeTime T hT m (ticks b m))) (HarmonicTimeRealization.gammaValue w T s hT hs (nodeTime T hT m (ticks b m+1)))) (HarmonicCompletedForce.linearValue w (HarmonicTimeRealization.gammaValue w T s hT hs (Quotient.mk _ b))) eps",
+    "interpretation_and_remaining_premises": "Actual retained harmonic-curve corollary of the constructed normalized second-order position departure criterion. The general curve equals the retained harmonic map, all actual/coarse/shadow sample bounds are derived, and the completed force is the retained linear -w operator. Uniform convergence includes the final boundary. One direct corollary uses the already proved completed secant operators; no new completion implementation, unrestricted derivative, potential expansion, area relation or historical edge is added."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicRefinement.position_mismatch",
