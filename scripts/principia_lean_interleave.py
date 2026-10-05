@@ -199,7 +199,22 @@ def module_order():
 def main():
     catalogue = json.loads(git('show', f'{REV}:research/formal-results.json'))
     order = module_order()
-    files = sorted({r['file'] for r in catalogue}, key=lambda f: order.get(f, 10_000))
+    # every library file at the revision, not only those with catalogued theorems
+    files = sorted((f for f in git('ls-tree', '-r', '--name-only', REV).split('\n')
+                    if f.endswith('.lean') and f.startswith(('NewtonLimitDynamics/', 'BarrowLib/'))),
+                   key=lambda f: order.get(f, 10_000))
+    # file-level source correspondence from the catalogue script, for files
+    # that define things but prove no theorem
+    import ast
+    file_anchors = {}
+    try:
+        tree = ast.parse(git('show', f'{REV}:scripts/catalogue_formal.py'))
+        for node in tree.body:
+            if isinstance(node, ast.Assign) and node.targets[0].id == 'correspondence':
+                for rel, (srcs, _note) in ast.literal_eval(node.value).items():
+                    file_anchors[rel] = srcs
+    except Exception as e:  # noqa: BLE001
+        print('warning: no file-level correspondence:', e, file=sys.stderr)
     sources, docs = {}, {}
     for f in files:
         try:
@@ -236,7 +251,10 @@ def main():
             continue
         v = votes.get(f)
         if not v:
-            home[f] = -2
+            rel = f.split('/', 1)[1] if '/' in f else f
+            anchors = file_anchors.get(rel, [])
+            hit = next((ANCHOR_TO_ITEM[a] for a in anchors if a in ANCHOR_TO_ITEM), None)
+            home[f] = hit if hit is not None else (-1 if anchors else -2)
         else:
             home[f] = max(v.items(), key=lambda kv: (kv[1], -kv[0]))[0]
     per_item = defaultdict(list)
@@ -259,7 +277,8 @@ def main():
         parts = []
         for f in fs:
             n = sum(votes[f].values()) if f in votes else 0
-            parts.append(f'\\noindent{{\\small\\texttt{{{f}}}}}{{\\small, {n} theorem{"s" if n != 1 else ""}, '
+            what = f'{n} theorem{"s" if n != 1 else ""}' if n else 'definitions only'
+            parts.append(f'\\noindent{{\\small\\texttt{{{f}}}}}{{\\small, {what}, '
                          f'{texts[f].count(chr(10))} lines}}\n')
             parts.append(verbatim(texts[f], size))
         return '\n'.join(parts)
@@ -359,8 +378,9 @@ not included.
     n_out = sum(sum(votes[f].values()) for f in out_files)
     n_found = sum(len([r for r in catalogue if r['file'] == f]) for f in found_files)
     text += '\n\n# Appendix A. Modules anchored outside Sections I–II\n\n'
-    text += (f'{len(out_files)} module{"s" if len(out_files) != 1 else ""} with {n_out} theorems cite passages '
-             'outside the rendered range (Proposition VI and its later-edition counterparts).\n\n')
+    text += (f'{len(out_files)} module{"s" if len(out_files) != 1 else ""} with {n_out} theorems are anchored to passages '
+             'outside the rendered range: Proposition VI and its later-edition counterparts, and the De Motu '
+             'quadratic-deflection chain of the M1 milestone.\n\n')
     text += render_files(out_files)
     text += '\n\n# Appendix B. The foundation: modules with no source anchor\n\n'
     text += (f'{len(found_files)} modules with {n_found} theorems have no Newton anchor. They build the rational '

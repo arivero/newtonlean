@@ -1474,7 +1474,13 @@ the sides $AD$, $AE$.
 > points $B$, $C$ coalesce with $A$ *while the length $Ae$ stays fixed*.
 
 
-\noindent{\small\textit{Lean reconstruction: 1 theorem in 1 module cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 1 theorem in 2 modules cite this item; the modules follow in full, in import order.}}
+
+\noindent{\small\texttt{NewtonLimitDynamics/Common/RationalMagnitudes.lean}}{\small, definitions only, 1 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Common.RationalMagnitudes
+\end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Principia1687/ConstructedRatio.lean}}{\small, 1 theorem, 25 lines}
 
@@ -2389,7 +2395,7 @@ consequentia*.
 > not at rest but move uniformly in a straight line.
 
 
-\noindent{\small\textit{Lean reconstruction: 435 theorems in 24 modules cite this item; the modules follow in full, in import order.}}
+\noindent{\small\textit{Lean reconstruction: 435 theorems in 26 modules cite this item; the modules follow in full, in import order.}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/Finite.lean}}{\small, 16 theorems, 183 lines}
 
@@ -4573,6 +4579,18 @@ theorem sample_closed_defect_nonzero :
     ¬ Fraction.equiv (closedDefect one half sample) zero := by decide
 
 end NewtonLimitDynamics.Polygon.HarmonicRefinement
+\end{Verbatim}
+
+\noindent{\small\texttt{NewtonLimitDynamics/Polygon/PointBounds.lean}}{\small, definitions only, 1 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.PointBounds
+\end{Verbatim}
+
+\noindent{\small\texttt{NewtonLimitDynamics/Polygon/TriangleBounds.lean}}{\small, definitions only, 1 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.TriangleBounds
 \end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/HarmonicComparison.lean}}{\small, 18 theorems, 214 lines}
@@ -9461,7 +9479,24 @@ radius.
 
 # Appendix A. Modules anchored outside Sections I–II
 
-1 module with 4 theorems cite passages outside the rendered range (Proposition VI and its later-edition counterparts).
+2 modules with 4 theorems are anchored to passages outside the rendered range: Proposition VI and its later-edition counterparts, and the De Motu quadratic-deflection chain of the M1 milestone.
+
+\noindent{\small\texttt{NewtonLimitDynamics/DeMotu1684/QuadraticDeflection.lean}}{\small, definitions only, 12 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import NewtonLimitDynamics.Common.Quadratic
+
+namespace DeMotu1684
+open NewtonLimitDynamics
+
+/-- ratio denotes the geometrically constructed deflection/time-square ratio.
+    Its construction is a separate obligation. H4 is numbered in the edited Royal Society copy; first-state chronology remains unverified. -/
+def QuadraticInitialDeflection {Q : Type} (g : Magnitudes Q)
+    (ratio : Q → Q) (coefficient : Q) : Prop :=
+  g.positive coefficient ∧ Ultimate g ratio coefficient
+
+end DeMotu1684
+\end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Comparison/Routes.lean}}{\small, 4 theorems, 52 lines}
 
@@ -9523,7 +9558,7 @@ end NewtonLimitDynamics.Comparison
 
 # Appendix B. The foundation: modules with no source anchor
 
-90 modules with 1002 theorems have no Newton anchor. They build the rational arithmetic, point algebra, finite estimates, Cauchy names and quotient values, binary time, square covers and the lifting of operations to completed values on which the anchored proofs stand. In full, in import order, followed by the two library root files.
+95 modules with 1002 theorems have no Newton anchor. They build the rational arithmetic, point algebra, finite estimates, Cauchy names and quotient values, binary time, square covers and the lifting of operations to completed values on which the anchored proofs stand. In full, in import order, followed by the two library root files.
 
 \noindent{\small\texttt{BarrowLib/Common/Quadratic.lean}}{\small, 4 theorems, 72 lines}
 
@@ -12516,6 +12551,26 @@ theorem stateSub_self_norm_zero (s : Point × Point) :
     Fraction.equiv (stateNorm (stateSub s s)) (Fraction.ofInt 0) := stateDistance_self_zero s
 
 end NewtonLimitDynamics.Polygon.HarmonicAccumulation
+\end{Verbatim}
+
+\noindent{\small\texttt{BarrowLib/Polygon/EndpointCauchyName.lean}}{\small, definitions only, 15 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.StateDistance
+
+namespace NewtonLimitDynamics.Polygon.HarmonicDyadic
+open NewtonLimitDynamics
+open TimeSubdivision
+open PointBounds
+open HarmonicComparison
+
+structure EndpointCauchyName where
+  approx : Nat → Point × Point
+  cauchy : ∀ eps : Fraction, 0 < eps.num →
+    ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
+      Fraction.lt (stateNorm (stateSub (approx m) (approx n))) eps
+
+end NewtonLimitDynamics.Polygon.HarmonicDyadic
 \end{Verbatim}
 
 \noindent{\small\texttt{BarrowLib/Polygon/CauchyValues.lean}}{\small, 38 theorems, 485 lines}
@@ -18998,6 +19053,14 @@ theorem normalized_triangle_identity (h : Fraction) (ht : 0 < h.num) (x y : Valu
 end NewtonLimitDynamics.Polygon.TangentTriangleValues
 \end{Verbatim}
 
+\noindent{\small\texttt{NewtonLimitDynamics/Common/FiniteGrowth.lean}}{\small, definitions only, 3 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Common.FiniteGrowth
+
+/-! Compatibility import: finite arithmetic now lives in BarrowLib. -/
+\end{Verbatim}
+
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/ForceClasses.lean}}{\small, 23 theorems, 397 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -19400,6 +19463,12 @@ theorem sampled_uniform_refinement (o : Oracle) (j : Nat)
 end NewtonLimitDynamics.Polygon.ForceClasses
 \end{Verbatim}
 
+\noindent{\small\texttt{NewtonLimitDynamics/Polygon/ConvexCover.lean}}{\small, definitions only, 1 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.ConvexCover
+\end{Verbatim}
+
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/CauchyValues.lean}}{\small, 7 theorems, 130 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -19533,6 +19602,12 @@ theorem sample_endpoint_value_ne_initial :
   exact (Fraction.magnitudes.lt_irrefl sampleLower) hloop'
 
 end NewtonLimitDynamics.Polygon.CauchyValues
+\end{Verbatim}
+
+\noindent{\small\texttt{NewtonLimitDynamics/Polygon/BinaryTime.lean}}{\small, definitions only, 1 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.BinaryTime
 \end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Polygon/PositionValues.lean}}{\small, 14 theorems, 208 lines}
@@ -25355,7 +25430,13 @@ theorem normalized_triangles_converge (o : CentralOracle) (E0 T tau L B : Fracti
 end NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle
 \end{Verbatim}
 
-\noindent{\small\texttt{BarrowLib.lean}}{\small, 0 theorems, 55 lines}
+\noindent{\small\texttt{NewtonLimitDynamics/Common/Quadratic.lean}}{\small, definitions only, 1 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Common.Quadratic
+\end{Verbatim}
+
+\noindent{\small\texttt{BarrowLib.lean}}{\small, definitions only, 55 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
 import BarrowLib.Common.Quadratic
@@ -25415,7 +25496,7 @@ import BarrowLib.Polygon.QuadraticPotentialValues
 import BarrowLib.Polygon.TangentTriangleValues
 \end{Verbatim}
 
-\noindent{\small\texttt{NewtonLimitDynamics.lean}}{\small, 0 theorems, 86 lines}
+\noindent{\small\texttt{NewtonLimitDynamics.lean}}{\small, definitions only, 86 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
 import NewtonLimitDynamics.DeMotu1684.QuadraticDeflection
