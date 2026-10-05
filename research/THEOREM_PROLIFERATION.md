@@ -205,3 +205,13 @@ comparison gives linear growth. Fifteen theorem rows and 21 public names are
 added; preserved conditional APIs receive no separate completion credit. The
 whole-plane premise remains a material applicability defect, and the revised
 handoff makes A.6 confinement with the Kepler instance the next task.
+
+The revised handoff's A.6 finite step adds one invariant transition used by
+actual and coarse runs and both shadow arrivals. The partial-time velocity
+bound handles the first shadow kick before the second sample; separate
+confinement recurrences are unnecessary. Arithmetic cancellation and the
+radial determinant bound live in existing foundation modules. Eleven theorem
+rows and 15 public names are added, without another completed quantity, a
+whole-plane hypothesis in the finite lemma or any completion-score credit.
+The localization of existing interfaces and the Kepler instance remain next
+within A.6. The sequential Sol review was read-only, not proof certification.

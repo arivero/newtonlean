@@ -130,3 +130,11 @@ invariance and kernel-checked finite recurrence validate the output.
 GeneralForceGrowth is the live Newton client: global comparison and centrality
 derive growth, then all actual/coarse/shadow sample fields. This does not derive
 region confinement or cover singular laws. No analytic primitive is added.
+
+A.6 adds one shared positive-factor cancellation and one determinant/radial
+lower-bound lemma to the existing arithmetic/triangle modules. The latter
+returns r<=|p|_1 from r*V<=|det(p,v)| and |v|_1<=V, with V>0. The finite
+RegionConfinement client keeps its central invariant and sampling order in
+NewtonLimitDynamics; no force instance or new completed operation enters the
+foundation. A zero-speed control rejects cancellation for a positive inner
+radius. Kernel checks and all library builds validate the shared helpers.

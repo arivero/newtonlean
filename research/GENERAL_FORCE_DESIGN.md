@@ -1,5 +1,17 @@
 # General central force design and proof specification
 
+A.6 has its first finite confinement mechanism in RegionConfinement. A single
+invariant retains |v|<=|v0|+t*B, |x|<=|x0|+t*V and the conserved areal
+product, V=|v0|+T*B. Each drift arrival lies inside the ball/annulus before
+the bound on that band is used to evaluate force. Positive speed and
+r0*V<=|ell| give the inner radius; r0=0 covers rest and radial motion.
+Actual/coarse runs and both coarse-field shadow arrivals inherit the same
+bound, without a supplied confinement trace or whole-plane force premise.
+Conditions and completed-force localization, completed curve confinement
+and an actual Euclidean Kepler oracle are still required to finish A.6.
+Task E and new completed quantities have not started. See the
+[finite confinement checkpoint](verification/region-confinement-2026-10-05.md).
+
 Task A of the 4 October handoff, Sol 6.1. This design is fixed before the
 estimates are implemented. Its mathematical layer is `modern_reconstruction`;
 it adds no historical edge and imports no limiting theorem into Newton's text.
@@ -280,3 +292,10 @@ in the region and their drift/refinement separations are below delta, the
 local state defect is bounded by `|h²|B+|h|(eps+eps)`. No Lipschitz coefficient
 is substituted for continuity. This controls the local source; a stability
 or subsequence construction and uniqueness require separate arguments.
+
+The finite Frame uses an acceleration bound on the certified band inside the
+oracle region. This distinction preserves the harmonic oracle's region=True:
+its force is bounded on each finite ball, despite being unbounded on the whole
+plane. For a singular law, the band is a genuine annulus. The zero-speed
+countermodel proves why the positive-speed clause is necessary for a nonzero
+inner radius. These are finite L1 radii; they are not Euclidean Kepler radii.

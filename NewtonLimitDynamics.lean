@@ -62,6 +62,7 @@ import NewtonLimitDynamics.Polygon.GeneralForceEndpoint
 import NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint
 import NewtonLimitDynamics.Polygon.GeneralForcePrefix
 import NewtonLimitDynamics.Polygon.GeneralForceGrowth
+import NewtonLimitDynamics.Polygon.RegionConfinement
 import NewtonLimitDynamics.Polygon.GeneralForceTime
 import NewtonLimitDynamics.Polygon.HarmonicGeneralTime
 import NewtonLimitDynamics.Polygon.GeneralForceSecants

@@ -206,6 +206,16 @@ theorem mul_le_mul_positive {a b : Fraction} (h : le a b) (c : Fraction)
   rw [e1, e2]
   exact hm
 
+/-- Cancel a positive rational factor in a weak inequality. -/
+theorem mul_le_cancel_positive_right {a b : Fraction} (c : Fraction)
+    (hc : positive c) (h : le (mul a c) (mul b c)) : le a b := by
+  have hp := Int.mul_pos hc c.den_pos
+  unfold le mul at h
+  have e1 : a.num * c.num * (b.den * c.den) = (a.num * b.den) * (c.num * c.den) := by ac_rfl
+  have e2 : b.num * c.num * (a.den * c.den) = (b.num * a.den) * (c.num * c.den) := by ac_rfl
+  rw [e1,e2] at h
+  exact Int.le_of_mul_le_mul_right h hp
+
 theorem add_comm (a b : Fraction) : equiv (add a b) (add b a) := by
   unfold equiv add
   dsimp

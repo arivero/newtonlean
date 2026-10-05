@@ -1,6 +1,32 @@
 # Verification record
 
-## Current handoff: derived general force bounds, 5 October 2026
+## Current handoff: finite regional confinement, 5 October 2026
+
+RegionConfinement derives a ball/annulus before each central-force sample by
+one partial-time invariant: velocity<=|v0|+t*B, position<=|x0|+t*V and conserved
+areal product, V=|v0|+T*B. The determinant product bound gives the inner radius
+when V>0 and r0*V<=|ell|; r0=0 includes degenerate ball data. The local band
+force bound is used after membership is derived. Actual/coarse runs, their
+BoundedSamples conclusion and both shadow arrivals share this proof. The
+second shadow includes its preceding kick and stays within the same elapsed
+window. A harmonic annular control, a rest/zero-time ball and a zero-speed
+cancellation countermodel compile in the separate scope file. No new completed
+quantity or whole-plane force premise is introduced by the finite mechanism.
+Existing construction/completed-force localization and the actual Euclidean
+Kepler instance remain required within A.6; scores stay unchanged. Targeted
+Lean 4.19 core and scope compilation pass. All 16 sequential checklist commands pass, including the default and both
+explicit library builds, catalogue/reference and standard-axiom inspection,
+source/graph, rendering, hashes and whitespace. There are 1,358 emitted
+reference checks; the graph has 77 nodes, 68 edges and 253 passages. The
+axiom union is propext, Classical.choice and Quot.sound, with no sorryAx,
+project axiom, external package or Newton/Mathlib foundation import. PDF
+dates were restored only after proving all other bytes unchanged. Logs:
+/tmp/newton-sol61-region-finite-final-01.log through -16.log. The live catalogue has 1,502 rows and 627 Barrow rows, with 1,114
+substantive, 199 plumbing, 163 sample and 26 duplicate by the heuristic. All
+1,915 prior public names/signatures remain, with 15 new names and 11 new
+source-free rows. See the [checkpoint](verification/region-confinement-2026-10-05.md).
+
+### Derived general force bounds, 5 October 2026
 
 CalibratedGrowth reuses the calibrated finite amplification and power/source
 estimates to bound actual states from linear growth, with a proved time-unit

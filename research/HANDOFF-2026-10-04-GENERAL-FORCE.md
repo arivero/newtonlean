@@ -62,9 +62,11 @@ prefix curve, E/G agreement at every dyadic time, whole-edge bounds; the
 polygon–curve region with outer content decreasing like `4C²/2^m`; velocity
 and force identified through secants; the deflection-triangle and
 potential-step limits; Arg007. The harmonic field is an instance throughout.
-The uncommitted `GeneralForceGrowth` derives the sample bounds of
-`Conditions` from the Lipschitz contract and the window; finish and commit it
-first.
+`GeneralForceGrowth` derives the sample bounds of `Conditions` from the
+Lipschitz contract and the window; it is committed as `a688803`. The first
+finite A.6 increment derives ball/annulus membership before each force sample,
+including both shadow arrivals. Construction/completed-force localization and
+the actual Euclidean Kepler instance remain required; A.6 is not complete.
 
 Two gaps remain, and they come before any new completed quantity:
 

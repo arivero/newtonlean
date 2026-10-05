@@ -414,6 +414,15 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.mul_le_cancel_positive_right",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (c : Fraction) (hc : positive c) (h : le (mul a c) (mul b c)) : le a b",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Fraction.add_comm",
     "private": false,
     "file": "BarrowLib/Common/RationalMagnitudes.lean",
@@ -5505,6 +5514,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q : Point) : Fraction.le (det p q).abs (Fraction.mul (pointNorm p) (pointNorm q))",
+    "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TriangleBounds.radius_lower_of_areal_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/TriangleBounds.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v : Point) (r V : Fraction) (hV : 0 < V.num) (hv : Fraction.le (pointNorm v) V) (ha : Fraction.le (Fraction.mul r V) (det p v).abs) : Fraction.le r (pointNorm p)",
     "interpretation_and_remaining_premises": "Modern rational estimates for finite unsigned triangle patches in polygon comparisons. Determinant magnitude is bounded by the product of coordinate L1 magnitudes; unsigned doubled triangle magnitude is nonnegative, translation invariant and unchanged by reversing vertex order. Both incident-edge and consecutive-edge bounds are checked. Opposite signed triangles have zero signed sum and positive magnitude sum, counted with multiplicity. These finite area helpers concern the intervening-path diagnostic, distinct from Kepler areas; geometric union/enclosure, actual trajectory construction and continuum interpretation remain separate."
   },
   {
@@ -15010,6 +15028,87 @@
     "classification": "modern_reconstruction",
     "premise_signature": ": refinementDefect (1, 0) (1, 1) (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 = 1",
     "interpretation_and_remaining_premises": "Modern finite coordinate diagnostic motivated by the polygon constructions: exact Euclidean triangle area between a coarse edge and a compatible one-cell refinement. The passages locate motivation only; no limiting curve, common-force time refinement, integration, or trajectory existence is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.initial_invariant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T B : Fraction) (s0 : Point × Point) : Invariant T B s0 (Fraction.ofInt 0) s0",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.band_of_bounds",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (p v : Point) (hp : Fraction.le (pointNorm p) R) (hv : Fraction.le (pointNorm v) (velocityCap T B s0)) (hm : Fraction.equiv (det p v) (CentralSchedule.momentum s0)) : Band r R p",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.invariant_band",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (t : Fraction) (q : Point × Point) (ht : Fraction.le t T) (hq : Invariant T B s0 t q) : Band r R q.1",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.arrival_band",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (t h : Fraction) (q : Point × Point) (hh : 0 ≤ h.num) (ht : Fraction.le (Fraction.add t h) T) (hq : Invariant T B s0 t q) : Band r R (FiniteEstimates.cell a h q).1",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.advance",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (t h : Fraction) (q : Point × Point) (hh : 0 ≤ h.num) (ht : Fraction.le (Fraction.add t h) T) (hq : Invariant T B s0 t q) : Invariant T B s0 (Fraction.add t h) (FiniteEstimates.cell a h q)",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.run_invariant",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (h : Fraction) (hh : 0 ≤ h.num) : (n : Nat) → Fraction.le (BoundedIteration.time h n) T → Invariant T B s0 (BoundedIteration.time h n) (BoundedIteration.run a h s0 n)",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.run_band",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat) (hn : Fraction.le (BoundedIteration.time h n) T) : Band r R (BoundedIteration.run a h s0 n).1",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.run_bounded_samples",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat) (hn : Fraction.le (BoundedIteration.time h n) T) : BoundedIteration.BoundedSamples a h s0 B n",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.shadow_bands",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (m k : Nat) (hk : k < HarmonicDyadic.blocks m) : Band r R (FiniteEstimates.cell a (HarmonicDyadic.duration T (m+1)) (FiniteAccumulation.coarseAt a (HarmonicDyadic.duration T (m+1)) s0 k)).1 ∧ Band r R (FiniteEstimates.twoHalf a (HarmonicDyadic.duration T (m+1)) (FiniteAccumulation.coarseAt a (HarmonicDyadic.duration T (m+1)) s0 k)).1",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RelativeMotion.add_zero_right",

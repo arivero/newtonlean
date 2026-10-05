@@ -1,5 +1,17 @@
 # Research state
 
+A.6 has its first finite confinement mechanism in RegionConfinement. A single
+invariant retains |v|<=|v0|+t*B, |x|<=|x0|+t*V and the conserved areal
+product, V=|v0|+T*B. Each drift arrival lies inside the ball/annulus before
+the bound on that band is used to evaluate force. Positive speed and
+r0*V<=|ell| give the inner radius; r0=0 covers rest and radial motion.
+Actual/coarse runs and both coarse-field shadow arrivals inherit the same
+bound, without a supplied confinement trace or whole-plane force premise.
+Conditions and completed-force localization, completed curve confinement
+and an actual Euclidean Kepler oracle are still required to finish A.6.
+Task E and new completed quantities have not started. See the
+[finite confinement checkpoint](verification/region-confinement-2026-10-05.md).
+
 GeneralForceGrowth now derives all three actual/coarse/shadow sample bounds
 from the whole-plane Lipschitz contract and initial state. Inward samples
 vanish at the centre. With E=2*E0 and r0=|x0|+tau*|v0|, the shared finite

@@ -101,3 +101,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 100,44b11d4,2026-10-05T14:32:09+02:00,"Add the article on scales, actions and the limit in Proposition I",1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
 101,f49d436,2026-10-05T14:35:24+02:00,"Steer the handoff: region confinement, Proposition I's own conclusion, one lift",1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
 102,2b98a36,2026-10-05T14:41:13+02:00,"Mark the whole-plane premise as a required repair, not a general result",1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
+103,a688803,2026-10-05T16:11:28+02:00,Derive actual coarse and shadow force bounds from calibrated growth,1491,15,0,0,0,0,695,22091,13,1106,197,162,26,0,154,147,30,1123,37

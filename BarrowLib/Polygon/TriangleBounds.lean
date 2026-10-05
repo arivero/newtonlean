@@ -44,6 +44,16 @@ theorem det_abs_le_product (p q : Point) :
 def triangleTwice (p q r : Point) : Fraction :=
   det (pointSub q p) (pointSub r p)
 
+/-- A nonzero areal product and bounded second vector give a radial lower bound.
+This is finite determinant arithmetic, without a force or motion premise. -/
+theorem radius_lower_of_areal_bound (p v : Point) (r V : Fraction)
+    (hV : 0 < V.num) (hv : Fraction.le (pointNorm v) V)
+    (ha : Fraction.le (Fraction.mul r V) (det p v).abs) :
+    Fraction.le r (pointNorm p) := by
+  have hd := Fraction.magnitudes.le_trans (det_abs_le_product p v)
+    (Fraction.mul_le_mul_nonnegative_left hv (pointNorm p) (pointNorm_nonnegative p))
+  exact Fraction.mul_le_cancel_positive_right V hV (Fraction.magnitudes.le_trans ha hd)
+
 def triangleMagnitude (p q r : Point) : Fraction := (triangleTwice p q r).abs
 
 theorem triangleMagnitude_nonnegative (p q r : Point) :

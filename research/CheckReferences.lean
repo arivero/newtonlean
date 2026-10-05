@@ -233,6 +233,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.mul_equiv_left
 #check NewtonLimitDynamics.Fraction.mul_equiv_right
 #print axioms NewtonLimitDynamics.Fraction.mul_equiv_right
+#check NewtonLimitDynamics.Fraction.mul_le_cancel_positive_right
+#print axioms NewtonLimitDynamics.Fraction.mul_le_cancel_positive_right
 #check NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative
 #print axioms NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative
 #check NewtonLimitDynamics.Fraction.mul_le_mul_nonnegative_left
@@ -2225,6 +2227,24 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_lower_gap
 #check NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_upper_gap
 #print axioms NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_upper_gap
+#check NewtonLimitDynamics.Polygon.RegionConfinement.advance
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.advance
+#check NewtonLimitDynamics.Polygon.RegionConfinement.arrival_band
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.arrival_band
+#check NewtonLimitDynamics.Polygon.RegionConfinement.band_of_bounds
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.band_of_bounds
+#check NewtonLimitDynamics.Polygon.RegionConfinement.initial_invariant
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.initial_invariant
+#check NewtonLimitDynamics.Polygon.RegionConfinement.invariant_band
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.invariant_band
+#check NewtonLimitDynamics.Polygon.RegionConfinement.run_band
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.run_band
+#check NewtonLimitDynamics.Polygon.RegionConfinement.run_bounded_samples
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.run_bounded_samples
+#check NewtonLimitDynamics.Polygon.RegionConfinement.run_invariant
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.run_invariant
+#check NewtonLimitDynamics.Polygon.RegionConfinement.shadow_bands
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.shadow_bands
 #check NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #check NewtonLimitDynamics.Polygon.RelativeMotion.add_common_cancel
@@ -2497,6 +2517,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.totalDuration_positive
 #check NewtonLimitDynamics.Polygon.TriangleBounds.det_abs_le_product
 #print axioms NewtonLimitDynamics.Polygon.TriangleBounds.det_abs_le_product
+#check NewtonLimitDynamics.Polygon.TriangleBounds.radius_lower_of_areal_bound
+#print axioms NewtonLimitDynamics.Polygon.TriangleBounds.radius_lower_of_areal_bound
 #check NewtonLimitDynamics.Polygon.TriangleBounds.sample_opposite_signed_sum
 #print axioms NewtonLimitDynamics.Polygon.TriangleBounds.sample_opposite_signed_sum
 #check NewtonLimitDynamics.Polygon.TriangleBounds.sample_opposite_unsigned_sum
