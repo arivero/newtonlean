@@ -1,4 +1,5 @@
-import NewtonLimitDynamics.Polygon.GeneralForceEndpoint
+import NewtonLimitDynamics.Polygon.GeneralForcePrecision
+import BarrowLib.Polygon.CalibratedRefinement
 import BarrowLib.Polygon.TriangleBounds
 
 /-! Finite regional confinement before force sampling. One partial-time
@@ -6,6 +7,44 @@ invariant controls actual runs and restarted shadow cells. The only force
 bound is on the named region; no whole-plane regularity, supplied motion or
 completed quantity is used. Kepler sampling and localization of the existing
 completion are separate remaining parts of handoff A.6. -/
+
+namespace NewtonLimitDynamics.Polygon.GeneralForceEndpoint
+open NewtonLimitDynamics TimeSubdivision PointBounds HarmonicDyadic
+
+def velocityCap (T B : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.add (pointNorm s.2) (Fraction.mul T B)
+
+theorem velocityCap_nonnegative (T B : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hB : 0 ≤ B.num) : 0 ≤ (velocityCap T B s).num :=
+  Fraction.nonnegative_add _ _ (pointNorm_nonnegative _)
+    (Fraction.nonnegative_mul _ _ hT hB)
+
+theorem duration_le_window (T : Fraction) (hT : 0 ≤ T.num) (j : Nat) :
+    Fraction.le (duration T j) T := by
+  have hp : (1 : Int) ≤ (2 : Int)^j := by
+    have hj := two_pow_ge_succ j
+    have hn : (0 : Int) ≤ (j : Int) := Int.ofNat_nonneg j
+    omega
+  have hm := Int.mul_le_mul_of_nonneg_left hp
+    (Int.mul_nonneg hT (Int.le_of_lt T.den_pos))
+  simpa only [duration,Fraction.le,Int.mul_one,Int.mul_assoc] using hm
+
+theorem fine_time (T : Fraction) (j : Nat) :
+    Fraction.equiv
+      (BoundedIteration.time (duration T (j+1)) (2*blocks j)) T := by
+  have hn : 2*blocks j = blocks (j+1) := by rw [blocks_succ]; omega
+  rw [hn]
+  exact blocks_duration T (j+1)
+
+theorem coarse_time (T : Fraction) (j : Nat) :
+    Fraction.equiv
+      (BoundedIteration.time
+        (Fraction.add (duration T (j+1)) (duration T (j+1))) (blocks j)) T :=
+  Fraction.equiv_trans
+    (Fraction.mul_equiv (Fraction.equiv_refl _) (Fraction.equiv_symm (duration_halving T j)))
+    (blocks_duration T j)
+
+end NewtonLimitDynamics.Polygon.GeneralForceEndpoint
 
 namespace NewtonLimitDynamics.Polygon.RegionConfinement
 open NewtonLimitDynamics TimeSubdivision PointBounds ForceClasses

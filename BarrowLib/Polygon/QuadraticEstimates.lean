@@ -87,16 +87,28 @@ theorem position_remainder_from_samples (a : Point → Point) (h : Fraction)
         ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (discrete_step h s (a s.1) n)) hb
     exact Fraction.magnitudes.le_trans hc (quadratic_step h C hh hC n)
 
-theorem position_remainder (a : Point → Point) (h : Fraction) (s : Point × Point)
+theorem position_remainder_at (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
-    (hc : comparisonContract a a L E) (n : Nat)
+    (n : Nat)
+    (hc : ∀ k, k<n → Fraction.le
+      (pointDistance (a (run a h s (k+1)).1) (a s.1))
+      (Fraction.add (Fraction.mul L (pointDistance (run a h s (k+1)).1 s.1)) E))
     (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
     Fraction.le (pointDistance (run a h s n).1 (discretePosition h s (a s.1) n))
       (Fraction.mul (Fraction.mul (time h n) (time h n)) (source L E (time h n) V)) :=
   position_remainder_from_samples a h s _ hh
     (Fraction.nonnegative_add _ _
       (Fraction.nonnegative_mul _ _ hL (Fraction.nonnegative_mul _ _ (time_nonnegative h hh n) hV)) hE)
-    n (fun i hi => force_variation a h s L E V hh hL hV hc n i hi hv) n (Nat.le_refl _)
+    n (fun i hi => force_variation_at a h s L E V hh hL hV n i hi (hc i hi) hv) n (Nat.le_refl _)
+
+
+theorem position_remainder (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
+    (hc : comparisonContract a a L E) (n : Nat)
+    (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
+    Fraction.le (pointDistance (run a h s n).1 (discretePosition h s (a s.1) n))
+      (Fraction.mul (Fraction.mul (time h n) (time h n)) (source L E (time h n) V)) :=
+  position_remainder_at a h s L E V hh hL hE hV n (fun _ _ => hc _ _) hv
 
 theorem discrete_quadratic_offset (h : Fraction) (s : Point × Point) (a : Point) (n : Nat) :
     pointEquiv (pointSub (quadraticPosition (time h n) s a) (discretePosition h s a n))
@@ -119,6 +131,22 @@ theorem half_mesh_bias (h : Fraction) (s : Point × Point) (a : Point)
         (Fraction.mul_equiv (Fraction.abs_of_nonnegative _ hr) (Fraction.equiv_refl _))))
 
 /-- Cubic force-variation remainder plus the explicit half-mesh bias. -/
+theorem position_quadratic_remainder_at (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
+    (n : Nat)
+    (hc : ∀ k, k<n → Fraction.le
+      (pointDistance (a (run a h s (k+1)).1) (a s.1))
+      (Fraction.add (Fraction.mul L (pointDistance (run a h s (k+1)).1 s.1)) E))
+    (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
+    Fraction.le (pointDistance (run a h s n).1 (quadraticPosition (time h n) s (a s.1)))
+      (Fraction.add
+        (Fraction.mul (Fraction.mul (time h n) (time h n)) (source L E (time h n) V))
+        (Fraction.mul (Fraction.mul (time h n) h).half (pointNorm (a s.1)))) :=
+  Fraction.magnitudes.le_trans (pointDistance_triangle _ (discretePosition h s (a s.1) n) _)
+    (Fraction.add_le_add (position_remainder_at a h s L E V hh hL hE hV n hc hv)
+      (Fraction.le_of_equiv (half_mesh_bias h s (a s.1) hh n)))
+
+
 theorem position_quadratic_remainder (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
     (hc : comparisonContract a a L E) (n : Nat)
@@ -127,9 +155,7 @@ theorem position_quadratic_remainder (a : Point → Point) (h : Fraction) (s : P
       (Fraction.add
         (Fraction.mul (Fraction.mul (time h n) (time h n)) (source L E (time h n) V))
         (Fraction.mul (Fraction.mul (time h n) h).half (pointNorm (a s.1)))) :=
-  Fraction.magnitudes.le_trans (pointDistance_triangle _ (discretePosition h s (a s.1) n) _)
-    (Fraction.add_le_add (position_remainder a h s L E V hh hL hE hV hc n hv)
-      (Fraction.le_of_equiv (half_mesh_bias h s (a s.1) hh n)))
+  position_quadratic_remainder_at a h s L E V hh hL hE hV n (fun _ _ => hc _ _) hv
 
 private def controlHalf : Fraction := ⟨1,2,by decide⟩
 private def controlState : Point × Point :=

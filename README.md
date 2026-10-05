@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,519 checked
-library theorems, 1,128 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,557 checked
+library theorems, 1,161 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -43,15 +43,13 @@ They construct acceleration values, bound actual sampled polygons and derive
 mesh-uniform refinement control and continuous local consistency. General
 Lipschitz central samples now have constructed fixed-time motion names/values
 on a calibrated window. GeneralForceGrowth derives their actual/coarse/shadow
-force bounds from the initial state and whole-plane Lipschitz data. This still
-requires global_region and excludes singular Kepler laws; A.6 confinement is
-the required repair in progress. RegionConfinement now derives finite ball/annulus
-bounds and both shadow arrivals before sampling force. Regional cell comparison
-now uses those certificates and shared pointwise finite estimates. Regional
-paired accumulation and equivalent-duration comparison derive membership for
-every actual sample pair. The construction and
-completed-force domain still need localization, and the Euclidean Kepler
-instance is open. The harmonic instance equals the old endpoint value.
+force bounds from the initial state and Lipschitz data on a computed finite
+ball. RegionConfinement derives actual/coarse and both shadow membership
+before sampling on a ball or annulus. The existing construction, completed
+force and secants now use those regional certificates; gamma_band proves the
+closed inner and outer curve bounds. A proper annular harmonic control tests
+the interface. The actual Euclidean Kepler instance remains required by A.6
+and comes before Task E. The harmonic instance equals the old endpoint value.
 The generic geometry, completion and binary-time layers are now in BarrowLib.
 Harmonic E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
@@ -59,7 +57,7 @@ Actual integer-subdivision accumulation proves the dyadic agreement, including
 the three-tick completed values whose finite schedules differ. GeneralForceTime now constructs a continuous local binary-time state/position
 map from actual central samples, with uniform prefix convergence, initial/zero
 cases and full-endpoint E/G agreement. Its harmonic instance derives the extra
-actual-grid bounds and equals the old maps. Local-annulus confinement/gluing,
+actual-grid bounds and equals the old maps. Kepler sampling, gluing and
 general interior-time E/G remain open.
 GeneralForcePolygonCurve now constructs the general coarse polygon quotient
 and proves uniform whole-edge error (T*V+A)/2^m, reusing the same finite-vertex
@@ -173,12 +171,12 @@ constructions, calibrated general Lipschitz endpoint and local binary-time maps,
 finite potential identities, harmonic and general matched-region outer content and
 constructed dyadic velocity/force-secants identification. It
 gives no extra credit for theorem count,
-helper consolidation or foundation migration. Local confinement and gluing,
+helper consolidation or foundation migration. Kepler sampling and gluing,
 ordinary-area/Kepler-area identification and P5 unrestricted-rate identification
 remain open, as do the limiting passages of Propositions II–IV.
 The harmonic time map still uses a short window; the general time map names
-its positive calibration, global Lipschitz comparison and actual/coarse/shadow
-force bounds explicitly. It constructs BinaryTime rather than assuming a real
+its positive calibration, regional Lipschitz comparison, band force bound
+and geometric time budgets explicitly. It constructs BinaryTime rather than assuming a real
 trajectory. General interior-time E/G, precision/partition independence and
 merely continuous-force existence/uniqueness also remain open.
 Modern reconstructions keep their premises separate from De Motu, 1687 and

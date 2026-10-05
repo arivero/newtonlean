@@ -24,14 +24,6 @@ def conditions (w E0 T : Fraction) (s : Point × Point)
     GeneralForcePrefix.Conditions (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs
       (harmonicBound w s) s hE where
   toConditions := HarmonicGeneralEndpoint.conditions w E0 T s hw hE hT hs
-  actual_samples := by
-    intro j i hi
-    simp only [harmonic_field]
-    apply linear_sample_bound
-    exact Fraction.magnitudes.le_trans
-      (Fraction.magnitudes.le_trans (point_le_state _)
-        (actual_run_state_bound w T s hT hs j (i+1) (by omega))) (two_to_four s)
-
 theorem harmonic_prefix_eq (b : Nat → Bool) (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (j : Nat) :
     GeneralForcePrefix.prefixState b (harmonicOracle w hw) E0 T s hE j =

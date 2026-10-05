@@ -1,5 +1,6 @@
 import NewtonLimitDynamics.Polygon.ForceClasses
 import BarrowLib.Polygon.TimeCalibration
+import BarrowLib.Polygon.EquivalentDuration
 
 /-! Modern calibrated instances of the general finite force estimates.
 The free calibration fixes no physical action constant and adds no historical
@@ -11,8 +12,11 @@ open TimeSubdivision PointBounds CentralSchedule HarmonicStability ForceClasses
 
 /-- Actual two-precision sampled polygons retain the weighted sampling budget. -/
 theorem sampled_calibrated_discrepancy (o : Oracle) (tau h L : Fraction)
-    (ht : 0 < tau.num) (hL : LipschitzOn o L) (hR : ∀ p, o.region p)
+    (ht : 0 < tau.num) (hL : LipschitzOn o L)
     (i j : Nat) (hij : i ≤ j) (s : Point × Point) (n : Nat)
+    (hR : ∀ k, k < n →
+      o.region (BoundedIteration.run (o.sample i) h s (k+1)).1 ∧
+      o.region (BoundedIteration.run (o.sample j) h s (k+1)).1)
     (hs : TimeCalibration.Window tau h L ht n) :
     Fraction.le
       (TimeCalibration.distance tau
@@ -22,12 +26,14 @@ theorem sampled_calibrated_discrepancy (o : Oracle) (tau h L : Fraction)
         (Fraction.mul (Fraction.mul tau h.abs)
           (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i)))) := by
   rw [← run_eq_schedule, ← run_eq_schedule]
-  exact TimeCalibration.run_uniform_discrepancy tau ht (o.sample i) (o.sample j)
-    h L _ s hL.1
+  apply EquivalentDuration.run_uniform_error_at tau ht (o.sample i) (o.sample j)
+    h h L _ s (Fraction.equiv_refl _) hL.1
     (Fraction.nonnegative_add _ _
       (Fraction.nonnegative_add _ _ (o.error_nonnegative i) (o.error_nonnegative i))
       (o.error_nonnegative i))
-    (fun p q => samples_comparison_contract o L hL i j hij p q (hR p) (hR q)) n hs
+    n hs
+  intro k hk
+  exact samples_comparison_contract o L hL i j hij _ _ (hR k hk).1 (hR k hk).2
 
 /-- Harmonic motion is an instance of the calibrated general estimate. -/
 theorem harmonic_calibrated_cell (tau w h : Fraction) (ht : 0 < tau.num)

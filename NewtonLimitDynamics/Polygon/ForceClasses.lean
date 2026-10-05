@@ -4,6 +4,7 @@ import NewtonLimitDynamics.Polygon.StripArea
 import BarrowLib.Polygon.FiniteEstimates
 import BarrowLib.Polygon.BoundedIteration
 import BarrowLib.Polygon.FiniteAccumulation
+import BarrowLib.Polygon.CalibratedRefinement
 
 /-!
 Uniform rational approximations to possibly irrational accelerations on an
@@ -326,12 +327,20 @@ theorem continuous_local_refinement (o : Oracle) (hC : ContinuousOn o)
     (FiniteEstimates.twoHalf_velocity_sample_error (o.sample j) h eps eps s hs₁ hs₂)
 
 /-- Successive oracle precisions instantiate the actual mesh comparison.
-The global-region premise is explicit; an annulus requires local confinement
-for the additional comparison arrivals before this theorem applies. -/
+Only the five actual and shadow arrivals need regional certificates. The
+central construction derives those certificates from its finite invariant. -/
 theorem sampled_uniform_refinement (o : Oracle) (j : Nat)
     (h L B V : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hL : LipschitzOn o L)
-    (hR : ∀ p, o.region p) (hB : BoundedOn o B) (hV : 0 ≤ V.num)
+    (hR : ∀ k, k < n →
+      let t := FiniteAccumulation.coarseAt (o.sample j) h s k
+      let u := FiniteAccumulation.fineAt (o.sample (j+1)) h s k
+      o.region (FiniteEstimates.cell (o.sample (j+1)) h u).1 ∧
+      o.region (FiniteEstimates.twoHalf (o.sample (j+1)) h u).1 ∧
+      o.region (FiniteEstimates.cell (o.sample j) h t).1 ∧
+      o.region (FiniteEstimates.twoHalf (o.sample j) h t).1 ∧
+      o.region (FiniteEstimates.oneFull (o.sample j) h t).1)
+    (hB : BoundedOn o B) (hV : 0 ≤ V.num)
     (hs : FiniteAccumulation.SmallWindow h L n)
     (hvel : ∀ k, k < n → Fraction.le
       (pointNorm (FiniteAccumulation.coarseAt (o.sample j) h s k).2) V) :
@@ -346,11 +355,43 @@ theorem sampled_uniform_refinement (o : Oracle) (j : Nat)
   have hE : 0 ≤ E.num := Fraction.nonnegative_add _ _
     (Fraction.nonnegative_add _ _ (o.error_nonnegative j) (o.error_nonnegative j))
     (o.error_nonnegative j)
-  have hcross := FiniteEstimates.comparisonContract_reverse _ _ L E
-    (fun p q => samples_comparison_contract o L hL j (j+1) (by omega) p q (hR p) (hR q))
-  exact FiniteAccumulation.cross_actual_uniform_error (o.sample (j+1)) (o.sample j)
-    h L E B V s n hh hL.1 hE hB.1 hV hs hcross
-    (fun p q => samples_comparison_contract o L hL j j (by omega) p q (hR p) (hR q))
-    (fun k _ => hB.2 j _ (hR _)) hvel
+  have hcross : ∀ p q, o.region p → o.region q →
+      Fraction.le (FiniteEstimates.pointDistance (o.sample (j+1) p) (o.sample j q))
+        (Fraction.add (Fraction.mul L (FiniteEstimates.pointDistance p q)) E) := by
+    intro p q hp hq
+    exact Fraction.le_equiv_right
+      (Fraction.le_equiv_left (FiniteEstimates.pointDistance_symm _ _)
+        (samples_comparison_contract o L hL j (j+1) (by omega) q p hq hp))
+      (Fraction.add_equiv (Fraction.mul_equiv_left L (FiniteEstimates.pointDistance_symm q p))
+        (Fraction.equiv_refl _))
+  have hwindow : TimeCalibration.Window (Fraction.ofInt 1) h L (by decide) (2*n) := by
+    unfold TimeCalibration.Window
+    rw [Fraction.abs_eq_of_nonnegative h hh]
+    apply Fraction.le_equiv_left (b := Fraction.mul (FiniteAccumulation.totalTime h n)
+      (Fraction.add (Fraction.ofInt 1) L)) _ hs
+    simp only [TimeCalibration.rate,TimeCalibration.inverse,FiniteAccumulation.totalTime,
+      Fraction.equiv,Fraction.mul,Fraction.add,Fraction.ofInt,Int.natCast_mul,
+      Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
+    ac_nf
+  have hc : ∀ k, k < n → CalibratedRefinement.BlockComparisons
+      (o.sample (j+1)) (o.sample j) h L E
+      (FiniteAccumulation.fineAt (o.sample (j+1)) h s k)
+      (FiniteAccumulation.coarseAt (o.sample j) h s k) := by
+    intro k hk
+    obtain ⟨hfirst,hsecond,hshadow,hshadow2,hfull⟩ := hR k hk
+    exact ⟨hcross _ _ hfirst hshadow,hcross _ _ hsecond hshadow2,
+      samples_comparison_contract o L hL j j (by omega) _ _ hshadow hfull,
+      samples_comparison_contract o L hL j j (by omega) _ _ hshadow2 hfull⟩
+  have hb := CalibratedRefinement.actual_uniform_error_at (Fraction.ofInt 1) (by decide)
+    (o.sample (j+1)) (o.sample j) h L E B V s hL.1 hE hB.1 hV n hwindow hc
+    (fun k hk => hB.2 j _ (hR k hk).2.2.1) hvel
+  apply Fraction.le_equiv_right
+    (Fraction.le_equiv_left (Fraction.equiv_symm (TimeCalibration.distance_unit_calibration _ _)) hb)
+  simp only [E,CalibratedRefinement.blockSource,CalibratedRefinement.localSource,
+    FiniteAccumulation.count,FiniteAccumulation.uniformBlockSource,
+    FiniteAccumulation.uniformLocalBudget,TimeCalibration.amplification,TimeCalibration.inverse,
+    FiniteEstimates.amplification,Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,
+    Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
+  ac_nf
 
 end NewtonLimitDynamics.Polygon.ForceClasses

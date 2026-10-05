@@ -43,6 +43,21 @@ theorem node_value (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × P
   · rw [nodeName,if_neg he,shiftedValue,nodeTime,if_neg he]
     rfl
 
+theorem node_region (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
+    (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (m k j : Nat) : o.region ((nodeName o E0 T tau L B s hE d m k).approx j).1 := by
+  by_cases he : k=blocks m
+  · simp only [nodeName,if_pos he,shiftedName]
+    exact d.toConditions.run_region (m+j) (duration T (m+j)) d.time_nonnegative
+      (blocks (m+j)) (Fraction.le_of_equiv (blocks_duration T (m+j)))
+  · simp only [nodeName,if_neg he,shiftedName]
+    exact prefix_region (finiteAddress m k) o E0 T tau L B s hE d (m+j)
+
+theorem node_admissible (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
+    (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k : Nat) :
+    SampledValues.Admissible (fun q => o.region q.1) (realize (nodeName o E0 T tau L B s hE d m k)) :=
+  SampledValues.admissible_realize _ _ (node_region o E0 T tau L B s hE d m k)
+
 /-- A secant of completed curve values, divided by the actual coarse cell time. -/
 noncomputable def cellSecant (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

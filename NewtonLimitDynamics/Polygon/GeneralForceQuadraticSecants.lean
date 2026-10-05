@@ -54,11 +54,12 @@ theorem node_second_sample_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     change Fraction.le (pointNorm (BoundedIteration.run a h (BoundedIteration.run a h s n) i).2) _
     rw [← BoundedIteration.run_add]
     exact GeneralForcePrefix.count_velocity o E0 T tau L B s hE d (m+j) (n+i) (by omega)
-  have hr := QuadraticSecants.finite_second_equivalent_time a h q L (sampleError o E0 hE (m+j))
+  have hr := QuadraticSecants.finite_second_equivalent_time_at a h q L (sampleError o E0 hE (m+j))
     (velocityCap T B s) (duration T m) (Int.le_of_lt hT) d.lipschitz.1
     (sampleError_nonnegative o E0 hE (m+j))
     (velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative)
-    (local_contract o E0 T tau L B s hE d.toConditions (m+j)) (blocks j) ht hT
+    (blocks j) ht
+    (fun i hi => restarted_comparison o E0 T tau L B s hE d (m+j) n (blocks j) hn i hi) hT
     (Fraction.equiv_symm (grid_time T m j)) hv
   have he : n+blocks j=(k+1)*blocks j := by simp only [n,Nat.add_mul,Nat.one_mul]
   change Fraction.le (FiniteEstimates.pointDistance
@@ -82,19 +83,24 @@ theorem cell_second_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
     (m k : Nat) (hk : k+1≤blocks m) :
     Within (cellSecondSecant o E0 T tau L B s hE d hT m k)
-      (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region
-        (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
+      (CompletedForce.forceValue o E0 L hE d.lipschitz (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
+        (gamma_admissible o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
       (Fraction.mul (Fraction.ofInt 2) (Fraction.mul L (Fraction.mul (duration T m) (velocityCap T B s)))) := by
-  rw [cellSecondSecant,QuadraticSecants.secondValue,
+  rw [GeneralForceAccelerationSecants.node_force_value o E0 T tau L B s hE d m k,
+    cellSecondSecant,QuadraticSecants.secondValue,
     ← node_value o E0 T tau L B s hE d m k,← node_value o E0 T tau L B s hE d m (k+1)]
-  let f := CompletedForce.family o E0 L hE d.lipschitz d.global_region
+  let f := CompletedForce.family o E0 L hE d.lipschitz
   change Within (realize (secantName (Fraction.mul (Fraction.ofInt 2) (TimeCalibration.inverse (duration T m) hT))
     (secantName (TimeCalibration.inverse (duration T m) hT)
       (nodeName o E0 T tau L B s hE d m (k+1)) (nodeName o E0 T tau L B s hE d m k))
     (mapName velocityState velocity_nonexpansive (nodeName o E0 T tau L B s hE d m k))))
-    (SampledValues.sampledValue f (realize (nodeName o E0 T tau L B s hE d m k))) _
-  rw [← SampledValues.sampledValue_offset f _ m]
+    (SampledValues.sampledValue f (realize (nodeName o E0 T tau L B s hE d m k))
+      (node_admissible o E0 T tau L B s hE d m k)) _
+  rw [← SampledValues.sampledValue_offset f _ _ m,
+    SampledValues.sampledValue_realize (SampledValues.offsetFamily f m)
+      (nodeName o E0 T tau L B s hE d m k) (node_region o E0 T tau L B s hE d m k)]
   let g := SampledValues.sampledName (SampledValues.offsetFamily f m) (nodeName o E0 T tau L B s hE d m k)
+    (node_region o E0 T tau L B s hE d m k)
   change NameBound _ g _
   apply SampledValues.nameBound_of_vanishing_error _ _ _ (fun j =>
     Fraction.add (Fraction.mul (sampleError o E0 hE (m+j)) (Fraction.ofInt 2))
@@ -136,12 +142,14 @@ theorem bracketing_second_secant_bound (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) :
     Within (cellSecondSecant o E0 T tau L B s hE d hT m (ticks b m))
-      (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region
-        (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b)))
+      (CompletedForce.forceValue o E0 L hE d.lipschitz (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))
+        (gamma_admissible o E0 T tau L B s hE d (Quotient.mk _ b)))
       (Fraction.mul (duration T m) (secondCoefficient T tau L B s d.calibration_positive)) := by
   have hs := cell_second_secant_bound o E0 T tau L B s hE d hT m (ticks b m)
     (by have hn := ticks_lt_blocks b m; omega)
-  have hf := CompletedForce.forceValue_within o E0 L hE d.lipschitz d.global_region _ _ _
+  have hf := CompletedForce.forceValue_within o E0 L hE d.lipschitz _ _
+    (gamma_admissible o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m (ticks b m)))
+    (gamma_admissible o E0 T tau L B s hE d (Quotient.mk _ b)) _
     (gamma_within o E0 T tau L B s hE d
       (nodeTime T d.time_nonnegative m (ticks b m)) (Quotient.mk _ b) (duration T m)
       (truncation_time_within b T d.time_nonnegative m))
@@ -159,8 +167,8 @@ theorem dyadic_second_uniform_identification (o : CentralOracle)
     (eps : Fraction) (heps : 0 < eps.num) :
     ∃ N : Nat, ∀ m, N≤m → ∀ b : Nat → Bool,
       Within (cellSecondSecant o E0 T tau L B s hE d hT m (ticks b m))
-        (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region
-          (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) eps := by
+        (CompletedForce.forceValue o E0 L hE d.lipschitz (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))
+        (gamma_admissible o E0 T tau L B s hE d (Quotient.mk _ b))) eps := by
   let C := secondCoefficient T tau L B s d.calibration_positive
   have hC := secondCoefficient_nonnegative T tau L B s d.time_nonnegative
     d.calibration_positive d.lipschitz.1 d.bound_nonnegative

@@ -263,10 +263,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.ultimate_congr
 #check NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_bound
 #print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_bound
+#check NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_bound_at
+#print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_bound_at
 #check NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_equivalent_time
 #print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_equivalent_time
+#check NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_equivalent_time_at
+#print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.acceleration_secant_equivalent_time_at
 #check NewtonLimitDynamics.Polygon.AccelerationEstimates.force_variation
 #print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.force_variation
+#check NewtonLimitDynamics.Polygon.AccelerationEstimates.force_variation_at
+#print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.force_variation_at
 #check NewtonLimitDynamics.Polygon.AccelerationEstimates.position_displacement
 #print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.position_displacement
 #check NewtonLimitDynamics.Polygon.AccelerationEstimates.position_increment
@@ -275,6 +281,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.two_cell_acceleration_control
 #check NewtonLimitDynamics.Polygon.AccelerationEstimates.velocity_remainder
 #print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.velocity_remainder
+#check NewtonLimitDynamics.Polygon.AccelerationEstimates.velocity_remainder_at
+#print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.velocity_remainder_at
 #check NewtonLimitDynamics.Polygon.AccelerationEstimates.velocity_remainder_from_samples
 #print axioms NewtonLimitDynamics.Polygon.AccelerationEstimates.velocity_remainder_from_samples
 #check NewtonLimitDynamics.Polygon.AccelerationEstimates.zero_bound_rejects_acceleration_control
@@ -421,10 +429,18 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.cap_rescale
 #check NewtonLimitDynamics.Polygon.CalibratedGrowth.cell_norm_bound
 #print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.cell_norm_bound
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.cell_norm_bound_at
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.cell_norm_bound_at
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.driftCap_budget
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.driftCap_budget
 #check NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_budget
 #print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_budget
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_budget_at
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_budget_at
 #check NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_le_cap
 #print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_le_cap
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_le_cap_at
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_le_cap_at
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source_at
@@ -549,6 +565,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CompletedForce.force_precision_independent
 #check NewtonLimitDynamics.Polygon.CompletedForce.force_rational_agreement
 #print axioms NewtonLimitDynamics.Polygon.CompletedForce.force_rational_agreement
+#check NewtonLimitDynamics.Polygon.CompletedForce.position_admissible
+#print axioms NewtonLimitDynamics.Polygon.CompletedForce.position_admissible
 #check NewtonLimitDynamics.Polygon.CompletedForce.precisionError_le_sampleError
 #print axioms NewtonLimitDynamics.Polygon.CompletedForce.precisionError_le_sampleError
 #check NewtonLimitDynamics.Polygon.CompletedForce.prefix_force_bound
@@ -569,6 +587,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.closure_mono
 #check NewtonLimitDynamics.Polygon.CompletionGeometry.closure_square
 #print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.closure_square
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.position_band_realize
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.position_band_realize
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.position_distance_zero
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.position_distance_zero
 #check NewtonLimitDynamics.Polygon.CompletionGeometry.square_of_ball_bound
 #print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.square_of_ball_bound
 #check NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedded_iff
@@ -941,6 +963,18 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.cell_acceleration_secant_bound
 #check NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.dyadic_acceleration_uniform_identification
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.dyadic_acceleration_uniform_identification
+#check NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.node_force_value
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants.node_force_value
+#check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.actual_samples
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.actual_samples
+#check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.coarse_samples
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.coarse_samples
+#check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.run_band
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.run_band
+#check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.run_region
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.run_region
+#check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.shadow_samples
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.shadow_samples
 #check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.adjacent_finite_bound
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.adjacent_finite_bound
 #check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.adjacent_mesh_bound
@@ -987,6 +1021,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_value
 #check NewtonLimitDynamics.Polygon.GeneralForceGrowth.bounded_samples
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceGrowth.bounded_samples
+#check NewtonLimitDynamics.Polygon.GeneralForceGrowth.field_bound_on_ball
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceGrowth.field_bound_on_ball
 #check NewtonLimitDynamics.Polygon.GeneralForceGrowth.field_growth
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceGrowth.field_growth
 #check NewtonLimitDynamics.Polygon.GeneralForceGrowth.forceCap_nonnegative
@@ -1055,12 +1091,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrecision.target_positive
 #check NewtonLimitDynamics.Polygon.GeneralForcePrecision.threshold_error
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrecision.threshold_error
+#check NewtonLimitDynamics.Polygon.GeneralForcePrefix.Conditions.actual_samples
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.Conditions.actual_samples
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.adjacent_tail
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.adjacent_tail
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.adjacent_weighted_tail
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.adjacent_weighted_tail
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.coefficient_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.coefficient_nonnegative
+#check NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_region
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_region
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_step_bound
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_step_bound
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_time_le
@@ -1069,6 +1109,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.count_velocity
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.prefix_next
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.prefix_next
+#check NewtonLimitDynamics.Polygon.GeneralForcePrefix.restarted_comparison
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.restarted_comparison
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.speedCap_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePrefix.speedCap_nonnegative
 #check NewtonLimitDynamics.Polygon.GeneralForcePrefix.weightedCoefficient_nonnegative
@@ -1093,8 +1135,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.dyadic_velocity_identification
 #check NewtonLimitDynamics.Polygon.GeneralForceSecants.dyadic_velocity_uniform_identification
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.dyadic_velocity_uniform_identification
+#check NewtonLimitDynamics.Polygon.GeneralForceSecants.node_admissible
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.node_admissible
 #check NewtonLimitDynamics.Polygon.GeneralForceSecants.node_approx
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.node_approx
+#check NewtonLimitDynamics.Polygon.GeneralForceSecants.node_region
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.node_region
 #check NewtonLimitDynamics.Polygon.GeneralForceSecants.node_value
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceSecants.node_value
 #check NewtonLimitDynamics.Polygon.GeneralForceSecants.rateCoefficient_nonnegative
@@ -1117,6 +1163,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.gammaPosition_within
 #check NewtonLimitDynamics.Polygon.GeneralForceTime.gammaValue_address
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.gammaValue_address
+#check NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_admissible
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_admissible
+#check NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_band
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_band
 #check NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_conditions_independent
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_conditions_independent
 #check NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_uniform_continuity
@@ -1125,6 +1175,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.gamma_within
 #check NewtonLimitDynamics.Polygon.GeneralForceTime.left_endpoint_value
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.left_endpoint_value
+#check NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_band
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_band
+#check NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_region
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_region
 #check NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_time_bound
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_time_bound
 #check NewtonLimitDynamics.Polygon.GeneralForceTime.prefix_uniform_convergence
@@ -1469,6 +1523,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.full_run_state_bound
 #check NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonicBound_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonicBound_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_band_budget
+#print axioms NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_band_budget
 #check NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_endpoint_eq
 #print axioms NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_endpoint_eq
 #check NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint.harmonic_field
@@ -2213,8 +2269,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.QuadraticEstimates.half_mesh_bias
 #check NewtonLimitDynamics.Polygon.QuadraticEstimates.position_quadratic_remainder
 #print axioms NewtonLimitDynamics.Polygon.QuadraticEstimates.position_quadratic_remainder
+#check NewtonLimitDynamics.Polygon.QuadraticEstimates.position_quadratic_remainder_at
+#print axioms NewtonLimitDynamics.Polygon.QuadraticEstimates.position_quadratic_remainder_at
 #check NewtonLimitDynamics.Polygon.QuadraticEstimates.position_remainder
 #print axioms NewtonLimitDynamics.Polygon.QuadraticEstimates.position_remainder
+#check NewtonLimitDynamics.Polygon.QuadraticEstimates.position_remainder_at
+#print axioms NewtonLimitDynamics.Polygon.QuadraticEstimates.position_remainder_at
 #check NewtonLimitDynamics.Polygon.QuadraticEstimates.position_remainder_from_samples
 #print axioms NewtonLimitDynamics.Polygon.QuadraticEstimates.position_remainder_from_samples
 #check NewtonLimitDynamics.Polygon.QuadraticEstimates.quadratic_time_congr
@@ -2235,8 +2295,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.QuadraticPotentialValues.uniform_frame_bound
 #check NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_bound
 #print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_bound
+#check NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_bound_at
+#print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_bound_at
 #check NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_equivalent_time
 #print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_equivalent_time
+#check NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_equivalent_time_at
+#print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.finite_second_equivalent_time_at
 #check NewtonLimitDynamics.Polygon.QuadraticSecants.second_identity
 #print axioms NewtonLimitDynamics.Polygon.QuadraticSecants.second_identity
 #check NewtonLimitDynamics.Polygon.QuadraticSecants.second_state_time_congr
@@ -2311,6 +2375,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_equal_area_central
 #check NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
+#check NewtonLimitDynamics.Polygon.SampledValues.admissibleName_mem
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.admissibleName_mem
+#check NewtonLimitDynamics.Polygon.SampledValues.admissibleName_realize
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.admissibleName_realize
+#check NewtonLimitDynamics.Polygon.SampledValues.admissible_embed
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.admissible_embed
+#check NewtonLimitDynamics.Polygon.SampledValues.admissible_realize
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.admissible_realize
+#check NewtonLimitDynamics.Polygon.SampledValues.admissible_true
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.admissible_true
 #check NewtonLimitDynamics.Polygon.SampledValues.nameBound_affine
 #print axioms NewtonLimitDynamics.Polygon.SampledValues.nameBound_affine
 #check NewtonLimitDynamics.Polygon.SampledValues.nameBound_of_vanishing_error
@@ -2321,6 +2395,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.SampledValues.sampledName_equiv
 #check NewtonLimitDynamics.Polygon.SampledValues.sampledName_offset_equiv
 #print axioms NewtonLimitDynamics.Polygon.SampledValues.sampledName_offset_equiv
+#check NewtonLimitDynamics.Polygon.SampledValues.sampledValue_congr
+#print axioms NewtonLimitDynamics.Polygon.SampledValues.sampledValue_congr
 #check NewtonLimitDynamics.Polygon.SampledValues.sampledValue_offset
 #print axioms NewtonLimitDynamics.Polygon.SampledValues.sampledValue_offset
 #check NewtonLimitDynamics.Polygon.SampledValues.sampledValue_realize

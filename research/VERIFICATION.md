@@ -1,6 +1,29 @@
 # Verification record
 
-## Current handoff: regional paired accumulation, 5 October 2026
+## Current handoff: regional construction, 5 October 2026
+
+Conditions, the existing completed-force operation and all construction clients
+now use derived regional certificates. The regular-ball budget closes from
+the existing calibrated window before force sampling; gamma_band transfers
+the finite inner/outer coordinate bounds to the constructed curve. Proper-ball
+and proper-annulus harmonic controls compile. The actual Euclidean Kepler
+oracle remains required by A.6; Task E and new completed quantities have not
+started, and completion scores stay unchanged.
+
+All 16 sequential checklist commands and the proper-region scope file pass,
+run by one sequential gpt-6-luna verification worker and reviewed by root
+Sol 6.1. There are 1,413 emitted references, 77 nodes, 68 edges and 253
+passages; only propext, Classical.choice and Quot.sound occur. Packages remain
+empty and BarrowLib imports no Newton modules. The live catalogue has 1,557
+rows and 661 Barrow rows: 1,161 substantive, 199 plumbing, 171 sample and
+26 duplicate by the heuristic. All 1,948 prior public names remain; 39
+statement restrictions are intentional, with 44 new public names. Structure
+fields require kernel checks beyond that bounded parser audit. PDF dates were
+restored only after every other byte matched HEAD. Logs:
+/tmp/newton-sol61-regional-construction-final-01.log through -16.log. See the
+[checkpoint](verification/regional-construction-2026-10-05.md).
+
+### Regional paired accumulation at 541a6ed, 5 October 2026
 
 Pointwise finite paired accumulation takes only four actual force comparisons
 per block. The local two-half defect, recurrence and uniform closing reuse

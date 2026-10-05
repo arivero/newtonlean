@@ -238,3 +238,20 @@ heuristic labels both universal clients sample by their names; neither counts
 as a separate milestone. Root reviewed and compiled the sequential Sol
 worker edits after its reporting turn hit model capacity, then integrated the
 clients and ran the full checklist. Scores stay unchanged.
+
+
+The A.6 construction migration restricts the existing interfaces in place.
+Conditions stores force and geometric band data; actual/coarse/shadow bounds
+become derived methods. SampledValues adds a regional representative certificate
+to its existing operation, with equivalence proved before choice. Restarted
+remainders use the same finite inductions with comparisons only at their actual
+samples. Completed force, acceleration/quadratic secants and triangle results
+use those certificates; no second global Newton construction is retained.
+The regular-ball budget is finite arithmetic, and gamma_band closes both radii
+on the curve without introducing a completed norm. The migration adds 38
+rows and 44 public names; all 1,948 prior names remain, with 39 deliberately
+restricted statements. Structure-field changes are outside that bounded parser
+comparison and are checked by the library builds. The live inventory is 1,557
+rows: 1,161 substantive, 199 plumbing, 171 sample and 26 duplicate by the
+existing heuristic. This is prerequisite repair and receives no score. Kepler
+sampling is still required before Task E and the generic lifting-kit task.

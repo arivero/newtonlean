@@ -34,21 +34,24 @@ theorem cell_triangle_bound (o : CentralOracle) (E0 T tau L B : Fraction)
       (secantValue (Fraction.ofInt 1).half
         (pairingValue detForm
           (velocityValue (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
-          (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region
-            (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))))
+          (CompletedForce.forceValue o E0 L hE d.lipschitz (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
+        (gamma_admissible o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))))
         (embed (zeroPoint,zeroPoint)))
       (Fraction.mul (duration T m) (coefficient T L B s)) := by
   rw [normalized_triangle_identity]
   have hs := GeneralForceQuadraticSecants.cell_second_secant_bound o E0 T tau L B s hE d hT m k hk
   rw [GeneralForceQuadraticSecants.cellSecondSecant] at hs
+  rw [GeneralForceAccelerationSecants.node_force_value o E0 T tau L B s hE d m k] at hs ⊢
   rw [← node_value o E0 T tau L B s hE d m k,
     ← node_value o E0 T tau L B s hE d m (k+1)] at hs ⊢
+  rw [CompletedForce.forceValue_realize o E0 L hE d.lipschitz
+    (nodeName o E0 T tau L B s hE d m k) (node_region o E0 T tau L B s hE d m k)] at hs ⊢
   let a := nodeName o E0 T tau L B s hE d m k
   let b := nodeName o E0 T tau L B s hE d m (k+1)
   let v := mapName velocityState velocity_nonexpansive a
   let z := secantName (Fraction.mul (Fraction.ofInt 2) (TimeCalibration.inverse (duration T m) hT))
     (secantName (TimeCalibration.inverse (duration T m) hT) b a) v
-  let f := CompletedForce.forceName o E0 L hE d.lipschitz d.global_region a
+  let f := CompletedForce.forceName o E0 L hE d.lipschitz a (node_region o E0 T tau L B s hE d m k)
   let V := velocityCap T B s
   let R := Fraction.mul (Fraction.ofInt 2) (Fraction.mul L (Fraction.mul (duration T m) V))
   have hV := velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative
@@ -98,8 +101,8 @@ theorem normalized_triangles_converge (o : CentralOracle) (E0 T tau L B : Fracti
         (secantValue (Fraction.ofInt 1).half
           (pairingValue detForm
             (velocityValue (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
-            (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region
-              (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))))
+            (CompletedForce.forceValue o E0 L hE d.lipschitz (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
+        (gamma_admissible o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))))
           (embed (zeroPoint,zeroPoint))) eps := by
   have hC := coefficient_nonnegative T L B s d.time_nonnegative d.lipschitz.1 d.bound_nonnegative
   obtain ⟨N,hN⟩ := duration_eventually_small (Fraction.mul T (coefficient T L B s)) eps

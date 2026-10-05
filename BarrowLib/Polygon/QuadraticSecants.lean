@@ -41,9 +41,12 @@ theorem second_state_time_congr (t u : Fraction) (ht : 0 < t.num) (hu : 0 < u.nu
     (show pointEquiv s.2 s.2 from ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)
   exact pointScale_ratio_congr (Fraction.mul_equiv (Fraction.equiv_refl _) hi) hd
 
-theorem finite_second_bound (a : Point → Point) (h : Fraction) (s : Point × Point)
+theorem finite_second_bound_at (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
-    (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num)
+    (n : Nat) (ht : 0 < (time h n).num)
+    (hc : ∀ k, k<n → Fraction.le
+      (pointDistance (a (run a h s (k+1)).1) (a s.1))
+      (Fraction.add (Fraction.mul L (pointDistance (run a h s (k+1)).1 s.1)) E))
     (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
     Fraction.le (pointDistance (secondState (time h n) ht s (run a h s n)).1 (a s.1))
       (Fraction.add (Fraction.mul (Fraction.ofInt 2) (source L E (time h n) V))
@@ -55,7 +58,7 @@ theorem finite_second_bound (a : Point → Point) (h : Fraction) (s : Point × P
   have he := Fraction.equiv_trans (pointNorm_equiv (second_identity (time h n) ht s (run a h s n) (a s.1)))
     (pointNorm_scale q _)
   have hb := Fraction.mul_le_mul_nonnegative_left
-    (position_quadratic_remainder a h s L E V hh hL hE hV hc n hv) q hq
+    (position_quadratic_remainder_at a h s L E V hh hL hE hV n hc hv) q hq
   have he' := Fraction.equiv_trans he
     (Fraction.mul_equiv (Fraction.abs_of_nonnegative q hq) (Fraction.equiv_refl _))
   apply Fraction.le_equiv_right (Fraction.le_equiv_left he' hb)
@@ -63,9 +66,22 @@ theorem finite_second_bound (a : Point → Point) (h : Fraction) (s : Point × P
     Int.add_mul,Int.mul_add]
   ac_nf
 
-theorem finite_second_equivalent_time (a : Point → Point) (h : Fraction) (s : Point × Point)
+
+theorem finite_second_bound (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
+    (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num)
+    (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
+    Fraction.le (pointDistance (secondState (time h n) ht s (run a h s n)).1 (a s.1))
+      (Fraction.add (Fraction.mul (Fraction.ofInt 2) (source L E (time h n) V))
+        (Fraction.mul (Fraction.mul h (TimeCalibration.inverse (time h n) ht)) (pointNorm (a s.1)))) :=
+  finite_second_bound_at a h s L E V hh hL hE hV n ht (fun _ _ => hc _ _) hv
+
+theorem finite_second_equivalent_time_at (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
-    (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num) (hu : 0 < u.num)
+    (n : Nat) (ht : 0 < (time h n).num)
+    (hc : ∀ k, k<n → Fraction.le
+      (pointDistance (a (run a h s (k+1)).1) (a s.1))
+      (Fraction.add (Fraction.mul L (pointDistance (run a h s (k+1)).1 s.1)) E)) (hu : 0 < u.num)
     (he : Fraction.equiv u (time h n))
     (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
     Fraction.le (pointDistance (secondState u hu s (run a h s n)).1 (a s.1))
@@ -74,12 +90,23 @@ theorem finite_second_equivalent_time (a : Point → Point) (h : Fraction) (s : 
   apply Fraction.le_equiv_right
     (Fraction.le_equiv_left (pointDistance_equiv (second_state_time_congr u (time h n) hu ht he s _)
       ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)
-      (finite_second_bound a h s L E V hh hL hE hV hc n ht hv))
+      (finite_second_bound_at a h s L E V hh hL hE hV n ht hc hv))
   exact Fraction.add_equiv
     (Fraction.mul_equiv (Fraction.equiv_refl _) (Fraction.add_equiv
       (Fraction.mul_equiv (Fraction.equiv_refl L) (Fraction.mul_equiv (Fraction.equiv_symm he)
         (Fraction.equiv_refl V))) (Fraction.equiv_refl E)))
     (Fraction.mul_equiv (Fraction.mul_equiv (Fraction.equiv_refl h)
       (TimeCalibration.inverse_congr ht hu (Fraction.equiv_symm he))) (Fraction.equiv_refl _))
+
+
+theorem finite_second_equivalent_time (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
+    (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num) (hu : 0 < u.num)
+    (he : Fraction.equiv u (time h n))
+    (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
+    Fraction.le (pointDistance (secondState u hu s (run a h s n)).1 (a s.1))
+      (Fraction.add (Fraction.mul (Fraction.ofInt 2) (source L E u V))
+        (Fraction.mul (Fraction.mul h (TimeCalibration.inverse u hu)) (pointNorm (a s.1)))) :=
+  finite_second_equivalent_time_at a h s L E V u hh hL hE hV n ht (fun _ _ => hc _ _) hu he hv
 
 end NewtonLimitDynamics.Polygon.QuadraticSecants

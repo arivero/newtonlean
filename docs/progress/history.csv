@@ -104,3 +104,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 103,a688803,2026-10-05T16:11:28+02:00,Derive actual coarse and shadow force bounds from calibrated growth,1491,15,0,0,0,0,695,22091,13,1106,197,162,26,0,154,147,30,1123,37
 104,ec28151,2026-10-05T16:35:48+02:00,Derive finite regional confinement before central force sampling,1502,11,0,0,0,0,699,22352,14,1114,199,163,26,0,164,147,30,1124,37
 105,165cfa8,2026-10-05T16:54:17+02:00,Localize cell force comparisons to certified regional arrivals,1510,8,0,1,11,0,699,22472,15,1121,199,164,26,12,165,147,30,1131,37
+106,541a6ed,2026-10-05T17:14:55+02:00,Accumulate sampled refinement using derived regional comparisons,1519,9,0,0,7,0,700,22757,18,1128,199,166,26,7,167,147,30,1138,37

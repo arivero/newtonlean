@@ -16,12 +16,12 @@ def linearValue (w : Fraction) (x : Value) : Value :=
 
 theorem completed_linear_force (w E0 : Fraction) (hw : 0 ≤ w.num) (hE : 0 < E0.num)
     (hL : LipschitzOn (harmonicOracle w hw).toOracle w.abs)
-    (hR : ∀ p, (harmonicOracle w hw).region p)
-    (x : Value) :
+    (x : Value) (hx : SampledValues.Admissible (fun q => (harmonicOracle w hw).region q.1) x) :
     CompletedForce.forceValue (harmonicOracle w hw) E0 w.abs hE
-      hL hR x = linearValue w x := by
-  induction x using Quotient.inductionOn with
-  | _ a =>
+      hL x hx = linearValue w x := by
+  obtain ⟨a,rfl,ha⟩ := hx
+  rw [CompletedForce.forceValue_realize (harmonicOracle w hw) E0 w.abs hE hL a ha]
+  ·
     apply Quotient.sound
     apply nameEquiv_of_levelwise_stateEquiv
     intro j

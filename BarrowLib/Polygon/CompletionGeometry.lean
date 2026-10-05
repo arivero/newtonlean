@@ -37,6 +37,38 @@ theorem within_embedded_iff (a b : Point × Point) (R : Fraction) :
   · intro h
     exact nameBound_of_eventual_le _ _ R 0 (fun _ _ => h)
 
+/-- The coordinate length of a position is its distance from the origin. -/
+theorem position_distance_zero (s : Point × Point) :
+    Fraction.equiv (distance (positionState s) (zeroPoint,zeroPoint)) (pointNorm s.1) := by
+  change Fraction.equiv
+    (distance (s.1,(Fraction.ofInt 0,Fraction.ofInt 0))
+      ((Fraction.ofInt 0,Fraction.ofInt 0),(Fraction.ofInt 0,Fraction.ofInt 0)))
+    (pointNorm s.1)
+  simp only [distance,HarmonicComparison.stateSub,pointSub,
+    pointAdd,pointNeg,stateNorm,pointNorm,Fraction.equiv,Fraction.add,Fraction.abs,Fraction.ofInt,
+    Int.zero_mul,Int.mul_zero,Int.add_zero,Int.natAbs_zero,Int.ofNat_zero,Int.neg_zero,
+    Int.mul_one,Int.one_mul]
+
+/-- A finite coordinate band is closed under Cauchy realization. The inner
+bound excludes every smaller closed ball, without adding a completed norm. -/
+theorem position_band_realize (a : EndpointCauchyName) (r R : Fraction)
+    (h : ∀ n, Fraction.le r (pointNorm (a.approx n).1) ∧
+      Fraction.le (pointNorm (a.approx n).1) R) :
+    Within (positionValue (realize a)) (embed (zeroPoint,zeroPoint)) R ∧
+      ∀ D, Within (positionValue (realize a)) (embed (zeroPoint,zeroPoint)) D →
+        Fraction.le r D := by
+  constructor
+  · exact nameBound_of_eventual_le
+      (mapName positionState position_nonexpansive a) (constantName (zeroPoint,zeroPoint)) R 0
+      (fun n _ => Fraction.le_equiv_left (position_distance_zero _) (h n).2)
+  · intro D hD
+    apply Fraction.le_of_enlargements
+    intro eps heps
+    obtain ⟨N,hN⟩ := hD eps heps
+    have hd := Fraction.le_equiv_left (Fraction.equiv_symm (position_distance_zero (a.approx N)))
+      (Fraction.magnitudes.lt_implies_le (hN N (Nat.le_refl _)))
+    exact Fraction.magnitudes.le_trans (h N).1 hd
+
 def Closure (A : PositionValue → Prop) (x : PositionValue) : Prop :=
   ∀ eps : Fraction, 0 < eps.num →
     ∃ y : PositionValue, A y ∧ Within x.val y.val eps

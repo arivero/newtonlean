@@ -13,6 +13,22 @@ open TimeSubdivision PointBounds ForceClasses HarmonicDyadic HarmonicBinaryPrefi
 open CauchyValues BinaryTime PositionValues SecantValues DyadicNodes HarmonicTimeRealization
 open GeneralForceEndpoint GeneralForcePrefix GeneralForceTime GeneralForceSecants
 
+/-- Replace a curve input by its certified node representative as a whole
+force value, so dependent region certificates are transported together. -/
+theorem node_force_value (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k : Nat) :
+    CompletedForce.forceValue o E0 L hE d.lipschitz
+      (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
+      (gamma_admissible o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)) =
+    CompletedForce.forceValue o E0 L hE d.lipschitz
+      (realize (nodeName o E0 T tau L B s hE d m k))
+      (node_admissible o E0 T tau L B s hE d m k) :=
+  SampledValues.sampledValue_congr (CompletedForce.family o E0 L hE d.lipschitz) _ _
+    (gamma_admissible o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
+    (node_admissible o E0 T tau L B s hE d m k)
+    (node_value o E0 T tau L B s hE d m k).symm
+
 noncomputable def cellAccelerationSecant (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m k : Nat) : Value :=
@@ -25,18 +41,21 @@ theorem cell_acceleration_secant_bound (o : CentralOracle) (E0 T tau L B : Fract
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
     (m k : Nat) (hk : k+1≤blocks m) :
     Within (cellAccelerationSecant o E0 T tau L B s hE d hT m k)
-      (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region
-        (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
+      (CompletedForce.forceValue o E0 L hE d.lipschitz (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
+        (gamma_admissible o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
       (Fraction.mul L (Fraction.mul (duration T m) (velocityCap T B s))) := by
-  rw [cellAccelerationSecant,← node_value o E0 T tau L B s hE d m (k+1),
+  rw [node_force_value o E0 T tau L B s hE d m k,cellAccelerationSecant,← node_value o E0 T tau L B s hE d m (k+1),
     ← node_value o E0 T tau L B s hE d m k]
-  let f := CompletedForce.family o E0 L hE d.lipschitz d.global_region
+  let f := CompletedForce.family o E0 L hE d.lipschitz
   change Within
     (realize (secantName (TimeCalibration.inverse (duration T m) hT)
       (mapName velocityState velocity_nonexpansive (nodeName o E0 T tau L B s hE d m (k+1)))
       (mapName velocityState velocity_nonexpansive (nodeName o E0 T tau L B s hE d m k))))
-    (SampledValues.sampledValue f (realize (nodeName o E0 T tau L B s hE d m k))) _
-  rw [← SampledValues.sampledValue_offset f _ m]
+    (SampledValues.sampledValue f (realize (nodeName o E0 T tau L B s hE d m k))
+      (node_admissible o E0 T tau L B s hE d m k)) _
+  rw [← SampledValues.sampledValue_offset f _ _ m,
+    SampledValues.sampledValue_realize (SampledValues.offsetFamily f m)
+      (nodeName o E0 T tau L B s hE d m k) (node_region o E0 T tau L B s hE d m k)]
   change NameBound _ _ _
   apply SampledValues.nameBound_of_vanishing_error _ _ _ (fun j => sampleError o E0 hE (m+j))
   · intro eps heps
@@ -68,12 +87,12 @@ theorem cell_acceleration_secant_bound (o : CentralOracle) (E0 T tau L B : Fract
         (pointNorm (BoundedIteration.run a h (BoundedIteration.run a h s n) i).2) _
       rw [← BoundedIteration.run_add]
       exact GeneralForcePrefix.count_velocity o E0 T tau L B s hE d (m+j) (n+i) (by omega)
-    have hr := AccelerationEstimates.acceleration_secant_equivalent_time a h q L
+    have hr := AccelerationEstimates.acceleration_secant_equivalent_time_at a h q L
       (sampleError o E0 hE (m+j)) (velocityCap T B s) (duration T m)
       (Int.le_of_lt hT) d.lipschitz.1
       (velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative)
-      (local_contract o E0 T tau L B s hE d.toConditions (m+j))
-      (blocks j) ht hT (Fraction.equiv_symm (grid_time T m j)) hv
+      (blocks j) ht
+      (fun i hi => restarted_comparison o E0 T tau L B s hE d (m+j) n (blocks j) hn i hi) hT (Fraction.equiv_symm (grid_time T m j)) hv
     have he : n+blocks j=(k+1)*blocks j := by simp only [n,Nat.add_mul,Nat.one_mul]
     change Fraction.le (FiniteEstimates.pointDistance
       (pointScale (TimeCalibration.inverse (duration T m) hT)
@@ -96,12 +115,14 @@ theorem bracketing_acceleration_secant_bound (b : Nat → Bool) (o : CentralOrac
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) :
     Within (cellAccelerationSecant o E0 T tau L B s hE d hT m (ticks b m))
-      (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region
-        (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b)))
+      (CompletedForce.forceValue o E0 L hE d.lipschitz (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))
+        (gamma_admissible o E0 T tau L B s hE d (Quotient.mk _ b)))
       (Fraction.mul (duration T m) (accelerationCoefficient T tau L B s d.calibration_positive)) := by
   have hs := cell_acceleration_secant_bound o E0 T tau L B s hE d hT m (ticks b m)
     (by have hn := ticks_lt_blocks b m; omega)
-  have hf := CompletedForce.forceValue_within o E0 L hE d.lipschitz d.global_region _ _ _
+  have hf := CompletedForce.forceValue_within o E0 L hE d.lipschitz _ _
+    (gamma_admissible o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m (ticks b m)))
+    (gamma_admissible o E0 T tau L B s hE d (Quotient.mk _ b)) _
     (gamma_within o E0 T tau L B s hE d
       (nodeTime T d.time_nonnegative m (ticks b m)) (Quotient.mk _ b) (duration T m)
       (truncation_time_within b T d.time_nonnegative m))
@@ -119,8 +140,8 @@ theorem dyadic_acceleration_uniform_identification (o : CentralOracle)
     (eps : Fraction) (heps : 0 < eps.num) :
     ∃ N : Nat, ∀ m, N≤m → ∀ b : Nat → Bool,
       Within (cellAccelerationSecant o E0 T tau L B s hE d hT m (ticks b m))
-        (CompletedForce.forceValue o E0 L hE d.lipschitz d.global_region
-          (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))) eps := by
+        (CompletedForce.forceValue o E0 L hE d.lipschitz (gammaValue o E0 T tau L B s hE d (Quotient.mk _ b))
+        (gamma_admissible o E0 T tau L B s hE d (Quotient.mk _ b))) eps := by
   let C := accelerationCoefficient T tau L B s d.calibration_positive
   have hC := accelerationCoefficient_nonnegative T tau L B s d.time_nonnegative
     d.calibration_positive d.lipschitz.1 d.bound_nonnegative

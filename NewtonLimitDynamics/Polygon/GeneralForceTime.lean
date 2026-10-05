@@ -3,6 +3,8 @@ import BarrowLib.Polygon.BinaryEndpoints
 import BarrowLib.Polygon.FiniteSequenceGap
 import BarrowLib.Polygon.PositionValues
 import BarrowLib.Polygon.TailValues
+import BarrowLib.Polygon.SampledValues
+import BarrowLib.Polygon.CompletionGeometry
 
 /-! A local general sampled central-force time map, constructed from actual
 prefixes. Same-grid drift/kick bounds prove representative invariance before
@@ -107,6 +109,49 @@ noncomputable def gammaValue (o : ForceClasses.CentralOracle) (E0 T tau L B : Fr
     BinaryTime T d.time_nonnegative → Value :=
   Quotient.lift (fun b => realize (prefixName b o E0 T tau L B s hE d))
     (fun b c hbc => Quotient.sound (address_state_equiv b c o E0 T tau L B s hE d hbc))
+
+/-- The inner and outer radii hold at every actual prefix vertex. -/
+theorem prefix_band (b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j : Nat) :
+    RegionConfinement.Band d.inner_radius d.outer_radius (prefixState b o E0 T s hE j).1 :=
+  d.toConditions.run_band j (duration T j) d.time_nonnegative (ticks b j)
+    (count_time_le T d.time_nonnegative j (ticks b j) (ticks_le_blocks b j))
+
+/-- Actual prefix membership is derived from the central confinement frame. -/
+theorem prefix_region (b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j : Nat) :
+    o.region (prefixState b o E0 T s hE j).1 :=
+  d.frame.contains_band _ (prefix_band b o E0 T tau L B s hE d j)
+
+/-- The constructed curve has a regional representative at every time. -/
+theorem gamma_admissible (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (x : BinaryTime T d.time_nonnegative) :
+    SampledValues.Admissible (fun q => o.region q.1) (gammaValue o E0 T tau L B s hE d x) := by
+  induction x using Quotient.inductionOn with
+  | _ b => exact ⟨prefixName b o E0 T tau L B s hE d,rfl,
+      prefix_region b o E0 T tau L B s hE d⟩
+
+/-- Every constructed curve position lies in the closed coordinate band.
+The lower radius is stated by exclusion of smaller closed balls, without a
+new completed magnitude or a supplied confinement hypothesis. -/
+theorem gamma_band (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (x : BinaryTime T d.time_nonnegative) :
+    Within (PositionValues.positionValue (gammaValue o E0 T tau L B s hE d x))
+      (embed (PositionValues.zeroPoint,PositionValues.zeroPoint)) d.outer_radius ∧
+      ∀ D, Within (PositionValues.positionValue (gammaValue o E0 T tau L B s hE d x))
+        (embed (PositionValues.zeroPoint,PositionValues.zeroPoint)) D →
+        Fraction.le d.inner_radius D := by
+  induction x using Quotient.inductionOn with
+  | _ b =>
+    exact CompletionGeometry.position_band_realize
+      (prefixName b o E0 T tau L B s hE d) d.inner_radius d.outer_radius
+      (prefix_band b o E0 T tau L B s hE d)
 
 /-- Changing the calibration or verified bounds keeps the same actual family. -/
 theorem gamma_conditions_independent (o : ForceClasses.CentralOracle)

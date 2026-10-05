@@ -1,34 +1,34 @@
 # Proposition I realization: premises and checked finite steps
 
-A.6 has its first finite confinement mechanism in RegionConfinement. A single
-invariant retains |v|<=|v0|+t*B, |x|<=|x0|+t*V and the conserved areal
-product, V=|v0|+T*B. Each drift arrival lies inside the ball/annulus before
-the bound on that band is used to evaluate force. Positive speed and
-r0*V<=|ell| give the inner radius; r0=0 covers rest and radial motion.
-Actual/coarse runs and both coarse-field shadow arrivals inherit the same
-bound, without a supplied confinement trace or whole-plane force premise.
-The force-comparison theorem now accepts membership only at its two points;
-shared pointwise cell estimates use exactly that comparison. A live calibrated
-cell client derives both arrival certificates before applying it, with a proper
-annular oracle control that excludes the origin. Regional paired accumulation
-now derives all four comparison pairs, including both shadow arrivals; distinct
-value-equivalent durations retain their own certified samples. Conditions and
-completed-force localization, completed curve confinement and an actual
-Euclidean Kepler oracle are still required to finish A.6. Task E and new
-completed quantities have not started. See the [finite confinement checkpoint](verification/region-confinement-2026-10-05.md),
-[regional comparison checkpoint](verification/regional-cell-comparison-2026-10-05.md)
-and [regional accumulation checkpoint](verification/regional-accumulation-2026-10-05.md).
+A.6 now uses regional Conditions throughout the existing construction.
+The finite frame records a sample bound B on a coordinate band, the small-time
+budgets r0*V<=|ell| and |x0|+T*V<=R0, and that this band lies in the oracle
+region; V=|v0|+T*B. One partial-time invariant derives actual/coarse and both
+shadow membership before sampling, including the first shadow kick. Endpoint,
+prefix, time, polygon, region/content and secant results use these derived
+certificates. No membership trace or whole-plane force premise is supplied.
 
-GeneralForceGrowth now derives all three actual/coarse/shadow sample bounds
-from the whole-plane Lipschitz contract and initial state. Inward samples
-vanish at the centre. With E=2*E0 and r0=|x0|+tau*|v0|, the shared finite
-recurrence gives M=2*(r0+tau*T*E), shadow radius R=M+T*M/tau and B=L*R+E.
-The resulting conditions feed the existing motion and geometric constructions;
-no separate bound along a run is supplied. The length cap is invariant under
-positive time-unit rescaling. This retains global_region and excludes singular
-Kepler laws; Task A.6 confinement is the required next repair. It neither
-proves the constructed-curve area law nor changes completion scores. See the
-[derived-bound checkpoint](verification/general-derived-bounds-2026-10-05.md).
+SampledValues and CompletedForce now operate on values with a certified
+regional representative. Representative independence is proved before choosing
+that name; an equivalent arbitrary name need not stay inside the region.
+GeneralForceTime.gamma_band passes both radii to the constructed curve: the
+upper closed-ball bound holds, and any closed ball containing the position
+has radius at least r0. These are coordinate L1 bounds, not an inverse-square
+law. The harmonic instance retains its True region and old public names.
+The actual Euclidean Kepler sampling instance still remains within A.6 and
+comes next. Task E and new completed quantities have not started. See the
+[regional construction checkpoint](verification/regional-construction-2026-10-05.md).
+
+GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
+With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
+and its force bound is B=L*R+E. CalibratedGrowth.driftCap_budget proves
+|x0|+T*(|v0|+T*B)<=R directly from the existing calibrated window. This closes
+the geometric budget before using regional force growth; the shared invariant
+then derives every actual/coarse/shadow sample bound. Data depends on the
+initial state and precision scale and only requires the oracle region to
+contain that finite ball. The length cap retains positive time-unit invariance.
+Singular laws use the annular Conditions constructor. No completion score or
+historical proof is added by this interface repair.
 
 TASKS.md order 4. This note identifies, stage by stage, what Proposition I
 asserts, what its cited dependencies supply, and which further premises a
@@ -45,21 +45,21 @@ The 4 October handoff's [foundation inventory](BARROWLIB_BOUNDARY.md) is
 implemented for its minimal bootstrap. BarrowLib's generic finite triangular
 maps now have actual iteration bounds, cross-map perturbation (including
 sampling error E), local two-half/full-cell estimates and derived finite
-mesh-uniform accumulation in the retained τ₀=1 gauge under T(1+L) ≤ 1/2. The comparison contract is global;
-B and V bounds concern only the finite prefix used. [ForceClasses](GENERAL_FORCE_DESIGN.md)
+mesh-uniform accumulation in the retained τ₀=1 gauge under T(1+L) ≤ 1/2. Global-contract foundation names wrap shared pointwise estimates;
+the regional Newton clients certify only the actual comparisons used. [ForceClasses](GENERAL_FORCE_DESIGN.md)
 constructs acceleration values, connects bounded iterates to actual Newton
 schedules, and derives continuous-force local consistency from a modulus.
 Harmonic and parallel fields remain instances. GeneralForceEndpoint now
 constructs fixed-time endpoint Cauchy names/values from actual Lipschitz central
 sample schedules, with derived geometric precision and adjacent error. Its
-premises are global force comparison, a calibrated window, and bounded actual
-coarse/first-half shadow samples; coarse velocity is derived. Harmonic force
+premises are regional force comparison, a calibrated window and a band
+force bound with geometric time budgets; every actual/shadow bound is derived. Harmonic force
 bounds are derived on its short family, and the resulting general value equals
 the old harmonic endpoint value. GeneralForcePrefix/GeneralForceTime now
 construct a continuous local binary-time state/position map with uniform prefix
 convergence, address independence, initial/zero values and full-endpoint E/G
 agreement. The harmonic map is an exact corollary with all its bounds derived.
-Local-annulus stability, confinement, restart/gluing, interior-time E/G and
+Kepler sampling, restart/gluing, interior-time E/G and
 precision/partition independence and unrestricted P5 remain
 explicit obligations. D.2 extracts the generic completion, geometry,
 binary-time and position-value layers. B.1 proves E/G agreement at every
@@ -162,9 +162,9 @@ with no numbered limiting lemma (M2.md).
 | --- | --- |
 | P1 finite area law | **Checked in the rational planar model, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
-| P3 existence of the ultimate curve | **Open for the general historical claim.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate/residual bounds and harmonic finite stability/refinement bounds are checked. For the harmonic field under T≥0 and T*(1+abs(w))≤1/2, actual prefixes of one global dyadic family now construct Cauchy names, quotient state values and a continuous map on the constructed binary-time quotient. BinaryTime derives the time names; HarmonicTimeRealization proves same-grid control by 2*(1+abs(w))*M times actual time difference, address independence, endpoint/alias identities and zero cases. No curve or limit point is supplied. See CAUCHY_REALIZATION.md and HARMONIC_REFINEMENT.md for the estimates and premises. PositionValues now derives the planar gammaPosition map, coordinate squares and positive sample position separation. Identification with independently rescaled values is proved at every dyadic rational time. GeneralForceTime now gives the local binary-time map for globally compared Lipschitz central samples with explicit actual/coarse/shadow bounds and calibration, with uniform prefix convergence and full-endpoint agreement; the old harmonic map is an exact corollary. Local-annulus stability, gluing, other general E/G time parameters, precision/partition independence, external real-time identification and merely continuous-force existence/uniqueness remain separate. |
+| P3 existence of the ultimate curve | **Open for the general historical claim.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate/residual bounds and harmonic finite stability/refinement bounds are checked. For the harmonic field under T≥0 and T*(1+abs(w))≤1/2, actual prefixes of one global dyadic family now construct Cauchy names, quotient state values and a continuous map on the constructed binary-time quotient. BinaryTime derives the time names; HarmonicTimeRealization proves same-grid control by 2*(1+abs(w))*M times actual time difference, address independence, endpoint/alias identities and zero cases. No curve or limit point is supplied. See CAUCHY_REALIZATION.md and HARMONIC_REFINEMENT.md for the estimates and premises. PositionValues now derives the planar gammaPosition map, coordinate squares and positive sample position separation. Identification with independently rescaled values is proved at every dyadic rational time. GeneralForceTime now gives the local binary-time map for regionally compared Lipschitz central samples with derived actual/coarse/shadow bounds and explicit calibration, with uniform prefix convergence and full-endpoint agreement; the old harmonic map is an exact corollary. Kepler sampling, gluing, other general E/G time parameters, precision/partition independence, external real-time identification and merely continuous-force existence/uniqueness remain separate. |
 | P4 intervening defect and area law | **Outer-content candidate checked for harmonic and general Lipschitz constructed curves.** GeneralForcePathRegion/Content use shared MatchedRegion cell/connector/closure geometry and actual vertex/prefix enclosures. Their harmonic specialization equals the old region and scalar content exactly. HarmonicPathRegion defines the cell closures of rational connectors between simultaneous polygonMap/gammaPosition values and their finite union. Initial endpoints agree and the final connector is included. Crossings and overlaps count once in the set; square budgets count multiplicity. D_mesh is the closed lower cut of the infimum of all finite square-cover budgets, with nonnegativity, a derived 4*C²/2^m bound, zero time and decay proved. HarmonicPathContent now realizes this cut as a cover-independent Cauchy scalar with the same bound, nonnegativity, zero time and decay. Ordinary-area identification and transfer of the separate Kepler law K_mesh remain open. HarmonicCover's polygon/refinement budget remains a distinct finite object. |
-| P5 force identification | **Partial constructed rate bridge checked.** GeneralForceSecants proves that completed bracketing dyadic position secants converge uniformly to the constructed velocity under the stated global Lipschitz comparison, calibrated window and actual/coarse/shadow sample bounds. Finite O(t²) drift remainders are derived from restarted runs and pass to the completed curve; the harmonic result is a corollary. CompletedForce constructs the force at completed positions; GeneralForceAccelerationSecants now proves uniform convergence of completed bracketing dyadic velocity secants to this force with bound H_m*L*(V+K), including the final boundary. Finite force variation, rounding-error exhaustion and precision-offset invariance are derived; the retained harmonic acceleration-secant result is a corollary. Unrestricted difference-quotient differentiation remains open. "Aget indesinenter" is not imported as a modern proof premise. |
+| P5 force identification | **Partial constructed rate bridge checked.** GeneralForceSecants proves that completed bracketing dyadic position secants converge uniformly to the constructed velocity under regional Lipschitz comparison, calibrated/geometric time budgets and derived actual/coarse/shadow sample bounds. Finite O(t²) drift remainders are derived from restarted runs and pass to the completed curve; the harmonic result is a corollary. CompletedForce constructs the force at completed positions; GeneralForceAccelerationSecants now proves uniform convergence of completed bracketing dyadic velocity secants to this force with bound H_m*L*(V+K), including the final boundary. Finite force variation, rounding-error exhaustion and precision-offset invariance are derived; the retained harmonic acceleration-secant result is a corollary. Unrestricted difference-quotient differentiation remains open. "Aget indesinenter" is not imported as a modern proof premise. |
 
 ## Candidate permitted premise for P3
 
@@ -223,14 +223,12 @@ constructs the closed matched region, its all-cover infimum lower cut and a
 derived vanishing square enclosure. See TRAJECTORY_DEFECT_REGION.md.
 Cauchy scalar realization and cover independence are now proved in
 HarmonicPathContent. Ordinary-area and Kepler-area identification, P5 and partition
-independence remain distinct. CompletedForce now proves representative compatibility for globally Lipschitz
-sampled force data; finite centrality alone does not supply it.
-All general-force results so far assume `global_region : ∀ p, o.region p`, a
-force Lipschitz on the whole plane, which excludes every law singular at S;
-only the harmonic instance exists. The repair is handoff Task A.6. P3's
-general claim therefore stays open for Newton's own laws, and P4's area law
-on the constructed curve, Proposition I's conclusion, is not yet stated for
-any instance (handoff Task E).
+independence remain distinct. CompletedForce now proves representative compatibility for regional Lipschitz
+sampled force data on the certified completion domain; finite centrality alone
+does not supply it. gamma_band proves the constructed curve's closed radial
+bounds. The proper annular harmonic control tests that interface; the actual
+Euclidean Kepler oracle remains required by A.6. P3's historical claim stays
+open, and P4's area law on the constructed curve is still Task E.
 The [construction ledger](CAUCHY_REALIZATION.md) records the checked quotient
 and time-domain steps and the remaining geometric obligations.
 

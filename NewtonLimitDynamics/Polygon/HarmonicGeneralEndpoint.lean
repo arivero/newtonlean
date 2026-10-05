@@ -89,31 +89,61 @@ theorem shadow_position_bound (w T : Fraction) (s : Point × Point)
     show (4 : Int) = 2+2 by rfl,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
   ac_nf
 
+/-- The retained harmonic window supplies a finite regional ball budget. -/
+theorem harmonic_band_budget (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le (Fraction.add (pointNorm s.1)
+      (Fraction.mul T (GeneralForceEndpoint.velocityCap T (harmonicBound w s) s)))
+      (Fraction.mul (Fraction.ofInt 4) (stateNorm s)) := by
+  have hw1 := Fraction.le_equiv_right
+    (Fraction.le_add_nonnegative w.abs (Fraction.ofInt 1) (by decide))
+    (Fraction.add_comm _ _)
+  have hTw := Fraction.magnitudes.le_trans
+    (Fraction.mul_le_mul_nonnegative_left hw1 T hT) hs
+  have hC : 0 ≤ (Fraction.mul (Fraction.ofInt 4) (stateNorm s)).num :=
+    Fraction.nonnegative_mul _ _ (by decide) (stateNorm_nonnegative s)
+  have hTB := Fraction.le_equiv_right
+    (Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+      (Fraction.mul_le_mul_nonnegative hTw _ hC))
+    (show Fraction.equiv (Fraction.mul (⟨1,2,by decide⟩ : Fraction)
+      (Fraction.mul (Fraction.ofInt 4) (stateNorm s)))
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) by
+      simp only [Fraction.equiv,Fraction.mul,Fraction.ofInt]
+      ac_nf)
+  have hV : Fraction.le (GeneralForceEndpoint.velocityCap T (harmonicBound w s) s)
+      (Fraction.mul (Fraction.ofInt 3) (stateNorm s)) :=
+    Fraction.le_equiv_right (Fraction.add_le_add (velocity_le_state s) hTB)
+      (by simp only [Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,
+        show (3 : Int)=1+2 by rfl,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]; ac_nf)
+  have hTV := Fraction.magnitudes.le_trans
+    (Fraction.mul_le_mul_nonnegative_left hV T hT)
+    (Fraction.mul_le_mul_nonnegative (time_le_one w T hT hs)
+      (Fraction.mul (Fraction.ofInt 3) (stateNorm s))
+      (Fraction.nonnegative_mul _ _ (by decide) (stateNorm_nonnegative s)))
+  apply Fraction.le_equiv_right (Fraction.add_le_add (point_le_state s) hTV)
+  simp only [Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,
+    show (4 : Int)=1+3 by rfl,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
+  ac_nf
+
 /-- Every force-data premise of the general construction is derived for the old harmonic window. -/
 def conditions (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     GeneralForceEndpoint.Conditions (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs (harmonicBound w s) s hE where
-  time_nonnegative := hT
   calibration_positive := by decide
   lipschitz := harmonic_lipschitz_on w hw
-  global_region := fun _ => True.intro
   window := by
     apply Fraction.le_equiv_left (b := Fraction.mul T (Fraction.add (Fraction.ofInt 1) w.abs)) _ hs
     apply Fraction.mul_equiv (Fraction.equiv_refl _)
     simp only [TimeCalibration.rate,TimeCalibration.inverse,Fraction.equiv,Fraction.add,
       Fraction.mul,Fraction.ofInt,Int.one_mul,Int.mul_one]
-  bound_nonnegative := harmonicBound_nonnegative w s
-  coarse_samples := by
-    intro j i hi
-    simp only [harmonic_field]
-    apply linear_sample_bound
-    exact Fraction.magnitudes.le_trans
-      (Fraction.magnitudes.le_trans (point_le_state _)
-        (full_run_state_bound w T s hT hs j (i+1) (by omega))) (two_to_four s)
-  shadow_samples := by
-    intro j k hk
-    simp only [harmonic_field]
-    exact linear_sample_bound w s _ (shadow_position_bound w T s hT hs j k hk)
+  inner_radius := Fraction.ofInt 0
+  outer_radius := Fraction.mul (Fraction.ofInt 4) (stateNorm s)
+  frame := RegionConfinement.ball_frame _ T (harmonicBound w s) _ s hT
+    (harmonicBound_nonnegative w s) (harmonic_band_budget w T s hT hs)
+    (fun _ _ => True.intro)
+  samples_on_band := by
+    intro j p hp
+    exact linear_sample_bound w s p hp.2
 
 theorem harmonic_endpoint_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (j : Nat) :

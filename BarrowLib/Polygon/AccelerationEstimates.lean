@@ -67,17 +67,41 @@ theorem velocity_remainder_from_samples (a : Point → Point) (h : Fraction)
 def source (L E t V : Fraction) : Fraction :=
   Fraction.add (Fraction.mul L (Fraction.mul t V)) E
 
-theorem force_variation (a : Point → Point) (h : Fraction) (s : Point × Point)
+theorem force_variation_at (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
-    (hc : comparisonContract a a L E) (N i : Nat) (hi : i<N)
+    (N i : Nat) (hi : i<N)
+    (hc : Fraction.le (pointDistance (a (run a h s (i+1)).1) (a s.1))
+      (Fraction.add (Fraction.mul L (pointDistance (run a h s (i+1)).1 s.1)) E))
     (hv : ∀ k, k<N → Fraction.le (pointNorm (run a h s k).2) V) :
     Fraction.le (pointDistance (a (run a h s (i+1)).1) (a s.1))
       (source L E (time h N) V) := by
   have hp := Fraction.magnitudes.le_trans
     (position_displacement a h s V hh N (i+1) (by omega) hv)
     (Fraction.mul_le_mul_nonnegative (time_monotone h hh (i+1) N (by omega)) V hV)
-  exact Fraction.magnitudes.le_trans (hc _ _)
+  exact Fraction.magnitudes.le_trans hc
     (Fraction.add_le_add_right (Fraction.mul_le_mul_nonnegative_left hp L hL) E)
+
+
+theorem force_variation (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
+    (hc : comparisonContract a a L E) (N i : Nat) (hi : i<N)
+    (hv : ∀ k, k<N → Fraction.le (pointNorm (run a h s k).2) V) :
+    Fraction.le (pointDistance (a (run a h s (i+1)).1) (a s.1))
+      (source L E (time h N) V) :=
+  force_variation_at a h s L E V hh hL hV N i hi (hc _ _) hv
+
+theorem velocity_remainder_at (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
+    (n : Nat)
+    (hc : ∀ k, k<n → Fraction.le
+      (pointDistance (a (run a h s (k+1)).1) (a s.1))
+      (Fraction.add (Fraction.mul L (pointDistance (run a h s (k+1)).1 s.1)) E))
+    (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
+    Fraction.le (pointDistance (run a h s n).2 (predictedVelocity a h s n))
+      (Fraction.mul (time h n) (source L E (time h n) V)) :=
+  velocity_remainder_from_samples a h s _ hh n
+    (fun i hi => force_variation_at a h s L E V hh hL hV n i hi (hc i hi) hv) n (Nat.le_refl _)
+
 
 theorem velocity_remainder (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
@@ -85,12 +109,14 @@ theorem velocity_remainder (a : Point → Point) (h : Fraction) (s : Point × Po
     (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
     Fraction.le (pointDistance (run a h s n).2 (predictedVelocity a h s n))
       (Fraction.mul (time h n) (source L E (time h n) V)) :=
-  velocity_remainder_from_samples a h s _ hh n
-    (fun i hi => force_variation a h s L E V hh hL hV hc n i hi hv) n (Nat.le_refl _)
+  velocity_remainder_at a h s L E V hh hL hV n (fun _ _ => hc _ _) hv
 
-theorem acceleration_secant_bound (a : Point → Point) (h : Fraction) (s : Point × Point)
+theorem acceleration_secant_bound_at (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
-    (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num)
+    (n : Nat) (ht : 0 < (time h n).num)
+    (hc : ∀ k, k<n → Fraction.le
+      (pointDistance (a (run a h s (k+1)).1) (a s.1))
+      (Fraction.add (Fraction.mul L (pointDistance (run a h s (k+1)).1 s.1)) E))
     (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
     Fraction.le (pointDistance
       (pointScale (TimeCalibration.inverse (time h n) ht) (pointSub (run a h s n).2 s.2))
@@ -100,7 +126,7 @@ theorem acceleration_secant_bound (a : Point → Point) (h : Fraction) (s : Poin
     (pointNorm_scale (TimeCalibration.inverse (time h n) ht)
       (pointSub (run a h s n).2 (predictedVelocity a h s n)))
   have hm := Fraction.mul_le_mul_nonnegative_left
-    (velocity_remainder a h s L E V hh hL hV hc n hv)
+    (velocity_remainder_at a h s L E V hh hL hV n hc hv)
     (TimeCalibration.inverse (time h n) ht).abs (Fraction.abs_num_nonnegative _)
   apply Fraction.le_equiv_right (Fraction.le_equiv_left he hm)
   rw [Fraction.abs_eq_of_nonnegative (TimeCalibration.inverse (time h n) ht)
@@ -108,9 +134,22 @@ theorem acceleration_secant_bound (a : Point → Point) (h : Fraction) (s : Poin
   simp only [TimeCalibration.inverse,Fraction.equiv,Fraction.mul]
   ac_nf
 
-theorem acceleration_secant_equivalent_time (a : Point → Point) (h : Fraction) (s : Point × Point)
-    (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
+
+theorem acceleration_secant_bound (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
     (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num)
+    (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
+    Fraction.le (pointDistance
+      (pointScale (TimeCalibration.inverse (time h n) ht) (pointSub (run a h s n).2 s.2))
+      (a s.1)) (source L E (time h n) V) :=
+  acceleration_secant_bound_at a h s L E V hh hL hV n ht (fun _ _ => hc _ _) hv
+
+theorem acceleration_secant_equivalent_time_at (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
+    (n : Nat) (ht : 0 < (time h n).num)
+    (hc : ∀ k, k<n → Fraction.le
+      (pointDistance (a (run a h s (k+1)).1) (a s.1))
+      (Fraction.add (Fraction.mul L (pointDistance (run a h s (k+1)).1 s.1)) E))
     (hu : 0 < u.num) (he : Fraction.equiv u (time h n))
     (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
     Fraction.le (pointDistance
@@ -121,9 +160,20 @@ theorem acceleration_secant_equivalent_time (a : Point → Point) (h : Fraction)
       (pointScale_ratio_congr (TimeCalibration.inverse_congr hu ht he)
         ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)
       ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)
-      (acceleration_secant_bound a h s L E V hh hL hV hc n ht hv))
+      (acceleration_secant_bound_at a h s L E V hh hL hV n ht hc hv))
     (Fraction.add_equiv (Fraction.mul_equiv (Fraction.equiv_refl L)
       (Fraction.mul_equiv (Fraction.equiv_symm he) (Fraction.equiv_refl V))) (Fraction.equiv_refl E))
+
+
+theorem acceleration_secant_equivalent_time (a : Point → Point) (h : Fraction) (s : Point × Point)
+    (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hV : 0 ≤ V.num)
+    (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num)
+    (hu : 0 < u.num) (he : Fraction.equiv u (time h n))
+    (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) :
+    Fraction.le (pointDistance
+      (pointScale (TimeCalibration.inverse u hu) (pointSub (run a h s n).2 s.2))
+      (a s.1)) (source L E u V) :=
+  acceleration_secant_equivalent_time_at a h s L E V u hh hL hV n ht (fun _ _ => hc _ _) hu he hv
 
 private def controlHalf : Fraction := ⟨1,2,by decide⟩
 private def controlState : Point × Point :=

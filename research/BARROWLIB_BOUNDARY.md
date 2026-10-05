@@ -90,10 +90,10 @@ library roots; this reorganization alone changes no completion score.
 PairingValues completes dot products and determinants of position values with
 one Cauchy and representative-independence argument. It uses finite bilinear
 difference identities, coordinate L1 bounds and boundedness on a proved
-Cauchy tail. Globally Lipschitz SampledValues cannot complete these maps on
-an unbounded plane. Reach for PairingValues for scalar products or directed
-areas of completed points; use SampledValues for globally compared sampled
-maps. Pairing outputs are scalar-coded values. Determinants are signed doubled
+Cauchy tail. SampledValues requires a fixed regional Lipschitz coefficient and cannot
+complete these pairings on an unbounded plane. Reach for PairingValues for
+scalar products or directed areas of completed points; SampledValues now
+restricts its existing sampled-map operation to a certified regional domain. Pairing outputs are scalar-coded values. Determinants are signed doubled
 areas, and dot products define the Euclidean squared magnitude, distinct from
 the L1 error gauge.
 

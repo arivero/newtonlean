@@ -13,8 +13,14 @@ open GeneralForceEndpoint
 structure Conditions (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     extends GeneralForceEndpoint.Conditions o E0 T tau L B s hE where
-  actual_samples : ∀ j, BoundedIteration.BoundedSamples (field o E0 hE j)
-    (duration T j) s B (blocks j)
+namespace Conditions
+variable {o : CentralOracle} {E0 T tau L B : Fraction} {s : Point × Point} {hE : 0 < E0.num}
+
+theorem actual_samples (d : Conditions o E0 T tau L B s hE) (j : Nat) :
+    BoundedIteration.BoundedSamples (field o E0 hE j) (duration T j) s B (blocks j) :=
+  d.toConditions.actual_samples j
+
+end Conditions
 
 noncomputable def countState (o : CentralOracle) (E0 T : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (j n : Nat) : Point × Point :=
@@ -38,6 +44,31 @@ theorem count_velocity (o : CentralOracle) (E0 T tau L B : Fraction)
     d.time_nonnegative d.bound_nonnegative
     n (fun i hi => d.actual_samples j i (by omega))
     (count_time_le T d.time_nonnegative j n hn)
+
+theorem count_region (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
+    (j n : Nat) (hn : n ≤ blocks j) : o.region (countState o E0 T s hE j n).1 :=
+  d.toConditions.run_region j (duration T j) d.time_nonnegative n
+    (count_time_le T d.time_nonnegative j n hn)
+
+/-- Every restarted comparison uses two certified points of the original run. -/
+theorem restarted_comparison (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
+    (j n k : Nat) (hn : n+k ≤ blocks j) (i : Nat) (hi : i<k) :
+    Fraction.le (FiniteEstimates.pointDistance
+      (field o E0 hE j (BoundedIteration.run (field o E0 hE j) (duration T j)
+        (countState o E0 T s hE j n) (i+1)).1)
+      (field o E0 hE j (countState o E0 T s hE j n).1))
+      (Fraction.add (Fraction.mul L (FiniteEstimates.pointDistance
+        (BoundedIteration.run (field o E0 hE j) (duration T j)
+          (countState o E0 T s hE j n) (i+1)).1
+        (countState o E0 T s hE j n).1)) (sampleError o E0 hE j)) := by
+  apply local_contract o E0 T tau L B s hE d.toConditions j _ _ _
+    (count_region o E0 T tau L B s hE d j n (by omega))
+  change o.region (BoundedIteration.run (field o E0 hE j) (duration T j)
+    (BoundedIteration.run (field o E0 hE j) (duration T j) s n) (i+1)).1
+  rw [← BoundedIteration.run_add]
+  exact count_region o E0 T tau L B s hE d j (n+(i+1)) (by omega)
 
 def speedCap (T tau B : Fraction) (s : Point × Point) : Fraction :=
   Fraction.add (velocityCap T B s) (Fraction.mul tau B)
