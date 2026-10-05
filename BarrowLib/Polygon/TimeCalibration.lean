@@ -31,6 +31,27 @@ theorem inverse_congr {tau rho : Fraction} (ht : 0 < tau.num) (hr : 0 < rho.num)
 def norm (tau : Fraction) (s : Point × Point) : Fraction :=
   Fraction.add (pointNorm s.1) (Fraction.mul tau (pointNorm s.2))
 
+theorem norm_nonnegative (tau : Fraction) (s : Point × Point)
+    (ht : 0 ≤ tau.num) : 0 ≤ (norm tau s).num :=
+  Fraction.nonnegative_add _ _ (pointNorm_nonnegative _)
+    (Fraction.nonnegative_mul _ _ ht (pointNorm_nonnegative _))
+
+theorem position_le_norm (tau : Fraction) (s : Point × Point)
+    (ht : 0 ≤ tau.num) : Fraction.le (pointNorm s.1) (norm tau s) :=
+  Fraction.le_add_nonnegative _ _
+    (Fraction.nonnegative_mul _ _ ht (pointNorm_nonnegative _))
+
+theorem velocity_le_norm_inverse (tau : Fraction) (s : Point × Point)
+    (ht : 0 < tau.num) :
+    Fraction.le (pointNorm s.2) (Fraction.mul (norm tau s) (inverse tau ht)) := by
+  have hv := Fraction.le_equiv_right
+    (Fraction.le_add_nonnegative (Fraction.mul tau (pointNorm s.2))
+      (pointNorm s.1) (pointNorm_nonnegative _)) (Fraction.add_comm _ _)
+  exact Fraction.le_equiv_left (by
+    simp only [inverse,Fraction.equiv,Fraction.mul,Fraction.ofInt]
+    ac_nf) (Fraction.mul_le_mul_nonnegative hv (inverse tau ht)
+      (Int.le_of_lt (inverse_positive tau ht)))
+
 def distance (tau : Fraction) (s t : Point × Point) : Fraction :=
   Fraction.add (pointDistance s.1 t.1) (Fraction.mul tau (pointDistance s.2 t.2))
 

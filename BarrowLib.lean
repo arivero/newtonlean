@@ -27,6 +27,7 @@ import BarrowLib.Polygon.IntegerTime
 import BarrowLib.Polygon.FiniteAddress
 import BarrowLib.Polygon.FiniteFactorProducts
 import BarrowLib.Polygon.TimeCalibration
+import BarrowLib.Polygon.CalibratedGrowth
 import BarrowLib.Polygon.EquivalentDuration
 import BarrowLib.Polygon.CalibratedRefinement
 import BarrowLib.Polygon.ConvexValues

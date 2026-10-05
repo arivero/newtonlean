@@ -1,6 +1,30 @@
 # Verification record
 
-## Current handoff: general constructed tangent triangle, 5 October 2026
+## Current handoff: derived general force bounds, 5 October 2026
+
+CalibratedGrowth reuses the calibrated finite amplification and power/source
+estimates to bound actual states from linear growth, with a proved time-unit
+invariant length cap. Inward central samples vanish at the origin; whole-plane
+comparison and chosen precision give |a(p)|<=L|p|+2*E0. GeneralForceGrowth derives
+M=2*(|x0|+tau|v0|+2*tau*T*E0), shadow radius R=M+T*M/tau and B=L*R+2*E0.
+The existing prefix conditions receive all actual/coarse/shadow bounds, without
+adding a desired curve or bounds along a run. global_region remains explicit;
+A.6 confinement with the singular Kepler instance is the next required repair.
+No area-law completion or score increase is claimed. Targeted core compilation
+passes. All 16 sequential checklist commands pass, including the default and both
+explicit library builds, catalogue/reference and standard-axiom inspection,
+source/graph, rendering, hash and whitespace checks. There are 1,347 emitted
+reference checks; the graph has 77 nodes, 68 edges and 253 passages. The
+axiom union is propext, Classical.choice and Quot.sound, with no sorryAx,
+project axiom, external package or Newton/Mathlib foundation import. PDF
+dates were restored only after proving all other bytes unchanged. Logs:
+/tmp/newton-sol61-derived-bounds-final-01.log through -16.log.
+The live catalogue has 1,491 rows and 625 Barrow rows, with 1,106 substantive, 197 plumbing, 162 sample and
+26 duplicate by the existing heuristic. All 1,894 prior public names/signatures
+are preserved, with 21 new names and 15 new source-free theorem rows.
+See the [checkpoint](verification/general-derived-bounds-2026-10-05.md).
+
+### General constructed tangent triangle, 5 October 2026
 
 TangentTriangleValues constructs the signed doubled triangle of the actual
 completed left point, its tangent continuation and the right point. Its rational

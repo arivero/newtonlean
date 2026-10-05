@@ -94,3 +94,10 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 93,921b3a9,2026-10-05T12:04:38+02:00,Derive finite quadratic remainders and actual parallel endpoints,1432,19,0,0,0,0,661,20609,13,1054,195,157,26,0,122,147,30,1105,28
 94,fe732e4,2026-10-05T12:26:59+02:00,Derive second-order departure on the constructed central curve,1443,11,0,0,0,0,665,20917,13,1065,195,157,26,0,122,147,30,1116,28
 95,fd1f45a,2026-10-05T13:06:19+02:00,Construct harmonic potential values and derive actual curve increments,1469,26,0,0,2,0,686,21549,13,1087,197,159,26,2,137,147,30,1118,37
+96,caff2aa,2026-10-05T13:23:34+02:00,Construct general tangent triangles and derive their leading cross term,1476,7,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
+97,d4de4f4,2026-10-05T13:59:05+02:00,Add Arg008: Delta t times Delta V is the action of the deflection,1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
+98,f0b6add,2026-10-05T14:22:06+02:00,Store the 1726 Definitions and Laws and anchor four passages,1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
+99,5899b84,2026-10-05T14:22:06+02:00,"Add a modern rendering of the Principia's opening, with 1713 and 1726 changes",1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
+100,44b11d4,2026-10-05T14:32:09+02:00,"Add the article on scales, actions and the limit in Proposition I",1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
+101,f49d436,2026-10-05T14:35:24+02:00,"Steer the handoff: region confinement, Proposition I's own conclusion, one lift",1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37
+102,2b98a36,2026-10-05T14:41:13+02:00,"Mark the whole-plane premise as a required repair, not a general result",1476,0,0,0,0,0,689,21768,13,1094,197,159,26,0,144,147,30,1118,37

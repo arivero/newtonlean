@@ -1440,6 +1440,51 @@
     "interpretation_and_remaining_premises": "Generic finite position and velocity bounds for actual triangular-map iterates with bounded arrival samples. The named region confinement and sampled-force bound are explicit Newton-side premises. Bounds depend on total time, not mesh count; no regularity, curve, Cauchy convergence or force identification is inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedGrowth.cell_norm_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a : Point → Point) (h L E : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hg : Growth a L E) : Fraction.le (norm tau (cell a h s)) (Fraction.add (Fraction.mul (amplification tau h L ht) (norm tau s)) (Fraction.mul (Fraction.mul tau h.abs) E))",
+    "interpretation_and_remaining_premises": "Generic actual finite triangular-map bounds under the growth contract norm(a(p))<=L*norm(p)+E. The existing calibrated component amplification, finite power and source-budget estimates give norm_tau(run_n)<=2*(norm_tau(s0)+tau*T*E) on the calibrated short window, uniformly in mesh and count. The length cap is invariant under positive time-unit rescaling. No arrival bound, confined curve, force law, Newton import, derivative, integral or ODE primitive is supplied. The Newton GeneralForceGrowth client derives its growth contract and all actual/coarse/shadow sample bounds from force data."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_budget",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a : Point → Point) (h L E : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hg : Growth a L E) : (n : Nat) → Fraction.le (norm tau (BoundedIteration.run a h s n)) (Fraction.add (Fraction.mul (fpower (amplification tau h L ht) n) (norm tau s)) (FiniteRecurrence.sourceBudget (amplification tau h L ht) (Fraction.mul (Fraction.mul tau h.abs) E) n))",
+    "interpretation_and_remaining_premises": "Generic actual finite triangular-map bounds under the growth contract norm(a(p))<=L*norm(p)+E. The existing calibrated component amplification, finite power and source-budget estimates give norm_tau(run_n)<=2*(norm_tau(s0)+tau*T*E) on the calibrated short window, uniformly in mesh and count. The length cap is invariant under positive time-unit rescaling. No arrival bound, confined curve, force law, Newton import, derivative, integral or ODE primitive is supplied. The Newton GeneralForceGrowth client derives its growth contract and all actual/coarse/shadow sample bounds from force data."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedGrowth.cap_rescale",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c tau T E : Fraction) (s : Point × Point) (hc : 0 < c.num) : Fraction.equiv (cap (Fraction.mul c tau) (Fraction.mul c T) (rescaleConstant c E hc) (rescaleState c hc s)) (cap tau T E s)",
+    "interpretation_and_remaining_premises": "Generic actual finite triangular-map bounds under the growth contract norm(a(p))<=L*norm(p)+E. The existing calibrated component amplification, finite power and source-budget estimates give norm_tau(run_n)<=2*(norm_tau(s0)+tau*T*E) on the calibrated short window, uniformly in mesh and count. The length cap is invariant under positive time-unit rescaling. No arrival bound, confined curve, force law, Newton import, derivative, integral or ODE primitive is supplied. The Newton GeneralForceGrowth client derives its growth contract and all actual/coarse/shadow sample bounds from force data."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedGrowth.cap_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau T E : Fraction) (s : Point × Point) (ht : 0 ≤ tau.num) (hT : 0 ≤ T.num) (hE : 0 ≤ E.num) : 0 ≤ (cap tau T E s).num",
+    "interpretation_and_remaining_premises": "Generic actual finite triangular-map bounds under the growth contract norm(a(p))<=L*norm(p)+E. The existing calibrated component amplification, finite power and source-budget estimates give norm_tau(run_n)<=2*(norm_tau(s0)+tau*T*E) on the calibrated short window, uniformly in mesh and count. The length cap is invariant under positive time-unit rescaling. No arrival bound, confined curve, force law, Newton import, derivative, integral or ODE primitive is supplied. The Newton GeneralForceGrowth client derives its growth contract and all actual/coarse/shadow sample bounds from force data."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_le_cap",
+    "private": false,
+    "file": "BarrowLib/Polygon/CalibratedGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a : Point → Point) (h T L E : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hg : Growth a L E) (n : Nat) (he : Fraction.le (Fraction.mul (Fraction.ofInt (n : Int)) h.abs) T) (hw : Fraction.le (Fraction.mul T (rate tau L ht)) ⟨1,2,by decide⟩) : Fraction.le (norm tau (BoundedIteration.run a h s n)) (cap tau T E s)",
+    "interpretation_and_remaining_premises": "Generic actual finite triangular-map bounds under the growth contract norm(a(p))<=L*norm(p)+E. The existing calibrated component amplification, finite power and source-budget estimates give norm_tau(run_n)<=2*(norm_tau(s0)+tau*T*E) on the calibrated short window, uniformly in mesh and count. The length cap is invariant under positive time-unit rescaling. No arrival bound, confined curve, force law, Newton import, derivative, integral or ODE primitive is supplied. The Newton GeneralForceGrowth client derives its growth contract and all actual/coarse/shadow sample bounds from force data."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.CalibratedRefinement.localSource_nonnegative",
     "private": false,
     "file": "BarrowLib/Polygon/CalibratedRefinement.lean",
@@ -5121,6 +5166,33 @@
     "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.norm_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (s : Point × Point) (ht : 0 ≤ tau.num) : 0 ≤ (norm tau s).num",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.position_le_norm",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (s : Point × Point) (ht : 0 ≤ tau.num) : Fraction.le (pointNorm s.1) (norm tau s)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.velocity_le_norm_inverse",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (s : Point × Point) (ht : 0 < tau.num) : Fraction.le (pointNorm s.2) (Fraction.mul (norm tau s) (inverse tau ht))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cell_increment",
     "private": false,
     "file": "BarrowLib/Polygon/TimeCalibration.lean",
@@ -7471,6 +7543,15 @@
     "interpretation_and_remaining_premises": "Synthetic Euclidean area identities are imported; integer-coordinate instance is proved. No limiting trajectory."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.sample_origin_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (n : Nat) : pointEquiv (o.sample n (Fraction.ofInt 0,Fraction.ofInt 0)) (Fraction.ofInt 0,Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.ForceClasses.sample_central",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
@@ -7495,6 +7576,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(o : Oracle) (p : Point) (hp : o.region p) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ n, N ≤ n → Within (embed (accelerationState (o.sample n p))) (accelerationValue o p hp) eps",
+    "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ForceClasses.sample_linear_growth",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (L : Fraction) (hL : LipschitzOn o.toOracle L) (hzero : o.region (Fraction.ofInt 0,Fraction.ofInt 0)) (n : Nat) (p : Point) (hp : o.region p) : Fraction.le (pointNorm (o.sample n p)) (Fraction.add (Fraction.mul L (pointNorm p)) (Fraction.add (o.error n) (o.error n)))",
     "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
   },
   {
@@ -7892,6 +7982,51 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) (hT : T.num = 0) : endpointValue o E0 T tau L B s hE d = embed s",
     "interpretation_and_remaining_premises": "Modern fixed-time Cauchy motion values constructed from actual dyadic schedules of an inward central force oracle. Global approximate Lipschitz comparison, a calibrated short window, and uniform bounds at actual coarse and first-half shadow force-sample locations are explicit premises. Coarse velocity is derived from actual bounded samples. Calibrated coarse/fine accumulation and a separate value-equivalent-duration comparison retain rounding errors; the actual adjacent bound is T*h*C+7*tau*T*E with E=3*error(q_j). Geometric precision yields weighted coefficient T^2*C+42*tau*T*E0 and a constructed Cauchy name/value. Zero time is included. No supplied motion-Cauchy/adjacent-error/limit point, globally bounded harmonic force, local-annulus stability, full time map, restart, uniqueness, partition independence, potential, P5 or content is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceGrowth.field_growth",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L : Fraction) (hE : 0 < E0.num) (d : Data o T tau L) (j : Nat) : CalibratedGrowth.Growth (field o E0 hE j) L (Fraction.mul (Fraction.ofInt 2) E0)",
+    "interpretation_and_remaining_premises": "Modern derivation of all actual, coarse and first-half shadow force bounds for the existing globally compared inward central-force construction. Central samples vanish at the origin, yielding linear growth with additive sampling error. Chosen precision bounds this error by 2*E0; the generic calibrated finite recurrence bounds actual states by M=2*(norm_tau(s0)+2*tau*T*E0). The shadow arrival lies inside R=M+T*M/tau, and B=L*R+2*E0 supplies every sample field in the retained GeneralForcePrefix.Conditions. No globally bounded force or bound along a desired curve is assumed. The global-region premise and calibrated short window remain explicit; annular confinement, Kepler singular laws, gluing, partition independence and historical claims are not discharged."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceGrowth.shadowCap_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(E0 T tau : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) : 0 ≤ (shadowCap E0 T tau s ht).num",
+    "interpretation_and_remaining_premises": "Modern derivation of all actual, coarse and first-half shadow force bounds for the existing globally compared inward central-force construction. Central samples vanish at the origin, yielding linear growth with additive sampling error. Chosen precision bounds this error by 2*E0; the generic calibrated finite recurrence bounds actual states by M=2*(norm_tau(s0)+2*tau*T*E0). The shadow arrival lies inside R=M+T*M/tau, and B=L*R+2*E0 supplies every sample field in the retained GeneralForcePrefix.Conditions. No globally bounded force or bound along a desired curve is assumed. The global-region premise and calibrated short window remain explicit; annular confinement, Kepler singular laws, gluing, partition independence and historical claims are not discharged."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceGrowth.forceCap_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Data o T tau L) : 0 ≤ (forceCap E0 T tau L s d.calibration_positive).num",
+    "interpretation_and_remaining_premises": "Modern derivation of all actual, coarse and first-half shadow force bounds for the existing globally compared inward central-force construction. Central samples vanish at the origin, yielding linear growth with additive sampling error. Chosen precision bounds this error by 2*E0; the generic calibrated finite recurrence bounds actual states by M=2*(norm_tau(s0)+2*tau*T*E0). The shadow arrival lies inside R=M+T*M/tau, and B=L*R+2*E0 supplies every sample field in the retained GeneralForcePrefix.Conditions. No globally bounded force or bound along a desired curve is assumed. The global-region premise and calibrated short window remain explicit; annular confinement, Kepler singular laws, gluing, partition independence and historical claims are not discharged."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceGrowth.run_state_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Data o T tau L) (j : Nat) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat) (hn : Fraction.le (BoundedIteration.time h n) T) : Fraction.le (TimeCalibration.norm tau (BoundedIteration.run (field o E0 hE j) h s n)) (CalibratedGrowth.cap tau T (Fraction.mul (Fraction.ofInt 2) E0) s)",
+    "interpretation_and_remaining_premises": "Modern derivation of all actual, coarse and first-half shadow force bounds for the existing globally compared inward central-force construction. Central samples vanish at the origin, yielding linear growth with additive sampling error. Chosen precision bounds this error by 2*E0; the generic calibrated finite recurrence bounds actual states by M=2*(norm_tau(s0)+2*tau*T*E0). The shadow arrival lies inside R=M+T*M/tau, and B=L*R+2*E0 supplies every sample field in the retained GeneralForcePrefix.Conditions. No globally bounded force or bound along a desired curve is assumed. The global-region premise and calibrated short window remain explicit; annular confinement, Kepler singular laws, gluing, partition independence and historical claims are not discharged."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceGrowth.bounded_samples",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceGrowth.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : Data o T tau L) (j : Nat) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat) (hn : Fraction.le (BoundedIteration.time h n) T) : BoundedIteration.BoundedSamples (field o E0 hE j) h s (forceCap E0 T tau L s d.calibration_positive) n",
+    "interpretation_and_remaining_premises": "Modern derivation of all actual, coarse and first-half shadow force bounds for the existing globally compared inward central-force construction. Central samples vanish at the origin, yielding linear growth with additive sampling error. Chosen precision bounds this error by 2*E0; the generic calibrated finite recurrence bounds actual states by M=2*(norm_tau(s0)+2*tau*T*E0). The shadow arrival lies inside R=M+T*M/tau, and B=L*R+2*E0 supplies every sample field in the retained GeneralForcePrefix.Conditions. No globally bounded force or bound along a desired curve is assumed. The global-region premise and calibrated short window remain explicit; annular confinement, Kepler singular laws, gluing, partition independence and historical claims are not discharged."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_lower_cut",

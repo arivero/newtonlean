@@ -413,6 +413,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CalibratedForces.parallel_calibrated_cell
 #check NewtonLimitDynamics.Polygon.CalibratedForces.sampled_calibrated_discrepancy
 #print axioms NewtonLimitDynamics.Polygon.CalibratedForces.sampled_calibrated_discrepancy
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.cap_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.cap_nonnegative
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.cap_rescale
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.cap_rescale
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.cell_norm_bound
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.cell_norm_bound
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_budget
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_budget
+#check NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_le_cap
+#print axioms NewtonLimitDynamics.Polygon.CalibratedGrowth.run_norm_le_cap
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source
 #print axioms NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_error_le_source
 #check NewtonLimitDynamics.Polygon.CalibratedRefinement.actual_uniform_error
@@ -877,6 +887,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ForceClasses.run_eq_schedule
 #check NewtonLimitDynamics.Polygon.ForceClasses.sample_central
 #print axioms NewtonLimitDynamics.Polygon.ForceClasses.sample_central
+#check NewtonLimitDynamics.Polygon.ForceClasses.sample_linear_growth
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.sample_linear_growth
+#check NewtonLimitDynamics.Polygon.ForceClasses.sample_origin_zero
+#print axioms NewtonLimitDynamics.Polygon.ForceClasses.sample_origin_zero
 #check NewtonLimitDynamics.Polygon.ForceClasses.sample_point_error
 #print axioms NewtonLimitDynamics.Polygon.ForceClasses.sample_point_error
 #check NewtonLimitDynamics.Polygon.ForceClasses.sampled_finite_area_law
@@ -943,6 +957,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_endpoint
 #check NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_value
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceEndpoint.zero_time_value
+#check NewtonLimitDynamics.Polygon.GeneralForceGrowth.bounded_samples
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceGrowth.bounded_samples
+#check NewtonLimitDynamics.Polygon.GeneralForceGrowth.field_growth
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceGrowth.field_growth
+#check NewtonLimitDynamics.Polygon.GeneralForceGrowth.forceCap_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceGrowth.forceCap_nonnegative
+#check NewtonLimitDynamics.Polygon.GeneralForceGrowth.run_state_bound
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceGrowth.run_state_bound
+#check NewtonLimitDynamics.Polygon.GeneralForceGrowth.shadowCap_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceGrowth.shadowCap_nonnegative
 #check NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_budget_bound
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_budget_bound
 #check NewtonLimitDynamics.Polygon.GeneralForcePathContent.D_meshValue_independent_cover
@@ -2391,12 +2415,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.inverse_product
 #check NewtonLimitDynamics.Polygon.TimeCalibration.nameEquiv_calibration_iff
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.nameEquiv_calibration_iff
+#check NewtonLimitDynamics.Polygon.TimeCalibration.norm_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.TimeCalibration.norm_nonnegative
 #check NewtonLimitDynamics.Polygon.TimeCalibration.norm_rescale
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.norm_rescale
 #check NewtonLimitDynamics.Polygon.TimeCalibration.norm_unit_calibration
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.norm_unit_calibration
 #check NewtonLimitDynamics.Polygon.TimeCalibration.one_le_amplification
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.one_le_amplification
+#check NewtonLimitDynamics.Polygon.TimeCalibration.position_le_norm
+#print axioms NewtonLimitDynamics.Polygon.TimeCalibration.position_le_norm
 #check NewtonLimitDynamics.Polygon.TimeCalibration.rate_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.rate_nonnegative
 #check NewtonLimitDynamics.Polygon.TimeCalibration.rescaling_control
@@ -2413,6 +2441,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.uncalibrated_norm_changes_control
 #check NewtonLimitDynamics.Polygon.TimeCalibration.unit_tolerance
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.unit_tolerance
+#check NewtonLimitDynamics.Polygon.TimeCalibration.velocity_le_norm_inverse
+#print axioms NewtonLimitDynamics.Polygon.TimeCalibration.velocity_le_norm_inverse
 #check NewtonLimitDynamics.Polygon.TimeCalibration.window_mono
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.window_mono
 #check NewtonLimitDynamics.Polygon.TimeCalibration.window_of_elapsed

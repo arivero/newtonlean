@@ -120,3 +120,13 @@ curve supplies its velocity cap and existing second-order bound, yielding
 H*L*V² error for the normalized triangle. Shared completion, finite embedding
 identities and all library/reference checks validate the construction; no
 potential, area expansion or new historical premise enters the foundation.
+
+CalibratedGrowth derives actual finite run bounds from the growth contract
+|a(p)|<=L|p|+E, without supplied arrival bounds. Reach for it to compute state
+and sampling caps; use BoundedIteration when arrival bounds are already known.
+It reuses component amplification, finite powers and source budgets, and returns
+a length cap M=2*(|x0|+tau|v0|+tau*T*E) on the calibrated window. Its time-unit
+invariance and kernel-checked finite recurrence validate the output.
+GeneralForceGrowth is the live Newton client: global comparison and centrality
+derive growth, then all actual/coarse/shadow sample fields. This does not derive
+region confinement or cover singular laws. No analytic primitive is added.

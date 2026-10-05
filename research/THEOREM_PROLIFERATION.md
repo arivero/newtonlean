@@ -195,3 +195,13 @@ force sampling/half-mesh argument. Only seven theorem rows are added, with
 prior public names/signatures preserved. The existing classifier calls all
 seven substantive, including coefficient positivity and operator interfaces;
 that does not supply seven milestones or justify a completion-score increase.
+
+GeneralForceGrowth implements Astra's third recommendation after the shared
+polygon and region clients: derive the actual/coarse/shadow force bounds from
+force data. CalibratedGrowth reuses TimeCalibration's component amplification
+and finite power/source estimates, instead of introducing another recurrence
+proof suite. Centrality gives a zero sample at the origin, and the whole-plane
+comparison gives linear growth. Fifteen theorem rows and 21 public names are
+added; preserved conditional APIs receive no separate completion credit. The
+whole-plane premise remains a material applicability defect, and the revised
+handoff makes A.6 confinement with the Kepler instance the next task.

@@ -39,6 +39,15 @@ structure CentralOracle extends Oracle where
   inward : ∀ n p, ∃ k : Fraction, 0 ≤ k.num ∧
     pointEquiv (sample n p) (linearField k p)
 
+/-- Inward samples vanish at the centre, even when their magnitude is rounded. -/
+theorem sample_origin_zero (o : CentralOracle) (n : Nat) :
+    pointEquiv (o.sample n (Fraction.ofInt 0,Fraction.ofInt 0))
+      (Fraction.ofInt 0,Fraction.ofInt 0) := by
+  obtain ⟨k, _, hk⟩ := o.inward n (Fraction.ofInt 0,Fraction.ofInt 0)
+  apply pointEquiv_trans hk
+  constructor <;> simp only [linearField,pointScale,Fraction.equiv,Fraction.mul,
+    Fraction.ofInt,Int.mul_zero,Int.zero_mul]
+
 /-- Every approximating finite polygon is central, even outside confinement. -/
 theorem sample_central (o : CentralOracle) (n : Nat) : central (o.sample n) := by
   intro p
@@ -86,6 +95,24 @@ def LipschitzOn (o : Oracle) (L : Fraction) : Prop :=
     Fraction.le (pointNorm (pointSub (o.sample n p) (o.sample n q)))
       (Fraction.add (Fraction.mul L (pointNorm (pointSub p q)))
         (Fraction.add (o.error n) (o.error n)))
+
+/-- Centrality at the origin turns comparison into linear growth on the region.
+This does not assert a globally bounded force. -/
+theorem sample_linear_growth (o : CentralOracle) (L : Fraction)
+    (hL : LipschitzOn o.toOracle L)
+    (hzero : o.region (Fraction.ofInt 0,Fraction.ofInt 0))
+    (n : Nat) (p : Point) (hp : o.region p) :
+    Fraction.le (pointNorm (o.sample n p))
+      (Fraction.add (Fraction.mul L (pointNorm p)) (Fraction.add (o.error n) (o.error n))) := by
+  have ha : Fraction.equiv
+      (pointNorm (pointSub (o.sample n p) (o.sample n (Fraction.ofInt 0,Fraction.ofInt 0))))
+      (pointNorm (o.sample n p)) := pointNorm_equiv (pointEquiv_trans
+    (pointSub_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+      (sample_origin_zero o n)) (pointSub_zero _))
+  exact Fraction.le_equiv_right
+    (Fraction.le_equiv_left (Fraction.equiv_symm ha) (hL.2 n p _ hp hzero))
+    (Fraction.add_equiv
+      (Fraction.mul_equiv_left L (pointNorm_equiv (pointSub_zero p))) (Fraction.equiv_refl _))
 
 /-- Continuous classes have a uniform modulus on the named confined region. -/
 def ContinuousOn (o : Oracle) : Prop :=

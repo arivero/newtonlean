@@ -1,5 +1,16 @@
 # Proposition I realization: premises and checked finite steps
 
+GeneralForceGrowth now derives all three actual/coarse/shadow sample bounds
+from the whole-plane Lipschitz contract and initial state. Inward samples
+vanish at the centre. With E=2*E0 and r0=|x0|+tau*|v0|, the shared finite
+recurrence gives M=2*(r0+tau*T*E), shadow radius R=M+T*M/tau and B=L*R+E.
+The resulting conditions feed the existing motion and geometric constructions;
+no separate bound along a run is supplied. The length cap is invariant under
+positive time-unit rescaling. This retains global_region and excludes singular
+Kepler laws; Task A.6 confinement is the required next repair. It neither
+proves the constructed-curve area law nor changes completion scores. See the
+[derived-bound checkpoint](verification/general-derived-bounds-2026-10-05.md).
+
 TASKS.md order 4. This note identifies, stage by stage, what Proposition I
 asserts, what its cited dependencies supply, and which further premises a
 realization of the motion needs for a **varying** central force. Lean results

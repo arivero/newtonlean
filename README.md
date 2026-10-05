@@ -33,17 +33,19 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,476 checked
-library theorems, 1,094 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,491 checked
+library theorems, 1,106 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
 they do not measure discharged obligations.
 They construct acceleration values, bound actual sampled polygons and derive
 mesh-uniform refinement control and continuous local consistency. General
-Lipschitz central samples now have constructed fixed-time motion names/values,
-with calibrated windows and explicit actual/shadow force bounds. The harmonic
-instance derives these bounds and equals the old endpoint value.
+Lipschitz central samples now have constructed fixed-time motion names/values
+on a calibrated window. GeneralForceGrowth derives their actual/coarse/shadow
+force bounds from the initial state and whole-plane Lipschitz data. This still
+requires global_region and excludes singular Kepler laws; A.6 confinement is
+the required next repair. The harmonic instance equals the old endpoint value.
 The generic geometry, completion and binary-time layers are now in BarrowLib.
 Harmonic E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
