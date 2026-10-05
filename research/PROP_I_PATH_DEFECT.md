@@ -15,9 +15,19 @@ GeneralForceTime.gamma_band passes both radii to the constructed curve: the
 upper closed-ball bound holds, and any closed ball containing the position
 has radius at least r0. These are coordinate L1 bounds, not an inverse-square
 law. The harmonic instance retains its True region and old public names.
-The actual Euclidean Kepler sampling instance still remains within A.6 and
-comes next. Task E and new completed quantities have not started. See the
-[regional construction checkpoint](verification/regional-construction-2026-10-05.md).
+The actual Euclidean Kepler sampling instance remains within A.6, after the
+general Proposition I proof, as the user clarified on 5 October evening.
+GeneralForceArea now constructs swept area from fans of actual curve nodes
+and proves area = |ell|*t/2 (or ell*t/2 oriented) on the existing local
+regional Lipschitz curve. The actual completed between-path content now has
+a grounded PolygonTrajectoryEnclosure and Vanishes instance; no enclosure or
+area-limit hypothesis is supplied. BinaryLift shares the two-input completion
+kit before the new area operation is built. Separate De Motu witness, 1687 and
+1713 wrappers remain modern reconstructions, with planarity built into the
+model. Unsigned swept area counts multiplicity; ordinary sector-union content,
+unrestricted force/rate identification and the historical limiting passage
+remain separate. See the [curve-area checkpoint](verification/constructed-central-area-2026-10-05.md)
+and the [Latin proof route](PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route).
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
@@ -72,7 +82,8 @@ addresses. Same-cell and shared-boundary alias proofs now give one polygonMap
 on the constructed time quotient. Rational completed connectors and their
 cell closures lie in a derived square about each actual coarse start. The
 resulting outer-content bound is 4*C²/2^m and tends to zero. Ordinary Euclidean
-area and Kepler-area transfer are still separate identifications. GeneralForceSecants
+sector-union area remains a separate identification; the actual curve-fan
+swept-area law is now constructed in GeneralForceArea. GeneralForceSecants
 now identifies constructed velocity as the uniform limit of completed
 bracketing dyadic position secants; the retained harmonic curve is a corollary.
 CompletedForce extends the sampled force to completed positions, independently
@@ -116,7 +127,7 @@ normalized second departure. The proved second-order bound and actual velocity
 caps give error H*L*V² against det(v_left,a_left)/2, uniformly over every dyadic
 cell including the last. The signed doubled triangle is distinct from unsigned
 lobe area and matched-region D_mesh; their geometric identification and general
-radial potential steps remain open. Completion scores stay unchanged.
+radial potential steps remain open. Those supporting quantity results receive no separate completion credit.
 
 ## The two areas
 
@@ -202,6 +213,6 @@ candidate, not a signed boundary area or an identified Euclidean measure.
 HarmonicPathContent realizes this cut as a scalar with the same bound and decay,
 using derived bisection Cauchy data and proving cover independence.
 Arbitrary partition independence,
-ordinary-area/Kepler-area identification and edition-local uninterrupted-force
+ordinary sector-union area identification and edition-local uninterrupted-force
 identification remain separate. No integral calculus, ODE theorem, measure
 theorem, or silently supplied completion closes these obligations.

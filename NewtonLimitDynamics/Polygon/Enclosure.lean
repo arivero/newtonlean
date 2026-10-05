@@ -1,5 +1,6 @@
 import NewtonLimitDynamics.Polygon.Finite
 import NewtonLimitDynamics.Common.RationalMagnitudes
+import BarrowLib.Polygon.RationalEnclosure
 
 namespace NewtonLimitDynamics.Polygon
 
@@ -42,18 +43,30 @@ theorem rectangle_gap_bound (width height : Nat → Int) (maxWidth : Int) (n : N
 /-- Refinement indexed by positive rational mesh. The budget represents the
     maximum-width times total-height estimate. Making that budget small must
     be justified for the selected curve; it does not assert a trajectory. -/
-def Vanishes (gap : Fraction → Fraction) : Prop :=
+def Vanishes {A : Type} [RationalEnclosure.Magnitude A] (gap : Fraction → A) : Prop :=
   ∀ epsilon, Fraction.positive epsilon →
-    Near Fraction.magnitudes (fun mesh => Fraction.lt (gap mesh) epsilon)
+    Near Fraction.magnitudes (fun mesh => RationalEnclosure.Magnitude.small (gap mesh) epsilon)
 
-theorem enclosed_gap_vanishes (gap budget : Fraction → Fraction)
+theorem enclosed_gap_vanishes {A : Type} [RationalEnclosure.Magnitude A]
+    (gap : Fraction → A) (budget : Fraction → Fraction)
     (hbudget : Vanishes budget)
-    (henclose : Near Fraction.magnitudes (fun mesh => Fraction.le (gap mesh) (budget mesh))) :
+    (henclose : Near Fraction.magnitudes (fun mesh =>
+      RationalEnclosure.Magnitude.bounded (gap mesh) (budget mesh))) :
     Vanishes gap := by
   intro epsilon hepsilon
   obtain ⟨d, hd, h⟩ := near_and Fraction.magnitudes _ _ henclose (hbudget epsilon hepsilon)
   exact ⟨d, hd, fun mesh hm hmd =>
-    Fraction.magnitudes.lt_of_le_lt (h mesh hm hmd).1 (h mesh hm hmd).2⟩
+    RationalEnclosure.Magnitude.small_of_bound _ _ _ (h mesh hm hmd).1 (h mesh hm hmd).2⟩
+
+/-- An explicit unconditional rational budget instance, including zero
+coefficient. This is the squeeze used by constructed geometric content. -/
+theorem linear_budget_vanishes (A : Fraction) (hA : 0 ≤ A.num) :
+    Vanishes (fun mesh => Fraction.mul mesh A) := by
+  intro eps heps
+  refine ⟨Polygon.HarmonicTimeRealization.factorDelta A eps hA,
+    Polygon.HarmonicTimeRealization.factorDelta_positive A eps hA heps,?_⟩
+  intro mesh hm hmd
+  exact Polygon.HarmonicTimeRealization.factor_control A eps mesh hA (Int.le_of_lt hm) hmd
 
 /-- Conditional transfer of polygon area ratios to enclosed sector area ratios.
     Lower and upper limits are geometric premises. No trajectory existence or

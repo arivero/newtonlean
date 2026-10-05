@@ -31,7 +31,8 @@ theorem triangleValue_embed (h : Fraction) (s u : Point × Point) :
   constructor
   · constructor <;>
       simp only [triangleValue,inertialValue,inertialName,secantName,secantState,pointState,
-        velocityValue,mapValue,mapName,velocityState,pairingName,pairingState,detForm,det,
+        velocityValue,mapValue,mapName,velocityState,pairingName,BinaryLift.name,
+        secantOperation,pairingOperation,pairingState,detForm,det,
         TriangleBounds.triangleTwice,constantName,hscalar,hzero,pointEquiv,pointSub,pointNeg,
         pointAdd,pointScale,negF,Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,
         Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg,Int.one_mul,Int.mul_one,
@@ -58,7 +59,8 @@ theorem normalized_triangle_identity (h : Fraction) (ht : 0 < h.num) (x y : Valu
       · constructor <;>
           simp only [normalizedTriangleValue,triangleValue,inertialValue,inertialName,QuadraticSecants.secondValue,
             velocityValue,mapValue,mapName,velocityState,secantName,secantState,pointState,
-            pairingName,pairingState,detForm,det,constantName,hscalar,hzero,TimeCalibration.inverse,
+            pairingName,BinaryLift.name,secantOperation,pairingOperation,
+            pairingState,detForm,det,constantName,hscalar,hzero,TimeCalibration.inverse,
             pointEquiv,pointSub,pointNeg,pointAdd,pointScale,negF,Fraction.equiv,Fraction.add,
             Fraction.mul,Fraction.half,Fraction.ofInt,Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg,
             Int.one_mul,Int.mul_one,Int.zero_mul,Int.mul_zero,Int.add_zero,Int.zero_add,Int.neg_zero] <;>

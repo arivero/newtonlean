@@ -105,3 +105,8 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 104,ec28151,2026-10-05T16:35:48+02:00,Derive finite regional confinement before central force sampling,1502,11,0,0,0,0,699,22352,14,1114,199,163,26,0,164,147,30,1124,37
 105,165cfa8,2026-10-05T16:54:17+02:00,Localize cell force comparisons to certified regional arrivals,1510,8,0,1,11,0,699,22472,15,1121,199,164,26,12,165,147,30,1131,37
 106,541a6ed,2026-10-05T17:14:55+02:00,Accumulate sampled refinement using derived regional comparisons,1519,9,0,0,7,0,700,22757,18,1128,199,166,26,7,167,147,30,1138,37
+107,5d06aa6,2026-10-05T18:02:23+02:00,Construct sampled central motion and force on derived regional domains,1557,38,0,31,13,0,706,23304,21,1161,199,171,26,44,176,147,30,1167,37
+108,f0e6ea4,2026-10-05T18:59:10+02:00,Interleave the Principia rendering with the Lean theorems that cite each item,1557,0,0,0,0,0,706,23304,21,1161,199,171,26,0,176,147,30,1167,37
+109,075711d,2026-10-05T19:03:11+02:00,"Print whole modules under each Newton item, and say where the rest is encoded",1557,0,0,0,0,0,706,23304,21,1161,199,171,26,0,176,147,30,1167,37
+110,cb0d4c4,2026-10-05T19:09:28+02:00,Include the three theorem-less modules in the interleaved Principia,1557,0,0,0,0,0,706,23304,21,1161,199,171,26,0,176,147,30,1167,37
+111,d7e6ac3,2026-10-05T19:27:49+02:00,Record the full-source review and correct the interleaved document's notes,1557,0,0,0,0,0,706,23304,21,1161,199,171,26,0,176,147,30,1167,37

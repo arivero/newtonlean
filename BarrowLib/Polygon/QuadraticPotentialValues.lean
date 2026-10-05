@@ -145,7 +145,8 @@ theorem normalized_step_approximant (c h : Fraction) (ht : 0 < h.num)
   constructor
   · constructor <;>
       simp only [normalizedStepName,normalizedStep,quadraticName,quadratic,inertialName,
-        secantName,secantState,pointState,pairingName,pairingState,dotForm,hscalar,
+        secantName,secantState,pointState,pairingName,BinaryLift.name,
+        secantOperation,pairingOperation,pairingState,dotForm,hscalar,
         mapName,velocityState,constantName,hzero,
         pointEquiv,pointSub,pointNeg,pointAdd,pointScale,dot,durationDifference,negF,
         Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,

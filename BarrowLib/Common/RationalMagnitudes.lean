@@ -418,6 +418,18 @@ theorem nonnegative_equiv {a b : Fraction} (he : equiv a b)
     unfold equiv at he
     omega
 
+/-- A rational upper bound of a nonnegative magnitude is nonnegative. -/
+theorem nonnegative_of_le {a b : Fraction} (ha : 0 ≤ a.num) (hab : le a b) :
+    0 ≤ b.num := by
+  by_cases hb : 0 ≤ b.num
+  · exact hb
+  · have hn : b.num < 0 := by omega
+    have hp := Int.mul_nonneg ha (Int.le_of_lt b.den_pos)
+    have hm := Int.mul_lt_mul_of_pos_right hn a.den_pos
+    simp only [Int.zero_mul] at hm
+    unfold le at hab
+    omega
+
 theorem mul_zero (d : Fraction) :
     equiv (mul d (ofInt 0)) (ofInt 0) := by
   unfold equiv mul ofInt

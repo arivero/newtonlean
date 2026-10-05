@@ -1,5 +1,6 @@
 import NewtonLimitDynamics.Polygon.GeneralForcePathRegion
 import BarrowLib.Polygon.SquareContentValues
+import NewtonLimitDynamics.Polygon.PathDefect
 
 /-! Canonical Cauchy scalar outer content of the actual general matched
 polygon/curve region. The all-cover cut, enclosure and geometric decay are
@@ -46,6 +47,31 @@ theorem D_meshValue_tends_zero (o : ForceClasses.CentralOracle) (E0 T tau L B : 
       d.lipschitz.1 d.bound_nonnegative) heps
   exact ⟨N,fun m hm => within_mono _ _ _ _
     (Fraction.magnitudes.lt_implies_le (hN m hm)) (D_meshValue_budget_bound o E0 T tau L B s hE d m)⟩
+
+/-- The old limiting enclosure is grounded by the constructed curve's actual
+nonnegative between-path content. No geometric enclosure is a hypothesis. -/
+theorem polygon_trajectory_enclosure (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    PathDefect.PolygonTrajectoryEnclosure
+      (fun mesh => D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))
+      (fun mesh => Fraction.mul mesh (budgetCoefficient E0 T tau L B s d.calibration_positive)) :=
+  PathDefect.geometric_sequence_enclosure _ _
+    (budgetCoefficient_nonnegative E0 T tau L B s hE d.time_nonnegative d.calibration_positive
+      d.lipschitz.1 d.bound_nonnegative)
+    (D_meshValue_nonnegative o E0 T tau L B s hE d)
+    (D_meshValue_budget_bound o E0 T tau L B s hE d)
+
+/-- Strict rational-neighborhood vanishing of the actual completed content,
+using its derived enclosure and an explicit vanishing rational budget. -/
+theorem polygon_trajectory_defect_vanishes (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    Vanishes (fun mesh => D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh)) :=
+  PathDefect.polygon_trajectory_defect_vanishes _ _
+    (linear_budget_vanishes _ (budgetCoefficient_nonnegative E0 T tau L B s hE d.time_nonnegative
+      d.calibration_positive d.lipschitz.1 d.bound_nonnegative))
+    (polygon_trajectory_enclosure o E0 T tau L B s hE d)
 
 theorem D_meshValue_independent_cover (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)

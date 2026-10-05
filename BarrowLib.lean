@@ -53,3 +53,9 @@ import BarrowLib.Polygon.QuadraticSecants
 import BarrowLib.Polygon.PairingValues
 import BarrowLib.Polygon.QuadraticPotentialValues
 import BarrowLib.Polygon.TangentTriangleValues
+import BarrowLib.Polygon.BinaryLift
+import BarrowLib.Polygon.RationalEnclosure
+import BarrowLib.Polygon.PolygonFanArea
+import BarrowLib.Polygon.GeometricApproximation
+import BarrowLib.Polygon.FanValues
+import BarrowLib.Polygon.SweptArea

@@ -1,14 +1,62 @@
 # Verification record
 
-## Current handoff: regional construction, 5 October 2026
+## Current handoff: constructed central curve area, 5–6 October 2026
+
+GeneralForceArea constructs unsigned swept area from actual curve-node fans
+and proves abs(ell)*t/2 (ell*t/2 oriented), together with vanishing actual
+intervening content. The actual scalar content now grounds
+PolygonTrajectoryEnclosure, with no area-limit or enclosure premise. BinaryLift
+shares the two-input completion kit used by pairings, secants and fan sums;
+retained operation names and approximants remain. Four separately named stage
+and De Motu witness wrappers are modern local reconstructions. Planarity is
+built into the model, unsigned area counts multiplicity, and regional
+Lipschitz/window data remain explicit modern premises. Ordinary sector-union
+area and the historical limiting proof are not certified.
+
+The Latin proof route was read through Proposition I's cited results and
+those results' proof paragraphs. Five source nodes and seven stage-local
+accepted edges were added, preserving exact passages, witness URLs,
+classifications and confidence. The 1713 composition proof explicitly invokes
+Laws II and I; NATP00090 Lemma 1's Law 2 addition keeps its marked revision.
+There is no corresponding printed limiting-lemma citation in De Motu.
+
+One sequential gpt-6-luna worker ran all 16 checklist commands, scope Lean
+compilation and the public-name audit; every command exited 0. Root Sol 6.1
+reviewed their logs and the three changed source proof-graph images. The
+catalogue has 1,620 rows, including 698 Barrow rows; heuristic 1,218 substantive,
+202 plumbing, 171 sample, 29 duplicate. All 1,992 prior public names remain;
+101 names are new. Four signatures generalize the rational squeeze to a
+magnitude type, with explicit rational compatibility compiled. The graph has
+82 nodes, 75 edges, 253 passages; 1,476 references elaborate. The exact axiom
+union is propext, Classical.choice, Quot.sound, with no sorryAx. Packages are
+empty, BarrowLib has no Newton imports, and no source sorry/admit/new axiom or
+mathlib appears. The graph artifacts change because their dependency data
+changed; they were regenerated and inspected. Progress history stops at the
+parent commit; the live catalogue counts above include the new increment.
+
+Only Proposition I identification changes, from 0.35 to 0.55: estimate 66.25%
+for I, 39.71875% overall (36.0625–47.2% under alternative weights). No historical
+target is discharged. Full logs: /tmp/newton-sol61-area-final-01.log through
+-16.log; scope: /tmp/newton-sol61-area-scope-final.log; API:
+/tmp/newton-sol61-area-api.json. See the
+[checkpoint](verification/constructed-central-area-2026-10-05.md).
+
+The session mounts this checkout's .git read-only: staging failed when Git
+could not create index.lock. The verified Sol 6.1 increment is therefore saved
+with isolated Git metadata under /tmp/newton-sol61-area-commit.git and an
+importable /tmp/newton-sol61-constructed-central-area.bundle. This checkout's
+HEAD is not advanced; the conversation-export changes remain excluded.
+
+### Regional construction at 5d06aa6, 5 October 2026
 
 Conditions, the existing completed-force operation and all construction clients
 now use derived regional certificates. The regular-ball budget closes from
 the existing calibrated window before force sampling; gamma_band transfers
 the finite inner/outer coordinate bounds to the constructed curve. Proper-ball
 and proper-annulus harmonic controls compile. The actual Euclidean Kepler
-oracle remains required by A.6; Task E and new completed quantities have not
-started, and completion scores stay unchanged.
+oracle remained the next applicability obligation at that checkpoint; Task E
+had not started and scores stayed unchanged then. The user subsequently
+clarified that the general Proposition I proof precedes Kepler applications.
 
 All 16 sequential checklist commands and the proper-region scope file pass,
 run by one sequential gpt-6-luna verification worker and reviewed by root

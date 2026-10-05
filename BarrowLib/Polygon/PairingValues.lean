@@ -89,6 +89,12 @@ theorem pairing_state_bound (f : Form) (R : Fraction) (hR : 0 ≤ R.num)
     (Fraction.le_equiv_right (Fraction.magnitudes.le_trans hb (Fraction.add_le_add h3 h4))
       (Fraction.equiv_symm (Fraction.add_mul _ _ _)))
 
+def pairingOperation (f : Form) : BinaryLift.Operation where
+  apply := pairingState f
+  coefficient := id
+  coefficient_nonnegative := fun _ hR => hR
+  distance_bound := pairing_state_bound f
+
 theorem fixed_left_bound (f : Form) (s t u : Point × Point) :
     Fraction.le (distance (pairingState f s t) (pairingState f s u))
       (Fraction.mul (distance t u) (pointNorm s.1)) := by
@@ -107,61 +113,16 @@ theorem fixed_left_bound (f : Form) (s t u : Point × Point) :
       (Fraction.mul_le_mul_nonnegative (point_le_state (stateSub t u)) (pointNorm s.1)
         (pointNorm_nonnegative _)))
 
-private theorem pairing_small (f : Form) (R eps : Fraction) (hR : 0 ≤ R.num)
-    (s t u v : Point × Point)
-    (hu : Fraction.le (pointNorm u.1) R) (ht : Fraction.le (pointNorm t.1) R)
-    (hsu : Fraction.lt (distance s u) (factorDelta R eps.half hR))
-    (htv : Fraction.lt (distance t v) (factorDelta R eps.half hR)) :
-    Fraction.lt (distance (pairingState f s t) (pairingState f u v)) eps := by
-  have hx := factor_control R eps.half (distance s u) hR (stateNorm_nonnegative _) hsu
-  have hy := factor_control R eps.half (distance t v) hR (stateNorm_nonnegative _) htv
-  have hsmall := lt_equiv_right (Fraction.add_lt_add hx hy) (Fraction.half_add_self eps)
-  exact Fraction.magnitudes.lt_of_le_lt (pairing_state_bound f R hR s t u v hu ht)
-    (Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv (Fraction.add_mul _ _ _)) hsmall)
-
-def pairingName (f : Form) (a b : EndpointCauchyName) : EndpointCauchyName where
-  approx := fun j => pairingState f (a.approx j) (b.approx j)
-  cauchy := by
-    intro eps heps
-    obtain ⟨Ra,hRa,Na,hNa⟩ := position_bounded_tail a
-    obtain ⟨Rb,hRb,Nb,hNb⟩ := position_bounded_tail b
-    let R := Fraction.add Ra Rb
-    have hR : 0 ≤ R.num := Fraction.nonnegative_add _ _ hRa hRb
-    let delta := factorDelta R eps.half hR
-    have hd : 0 < delta.num := factorDelta_positive _ _ _ heps
-    obtain ⟨N,hN⟩ := a.cauchy delta hd
-    obtain ⟨M,hM⟩ := b.cauchy delta hd
-    refine ⟨max (max Na Nb) (max N M),fun i j hi hj => ?_⟩
-    apply pairing_small f R eps hR
-    · exact Fraction.magnitudes.le_trans (hNa j (by omega)) (Fraction.le_add_nonnegative Ra Rb hRb)
-    · exact Fraction.magnitudes.le_trans (hNb i (by omega))
-        (Fraction.le_equiv_right (Fraction.le_add_nonnegative Rb Ra hRa) (Fraction.add_comm _ _))
-    · exact hN i j (by omega) (by omega)
-    · exact hM i j (by omega) (by omega)
+def pairingName (f : Form) (a b : EndpointCauchyName) : EndpointCauchyName :=
+  BinaryLift.name (pairingOperation f) a b
 
 theorem pairingName_equiv (f : Form) (a b a' b' : EndpointCauchyName)
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
-    NameEquiv (pairingName f a b) (pairingName f a' b') := by
-  intro eps heps
-  obtain ⟨Ra,hRa,Na,hNa⟩ := position_bounded_tail a'
-  obtain ⟨Rb,hRb,Nb,hNb⟩ := position_bounded_tail b
-  let R := Fraction.add Ra Rb
-  have hR : 0 ≤ R.num := Fraction.nonnegative_add _ _ hRa hRb
-  let delta := factorDelta R eps.half hR
-  have hd : 0 < delta.num := factorDelta_positive _ _ _ heps
-  obtain ⟨N,hN⟩ := ha delta hd
-  obtain ⟨M,hM⟩ := hb delta hd
-  refine ⟨max (max Na Nb) (max N M),fun j hj => ?_⟩
-  apply pairing_small f R eps hR
-  · exact Fraction.magnitudes.le_trans (hNa j (by omega)) (Fraction.le_add_nonnegative Ra Rb hRb)
-  · exact Fraction.magnitudes.le_trans (hNb j (by omega))
-      (Fraction.le_equiv_right (Fraction.le_add_nonnegative Rb Ra hRa) (Fraction.add_comm _ _))
-  · exact hN j (by omega)
-  · exact hM j (by omega)
+    NameEquiv (pairingName f a b) (pairingName f a' b') :=
+  BinaryLift.name_equiv (pairingOperation f) a b a' b' ha hb
 
 def pairingValue (f : Form) (x y : Value) : Value :=
-  Quotient.liftOn₂ x y (fun a b => realize (pairingName f a b))
-    (fun a b a' b' ha hb => Quotient.sound (pairingName_equiv f a b a' b' ha hb))
+  BinaryLift.value (pairingOperation f) x y
 
 theorem pairingValue_embed (f : Form) (s t : Point × Point) :
     pairingValue f (embed s) (embed t) = embed (pairingState f s t) := rfl
@@ -181,7 +142,8 @@ theorem scaled_pairing_approximant (f : Form) (c : Fraction) (a b : EndpointCauc
   have hscalar : ∀ q, scalarState q=((q,Fraction.ofInt 0),(Fraction.ofInt 0,Fraction.ofInt 0)) := fun _ => rfl
   constructor
   · constructor <;>
-      simp only [secantName,pairingName,secantState,pointState,pairingState,constantName,
+      simp only [secantName,pairingName,BinaryLift.name,secantOperation,pairingOperation,
+        secantState,pointState,pairingState,constantName,
         hscalar,hzero,pointEquiv,pointSub,pointNeg,pointAdd,pointScale,Fraction.equiv,Fraction.add,
         Fraction.mul,Fraction.ofInt,Int.zero_mul,Int.mul_zero,Int.neg_zero,Int.add_zero,
         Int.zero_add,Int.mul_one,Int.one_mul]

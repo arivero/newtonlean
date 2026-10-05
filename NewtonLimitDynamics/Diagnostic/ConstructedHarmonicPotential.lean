@@ -101,7 +101,8 @@ theorem force_work_eq_energy (mass w : Fraction) (x : Value) :
     constructor
     · constructor <;>
         simp only [forceEnergyValue,HarmonicCompletedForce.linearValue,secantName,secantState,
-          pointState,pairingName,pairingState,dotForm,constantName,hscalar,hzero,dot,
+          pointState,pairingName,BinaryLift.name,secantOperation,pairingOperation,
+          pairingState,dotForm,constantName,hscalar,hzero,dot,
           pointEquiv,pointSub,pointNeg,pointAdd,pointScale,negF,Fraction.equiv,Fraction.add,
           Fraction.mul,Fraction.half,Fraction.ofInt,Int.add_mul,Int.mul_add,Int.neg_mul,
           Int.mul_neg,Int.one_mul,Int.mul_one,Int.zero_mul,Int.mul_zero,Int.add_zero,Int.zero_add,

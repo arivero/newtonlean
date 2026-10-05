@@ -3,6 +3,7 @@ digraph proof-1713 {
   node [shape=box, style="rounded,filled"];
   "P1713.Composition" [label="P1713.Composition\nParallelogram composition", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.EuclidI40" [label="P1713.EuclidI40\nEuclid I.40, equal triangles on equal\nbases and in the same parallels", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L1" [label="P1713.L1\nUltimate equality from approach closer\nthan any given difference", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L10" [label="P1713.L10\nInitial displacement under finite force", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L10C3" [label="P1713.L10C3\nSpaces jointly as force and time squared", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L10C4" [label="P1713.L10C4\nForce as space divided by time squared\n1 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
@@ -11,6 +12,7 @@ digraph proof-1713 {
   "P1713.L11C3" [label="P1713.L11C3\nSagitta quadratic in time at given\nvelocity", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L11Cubic" [label="P1713.L11Cubic\nCubic curvilinear areas and segments via\nthe parabola\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L11Restriction" [label="P1713.L11Restriction\nFinite nonzero curvature restriction;\nhigher/lower orders excluded", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L2" [label="P1713.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3" [label="P1713.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3C4" [label="P1713.L3C4\nCurvilinear limit of polygon perimeters", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L7" [label="P1713.L7\nVanishing arc, chord and tangent have\nthe ultimate ratio of equality", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
@@ -50,4 +52,8 @@ digraph proof-1713 {
   "P1713.L11C2" -> "P1713.P6" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
   "P1713.L11C3" -> "P1713.P6" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
   "P1713.L10C4" -> "P1713.P6" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
+  "P1713.L1" -> "P1713.L2" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
+  "P1713.L2" -> "P1713.L3" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1713.Law2" -> "P1713.Composition" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
+  "P1713.Law1" -> "P1713.Composition" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
 }

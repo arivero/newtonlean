@@ -25,6 +25,8 @@ flowchart LR
   n60["P1687.LawCor5"]
   n61["P1687.LawCor6"]
   n62["P1687.EuclidI40"]
+  n77["P1687.L1"]
+  n78["P1687.L2"]
   n13 -->|explicit_dependency| n56
   n51 -->|explicit_dependency| n56
   n62 -->|explicit_dependency| n56
@@ -46,6 +48,8 @@ flowchart LR
   n51 -->|explicit_dependency| n50
   n4 -->|explicit_dependency| n50
   n10 -->|implicit_dependency| n50
+  n77 -->|explicit_dependency| n78
+  n78 -->|implicit_dependency| n11
 ```
 
 ## 1713
@@ -80,6 +84,8 @@ flowchart LR
   n69["P1713.LawCor5"]
   n70["P1713.LawCor6"]
   n71["P1713.EuclidI40"]
+  n79["P1713.L1"]
+  n80["P1713.L2"]
   n18 -->|explicit_dependency| n63
   n68 -->|explicit_dependency| n63
   n71 -->|explicit_dependency| n63
@@ -104,6 +110,10 @@ flowchart LR
   n30 -->|explicit_dependency| n28
   n31 -->|explicit_dependency| n28
   n8 -->|explicit_dependency| n28
+  n79 -->|explicit_dependency| n80
+  n80 -->|implicit_dependency| n16
+  n68 -->|explicit_dependency| n19
+  n18 -->|explicit_dependency| n19
 ```
 
 ## 1726
@@ -154,9 +164,11 @@ flowchart LR
   n53["NATP00090.Law1"]
   n54["NATP00090.L1"]
   n55["NATP00090.T2"]
+  n81["NATP00090.Law2"]
   n53 -->|explicit_dependency| n21
   n54 -->|explicit_dependency| n21
   n1 -->|explicit_dependency| n2
+  n81 -->|explicit_dependency| n54
 ```
 
 ## RS-copy-reprint
@@ -260,6 +272,11 @@ flowchart LR
   n74["Draft.conic"]
   n75["Draft.sections"]
   n76["Draft.booklet"]
+  n77["P1687.L1"]
+  n78["P1687.L2"]
+  n79["P1713.L1"]
+  n80["P1713.L2"]
+  n81["NATP00090.Law2"]
   n4 -.->|editorial_interpretation| n6
   n9 -.->|editorial_interpretation| n1
   n20 -.->|editorial_interpretation| n10

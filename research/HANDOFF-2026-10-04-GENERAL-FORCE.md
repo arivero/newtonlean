@@ -70,7 +70,7 @@ the actual Euclidean Kepler instance remain required; A.6 is not complete.
 
 Two gaps remain, and they come before any new completed quantity:
 
-- **Whole plane: a required repair, first in order.** `LipschitzOn` is
+- **Whole plane: a required applicability repair.** `LipschitzOn` is
   stated on `o.region`, but `Conditions.global_region : ∀ p, o.region p` (and
   `GeneralForceGrowth.Data`) make every general theorem a whole-plane
   theorem; the only instance built, the harmonic one, discharges it with
@@ -79,7 +79,10 @@ Two gaps remain, and they come before any new completed quantity:
   concerns a force toward a point, and every law he applies it to (`1/r²`
   above all) is singular at that point. The whole-plane results therefore do
   not instantiate to the historical target; they are conditional diagnostics
-  until A.6 is done. Do not build on `global_region` again, and re-derive the
+  until A.6 is done. The regional interface repair is now committed; remaining
+  A.6 work and the Kepler instance follow the general Proposition I proof,
+  as the user clarified on 5 October evening. Do not build on `global_region`
+  again, and re-derive the
   existing general theorems on the region premise rather than keeping two
   versions.
 - **Proposition I's own conclusion.** No theorem states the area law for the
@@ -90,7 +93,12 @@ about 5 %, and the new theorems are used downstream) but a tower: each new
 completed quantity rebuilds the same five-step kit, and all of it rests on the
 `Conditions` bundle. Task D.4 addresses the kit.
 
-## Task A — general force classes (main goal)
+## Task A — general force classes and subsequent applicability
+
+The user's 5 October evening clarification controls the order: prove the
+general Proposition I construction and swept-area conclusion first. A.6 and
+force-specific instances follow that proof. Retain the regional repair already
+committed, but add no independent force proof ahead of the general proposition.
 
 Generalise the realization chain to an arbitrary central force, as
 Proposition I states it: force directed toward one fixed point S, of any
@@ -256,7 +264,9 @@ curve; the finite law `swept_eq` is exact on every polygon, and the three
 edition files only carry the conditional interface
 `polygon_trajectory_defect_control`, whose enclosure is a hypothesis.
 
-1. **Differential form.** For the constructed curve `γ` with its identified
+1. **Supporting differential form.** This is the areal product, not the
+   polygon–curve remnant and not the full Proposition I conclusion. For the
+   constructed curve `γ` with its identified
    velocity `v` (Task B.3), prove that the areal product `γ(t) × v(t)` is
    constant in the value space: `pairingValue detForm (γ t) (v t) =
    pairingValue detForm (γ 0) (v 0)`. The proof passes `schedule_momentum`
@@ -326,26 +336,49 @@ primitives.
 Original order: D.1, A, D.2, B.1–B.2, C.1–C.2, B.3 and C.3, classes (c)
 and (d). Steps D.1, A (first pass), D.2, B.1–B.3 and C.2 are done.
 
-Order from 5 October:
+Order clarified by the user on 5 October evening:
 
-1. Finish and commit the current increment (`GeneralForceGrowth`: sample
-   bounds derived from force data), without extending it.
-2. Task A.6, required: region confinement replacing `global_region`
-   everywhere; the ball case, then the annulus from the areal product, with
-   Kepler's `1/r²` as the instance that must go through. Nothing else is to
-   be started before this is committed.
-3. Task E.1: the areal product constant along the curve.
-4. Task C.1 and C.3: the between-path region's definition and vanishing.
-5. Task E.2 and E.3: the sector area proportional to time, and the three
-   edition wrappers.
-6. Gluing of windows and partition independence.
-7. Classes (c) and (d). Task D.4 applies from step 3 on: no new completed
-   quantity without the generic lift.
+Completed before this clarification: `GeneralForceGrowth` and the general
+regional construction repair. Preserve the verified regional premises and
+derived polygon/coarse/shadow/curve confinement.
 
-Build downward before upward: no new layer on `Conditions` until A.6 and E
-are in.
+1. **Proposition I itself comes first:** construct the general central-force
+   motion and prove that its swept areas are proportional to elapsed times,
+   with separate De Motu, 1687 and 1713 wrappers. Task E.1's constant areal
+   product is a supporting lemma, not the proposition. Tasks C.1/C.3 and
+   E.2/E.3 must connect the actual constructed curve, intervening region and
+   sector area. The evening review's item 1 supplies the first concrete step:
+   ground the actual general `PolygonTrajectoryEnclosure` from the proved
+   content decay; retained instances inherit the same general proof.
+2. Only after that general construction and conclusion are proved, finish A.6
+   and instantiate the theorem for Kepler's `1/r²`. Force-specific work is an application of
+   the general proof, not a substitute for it. The started Kepler work is held
+   separately until this step.
+3. Gluing of windows and partition independence.
+4. Classes (c) and (d).
 
-Commit each verified increment.
+Task D.4 continues to apply: introduce no further completed quantity without
+the shared generic lift. Commit verified increments, and distinguish every
+supporting lemma from the full Proposition I conclusion.
+
+## Current verified construction increment, 5 October evening
+
+GeneralForceArea.constructed_area_law now gives intrinsic swept area of the
+actual regional Lipschitz local curve, equal to |ell|*t/2, together with
+vanishing actual intervening content. Oriented area is ell*t/2. E.1's areal
+product is only support. Actual curve-node fans construct the area value;
+no area limit or enclosure is a premise. The general and retained harmonic
+content clients ground PolygonTrajectoryEnclosure, and D.4's BinaryLift is
+shared by pairings, secants and fan addition. Separate stage/witness wrappers
+are named modern reconstructions; planarity is built into the model and
+unsigned fans count multiplicity.
+
+The [proof route](PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route)
+was read from the Latin proof paragraphs and traced through the cited laws,
+composition proofs and Lemmas I–III. Ordinary sector-union area, unrestricted
+force identification, arbitrary partitions and historical limiting proof
+certification remain open. These are part of the general target's scope;
+Kepler work stays held until the general proof requirements are met.
 
 ## Verification and reporting, every increment
 

@@ -548,6 +548,41 @@
       "passage": "Gregory.C44.sections",
       "manuscript_identity": "Gregory C44 / RS fols.68-69",
       "proposed_number": null
+    },
+    {
+      "id": "P1687.L1",
+      "stage": "1687",
+      "type": "lemma",
+      "statement": "Ultimate equality from approach closer than any given difference",
+      "passage": "NATP00077.par1"
+    },
+    {
+      "id": "P1687.L2",
+      "stage": "1687",
+      "type": "lemma",
+      "statement": "Equal-width inscribed and circumscribed figures approach the given curve",
+      "passage": "NATP00077.par3"
+    },
+    {
+      "id": "P1713.L1",
+      "stage": "1713",
+      "type": "lemma",
+      "statement": "Ultimate equality from approach closer than any given difference",
+      "passage": "NATP00082.par2"
+    },
+    {
+      "id": "P1713.L2",
+      "stage": "1713",
+      "type": "lemma",
+      "statement": "Equal-width inscribed and circumscribed figures approach the given curve",
+      "passage": "NATP00082.par4"
+    },
+    {
+      "id": "NATP00090.Law2",
+      "stage": "NATP00090",
+      "type": "mechanical_premise",
+      "statement": "Change of state proportional to the impressed force and in its direction; marked revision retained",
+      "passage": "NATP00090.par6"
     }
   ],
   "edges": [
@@ -1555,6 +1590,104 @@
       "revision_layer": "printed edition; transcription corrections retained",
       "formal_refs": [],
       "source_stage": "1713"
+    },
+    {
+      "from": "P1687.L1",
+      "to": "P1687.L2",
+      "passage": "NATP00077.par4",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Lemma I: after the equal-width gap is identified with one shrinking rectangle, Lemma I supplies ultimate equality. This is the proof citation, not proximity of statements.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L2",
+      "to": "P1687.L3",
+      "passage": "NATP00077.par5",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Eædem rationes ultimæ: Lemma III retains Lemma II's inscribed/circumscribed figures and ultimate equal ratios while allowing unequal widths. Its par6 proof replaces the common width by the maximum; it does not name Lemma II.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par5",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1713.L1",
+      "to": "P1713.L2",
+      "passage": "NATP00082.par5",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Lemma I: the equal-width gap is the shrinking rectangle, followed by the explicit cited ultimate-equality argument.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L2",
+      "to": "P1713.L3",
+      "passage": "NATP00082.par6",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Eædem rationes ultimæ and the retained inscribed/circumscribed figures carry Lemma II's argument into unequal widths. The maximum-width proof in par7 confirms the reuse; no named Lemma II citation occurs.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.Law2",
+      "to": "P1713.Composition",
+      "passage": "NATP00081.par8",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "per Legem II: the transverse force does not change the velocity of approach to the parallel line. Explicitly cited inside the proof of Corollary 1.",
+      "witness": "Axiomata Sive Leges Motus (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.Law1",
+      "to": "P1713.Composition",
+      "passage": "NATP00081.par8",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "Perget autem motu rectilineo ab A ad D per Legem I: explicit final proof sentence of Corollary 1. The 1687 proof lacks this sentence.",
+      "witness": "Axiomata Sive Leges Motus (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "NATP00090.Law2",
+      "to": "NATP00090.L1",
+      "passage": "NATP00090.par11",
+      "relation": "proof_dependency",
+      "status": "explicit_dependency",
+      "confidence": "high",
+      "notes": "[add: per Legem 2] in the component-velocity argument of Lemma 1. The addition is retained as marked; relative revision chronology is unresolved.",
+      "witness": "'De motu sphæricorum corporum in fluidis'",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par11",
+      "revision_layer": "all marked additions and deletions retained; relative chronology unresolved",
+      "formal_refs": [],
+      "source_stage": "NATP00090"
     }
   ],
   "open_questions": [

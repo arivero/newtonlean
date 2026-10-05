@@ -62,6 +62,16 @@ catalogue, count and verification-command changes. Every new generic estimate
 is therefore in the foundation from its first checked version.
 
 
+The 5 October curve-area increment adds `BinaryLift` for shared two-input
+completion, `GeometricApproximation` for actual approximants with a derived
+geometric reference bound, rational scalar enclosures, finite determinant
+fans, completed fans and the intrinsic `SweptArea.AreaAt` predicate. These
+modules contain no Newton imports or force data. Secants and pairings retain
+their names and approximants while using the shared lift. Unsigned fans count
+multiplicity; neither they nor square outer content assert ordinary
+sector-union area. The Newton-specific derivation belongs in
+`GeneralForceArea`, with regional Lipschitz and calibrated-window premises.
+
 ## D.2 extraction, 4 October
 
 The remaining geometry, state-distance, Cauchy-name/quotient, dyadic arithmetic,

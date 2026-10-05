@@ -1,7 +1,8 @@
 import NewtonLimitDynamics.Polygon.PathDefect
+import NewtonLimitDynamics.Polygon.GeneralForceArea
 
 /-!
-1713 Proposition I, finite equal-cell reconstruction only. Source:
+1713 Proposition I, finite equal-cell reconstruction and a separately named modern local curve law. Source:
 NATP00082 par50–51,
 https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51.
 The proof invokes this edition's Law I and laws' Corollary 1 and explicitly
@@ -49,5 +50,27 @@ theorem polygon_trajectory_defect_control
     (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
+
+/-- Modern local reconstruction of NATP00082 par51,
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51.
+Actual unsigned curve-fan area is proportional to time, counting multiplicity,
+and the constructed intervening content vanishes without an enclosure premise.
+Planarity is part of the model. Regional Lipschitz/window data are modern
+premises; this does not certify the historical continuously acting force
+passage or import the 1687 proof as a historical premise. -/
+theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime.BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaAt true T d.time_nonnegative
+      (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t
+      (GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t) ∧
+    GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t =
+      SecantValues.secantValue (CentralSchedule.momentum s).abs.half
+        (HarmonicTimeRealization.timeCoordinate T d.time_nonnegative t)
+        (CauchyValues.embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
 
 end Principia1713.PropositionI

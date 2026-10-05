@@ -666,6 +666,15 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.nonnegative_of_le",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (ha : 0 ≤ a.num) (hab : le a b) : 0 ≤ b.num",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Fraction.mul_zero",
     "private": false,
     "file": "BarrowLib/Common/RationalMagnitudes.lean",
@@ -1078,6 +1087,42 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) : timeCoordinate T hT (rightTime T hT) = embed (scalarState T)",
     "interpretation_and_remaining_premises": "Generic constructed binary-time coordinate and endpoint facts, extracted with public names/signatures preserved. Time coordinates are injective on the time quotient; left/right addresses realize embedded zero/full time values. No harmonic motion, external real interval or mechanical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryLift.two_small",
+    "private": true,
+    "file": "BarrowLib/Polygon/BinaryLift.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(op : Operation) (R eps : Fraction) (hR : 0 ≤ R.num) (s t u v : Point × Point) (hu : Fraction.le (pointNorm u.1) R) (ht : Fraction.le (pointNorm t.1) R) (hsu : Fraction.lt (distance s u) (factorDelta (op.coefficient R) eps.half (op.coefficient_nonnegative R hR))) (htv : Fraction.lt (distance t v) (factorDelta (op.coefficient R) eps.half (op.coefficient_nonnegative R hR))) : Fraction.lt (distance (op.apply s t) (op.apply u v)) eps",
+    "interpretation_and_remaining_premises": "Generic two-input completion kit: a finite distance bound on bounded position tails derives Cauchy names, equivalence invariance, quotient values and embedding compatibility once. Tail boundedness is proved for every input name. Secants, bilinear pairings and scalar fan sums use the same kit. No completed continuity, force, Newton import, derivative, integral or ODE premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryLift.name_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryLift.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(op : Operation) (a b a' b' : EndpointCauchyName) (ha : NameEquiv a a') (hb : NameEquiv b b') : NameEquiv (name op a b) (name op a' b')",
+    "interpretation_and_remaining_premises": "Generic two-input completion kit: a finite distance bound on bounded position tails derives Cauchy names, equivalence invariance, quotient values and embedding compatibility once. Tail boundedness is proved for every input name. Secants, bilinear pairings and scalar fan sums use the same kit. No completed continuity, force, Newton import, derivative, integral or ODE premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryLift.value_realize",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryLift.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(op : Operation) (a b : EndpointCauchyName) : value op (realize a) (realize b) = realize (name op a b)",
+    "interpretation_and_remaining_premises": "Generic two-input completion kit: a finite distance bound on bounded position tails derives Cauchy names, equivalence invariance, quotient values and embedding compatibility once. Tail boundedness is proved for every input name. Secants, bilinear pairings and scalar fan sums use the same kit. No completed continuity, force, Newton import, derivative, integral or ODE premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BinaryLift.value_embed",
+    "private": false,
+    "file": "BarrowLib/Polygon/BinaryLift.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(op : Operation) (s t : Point × Point) : value op (embed s) (embed t) = embed (op.apply s t)",
+    "interpretation_and_remaining_premises": "Generic two-input completion kit: a finite distance bound on bounded position tails derives Cauchy names, equivalence invariance, quotient values and embedding compatibility once. Tail boundedness is proved for every input name. Secants, bilinear pairings and scalar fan sums use the same kit. No completed continuity, force, Newton import, derivative, integral or ODE premise."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.BinaryTime.scalarState_distance",
@@ -2781,6 +2826,123 @@
     "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices in both individual cells and finite run accumulation, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.sum_state_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s t u v : Point × Point) : Fraction.le (distance (sumState s t) (sumState u v)) (Fraction.add (distance s u) (distance t v))",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.sumValue_realize",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : EndpointCauchyName) : sumValue (realize a) (realize b) = realize (sumName a b)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.sumValue_scalar",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) : firstValue (sumValue x y) = sumValue x y",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.absolute_nonexpansive",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s t : Point × Point) : Fraction.le (distance (absoluteState s) (absoluteState t)) (distance s t)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.sumValues_realize",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → EndpointCauchyName) (n : Nat) : sumValues (fun i => realize (a i)) n = realize (sumNames a n)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.sumNames_approx",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → EndpointCauchyName) (n j : Nat) : (sumNames a n).approx j = scalarState (PolygonFanArea.sum (fun i => (a i).approx j |>.1.1) n)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.fanValue_realize",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (p : Nat → EndpointCauchyName) (n : Nat) : fanValue unsigned (fun i => realize (p i)) n = realize (fanName unsigned p n)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.fanValue_positions",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (p : Nat → Value) (n : Nat) : fanValue unsigned (fun i => positionValue (p i)) n = fanValue unsigned p n",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.fanName_approx",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (p : Nat → EndpointCauchyName) (n j : Nat) : (fanName unsigned p n).approx j = scalarState (finiteFan unsigned (fun i => (p i).approx j |>.1) n)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.half_nonexpansive",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s t : Point × Point) : Fraction.le (distance (halfState s) (halfState t)) (distance s t)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.halfValue_realize",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : EndpointCauchyName) : halfValue (realize a) = realize (halfName a)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.halfValue_within",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Value) (R : Fraction) (h : Within x y R) : Within (halfValue x) (halfValue y) R",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FanValues.half_scalar_product",
+    "private": false,
+    "file": "BarrowLib/Polygon/FanValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c t : Fraction) : stateEquiv (halfState (scalarState (Fraction.mul t c))) (secantState c.half (scalarState t) zeroState)",
+    "interpretation_and_remaining_premises": "Actual finite triangle fans on completed positions. Pairings and scalar addition use BinaryLift; absolute value and half scaling use the existing one-input completion machinery. Approximant, rational embedding and position-only identities are proved. Unsigned sums count multiplicity. No area limit, motion, force, union-content identification or Newton import."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.localBudget_le_uniform",
     "private": false,
     "file": "BarrowLib/Polygon/FiniteAccumulation.lean",
@@ -3690,6 +3852,24 @@
     "interpretation_and_remaining_premises": "Generic finite telescoping bound for any rational-valued state distance with zero diagonal and triangle inequality. Bounded actual adjacent increments give count times step budget. Both harmonic and calibrated general motion reuse this estimate; no convergence or force premise is supplied."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.GeometricApproximation.eventually_close",
+    "private": false,
+    "file": "BarrowLib/Polygon/GeometricApproximation.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(reference : EndpointCauchyName) (approx : Nat → State) (C : Fraction) (hC : 0 ≤ C.num) (hbound : ∀ j, Fraction.le (distance (approx j) (reference.approx j)) (duration C j)) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ j, N ≤ j → Fraction.lt (distance (approx j) (reference.approx j)) eps",
+    "interpretation_and_remaining_premises": "An actual sequence geometrically close to a constructed reference name retains its own supplied approximants. The finite bound and reference Cauchy proof derive its Cauchy name and reference equivalence; no desired limit or convergence premise is a field."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeometricApproximation.name_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/GeometricApproximation.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(reference : EndpointCauchyName) (approx : Nat → State) (C : Fraction) (hC : 0 ≤ C.num) (hbound : ∀ j, Fraction.le (distance (approx j) (reference.approx j)) (duration C j)) : NameEquiv (name reference approx C hC hbound) reference",
+    "interpretation_and_remaining_premises": "An actual sequence geometrically close to a constructed reference name retains its own supplied approximants. The finite bound and reference Cauchy proof derive its Cauchy name and reference equivalence; no desired limit or convergence premise is a field."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeometricTail.tail_halving",
     "private": false,
     "file": "BarrowLib/Polygon/GeometricTail.lean",
@@ -4050,15 +4230,6 @@
     "interpretation_and_remaining_premises": "Generic completed scalar pairings, with one Cauchy and representative-independence proof for dot products and determinants. Finite bilinear difference identities and L1 magnitude bounds are proved for both forms; position bounds on Cauchy tails are derived. Rational embedding, scalar projection and scaled-approximant compatibility follow from the same completion. These maps are Lipschitz on bounded sets, rather than globally, so the fixed-coefficient regional SampledValues constructor does not cover them. Determinants remain signed doubled areas and dot products use Euclidean squared magnitude, distinct from the error gauge. No force, derivative, integral, ODE, Newton import or historical dependency occurs."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.PairingValues.pairing_small",
-    "private": true,
-    "file": "BarrowLib/Polygon/PairingValues.lean",
-    "source_passages": [],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(f : Form) (R eps : Fraction) (hR : 0 ≤ R.num) (s t u v : Point × Point) (hu : Fraction.le (pointNorm u.1) R) (ht : Fraction.le (pointNorm t.1) R) (hsu : Fraction.lt (distance s u) (factorDelta R eps.half hR)) (htv : Fraction.lt (distance t v) (factorDelta R eps.half hR)) : Fraction.lt (distance (pairingState f s t) (pairingState f u v)) eps",
-    "interpretation_and_remaining_premises": "Generic completed scalar pairings, with one Cauchy and representative-independence proof for dot products and determinants. Finite bilinear difference identities and L1 magnitude bounds are proved for both forms; position bounds on Cauchy tails are derived. Rational embedding, scalar projection and scaled-approximant compatibility follow from the same completion. These maps are Lipschitz on bounded sets, rather than globally, so the fixed-coefficient regional SampledValues constructor does not cover them. Determinants remain signed doubled areas and dot products use Euclidean squared magnitude, distinct from the error gauge. No force, derivative, integral, ODE, Newton import or historical dependency occurs."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.PairingValues.pairingName_equiv",
     "private": false,
     "file": "BarrowLib/Polygon/PairingValues.lean",
@@ -4282,6 +4453,150 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(s : Point × Point) : Fraction.le (pointNorm s.2) (stateNorm s)",
     "interpretation_and_remaining_premises": "Modern finite coordinate L1 estimates for represented rational points and position/velocity states: nonnegativity, rational-equivalence invariance, triangle bounds and scaling. The source passages locate the polygon-to-trajectory motivation only. This diagnostic is not Euclidean area; combining position and velocity physically requires a calibration of units. No trajectory or historical norm theorem is attributed or inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.det_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point} (hp : pointEquiv p p') (hq : pointEquiv q q') : Fraction.equiv (det p q) (det p' q')",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sub_add",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b c d : Fraction) : Fraction.equiv (sub (Fraction.add a c) (Fraction.add b d)) (Fraction.add (sub a b) (sub c d))",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.abs_sub_abs_le",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : Fraction.le (sub a.abs b.abs).abs (sub a b).abs",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.duration_abs_reverse",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : Fraction.le (durationDifference a.abs b.abs).abs (durationDifference a b).abs",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.det_inertial_remainder",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v q : Point) (h : Fraction) : Fraction.equiv (durationDifference (Fraction.mul h (det p v)) (det p q)) (det p (pointSub q (pointAdd p (pointScale h v))))",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.det_inertial_remainder_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p v q : Point) (h R e : Fraction) (hp : Fraction.le (pointNorm p) R) (he : Fraction.le (pointDistance q (pointAdd p (pointScale h v))) e) : Fraction.le (durationDifference (Fraction.mul h (det p v)) (det p q)).abs (Fraction.mul R e)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Nat → Fraction) (h : ∀ i, Fraction.equiv (a i) (b i)) : ∀ n, Fraction.equiv (sum a n) (sum b n)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.fan_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Nat → Point} (h : ∀ i, pointEquiv (p i) (q i)) (n : Nat) : Fraction.equiv (fan p n) (fan q n)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.unsignedFan_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p q : Nat → Point} (h : ∀ i, pointEquiv (p i) (q i)) (n : Nat) : Fraction.equiv (unsignedFan p n) (unsignedFan q n)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_difference",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Nat → Fraction) : ∀ n, Fraction.equiv (sub (sum a n) (sum b n)) (sum (fun i => sub (a i) (b i)) n)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_abs_le",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → Fraction) : ∀ n, Fraction.le (sum a n).abs (sum (fun i => (a i).abs) n)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_mono",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Nat → Fraction) (n : Nat) (h : ∀ i, i<n → Fraction.le (a i) (b i)) : Fraction.le (sum a n) (sum b n)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_constant",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(e : Fraction) : ∀ n, Fraction.equiv (sum (fun _ => e) n) (Fraction.mul (Fraction.ofInt n) e)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Nat → Fraction) (e : Fraction) (n : Nat) (h : ∀ i, i<n → Fraction.le (sub (a i) (b i)).abs e) : Fraction.le (sub (sum a n) (sum b n)).abs (Fraction.mul (Fraction.ofInt n) e)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.fan_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Nat → Point) (e : Fraction) (n : Nat) (h : ∀ i, i<n → Fraction.le (sub (det (p i) (p (i+1))) (det (q i) (q (i+1)))).abs e) : Fraction.le (sub (fan p n) (fan q n)).abs (Fraction.mul (Fraction.ofInt n) e)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.unsignedFan_error",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Nat → Point) (e : Fraction) (n : Nat) (h : ∀ i, i<n → Fraction.le (sub (det (p i) (p (i+1))) (det (q i) (q (i+1)))).abs e) : Fraction.le (sub (unsignedFan p n) (unsignedFan q n)).abs (Fraction.mul (Fraction.ofInt n) e)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PolygonValues.polygon_same_cell",
@@ -4768,6 +5083,15 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num) (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num) (hu : 0 < u.num) (he : Fraction.equiv u (time h n)) (hv : ∀ k, k<n → Fraction.le (pointNorm (run a h s k).2) V) : Fraction.le (pointDistance (secondState u hu s (run a h s n)).1 (a s.1)) (Fraction.add (Fraction.mul (Fraction.ofInt 2) (source L E u V)) (Fraction.mul (Fraction.mul h (TimeCalibration.inverse u hu)) (pointNorm (a s.1))))",
     "interpretation_and_remaining_premises": "Generic normalized second-order position departure composed from the existing completed secant and velocity operators. Finite point identity transfers the actual quadratic remainder to force error 2*(L*t*V+E)+(h/t)*|a(x0)|; equivalent positive elapsed-time representations are covered. All Cauchy and representative proofs are inherited from the existing operators before composition. No desired force equation, derivative, integral, ODE, Newton import or historical premise is supplied. Pointwise variants use only the force comparisons at actual arrivals; existing global-contract names wrap the shared proofs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RationalEnclosure.selected_duration_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/RationalEnclosure.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A mesh : Fraction) (hA : 0 ≤ A.num) (hm : Fraction.positive mesh) : Fraction.le (duration A (level mesh)) (Fraction.mul mesh A)",
+    "interpretation_and_remaining_premises": "Generic rational enclosures of either rational magnitudes or actual completed nonnegative scalar values. The scalar comparison is a closed distance-to-zero bound, not a substitution of area by its cover budget. Every positive rational mesh representative selects a dyadic level whose unit mesh is no larger than that parameter; this is not arbitrary partition independence or equality of selected levels across equivalent representatives."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RationalIntervals.half_equiv",
@@ -5416,6 +5740,15 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(s : Point × Point) : Fraction.equiv (stateNorm (stateSub s s)) (Fraction.ofInt 0)",
     "interpretation_and_remaining_premises": "Generic rational state subtraction, congruence, symmetry, triangle and zero-distance bounds. Existing harmonic namespace names remain compatibility names; no field or motion premise occurs. The triangle and zero results are instances of shared FiniteEstimates facts, not duplicated proofs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SweptArea.area_unique",
+    "private": false,
+    "file": "BarrowLib/Polygon/SweptArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (T : Fraction) (hT : 0 ≤ T.num) (curve : BinaryTime T hT → PositionValue) (t : BinaryTime T hT) (a b : Value) (ha : AreaAt unsigned T hT curve t a) (hb : AreaAt unsigned T hT curve t b) : a=b",
+    "interpretation_and_remaining_premises": "Intrinsic swept-area predicate on the constructed binary-time domain: half triangle fans at actual curve nodes converge for every address of the target time. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TailValues.approximant_bound",
@@ -6299,6 +6632,28 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget) (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) : Vanishes polygonTrajectoryArea",
     "interpretation_and_remaining_premises": "Conditional NATP00090 polygon-trajectory defect control with explicitly supplied geometric enclosure and budget. It derives no curve and imports no printed-edition limiting lemma. The finite Kepler law does not imply these premises."
+  },
+  {
+    "name": "DeMotu1684.AreaLaw.natp00089_constructed_central_area_law",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00089.par9"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t : BinaryTime.BinaryTime T d.time_nonnegative) : SweptArea.AreaAt true T d.time_nonnegative (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t (GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t) ∧ GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t = SecantValues.secantValue (CentralSchedule.momentum s).abs.half (HarmonicTimeRealization.timeCoordinate T d.time_nonnegative t) (CauchyValues.embed FanValues.zeroState) ∧ Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))",
+    "interpretation_and_remaining_premises": "NATP00089 Theorem 1 separately named modern local reconstructed area law from the actual general curve: intrinsic unsigned curve-fan swept area = |ell|*t/2 and actual intervening outer content vanishes without a supplied area limit or enclosure. Planarity is part of the model; regional Lipschitz/window premises are modern. Multiplicity is counted. No inter-witness premise, printed lemma imported into De Motu, ordinary sector-union content or full historical proof is certified."
+  },
+  {
+    "name": "DeMotu1684.AreaLaw.natp00090_constructed_central_area_law",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00090.par17"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t : BinaryTime.BinaryTime T d.time_nonnegative) : SweptArea.AreaAt true T d.time_nonnegative (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t (GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t) ∧ GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t = SecantValues.secantValue (CentralSchedule.momentum s).abs.half (HarmonicTimeRealization.timeCoordinate T d.time_nonnegative t) (CauchyValues.embed FanValues.zeroState) ∧ Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))",
+    "interpretation_and_remaining_premises": "NATP00090 Theorem 1 separately named modern local reconstructed area law from the actual general curve: intrinsic unsigned curve-fan swept area = |ell|*t/2 and actual intervening outer content vanishes without a supplied area limit or enclosure. Planarity is part of the model; regional Lipschitz/window premises are modern. Multiplicity is counted. No inter-witness premise, printed lemma imported into De Motu, ordinary sector-union content or full historical proof is certified."
   },
   {
     "name": "NewtonLimitDynamics.Diagnostic.ConstructedHarmonicPotential.finite_work_remainder",
@@ -7634,7 +7989,21 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(gap budget : Fraction → Fraction) (hbudget : Vanishes budget) (henclose : Near Fraction.magnitudes (fun mesh => Fraction.le (gap mesh) (budget mesh))) : Vanishes gap",
+    "premise_signature": "{A : Type} [RationalEnclosure.Magnitude A] (gap : Fraction → A) (budget : Fraction → Fraction) (hbudget : Vanishes budget) (henclose : Near Fraction.magnitudes (fun mesh => RationalEnclosure.Magnitude.bounded (gap mesh) (budget mesh))) : Vanishes gap",
+    "interpretation_and_remaining_premises": "Rectangle arithmetic is proved. Curve enclosure, vanishing budget and inner/outer ratio limits are supplied where present in the signature."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.linear_budget_vanishes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/Enclosure.lean",
+    "source_passages": [
+      "NATP00077.par6",
+      "NATP00082.par7",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : Fraction) (hA : 0 ≤ A.num) : Vanishes (fun mesh => Fraction.mul mesh A)",
     "interpretation_and_remaining_premises": "Rectangle arithmetic is proved. Curve enclosure, vanishing budget and inner/outer ratio limits are supplied where present in the signature."
   },
   {
@@ -8128,6 +8497,216 @@
     "interpretation_and_remaining_premises": "Modern completed bracketing dyadic velocity-secants bridge for the actual regionally compared Lipschitz inward central-force map. Actual restarted-run force variation gives quotient error <=L*H_m*V+3e(q_(m+j)); the derived error vanishes through completion. A proved precision-offset identity makes the comparison target the same completed force at the actual left node. Completed force Lipschitz control and time truncation give uniform error H_m*L*(V+stateTimeFactor), including the final endpoint. This identifies the dyadic acceleration/secant limit with constructed force, without a supplied force equation. Unrestricted differentiation, external real interval, Kepler sampling, gluing, potentials, ordinary area and historical P5 remain separate."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.count_areal_product",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T : Fraction) (s : Point × Point) (hE : 0 < E0.num) (j n : Nat) : Fraction.equiv (CentralSchedule.momentum (countState o E0 T s hE j n)) (CentralSchedule.momentum s)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.areal_product_value",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t : BinaryTime T d.time_nonnegative) : pairingValue detForm (gammaValue o E0 T tau L B s hE d t) (velocityValue (gammaValue o E0 T tau L B s hE d t)) = embed (scalarState (CentralSchedule.momentum s))",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.node_triangle_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k j : Nat) (hk : k+1≤blocks m) : Fraction.le (HarmonicTimeComparison.durationDifference (Fraction.mul (duration T m) (CentralSchedule.momentum s)) (TimeSubdivision.det ((nodeName o E0 T tau L B s hE d m k).approx j).1 ((nodeName o E0 T tau L B s hE d m (k+1)).approx j).1)).abs (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B))",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.curveFanValue_realize",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) : curveFanValue unsigned o E0 T tau L B s hE d m n = realize (curveFanName unsigned o E0 T tau L B s hE d m n)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.fan_approximant_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n j : Nat) (hn : n≤blocks m) : Fraction.le (distance ((curveFanName unsigned o E0 T tau L B s hE d m n).approx j) (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s)))) (Fraction.mul (Fraction.ofInt (n : Int)) (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)))",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.outer_radius_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : 0 ≤ d.outer_radius.num",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.fanErrorCoefficient_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T B R : Fraction) (hT : 0 ≤ T.num) (hB : 0 ≤ B.num) (hR : 0 ≤ R.num) : 0 ≤ (fanErrorCoefficient T B R).num",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.fan_approximant_geometric",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n j : Nat) (hn : n≤blocks m) : Fraction.le (distance ((curveFanName unsigned o E0 T tau L B s hE d m n).approx j) (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s)))) (duration (fanErrorCoefficient T B d.outer_radius) m)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.curve_fan_polygon_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) (hn : n≤blocks m) : Within (curveFanValue unsigned o E0 T tau L B s hE d m n) (embed (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s)))) (duration (fanErrorCoefficient T B d.outer_radius) m)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.area_fan_reference_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m j : Nat) : Fraction.le (distance (FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx j)) ((areaReferenceName unsigned b T d.time_nonnegative s).approx m)) (duration (fanErrorCoefficient T B d.outer_radius) m)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.sectorName_equiv_reference",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : NameEquiv (sectorName unsigned b o E0 T tau L B s hE d) (areaReferenceName unsigned b T d.time_nonnegative s)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.sectorName_address_equiv",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (b c : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hbc : AddressEquiv T d.time_nonnegative b c) : NameEquiv (sectorName unsigned b o E0 T tau L B s hE d) (sectorName unsigned c o E0 T tau L B s hE d)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.sector_area_time_formula",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t : BinaryTime T d.time_nonnegative) : sectorAreaValue unsigned o E0 T tau L B s hE d t = secantValue (areaMomentum unsigned s).half (timeCoordinate T d.time_nonnegative t) (embed FanValues.zeroState)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.sector_area_is_swept",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t : BinaryTime T d.time_nonnegative) : SweptArea.AreaAt unsigned T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d) t (sectorAreaValue unsigned o E0 T tau L B s hE d t)",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.constructed_area_law",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t : BinaryTime T d.time_nonnegative) : SweptArea.AreaAt true T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d) t (sectorAreaValue true o E0 T tau L B s hE d t) ∧ sectorAreaValue true o E0 T tau L B s hE d t = secantValue (CentralSchedule.momentum s).abs.half (timeCoordinate T d.time_nonnegative t) (embed FanValues.zeroState) ∧ Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))",
+    "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct an address-independent sector value; its intrinsic swept-area property and proportionality |ell|*t/2 (or ell*t/2 oriented) are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.run_band",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/GeneralForceEndpoint.lean",
@@ -8422,6 +9001,24 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) : ∃ N, ∀ m, N≤m → Within (D_meshValue o E0 T tau L B s hE d m).val (embed (scalarState (Fraction.ofInt 0))) eps",
+    "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.polygon_trajectory_enclosure",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : PathDefect.PolygonTrajectoryEnclosure (fun mesh => D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh)) (fun mesh => Fraction.mul mesh (budgetCoefficient E0 T tau L B s d.calibration_positive))",
+    "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePathContent.polygon_trajectory_defect_vanishes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : Vanishes (fun mesh => D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))",
     "interpretation_and_remaining_premises": "Modern canonical Cauchy scalar outer content of the actual general matched polygon/constructed-curve region. Proved rational bisection realizes exactly its all-cover lower cut. Scalar nonnegativity, derived 4*C^2/2^m budget, zero time, uniform decay and initial-cover independence follow from actual geometric containment, without a supplied area or content-Cauchy field. Ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, potential asymptotics and historical limiting claims remain separate."
   },
   {
@@ -11972,6 +12569,24 @@
     "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.polygon_trajectory_enclosure",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : PathDefect.PolygonTrajectoryEnclosure (fun mesh => D_meshValue w T s hT hs (RationalEnclosure.level mesh)) (fun mesh => Fraction.mul mesh (budgetCoefficient w T s))",
+    "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.polygon_trajectory_defect_vanishes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : Vanishes (fun mesh => D_meshValue w T s hT hs (RationalEnclosure.level mesh))",
+    "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_independent_cover",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
@@ -15151,7 +15766,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(coarse inserted : Nat → LatticePoint) (n : Nat) : signedGap coarse inserted n = fineKeplerTwice coarse inserted n - coarseKeplerTwice coarse n",
-    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; legacy conditional statements retain their enclosure/budget premises. The generic geometric-sequence squeeze and explicit linear-budget exhaustion allow the actual general/harmonic completed content clients to ground them; Kepler area equality alone does not."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PathDefect.signed_gap_abs_le_budget",
@@ -15165,7 +15780,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(coarse inserted : Nat → LatticePoint) (n : Nat) : (signedGap coarse inserted n).natAbs ≤ absolutePatchBudget coarse inserted n",
-    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; legacy conditional statements retain their enclosure/budget premises. The generic geometric-sequence squeeze and explicit linear-budget exhaustion allow the actual general/harmonic completed content clients to ground them; Kepler area equality alone does not."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PathDefect.absolute_budget_le_count_mul",
@@ -15179,7 +15794,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(coarse inserted : Nat → LatticePoint) (n b : Nat) (h : ∀ i, i < n → refinementDefect (coarse i) (inserted i) (coarse (i + 1)) ≤ b) : absolutePatchBudget coarse inserted n ≤ n * b",
-    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; legacy conditional statements retain their enclosure/budget premises. The generic geometric-sequence squeeze and explicit linear-budget exhaustion allow the actual general/harmonic completed content clients to ground them; Kepler area equality alone does not."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PathDefect.absolute_budget_translation",
@@ -15193,7 +15808,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(origin : LatticePoint) (coarse inserted : Nat → LatticePoint) (n : Nat) : absolutePatchBudget (fun i => latticeAdd origin (coarse i)) (fun i => latticeAdd origin (inserted i)) n = absolutePatchBudget coarse inserted n",
-    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; legacy conditional statements retain their enclosure/budget premises. The generic geometric-sequence squeeze and explicit linear-budget exhaustion allow the actual general/harmonic completed content clients to ground them; Kepler area equality alone does not."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PathDefect.equal_Kepler_areas_positive_path_defect",
@@ -15207,7 +15822,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": ": coarseKeplerTwice exampleCoarse 2 = -6 ∧ fineKeplerTwice exampleCoarse exampleInserted 2 = -6 ∧ coarseKeplerUnsigned exampleCoarse 2 = 6 ∧ fineKeplerUnsigned exampleCoarse exampleInserted 2 = 6 ∧ signedGap exampleCoarse exampleInserted 2 = 0 ∧ absolutePatchBudget exampleCoarse exampleInserted 2 = 2",
-    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; legacy conditional statements retain their enclosure/budget premises. The generic geometric-sequence squeeze and explicit linear-budget exhaustion allow the actual general/harmonic completed content clients to ground them; Kepler area equality alone does not."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PathDefect.polygon_trajectory_defect_vanishes",
@@ -15220,8 +15835,36 @@
       "NATP00082.par51"
     ],
     "classification": "modern_reconstruction",
-    "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget) (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) : Vanishes polygonTrajectoryArea",
-    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; enclosure and vanishing budget are supplied, not consequences of Kepler area equality."
+    "premise_signature": "{A : Type} [RationalEnclosure.Magnitude A] (polygonTrajectoryArea : Fraction → A) (budget : Fraction → Fraction) (hbudget : Vanishes budget) (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) : Vanishes polygonTrajectoryArea",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; legacy conditional statements retain their enclosure/budget premises. The generic geometric-sequence squeeze and explicit linear-budget exhaustion allow the actual general/harmonic completed content clients to ground them; Kepler area equality alone does not."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PathDefect.geometric_sequence_enclosure",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PathDefect.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{A : Type} [RationalEnclosure.Magnitude A] (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num) (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m)) (hbound : ∀ m, RationalEnclosure.Magnitude.bounded (area m) (HarmonicDyadic.duration C m)) : PolygonTrajectoryEnclosure (fun mesh => area (RationalEnclosure.level mesh)) (fun mesh => Fraction.mul mesh C)",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; legacy conditional statements retain their enclosure/budget premises. The generic geometric-sequence squeeze and explicit linear-budget exhaustion allow the actual general/harmonic completed content clients to ground them; Kepler area equality alone does not."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PathDefect.geometric_sequence_vanishes",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/PathDefect.lean",
+    "source_passages": [
+      "NATP00089.par9",
+      "NATP00090.par17",
+      "NATP00077.par45",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{A : Type} [RationalEnclosure.Magnitude A] (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num) (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m)) (hbound : ∀ m, RationalEnclosure.Magnitude.bounded (area m) (HarmonicDyadic.duration C m)) : Vanishes (fun mesh => area (RationalEnclosure.level mesh))",
+    "interpretation_and_remaining_premises": "Modern finite comparison of matched coarse edges and fine pairs: signed closed-boundary gap equals the difference of signed Kepler sums; absolute triangle-patch budget dominates the signed gap, has a uniform local bound, and is translation invariant. A checked two-lobe example has equal signed and unsigned Kepler sums but positive intervening patch area. These are finite polygons, not a realized trajectory. Actual polygon-trajectory area is explicitly nonnegative and geometrically enclosed in the conditional interface; legacy conditional statements retain their enclosure/budget premises. The generic geometric-sequence squeeze and explicit linear-budget exhaustion allow the actual general/harmonic completed content clients to ground them; Kepler area equality alone does not."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.PositionValues.gammaPosition_within",
@@ -16607,7 +17250,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point) (impulse : Nat → Impulse) (n : Nat) : unsignedCellArea g p q impulse n = (g.area p q).natAbs",
-    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 premise, sector union, trajectory realization or uninterrupted-force identification is derived."
+    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 historical premise or sector-union/unrestricted-force identification is imported. The separately catalogued modern local curve wrapper derives intrinsic fan area and grounded content decay."
   },
   {
     "name": "Principia1687.PropositionI.finite_componendo",
@@ -16619,7 +17262,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt) (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) : 0 < m * dt ∧ 0 < n * dt ∧ unsignedBlock g p q impulse start₁ m * (n * dt) = unsignedBlock g p q impulse start₂ n * (m * dt)",
-    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 premise, sector union, trajectory realization or uninterrupted-force identification is derived."
+    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 historical premise or sector-union/unrestricted-force identification is imported. The separately catalogued modern local curve wrapper derives intrinsic fan area and grounded content decay."
   },
   {
     "name": "Principia1687.PropositionI.polygon_trajectory_defect_control",
@@ -16631,7 +17274,18 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget) (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) : Vanishes polygonTrajectoryArea",
-    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 premise, sector union, trajectory realization or uninterrupted-force identification is derived."
+    "interpretation_and_remaining_premises": "1687-local finite Proposition I reconstruction: named Euclidean preservation identities and area semantics; unsigned equal-cell triangles and the finite componendo comparison with positive total times. Main polygon-trajectory area is not Kepler area; the conditional defect-control interface requires the actual curve and geometric enclosure separately. No 1713 historical premise or sector-union/unrestricted-force identification is imported. The separately catalogued modern local curve wrapper derives intrinsic fan area and grounded content decay."
+  },
+  {
+    "name": "Principia1687.PropositionI.constructed_central_area_law",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/PropositionI.lean",
+    "source_passages": [
+      "NATP00077.par45"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t : BinaryTime.BinaryTime T d.time_nonnegative) : SweptArea.AreaAt true T d.time_nonnegative (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t (GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t) ∧ GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t = SecantValues.secantValue (CentralSchedule.momentum s).abs.half (HarmonicTimeRealization.timeCoordinate T d.time_nonnegative t) (CauchyValues.embed FanValues.zeroState) ∧ Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))",
+    "interpretation_and_remaining_premises": "1687 Proposition I separately named modern local reconstructed area law from the actual general curve: intrinsic unsigned curve-fan swept area = |ell|*t/2 and actual intervening outer content vanishes without a supplied area limit or enclosure. Planarity is part of the model; regional Lipschitz/window premises are modern. Multiplicity is counted. No inter-witness premise, printed lemma imported into De Motu, ordinary sector-union content or full historical proof is certified."
   },
   {
     "name": "Principia1713.corollary4_coefficient_reconstruction",
@@ -16680,7 +17334,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point) (impulse : Nat → Impulse) (n : Nat) : unsignedCellArea g p q impulse n = (g.area p q).natAbs",
-    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. Curve existence, sector interpretation, Lemma III Corollary 4 passage and force identification remain open."
+    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. The separately catalogued modern local curve wrapper constructs intrinsic fan area and grounded content decay. Ordinary sector interpretation, the historical Lemma III Corollary 4 passage and unrestricted force identification remain open."
   },
   {
     "name": "Principia1713.PropositionI.finite_componendo",
@@ -16692,7 +17346,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(g : EuclideanConstruction Point Impulse) (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt) (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) : 0 < m * dt ∧ 0 < n * dt ∧ unsignedBlock g p q impulse start₁ m * (n * dt) = unsignedBlock g p q impulse start₂ n * (m * dt)",
-    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. Curve existence, sector interpretation, Lemma III Corollary 4 passage and force identification remain open."
+    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. The separately catalogued modern local curve wrapper constructs intrinsic fan area and grounded content decay. Ordinary sector interpretation, the historical Lemma III Corollary 4 passage and unrestricted force identification remain open."
   },
   {
     "name": "Principia1713.PropositionI.polygon_trajectory_defect_control",
@@ -16704,6 +17358,17 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget) (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) : Vanishes polygonTrajectoryArea",
-    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. Curve existence, sector interpretation, Lemma III Corollary 4 passage and force identification remain open."
+    "interpretation_and_remaining_premises": "1713-local finite Proposition I reconstruction with this edition alone: equal unsigned triangle areas and finite componendo under the named Euclidean construction premises. The main nonnegative area between polygon and trajectory has a separate conditional enclosure/budget interface. The separately catalogued modern local curve wrapper constructs intrinsic fan area and grounded content decay. Ordinary sector interpretation, the historical Lemma III Corollary 4 passage and unrestricted force identification remain open."
+  },
+  {
+    "name": "Principia1713.PropositionI.constructed_central_area_law",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/PropositionI.lean",
+    "source_passages": [
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t : BinaryTime.BinaryTime T d.time_nonnegative) : SweptArea.AreaAt true T d.time_nonnegative (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t (GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t) ∧ GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t = SecantValues.secantValue (CentralSchedule.momentum s).abs.half (HarmonicTimeRealization.timeCoordinate T d.time_nonnegative t) (CauchyValues.embed FanValues.zeroState) ∧ Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))",
+    "interpretation_and_remaining_premises": "1713 Proposition I separately named modern local reconstructed area law from the actual general curve: intrinsic unsigned curve-fan swept area = |ell|*t/2 and actual intervening outer content vanishes without a supplied area limit or enclosure. Planarity is part of the model; regional Lipschitz/window premises are modern. Multiplicity is counted. No inter-witness premise, printed lemma imported into De Motu, ordinary sector-union content or full historical proof is certified."
   }
 ]

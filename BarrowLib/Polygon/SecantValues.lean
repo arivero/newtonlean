@@ -1,5 +1,6 @@
 import BarrowLib.Polygon.PositionValues
 import BarrowLib.Polygon.ScaledTolerance
+import BarrowLib.Polygon.BinaryLift
 
 /-! Rationally scaled position differences and velocity projections of
 constructed Cauchy values. All Cauchy and representative-invariance proofs
@@ -42,6 +43,15 @@ theorem secant_distance_bound (q : Fraction) (a b c d : Point × Point) :
     (difference_scale q _ _))
     (Fraction.mul_le_mul_nonnegative_left hp q.abs (Fraction.abs_num_nonnegative q))
 
+def secantOperation (q : Fraction) : BinaryLift.Operation where
+  apply := secantState q
+  coefficient := fun _ => q.abs
+  coefficient_nonnegative := fun _ _ => Fraction.abs_num_nonnegative q
+  distance_bound := by
+    intro R hR s t u v hu ht
+    exact Fraction.le_equiv_right (secant_distance_bound q s t u v)
+      (Fraction.mul_comm _ _)
+
 theorem two_scaled_small (q eps r s : Fraction) (_heps : 0 < eps.num)
     (hr : 0 ≤ r.num) (hs : 0 ≤ s.num)
     (h1 : Fraction.lt r (factorDelta q.abs eps.half (Fraction.abs_num_nonnegative q)))
@@ -55,35 +65,16 @@ theorem two_scaled_small (q eps r s : Fraction) (_heps : 0 < eps.num)
   exact Fraction.magnitudes.lt_of_le_lt
     (Fraction.le_of_equiv (Fraction.equiv_trans (Fraction.mul_comm _ _) (Fraction.add_mul _ _ _))) hd
 
-def secantName (q : Fraction) (a b : EndpointCauchyName) : EndpointCauchyName where
-  approx := fun n => secantState q (a.approx n) (b.approx n)
-  cauchy := by
-    intro eps heps
-    let delta := factorDelta q.abs eps.half (Fraction.abs_num_nonnegative q)
-    have hd : 0 < delta.num := factorDelta_positive _ _ _ heps
-    obtain ⟨N,hN⟩ := a.cauchy delta hd
-    obtain ⟨M,hM⟩ := b.cauchy delta hd
-    refine ⟨max N M,fun m n hm hn => ?_⟩
-    exact Fraction.magnitudes.lt_of_le_lt (secant_distance_bound q _ _ _ _)
-      (two_scaled_small q eps _ _ heps (stateNorm_nonnegative _) (stateNorm_nonnegative _)
-        (hN m n (by omega) (by omega)) (hM m n (by omega) (by omega)))
+def secantName (q : Fraction) (a b : EndpointCauchyName) : EndpointCauchyName :=
+  BinaryLift.name (secantOperation q) a b
 
 theorem secantName_equiv (q : Fraction) (a b a' b' : EndpointCauchyName)
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
-    NameEquiv (secantName q a b) (secantName q a' b') := by
-  intro eps heps
-  let delta := factorDelta q.abs eps.half (Fraction.abs_num_nonnegative q)
-  have hd : 0 < delta.num := factorDelta_positive _ _ _ heps
-  obtain ⟨N,hN⟩ := ha delta hd
-  obtain ⟨M,hM⟩ := hb delta hd
-  refine ⟨max N M,fun n hn => ?_⟩
-  exact Fraction.magnitudes.lt_of_le_lt (secant_distance_bound q _ _ _ _)
-    (two_scaled_small q eps _ _ heps (stateNorm_nonnegative _) (stateNorm_nonnegative _)
-      (hN n (by omega)) (hM n (by omega)))
+    NameEquiv (secantName q a b) (secantName q a' b') :=
+  BinaryLift.name_equiv (secantOperation q) a b a' b' ha hb
 
 def secantValue (q : Fraction) (x y : Value) : Value :=
-  Quotient.liftOn₂ x y (fun a b => realize (secantName q a b))
-    (fun a b a' b' ha hb => Quotient.sound (secantName_equiv q a b a' b' ha hb))
+  BinaryLift.value (secantOperation q) x y
 
 theorem secantValue_realize (q : Fraction) (a b : EndpointCauchyName) :
     secantValue q (realize a) (realize b) = realize (secantName q a b) := rfl

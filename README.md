@@ -12,10 +12,11 @@ I–III each have a source-linked note: [Proposition I](research/PROP_I_REALIZAT
 
 Current priority is Proposition I, then II, III and IV, retaining all three
 stages. The primary forward variant constructs the motion from its impulse
-polygons. Its main geometric target is the nonnegative area between polygon
-and trajectory, distinct from the radius-swept Kepler area. Follow the
+polygons and proves their constructed curve's radius-swept area law. The
+nonnegative area between polygon and trajectory is a separate geometric
+obligation that supports the limiting passage. Follow the
 [construction ledger](research/CAUCHY_REALIZATION.md) and
-[current checkpoint](research/OVERNIGHT-2026-10-03.md).
+[current checkpoint](research/verification/constructed-central-area-2026-10-05.md).
 
 Source-linked reconstructions of quadratic deflection, central-impulse polygons,
 contact-area bounds and proposed revisions, with separate De Motu, 1687,
@@ -33,8 +34,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,557 checked
-library theorems, 1,161 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,620 checked
+library theorems, 1,218 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -48,8 +49,8 @@ ball. RegionConfinement derives actual/coarse and both shadow membership
 before sampling on a ball or annulus. The existing construction, completed
 force and secants now use those regional certificates; gamma_band proves the
 closed inner and outer curve bounds. A proper annular harmonic control tests
-the interface. The actual Euclidean Kepler instance remains required by A.6
-and comes before Task E. The harmonic instance equals the old endpoint value.
+the interface. The general Proposition I proof comes before the actual Euclidean Kepler
+application, as the user clarified on 5 October evening. The harmonic instance equals the old endpoint value.
 The generic geometry, completion and binary-time layers are now in BarrowLib.
 Harmonic E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
@@ -103,7 +104,19 @@ normalized second departure. The proved second-order bound and actual velocity
 caps give error H*L*V² against det(v_left,a_left)/2, uniformly over every dyadic
 cell including the last. The signed doubled triangle is distinct from unsigned
 lobe area and matched-region D_mesh; their geometric identification and general
-radial potential steps remain open. Completion scores stay unchanged.
+radial potential steps remain open. These supporting quantity results receive
+no separate completion credit.
+
+GeneralForceArea now constructs swept area from triangle fans of actual points
+on the general local curve and proves |ell|*t/2 (ell*t/2 oriented). The actual
+completed between-path content has a grounded enclosure and vanishing proof.
+Separate De Motu witness, 1687 and 1713 wrappers retain modern
+regional-Lipschitz/window premises. Unsigned swept area counts multiplicity;
+ordinary sector-union content and the historical limiting passage remain open.
+The [Latin proof route](research/PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route)
+traces Proposition I through the cited laws and the proofs of Lemmas I–III.
+BinaryLift now shares the two-input completion kit used by pairings, secants
+and area sums; this consolidation receives no completion credit.
 
 Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
 `python3 scripts/progress_stats.py`; the per-commit numbers behind every plot
@@ -143,7 +156,7 @@ are in [history.csv](docs/progress/history.csv).
   <img alt="Cumulative theorems by proof obligation" src="docs/progress/theorems-by-area.svg">
 </picture>
 
-**Estimated completion: about 39% (35–46% under alternative weightings), reassessed 5 October.**
+**Estimated completion: about 40% (36–47% under alternative weightings), reassessed 5 October.**
 This figure is an editorial judgement and certifies nothing. Each proposition
 is scored on four milestones weighted by expected difficulty: source map (10%),
 finite step in Lean (20%), limiting passage or realization (45%), and area and
@@ -158,7 +171,7 @@ action-hypothesis assessment 10%. Scores and the evidence for each are in
 
 | Target | Source map | Finite step | Limit / realization | Identification | Estimate |
 | --- | --- | --- | --- | --- | --- |
-| Prop. I | done | done | harmonic and general Lipschitz local time maps | general Lipschitz outer content; constructed dyadic velocity/force secants | 61% |
+| Prop. I | done | done | harmonic and general Lipschitz local time maps | actual curve-fan swept-area law and grounded outer content; dyadic velocity/force secants | 66% |
 | Prop. II | done | done | stated | open | 32% |
 | Prop. III | done | done | open | open | 30% |
 | Prop. IV | done | finite core | routes documented | open | 30% |
@@ -169,10 +182,13 @@ discharged yet. Source maps and finite steps are essentially finished. The
 increase from 34% credits whole-edge convergence, agreement of the two harmonic
 constructions, calibrated general Lipschitz endpoint and local binary-time maps, and Arg007's exact
 finite potential identities, harmonic and general matched-region outer content and
-constructed dyadic velocity/force-secants identification. It
+constructed dyadic velocity/force-secants identification. The new
+GeneralForceArea.constructed_area_law raises Proposition I's identification
+score from 0.35 to 0.55 for actual curve-fan area and grounded content
+exhaustion. It
 gives no extra credit for theorem count,
 helper consolidation or foundation migration. Kepler sampling and gluing,
-ordinary-area/Kepler-area identification and P5 unrestricted-rate identification
+ordinary sector-union area identification and P5 unrestricted-rate identification
 remain open, as do the limiting passages of Propositions II–IV.
 The harmonic time map still uses a short window; the general time map names
 its positive calibration, regional Lipschitz comparison, band force bound

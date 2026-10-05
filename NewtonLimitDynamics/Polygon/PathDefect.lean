@@ -120,20 +120,44 @@ theorem equal_Kepler_areas_positive_path_defect :
     trajectory and an impulse polygon over the same interval. The caller must
     supply/construct the trajectory and justify this enclosure. A Kepler area
     or a signed sector-area difference is not an admissible substitution. -/
-def PolygonTrajectoryEnclosure (polygonTrajectoryArea budget : Fraction → Fraction) : Prop :=
+def PolygonTrajectoryEnclosure {A : Type} [RationalEnclosure.Magnitude A]
+    (polygonTrajectoryArea : Fraction → A) (budget : Fraction → Fraction) : Prop :=
   Near Fraction.magnitudes (fun mesh =>
-    Fraction.le (Fraction.ofInt 0) (polygonTrajectoryArea mesh) ∧
-      Fraction.le (polygonTrajectoryArea mesh) (budget mesh))
+    RationalEnclosure.Magnitude.nonnegative (polygonTrajectoryArea mesh) ∧
+      RationalEnclosure.Magnitude.bounded (polygonTrajectoryArea mesh) (budget mesh))
 
 /-- Conditional defect control: a vanishing geometric budget makes the actual
     polygon–trajectory area small. No curve existence or geometric enclosure
     is inferred from the finite Kepler area law. -/
-theorem polygon_trajectory_defect_vanishes (polygonTrajectoryArea budget : Fraction → Fraction)
+theorem polygon_trajectory_defect_vanishes {A : Type} [RationalEnclosure.Magnitude A]
+    (polygonTrajectoryArea : Fraction → A) (budget : Fraction → Fraction)
     (hbudget : Vanishes budget)
     (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
     Vanishes polygonTrajectoryArea := by
   apply enclosed_gap_vanishes polygonTrajectoryArea budget hbudget
   obtain ⟨d, hd, h⟩ := hgeometry
   exact ⟨d, hd, fun mesh hm hmd => (h mesh hm hmd).2⟩
+
+/-- Reindex an actual dyadic geometric magnitude by a positive rational mesh.
+The selected family mesh is proved small; the area remains the given value,
+and is never defined to be its cover budget. -/
+theorem geometric_sequence_enclosure {A : Type} [RationalEnclosure.Magnitude A]
+    (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
+    (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))
+    (hbound : ∀ m, RationalEnclosure.Magnitude.bounded (area m) (HarmonicDyadic.duration C m)) :
+    PolygonTrajectoryEnclosure (fun mesh => area (RationalEnclosure.level mesh))
+      (fun mesh => Fraction.mul mesh C) := by
+  refine ⟨Fraction.ofInt 1,(by change (0 : Int) < 1; decide),?_⟩
+  intro mesh hm _
+  exact ⟨hnonnegative _,RationalEnclosure.Magnitude.bounded_mono _ _ _
+    (hbound _) (RationalEnclosure.selected_duration_bound C mesh hC hm)⟩
+
+theorem geometric_sequence_vanishes {A : Type} [RationalEnclosure.Magnitude A]
+    (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
+    (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))
+    (hbound : ∀ m, RationalEnclosure.Magnitude.bounded (area m) (HarmonicDyadic.duration C m)) :
+    Vanishes (fun mesh => area (RationalEnclosure.level mesh)) :=
+  polygon_trajectory_defect_vanishes _ _ (linear_budget_vanishes C hC)
+    (geometric_sequence_enclosure area C hC hnonnegative hbound)
 
 end NewtonLimitDynamics.Polygon.PathDefect

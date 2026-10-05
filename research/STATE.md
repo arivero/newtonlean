@@ -15,9 +15,19 @@ GeneralForceTime.gamma_band passes both radii to the constructed curve: the
 upper closed-ball bound holds, and any closed ball containing the position
 has radius at least r0. These are coordinate L1 bounds, not an inverse-square
 law. The harmonic instance retains its True region and old public names.
-The actual Euclidean Kepler sampling instance still remains within A.6 and
-comes next. Task E and new completed quantities have not started. See the
-[regional construction checkpoint](verification/regional-construction-2026-10-05.md).
+The actual Euclidean Kepler sampling instance remains within A.6, after the
+general Proposition I proof, as the user clarified on 5 October evening.
+GeneralForceArea now constructs swept area from fans of actual curve nodes
+and proves area = |ell|*t/2 (or ell*t/2 oriented) on the existing local
+regional Lipschitz curve. The actual completed between-path content now has
+a grounded PolygonTrajectoryEnclosure and Vanishes instance; no enclosure or
+area-limit hypothesis is supplied. BinaryLift shares the two-input completion
+kit before the new area operation is built. Separate De Motu witness, 1687 and
+1713 wrappers remain modern reconstructions, with planarity built into the
+model. Unsigned swept area counts multiplicity; ordinary sector-union content,
+unrestricted force/rate identification and the historical limiting passage
+remain separate. See the [curve-area checkpoint](verification/constructed-central-area-2026-10-05.md)
+and the [Latin proof route](PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route).
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
@@ -48,7 +58,9 @@ force comparison and derived ball/annulus confinement, including its completed
 curve and force domain. A proper annular harmonic control excludes the origin;
 it verifies the repaired interface but does not identify a Kepler law. A.6
 remains open until the actual Euclidean inverse-square oracle is proved and
-instantiated. The area law on the constructed curve is the next task, E.
+instantiated. The local intrinsic curve-fan area law is now proved by GeneralForceArea.
+The general historical Proposition I route remains the priority before the
+Kepler application; its Latin dependency chain is recorded in PROP_I_REALIZATION.md.
 
 Current handoff execution (Sol 6.1, 4–5 October): D.1, Task A's finite
 interface/estimate increments and D.2 are committed. The [force design](GENERAL_FORCE_DESIGN.md)
@@ -107,8 +119,7 @@ GeneralForcePolygonCurve now constructs the coarse polygon quotient from actual
 run vertices and shares the finite-vertex alias/joining proof with the retained
 harmonic polygon. Whole-edge error is (T*V+A)/2^m uniformly over the constructed
 time domain, with actual V and the derived prefix coefficient A. The shared
-initial endpoint and exact harmonic polygon specialization compile. Ordinary-
-area/Kepler-area identification and the remaining classes stay open.
+initial endpoint and exact harmonic polygon specialization compile. Ordinary sector-union area identification and the remaining classes stay open.
 GeneralForcePathRegion/Content now construct the actual general closed-cell
 connector union and its all-cover cut and canonical Cauchy scalar. Actual
 vertex and prefix bounds derive one square per cell with budget 4*C²/2^m,
@@ -143,15 +154,17 @@ normalized second departure. The proved second-order bound and actual velocity
 caps give error H*L*V² against det(v_left,a_left)/2, uniformly over every dyadic
 cell including the last. The signed doubled triangle is distinct from unsigned
 lobe area and matched-region D_mesh; their geometric identification and general
-radial potential steps remain open. Completion scores stay unchanged. See the
+radial potential steps remain open. Those supporting quantity results receive no separate completion credit. See the
 [quadratic checkpoint](verification/quadratic-finite-parallel-endpoints-2026-10-05.md)
 and [constructed second-order checkpoint](verification/constructed-quadratic-secants-2026-10-05.md).
 See the [constructed harmonic potential checkpoint](verification/constructed-harmonic-potential-2026-10-05.md)
 and [general tangent-triangle checkpoint](verification/general-tangent-triangle-2026-10-05.md).
-The progress estimate now credits the
-constructed general local time map, dyadic velocity/force-secants bridges and
-actual general outer content, about
-39% overall (35–46% under alternative weights); no target is discharged.
+The progress estimate now also credits GeneralForceArea.constructed_area_law:
+intrinsic swept area of the actual general local curve is proportional to
+time, with grounded intervening-content exhaustion. The identification score
+for Proposition I rises from 0.35 to 0.55; the estimate is about 40% overall
+(36–47% under alternative weights), and Proposition I about 66%. No historical
+target is discharged; the shared lifting kit receives no separate score.
 See the [general time checkpoint](verification/general-central-time-map-2026-10-05.md).
 See the [completed force checkpoint](verification/completed-central-force-2026-10-05.md).
 See the [acceleration secants checkpoint](verification/constructed-acceleration-secants-2026-10-05.md).

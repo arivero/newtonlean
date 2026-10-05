@@ -15,9 +15,19 @@ GeneralForceTime.gamma_band passes both radii to the constructed curve: the
 upper closed-ball bound holds, and any closed ball containing the position
 has radius at least r0. These are coordinate L1 bounds, not an inverse-square
 law. The harmonic instance retains its True region and old public names.
-The actual Euclidean Kepler sampling instance still remains within A.6 and
-comes next. Task E and new completed quantities have not started. See the
-[regional construction checkpoint](verification/regional-construction-2026-10-05.md).
+The actual Euclidean Kepler sampling instance remains within A.6, after the
+general Proposition I proof, as the user clarified on 5 October evening.
+GeneralForceArea now constructs swept area from fans of actual curve nodes
+and proves area = |ell|*t/2 (or ell*t/2 oriented) on the existing local
+regional Lipschitz curve. The actual completed between-path content now has
+a grounded PolygonTrajectoryEnclosure and Vanishes instance; no enclosure or
+area-limit hypothesis is supplied. BinaryLift shares the two-input completion
+kit before the new area operation is built. Separate De Motu witness, 1687 and
+1713 wrappers remain modern reconstructions, with planarity built into the
+model. Unsigned swept area counts multiplicity; ordinary sector-union content,
+unrestricted force/rate identification and the historical limiting passage
+remain separate. See the [curve-area checkpoint](verification/constructed-central-area-2026-10-05.md)
+and the [Latin proof route](PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route).
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
@@ -88,8 +98,7 @@ shares cell-closure, connector and covering geometry with both clients.
 GeneralForcePathRegion/Content construct the actual general region, all-cover
 cut and canonical Cauchy scalar. Actual vertex/prefix bounds give 4*C²/2^m
 control, nonnegativity, zero time and decay. Cover independence and exact
-harmonic region/content specialization are proved. Ordinary-area/Kepler-area
-identification remains distinct.
+harmonic region/content specialization are proved. Ordinary sector-union area identification remains distinct.
 
 GeneralForceSecants now transfers the actual finite O(t²) position remainder
 to rationally divided position differences of constructed curve values. Every
@@ -155,8 +164,46 @@ normalized second departure. The proved second-order bound and actual velocity
 caps give error H*L*V² against det(v_left,a_left)/2, uniformly over every dyadic
 cell including the last. The signed doubled triangle is distinct from unsigned
 lobe area and matched-region D_mesh; their geometric identification and general
-radial potential steps remain open. Completion scores stay unchanged.
+radial potential steps remain open. Those supporting quantity results receive no separate completion credit.
 The parallel binary-time map remains separate.
+
+## Actual curve-fan area construction
+
+`GeneralForceArea.constructed_area_law` closes the local intrinsic swept-area
+conclusion for the already constructed regional Lipschitz central curve.
+The proof uses the actual maps, in this order:
+
+1. Every actual finite prefix conserves `CentralSchedule.momentum s = ell`.
+2. At two adjacent coarse curve nodes, their level-j approximants are points
+   of the same finer actual run. Restarting that run gives position departure
+   from its inertial continuation at most `H_m^2*B`.
+3. The determinant triangle error is therefore at most `R*B*H_m^2`, where R
+   is the derived outer bound. Finite fans have at most `2^m` cells, so their
+   doubled-area error is at most `R*B*T^2/2^m`, uniformly in j. Cellwise
+   absolute values obey the same bound and cannot cancel opposite signs.
+4. `sectorName` retains diagonal approximants of these actual inscribed fans.
+   The derived geometric bound proves that name Cauchy and equivalent to the
+   finite polygon area reference; the reference is not its definition.
+5. Address independence constructs `sectorAreaValue` on BinaryTime. The
+   actual completed fans converge to it, proving `SweptArea.AreaAt`, and it
+   equals `abs(ell)*t/2` (or `ell*t/2` oriented). `SweptArea.area_unique`
+   proves that this intrinsic fan limit is unique.
+6. The already constructed completed between-path content retains its own
+   value; a shared geometric-sequence squeeze gives its actual
+   `PolygonTrajectoryEnclosure` and `Vanishes` instance. It is never replaced
+   by a rational cover budget.
+
+`BinaryLift` derives Cauchy names and quotient invariance once for two-input
+operations. The retained secant and pairing operations now use it, as does
+scalar addition in the fans. Other old completed constructions compose those
+operators. Separate De Motu witness, 1687 and 1713 wrappers retain their own
+passage correspondence and explicitly name modern reconstruction premises.
+Planarity is built into the model; unsigned swept area counts multiplicity.
+Ordinary sector-union area, arbitrary partitions, unrestricted rate/force
+identification and the historical limiting proof remain separate. The next
+general proof obligations follow the
+[Latin proof route](PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route);
+force-specific Kepler work remains subsequent.
 
 ## One global family
 
@@ -330,6 +377,7 @@ lower comparison; the scalar realizes exactly the all-cover cut. The value
 is independent of the chosen initial cover and inherits nonnegativity, the
 closed budget bound, zero time and convergence to zero. A known rational 1/3
 cut recovers its embedded value for different initial budgets. Equality with
-inner/ordinary area, Kepler swept-area transfer, arbitrary partition
-independence, P5 and general-field content extension remain separate. No integral, ODE, measure theorem,
+inner/ordinary sector-union area, arbitrary partition
+independence and unrestricted P5 remain separate; general-field content is
+now constructed by GeneralForcePathRegion/Content. No integral, ODE, measure theorem,
 action constant or historical limiting premise is imported.

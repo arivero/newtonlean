@@ -1,5 +1,6 @@
 import NewtonLimitDynamics.Polygon.HarmonicPathRegion
 import BarrowLib.Polygon.SquareContentValues
+import NewtonLimitDynamics.Polygon.PathDefect
 
 /-! Cauchy scalar outer content of the actual constructed harmonic matched
 region. The all-cover infimum is represented exactly; the scalar is independent
@@ -41,6 +42,23 @@ theorem D_meshValue_tends_zero (w T : Fraction) (s : Point × Point)
     (budgetCoefficient_nonnegative w T s hT) heps
   exact ⟨N,fun m hm => within_mono _ _ _ _
     (Fraction.magnitudes.lt_implies_le (hN m hm)) (D_meshValue_budget_bound w T s hT hs m)⟩
+
+/-- The retained instance uses the same geometric-sequence squeeze as the
+general construction; it supplies no separate geometric hypothesis. -/
+theorem polygon_trajectory_enclosure (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    PathDefect.PolygonTrajectoryEnclosure
+      (fun mesh => D_meshValue w T s hT hs (RationalEnclosure.level mesh))
+      (fun mesh => Fraction.mul mesh (budgetCoefficient w T s)) :=
+  PathDefect.geometric_sequence_enclosure _ _ (budgetCoefficient_nonnegative w T s hT)
+    (D_meshValue_nonnegative w T s hT hs) (D_meshValue_budget_bound w T s hT hs)
+
+theorem polygon_trajectory_defect_vanishes (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Vanishes (fun mesh => D_meshValue w T s hT hs (RationalEnclosure.level mesh)) :=
+  PathDefect.polygon_trajectory_defect_vanishes _ _
+    (linear_budget_vanishes _ (budgetCoefficient_nonnegative w T s hT))
+    (polygon_trajectory_enclosure w T s hT hs)
 
 theorem D_meshValue_independent_cover (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)

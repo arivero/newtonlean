@@ -13,14 +13,17 @@ digraph formalisation-coverage {
   "NATP00089.T2" [label="NATP00089.T2\nUniform circular-force comparison by\nsquared simultaneous arcs divided by", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "NATP00090.L1" [label="NATP00090.L1\nParallelogram composition of motions\nproduced in the same time", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "NATP00090.Law1" [label="NATP00090.Law1\nRectilinear inertia", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
+  "NATP00090.Law2" [label="NATP00090.Law2\nChange of state proportional to the\nimpressed force and in its direction;", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "NATP00090.T1" [label="NATP00090.T1\nPolygonal equal areas; infinitely many\ninfinitesimal triangles asserted\n1 Lean result(s)", fillcolor="#e8d5b7", color="#2c6e31", penwidth=2];
   "NATP00090.T2" [label="NATP00090.T2\nUniform circular-force comparison by\nsquared simultaneous arcs divided by", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "P1687.Composition" [label="P1687.Composition\nParallelogram composition", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.EuclidI40" [label="P1687.EuclidI40\nEuclid I.40, equal triangles on equal\nbases and in the same parallels", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
+  "P1687.L1" [label="P1687.L1\nUltimate equality from approach closer\nthan any given difference", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L10" [label="P1687.L10\nInitial displacement under regular force", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L11" [label="P1687.L11\nContact subtense ultimately quadratic in\narc chord", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L11Cubic" [label="P1687.L11Cubic\nCubic curvilinear areas and segments via\nthe parabola\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.L11Restriction" [label="P1687.L11Restriction\nFinite nonzero curvature restriction;\nhigher/lower orders excluded", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
+  "P1687.L2" [label="P1687.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L3" [label="P1687.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L3C4" [label="P1687.L3C4\nCurvilinear limit of polygon perimeters", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L5" [label="P1687.L5\nCorresponding sides and duplicate area\nratios for similar figures", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
@@ -36,6 +39,7 @@ digraph formalisation-coverage {
   "P1687.P6" [label="P1687.P6\nForce through tangent departure and time\nsquared", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1713.Composition" [label="P1713.Composition\nParallelogram composition", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.EuclidI40" [label="P1713.EuclidI40\nEuclid I.40, equal triangles on equal\nbases and in the same parallels", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L1" [label="P1713.L1\nUltimate equality from approach closer\nthan any given difference", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L10" [label="P1713.L10\nInitial displacement under finite force", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L10C3" [label="P1713.L10C3\nSpaces jointly as force and time squared", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L10C4" [label="P1713.L10C4\nForce as space divided by time squared\n1 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
@@ -44,6 +48,7 @@ digraph formalisation-coverage {
   "P1713.L11C3" [label="P1713.L11C3\nSagitta quadratic in time at given\nvelocity", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L11Cubic" [label="P1713.L11Cubic\nCubic curvilinear areas and segments via\nthe parabola\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L11Restriction" [label="P1713.L11Restriction\nFinite nonzero curvature restriction;\nhigher/lower orders excluded", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L2" [label="P1713.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3" [label="P1713.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3C4" [label="P1713.L3C4\nCurvilinear limit of polygon perimeters", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L7" [label="P1713.L7\nVanishing arc, chord and tangent have\nthe ultimate ratio of equality", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
@@ -134,6 +139,13 @@ digraph formalisation-coverage {
   "P1687.Law2" -> "P1687.P6" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
   "P1687.L10" -> "P1687.P6" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
   "P1687.P1" -> "P1687.P6" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1687.L1" -> "P1687.L2" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
+  "P1687.L2" -> "P1687.L3" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1713.L1" -> "P1713.L2" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
+  "P1713.L2" -> "P1713.L3" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1713.Law2" -> "P1713.Composition" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
+  "P1713.Law1" -> "P1713.Composition" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
+  "NATP00090.Law2" -> "NATP00090.L1" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
   "Draft.sections" -> "Draft.booklet" [style=solid, label="proposed reordering: explicit_dependency", fontsize=9];
   "Draft.sagitta" -> "Draft.conic" [style=dotted, label="proposed dependency: editorial_interpretation", fontsize=9];
 }

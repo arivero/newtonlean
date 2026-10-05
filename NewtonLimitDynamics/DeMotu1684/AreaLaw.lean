@@ -1,7 +1,9 @@
 import NewtonLimitDynamics.Polygon.PathDefect
+import NewtonLimitDynamics.Polygon.GeneralForceArea
 
 /-!
-Finite reconstruction of De Motu **Theorem 1**, not a retrospectively numbered
+Finite reconstruction and separately named modern local curve laws for
+De Motu **Theorem 1**, not a retrospectively numbered
 Principia proposition. Witness NATP00089 par8–9 (De motu corporum in gyrum,
 https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par9) and
 witness NATP00090 par16–17 (De motu sphæricorum corporum in fluidis,
@@ -82,5 +84,47 @@ theorem natp00090_polygon_trajectory_defect_control
     (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
+
+/-- Modern local construction corresponding to NATP00089 Theorem 1 par9,
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par9.
+Curve-fan area and intervening content are constructed. Planarity is built
+into the model; regional Lipschitz/window data are modern premises. No printed
+limiting lemma or resolution of the changing marginal labels is attributed
+to this witness. Unsigned swept area counts triangles with multiplicity. -/
+theorem natp00089_constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime.BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaAt true T d.time_nonnegative
+      (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t
+      (GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t) ∧
+    GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t =
+      SecantValues.secantValue (CentralSchedule.momentum s).abs.half
+        (HarmonicTimeRealization.timeCoordinate T d.time_nonnegative t)
+        (CauchyValues.embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
+
+/-- Separately named modern local construction corresponding to NATP00090
+Theorem 1 par17,
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17.
+Actual unsigned curve-fan area is proportional to time and intervening content
+vanishes. The model is planar and its regional Lipschitz/window data are
+modern premises. No NATP00089 revision layer or printed Lemma III is imported. -/
+theorem natp00090_constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime.BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaAt true T d.time_nonnegative
+      (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t
+      (GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t) ∧
+    GeneralForceArea.sectorAreaValue true o E0 T tau L B s hE d t =
+      SecantValues.secantValue (CentralSchedule.momentum s).abs.half
+        (HarmonicTimeRealization.timeCoordinate T d.time_nonnegative t)
+        (CauchyValues.embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
 
 end DeMotu1684.AreaLaw
