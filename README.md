@@ -33,8 +33,8 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,203 checked
-library theorems, 848 substantive** by the existing heuristic, across
+The general-force and construction increments (Sol 6.1, 4–5 October) have **1,250 checked
+library theorems, 889 substantive** by the existing heuristic, across
 NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
 They construct acceleration values, bound actual sampled polygons and derive
 mesh-uniform refinement control and continuous local consistency. General
@@ -48,7 +48,8 @@ Actual integer-subdivision accumulation proves the dyadic agreement, including
 the three-tick completed values whose finite schedules differ. The full general time map,
 local-annulus confinement/gluing remain open. HarmonicPathRegion now constructs
 the actual matched polygon–curve region and its nonnegative square-cover outer
-content lower cut, with derived geometric decay; ordinary-area and P5
+content cut and its cover-independent Cauchy scalar, with derived geometric
+decay; ordinary-area and P5
 identification remain separate. Explicit positive time
 calibration now gives weighted finite bounds and dimensionless windows, with
 proved Cauchy-gauge and time-unit invariance; it fixes no universal constant.

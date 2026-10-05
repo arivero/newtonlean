@@ -301,6 +301,48 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.BinaryTime.time_step_difference
 #check NewtonLimitDynamics.Polygon.BinaryTime.two_sided_time
 #print axioms NewtonLimitDynamics.Polygon.BinaryTime.two_sided_time
+#check NewtonLimitDynamics.Polygon.BoundedCuts.abs_width_cap
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.abs_width_cap
+#check NewtonLimitDynamics.Polygon.BoundedCuts.adjacent_bound
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.adjacent_bound
+#check NewtonLimitDynamics.Polygon.BoundedCuts.half_tail
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.half_tail
+#check NewtonLimitDynamics.Polygon.BoundedCuts.interval_order
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.interval_order
+#check NewtonLimitDynamics.Polygon.BoundedCuts.lower_mem
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.lower_mem
+#check NewtonLimitDynamics.Polygon.BoundedCuts.lower_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.lower_nonnegative
+#check NewtonLimitDynamics.Polygon.BoundedCuts.name_equiv_of_lower_iff
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.name_equiv_of_lower_iff
+#check NewtonLimitDynamics.Polygon.BoundedCuts.name_realizes_cut
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.name_realizes_cut
+#check NewtonLimitDynamics.Polygon.BoundedCuts.names_gap
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.names_gap
+#check NewtonLimitDynamics.Polygon.BoundedCuts.one_third_control_value
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.one_third_control_value
+#check NewtonLimitDynamics.Polygon.BoundedCuts.one_third_different_budgets
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.one_third_different_budgets
+#check NewtonLimitDynamics.Polygon.BoundedCuts.rationalCut_value
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.rationalCut_value
+#check NewtonLimitDynamics.Polygon.BoundedCuts.upper_bound
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.upper_bound
+#check NewtonLimitDynamics.Polygon.BoundedCuts.value_bound
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.value_bound
+#check NewtonLimitDynamics.Polygon.BoundedCuts.value_eq_of_lower_iff
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.value_eq_of_lower_iff
+#check NewtonLimitDynamics.Polygon.BoundedCuts.value_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.value_nonnegative
+#check NewtonLimitDynamics.Polygon.BoundedCuts.value_of_rational_cut
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.value_of_rational_cut
+#check NewtonLimitDynamics.Polygon.BoundedCuts.value_realizes_cut
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.value_realizes_cut
+#check NewtonLimitDynamics.Polygon.BoundedCuts.value_within_zero
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.value_within_zero
+#check NewtonLimitDynamics.Polygon.BoundedCuts.value_zero_of_bound_zero
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.value_zero_of_bound_zero
+#check NewtonLimitDynamics.Polygon.BoundedCuts.width_cap
+#print axioms NewtonLimitDynamics.Polygon.BoundedCuts.width_cap
 #check NewtonLimitDynamics.Polygon.BoundedIteration.position_bound
 #print axioms NewtonLimitDynamics.Polygon.BoundedIteration.position_bound
 #check NewtonLimitDynamics.Polygon.BoundedIteration.position_bound_at_time
@@ -817,6 +859,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeometricTail.doubleTail_lt_tolerance
 #check NewtonLimitDynamics.Polygon.GeometricTail.finite_gap
 #print axioms NewtonLimitDynamics.Polygon.GeometricTail.finite_gap
+#check NewtonLimitDynamics.Polygon.GeometricTail.tail_add
+#print axioms NewtonLimitDynamics.Polygon.GeometricTail.tail_add
 #check NewtonLimitDynamics.Polygon.GeometricTail.tail_double
 #print axioms NewtonLimitDynamics.Polygon.GeometricTail.tail_double
 #check NewtonLimitDynamics.Polygon.GeometricTail.tail_halving
@@ -1233,6 +1277,18 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.split_velocity_identity
 #check NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.uniformSplitBudget_factor
 #print axioms NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision.uniformSplitBudget_factor
+#check NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_budget_bound
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_budget_bound
+#check NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_independent_cover
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_independent_cover
+#check NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_lower_cut
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_lower_cut
+#check NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_nonnegative
+#check NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_tends_zero
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_tends_zero
+#check NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_zero_window
+#print axioms NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_zero_window
 #check NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_bound
 #print axioms NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_bound
 #check NewtonLimitDynamics.Polygon.HarmonicPathRegion.D_mesh_nonnegative
@@ -1751,6 +1807,18 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PositionValues.square_of_eventual_coordinate_bounds
 #check NewtonLimitDynamics.Polygon.PositionValues.square_of_rational_coordinate_bounds
 #print axioms NewtonLimitDynamics.Polygon.PositionValues.square_of_rational_coordinate_bounds
+#check NewtonLimitDynamics.Polygon.RationalIntervals.half_double
+#print axioms NewtonLimitDynamics.Polygon.RationalIntervals.half_double
+#check NewtonLimitDynamics.Polygon.RationalIntervals.half_equiv
+#print axioms NewtonLimitDynamics.Polygon.RationalIntervals.half_equiv
+#check NewtonLimitDynamics.Polygon.RationalIntervals.half_le
+#print axioms NewtonLimitDynamics.Polygon.RationalIntervals.half_le
+#check NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_between
+#print axioms NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_between
+#check NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_lower_gap
+#print axioms NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_lower_gap
+#check NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_upper_gap
+#print axioms NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_upper_gap
 #check NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
 #check NewtonLimitDynamics.Polygon.RelativeMotion.add_common_cancel
@@ -1785,6 +1853,32 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_equal_area_central
 #check NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
 #print axioms NewtonLimitDynamics.Polygon.RelativeMotion.relative_rational_central
+#check NewtonLimitDynamics.Polygon.ScalarOrder.below_downward
+#print axioms NewtonLimitDynamics.Polygon.ScalarOrder.below_downward
+#check NewtonLimitDynamics.Polygon.ScalarOrder.below_embed_iff
+#print axioms NewtonLimitDynamics.Polygon.ScalarOrder.below_embed_iff
+#check NewtonLimitDynamics.Polygon.ScalarOrder.below_realize
+#print axioms NewtonLimitDynamics.Polygon.ScalarOrder.below_realize
+#check NewtonLimitDynamics.Polygon.ScalarOrder.first_coordinate_gap
+#print axioms NewtonLimitDynamics.Polygon.ScalarOrder.first_coordinate_gap
+#check NewtonLimitDynamics.Polygon.ScalarOrder.nameBelow_congr
+#print axioms NewtonLimitDynamics.Polygon.ScalarOrder.nameBelow_congr
+#check NewtonLimitDynamics.Polygon.ScalarOrder.nameBelow_transport
+#print axioms NewtonLimitDynamics.Polygon.ScalarOrder.nameBelow_transport
+#check NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_any_cover_bound
+#print axioms NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_any_cover_bound
+#check NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_independent_cover
+#print axioms NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_independent_cover
+#check NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_lower_cut
+#print axioms NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_lower_cut
+#check NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_nonnegative
+#check NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_within_zero
+#print axioms NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_within_zero
+#check NewtonLimitDynamics.Polygon.SquareContentValues.empty_value_zero
+#print axioms NewtonLimitDynamics.Polygon.SquareContentValues.empty_value_zero
+#check NewtonLimitDynamics.Polygon.SquareContentValues.singleton_value_zero
+#print axioms NewtonLimitDynamics.Polygon.SquareContentValues.singleton_value_zero
 #check NewtonLimitDynamics.Polygon.SquareOuterContent.Cover.budget_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.SquareOuterContent.Cover.budget_nonnegative
 #check NewtonLimitDynamics.Polygon.SquareOuterContent.content_closed

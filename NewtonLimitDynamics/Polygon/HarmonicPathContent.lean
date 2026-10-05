@@ -1,0 +1,61 @@
+import NewtonLimitDynamics.Polygon.HarmonicPathRegion
+import BarrowLib.Polygon.SquareContentValues
+
+/-! Cauchy scalar outer content of the actual constructed harmonic matched
+region. The all-cover infimum is represented exactly; the scalar is independent
+of the initial covering budget. Ordinary Euclidean area and P5 are separate. -/
+namespace NewtonLimitDynamics.Polygon.HarmonicPathContent
+open NewtonLimitDynamics
+open TimeSubdivision HarmonicDyadic HarmonicTimeRealization CauchyValues PositionValues BinaryTime
+open ScalarOrder SquareOuterContent SquareContentValues HarmonicPolygonCurve HarmonicPathRegion
+
+noncomputable def D_meshValue (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : ScalarValue :=
+  contentValue (Region w T s hT hs m) (actualCover w T s hT hs m)
+
+/-- The constructed scalar has precisely the already proved all-cover lower cut. -/
+theorem D_meshValue_lower_cut (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (q : Fraction) :
+    Below q (D_meshValue w T s hT hs m).val ↔ D_mesh w T s hT hs m q :=
+  contentValue_lower_cut _ _ q
+
+theorem D_meshValue_nonnegative (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
+    Below (Fraction.ofInt 0) (D_meshValue w T s hT hs m).val :=
+  contentValue_nonnegative _ _
+
+/-- This is a scalar bound, derived from containment of the actual region. -/
+theorem D_meshValue_budget_bound (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
+    Within (D_meshValue w T s hT hs m).val (embed (scalarState (Fraction.ofInt 0)))
+      (duration (budgetCoefficient w T s) m) :=
+  within_mono _ _ _ _ (Fraction.le_of_equiv (actual_budget_geometric w T s hT hs m))
+    (contentValue_within_zero _ _)
+
+theorem D_meshValue_tends_zero (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (eps : Fraction)
+    (heps : 0 < eps.num) :
+    ∃ N, ∀ m, N ≤ m →
+      Within (D_meshValue w T s hT hs m).val (embed (scalarState (Fraction.ofInt 0))) eps := by
+  obtain ⟨N,hN⟩ := duration_eventually_small (budgetCoefficient w T s) eps
+    (budgetCoefficient_nonnegative w T s hT) heps
+  exact ⟨N,fun m hm => within_mono _ _ _ _
+    (Fraction.magnitudes.lt_implies_le (hN m hm)) (D_meshValue_budget_bound w T s hT hs m)⟩
+
+theorem D_meshValue_independent_cover (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
+    (c : Cover (Region w T s hT hs m)) :
+    D_meshValue w T s hT hs m = contentValue (Region w T s hT hs m) c :=
+  contentValue_independent_cover _ _ c
+
+theorem D_meshValue_zero_window (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (hz : T.num = 0) :
+    (D_meshValue w T s hT hs m).val = embed (scalarState (Fraction.ofInt 0)) := by
+  apply (within_zero_iff _ _).mp
+  apply within_mono _ _ _ _ _ (D_meshValue_budget_bound w T s hT hs m)
+  apply Fraction.le_of_equiv
+  simp [budgetCoefficient,SquareOuterContent.squareArea,edgeCoefficient,
+    HarmonicBinaryPrefix.coefficient,duration,Fraction.equiv,Fraction.add,
+    Fraction.mul,Fraction.ofInt,hz]
+
+end NewtonLimitDynamics.Polygon.HarmonicPathContent

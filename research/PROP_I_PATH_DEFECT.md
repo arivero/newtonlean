@@ -14,7 +14,9 @@ fixed-time Cauchy names/values from actual central Lipschitz samples under named
 actual/shadow acceleration bounds and a calibrated window. The harmonic
 instance derives its required bounds and equals the old endpoint value.
 HarmonicPathRegion now defines the actual closed matched intervening set and
-its finite-square outer content D_mesh as a closed rational lower cut. The
+its finite-square outer content D_mesh as a closed rational lower cut.
+HarmonicPathContent now constructs its Cauchy scalar by rational bisection,
+proves exact lower-cut identification and independence of the initial cover. The
 full general time map and local-annulus/gluing steps remain separate. B.2 now constructs
 within-cell polygon position names and bounds their distance to the actual
 harmonic gammaPosition throughout cells. The bound decays uniformly over
@@ -114,7 +116,9 @@ D_mesh is the closed lower cut of the infimum of all finite square-cover
 budgets, with nonnegativity, the derived 4*C²/2^m bound, zero-time content and
 positive-tolerance decay proved. This is a modern matched-region outer-content
 candidate, not a signed boundary area or an identified Euclidean measure.
-Cauchy scalar realization of the cut, arbitrary partition independence,
+HarmonicPathContent realizes this cut as a scalar with the same bound and decay,
+using derived bisection Cauchy data and proving cover independence.
+Arbitrary partition independence,
 ordinary-area/Kepler-area identification and edition-local uninterrupted-force
 identification remain separate. No integral calculus, ODE theorem, measure
 theorem, or silently supplied completion closes these obligations.

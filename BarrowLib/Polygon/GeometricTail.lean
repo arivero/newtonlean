@@ -34,6 +34,12 @@ theorem tail_double (A : Fraction) (j : Nat) :
   simp only [show (2 : Int) = 1 + 1 by rfl, Int.add_mul, Int.mul_add]
   ac_nf
 
+theorem tail_add (A B : Fraction) (n : Nat) :
+    Fraction.equiv (Fraction.add (tailCap A n) (tailCap B n))
+      (tailCap (Fraction.add A B) n) := by
+  simp only [tailCap,Fraction.equiv,Fraction.add,Int.add_mul,Int.mul_add]
+  ac_nf
+
 theorem finite_gap (x : Nat → Point × Point) (A : Fraction)
     (hA : 0 ≤ A.num)
     (hadj : ∀ j, Fraction.le (stateDistance (x (j + 1)) (x j))
@@ -100,3 +106,31 @@ theorem doubleTail_lt_tolerance (A eps : Fraction)
   omega
 
 end NewtonLimitDynamics.Polygon.GeometricTail
+
+namespace NewtonLimitDynamics.Polygon.HarmonicTimeRealization
+open NewtonLimitDynamics HarmonicDyadic
+
+theorem duration_eventually_small (T eps : Fraction)
+    (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
+    ∃ N : Nat, ∀ j : Nat, N ≤ j →
+      Fraction.lt (duration T j) eps := by
+  let N := (T.num * eps.den).toNat
+  have hL : 0 ≤ T.num * eps.den :=
+    Int.mul_nonneg hT (Int.le_of_lt eps.den_pos)
+  have hN : (N : Int) = T.num * eps.den := Int.toNat_of_nonneg hL
+  refine ⟨N, ?_⟩
+  intro j hj
+  have hpow := two_pow_ge_succ j
+  have hp : 0 ≤ (2 : Int) ^ j := Int.le_of_lt (Int.pow_pos (by decide))
+  have hfactor : 1 ≤ eps.num * T.den := by
+    have hmul := Int.mul_pos heps T.den_pos
+    omega
+  have hmult := Int.mul_le_mul_of_nonneg_right hfactor hp
+  simp only [Int.one_mul] at hmult
+  unfold Fraction.lt duration
+  dsimp
+  change T.num * eps.den < eps.num * (T.den * (2 : Int) ^ j)
+  rw [← Int.mul_assoc]
+  omega
+
+end NewtonLimitDynamics.Polygon.HarmonicTimeRealization

@@ -26,11 +26,12 @@ see the [calibration checkpoint](verification/calibrated-finite-bounds-2026-10-0
 HarmonicPathRegion now constructs the actual matched between-path set from
 polygonMap and gammaPosition, closing rational connectors cell by cell. Its
 D_mesh is the nonnegative closed lower cut of the infimum over all finite square
-cover budgets. A derived cover has budget 4*C²/2^m and tends to zero, including
+cover budgets. HarmonicPathContent now realizes that cut as a Cauchy scalar by
+proved shrinking rational intervals, independently of the initial cover budget. A derived cover has budget 4*C²/2^m and tends to zero, including
 zero time. Crossings and overlaps count once in the region; cover sums count
 multiplicity. Initial endpoints agree and the final connector is included.
 See the [content checkpoint](verification/constructed-path-content-2026-10-05.md).
-General motion, content/ordinary-area identification, P5 and the remaining
+General motion, ordinary-area/Kepler-area identification, P5 and the remaining
 classes remain obligations in the handoff's order. [Arg007](action-arguments/261004gpt6.1solv1Arg007.md) records the permitted
 exact finite-cell potential identities. Completion scores are unchanged.
 

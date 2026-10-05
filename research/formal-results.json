@@ -990,6 +990,195 @@
     "interpretation_and_remaining_premises": "Generic binary-address time approximants, derived tail estimates and Cauchy names, proved address equivalence and its explicit quotient. The domain is constructed from rational approximants; no external real interval, mechanical motion or uninterrupted force is identified."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.lower_mem",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) : ∀ n, c.lower (interval c n).1",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.upper_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) : ∀ n q, c.lower q → Fraction.le q (interval c n).2",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.interval_order",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) (n : Nat) : Fraction.le (interval c n).1 (interval c n).2",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.half_tail",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : Fraction) (n : Nat) : Fraction.equiv (GeometricTail.tailCap A n).half (GeometricTail.tailCap A (n+1))",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.width_cap",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) : ∀ n, Fraction.equiv (durationDifference (interval c n).1 (interval c n).2) (GeometricTail.tailCap c.bound n)",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.adjacent_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) (n : Nat) : Fraction.le (FiniteEstimates.stateDistance (scalarState (interval c (n+1)).1) (scalarState (interval c n).1)) (GeometricTail.tailCap c.bound (n+1))",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.name_realizes_cut",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) (q : Fraction) : NameBelow q (name c) ↔ c.lower q",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.value_realizes_cut",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) (q : Fraction) : Below q (value c).val ↔ c.lower q",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.value_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) : Below (Fraction.ofInt 0) (value c).val",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.value_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) (q : Fraction) (hq : Below q (value c).val) : Fraction.le q c.bound",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.lower_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) : ∀ n, 0 ≤ (interval c n).1.num",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.value_within_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) : Within (value c).val (embed (scalarState (Fraction.ofInt 0))) c.bound",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.abs_width_cap",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) (n : Nat) : Fraction.equiv (durationDifference (interval c n).1 (interval c n).2).abs (GeometricTail.tailCap c.bound n)",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.names_gap",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c d : Cut) (heq : ∀ q, c.lower q ↔ d.lower q) (n : Nat) : Fraction.le (FiniteEstimates.stateDistance (scalarState (interval c n).1) (scalarState (interval d n).1)) (GeometricTail.tailCap (Fraction.add c.bound d.bound) n)",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.name_equiv_of_lower_iff",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c d : Cut) (heq : ∀ q, c.lower q ↔ d.lower q) : NameEquiv (name c) (name d)",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.value_eq_of_lower_iff",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c d : Cut) (heq : ∀ q, c.lower q ↔ d.lower q) : value c = value d",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.value_zero_of_bound_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) (hz : c.bound.num = 0) : (value c).val = embed (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.value_of_rational_cut",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Cut) (r : Fraction) (hr : ∀ q, c.lower q ↔ Fraction.le q r) : (value c).val = embed (scalarState r)",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.rationalCut_value",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(r B : Fraction) (hr : 0 ≤ r.num) (hB : 0 ≤ B.num) (hrB : Fraction.le r B) : (value (rationalCut r B hr hB hrB)).val = embed (scalarState r)",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.one_third_control_value",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": (value firstControl).val = embed (scalarState oneThird)",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.BoundedCuts.one_third_different_budgets",
+    "private": false,
+    "file": "BarrowLib/Polygon/BoundedCuts.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": value firstControl = value secondControl",
+    "interpretation_and_remaining_premises": "Cauchy scalar realization of nonnegative bounded closed rational lower cuts by explicit interval bisection. Lower membership, upper bounds, midpoint order and exact width B/2^n derive the adjacent bound and actual Cauchy name. Its rational lower comparison realizes the cut exactly; values with the same cut are equal even for different upper budgets. Scalar nonnegativity, a closed distance-to-zero bound and rational-cut value controls compile, including 1/3 with different budgets. The data assert elementary cut properties, not the desired Cauchy/limit/scalar value or a completeness theorem; no calculus/measure primitive."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.BoundedIteration.zero_duration_run",
     "private": false,
     "file": "BarrowLib/Polygon/BoundedIteration.lean",
@@ -2940,7 +3129,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(A : Fraction) (j : Nat) : Fraction.equiv (Fraction.add (tailCap A (j + 1)) (tailCap A (j + 1))) (tailCap A j)",
-    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
+    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Rational coefficient addition and positive-tolerance duration exhaustion are shared here; the latter keeps its old HarmonicTimeRealization declaration name. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeometricTail.tail_double",
@@ -2949,7 +3138,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(A : Fraction) (j : Nat) : Fraction.equiv (Fraction.add (tailCap A j) (tailCap A j)) (doubleTail A j)",
-    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
+    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Rational coefficient addition and positive-tolerance duration exhaustion are shared here; the latter keeps its old HarmonicTimeRealization declaration name. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeometricTail.tail_add",
+    "private": false,
+    "file": "BarrowLib/Polygon/GeometricTail.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A B : Fraction) (n : Nat) : Fraction.equiv (Fraction.add (tailCap A n) (tailCap B n)) (tailCap (Fraction.add A B) n)",
+    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Rational coefficient addition and positive-tolerance duration exhaustion are shared here; the latter keeps its old HarmonicTimeRealization declaration name. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeometricTail.finite_gap",
@@ -2958,7 +3156,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(x : Nat → Point × Point) (A : Fraction) (hA : 0 ≤ A.num) (hadj : ∀ j, Fraction.le (stateDistance (x (j + 1)) (x j)) (tailCap A (j + 1))) : (k j : Nat) → Fraction.le (stateDistance (x (j + k)) (x j)) (tailCap A j)",
-    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
+    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Rational coefficient addition and positive-tolerance duration exhaustion are shared here; the latter keeps its old HarmonicTimeRealization declaration name. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeometricTail.two_sided",
@@ -2967,7 +3165,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(x : Nat → Point × Point) (A : Fraction) (hA : 0 ≤ A.num) (hadj : ∀ j, Fraction.le (stateDistance (x (j + 1)) (x j)) (tailCap A (j + 1))) (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) : Fraction.le (stateDistance (x m) (x n)) (doubleTail A N)",
-    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
+    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Rational coefficient addition and positive-tolerance duration exhaustion are shared here; the latter keeps its old HarmonicTimeRealization declaration name. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeometricTail.doubleTail_lt_tolerance",
@@ -2976,7 +3174,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(A eps : Fraction) (hA : 0 ≤ A.num) (heps : 0 < eps.num) : Fraction.lt (doubleTail A (modulus A eps)) eps",
-    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
+    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Rational coefficient addition and positive-tolerance duration exhaustion are shared here; the latter keeps its old HarmonicTimeRealization declaration name. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.duration_eventually_small",
+    "private": false,
+    "file": "BarrowLib/Polygon/GeometricTail.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) : ∃ N : Nat, ∀ j : Nat, N ≤ j → Fraction.lt (duration T j) eps",
+    "interpretation_and_remaining_premises": "Coefficient-parameter geometric exhaustion: adjacent rational state errors bounded by A/2^(j+1) imply finite-gap and two-sided bounds, an explicit positive-tolerance modulus and constructed Cauchy names. Applications must derive the adjacent bound from their actual finite constructions. Rational coefficient addition and positive-tolerance duration exhaustion are shared here; the latter keeps its old HarmonicTimeRealization declaration name. Harmonic endpoint and prefix coefficients remain distinct; no motion or force premise is supplied."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix.ticks_zero_tail",
@@ -3438,6 +3645,114 @@
     "interpretation_and_remaining_premises": "Generic nonexpansive rational projections and quotient maps, planar position values and completed coordinate squares. Name and representative preservation precede value lifting. Coordinate-square membership transfers eventual rational bounds; it does not define planar content or a polygon-curve region."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.RationalIntervals.half_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/RationalIntervals.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : Fraction.equiv a b) : Fraction.equiv a.half b.half",
+    "interpretation_and_remaining_premises": "Elementary half-congruence/order and rational midpoint containment and half-gap identities, for explicit bisection. No completeness, geometry, force or calculus premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RationalIntervals.half_le",
+    "private": false,
+    "file": "BarrowLib/Polygon/RationalIntervals.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (h : Fraction.le a b) : Fraction.le a.half b.half",
+    "interpretation_and_remaining_premises": "Elementary half-congruence/order and rational midpoint containment and half-gap identities, for explicit bisection. No completeness, geometry, force or calculus premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RationalIntervals.half_double",
+    "private": false,
+    "file": "BarrowLib/Polygon/RationalIntervals.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) : Fraction.equiv (Fraction.add a a).half a",
+    "interpretation_and_remaining_premises": "Elementary half-congruence/order and rational midpoint containment and half-gap identities, for explicit bisection. No completeness, geometry, force or calculus premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_between",
+    "private": false,
+    "file": "BarrowLib/Polygon/RationalIntervals.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) (h : Fraction.le a b) : Fraction.le a (midpoint a b) ∧ Fraction.le (midpoint a b) b",
+    "interpretation_and_remaining_premises": "Elementary half-congruence/order and rational midpoint containment and half-gap identities, for explicit bisection. No completeness, geometry, force or calculus premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_lower_gap",
+    "private": false,
+    "file": "BarrowLib/Polygon/RationalIntervals.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : Fraction.equiv (durationDifference a (midpoint a b)) (durationDifference a b).half",
+    "interpretation_and_remaining_premises": "Elementary half-congruence/order and rational midpoint containment and half-gap identities, for explicit bisection. No completeness, geometry, force or calculus premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RationalIntervals.midpoint_upper_gap",
+    "private": false,
+    "file": "BarrowLib/Polygon/RationalIntervals.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Fraction) : Fraction.equiv (durationDifference (midpoint a b) b) (durationDifference a b).half",
+    "interpretation_and_remaining_premises": "Elementary half-congruence/order and rational midpoint containment and half-gap identities, for explicit bisection. No completeness, geometry, force or calculus premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ScalarOrder.first_coordinate_gap",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScalarOrder.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point × Point) : Fraction.le (durationDifference b.1.1 a.1.1).abs (distance a b)",
+    "interpretation_and_remaining_premises": "Closed rational lower comparison for the first scalar coordinate of the explicit Cauchy values. Coordinate-gap bounds and name-equivalence transport precede quotient lifting; rational embedding comparison and downward closure compile. ScalarValue is the first-projection fixed-point subtype, with no imported real order or motion premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ScalarOrder.nameBelow_transport",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScalarOrder.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) (a b : EndpointCauchyName) (hab : NameEquiv a b) (ha : NameBelow q a) : NameBelow q b",
+    "interpretation_and_remaining_premises": "Closed rational lower comparison for the first scalar coordinate of the explicit Cauchy values. Coordinate-gap bounds and name-equivalence transport precede quotient lifting; rational embedding comparison and downward closure compile. ScalarValue is the first-projection fixed-point subtype, with no imported real order or motion premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ScalarOrder.nameBelow_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScalarOrder.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) (a b : EndpointCauchyName) (hab : NameEquiv a b) : NameBelow q a ↔ NameBelow q b",
+    "interpretation_and_remaining_premises": "Closed rational lower comparison for the first scalar coordinate of the explicit Cauchy values. Coordinate-gap bounds and name-equivalence transport precede quotient lifting; rational embedding comparison and downward closure compile. ScalarValue is the first-projection fixed-point subtype, with no imported real order or motion premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ScalarOrder.below_realize",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScalarOrder.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) (a : EndpointCauchyName) : Below q (realize a) ↔ NameBelow q a",
+    "interpretation_and_remaining_premises": "Closed rational lower comparison for the first scalar coordinate of the explicit Cauchy values. Coordinate-gap bounds and name-equivalence transport precede quotient lifting; rational embedding comparison and downward closure compile. ScalarValue is the first-projection fixed-point subtype, with no imported real order or motion premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ScalarOrder.below_embed_iff",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScalarOrder.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q : Fraction) (s : Point × Point) : Below q (embed s) ↔ Fraction.le q s.1.1",
+    "interpretation_and_remaining_premises": "Closed rational lower comparison for the first scalar coordinate of the explicit Cauchy values. Coordinate-gap bounds and name-equivalence transport precede quotient lifting; rational embedding comparison and downward closure compile. ScalarValue is the first-projection fixed-point subtype, with no imported real order or motion premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ScalarOrder.below_downward",
+    "private": false,
+    "file": "BarrowLib/Polygon/ScalarOrder.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Fraction) (v : Value) (hpq : Fraction.le p q) (hq : Below q v) : Below p v",
+    "interpretation_and_remaining_premises": "Closed rational lower comparison for the first scalar coordinate of the explicit Cauchy values. Coordinate-gap bounds and name-equivalence transport precede quotient lifting; rational embedding comparison and downward closure compile. ScalarValue is the first-projection fixed-point subtype, with no imported real order or motion premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factorDenominator_positive",
     "private": false,
     "file": "BarrowLib/Polygon/ScaledTolerance.lean",
@@ -3490,6 +3805,69 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(x y : Value) (R S : Fraction) (hRS : Fraction.le R S) (h : Within x y R) : Within x y S",
     "interpretation_and_remaining_premises": "Generic positive rational tolerance for multiplying a magnitude bound by a nonnegative coefficient, plus monotonicity of generic name/value closed bounds. Existing declaration names are preserved. No harmonic field, derivative or motion premise occurs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_lower_cut",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareContentValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (c : Cover A) (q : Fraction) : Below q (contentValue A c).val ↔ LowerContent A q",
+    "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareContentValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (c : Cover A) : Below (Fraction.ofInt 0) (contentValue A c).val",
+    "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_within_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareContentValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (c : Cover A) : Within (contentValue A c).val (embed (scalarState (Fraction.ofInt 0))) c.budget",
+    "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_independent_cover",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareContentValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (c d : Cover A) : contentValue A c = contentValue A d",
+    "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareContentValues.contentValue_any_cover_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareContentValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(A : PositionValue → Prop) (c d : Cover A) : Within (contentValue A c).val (embed (scalarState (Fraction.ofInt 0))) d.budget",
+    "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareContentValues.empty_value_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareContentValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": ": (contentValue (fun _ => False) emptyCover).val = embed (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SquareContentValues.singleton_value_zero",
+    "private": false,
+    "file": "BarrowLib/Polygon/SquareContentValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p : Point) : (contentValue (fun x => x = embedPosition p) (singletonCover p)).val = embed (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Generic all-cover finite-square outer content realized as a Cauchy scalar through the proved bounded-cut construction. An actual finite cover derives the interval bound; rational lower comparisons are exactly the all-cover infimum cut. The scalar is nonnegative, independent of the initial cover, and bounded by any actual cover; empty/singleton values are zero. No supplied area value, Cauchy field, inner/ordinary area or measure is imported."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SquareOuterContent.squareArea_nonnegative",
@@ -8899,6 +9277,60 @@
     "interpretation_and_remaining_premises": "Modern finite integer subdivision of actual harmonic end-kick cells. Exact unequal split formulas yield a local O(a*b) source; a derived finite recurrence gives k fine cells versus one k*h cell a bound h^2*C(k,w,s), with C independent of h and explicit short-prefix premises. Actual k-cell Lipschitz propagation and measured coarse-state bounds now give the accumulated comparison 4*N*h^2*quadraticCap(w,s,k) on a proved small window, with local shortness derived from it. The resulting dyadic value agreement is in HarmonicDyadicAgreement. General force realization, unit-calibration invariance, P5 and historical proof remain separate."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_lower_cut",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (q : Fraction) : Below q (D_meshValue w T s hT hs m).val ↔ D_mesh w T s hT hs m q",
+    "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_nonnegative",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : Below (Fraction.ofInt 0) (D_meshValue w T s hT hs m).val",
+    "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_budget_bound",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) : Within (D_meshValue w T s hT hs m).val (embed (scalarState (Fraction.ofInt 0))) (duration (budgetCoefficient w T s) m)",
+    "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_tends_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (eps : Fraction) (heps : 0 < eps.num) : ∃ N, ∀ m, N ≤ m → Within (D_meshValue w T s hT hs m).val (embed (scalarState (Fraction.ofInt 0))) eps",
+    "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_independent_cover",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (c : Cover (Region w T s hT hs m)) : D_meshValue w T s hT hs m = contentValue (Region w T s hT hs m) c",
+    "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.HarmonicPathContent.D_meshValue_zero_window",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/HarmonicPathContent.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (hz : T.num = 0) : (D_meshValue w T s hT hs m).val = embed (scalarState (Fraction.ofInt 0))",
+    "interpretation_and_remaining_premises": "Modern Cauchy scalar outer content of the actual harmonic matched polygon/constructed-curve region. Generic rational bisection realizes its all-cover lower cut exactly, with no supplied scalar or Cauchy field; the value is independent of the initial cover budget. Nonnegativity, actual cover bound 4*C^2/2^m, scalar convergence to zero and zero-time value are proved. All previous region/cut names remain. This is the named finite-square outer-content candidate, not an ordinary Euclidean/inner area, measure, constructed Kepler-area transfer, P5 or a historical limiting proof."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.HarmonicPathRegion.edgeRadius_nonnegative",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/HarmonicPathRegion.lean",
@@ -10276,20 +10708,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (eps : Fraction) (heps : 0 < eps.num) (x y : BinaryTime T hT) (hxy : TimeWithin T hT x y (timeTolerance w s eps)) : Within (gammaValue w T s hT hs x) (gammaValue w T s hT hs y) eps.half",
-    "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.HarmonicTimeRealization.duration_eventually_small",
-    "private": false,
-    "file": "NewtonLimitDynamics/Polygon/HarmonicTimeRealization.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(T eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) : ∃ N : Nat, ∀ j : Nat, N ≤ j → Fraction.lt (duration T j) eps",
     "interpretation_and_remaining_premises": "Modern state-valued motion constructed from actual harmonic prefixes of one global dyadic family. Under T>=0 and T*(1+abs(w))<=1/2, arbitrary actual prefix states are bounded by 2M and the same-grid difference is bounded by 2*(1+abs(w))*M times the actual time difference. Equivalent time addresses give equivalent state names before gammaValue is lifted to the constructed binary-time quotient. Closed-radius control, explicit uniform continuity, left/right endpoint identities, two half-time aliases, zero duration and zero initial magnitude are proved. Exact finite alias controls and state-value separation compile. The source locators motivate the polygon-to-trajectory question only; no historical continuum proof, external real-time identification, position-only separation, partition independence, uninterrupted force law or actual between-path area is inferred. Kepler swept area is separate."
   },
   {

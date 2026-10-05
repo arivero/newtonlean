@@ -33,3 +33,7 @@ import BarrowLib.Polygon.ConvexValues
 import BarrowLib.Polygon.CompletionGeometry
 import BarrowLib.Polygon.SquareOuterContent
 import BarrowLib.Common.RationalExhaustion
+import BarrowLib.Polygon.RationalIntervals
+import BarrowLib.Polygon.ScalarOrder
+import BarrowLib.Polygon.BoundedCuts
+import BarrowLib.Polygon.SquareContentValues

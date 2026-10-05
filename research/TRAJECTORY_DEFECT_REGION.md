@@ -59,8 +59,12 @@ HarmonicPathRegion.D_mesh is this cut for the actual matched region. Every
 lower bound is at most B_m, and an explicit positive-tolerance modulus makes
 all lower bounds less than any prescribed positive rational tolerance. Zero
 time has zero content. These are checked geometric containment and exhaustion
-results. The lower cut is not yet realized as a scalar in CauchyValues; equality
-with inner content, ordinary Euclidean area or a measure is also separate.
+results. HarmonicPathContent now realizes the lower cut as a Cauchy scalar,
+using BoundedCuts' derived interval widths B/2^n and adjacent bound. Its rational
+lower comparisons are exactly the all-cover infimum cut. The value is independent
+of the initial cover and inherits scalar nonnegativity, budget control, zero
+time and decay. Equality with inner content, ordinary Euclidean area or a
+measure remains separate.
 Mechanical P5, leading curved potential steps, arbitrary-partition independence,
 gluing and the full general central-force time map remain open. No integral,
 ODE, measure or quantum premise closes them.

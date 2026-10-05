@@ -34,8 +34,9 @@ open; the generic extraction is complete. B.1/B.2 now have the bounded results b
 integer-subdivision accumulation and dyadic E/G agreement are now proved. Both
 kinds of coarse polygon alias are handled. HarmonicPathRegion now constructs
 the matched region and finite-square outer-content lower cut, with a derived
-vanishing cover. The cut's Cauchy scalar realization and ordinary-area
-identification remain distinct.
+vanishing cover. HarmonicPathContent realizes the cut as a Cauchy scalar
+through proved shrinking intervals, independently of the initial cover.
+Ordinary-area/Kepler-area identification remains distinct.
 
 ## One global family
 
@@ -199,8 +200,15 @@ area or curve. Crossings/overlaps count once in the region, whereas covering
 sums count with multiplicity. See TRAJECTORY_DEFECT_REGION.md and the
 [verification checkpoint](verification/constructed-path-content-2026-10-05.md).
 
-The representation is a rational lower cut, rather than the Cauchy quotient
-scalar. Cauchy scalar realization of that cut, equality with inner/ordinary
-area, Kepler swept-area transfer, arbitrary partition independence, P5 and the
-full general-field time map remain separate. No integral, ODE, measure theorem,
+HarmonicPathContent now constructs a scalar in the Cauchy quotient from this
+cut. BoundedCuts starts with zero and a proved upper cover budget, keeps lower
+membership and an upper bound for every content lower bound, and halves the
+interval width exactly. The derived adjacent bound constructs the Cauchy
+name. ScalarOrder proves representative invariance before lifting the rational
+lower comparison; the scalar realizes exactly the all-cover cut. The value
+is independent of the chosen initial cover and inherits nonnegativity, the
+closed budget bound, zero time and convergence to zero. A known rational 1/3
+cut recovers its embedded value for different initial budgets. Equality with
+inner/ordinary area, Kepler swept-area transfer, arbitrary partition
+independence, P5 and the full general-field time map remain separate. No integral, ODE, measure theorem,
 action constant or historical limiting premise is imported.

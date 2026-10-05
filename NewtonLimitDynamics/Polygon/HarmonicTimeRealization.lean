@@ -370,29 +370,6 @@ theorem gamma_uniform_continuity (w T : Fraction) (s : Point × Point)
     (factor_delta_weak _ _ (stateTimeFactor_nonnegative w s)
       (by simpa only [Fraction.half] using Int.le_of_lt heps)) hb
 
-theorem duration_eventually_small (T eps : Fraction)
-    (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
-    ∃ N : Nat, ∀ j : Nat, N ≤ j →
-      Fraction.lt (duration T j) eps := by
-  let N := (T.num * eps.den).toNat
-  have hL : 0 ≤ T.num * eps.den :=
-    Int.mul_nonneg hT (Int.le_of_lt eps.den_pos)
-  have hN : (N : Int) = T.num * eps.den := Int.toNat_of_nonneg hL
-  refine ⟨N, ?_⟩
-  intro j hj
-  have hpow := two_pow_ge_succ j
-  have hp : 0 ≤ (2 : Int) ^ j := Int.le_of_lt (Int.pow_pos (by decide))
-  have hfactor : 1 ≤ eps.num * T.den := by
-    have hmul := Int.mul_pos heps T.den_pos
-    omega
-  have hmult := Int.mul_le_mul_of_nonneg_right hfactor hp
-  simp only [Int.one_mul] at hmult
-  unfold Fraction.lt duration
-  dsimp
-  change T.num * eps.den < eps.num * (T.den * (2 : Int) ^ j)
-  rw [← Int.mul_assoc]
-  omega
-
 theorem duration_factor_eventually_small (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (eps : Fraction) (heps : 0 < eps.num) :

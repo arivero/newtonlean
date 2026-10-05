@@ -1,6 +1,32 @@
 # Verification record
 
-## Current handoff: constructed harmonic region and outer content, 5 October 2026
+## Current handoff: outer content as a Cauchy scalar, 5 October 2026
+
+Targeted Lean core builds pass for rational interval bisection, representative-
+invariant scalar lower comparison, bounded-cut Cauchy realization and the
+actual harmonic outer-content scalar. The exact interval width B/2^n derives
+the adjacent/Cauchy proof; no Cauchy field, limit point or scalar area is a
+premise. The value realizes the all-cover lower cut exactly and is independent
+of the initial proved cover budget. Scalar nonnegativity, budget control,
+zero-time value and convergence to zero compile. Empty/singleton values vanish,
+and a known 1/3 cut recovers the same embedded value for different budgets.
+The generic positive-tolerance duration lemma moves into BarrowLib with its
+old declaration name. A sequential nonauthor GPT-6 Luna verifier passed all
+16 checks in order. The catalogue has 1,250 distinct theorem rows and 1,110
+emitted references; live counts are 889 substantive, 193 plumbing, 142 sample
+and 26 duplicate. All 1,518 prior public names/signatures are preserved; 61
+names are new. All 47 new catalogue rows and all 494 Barrow rows have empty
+source lists. The graph remains 77 nodes/68 edges/249 passages; the axiom union
+is propext, Classical.choice and Quot.sound, with no sorryAx, project axiom,
+external package or Newton/Mathlib foundation import. Logs:
+/tmp/newton-sol61-content-scalar-final-01.log through -16.log. The graph PDF
+passed rendering checks; its generated dates were restored after proving every
+other byte unchanged. Completion scores/weights remain 37.24%, range
+33.87–45.18%, with Proposition I at 55.25%.
+Ordinary-area/Kepler-area identification, general time maps/gluing and P5 remain
+open. The evidence-based estimate stays about 37%; no target is discharged.
+
+### Constructed harmonic region and outer content, 5 October 2026
 
 Targeted Lean core builds pass for rational convex Cauchy values, closed
 completed coordinate enclosures, finite square covers and HarmonicPathRegion.
@@ -23,7 +49,7 @@ package or Newton/Mathlib foundation import. Logs:
 /tmp/newton-sol61-path-content-final-01.log through -16.log. The graph PDF
 passed rendering checks; its generated dates were restored after proving every
 other byte unchanged. The revised estimate is 37.24%, range 33.87–45.18%;
-Prop. I is 55.25%. Cauchy scalar and ordinary-area identification, full general
+Prop. I is 55.25%. At this increment, Cauchy scalar and ordinary-area identification, full general
 time maps, gluing and P5 remain open.
 
 ### General sampled endpoint Cauchy values, 5 October 2026

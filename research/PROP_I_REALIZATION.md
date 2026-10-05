@@ -33,8 +33,10 @@ Cauchy-gauge equivalence and positive time-unit invariance. Harmonic and paralle
 cells are instances; exact harmonic mechanics commute with unit rescaling.
 C.1 now constructs the actual harmonic matched region as cell closures of
 rational simultaneous connectors. Its nonnegative finite-square outer content
-D_mesh has a derived 4*C²/2^m bound and decay; it is a lower cut of all covering
-budgets, not a supplied scalar. Ordinary-area identification and P5 remain open.
+D_mesh has a derived 4*C²/2^m bound and decay. HarmonicPathContent constructs
+its Cauchy scalar from the all-cover cut by shrinking intervals; lower-cut
+identification and independence of the initial cover are proved. No scalar
+area or Cauchy premise is supplied. Ordinary-area identification and P5 remain open.
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 
@@ -69,7 +71,7 @@ with no numbered limiting lemma (M2.md).
 | P1 finite area law | **Checked in the rational planar model, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
 | P3 existence of the ultimate curve | **Open for the general historical claim.** Lemma III Cor. 4 (1687 par10, 1713 par11) concerns rectilinear figures built on a given curve; it does not construct this moving-vertex family. Constant-force candidate/residual bounds and harmonic finite stability/refinement bounds are checked. For the harmonic field under T≥0 and T*(1+abs(w))≤1/2, actual prefixes of one global dyadic family now construct Cauchy names, quotient state values and a continuous map on the constructed binary-time quotient. BinaryTime derives the time names; HarmonicTimeRealization proves same-grid control by 2*(1+abs(w))*M times actual time difference, address independence, endpoint/alias identities and zero cases. No curve or limit point is supplied. See CAUCHY_REALIZATION.md and HARMONIC_REFINEMENT.md for the estimates and premises. PositionValues now derives the planar gammaPosition map, coordinate squares and positive sample position separation. Identification with independently rescaled values is proved at every dyadic rational time. Other time parameters, arbitrary partition independence, external real-time identification and general varying-force convergence remain separate. |
-| P4 intervening defect and area law | **Outer-content candidate checked for the constructed harmonic curve.** HarmonicPathRegion defines the cell closures of rational connectors between simultaneous polygonMap/gammaPosition values and their finite union. Initial endpoints agree and the final connector is included. Crossings and overlaps count once in the set; square budgets count multiplicity. D_mesh is the closed lower cut of the infimum of all finite square-cover budgets, with nonnegativity, a derived 4*C²/2^m bound, zero time and decay proved. Scalar/ordinary-area identification, general-field time/area extension and transfer of the separate Kepler law K_mesh remain open. HarmonicCover's polygon/refinement budget remains a distinct finite object. |
+| P4 intervening defect and area law | **Outer-content candidate checked for the constructed harmonic curve.** HarmonicPathRegion defines the cell closures of rational connectors between simultaneous polygonMap/gammaPosition values and their finite union. Initial endpoints agree and the final connector is included. Crossings and overlaps count once in the set; square budgets count multiplicity. D_mesh is the closed lower cut of the infimum of all finite square-cover budgets, with nonnegativity, a derived 4*C²/2^m bound, zero time and decay proved. HarmonicPathContent now realizes this cut as a cover-independent Cauchy scalar with the same bound, nonnegativity, zero time and decay. Ordinary-area identification, general-field time/area extension and transfer of the separate Kepler law K_mesh remain open. HarmonicCover's polygon/refinement budget remains a distinct finite object. |
 | P5 force identification | **Open.** "Aget indesinenter" identifies the impulse limit with a continuous force; no finite result supplies this. |
 
 ## Candidate permitted premise for P3
@@ -127,7 +129,8 @@ control are now proved in HarmonicPolygonCurve. Both kinds of alias independence
 construct polygonMap on the same time quotient. HarmonicPathRegion now
 constructs the closed matched region, its all-cover infimum lower cut and a
 derived vanishing square enclosure. See TRAJECTORY_DEFECT_REGION.md.
-Scalar/ordinary-area and Kepler-area identification, P5 and partition
+Cauchy scalar realization and cover independence are now proved in
+HarmonicPathContent. Ordinary-area and Kepler-area identification, P5 and partition
 independence remain distinct. A general represented-point force also needs compatibility
 with point value equivalence; finite centrality alone does not supply it.
 The [construction ledger](CAUCHY_REALIZATION.md) records the checked quotient
