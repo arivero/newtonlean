@@ -7,10 +7,14 @@ the bound on that band is used to evaluate force. Positive speed and
 r0*V<=|ell| give the inner radius; r0=0 covers rest and radial motion.
 Actual/coarse runs and both coarse-field shadow arrivals inherit the same
 bound, without a supplied confinement trace or whole-plane force premise.
-Conditions and completed-force localization, completed curve confinement
-and an actual Euclidean Kepler oracle are still required to finish A.6.
-Task E and new completed quantities have not started. See the
-[finite confinement checkpoint](verification/region-confinement-2026-10-05.md).
+The force-comparison theorem now accepts membership only at its two points;
+shared pointwise cell estimates use exactly that comparison. A live calibrated
+cell client derives both arrival certificates before applying it, with a proper
+annular oracle control that excludes the origin. Conditions and completed-force
+localization, completed curve confinement and an actual Euclidean Kepler oracle
+are still required to finish A.6. Task E and new completed quantities have not
+started. See the [finite confinement checkpoint](verification/region-confinement-2026-10-05.md)
+and [regional comparison checkpoint](verification/regional-cell-comparison-2026-10-05.md).
 
 Task A of the 4 October handoff, Sol 6.1. This design is fixed before the
 estimates are implemented. Its mathematical layer is `modern_reconstruction`;

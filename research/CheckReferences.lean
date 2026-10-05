@@ -675,12 +675,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.DyadicNodes.truncation_time_within
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification
+#check NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification_at
+#print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification_at
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_equiv
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_equiv
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_perturbation
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_perturbation
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.cell_velocity_perturbation
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.cell_velocity_perturbation
+#check NewtonLimitDynamics.Polygon.EquivalentDuration.cell_velocity_perturbation_at
+#print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.cell_velocity_perturbation_at
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.pointDistance_zero_of_equiv
 #print axioms NewtonLimitDynamics.Polygon.EquivalentDuration.pointDistance_zero_of_equiv
 #check NewtonLimitDynamics.Polygon.EquivalentDuration.representative_sensitive_control
@@ -757,6 +761,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.FiniteAccumulation.zero_duration_block_control
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification_at
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification_at
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_growth
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_growth
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_perturbation
@@ -765,12 +771,18 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_growth
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_at
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_at
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed_at
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed_at
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_growth
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_growth
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation
+#check NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation_at
+#print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation_at
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.comparisonContract_reverse
 #print axioms NewtonLimitDynamics.Polygon.FiniteEstimates.comparisonContract_reverse
 #check NewtonLimitDynamics.Polygon.FiniteEstimates.component_amplification
@@ -2243,6 +2255,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.RegionConfinement.run_bounded_samples
 #check NewtonLimitDynamics.Polygon.RegionConfinement.run_invariant
 #print axioms NewtonLimitDynamics.Polygon.RegionConfinement.run_invariant
+#check NewtonLimitDynamics.Polygon.RegionConfinement.sampled_cell_comparison
+#print axioms NewtonLimitDynamics.Polygon.RegionConfinement.sampled_cell_comparison
 #check NewtonLimitDynamics.Polygon.RegionConfinement.shadow_bands
 #print axioms NewtonLimitDynamics.Polygon.RegionConfinement.shadow_bands
 #check NewtonLimitDynamics.Polygon.RelativeMotion.absolute_deflection
@@ -2409,6 +2423,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.cauchy_rescale
 #check NewtonLimitDynamics.Polygon.TimeCalibration.cell_amplification
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.cell_amplification
+#check NewtonLimitDynamics.Polygon.TimeCalibration.cell_amplification_at
+#print axioms NewtonLimitDynamics.Polygon.TimeCalibration.cell_amplification_at
 #check NewtonLimitDynamics.Polygon.TimeCalibration.cell_increment
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.cell_increment
 #check NewtonLimitDynamics.Polygon.TimeCalibration.cell_increment_bound

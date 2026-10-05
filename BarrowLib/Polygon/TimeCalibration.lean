@@ -211,14 +211,17 @@ theorem component_amplification (tau P V H L E : Fraction)
     (Fraction.equiv_trans he (Fraction.add_equiv
       (Fraction.mul_equiv hk (Fraction.equiv_refl _)) (Fraction.equiv_refl _)))
 
-theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)
+theorem cell_amplification_at (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (h L E : Fraction) (s t : Point × Point)
-    (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) :
+    (hL : 0 ≤ L.num)
+    (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell a h s).1 (cell b h t).1)) E)) :
     Fraction.le (distance tau (cell a h s) (cell b h t))
       (Fraction.add (Fraction.mul (amplification tau h L ht) (distance tau s t))
         (Fraction.mul (Fraction.mul tau h.abs) E)) := by
   have hp := cell_position_perturbation a b h s t
-  have hv := cell_velocity_perturbation a b h L E s t hc
+  have hv := cell_velocity_perturbation_at a b h L E s t hc
   have ha := Fraction.add_le_add_left
     (Fraction.mul_le_mul_nonnegative_left
       (Fraction.add_le_add_right
@@ -234,6 +237,15 @@ theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)
   have hh : h.abs.abs = h.abs := by simp only [Fraction.abs, Int.natAbs_ofNat]
   have hbound := Fraction.magnitudes.le_trans hsum hcomp
   simpa only [distance, amplification, hh] using hbound
+
+theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)
+    (a b : Point → Point) (h L E : Fraction) (s t : Point × Point)
+    (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) :
+    Fraction.le (distance tau (cell a h s) (cell b h t))
+      (Fraction.add (Fraction.mul (amplification tau h L ht) (distance tau s t))
+        (Fraction.mul (Fraction.mul tau h.abs) E)) :=
+  cell_amplification_at tau ht a b h L E s t hL
+    (hc (cell a h s).1 (cell b h t).1)
 
 theorem sampling_term_rescale (c tau h E : Fraction) (hc : 0 < c.num) :
     Fraction.equiv

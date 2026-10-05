@@ -33,9 +33,11 @@ theorem cell_position_perturbation (a b : Point → Point) (d e : Fraction)
     (pointDistance_equiv ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ hpos)
     (FiniteEstimates.cell_position_perturbation a b d s t)
 
-theorem cell_velocity_perturbation (a b : Point → Point) (d e L E : Fraction)
+theorem cell_velocity_perturbation_at (a b : Point → Point) (d e L E : Fraction)
     (s t : Point × Point) (hde : Fraction.equiv d e)
-    (hc : comparisonContract a b L E) :
+    (hc : Fraction.le (pointDistance (a (cell a d s).1) (b (cell b e t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell a d s).1 (cell b e t).1)) E)) :
     Fraction.le (pointDistance (cell a d s).2 (cell b e t).2)
       (Fraction.add (pointDistance s.2 t.2)
         (Fraction.mul d.abs
@@ -50,25 +52,38 @@ theorem cell_velocity_perturbation (a b : Point → Point) (d e L E : Fraction)
     pointAdd_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ hs
   have hb := difference_add_bound s.2 t.2 (pointScale d A) (pointScale d B)
   have hm := Fraction.mul_le_mul_nonnegative_left
-    (hc (cell a d s).1 (cell b e t).1) d.abs (Fraction.abs_num_nonnegative d)
+    hc d.abs (Fraction.abs_num_nonnegative d)
   have hscaled := Fraction.le_equiv_right hb
     (Fraction.add_equiv (Fraction.equiv_refl _) (difference_scale d A B))
   exact Fraction.le_equiv_left
     (pointDistance_equiv ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ hv)
     (Fraction.magnitudes.le_trans hscaled (Fraction.add_le_add_left hm _))
 
+theorem cell_velocity_perturbation (a b : Point → Point) (d e L E : Fraction)
+    (s t : Point × Point) (hde : Fraction.equiv d e)
+    (hc : comparisonContract a b L E) :
+    Fraction.le (pointDistance (cell a d s).2 (cell b e t).2)
+      (Fraction.add (pointDistance s.2 t.2)
+        (Fraction.mul d.abs
+          (Fraction.add (Fraction.mul L
+            (pointDistance (cell a d s).1 (cell b e t).1)) E))) :=
+  cell_velocity_perturbation_at a b d e L E s t hde
+    (hc (cell a d s).1 (cell b e t).1)
+
 /-- Both forces remain evaluated at the actual arrivals of their own duration. -/
-theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)
+theorem cell_amplification_at (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (d e L E : Fraction) (s t : Point × Point)
     (hde : Fraction.equiv d e) (hL : 0 ≤ L.num)
-    (hc : comparisonContract a b L E) :
+    (hc : Fraction.le (pointDistance (a (cell a d s).1) (b (cell b e t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell a d s).1 (cell b e t).1)) E)) :
     Fraction.le (TimeCalibration.distance tau (cell a d s) (cell b e t))
       (Fraction.add
         (Fraction.mul (TimeCalibration.amplification tau d L ht)
           (TimeCalibration.distance tau s t))
         (Fraction.mul (Fraction.mul tau d.abs) E)) := by
   have hp := cell_position_perturbation a b d e s t hde
-  have hv := cell_velocity_perturbation a b d e L E s t hde hc
+  have hv := cell_velocity_perturbation_at a b d e L E s t hde hc
   have hvc := Fraction.magnitudes.le_trans hv
     (Fraction.add_le_add_left
       (Fraction.mul_le_mul_nonnegative_left
@@ -83,6 +98,18 @@ theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)
   have hh : d.abs.abs = d.abs := by simp only [Fraction.abs,Int.natAbs_ofNat]
   simpa only [TimeCalibration.distance,TimeCalibration.amplification,hh] using
     Fraction.magnitudes.le_trans hsum hcomp
+
+theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)
+    (a b : Point → Point) (d e L E : Fraction) (s t : Point × Point)
+    (hde : Fraction.equiv d e) (hL : 0 ≤ L.num)
+    (hc : comparisonContract a b L E) :
+    Fraction.le (TimeCalibration.distance tau (cell a d s) (cell b e t))
+      (Fraction.add
+        (Fraction.mul (TimeCalibration.amplification tau d L ht)
+          (TimeCalibration.distance tau s t))
+        (Fraction.mul (Fraction.mul tau d.abs) E)) :=
+  cell_amplification_at tau ht a b d e L E s t hde hL
+    (hc (cell a d s).1 (cell b e t).1)
 
 theorem run_distance_le_source (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (d e L E : Fraction) (s : Point × Point)

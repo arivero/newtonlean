@@ -215,3 +215,15 @@ rows and 15 public names are added, without another completed quantity, a
 whole-plane hypothesis in the finite lemma or any completion-score credit.
 The localization of existing interfaces and the Kepler instance remain next
 within A.6. The sequential Sol review was read-only, not proof certification.
+
+A.6 regional comparison adds seven pointwise foundation primitives and one
+live Newton client. The prior global-contract cell statements are wrappers
+over those proofs; their arithmetic is not copied. The existing force
+comparison statement is deliberately localized to its two certified points.
+All 1,930 prior public names remain, and that one theorem signature changes.
+The eight new rows include one heuristic sample classification because its
+name contains `sampled`, although its statement is universal. This is interface
+repair for regional confinement, with no new completed quantity or score.
+The sequential Sol worker implemented only the three cell-estimate modules;
+its targeted compilation passed before its final reporting turn hit model
+capacity. Root Sol 6.1 reviewed, integrated and ran the complete checklist.

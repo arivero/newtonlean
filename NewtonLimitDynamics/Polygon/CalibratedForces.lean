@@ -27,7 +27,7 @@ theorem sampled_calibrated_discrepancy (o : Oracle) (tau h L : Fraction)
     (Fraction.nonnegative_add _ _
       (Fraction.nonnegative_add _ _ (o.error_nonnegative i) (o.error_nonnegative i))
       (o.error_nonnegative i))
-    (samples_comparison_contract o L hL hR i j hij) n hs
+    (fun p q => samples_comparison_contract o L hL i j hij p q (hR p) (hR q)) n hs
 
 /-- Harmonic motion is an instance of the calibrated general estimate. -/
 theorem harmonic_calibrated_cell (tau w h : Fraction) (ht : 0 < tau.num)

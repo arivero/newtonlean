@@ -237,4 +237,27 @@ theorem shadow_bands (region : Point → Prop) (T B r R : Fraction)
   exact ⟨invariant_band region T B r R s0 d _ _ hfirst h1,
     invariant_band region T B r R s0 d _ _ hsecond h2⟩
 
+/-- Regional one-cell comparison: certify both drift arrivals first, then
+use local Lipschitz comparison and the calibrated pointwise primitive. -/
+theorem sampled_cell_comparison (o : CentralOracle) (T B r R : Fraction)
+    (s0 : Point × Point) (d : Frame o.region T B r R s0)
+    (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num)
+    (i j : Nat) (hij : i ≤ j) (t u h : Fraction) (q z : Point × Point)
+    (hh : 0 ≤ h.num) (ht : Fraction.le (Fraction.add t h) T)
+    (hu : Fraction.le (Fraction.add u h) T)
+    (hq : Invariant T B s0 t q) (hz : Invariant T B s0 u z) :
+    Fraction.le (TimeCalibration.distance tau
+      (FiniteEstimates.cell (o.sample i) h q) (FiniteEstimates.cell (o.sample j) h z))
+      (Fraction.add
+        (Fraction.mul (TimeCalibration.amplification tau h L htau)
+          (TimeCalibration.distance tau q z))
+        (Fraction.mul (Fraction.mul tau h.abs)
+          (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i)))) := by
+  have hp := d.contains_band _ (arrival_band o.region T B r R s0 d
+    (o.sample i) t h q hh ht hq)
+  have hr := d.contains_band _ (arrival_band o.region T B r R s0 d
+    (o.sample j) u h z hh hu hz)
+  exact TimeCalibration.cell_amplification_at tau htau (o.sample i) (o.sample j)
+    h L _ q z hL.1 (samples_comparison_contract o.toOracle L hL i j hij _ _ hp hr)
+
 end NewtonLimitDynamics.Polygon.RegionConfinement

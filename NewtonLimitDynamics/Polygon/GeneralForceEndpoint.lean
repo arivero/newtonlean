@@ -53,16 +53,17 @@ theorem cross_contract (o : CentralOracle) (E0 T tau L B : Fraction)
     FiniteEstimates.comparisonContract (field o E0 hE (j+1)) (field o E0 hE j) L
       (sampleError o E0 hE j) :=
   FiniteEstimates.comparisonContract_reverse _ _ _ _
-    (samples_comparison_contract o.toOracle L d.lipschitz d.global_region
+    (fun p q => samples_comparison_contract o.toOracle L d.lipschitz
       (precision o.toOracle E0 hE j) (precision o.toOracle E0 hE (j+1))
-      (precision_successor o.toOracle E0 hE j))
+      (precision_successor o.toOracle E0 hE j) p q (d.global_region p) (d.global_region q))
 
 theorem local_contract (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
     FiniteEstimates.comparisonContract (field o E0 hE j) (field o E0 hE j) L
       (sampleError o E0 hE j) :=
-  samples_comparison_contract o.toOracle L d.lipschitz d.global_region _ _ (Nat.le_refl _)
+  fun p q => samples_comparison_contract o.toOracle L d.lipschitz _ _ (Nat.le_refl _)
+    p q (d.global_region p) (d.global_region q)
 
 def velocityCap (T B : Fraction) (s : Point × Point) : Fraction :=
   Fraction.add (pointNorm s.2) (Fraction.mul T B)

@@ -1,6 +1,32 @@
 # Verification record
 
-## Current handoff: finite regional confinement, 5 October 2026
+## Current handoff: regional cell comparison, 5 October 2026
+
+Shared pointwise cell estimates in FiniteEstimates, TimeCalibration and
+EquivalentDuration accept force comparison only at their two actual arrivals;
+all old global-contract cell statements wrap those proofs. The existing
+samples_comparison_contract now takes membership at its two compared points.
+RegionConfinement derives both arrival certificates and applies the calibrated
+primitive. A proper annular oracle control excludes the origin and compiles
+that regional client. Existing whole-plane callers still compile; Conditions,
+completed-force localization, completed curve confinement and the actual
+Euclidean Kepler instance remain within A.6. No new completed quantity or
+Task E work is added, and scores stay unchanged.
+
+One sequential Sol worker implemented the three foundation modules. Targeted
+builds passed before its later reporting turn hit model capacity. Root Sol 6.1
+reviewed and integrated the result. All 16 sequential checklist commands and
+the scope file pass. There are 1,366 emitted reference checks, 77 graph nodes,
+68 edges and 253 passages. Only propext, Classical.choice and Quot.sound occur
+in the axiom union; no sorryAx, project axiom, external package or foundation
+Newton import is present. All 1,930 prior public names remain, with eight new
+names; one force-comparison theorem statement deliberately changes. The live
+catalogue has 1,510 rows and 634 Barrow rows: 1,121 substantive, 199 plumbing,
+164 sample and 26 duplicate by the heuristic. Logs:
+/tmp/newton-sol61-regional-cells-final-01.log through -16.log. See the
+[checkpoint](verification/regional-cell-comparison-2026-10-05.md).
+
+### Finite regional confinement, 5 October 2026
 
 RegionConfinement derives a ball/annulus before each central-force sample by
 one partial-time invariant: velocity<=|v0|+t*B, position<=|x0|+t*V and conserved

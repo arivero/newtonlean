@@ -141,18 +141,18 @@ theorem sample_point_error (o : Oracle) (i j : Nat) (hij : i ≤ j)
   Fraction.le_equiv_left (Fraction.equiv_symm (acceleration_distance _ _))
     (o.coherent i j hij p hp)
 
-/-- A global comparison contract follows on a globally declared region.
-Region-local applications must separately prove the locations lie in it. -/
+/-- Compare only the two supplied regional points. No whole-plane premise
+is needed, and coherence is used at the second certified point. -/
 theorem samples_comparison_contract (o : Oracle) (L : Fraction)
-    (hL : LipschitzOn o L) (hR : ∀ p, o.region p)
-    (i j : Nat) (hij : i ≤ j) :
-    FiniteEstimates.comparisonContract (o.sample i) (o.sample j) L
-      (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i)) := by
-  intro p q
+    (hL : LipschitzOn o L) (i j : Nat) (hij : i ≤ j)
+    (p q : Point) (hp : o.region p) (hq : o.region q) :
+    Fraction.le (FiniteEstimates.pointDistance (o.sample i p) (o.sample j q))
+      (Fraction.add (Fraction.mul L (FiniteEstimates.pointDistance p q))
+        (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i))) := by
   have ht := FiniteEstimates.pointDistance_triangle (o.sample i p)
     (o.sample i q) (o.sample j q)
-  have hs := Fraction.add_le_add (hL.2 i p q (hR p) (hR q))
-    (sample_point_error o i j hij q (hR q))
+  have hs := Fraction.add_le_add (hL.2 i p q hp hq)
+    (sample_point_error o i j hij q hq)
   apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans ht hs)
   simp only [Fraction.equiv, Fraction.add, Int.add_mul, Int.mul_add]
   ac_nf
@@ -347,10 +347,10 @@ theorem sampled_uniform_refinement (o : Oracle) (j : Nat)
     (Fraction.nonnegative_add _ _ (o.error_nonnegative j) (o.error_nonnegative j))
     (o.error_nonnegative j)
   have hcross := FiniteEstimates.comparisonContract_reverse _ _ L E
-    (samples_comparison_contract o L hL hR j (j+1) (by omega))
+    (fun p q => samples_comparison_contract o L hL j (j+1) (by omega) p q (hR p) (hR q))
   exact FiniteAccumulation.cross_actual_uniform_error (o.sample (j+1)) (o.sample j)
     h L E B V s n hh hL.1 hE hB.1 hV hs hcross
-    (samples_comparison_contract o L hL hR j j (by omega))
+    (fun p q => samples_comparison_contract o L hL j j (by omega) p q (hR p) (hR q))
     (fun k _ => hB.2 j _ (hR _)) hvel
 
 end NewtonLimitDynamics.Polygon.ForceClasses

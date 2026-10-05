@@ -138,3 +138,12 @@ RegionConfinement client keeps its central invariant and sampling order in
 NewtonLimitDynamics; no force instance or new completed operation enters the
 foundation. A zero-speed control rejects cancellation for a positive inner
 radius. Kernel checks and all library builds validate the shared helpers.
+
+The A.6 regional comparison repair moves the force-comparison premise of the
+existing cell proofs to their actual two sampled arrivals. FiniteEstimates,
+TimeCalibration and EquivalentDuration expose `_at` primitives; the old global
+contract statements wrap those proofs. Reach for `_at` when membership is
+available only at actual points. RegionConfinement.sampled_cell_comparison is
+the live Newton client: confinement derives both certificates before local
+force comparison. Seven foundation theorem rows share the old arithmetic
+proofs rather than duplicate them. No completed quantity is added.

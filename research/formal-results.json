@@ -2553,7 +2553,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{p q : Point} (hpq : pointEquiv p q) : Fraction.equiv (pointDistance p q) (Fraction.ofInt 0)",
-    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_equiv",
@@ -2562,7 +2562,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{d e : Fraction} (a : Point → Point) (s : Point × Point) (hde : Fraction.equiv d e) : pointEquiv (cell a d s).1 (cell a e s).1",
-    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_position_perturbation",
@@ -2571,7 +2571,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point → Point) (d e : Fraction) (s t : Point × Point) (hde : Fraction.equiv d e) : Fraction.le (pointDistance (cell a d s).1 (cell b e t).1) (Fraction.add (pointDistance s.1 t.1) (Fraction.mul d.abs (pointDistance s.2 t.2)))",
-    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_velocity_perturbation_at",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (d e L E : Fraction) (s t : Point × Point) (hde : Fraction.equiv d e) (hc : Fraction.le (pointDistance (a (cell a d s).1) (b (cell b e t).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a d s).1 (cell b e t).1)) E)) : Fraction.le (pointDistance (cell a d s).2 (cell b e t).2) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul d.abs (Fraction.add (Fraction.mul L (pointDistance (cell a d s).1 (cell b e t).1)) E)))",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_velocity_perturbation",
@@ -2580,7 +2589,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point → Point) (d e L E : Fraction) (s t : Point × Point) (hde : Fraction.equiv d e) (hc : comparisonContract a b L E) : Fraction.le (pointDistance (cell a d s).2 (cell b e t).2) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul d.abs (Fraction.add (Fraction.mul L (pointDistance (cell a d s).1 (cell b e t).1)) E)))",
-    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification_at",
+    "private": false,
+    "file": "BarrowLib/Polygon/EquivalentDuration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (d e L E : Fraction) (s t : Point × Point) (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hc : Fraction.le (pointDistance (a (cell a d s).1) (b (cell b e t).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a d s).1 (cell b e t).1)) E)) : Fraction.le (TimeCalibration.distance tau (cell a d s) (cell b e t)) (Fraction.add (Fraction.mul (TimeCalibration.amplification tau d L ht) (TimeCalibration.distance tau s t)) (Fraction.mul (Fraction.mul tau d.abs) E))",
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.cell_amplification",
@@ -2589,7 +2607,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (d e L E : Fraction) (s t : Point × Point) (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : Fraction.le (TimeCalibration.distance tau (cell a d s) (cell b e t)) (Fraction.add (Fraction.mul (TimeCalibration.amplification tau d L ht) (TimeCalibration.distance tau s t)) (Fraction.mul (Fraction.mul tau d.abs) E))",
-    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.run_distance_le_source",
@@ -2598,7 +2616,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (d e L E : Fraction) (s : Point × Point) (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : (n : Nat) → Fraction.le (TimeCalibration.distance tau (BoundedIteration.run a d s n) (BoundedIteration.run b e s n)) (FiniteRecurrence.sourceBudget (TimeCalibration.amplification tau d L ht) (Fraction.mul (Fraction.mul tau d.abs) E) n)",
-    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.run_uniform_error",
@@ -2607,7 +2625,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (d e L E : Fraction) (s : Point × Point) (hde : Fraction.equiv d e) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hc : comparisonContract a b L E) (n : Nat) (hs : TimeCalibration.Window tau d L ht n) : Fraction.le (TimeCalibration.distance tau (BoundedIteration.run a d s n) (BoundedIteration.run b e s n)) (Fraction.mul (Fraction.ofInt (2*(n : Int))) (Fraction.mul (Fraction.mul tau d.abs) E))",
-    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.EquivalentDuration.representative_sensitive_control",
@@ -2616,7 +2634,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": Fraction.equiv (Fraction.ofInt 1) (⟨2,2,by decide⟩ : Fraction) ∧ Fraction.equiv (TimeCalibration.distance (Fraction.ofInt 2) (cell representativeMap (Fraction.ofInt 1) rest) (cell representativeMap ⟨2,2,by decide⟩ rest)) (Fraction.ofInt 2) ∧ ¬ stateEquiv (cell representativeMap (Fraction.ofInt 1) rest) (cell representativeMap ⟨2,2,by decide⟩ rest)",
-    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
+    "interpretation_and_remaining_premises": "Actual finite triangular-map perturbation at value-equivalent rational durations, preserving separate force evaluations at each actual arrival. Pointwise force comparison suffices, with the retained global-contract theorems as wrappers. Additive E is retained when rounded maps distinguish rational representatives. Calibrated iteration and source-budget closing use shared generic recurrence facts. An exact representative-sensitive map control detects the false implication equal duration values imply equal force outputs. This is pure map arithmetic, not an extra noncentral Newton force law or an assumed exact sampling congruence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteAccumulation.localBudget_le_uniform",
@@ -2958,7 +2976,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q : Point) : Fraction.le (pointNorm p) (Fraction.add (pointDistance p q) (pointNorm q))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_triangle",
@@ -2967,7 +2985,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q r : Point) : Fraction.le (pointDistance p r) (Fraction.add (pointDistance p q) (pointDistance q r))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_symm",
@@ -2976,7 +2994,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q : Point) : Fraction.equiv (pointDistance p q) (pointDistance q p)",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.comparisonContract_reverse",
@@ -2985,7 +3003,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point → Point) (L E : Fraction) (hc : ∀ p q, Fraction.le (pointDistance (a p) (b q)) (Fraction.add (Fraction.mul L (pointDistance p q)) E)) : ∀ p q, Fraction.le (pointDistance (b p) (a q)) (Fraction.add (Fraction.mul L (pointDistance p q)) E)",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_triangle",
@@ -2994,7 +3012,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(s t u : Point × Point) : Fraction.le (stateDistance s u) (Fraction.add (stateDistance s t) (stateDistance t u))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_symm",
@@ -3003,7 +3021,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(s t : Point × Point) : Fraction.equiv (stateDistance s t) (stateDistance t s)",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_self_zero",
@@ -3012,7 +3030,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p : Point) : Fraction.equiv (pointDistance p p) (Fraction.ofInt 0)",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.stateDistance_self_zero",
@@ -3021,7 +3039,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(s : Point × Point) : Fraction.equiv (stateDistance s s) (Fraction.ofInt 0)",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_equiv",
@@ -3030,7 +3048,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{p p' q q' : Point} (hp : pointEquiv p p') (hq : pointEquiv q q') : Fraction.equiv (pointDistance p q) (pointDistance p' q')",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.point_difference_add",
@@ -3039,7 +3057,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q r t : Point) : pointEquiv (pointSub (pointAdd p r) (pointAdd q t)) (pointAdd (pointSub p q) (pointSub r t))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.point_difference_scale",
@@ -3048,7 +3066,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(h : Fraction) (p q : Point) : pointEquiv (pointSub (pointScale h p) (pointScale h q)) (pointScale h (pointSub p q))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.difference_add_bound",
@@ -3057,7 +3075,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q r t : Point) : Fraction.le (pointDistance (pointAdd p r) (pointAdd q t)) (Fraction.add (pointDistance p q) (pointDistance r t))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.pointDistance_neg",
@@ -3066,7 +3084,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q : Point) : Fraction.equiv (pointDistance (pointNeg p) (pointNeg q)) (pointDistance p q)",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.difference_sub_bound",
@@ -3075,7 +3093,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(p q r t : Point) : Fraction.le (pointDistance (pointSub p r) (pointSub q t)) (Fraction.add (pointDistance p q) (pointDistance r t))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.difference_scale",
@@ -3084,7 +3102,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(h : Fraction) (p q : Point) : Fraction.equiv (pointDistance (pointScale h p) (pointScale h q)) (Fraction.mul h.abs (pointDistance p q))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.component_amplification",
@@ -3093,7 +3111,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(P V H L E : Fraction) (hP : 0 ≤ P.num) (hV : 0 ≤ V.num) (hH : 0 ≤ H.num) (hL : 0 ≤ L.num) : Fraction.le (Fraction.add (Fraction.add P (Fraction.mul H V)) (Fraction.add V (Fraction.mul H (Fraction.add (Fraction.mul L (Fraction.add P (Fraction.mul H V))) E)))) (Fraction.add (Fraction.mul (Fraction.mul (Fraction.add (Fraction.ofInt 1) H) (Fraction.add (Fraction.ofInt 1) (Fraction.mul H L))) (Fraction.add P V)) (Fraction.mul H E))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_growth",
@@ -3102,7 +3120,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : Fraction.le (pointNorm (cell a h s).1) (Fraction.add (pointNorm s.1) (Fraction.mul h.abs (pointNorm s.2)))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_growth",
@@ -3111,7 +3129,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h B : Fraction) (s : Point × Point) (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) : Fraction.le (pointNorm (cell a h s).2) (Fraction.add (pointNorm s.2) (Fraction.mul h.abs B))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_growth",
@@ -3120,7 +3138,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h B : Fraction) (s : Point × Point) (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) : Fraction.le (stateNorm (cell a h s)) (Fraction.add (Fraction.add (pointNorm s.1) (Fraction.mul h.abs (pointNorm s.2))) (Fraction.add (pointNorm s.2) (Fraction.mul h.abs B)))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_position_perturbation",
@@ -3129,7 +3147,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point → Point) (h : Fraction) (s t : Point × Point) : Fraction.le (pointDistance (cell a h s).1 (cell b h t).1) (Fraction.add (pointDistance s.1 t.1) (Fraction.mul h.abs (pointDistance s.2 t.2)))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation_at",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E)) : Fraction.le (pointDistance (cell a h s).2 (cell b h t).2) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul h.abs (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E)))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_velocity_perturbation",
@@ -3138,7 +3165,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hc : comparisonContract a b L E) : Fraction.le (pointDistance (cell a h s).2 (cell b h t).2) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul h.abs (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E)))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_at",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E)) : Fraction.le (stateDistance (cell a h s) (cell b h t)) (Fraction.add (Fraction.add (pointDistance s.1 t.1) (Fraction.mul h.abs (pointDistance s.2 t.2))) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul h.abs (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E))))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation",
@@ -3147,7 +3183,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hc : comparisonContract a b L E) : Fraction.le (stateDistance (cell a h s) (cell b h t)) (Fraction.add (Fraction.add (pointDistance s.1 t.1) (Fraction.mul h.abs (pointDistance s.2 t.2))) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul h.abs (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E))))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed_at",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hL : 0 ≤ L.num) (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E)) : Fraction.le (stateDistance (cell a h s) (cell b h t)) (Fraction.add (Fraction.add (pointDistance s.1 t.1) (Fraction.mul h.abs (pointDistance s.2 t.2))) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul h.abs (Fraction.add (Fraction.mul L (Fraction.add (pointDistance s.1 t.1) (Fraction.mul h.abs (pointDistance s.2 t.2)))) E))))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_state_perturbation_closed",
@@ -3156,7 +3201,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : Fraction.le (stateDistance (cell a h s) (cell b h t)) (Fraction.add (Fraction.add (pointDistance s.1 t.1) (Fraction.mul h.abs (pointDistance s.2 t.2))) (Fraction.add (pointDistance s.2 t.2) (Fraction.mul h.abs (Fraction.add (Fraction.mul L (Fraction.add (pointDistance s.1 t.1) (Fraction.mul h.abs (pointDistance s.2 t.2)))) E))))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification_at",
+    "private": false,
+    "file": "BarrowLib/Polygon/FiniteEstimates.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hL : 0 ≤ L.num) (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E)) : Fraction.le (stateDistance (cell a h s) (cell b h t)) (Fraction.add (Fraction.mul (amplification L h) (stateDistance s t)) (Fraction.mul h.abs E))",
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.cell_amplification",
@@ -3165,7 +3219,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : Fraction.le (stateDistance (cell a h s) (cell b h t)) (Fraction.add (Fraction.mul (amplification L h) (stateDistance s t)) (Fraction.mul h.abs E))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_identity",
@@ -3174,7 +3228,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : pointEquiv (twoHalf a h s).1 (pointAdd (oneFull a h s).1 (pointScale (Fraction.mul h h) (a (cell a h s).1)))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_difference",
@@ -3183,7 +3237,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : pointEquiv (pointSub (twoHalf a h s).1 (oneFull a h s).1) (pointScale (Fraction.mul h h) (a (cell a h s).1))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_position_error",
@@ -3192,7 +3246,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h B : Fraction) (s : Point × Point) (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) : Fraction.le (pointDistance (twoHalf a h s).1 (oneFull a h s).1) (Fraction.mul (Fraction.mul h h).abs B)",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.first_to_full_difference",
@@ -3201,7 +3255,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : pointEquiv (pointSub (cell a h s).1 (oneFull a h s).1) (pointScale h (pointNeg s.2))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.first_to_full_distance",
@@ -3210,7 +3264,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : Fraction.equiv (pointDistance (cell a h s).1 (oneFull a h s).1) (Fraction.mul h.abs (pointNorm s.2))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_difference",
@@ -3219,7 +3273,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (s : Point × Point) : pointEquiv (pointSub (twoHalf a h s).2 (oneFull a h s).2) (pointScale h (pointAdd (pointSub (a (cell a h s).1) (a (oneFull a h s).1)) (pointSub (a (twoHalf a h s).1) (a (oneFull a h s).1))))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_sample_error",
@@ -3228,7 +3282,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h E₁ E₂ : Fraction) (s : Point × Point) (h₁ : Fraction.le (pointDistance (a (cell a h s).1) (a (oneFull a h s).1)) E₁) (h₂ : Fraction.le (pointDistance (a (twoHalf a h s).1) (a (oneFull a h s).1)) E₂) : Fraction.le (pointDistance (twoHalf a h s).2 (oneFull a h s).2) (Fraction.mul h.abs (Fraction.add E₁ E₂))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error",
@@ -3237,7 +3291,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h L E : Fraction) (s : Point × Point) (hc : comparisonContract a a L E) : Fraction.le (pointDistance (twoHalf a h s).2 (oneFull a h s).2) (Fraction.mul h.abs (Fraction.add (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (oneFull a h s).1)) E) (Fraction.add (Fraction.mul L (pointDistance (twoHalf a h s).1 (oneFull a h s).1)) E)))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_velocity_error_closed",
@@ -3246,7 +3300,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h L E B : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) (hc : comparisonContract a a L E) : Fraction.le (pointDistance (twoHalf a h s).2 (oneFull a h s).2) (Fraction.mul h.abs (Fraction.add (Fraction.add (Fraction.mul L (Fraction.mul h.abs (pointNorm s.2))) E) (Fraction.add (Fraction.mul L (Fraction.mul (Fraction.mul h h).abs B)) E)))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_state_error",
@@ -3255,7 +3309,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h L E B : Fraction) (s : Point × Point) (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) (hc : comparisonContract a a L E) : Fraction.le (stateDistance (twoHalf a h s) (oneFull a h s)) (Fraction.add (Fraction.mul (Fraction.mul h h).abs B) (Fraction.mul h.abs (Fraction.add (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (oneFull a h s).1)) E) (Fraction.add (Fraction.mul L (pointDistance (twoHalf a h s).1 (oneFull a h s).1)) E))))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.twoHalf_state_error_closed",
@@ -3264,7 +3318,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h L E B : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hB : Fraction.le (pointNorm (a (cell a h s).1)) B) (hc : comparisonContract a a L E) : Fraction.le (stateDistance (twoHalf a h s) (oneFull a h s)) (Fraction.add (Fraction.mul (Fraction.mul h h).abs B) (Fraction.mul h.abs (Fraction.add (Fraction.add (Fraction.mul L (Fraction.mul h.abs (pointNorm s.2))) E) (Fraction.add (Fraction.mul L (Fraction.mul (Fraction.mul h h).abs B)) E))))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.zero_duration_cell",
@@ -3273,7 +3327,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (h : Fraction) (hh : h.num = 0) (s : Point × Point) : stateEquiv (cell a h s) s",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.linear_sample_control",
@@ -3282,7 +3336,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": stateEquiv (cell controlLinear controlEighth controlStart) ((Fraction.ofInt 1, controlEighth), (⟨-1, 8, by decide⟩, ⟨63, 64, by decide⟩))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.constant_sample_control",
@@ -3291,7 +3345,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": stateEquiv (cell controlA controlHalf controlState) ((controlZero, controlZero), (controlZero, ⟨-1, 2, by decide⟩))",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control",
@@ -3300,7 +3354,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": Fraction.equiv (stateDistance (cell controlA controlHalf controlState) (cell controlB controlHalf controlState)) controlHalf",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.unequal_sample_control_nonzero",
@@ -3309,7 +3363,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": ¬ Fraction.le (stateDistance (cell controlA controlHalf controlState) (cell controlB controlHalf controlState)) controlZero",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteEstimates.zero_duration_control",
@@ -3318,7 +3372,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Point → Point) (s : Point × Point) : stateEquiv (cell a controlZero s) s",
-    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
+    "interpretation_and_remaining_premises": "Generic finite estimates for rational triangular point maps in BarrowLib. Growth uses a bound at the actual sampled arrival point; cross-map perturbation retains an explicit additive sampling error E and nonnegative Lipschitz coefficient where used. Pointwise primitives need comparison only at the two actual arrivals; existing global-contract theorem names wrap these same proofs. These are one-cell/local finite implications, not polygon convergence, a supplied curve, partition independence or force identification."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.FiniteFactorProducts.pairWeights_nonnegative",
@@ -5154,7 +5208,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) : 0 < (inverse tau ht).num",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.inverse_product",
@@ -5163,7 +5217,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) : Fraction.equiv (Fraction.mul tau (inverse tau ht)) (Fraction.ofInt 1)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.inverse_congr",
@@ -5172,7 +5226,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "{tau rho : Fraction} (ht : 0 < tau.num) (hr : 0 < rho.num) (h : Fraction.equiv tau rho) : Fraction.equiv (inverse tau ht) (inverse rho hr)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.norm_nonnegative",
@@ -5181,7 +5235,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (s : Point × Point) (ht : 0 ≤ tau.num) : 0 ≤ (norm tau s).num",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.position_le_norm",
@@ -5190,7 +5244,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (s : Point × Point) (ht : 0 ≤ tau.num) : Fraction.le (pointNorm s.1) (norm tau s)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.velocity_le_norm_inverse",
@@ -5199,7 +5253,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (s : Point × Point) (ht : 0 < tau.num) : Fraction.le (pointNorm s.2) (Fraction.mul (norm tau s) (inverse tau ht))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cell_increment",
@@ -5208,7 +5262,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h : Fraction) (a : Point → Point) (s : Point × Point) : Fraction.equiv (distance tau (cell a h s) s) (Fraction.mul h.abs (Fraction.add (pointNorm s.2) (Fraction.mul tau (pointNorm (a (cell a h s).1)))))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cell_increment_bound",
@@ -5217,7 +5271,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h B V : Fraction) (a : Point → Point) (s : Point × Point) (ht : 0 ≤ tau.num) (hv : Fraction.le (pointNorm s.2) V) (ha : Fraction.le (pointNorm (a (cell a h s).1)) B) : Fraction.le (distance tau (cell a h s) s) (Fraction.mul h.abs (Fraction.add V (Fraction.mul tau B)))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_self_zero",
@@ -5226,7 +5280,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (s : Point × Point) : Fraction.equiv (distance tau s s) (Fraction.ofInt 0)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_symm",
@@ -5235,7 +5289,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (s t : Point × Point) : Fraction.equiv (distance tau s t) (distance tau t s)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_triangle",
@@ -5244,7 +5298,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (s t u : Point × Point) : Fraction.le (distance tau s u) (Fraction.add (distance tau s t) (distance tau t u))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.norm_rescale",
@@ -5253,7 +5307,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(c tau : Fraction) (s : Point × Point) (hc : 0 < c.num) : Fraction.equiv (norm (Fraction.mul c tau) (rescaleState c hc s)) (norm tau s)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.amplification_rescale",
@@ -5262,7 +5316,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(c tau h L : Fraction) (hc : 0 < c.num) (ht : 0 < tau.num) : Fraction.equiv (amplification (Fraction.mul c tau) (Fraction.mul c h) (rescaleConstant c L hc) (Int.mul_pos hc ht)) (amplification tau h L ht)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.window_rescale",
@@ -5271,7 +5325,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(c tau T L : Fraction) (hc : 0 < c.num) (ht : 0 < tau.num) : Fraction.equiv (Fraction.mul (Fraction.mul c T) (rate (Fraction.mul c tau) (rescaleConstant c L hc) (Int.mul_pos hc ht))) (Fraction.mul T (rate tau L ht))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.component_amplification",
@@ -5280,7 +5334,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau P V H L E : Fraction) (ht : 0 < tau.num) (hP : 0 ≤ P.num) (hV : 0 ≤ V.num) (hH : 0 ≤ H.num) (hL : 0 ≤ L.num) : Fraction.le (Fraction.add (Fraction.add P (Fraction.mul H V)) (Fraction.mul tau (Fraction.add V (Fraction.mul H (Fraction.add (Fraction.mul L (Fraction.add P (Fraction.mul H V))) E))))) (Fraction.add (Fraction.mul (amplification tau H L ht) (Fraction.add P (Fraction.mul tau V))) (Fraction.mul (Fraction.mul tau H) E))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cell_amplification_at",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hL : 0 ≤ L.num) (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a h s).1 (cell b h t).1)) E)) : Fraction.le (distance tau (cell a h s) (cell b h t)) (Fraction.add (Fraction.mul (amplification tau h L ht) (distance tau s t)) (Fraction.mul (Fraction.mul tau h.abs) E))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cell_amplification",
@@ -5289,7 +5352,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E : Fraction) (s t : Point × Point) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : Fraction.le (distance tau (cell a h s) (cell b h t)) (Fraction.add (Fraction.mul (amplification tau h L ht) (distance tau s t)) (Fraction.mul (Fraction.mul tau h.abs) E))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.sampling_term_rescale",
@@ -5298,7 +5361,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(c tau h E : Fraction) (hc : 0 < c.num) : Fraction.equiv (Fraction.mul (Fraction.mul (Fraction.mul c tau) (Fraction.mul c h).abs) (rescaleConstant c E hc)) (Fraction.mul (Fraction.mul tau h.abs) E)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_rescale",
@@ -5307,7 +5370,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(c tau : Fraction) (s t : Point × Point) (hc : 0 < c.num) : Fraction.equiv (distance (Fraction.mul c tau) (rescaleState c hc s) (rescaleState c hc t)) (distance tau s t)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.norm_unit_calibration",
@@ -5316,7 +5379,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(s : Point × Point) : Fraction.equiv (norm (Fraction.ofInt 1) s) (stateNorm s)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_le_uncalibrated",
@@ -5325,7 +5388,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (s t : Point × Point) : Fraction.le (distance tau s t) (Fraction.mul (Fraction.add (Fraction.ofInt 1) tau) (stateDistance s t))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.uncalibrated_le_distance",
@@ -5334,7 +5397,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (s t : Point × Point) : Fraction.le (stateDistance s t) (Fraction.mul (Fraction.add (Fraction.ofInt 1) (inverse tau ht)) (distance tau s t))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.calibrated_tolerance",
@@ -5343,7 +5406,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau eps : Fraction) (ht : 0 < tau.num) (s t : Point × Point) (hd : Fraction.lt (stateDistance s t) (HarmonicTimeRealization.factorDelta (Fraction.add (Fraction.ofInt 1) tau) eps (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt ht)))) : Fraction.lt (distance tau s t) eps",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.unit_tolerance",
@@ -5352,7 +5415,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau eps : Fraction) (ht : 0 < tau.num) (s t : Point × Point) (hd : Fraction.lt (distance tau s t) (HarmonicTimeRealization.factorDelta (Fraction.add (Fraction.ofInt 1) (inverse tau ht)) eps (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt tau.den_pos)))) : Fraction.lt (stateDistance s t) eps",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.distance_unit_calibration",
@@ -5361,7 +5424,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(s t : Point × Point) : Fraction.equiv (distance (Fraction.ofInt 1) s t) (stateDistance s t)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cauchy_calibration_iff",
@@ -5370,7 +5433,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a : Nat → Point × Point) : CalibratedCauchy tau a ↔ CalibratedCauchy (Fraction.ofInt 1) a",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.nameEquiv_calibration_iff",
@@ -5379,7 +5442,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : HarmonicDyadic.EndpointCauchyName) : CalibratedEquivalent tau a.approx b.approx ↔ CauchyValues.NameEquiv a b",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.amplification_nonnegative",
@@ -5388,7 +5451,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) : 0 ≤ (amplification tau h L ht).num",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.one_le_amplification",
@@ -5397,7 +5460,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) : Fraction.le (Fraction.ofInt 1) (amplification tau h L ht)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.rate_nonnegative",
@@ -5406,7 +5469,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) : 0 ≤ (rate tau L ht).num",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.window_mono",
@@ -5415,7 +5478,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (n N : Nat) (hn : n ≤ N) (hs : Window tau h L ht N) : Window tau h L ht n",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.window_of_elapsed",
@@ -5424,7 +5487,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h T L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (n : Nat) (he : Fraction.le (Fraction.mul (Fraction.ofInt (n : Int)) h.abs) T) (hs : Fraction.le (Fraction.mul T (rate tau L ht)) ⟨1,2,by decide⟩) : Window tau h L ht n",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.amplification_expansion",
@@ -5433,7 +5496,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) : Fraction.equiv (amplification tau h L ht) (Fraction.add (Fraction.ofInt 1) (Fraction.add (Fraction.mul h.abs (rate tau L ht)) (Fraction.mul (Fraction.mul h.abs h.abs) L)))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.amplification_power_le_two",
@@ -5442,7 +5505,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau h L : Fraction) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (n : Nat) (hs : Window tau h L ht n) : Fraction.le (HarmonicAccumulation.fpower (amplification tau h L ht) n) (Fraction.ofInt 2)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.run_distance_le_source",
@@ -5451,7 +5514,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) : (n : Nat) → Fraction.le (distance tau (BoundedIteration.run a h s n) (BoundedIteration.run b h s n)) (FiniteRecurrence.sourceBudget (amplification tau h L ht) (Fraction.mul (Fraction.mul tau h.abs) E) n)",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.run_uniform_discrepancy",
@@ -5460,7 +5523,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a b : Point → Point) (h L E : Fraction) (s : Point × Point) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hc : comparisonContract a b L E) (n : Nat) (hs : Window tau h L ht n) : Fraction.le (distance tau (BoundedIteration.run a h s n) (BoundedIteration.run b h s n)) (Fraction.mul (Fraction.ofInt (2 * (n : Int))) (Fraction.mul (Fraction.mul tau h.abs) E))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cauchy_rescale",
@@ -5469,7 +5532,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(c tau : Fraction) (hc : 0 < c.num) (a : Nat → Point × Point) : CalibratedCauchy (Fraction.mul c tau) (fun n => rescaleState c hc (a n)) ↔ CalibratedCauchy tau a",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.window_rescale_iff",
@@ -5478,7 +5541,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(c tau h L : Fraction) (hc : 0 < c.num) (ht : 0 < tau.num) (n : Nat) : Window (Fraction.mul c tau) (Fraction.mul c h) (rescaleConstant c L hc) (Int.mul_pos hc ht) n ↔ Window tau h L ht n",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.rescaling_control",
@@ -5487,7 +5550,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": Fraction.equiv (norm two sampleState) (norm (Fraction.mul three two) (rescaleState three (by decide) sampleState)) ∧ Fraction.equiv (amplification two quarter (Fraction.ofInt 1) (by decide)) (amplification (Fraction.mul three two) (Fraction.mul three quarter) (rescaleConstant three (Fraction.ofInt 1) (by decide)) (by decide))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.uncalibrated_norm_changes_control",
@@ -5496,7 +5559,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": ¬ Fraction.equiv (stateNorm sampleState) (stateNorm (rescaleState two (by decide) sampleState))",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.zero_lipschitz_control",
@@ -5505,7 +5568,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": ": Fraction.equiv (amplification two half (Fraction.ofInt 0) (by decide)) ⟨5,4,by decide⟩",
-    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TriangleBounds.det_abs_le_product",
@@ -7629,7 +7692,7 @@
     "file": "NewtonLimitDynamics/Polygon/ForceClasses.lean",
     "source_passages": [],
     "classification": "modern_reconstruction",
-    "premise_signature": "(o : Oracle) (L : Fraction) (hL : LipschitzOn o L) (hR : ∀ p, o.region p) (i j : Nat) (hij : i ≤ j) : FiniteEstimates.comparisonContract (o.sample i) (o.sample j) L (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i))",
+    "premise_signature": "(o : Oracle) (L : Fraction) (hL : LipschitzOn o L) (i j : Nat) (hij : i ≤ j) (p q : Point) (hp : o.region p) (hq : o.region q) : Fraction.le (FiniteEstimates.pointDistance (o.sample i p) (o.sample j q)) (Fraction.add (Fraction.mul L (FiniteEstimates.pointDistance p q)) (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i)))",
     "interpretation_and_remaining_premises": "Modern central-force sampling interface on an explicitly named region. Uniform rational approximation errors construct force Cauchy values without a supplied limit point. Inward central samples retain the finite area law; harmonic and uniform parallel fields are zero-error instances. Lipschitz, continuous, distance-only and bounded contracts are distinct force premises, not assertions of motion convergence. No historical edge, continuum trajectory, potential existence, uniqueness, P5 or action constant is derived by the interface."
   },
   {
@@ -15036,7 +15099,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(T B : Fraction) (s0 : Point × Point) : Invariant T B s0 (Fraction.ofInt 0) s0",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RegionConfinement.band_of_bounds",
@@ -15045,7 +15108,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (p v : Point) (hp : Fraction.le (pointNorm p) R) (hv : Fraction.le (pointNorm v) (velocityCap T B s0)) (hm : Fraction.equiv (det p v) (CentralSchedule.momentum s0)) : Band r R p",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RegionConfinement.invariant_band",
@@ -15054,7 +15117,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (t : Fraction) (q : Point × Point) (ht : Fraction.le t T) (hq : Invariant T B s0 t q) : Band r R q.1",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RegionConfinement.arrival_band",
@@ -15063,7 +15126,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (t h : Fraction) (q : Point × Point) (hh : 0 ≤ h.num) (ht : Fraction.le (Fraction.add t h) T) (hq : Invariant T B s0 t q) : Band r R (FiniteEstimates.cell a h q).1",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RegionConfinement.advance",
@@ -15072,7 +15135,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (t h : Fraction) (q : Point × Point) (hh : 0 ≤ h.num) (ht : Fraction.le (Fraction.add t h) T) (hq : Invariant T B s0 t q) : Invariant T B s0 (Fraction.add t h) (FiniteEstimates.cell a h q)",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RegionConfinement.run_invariant",
@@ -15081,7 +15144,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (h : Fraction) (hh : 0 ≤ h.num) : (n : Nat) → Fraction.le (BoundedIteration.time h n) T → Invariant T B s0 (BoundedIteration.time h n) (BoundedIteration.run a h s0 n)",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RegionConfinement.run_band",
@@ -15090,7 +15153,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat) (hn : Fraction.le (BoundedIteration.time h n) T) : Band r R (BoundedIteration.run a h s0 n).1",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RegionConfinement.run_bounded_samples",
@@ -15099,7 +15162,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat) (hn : Fraction.le (BoundedIteration.time h n) T) : BoundedIteration.BoundedSamples a h s0 B n",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RegionConfinement.shadow_bands",
@@ -15108,7 +15171,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(region : Point → Prop) (T B r R : Fraction) (s0 : Point × Point) (d : Frame region T B r R s0) (a : Point → Point) (hc : CentralSchedule.central a) (hb : ∀ p, Band r R p → Fraction.le (pointNorm (a p)) B) (m k : Nat) (hk : k < HarmonicDyadic.blocks m) : Band r R (FiniteEstimates.cell a (HarmonicDyadic.duration T (m+1)) (FiniteAccumulation.coarseAt a (HarmonicDyadic.duration T (m+1)) s0 k)).1 ∧ Band r R (FiniteEstimates.twoHalf a (HarmonicDyadic.duration T (m+1)) (FiniteAccumulation.coarseAt a (HarmonicDyadic.duration T (m+1)) s0 k)).1",
-    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.RegionConfinement.sampled_cell_comparison",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/RegionConfinement.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (T B r R : Fraction) (s0 : Point × Point) (d : Frame o.region T B r R s0) (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num) (i j : Nat) (hij : i ≤ j) (t u h : Fraction) (q z : Point × Point) (hh : 0 ≤ h.num) (ht : Fraction.le (Fraction.add t h) T) (hu : Fraction.le (Fraction.add u h) T) (hq : Invariant T B s0 t q) (hz : Invariant T B s0 u z) : Fraction.le (TimeCalibration.distance tau (FiniteEstimates.cell (o.sample i) h q) (FiniteEstimates.cell (o.sample j) h z)) (Fraction.add (Fraction.mul (TimeCalibration.amplification tau h L htau) (TimeCalibration.distance tau q z)) (Fraction.mul (Fraction.mul tau h.abs) (Fraction.add (Fraction.add (o.error i) (o.error i)) (o.error i))))",
+    "interpretation_and_remaining_premises": "Modern finite regional confinement before each central-force sample, as the first A.6 repair increment. A shared partial-time invariant retains velocity<=|v0|+t*B, position<=|x0|+t*V and exact areal product, V=|v0|+T*B. The determinant product bound and r0*V<=abs(momentum0) give an annular lower radius with positive speed; r0=0 handles the degenerate ball case. Drift arrivals are certified inside the band before the regional force bound is used. All actual run levels, their derived BoundedSamples, and both coarse-field half-step shadow arrivals share the same invariant. A calibrated one-cell client derives both arrival certificates and applies regional two-point force comparison through shared pointwise finite estimates. Whole-plane force regularity and a supplied confinement trace are not inputs. Conditions/CompletedForce localization, completed curve confinement and an actual Euclidean Kepler sampling instance remain unfinished parts of A.6; no constructed-curve area law, completed quantity or historical proof is inferred."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.RelativeMotion.add_zero_right",

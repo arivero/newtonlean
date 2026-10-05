@@ -214,8 +214,11 @@ theorem cell_position_perturbation (a b : Point → Point) (h : Fraction)
 
 /-- Velocity perturbation for arbitrary sample maps. The term `|h|E`
 cannot be dropped when the two maps differ at the same point. -/
-theorem cell_velocity_perturbation (a b : Point → Point) (h L E : Fraction)
-    (s t : Point × Point) (hc : comparisonContract a b L E) :
+theorem cell_velocity_perturbation_at (a b : Point → Point) (h L E : Fraction)
+    (s t : Point × Point)
+    (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell a h s).1 (cell b h t).1)) E)) :
     Fraction.le (pointDistance (cell a h s).2 (cell b h t).2)
       (Fraction.add (pointDistance s.2 t.2)
         (Fraction.mul h.abs
@@ -225,15 +228,40 @@ theorem cell_velocity_perturbation (a b : Point → Point) (h L E : Fraction)
     (pointScale h (a (cell a h s).1))
     (pointScale h (b (cell b h t).1))
   have hs := difference_scale h (a (cell a h s).1) (b (cell b h t).1)
-  have hc' := hc (cell a h s).1 (cell b h t).1
-  have hm := Fraction.mul_le_mul_nonnegative_left hc' h.abs
+  have hm := Fraction.mul_le_mul_nonnegative_left hc h.abs
     (Fraction.abs_num_nonnegative h)
   exact Fraction.magnitudes.le_trans
     (Fraction.le_equiv_right hd (Fraction.add_equiv (Fraction.equiv_refl _) hs))
     (Fraction.add_le_add_left hm (pointDistance s.2 t.2))
 
+theorem cell_velocity_perturbation (a b : Point → Point) (h L E : Fraction)
+    (s t : Point × Point) (hc : comparisonContract a b L E) :
+    Fraction.le (pointDistance (cell a h s).2 (cell b h t).2)
+      (Fraction.add (pointDistance s.2 t.2)
+        (Fraction.mul h.abs
+          (Fraction.add (Fraction.mul L
+            (pointDistance (cell a h s).1 (cell b h t).1)) E))) :=
+  cell_velocity_perturbation_at a b h L E s t
+    (hc (cell a h s).1 (cell b h t).1)
+
 /-- The actual one-cell state perturbation with separate position and
 velocity terms and the additive `|h|E` contribution. -/
+theorem cell_state_perturbation_at (a b : Point → Point) (h L E : Fraction)
+    (s t : Point × Point)
+    (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell a h s).1 (cell b h t).1)) E)) :
+    Fraction.le (stateDistance (cell a h s) (cell b h t))
+      (Fraction.add
+        (Fraction.add (pointDistance s.1 t.1)
+          (Fraction.mul h.abs (pointDistance s.2 t.2)))
+        (Fraction.add (pointDistance s.2 t.2)
+          (Fraction.mul h.abs
+            (Fraction.add (Fraction.mul L
+              (pointDistance (cell a h s).1 (cell b h t).1)) E)))) :=
+  Fraction.add_le_add (cell_position_perturbation a b h s t)
+    (cell_velocity_perturbation_at a b h L E s t hc)
+
 theorem cell_state_perturbation (a b : Point → Point) (h L E : Fraction)
     (s t : Point × Point) (hc : comparisonContract a b L E) :
     Fraction.le (stateDistance (cell a h s) (cell b h t))
@@ -244,14 +272,17 @@ theorem cell_state_perturbation (a b : Point → Point) (h L E : Fraction)
           (Fraction.mul h.abs
             (Fraction.add (Fraction.mul L
               (pointDistance (cell a h s).1 (cell b h t).1)) E)))) :=
-  Fraction.add_le_add (cell_position_perturbation a b h s t)
-    (cell_velocity_perturbation a b h L E s t hc)
+  cell_state_perturbation_at a b h L E s t
+    (hc (cell a h s).1 (cell b h t).1)
 
 /-- Closed one-cell recurrence when `L` is nonnegative. This does not
 assert a uniform mesh bound or any limiting trajectory. -/
-theorem cell_state_perturbation_closed (a b : Point → Point)
+theorem cell_state_perturbation_closed_at (a b : Point → Point)
     (h L E : Fraction) (s t : Point × Point)
-    (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) :
+    (hL : 0 ≤ L.num)
+    (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell a h s).1 (cell b h t).1)) E)) :
     Fraction.le (stateDistance (cell a h s) (cell b h t))
       (Fraction.add
         (Fraction.add (pointDistance s.1 t.1)
@@ -267,20 +298,46 @@ theorem cell_state_perturbation_closed (a b : Point → Point)
   have hh := Fraction.mul_le_mul_nonnegative_left he h.abs
     (Fraction.abs_num_nonnegative h)
   have hv := Fraction.add_le_add_left hh (pointDistance s.2 t.2)
-  exact Fraction.magnitudes.le_trans (cell_state_perturbation a b h L E s t hc)
+  exact Fraction.magnitudes.le_trans (cell_state_perturbation_at a b h L E s t hc)
     (Fraction.add_le_add_left hv
       (Fraction.add (pointDistance s.1 t.1)
         (Fraction.mul h.abs (pointDistance s.2 t.2))))
 
+theorem cell_state_perturbation_closed (a b : Point → Point)
+    (h L E : Fraction) (s t : Point × Point)
+    (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) :
+    Fraction.le (stateDistance (cell a h s) (cell b h t))
+      (Fraction.add
+        (Fraction.add (pointDistance s.1 t.1)
+          (Fraction.mul h.abs (pointDistance s.2 t.2)))
+        (Fraction.add (pointDistance s.2 t.2)
+          (Fraction.mul h.abs
+            (Fraction.add (Fraction.mul L
+              (Fraction.add (pointDistance s.1 t.1)
+                (Fraction.mul h.abs (pointDistance s.2 t.2)))) E)))) :=
+  cell_state_perturbation_closed_at a b h L E s t hL
+    (hc (cell a h s).1 (cell b h t).1)
+
 /-- Finite Lipschitz amplification retains the oracle discrepancy explicitly. -/
+theorem cell_amplification_at (a b : Point → Point) (h L E : Fraction)
+    (s t : Point × Point) (hL : 0 ≤ L.num)
+    (hc : Fraction.le (pointDistance (a (cell a h s).1) (b (cell b h t).1))
+      (Fraction.add (Fraction.mul L
+        (pointDistance (cell a h s).1 (cell b h t).1)) E)) :
+    Fraction.le (stateDistance (cell a h s) (cell b h t))
+      (Fraction.add (Fraction.mul (amplification L h) (stateDistance s t))
+        (Fraction.mul h.abs E)) :=
+  Fraction.magnitudes.le_trans (cell_state_perturbation_closed_at a b h L E s t hL hc)
+    (component_amplification _ _ _ _ _ (pointNorm_nonnegative _)
+      (pointNorm_nonnegative _) (Fraction.abs_num_nonnegative _) hL)
+
 theorem cell_amplification (a b : Point → Point) (h L E : Fraction)
     (s t : Point × Point) (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) :
     Fraction.le (stateDistance (cell a h s) (cell b h t))
       (Fraction.add (Fraction.mul (amplification L h) (stateDistance s t))
         (Fraction.mul h.abs E)) :=
-  Fraction.magnitudes.le_trans (cell_state_perturbation_closed a b h L E s t hL hc)
-    (component_amplification _ _ _ _ _ (pointNorm_nonnegative _)
-      (pointNorm_nonnegative _) (Fraction.abs_num_nonnegative _) hL)
+  cell_amplification_at a b h L E s t hL
+    (hc (cell a h s).1 (cell b h t).1)
 
 /-- The first and second half cells use the same sampled point map. -/
 def twoHalf (a : Point → Point) (h : Fraction) (s : Point × Point) :

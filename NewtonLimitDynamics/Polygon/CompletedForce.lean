@@ -49,9 +49,9 @@ noncomputable def family (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
   error_vanishes := sampleError_vanishes o E0 hE
   ordered_bound := by
     intro i j hij s t
-    have hc := samples_comparison_contract o.toOracle L hL hR
+    have hc := samples_comparison_contract o.toOracle L hL
       (precision o.toOracle E0 hE i) (precision o.toOracle E0 hE j)
-      (precision_monotone o.toOracle E0 hE hij) s.1 t.1
+      (precision_monotone o.toOracle E0 hE hij) s.1 t.1 (hR s.1) (hR t.1)
     have hb := Fraction.le_equiv_left (acceleration_distance _ _) hc
     have hp := Fraction.mul_le_mul_nonnegative_left
       (point_le_state (stateSub s t)) L hL.1
