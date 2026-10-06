@@ -1773,11 +1773,15 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "medium",
-      "notes": "Ut & figura rectilinea: analogous tangent-figure coincidence under the retained shrinking enclosure. Reuse of the enclosure is implicit; the connective does not prove a dependency on the chord proof. Tangent enclosure geometry remains a proof obligation.",
+      "notes": "Ut & figura rectilinea: analogous tangent-figure coincidence under the retained shrinking enclosure. Reuse is implicit; no chord-to-tangent dependency is inferred. Modern finite rational monotone supporting cells now derive their meeting, endpoint rectangle and entire joined-segment bound. Actual tangent identification and the full curvilinear-area enclosure remain proof obligations.",
       "witness": "De Motu Corporum (Liber Primus) (1687)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.SupportingTangents.meeting_exists",
+        "NewtonLimitDynamics.Polygon.SupportingTangents.meeting_rectangle",
+        "NewtonLimitDynamics.Polygon.SupportingBoundary.cellTrace_bound"
+      ],
       "source_stage": "1687"
     },
     {
@@ -1817,11 +1821,13 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths.",
+      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths. The modern supporting-cell reconstruction proves a two-sided closed boundary limit under explicit line geometry, given-curve modulus and finite-node convergence; it does not certify the full historical tangent/area proof.",
       "witness": "De Motu Corporum (Liber Primus) (1687)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "Principia1687.LemmaIII.corollary3_4_supporting_boundary_reconstruction"
+      ],
       "source_stage": "1687"
     },
     {
@@ -1859,11 +1865,15 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "medium",
-      "notes": "Ut & figura rectilinea: analogous tangent-figure coincidence under the retained shrinking enclosure. Reuse of the enclosure is implicit; the connective does not prove a dependency on the chord proof. Tangent enclosure geometry remains a proof obligation.",
+      "notes": "Ut & figura rectilinea: analogous tangent-figure coincidence under the retained shrinking enclosure. Reuse is implicit; no chord-to-tangent dependency is inferred. Modern finite rational monotone supporting cells now derive their meeting, endpoint rectangle and entire joined-segment bound. Actual tangent identification and the full curvilinear-area enclosure remain proof obligations.",
       "witness": "De Motu Corporum (Liber Primus) (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.SupportingTangents.meeting_exists",
+        "NewtonLimitDynamics.Polygon.SupportingTangents.meeting_rectangle",
+        "NewtonLimitDynamics.Polygon.SupportingBoundary.cellTrace_bound"
+      ],
       "source_stage": "1713"
     },
     {
@@ -1903,11 +1913,13 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths.",
+      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths. The modern supporting-cell reconstruction proves a two-sided closed boundary limit under explicit line geometry, given-curve modulus and finite-node convergence; it does not certify the full historical tangent/area proof.",
       "witness": "De Motu Corporum (Liber Primus) (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "Principia1713.LemmaIII.corollary3_4_supporting_boundary_reconstruction"
+      ],
       "source_stage": "1713"
     }
   ],

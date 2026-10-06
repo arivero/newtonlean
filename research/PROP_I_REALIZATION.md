@@ -54,9 +54,17 @@ and `constructed_polygon_boundary_limit` prove the inscribed-chord and actual
 force-polygon limits separately. The source graph now traces the preceding
 corollaries, with distinct De Motu witnesses and printed editions. See the
 [boundary checkpoint](verification/lemma3-chord-boundaries-2026-10-06.md).
-The full historical enclosure chain and tangent-boundary case remain the next
-proof obligations. No arclength theorem or completion-score increase is added;
-force-specific applications remain held.
+The supporting-line boundary branch now constructs finite meetings from
+support inequalities, derives their endpoint rectangle, and controls every
+completed point of both joined segments. With convergent finite samples of a
+given uniformly controlled curve, shrinking maximum cell spans give a
+proved two-sided boundary limit. Coincident lines and both coordinate
+orientations are included. The 1687 and 1713 wrappers remain separate; actual
+tangent identification, vertical tangent patches and the full curvilinear-area
+enclosure proof remain open. See the
+[supporting-boundary checkpoint](verification/lemma3-supporting-boundaries-2026-10-06.md).
+No arclength theorem or completion-score increase is added; force-specific
+applications remain held.
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
@@ -209,7 +217,7 @@ records a reconstruction, not certification of the full historical step.
 | Rectilinear continuation and impulse composition | [Prop. I par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45) | [Prop. I par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51) | Law I and the laws' Corollary 1 are explicit citations. The finite drift/kick construction must reproduce the inertial continuation and the radial deflection before proving equal triangles. `CentralSchedule.cell_momentum`, `det_cell_area` and `swept_eq` supply the rational planar reconstruction. |
 | Why the parallelogram gives the position | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par8) | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8) | Both proofs use unchanged transverse approach velocity and the intersection of two parallel lines. `uniform_endpoint_lines` now derives those constraints in the rational mechanical model, then `intersection_unique` derives the opposite corner. `next_arrival_diagonal` connects composition to the actual central cell. Only 1713 explicitly cites Laws II/I and initial impulses; the separate 1687 model specialization does not attribute those clauses to its text. |
 | Finite composition of the areas | [Prop. I par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45) | [Prop. I par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51) | The equal-triangle argument is iterated and the areas are added. The separate edition `finite_componendo` results and `CentralSchedule.swept_eq` implement this finite step. Constant areal product alone does not implement the swept-area conclusion. |
-| Curvilinear perimeter | [Lemma III Cor. 4 par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10) | [Lemma III Cor. 4 par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11) | Proposition I explicitly cites this corollary. *Et propterea* refers to the preceding rectangle/chord/tangent figures, now traced in separate source edges. The given-curve chord case has a proved two-sided closed-boundary limit with an explicit uniform modulus. The actual general force curve derives its own modulus, and its varying polygons have their own proved whole-edge boundary limit. Tangent figures and the full historical enclosure inference remain open; no arclength claim is made. |
+| Curvilinear perimeter | [Lemma III Cor. 4 par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10) | [Lemma III Cor. 4 par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11) | Proposition I explicitly cites this corollary. *Et propterea* refers to the preceding rectangle/chord/tangent figures, now traced in separate source edges. The given-curve chord case has a proved two-sided closed-boundary limit with an explicit uniform modulus. The actual general force curve derives its own modulus, and its varying polygons have their own proved whole-edge boundary limit. Finite rational monotone supporting cells now have derived crossings, rectangle enclosures and two-sided whole closed boundary limits. Tangent identification and the full historical curvilinear-area enclosure inference remain open; no arclength claim is made. |
 | Unequal widths reduce to the largest width | [Lemma III proof par6](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par6) | [Lemma III proof par7](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par7) | Lemma III reuses Lemma II's figures and equal limiting ratios implicitly (*Eædem rationes ultimæ*), then bounds the gap by the rectangle of maximum width. `rectangle_gap_bound` checks the finite arithmetic; geometry and shrinking width must be supplied or derived for the actual construction. |
 | The enclosing rectangle becomes arbitrarily small | [Lemma II proof par4](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4) | [Lemma II proof par5](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5) | Lemma II identifies the gap with one width times total height and explicitly invokes Lemma I. The general path-content budget and its grounded `polygon_trajectory_enclosure` implement an analogous exhaustion for the actual constructed maps; they are modern square-content results, not the historical curvilinear-area identity. |
 | Approach closer than any assigned difference gives equality | [Lemma I proof par2](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par2) | [Lemma I proof par3](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par3) | Newton assumes a final difference D and contradicts the approach hypothesis. The current rational exhaustion and quotient equality arguments justify their particular constructed limits. A general historical ultimate-ratio certificate is a separate obligation. |
@@ -278,14 +286,17 @@ the finite content it needs when cells are unequal.
 
 ## Next bounded step
 
-The next step is the remaining historical enclosure chain and tangent case
-behind Lemma III Corollary 4. Its chord-boundary component is now checked with
-an explicit given-curve modulus; the actual constructed motion derives that
-modulus and has its own two-sided whole-edge boundary limit. Scalar area,
-trace convergence and arclength remain distinct. The Laws Corollary 1 finite
-proof route is checked in its mechanical model. Force-specific applications
-follow the general proof; these components do not certify the full historical
-continuously acting-force or ordinary-sector conclusion.
+The next step is the actual curvilinear-area enclosure behind Lemmas II–III:
+connect the lower/upper rectangle sums to the given monotone figure, derive
+their maximum-width gap, and exhaust it by Lemma I. The supporting-line
+branch now constructs crossings and proves its whole closed boundary limit
+with explicit rational monotone cells; identifying those lines with actual
+curve tangents and covering vertical tangent patches remain separate. The
+actual constructed force polygons already have their own derived two-sided
+limit. Scalar area, trace convergence and arclength remain distinct. The Laws
+Corollary 1 finite proof route is checked in its mechanical model. These
+components do not certify the full historical continuously acting-force or
+ordinary-sector conclusion. Force-specific applications follow the general proof.
 
 The harmonic field now has derived mesh-uniform actual state and endpoint-error
 bounds, a proved square enclosure and nonnegative cover budget for matched

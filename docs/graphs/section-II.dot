@@ -10,8 +10,8 @@ digraph section-II {
   "P1687.L3" [label="P1687.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L3C1" [label="P1687.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L3C2" [label="P1687.L3C2\nChord figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.L3C3" [label="P1687.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.L3C4" [label="P1687.L3C4\nCurvilinear limit of polygon perimeters\n1 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
+  "P1687.L3C3" [label="P1687.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure\n3 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
+  "P1687.L3C4" [label="P1687.L3C4\nCurvilinear limit of polygon perimeters\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.L5" [label="P1687.L5\nCorresponding sides and duplicate area\nratios for similar figures", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.Law1" [label="P1687.Law1\nRectilinear inertia", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.Law2" [label="P1687.Law2\nImpressed force and generated motion", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
@@ -28,8 +28,8 @@ digraph section-II {
   "P1713.L3" [label="P1713.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3C1" [label="P1713.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3C2" [label="P1713.L3C2\nChord figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L3C3" [label="P1713.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L3C4" [label="P1713.L3C4\nCurvilinear limit of polygon perimeters\n1 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.L3C3" [label="P1713.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure\n3 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.L3C4" [label="P1713.L3C4\nCurvilinear limit of polygon perimeters\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L7" [label="P1713.L7\nVanishing arc, chord and tangent have\nthe ultimate ratio of equality", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.Law1" [label="P1713.Law1\nRectilinear inertia", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.Law2" [label="P1713.Law2\nImpressed force and generated motion", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];

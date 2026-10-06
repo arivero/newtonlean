@@ -1,5 +1,34 @@
 # Verification record
 
+## Lemma III supporting boundaries, 6 October 2026
+
+Finite endpoint-supported lines now yield a rational meeting parameter,
+rectangle enclosure and bound for every point on the two joined completed
+segments. The parameter is derived from the support slacks; arbitrary
+independent-line intersections are identified with the constructed meeting.
+Coincident supports use finite segments, not the infinite line. Both support
+orientations and monotone ordinate directions are allowed. A given-curve
+boundary limit follows from explicit support data, node convergence, uniform
+continuity and shrinking cells, including unequal cells, zero windows and the
+right boundary. Actual curve tangent existence, vertical patches and the
+full historical curvilinear-area enclosure remain open; there is no
+arclength or full Proposition I claim.
+
+One independent sequential gpt-6-luna verifier ran all 16 README checks and
+both scope harnesses, all exit 0. Against HEAD 0b1032a, all 2,189 prior named
+public declarations retain their signatures; 22 names were added. Catalogue:
+1,706 theorems; graph: 88 nodes, 87 edges, 253 passages and 1,565 Lean
+references. The two edition-specific enclosure-reuse edges remain implicit
+with medium confidence and assert no chord-to-tangent dependency. Only
+propext, Classical.choice and Quot.sound occur. No source sorry/admit/project
+axioms/Mathlib, external packages or reversed BarrowLib imports appear. Logs:
+/tmp/newton-sol61-support-final-01.log through -16.log;
+scopes /tmp/newton-sol61-support-scope-final.log and
+/tmp/newton-sol61-support-chord-scope-final.log;
+API /tmp/newton-sol61-support-api.json. See the
+[checkpoint](verification/lemma3-supporting-boundaries-2026-10-06.md).
+Conversation-export changes remain untouched and excluded.
+
 ## Lemma III chord boundaries, 6 October 2026
 
 The given-curve chord-boundary component now proves two-sided convergence of

@@ -1,4 +1,4 @@
-import BarrowLib.Polygon.PointAlgebra
+import BarrowLib.Polygon.ConvexCover
 
 /-! Rational affine lines and parallelogram intersection. Determinants express
 transverse coordinates; they do not express distances or time derivatives.
@@ -26,6 +26,21 @@ theorem parallel_translation (p direction : Point) (k : Fraction) :
           (Fraction.equiv_trans (Fraction.mul_equiv_left k (det_self direction))
             (Fraction.mul_zero k))))
       (Fraction.add_zero _))
+
+/-- Every affine chord point lies on its endpoint line. The parameter need
+not lie in the unit interval for this line-incidence statement. -/
+theorem segment_on_line (a : Fraction) (p q : Point) :
+    ParallelThrough (ConvexCover.lerp a p q) p (pointSub q p) := by
+  have he : pointEquiv (ConvexCover.lerp a p q)
+      (pointAdd p (pointScale a (pointSub q p))) := by
+    constructor <;>
+      simp only [ConvexCover.lerp,ConvexCover.complement,pointEquiv,pointSub,
+        pointNeg,pointAdd,pointScale,Fraction.equiv,Fraction.add,Fraction.mul,
+        Int.add_mul,Int.mul_add,Int.sub_mul,Int.mul_sub,Int.neg_mul,Int.mul_neg] <;>
+      ac_nf <;> omega
+  exact Fraction.equiv_trans
+    (det_congr he ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)
+    (parallel_translation p (pointSub q p) a)
 
 /-- The opposite corner lies on both endpoint lines. -/
 theorem diagonal_on_lines (p u v : Point) :

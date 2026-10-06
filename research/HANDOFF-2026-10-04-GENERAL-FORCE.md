@@ -422,9 +422,22 @@ De Motu wrappers preserve source provenance. The preceding corollaries are
 now traced through their proof connectives in the source graph; the tangent
 inference is kept distinct from the chord proof.
 
-Next within Order 1: the remaining full historical enclosure chain and tangent
-case of Corollary 4. Neither trace convergence nor a scalar area budget proves
-arclength convergence. No force instance or completion-score increase is added.
+The next supporting-line increment constructs a rational meeting from
+opposite endpoint support inequalities and derives its endpoint rectangle.
+It includes coincident lines, both support orientations and increasing or
+decreasing patches. Independent line directions give unique intersection.
+Every completed point of both joined segments inherits the finite bound;
+uniformly convergent finite nodes on a given uniformly controlled curve then
+give a two-sided boundary limit as the maximum cell span shrinks. Separate
+1687/1713 Corollaries 3–4 wrappers retain the supplied finite line data and
+curve modulus. Actual tangent identification and vertical tangent patches
+remain separate. See verification/lemma3-supporting-boundaries-2026-10-06.md.
+
+Next within Order 1: the full historical curvilinear-area enclosure chain.
+Connect actual lower/upper rectangle sets to the given monotone figure and
+their finite sums before exhausting the maximum-width gap by Lemma I.
+Neither trace convergence nor a scalar area budget proves arclength convergence.
+No force instance or completion-score increase is added.
 
 ## Verification and reporting, every increment
 

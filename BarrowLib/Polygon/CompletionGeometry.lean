@@ -37,6 +37,19 @@ theorem within_embedded_iff (a b : Point × Point) (R : Fraction) :
   · intro h
     exact nameBound_of_eventual_le _ _ R 0 (fun _ _ => h)
 
+/-- Exact closed bounds for finite points embedded in the completed plane. -/
+theorem within_embedPosition_iff (p q : Point) (R : Fraction) :
+    Within (embedPosition p).val (embedPosition q).val R ↔
+      Fraction.le (FiniteEstimates.pointDistance p q) R := by
+  change Within (embed (p,zeroPoint)) (embed (q,zeroPoint)) R ↔ _
+  have he : Fraction.equiv (distance (p,zeroPoint) (q,zeroPoint))
+      (FiniteEstimates.pointDistance p q) :=
+    Fraction.equiv_trans (Fraction.add_equiv (Fraction.equiv_refl _)
+      (FiniteEstimates.pointDistance_self_zero zeroPoint)) (Fraction.add_zero _)
+  exact ⟨fun h => Fraction.le_equiv_left (Fraction.equiv_symm he)
+      ((within_embedded_iff _ _ _).mp h),
+    fun h => (within_embedded_iff _ _ _).mpr (Fraction.le_equiv_left he h)⟩
+
 /-- The coordinate length of a position is its distance from the origin. -/
 theorem position_distance_zero (s : Point × Point) :
     Fraction.equiv (distance (positionState s) (zeroPoint,zeroPoint)) (pointNorm s.1) := by

@@ -54,9 +54,17 @@ and `constructed_polygon_boundary_limit` prove the inscribed-chord and actual
 force-polygon limits separately. The source graph now traces the preceding
 corollaries, with distinct De Motu witnesses and printed editions. See the
 [boundary checkpoint](verification/lemma3-chord-boundaries-2026-10-06.md).
-The full historical enclosure chain and tangent-boundary case remain the next
-proof obligations. No arclength theorem or completion-score increase is added;
-force-specific applications remain held.
+The supporting-line boundary branch now constructs finite meetings from
+support inequalities, derives their endpoint rectangle, and controls every
+completed point of both joined segments. With convergent finite samples of a
+given uniformly controlled curve, shrinking maximum cell spans give a
+proved two-sided boundary limit. Coincident lines and both coordinate
+orientations are included. The 1687 and 1713 wrappers remain separate; actual
+tangent identification, vertical tangent patches and the full curvilinear-area
+enclosure proof remain open. See the
+[supporting-boundary checkpoint](verification/lemma3-supporting-boundaries-2026-10-06.md).
+No arclength theorem or completion-score increase is added; force-specific
+applications remain held.
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau

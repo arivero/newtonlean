@@ -619,6 +619,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.position_distance_zero
 #check NewtonLimitDynamics.Polygon.CompletionGeometry.square_of_ball_bound
 #print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.square_of_ball_bound
+#check NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedPosition_iff
+#print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedPosition_iff
 #check NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedded_iff
 #print axioms NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedded_iff
 #check NewtonLimitDynamics.Polygon.CompletionGeometry.within_of_thickenings
@@ -729,6 +731,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_node
 #check NewtonLimitDynamics.Polygon.CurveTrace.closedChord_anchor
 #print axioms NewtonLimitDynamics.Polygon.CurveTrace.closedChord_anchor
+#check NewtonLimitDynamics.Polygon.CurveTrace.closedChord_ball
+#print axioms NewtonLimitDynamics.Polygon.CurveTrace.closedChord_ball
 #check NewtonLimitDynamics.Polygon.CurveTrace.dyadic_chordTrace_limit
 #print axioms NewtonLimitDynamics.Polygon.CurveTrace.dyadic_chordTrace_limit
 #check NewtonLimitDynamics.Polygon.CurveTrace.imageTrace_limit
@@ -2259,6 +2263,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.Parallelogram.intersection_unique
 #check NewtonLimitDynamics.Polygon.Parallelogram.parallel_translation
 #print axioms NewtonLimitDynamics.Polygon.Parallelogram.parallel_translation
+#check NewtonLimitDynamics.Polygon.Parallelogram.segment_on_line
+#print axioms NewtonLimitDynamics.Polygon.Parallelogram.segment_on_line
 #check NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual
 #print axioms NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual
 #check NewtonLimitDynamics.Polygon.PartialCell.endKick_position_kick_free
@@ -2713,6 +2719,26 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.StripArea.two_cell_triangle_constant
 #check NewtonLimitDynamics.Polygon.StripArea.vel_det_constant
 #print axioms NewtonLimitDynamics.Polygon.StripArea.vel_det_constant
+#check NewtonLimitDynamics.Polygon.SupportingBoundary.cellTrace_bound
+#print axioms NewtonLimitDynamics.Polygon.SupportingBoundary.cellTrace_bound
+#check NewtonLimitDynamics.Polygon.SupportingBoundary.dyadic_supportingTrace_limit
+#print axioms NewtonLimitDynamics.Polygon.SupportingBoundary.dyadic_supportingTrace_limit
+#check NewtonLimitDynamics.Polygon.SupportingBoundary.supportingTrace_limit
+#print axioms NewtonLimitDynamics.Polygon.SupportingBoundary.supportingTrace_limit
+#check NewtonLimitDynamics.Polygon.SupportingBoundary.supportingTrace_node
+#print axioms NewtonLimitDynamics.Polygon.SupportingBoundary.supportingTrace_node
+#check NewtonLimitDynamics.Polygon.SupportingTangents.affine_crossing
+#print axioms NewtonLimitDynamics.Polygon.SupportingTangents.affine_crossing
+#check NewtonLimitDynamics.Polygon.SupportingTangents.meeting_exists
+#print axioms NewtonLimitDynamics.Polygon.SupportingTangents.meeting_exists
+#check NewtonLimitDynamics.Polygon.SupportingTangents.meeting_on_lines
+#print axioms NewtonLimitDynamics.Polygon.SupportingTangents.meeting_on_lines
+#check NewtonLimitDynamics.Polygon.SupportingTangents.meeting_rectangle
+#print axioms NewtonLimitDynamics.Polygon.SupportingTangents.meeting_rectangle
+#check NewtonLimitDynamics.Polygon.SupportingTangents.meeting_unique
+#print axioms NewtonLimitDynamics.Polygon.SupportingTangents.meeting_unique
+#check NewtonLimitDynamics.Polygon.SupportingTangents.rectangle_distance_bound
+#print axioms NewtonLimitDynamics.Polygon.SupportingTangents.rectangle_distance_bound
 #check NewtonLimitDynamics.Polygon.SweptArea.areaBetween_reverse
 #print axioms NewtonLimitDynamics.Polygon.SweptArea.areaBetween_reverse
 #check NewtonLimitDynamics.Polygon.SweptArea.areaBetween_unique
@@ -3057,6 +3083,8 @@ import NewtonLimitDynamics
 #print axioms Principia1687.Laws.corollary1_endpoint_reconstruction
 #check Principia1687.Laws.corollary1_uniform_impulse_model
 #print axioms Principia1687.Laws.corollary1_uniform_impulse_model
+#check Principia1687.LemmaIII.corollary3_4_supporting_boundary_reconstruction
+#print axioms Principia1687.LemmaIII.corollary3_4_supporting_boundary_reconstruction
 #check Principia1687.LemmaIII.corollary4_chord_reconstruction
 #print axioms Principia1687.LemmaIII.corollary4_chord_reconstruction
 #check Principia1687.LemmaIII.corollary4_constructed_polygon_boundary
@@ -3081,6 +3109,8 @@ import NewtonLimitDynamics
 #print axioms Principia1713.Laws.corollary1_endpoint_reconstruction
 #check Principia1713.Laws.corollary1_uniform_impulse_model
 #print axioms Principia1713.Laws.corollary1_uniform_impulse_model
+#check Principia1713.LemmaIII.corollary3_4_supporting_boundary_reconstruction
+#print axioms Principia1713.LemmaIII.corollary3_4_supporting_boundary_reconstruction
 #check Principia1713.LemmaIII.corollary4_chord_reconstruction
 #print axioms Principia1713.LemmaIII.corollary4_chord_reconstruction
 #check Principia1713.LemmaIII.corollary4_constructed_polygon_boundary

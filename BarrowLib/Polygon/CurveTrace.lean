@@ -40,19 +40,23 @@ def chordTrace {I : Type} (f : I → PositionValue) (nodes : Nat → I)
     (n : Nat) (x : PositionValue) : Prop :=
   ∃ k, k<n ∧ ClosedChord (f (nodes k)) (f (nodes (k+1))) x
 
-theorem closedChord_anchor (x y z : PositionValue) (R : Fraction)
-    (hR : 0≤R.num) (hy : Within y.val x.val R) (hz : ClosedChord x y z) :
-    Within z.val x.val R := by
-  apply closure_image_bound _ z hz id (fun _ _ _ h => h) x.val R
+theorem closedChord_ball (x y z centre : PositionValue) (R : Fraction)
+    (hx : Within x.val centre.val R) (hy : Within y.val centre.val R)
+    (hz : ClosedChord x y z) : Within z.val centre.val R := by
+  apply closure_image_bound _ z hz id (fun _ _ _ h => h) centre.val R
   intro p hp
   obtain ⟨a,ha,hp⟩ := hp
   subst p
-  have hx : Within x.val x.val R := within_mono _ _ _ _
-    (by simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.one_mul,Int.mul_one] using hR)
-    ((within_zero_iff _ _).mpr rfl)
-  have hb := convexValue_relative_bound a ha x.val y.val x.val R hx hy
-  rw [x.property] at hb
+  have hb := convexValue_relative_bound a ha x.val y.val centre.val R hx hy
+  rw [centre.property] at hb
   exact hb
+
+theorem closedChord_anchor (x y z : PositionValue) (R : Fraction)
+    (hR : 0≤R.num) (hy : Within y.val x.val R) (hz : ClosedChord x y z) :
+    Within z.val x.val R :=
+  closedChord_ball x y z x R (within_mono _ _ _ _
+    (by simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.one_mul,Int.mul_one] using hR)
+    ((within_zero_iff _ _).mpr rfl)) hy hz
 
 theorem chordTrace_node {I : Type} (f : I → PositionValue) (nodes : Nat → I)
     (n : Nat) (hn : 0<n) (k : Nat) (hk : k≤n) :

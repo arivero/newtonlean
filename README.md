@@ -34,9 +34,9 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 
 ## Progress
 
-The general-force and construction increments (Sol 6.1, 4–5 October) have **1,620 checked
-library theorems, 1,218 substantive** by the existing heuristic, across
-NewtonLimitDynamics and BarrowLib. All three explicit build targets pass.
+The checked declaration counts across NewtonLimitDynamics and BarrowLib are
+recorded in the [formal result ledger](research/formal-results.json) and
+[progress history](docs/progress/history.csv). All three explicit build targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
 they do not measure discharged obligations.
@@ -127,6 +127,14 @@ actual force polygons. The full enclosure/tangent proof remains open; the
 completion estimate is unchanged. See the
 [composition checkpoint](research/verification/laws-corollary1-2026-10-06.md) and
 [boundary checkpoint](research/verification/lemma3-chord-boundaries-2026-10-06.md).
+The supporting-line branch now derives finite crossings and endpoint rectangle
+bounds, then proves two-sided convergence of the entire closed joined boundary
+under explicit monotone line data, convergent finite samples and a given-curve
+modulus. Coincident lines and reversed coordinate orientations are included.
+Actual tangent identification and the full curvilinear-area enclosure remain
+open. See the
+[supporting-boundary checkpoint](research/verification/lemma3-supporting-boundaries-2026-10-06.md).
+The completion estimate is unchanged by this supporting increment.
 BinaryLift now shares the two-input completion kit used by pairings, secants
 and area sums; this consolidation receives no completion credit.
 

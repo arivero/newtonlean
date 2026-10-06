@@ -2097,6 +2097,15 @@
     "interpretation_and_remaining_premises": "Elementary metric closure and closed coordinate enclosures in the explicit Cauchy plane. Closure membership, monotonicity, idempotence and coordinate-square preservation are proved by positive rational tolerances. Within bounds follow by exhaustion; rational embeddings retain exact order. position_band_realize transfers finite coordinate L1 bands: the upper closed-ball bound holds and no containing closed ball has radius below the finite inner bound. No completed norm, supplied curve, external topology, measure, force or Newton import occurs."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.within_embedPosition_iff",
+    "private": false,
+    "file": "BarrowLib/Polygon/CompletionGeometry.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) (R : Fraction) : Within (embedPosition p).val (embedPosition q).val R ↔ Fraction.le (FiniteEstimates.pointDistance p q) R",
+    "interpretation_and_remaining_premises": "Elementary metric closure and closed coordinate enclosures in the explicit Cauchy plane. Closure membership, monotonicity, idempotence and coordinate-square preservation are proved by positive rational tolerances. Within bounds follow by exhaustion; rational embeddings retain exact order. position_band_realize transfers finite coordinate L1 bands: the upper closed-ball bound holds and no containing closed ball has radius below the finite inner bound. No completed norm, supplied curve, external topology, measure, force or Newton import occurs."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.CompletionGeometry.position_distance_zero",
     "private": false,
     "file": "BarrowLib/Polygon/CompletionGeometry.lean",
@@ -2500,6 +2509,15 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : PositionValue) : convexPosition a ha x y = convexPosition (complement a) (complement_interval a ha) y x",
     "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CurveTrace.closedChord_ball",
+    "private": false,
+    "file": "BarrowLib/Polygon/CurveTrace.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y z centre : PositionValue) (R : Fraction) (hx : Within x.val centre.val R) (hy : Within y.val centre.val R) (hz : ClosedChord x y z) : Within z.val centre.val R",
+    "interpretation_and_remaining_premises": "Generic closed chord boundaries of a given Cauchy-plane curve. Every completed chord point is included through closure. A uniform curve modulus plus a shrinking maximum time-cell span and coverage derives two-sided trace convergence, allowing unequal cells. Actual dyadic node spans and coverage are proved, including right endpoints and zero windows. This is boundary/trace convergence, not scalar area, arclength, a tangent-polygon theorem or motion partition independence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.CurveTrace.closedChord_anchor",
@@ -4428,6 +4446,15 @@
     "interpretation_and_remaining_premises": "Generic rational affine geometry in BarrowLib. Parallel line constraints are equal determinant transverse coordinates. Parallel translations preserve them, the opposite corner lies on both endpoint lines, and independent directions give unique intersection via the determinant cofactor identity and nonzero rational cancellation. No force or limiting premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.Parallelogram.segment_on_line",
+    "private": false,
+    "file": "BarrowLib/Polygon/Parallelogram.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (p q : Point) : ParallelThrough (ConvexCover.lerp a p q) p (pointSub q p)",
+    "interpretation_and_remaining_premises": "Generic rational affine geometry in BarrowLib. Parallel line constraints are equal determinant transverse coordinates. Parallel translations preserve them, the opposite corner lies on both endpoint lines, and independent directions give unique intersection via the determinant cofactor identity and nonzero rational cancellation. No force or limiting premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.Parallelogram.diagonal_on_lines",
     "private": false,
     "file": "BarrowLib/Polygon/Parallelogram.lean",
@@ -6037,6 +6064,114 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(s : Point × Point) : Fraction.equiv (stateNorm (stateSub s s)) (Fraction.ofInt 0)",
     "interpretation_and_remaining_premises": "Generic rational state subtraction, congruence, symmetry, triangle and zero-distance bounds. Existing harmonic namespace names remain compatibility names; no field or motion premise occurs. The triangle and zero results are instances of shared FiniteEstimates facts, not duplicated proofs."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingBoundary.cellTrace_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingBoundary.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) (c : Cell p q) (x : PositionValue) (hx : cellTrace p q c x) : Within x.val (embedPosition p).val (pointDistance q p)",
+    "interpretation_and_remaining_premises": "Whole closed finite joined supporting-segment traces. Cell enclosure follows from constructed meetings and explicit support/monotonicity inequalities. Uniform convergence of finite nodes to a given uniformly controlled curve, shrinking maximum time-cell span and coverage imply two-sided boundary convergence; unequal cells are allowed and dyadic spans/coverage are derived. Finite line data are supplied; tangent existence or identification with constructed motion, arbitrary vertical tangent patches, area, arclength and historical proof certification remain separate. No new completed quantity is introduced."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingBoundary.supportingTrace_node",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingBoundary.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(points : Nat → Point) (cells : ∀ k, Cell (points k) (points (k+1))) (n : Nat) (hn : 0<n) (k : Nat) (hk : k≤n) : supportingTrace points cells n (embedPosition (points k))",
+    "interpretation_and_remaining_premises": "Whole closed finite joined supporting-segment traces. Cell enclosure follows from constructed meetings and explicit support/monotonicity inequalities. Uniform convergence of finite nodes to a given uniformly controlled curve, shrinking maximum time-cell span and coverage imply two-sided boundary convergence; unequal cells are allowed and dyadic spans/coverage are derived. Finite line data are supplied; tangent existence or identification with constructed motion, arbitrary vertical tangent patches, area, arclength and historical proof certification remain separate. No new completed quantity is introduced."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingBoundary.supportingTrace_limit",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingBoundary.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) (nodes : Nat → Nat → BinaryTime T hT) (count : Nat → Nat) (mesh : Nat → Fraction) (points : Nat → Nat → Point) (cells : ∀ m k, Cell (points m k) (points m (k+1))) (hn : ∀ m, 0<count m) (hadj : ∀ m k, k<count m → TimeWithin T hT (nodes m k) (nodes m (k+1)) (mesh m)) (hcover : ∀ m t, ∃ k, k≤count m ∧ TimeWithin T hT t (nodes m k) (mesh m)) (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m → Fraction.le (mesh m) delta) (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → ∀ k, k≤count m → Within (embedPosition (points m k)).val (f (nodes m k)).val eps) : BoundaryLimit (fun m => supportingTrace (points m) (cells m) (count m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "Whole closed finite joined supporting-segment traces. Cell enclosure follows from constructed meetings and explicit support/monotonicity inequalities. Uniform convergence of finite nodes to a given uniformly controlled curve, shrinking maximum time-cell span and coverage imply two-sided boundary convergence; unequal cells are allowed and dyadic spans/coverage are derived. Finite line data are supplied; tangent existence or identification with constructed motion, arbitrary vertical tangent patches, area, arclength and historical proof certification remain separate. No new completed quantity is introduced."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingBoundary.dyadic_supportingTrace_limit",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingBoundary.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) (points : Nat → Nat → Point) (cells : ∀ m k, Cell (points m k) (points m (k+1))) (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → ∀ k, k≤blocks m → Within (embedPosition (points m k)).val (f (nodeTime T hT m k)).val eps) : BoundaryLimit (fun m => supportingTrace (points m) (cells m) (blocks m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "Whole closed finite joined supporting-segment traces. Cell enclosure follows from constructed meetings and explicit support/monotonicity inequalities. Uniform convergence of finite nodes to a given uniformly controlled curve, shrinking maximum time-cell span and coverage imply two-sided boundary convergence; unequal cells are allowed and dyadic spans/coverage are derived. Finite line data are supplied; tangent existence or identification with constructed motion, arbitrary vertical tangent patches, area, arclength and historical proof certification remain separate. No new completed quantity is introduced."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingTangents.affine_between",
+    "private": true,
+    "file": "BarrowLib/Polygon/SupportingTangents.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a u v : Fraction) (ha : UnitInterval a) (h : Fraction.le u v) : Fraction.le u (affine a u v) ∧ Fraction.le (affine a u v) v",
+    "interpretation_and_remaining_premises": "Finite rational supporting-line cells, with opposite endpoint support inequalities and a shared monotone ordinate direction. A rational affine crossing is constructed, lies on both lines and is their unique intersection when directions are independent. Its endpoint rectangle and distance bound are derived, including coincident lines and either coordinate orientation. Vertical tangents over a nonzero horizontal cell require a different patch. No derivative or curve premise is used."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingTangents.balance",
+    "private": true,
+    "file": "BarrowLib/Polygon/SupportingTangents.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(s d : Fraction) (hs : 0≤s.num) (hd : 0≤d.num) : ∃ a : Fraction, UnitInterval a ∧ Fraction.equiv (Fraction.mul (complement a) s) (Fraction.mul a d)",
+    "interpretation_and_remaining_premises": "Finite rational supporting-line cells, with opposite endpoint support inequalities and a shared monotone ordinate direction. A rational affine crossing is constructed, lies on both lines and is their unique intersection when directions are independent. Its endpoint rectangle and distance bound are derived, including coincident lines and either coordinate orientation. Vertical tangents over a nonzero horizontal cell require a different patch. No derivative or curve premise is used."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingTangents.affine_crossing",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingTangents.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(l0 l1 r0 r1 : Fraction) (hs : (Fraction.le l0 r0 ∧ Fraction.le r1 l1) ∨ (Fraction.le r0 l0 ∧ Fraction.le l1 r1)) : ∃ a : Fraction, UnitInterval a ∧ Fraction.equiv (affine a l0 l1) (affine a r0 r1)",
+    "interpretation_and_remaining_premises": "Finite rational supporting-line cells, with opposite endpoint support inequalities and a shared monotone ordinate direction. A rational affine crossing is constructed, lies on both lines and is their unique intersection when directions are independent. Its endpoint rectangle and distance bound are derived, including coincident lines and either coordinate orientation. Vertical tangents over a nonzero horizontal cell require a different patch. No derivative or curve premise is used."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingTangents.meeting_exists",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingTangents.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) (c : Cell p q) : ∃ x : Point, Meeting p q c x",
+    "interpretation_and_remaining_premises": "Finite rational supporting-line cells, with opposite endpoint support inequalities and a shared monotone ordinate direction. A rational affine crossing is constructed, lies on both lines and is their unique intersection when directions are independent. Its endpoint rectangle and distance bound are derived, including coincident lines and either coordinate orientation. Vertical tangents over a nonzero horizontal cell require a different patch. No derivative or curve premise is used."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingTangents.meeting_on_lines",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingTangents.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) (c : Cell p q) (x : Point) (hx : Meeting p q c x) : Parallelogram.ParallelThrough x p (pointSub c.leftEnd p) ∧ Parallelogram.ParallelThrough x c.rightStart (pointSub q c.rightStart)",
+    "interpretation_and_remaining_premises": "Finite rational supporting-line cells, with opposite endpoint support inequalities and a shared monotone ordinate direction. A rational affine crossing is constructed, lies on both lines and is their unique intersection when directions are independent. Its endpoint rectangle and distance bound are derived, including coincident lines and either coordinate orientation. Vertical tangents over a nonzero horizontal cell require a different patch. No derivative or curve premise is used."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingTangents.meeting_unique",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingTangents.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) (c : Cell p q) (r x : Point) (hr : Meeting p q c r) (h : (det (pointSub c.leftEnd p) (pointSub q c.rightStart)).num≠0) (hx : Parallelogram.ParallelThrough x p (pointSub c.leftEnd p)) (hy : Parallelogram.ParallelThrough x c.rightStart (pointSub q c.rightStart)) : pointEquiv x r",
+    "interpretation_and_remaining_premises": "Finite rational supporting-line cells, with opposite endpoint support inequalities and a shared monotone ordinate direction. A rational affine crossing is constructed, lies on both lines and is their unique intersection when directions are independent. Its endpoint rectangle and distance bound are derived, including coincident lines and either coordinate orientation. Vertical tangents over a nonzero horizontal cell require a different patch. No derivative or curve premise is used."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingTangents.meeting_rectangle",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingTangents.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) (c : Cell p q) (x : Point) (hx : Meeting p q c x) : RectangleBetween p x q",
+    "interpretation_and_remaining_premises": "Finite rational supporting-line cells, with opposite endpoint support inequalities and a shared monotone ordinate direction. A rational affine crossing is constructed, lies on both lines and is their unique intersection when directions are independent. Its endpoint rectangle and distance bound are derived, including coincident lines and either coordinate orientation. Vertical tangents over a nonzero horizontal cell require a different patch. No derivative or curve premise is used."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SupportingTangents.rectangle_distance_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/SupportingTangents.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p x q : Point) (hx : RectangleBetween p x q) : Fraction.le (pointDistance x p) (pointDistance q p)",
+    "interpretation_and_remaining_premises": "Finite rational supporting-line cells, with opposite endpoint support inequalities and a shared monotone ordinate direction. A rational affine crossing is constructed, lies on both lines and is their unique intersection when directions are independent. Its endpoint rectangle and distance bound are derived, including coincident lines and either coordinate orientation. Vertical tangents over a nonzero horizontal cell require a different patch. No derivative or curve premise is used."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SweptArea.interval_elapsed_approx",
@@ -17872,7 +18007,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) : BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f)",
-    "interpretation_and_remaining_premises": "1687 Lemma III Corollary 4 chord-boundary component, modern reconstruction. The given-curve theorem explicitly requires its uniform modulus. The actual regional constructed-force client derives its curve, modulus and whole-edge bounds; no curve/boundary convergence is supplied. The finite max-width enclosure argument is retained separately; tangent boundaries and certification of the full historical limiting proof remain open. No 1713 premise is imported."
+    "interpretation_and_remaining_premises": "1687 Lemma III Corollary 4 chord-boundary component, modern reconstruction. The given-curve theorem explicitly requires its uniform modulus. The actual regional constructed-force client derives its curve, modulus and whole-edge bounds; no curve/boundary convergence is supplied. The finite max-width enclosure argument is retained separately. A supporting-line boundary component now derives cell enclosure and two-sided limits under explicit rational monotone line data and convergent finite samples. Tangent identification and certification of the full historical limiting proof remain open. No 1713 premise is imported."
   },
   {
     "name": "Principia1687.LemmaIII.corollary4_constructed_polygon_boundary",
@@ -17885,6 +18020,18 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : BoundaryLimit (fun m => ImageTrace (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m)) (ImageTrace (GeneralForceTime.gammaPosition o E0 T tau L B s hE d))",
     "interpretation_and_remaining_premises": "1687 Proposition I application of the Corollary 4 boundary component, modern reconstruction: whole-edge convergence of the actual regional constructed force polygons derives two-sided boundary convergence to their constructed curve. No given curve, modulus or boundary-limit field is a premise; regional force/window Conditions remain explicit. Full tangent/enclosure and unrestricted historical limiting proof remain open."
+  },
+  {
+    "name": "Principia1687.LemmaIII.corollary3_4_supporting_boundary_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/LemmaIII.lean",
+    "source_passages": [
+      "NATP00077.par9",
+      "NATP00077.par10"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) (points : Nat → Nat → Point) (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1))) (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → ∀ k, k≤blocks m → CauchyValues.Within (embedPosition (points m k)).val (f (nodeTime T hT m k)).val eps) : BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "1687 Corollaries 3-4 supporting-line branch, modern rational reconstruction: affine crossing and endpoint rectangle are derived from finite support/monotonicity inequalities; entire joined closed segments approach the given curve in both directions. Uniform curve modulus and convergence of finite nodes remain explicit. Dyadic time spans and coverage are derived. Tangent existence, arbitrary vertical patches, identification with actual force tangents, arclength and the full source enclosure/area proof remain open. No chord-to-tangent dependency or other edition premise is inferred."
   },
   {
     "name": "Principia1687.lemmaX_reconstruction",
@@ -18026,7 +18173,7 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) : BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f)",
-    "interpretation_and_remaining_premises": "1713 Lemma III Corollary 4 chord-boundary component, separately named modern reconstruction. Given-curve uniform continuity is explicit; the actual regional force client derives its own curve and whole-edge comparison. Two-sided trace convergence is distinct from area and arclength. Tangent boundaries and the full historical enclosure/continuous-force invocation remain open; no 1687 premise is imported."
+    "interpretation_and_remaining_premises": "1713 Lemma III Corollary 4 chord-boundary component, separately named modern reconstruction. Given-curve uniform continuity is explicit; the actual regional force client derives its own curve and whole-edge comparison. Two-sided trace convergence is distinct from area and arclength. A supporting-line boundary component derives enclosure and two-sided limits with explicit rational monotone cells and convergent finite samples. Tangent identification and the full historical enclosure/continuous-force invocation remain open; no 1687 premise is imported."
   },
   {
     "name": "Principia1713.LemmaIII.corollary4_constructed_polygon_boundary",
@@ -18039,6 +18186,18 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : BoundaryLimit (fun m => ImageTrace (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m)) (ImageTrace (GeneralForceTime.gammaPosition o E0 T tau L B s hE d))",
     "interpretation_and_remaining_premises": "1713 separately named actual constructed-force boundary application. Whole-edge convergence derives two-sided trace convergence without a supplied curve or boundary limit. Regional force/window Conditions remain modern. Tangent/enclosure and unrestricted historical force certification remain open."
+  },
+  {
+    "name": "Principia1713.LemmaIII.corollary3_4_supporting_boundary_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/LemmaIII.lean",
+    "source_passages": [
+      "NATP00082.par10",
+      "NATP00082.par11"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) (points : Nat → Nat → Point) (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1))) (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → ∀ k, k≤blocks m → CauchyValues.Within (embedPosition (points m k)).val (f (nodeTime T hT m k)).val eps) : BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "1713-local Corollaries 3-4 supporting-line branch, modern rational reconstruction with explicit finite monotone supporting cells and convergent endpoint samples on a given uniformly controlled curve. The crossing, endpoint rectangle, whole completed segments and both boundary directions are derived. Dyadic spans/coverage are proved. Tangent existence, arbitrary vertical patches, actual motion tangent identification and the full historical enclosure/area inference remain separate; no arclength or inter-witness proof is certified."
   },
   {
     "name": "Principia1713.lemmaX_reconstruction",
