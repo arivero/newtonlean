@@ -35,9 +35,20 @@ fans converge to `abs(ell)*abs(t1-t0)/2`. Address independence, uniqueness,
 endpoint reversal, zero-length intervals and equal areas for equal elapsed
 lengths are proved; adjacent completed fans compose by addition. See the
 [interval checkpoint](verification/constructed-area-intervals-2026-10-06.md).
-The 6 October user direction puts proofs of the Laws' Corollary 1 and
-Lemma III Corollary 4 next, following their stage-local proof dependencies,
-before force-specific applications. Their source links do not supply proofs.
+The Laws' Corollary 1 now has a checked finite rational proof route:
+`ImpulseComposition.uniform_endpoint_lines` derives both transverse endpoint
+constraints without using the diagonal theorem; `Parallelogram.intersection_unique`
+then proves the opposite corner. The separate 1687, 1713 and NATP00090
+reconstructions follow that route. Direct impulse composition includes
+parallel/opposite/zero cases and `next_arrival_diagonal` connects it to the
+actual central-force recurrence. Directed additive velocity changes and
+subsequent uniform motion remain explicit mechanical model premises. Only
+1713 explicitly states impulses at A and cites Laws II/I in this proof;
+NATP00089's composition assertion remains a hypothesis. See the
+[composition checkpoint](verification/laws-corollary1-2026-10-06.md).
+Lemma III Corollary 4 and its enclosure/perimeter dependencies are the next
+proof obligation before force-specific applications. This finite increment
+adds no completion score or historical limiting certification.
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau

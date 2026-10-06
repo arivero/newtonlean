@@ -386,6 +386,16 @@ theorem mul_equiv_right (c : Fraction) {a b : Fraction} (h : equiv a b) :
   exact equiv_trans (mul_comm a c)
     (equiv_trans (mul_equiv_left c h) (mul_comm c b))
 
+/-- Cancellation of a nonzero rational value, including negative values. -/
+theorem mul_equiv_cancel_left (c : Fraction) (hc : c.num ≠ 0)
+    {a b : Fraction} (h : equiv (mul c a) (mul c b)) : equiv a b := by
+  have hd : c.den ≠ 0 := by have := c.den_pos; omega
+  have hp : c.num * c.den ≠ 0 := Int.mul_ne_zero hc hd
+  have he : (c.num * c.den) * (a.num * b.den) =
+      (c.num * c.den) * (b.num * a.den) := by
+    simpa only [equiv,mul,Int.mul_assoc,Int.mul_left_comm,Int.mul_comm] using h
+  exact Int.eq_of_mul_eq_mul_left hp he
+
 theorem le_add_nonnegative (a b : Fraction) (hb : 0 ≤ b.num) :
     le a (add a b) := by
   unfold le add

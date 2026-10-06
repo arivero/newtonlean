@@ -48,7 +48,7 @@
 <text x="389.4" y="493.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P1</text>
 <text x="389.4" y="508.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
 <text x="389.4" y="523.0" font-size="12" fill="#444">and polygon limit</text>
-<text x="389.4" y="538.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<text x="389.4" y="538.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
 <rect x="26.0" y="205.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="35.0" y="223.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P6</text>
 <text x="35.0" y="238.0" font-size="12" fill="#444">Force through tangent departure and time</text>
@@ -69,7 +69,7 @@
 <text x="731.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1</text>
 <text x="731.0" y="103.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
 <text x="731.0" y="118.0" font-size="12" fill="#444">and polygon limit</text>
-<text x="731.0" y="133.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<text x="731.0" y="133.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
 <rect x="45.2" y="370.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="54.2" y="388.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P6</text>
 <text x="54.2" y="403.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>

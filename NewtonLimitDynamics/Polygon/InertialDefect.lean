@@ -65,19 +65,10 @@ theorem inertial_closedBoundaryTwice (p v : Point) (a b c d : Fraction) :
       (Fraction.add (inertialEdge p v c d) (inertialEdge p v d a)))
     (inertialWalk_closed p v a [b, c, d])
 
-private def fracNeg (a : Fraction) : Fraction := ⟨-a.num, a.den, a.den_pos⟩
-
-private theorem fracNeg_congr {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (fracNeg a) (fracNeg b) := by
-  unfold Fraction.equiv fracNeg at *
-  dsimp at *
-  simpa only [Int.neg_mul] using congrArg Neg.neg h
-
 /-- The represented directed determinant respects point equivalence. -/
 theorem det_congr {a a' b b' : Point} (ha : pointEquiv a a')
-    (hb : pointEquiv b b') : Fraction.equiv (det a b) (det a' b') := by
-  unfold det
-  exact Fraction.add_equiv (Fraction.mul_equiv ha.1 hb.2) (fracNeg_congr (Fraction.mul_equiv ha.2 hb.1))
+    (hb : pointEquiv b b') : Fraction.equiv (det a b) (det a' b') :=
+  TimeSubdivision.det_congr ha hb
 
 theorem closedBoundaryTwice_congr {a a' b b' c c' d d' : Point}
     (ha : pointEquiv a a') (hb : pointEquiv b b')

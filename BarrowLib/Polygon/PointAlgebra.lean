@@ -89,6 +89,78 @@ theorem det_add_right (x v w : Point) :
   ac_nf
   omega
 
+theorem pointAdd_comm (p q : Point) : pointEquiv (pointAdd p q) (pointAdd q p) :=
+  ⟨Fraction.add_comm _ _, Fraction.add_comm _ _⟩
+
+theorem pointAdd_assoc (p q r : Point) :
+    pointEquiv (pointAdd (pointAdd p q) r) (pointAdd p (pointAdd q r)) :=
+  ⟨Fraction.add_assoc _ _ _,Fraction.add_assoc _ _ _⟩
+
+theorem pointScale_add (d : Fraction) (p q : Point) :
+    pointEquiv (pointScale d (pointAdd p q))
+      (pointAdd (pointScale d p) (pointScale d q)) :=
+  ⟨Fraction.mul_add _ _ _,Fraction.mul_add _ _ _⟩
+
+theorem pointSub_add_self_left_equiv (x y : Point) :
+    pointEquiv (pointSub (pointAdd x y) x) y := by
+  constructor <;>
+    simp only [pointSub,pointAdd,pointNeg,Fraction.add,Fraction.equiv,
+      Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+
+theorem det_congr {p p' q q' : Point}
+    (hp : pointEquiv p p') (hq : pointEquiv q q') :
+    Fraction.equiv (det p q) (det p' q') := by
+  have hn : Fraction.equiv
+      (⟨-(Fraction.mul p.2 q.1).num,(Fraction.mul p.2 q.1).den,
+        (Fraction.mul p.2 q.1).den_pos⟩ : Fraction)
+      ⟨-(Fraction.mul p'.2 q'.1).num,(Fraction.mul p'.2 q'.1).den,
+        (Fraction.mul p'.2 q'.1).den_pos⟩ := by
+    simpa only [Fraction.equiv,Int.neg_mul] using
+      congrArg Neg.neg (Fraction.mul_equiv hp.2 hq.1)
+  exact Fraction.add_equiv (Fraction.mul_equiv hp.1 hq.2) hn
+
+theorem det_add_left (q x y : Point) :
+    Fraction.equiv (det (pointAdd x y) q) (Fraction.add (det x q) (det y q)) := by
+  simp only [det,pointAdd,Fraction.add,Fraction.mul,Fraction.equiv,
+    Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+
+theorem det_scale_left (d : Fraction) (q x : Point) :
+    Fraction.equiv (det (pointScale d x) q) (Fraction.mul d (det x q)) := by
+  simp only [det,pointScale,Fraction.add,Fraction.mul,Fraction.equiv,
+    Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+
+theorem det_scale_right (d : Fraction) (p x : Point) :
+    Fraction.equiv (det p (pointScale d x)) (Fraction.mul d (det p x)) := by
+  simp only [det,pointScale,Fraction.add,Fraction.mul,Fraction.equiv,
+    Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+
+theorem det_self (x : Point) : Fraction.equiv (det x x) (Fraction.ofInt 0) := by
+  simp only [det,Fraction.add,Fraction.mul,Fraction.ofInt,Fraction.equiv,
+    Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+
+/-- The two transverse coordinates recover a point after multiplication by
+    the determinant of the directions. No division is used. -/
+theorem det_coordinate_resolution (u v x : Point) :
+    pointEquiv (pointScale (det u v) x)
+      (pointSub (pointScale (det x v) u) (pointScale (det x u) v)) := by
+  constructor <;>
+    simp only [pointEquiv,pointScale,pointSub,pointNeg,pointAdd,det,Fraction.equiv,Fraction.add,
+      Fraction.mul,Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;>
+    ac_nf <;> omega
+
+/-- Two independent transverse coordinates determine the point. -/
+theorem det_coordinates_injective (u v : Point) (h : (det u v).num ≠ 0)
+    {x y : Point} (hx : Fraction.equiv (det x v) (det y v))
+    (hy : Fraction.equiv (det x u) (det y u)) : pointEquiv x y := by
+  have he := pointEquiv_trans (det_coordinate_resolution u v x)
+    (pointEquiv_trans
+      (pointSub_congr
+        (pointScale_ratio_congr hx ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)
+        (pointScale_ratio_congr hy ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩))
+      (pointEquiv_symm (det_coordinate_resolution u v y)))
+  exact ⟨Fraction.mul_equiv_cancel_left (det u v) h he.1,
+    Fraction.mul_equiv_cancel_left (det u v) h he.2⟩
+
 /-- Signed doubled determinant sum for p -> B -> D -> C -> p. -/
 def closedBoundaryTwice (p b d c : Point) : Fraction :=
   Fraction.add (Fraction.add (det p b) (det b d))

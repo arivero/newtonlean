@@ -21,6 +21,10 @@ import NewtonLimitDynamics
 #print axioms DeMotu1684.AreaLaw.natp00090_finite_equal_areas
 #check DeMotu1684.AreaLaw.natp00090_polygon_trajectory_defect_control
 #print axioms DeMotu1684.AreaLaw.natp00090_polygon_trajectory_defect_control
+#check DeMotu1684.Composition.natp00089_composition_model
+#print axioms DeMotu1684.Composition.natp00089_composition_model
+#check DeMotu1684.Composition.natp00090_lemma1_endpoint_reconstruction
+#print axioms DeMotu1684.Composition.natp00090_lemma1_endpoint_reconstruction
 #check DeMotu1684.QuadraticInitialDeflection
 #print axioms DeMotu1684.QuadraticInitialDeflection
 #check NewtonLimitDynamics.Comparison.CircleCompare.force_ratio_is_sagitta_ratio
@@ -237,6 +241,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Fraction.mul_comm
 #check NewtonLimitDynamics.Fraction.mul_equiv
 #print axioms NewtonLimitDynamics.Fraction.mul_equiv
+#check NewtonLimitDynamics.Fraction.mul_equiv_cancel_left
+#print axioms NewtonLimitDynamics.Fraction.mul_equiv_cancel_left
 #check NewtonLimitDynamics.Fraction.mul_equiv_left
 #print axioms NewtonLimitDynamics.Fraction.mul_equiv_left
 #check NewtonLimitDynamics.Fraction.mul_equiv_right
@@ -2101,6 +2107,16 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.smallTime_prefix
 #check NewtonLimitDynamics.Polygon.HarmonicUniform.two_mul
 #print axioms NewtonLimitDynamics.Polygon.HarmonicUniform.two_mul
+#check NewtonLimitDynamics.Polygon.ImpulseComposition.endpoint_from_components
+#print axioms NewtonLimitDynamics.Polygon.ImpulseComposition.endpoint_from_components
+#check NewtonLimitDynamics.Polygon.ImpulseComposition.impulse_transverse_unchanged
+#print axioms NewtonLimitDynamics.Polygon.ImpulseComposition.impulse_transverse_unchanged
+#check NewtonLimitDynamics.Polygon.ImpulseComposition.next_arrival_diagonal
+#print axioms NewtonLimitDynamics.Polygon.ImpulseComposition.next_arrival_diagonal
+#check NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_endpoint_lines
+#print axioms NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_endpoint_lines
+#check NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_impulse_diagonal
+#print axioms NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_impulse_diagonal
 #check NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #print axioms NewtonLimitDynamics.Polygon.InertialControl.drift_small
 #check NewtonLimitDynamics.Polygon.InertialControl.endKick_zero_small_increment
@@ -2209,6 +2225,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint.endpoint_error
 #check NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint.full_elapsed
 #print axioms NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint.full_elapsed
+#check NewtonLimitDynamics.Polygon.Parallelogram.diagonal_on_lines
+#print axioms NewtonLimitDynamics.Polygon.Parallelogram.diagonal_on_lines
+#check NewtonLimitDynamics.Polygon.Parallelogram.intersection_unique
+#print axioms NewtonLimitDynamics.Polygon.Parallelogram.intersection_unique
+#check NewtonLimitDynamics.Polygon.Parallelogram.parallel_translation
+#print axioms NewtonLimitDynamics.Polygon.Parallelogram.parallel_translation
 #check NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual
 #print axioms NewtonLimitDynamics.Polygon.PartialCell.candidate_partial_residual
 #check NewtonLimitDynamics.Polygon.PartialCell.endKick_position_kick_free
@@ -2759,8 +2781,22 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.window_rescale_iff
 #check NewtonLimitDynamics.Polygon.TimeCalibration.zero_lipschitz_control
 #print axioms NewtonLimitDynamics.Polygon.TimeCalibration.zero_lipschitz_control
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_left
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_left
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_right
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_right
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.det_congr
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_congr
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.det_coordinate_resolution
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_coordinate_resolution
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.det_coordinates_injective
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_coordinates_injective
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.det_scale_left
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_scale_left
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.det_scale_right
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_scale_right
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.det_self
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.det_self
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.example_closedBoundaryTwice
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.example_coarse_position
@@ -2783,6 +2819,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.fine_position_eq_coarse_plus
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.fine_velocity_eq_coarse
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.fine_velocity_eq_coarse
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_assoc
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_assoc
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_comm
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_comm
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_congr
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_congr
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm
@@ -2791,10 +2831,14 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_trans
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.pointNeg_congr
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointNeg_congr
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_add
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_add
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_congr
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_congr
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_ratio_congr
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_ratio_congr
+#check NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_add_self_left_equiv
+#print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_add_self_left_equiv
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_congr
 #print axioms NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_congr
 #check NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_zero
@@ -2981,6 +3025,10 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.near_has_witness
 #check NewtonLimitDynamics.not_near_false
 #print axioms NewtonLimitDynamics.not_near_false
+#check Principia1687.Laws.corollary1_endpoint_reconstruction
+#print axioms Principia1687.Laws.corollary1_endpoint_reconstruction
+#check Principia1687.Laws.corollary1_uniform_impulse_model
+#print axioms Principia1687.Laws.corollary1_uniform_impulse_model
 #check Principia1687.PropositionI.constructed_central_area_law
 #print axioms Principia1687.PropositionI.constructed_central_area_law
 #check Principia1687.PropositionI.constructed_central_interval_area_law
@@ -2997,6 +3045,10 @@ import NewtonLimitDynamics
 #print axioms Principia1687.discharges_quadraticPremise_reconstruction
 #check Principia1687.lemmaX_reconstruction
 #print axioms Principia1687.lemmaX_reconstruction
+#check Principia1713.Laws.corollary1_endpoint_reconstruction
+#print axioms Principia1713.Laws.corollary1_endpoint_reconstruction
+#check Principia1713.Laws.corollary1_uniform_impulse_model
+#print axioms Principia1713.Laws.corollary1_uniform_impulse_model
 #check Principia1713.PropositionI.constructed_central_area_law
 #print axioms Principia1713.PropositionI.constructed_central_area_law
 #check Principia1713.PropositionI.constructed_central_interval_area_law

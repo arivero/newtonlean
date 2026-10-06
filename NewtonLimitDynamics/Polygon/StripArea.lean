@@ -37,36 +37,14 @@ def twoCellTwice (h : Fraction) (v a : Point) (n : Nat) : Fraction :=
   det (chord h v a n) (chord h v a (n + 1))
 
 theorem pointSub_add_self_left_equiv (x y : Point) :
-    pointEquiv (pointSub (pointAdd x y) x) y := by
-  constructor <;>
-    simp only [pointSub, pointAdd, pointNeg, Fraction.add, Fraction.mul, Fraction.equiv,
-      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
-    ac_nf <;> omega
+    pointEquiv (pointSub (pointAdd x y) x) y :=
+  TimeSubdivision.pointSub_add_self_left_equiv x y
 
 /-- The drift of a cell is exactly the position difference `p_{n+1} - p_n`. -/
 theorem chord_is_position_diff (h : Fraction) (p v a : Point) (n : Nat) :
     pointEquiv (pointSub (posAt h p v a (n + 1)) (posAt h p v a n)) (chord h v a n) := by
   simp only [posAt, chord]
   exact pointSub_add_self_left_equiv (posAt h p v a n) (pointScale h (velAt h v a n))
-
-private theorem det_add_left (q x y : Point) :
-    Fraction.equiv (det (pointAdd x y) q) (Fraction.add (det x q) (det y q)) := by
-  simp only [det, pointAdd, Fraction.add, Fraction.mul, Fraction.equiv,
-    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;> ac_nf <;> omega
-
-private theorem det_scale_left (d : Fraction) (q x : Point) :
-    Fraction.equiv (det (pointScale d x) q) (Fraction.mul d (det x q)) := by
-  simp only [det, pointScale, Fraction.add, Fraction.mul, Fraction.equiv,
-    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;> ac_nf <;> omega
-
-private theorem det_scale_right (d : Fraction) (p x : Point) :
-    Fraction.equiv (det p (pointScale d x)) (Fraction.mul d (det p x)) := by
-  simp only [det, pointScale, Fraction.add, Fraction.mul, Fraction.equiv,
-    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;> ac_nf <;> omega
-
-private theorem det_self (x : Point) : Fraction.equiv (det x x) (Fraction.ofInt 0) := by
-  simp only [det, Fraction.add, Fraction.mul, Fraction.ofInt, Fraction.equiv,
-    Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;> ac_nf <;> omega
 
 /-- The key lemma from the hand computation: `det (w + s·a) a = det w a`. -/
 theorem det_kick_direction_constant (s : Fraction) (w a : Point) :

@@ -61,8 +61,7 @@ theorem intervalFan_compose (unsigned : Bool) (p : Nat → Point) (lo n k : Nat)
 theorem det_congr {p p' q q' : Point}
     (hp : pointEquiv p p') (hq : pointEquiv q q') :
     Fraction.equiv (det p q) (det p' q') :=
-  Fraction.add_equiv (Fraction.mul_equiv hp.1 hq.2)
-    (HarmonicDyadic.neg_equiv (Fraction.mul_equiv hp.2 hq.1))
+  TimeSubdivision.det_congr hp hq
 
 theorem sub_add (a b c d : Fraction) :
     Fraction.equiv (sub (Fraction.add a c) (Fraction.add b d))

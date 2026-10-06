@@ -35,9 +35,20 @@ fans converge to `abs(ell)*abs(t1-t0)/2`. Address independence, uniqueness,
 endpoint reversal, zero-length intervals and equal areas for equal elapsed
 lengths are proved; adjacent completed fans compose by addition. See the
 [interval checkpoint](verification/constructed-area-intervals-2026-10-06.md).
-The 6 October user direction puts proofs of the Laws' Corollary 1 and
-Lemma III Corollary 4 next, following their stage-local proof dependencies,
-before force-specific applications. Their source links do not supply proofs.
+The Laws' Corollary 1 now has a checked finite rational proof route:
+`ImpulseComposition.uniform_endpoint_lines` derives both transverse endpoint
+constraints without using the diagonal theorem; `Parallelogram.intersection_unique`
+then proves the opposite corner. The separate 1687, 1713 and NATP00090
+reconstructions follow that route. Direct impulse composition includes
+parallel/opposite/zero cases and `next_arrival_diagonal` connects it to the
+actual central-force recurrence. Directed additive velocity changes and
+subsequent uniform motion remain explicit mechanical model premises. Only
+1713 explicitly states impulses at A and cites Laws II/I in this proof;
+NATP00089's composition assertion remains a hypothesis. See the
+[composition checkpoint](verification/laws-corollary1-2026-10-06.md).
+Lemma III Corollary 4 and its enclosure/perimeter dependencies are the next
+proof obligation before force-specific applications. This finite increment
+adds no completion score or historical limiting certification.
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
@@ -181,14 +192,14 @@ with no numbered limiting lemma (M2.md).
 The following chain was checked against the **proof paragraphs** of the
 archived TEI on 5 October evening, rather than inferred from the order of the
 statements. [dependencies.json](dependencies.json) records each accepted edge
-with its witness, passage, URL, classification and confidence. Empty formal
-references on the newly traced edges mean that the historical step is not
-certified by the current Lean implementation.
+with its witness, passage, URL, classification and confidence. Formal references now identify the finite composition proofs on their own
+edges. The remaining limiting edges are still obligations; a reference
+records a reconstruction, not certification of the full historical step.
 
 | Proof step | 1687 proof passage | 1713 proof passage | Dependency and formal obligation |
 | --- | --- | --- | --- |
 | Rectilinear continuation and impulse composition | [Prop. I par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45) | [Prop. I par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51) | Law I and the laws' Corollary 1 are explicit citations. The finite drift/kick construction must reproduce the inertial continuation and the radial deflection before proving equal triangles. `CentralSchedule.cell_momentum`, `det_cell_area` and `swept_eq` supply the rational planar reconstruction. |
-| Why the parallelogram gives the position | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par8) | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8) | Both proofs use unchanged transverse approach velocity and the intersection of two parallel lines. Only the 1713 proof explicitly cites Law II for the component argument and Law I for the diagonal motion. Those explicit edges are stage-local; the 1687 argument is not given the 1713 citations. |
+| Why the parallelogram gives the position | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par8) | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8) | Both proofs use unchanged transverse approach velocity and the intersection of two parallel lines. `uniform_endpoint_lines` now derives those constraints in the rational mechanical model, then `intersection_unique` derives the opposite corner. `next_arrival_diagonal` connects composition to the actual central cell. Only 1713 explicitly cites Laws II/I and initial impulses; the separate 1687 model specialization does not attribute those clauses to its text. |
 | Finite composition of the areas | [Prop. I par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45) | [Prop. I par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51) | The equal-triangle argument is iterated and the areas are added. The separate edition `finite_componendo` results and `CentralSchedule.swept_eq` implement this finite step. Constant areal product alone does not implement the swept-area conclusion. |
 | Curvilinear perimeter | [Lemma III Cor. 4 par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10) | [Lemma III Cor. 4 par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11) | Proposition I explicitly cites this corollary. Its inference from the preceding enclosures is implicit, signalled by *Et propterea*. The corollary concerns figures drawn on a given curve; applying it to the varying force polygons requires construction of that curve and a justified enclosure. |
 | Unequal widths reduce to the largest width | [Lemma III proof par6](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par6) | [Lemma III proof par7](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par7) | Lemma III reuses Lemma II's figures and equal limiting ratios implicitly (*Eædem rationes ultimæ*), then bounds the gap by the rectangle of maximum width. `rectangle_gap_bound` checks the finite arithmetic; geometry and shrinking width must be supplied or derived for the actual construction. |
@@ -259,11 +270,12 @@ the finite content it needs when cells are unequal.
 
 ## Next bounded step
 
-The next step follows the 6 October user direction: prove the Laws'
-Corollary 1 and Lemma III Corollary 4 through their own stage-local proof
-dependencies. The interval curve-fan law adds the actual noninitial-time
-comparison, while the historical invoked proofs and ultimate-ratio argument
-remain open. Force-specific applications follow the general proof.
+The next step is Lemma III Corollary 4 through Lemmas I–III and the
+preceding corollaries, preserving the given-curve premise and distinguishing
+perimeter convergence from scalar-area convergence. The finite Laws Corollary
+1 proof route is now checked in the rational mechanical model. Applying the
+given-curve limiting argument to the constructed central-force family remains
+a separate obligation. Force-specific applications follow the general proof.
 
 The harmonic field now has derived mesh-uniform actual state and endpoint-error
 bounds, a proved square enclosure and nonnegative cover budget for matched

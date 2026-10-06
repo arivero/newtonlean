@@ -1,5 +1,30 @@
 # Verification record
 
+## Laws Corollary 1 proof route, 6 October 2026
+
+The finite rational reconstruction now derives transverse endpoint lines
+independently of the diagonal theorem, then proves unique intersection through
+the determinant cofactor identity and nonzero rational cancellation. Separate
+1687, 1713 and NATP00090 endpoint proofs use this route. Direct composition
+covers degenerate forces and `next_arrival_diagonal` applies it to the actual
+central recurrence. Mechanical additive impulse changes and uniform subsequent
+motion remain explicit model premises; 1713's wording and NATP00089's
+hypothesis are not silently transferred. Lemma III Corollary 4 remains next.
+
+One independent sequential gpt-6-luna verifier ran all 16 README checks and
+the scope harness, all exit 0. It confirmed the independent line proof and
+subsequent intersection use. All 2,137 prior named public signatures remain,
+with 28 additions. Catalogue: 1,671 theorems; graph: 82 nodes, 75 edges,
+253 passages and 1,532 reference checks. Only propext, Classical.choice and
+Quot.sound occur. No external packages, sorry/admit/new axioms/mathlib or
+Newton imports in BarrowLib appear. Root reviewed the source, logs/API report
+and regenerated proof images. No completion-score increase. Logs:
+/tmp/newton-sol61-cor1-final-01.log through -16.log;
+scope /tmp/newton-sol61-cor1-scope-final.log;
+API /tmp/newton-sol61-cor1-api.json. See the
+[checkpoint](verification/laws-corollary1-2026-10-06.md).
+Conversation-export changes remain untouched and excluded.
+
 ## Constructed swept-area intervals, 6 October 2026
 
 `GeneralForceArea.constructed_interval_area_law` constructs unsigned swept

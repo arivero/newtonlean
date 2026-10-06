@@ -7,10 +7,10 @@ digraph proof-drafts {
   "Draft.conic" [label="Draft.conic\nProposed conic application", fillcolor="#f7e6c4", color="#8d8d8d", penwidth=1];
   "Draft.sagitta" [label="Draft.sagitta\nSagitta and curvature route", fillcolor="#f7e6c4", color="#8d8d8d", penwidth=1];
   "Draft.sections" [label="Draft.sections\nSections IV and V", fillcolor="#f7e6c4", color="#8d8d8d", penwidth=1];
-  "NATP00090.L1" [label="NATP00090.L1\nParallelogram composition of motions\nproduced in the same time", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
+  "NATP00090.L1" [label="NATP00090.L1\nParallelogram composition of motions\nproduced in the same time\n2 Lean result(s)", fillcolor="#e8d5b7", color="#2c6e31", penwidth=2];
   "NATP00090.Law1" [label="NATP00090.Law1\nRectilinear inertia", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "NATP00090.Law2" [label="NATP00090.Law2\nChange of state proportional to the\nimpressed force and in its direction;", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
-  "NATP00090.T1" [label="NATP00090.T1\nPolygonal equal areas; infinitely many\ninfinitesimal triangles asserted\n1 Lean result(s)", fillcolor="#e8d5b7", color="#2c6e31", penwidth=2];
+  "NATP00090.T1" [label="NATP00090.T1\nPolygonal equal areas; infinitely many\ninfinitesimal triangles asserted\n3 Lean result(s)", fillcolor="#e8d5b7", color="#2c6e31", penwidth=2];
   "NATP00090.Law1" -> "NATP00090.T1" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
   "NATP00090.L1" -> "NATP00090.T1" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
   "DM90.L2" -> "DM90.local" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];

@@ -630,6 +630,15 @@
     "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
   },
   {
+    "name": "NewtonLimitDynamics.Fraction.mul_equiv_cancel_left",
+    "private": false,
+    "file": "BarrowLib/Common/RationalMagnitudes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(c : Fraction) (hc : c.num ≠ 0) {a b : Fraction} (h : equiv (mul c a) (mul c b)) : equiv a b",
+    "interpretation_and_remaining_premises": "Rational consistency model and arithmetic support, not full Euclidean geometry; triangle limit still requires a slope limit. Absolute values respect unnormalised rational equivalence, multiplication and the triangle inequality; weak-order operations permit zero factors and equivalent representations. These finite helpers support perturbation accounting, not geometric region identification, trajectory existence or a historical analytic theorem."
+  },
+  {
     "name": "NewtonLimitDynamics.Fraction.le_add_nonnegative",
     "private": false,
     "file": "BarrowLib/Common/RationalMagnitudes.lean",
@@ -4329,6 +4338,33 @@
     "interpretation_and_remaining_premises": "Generic completed scalar pairings, with one Cauchy and representative-independence proof for dot products and determinants. Finite bilinear difference identities and L1 magnitude bounds are proved for both forms; position bounds on Cauchy tails are derived. Rational embedding, scalar projection and scaled-approximant compatibility follow from the same completion. These maps are Lipschitz on bounded sets, rather than globally, so the fixed-coefficient regional SampledValues constructor does not cover them. Determinants remain signed doubled areas and dot products use Euclidean squared magnitude, distinct from the error gauge. No force, derivative, integral, ODE, Newton import or historical dependency occurs."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.Parallelogram.parallel_translation",
+    "private": false,
+    "file": "BarrowLib/Polygon/Parallelogram.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p direction : Point) (k : Fraction) : ParallelThrough (pointAdd p (pointScale k direction)) p direction",
+    "interpretation_and_remaining_premises": "Generic rational affine geometry in BarrowLib. Parallel line constraints are equal determinant transverse coordinates. Parallel translations preserve them, the opposite corner lies on both endpoint lines, and independent directions give unique intersection via the determinant cofactor identity and nonzero rational cancellation. No force or limiting premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Parallelogram.diagonal_on_lines",
+    "private": false,
+    "file": "BarrowLib/Polygon/Parallelogram.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) : ParallelThrough (diagonal p u v) (pointAdd p u) v ∧ ParallelThrough (diagonal p u v) (pointAdd p v) u",
+    "interpretation_and_remaining_premises": "Generic rational affine geometry in BarrowLib. Parallel line constraints are equal determinant transverse coordinates. Parallel translations preserve them, the opposite corner lies on both endpoint lines, and independent directions give unique intersection via the determinant cofactor identity and nonzero rational cancellation. No force or limiting premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.Parallelogram.intersection_unique",
+    "private": false,
+    "file": "BarrowLib/Polygon/Parallelogram.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v x : Point) (h : (det u v).num ≠ 0) (hx : ParallelThrough x (pointAdd p u) v) (hy : ParallelThrough x (pointAdd p v) u) : pointEquiv x (diagonal p u v)",
+    "interpretation_and_remaining_premises": "Generic rational affine geometry in BarrowLib. Parallel line constraints are equal determinant transverse coordinates. Parallel translations preserve them, the opposite corner lies on both endpoint lines, and independent directions give unique intersection via the determinant cofactor identity and nonzero rational cancellation. No force or limiting premise."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointEquiv_symm",
     "private": false,
     "file": "BarrowLib/Polygon/PointAlgebra.lean",
@@ -4407,6 +4443,105 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(x v w : Point) : Fraction.equiv (det x (pointAdd v w)) (Fraction.add (det x v) (det x w))",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_comm",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q : Point) : pointEquiv (pointAdd p q) (pointAdd q p)",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointAdd_assoc",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p q r : Point) : pointEquiv (pointAdd (pointAdd p q) r) (pointAdd p (pointAdd q r))",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointScale_add",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (p q : Point) : pointEquiv (pointScale d (pointAdd p q)) (pointAdd (pointScale d p) (pointScale d q))",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.pointSub_add_self_left_equiv",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y : Point) : pointEquiv (pointSub (pointAdd x y) x) y",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_congr",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{p p' q q' : Point} (hp : pointEquiv p p') (hq : pointEquiv q q') : Fraction.equiv (det p q) (det p' q')",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_add_left",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(q x y : Point) : Fraction.equiv (det (pointAdd x y) q) (Fraction.add (det x q) (det y q))",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_scale_left",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (q x : Point) : Fraction.equiv (det (pointScale d x) q) (Fraction.mul d (det x q))",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_scale_right",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(d : Fraction) (p x : Point) : Fraction.equiv (det p (pointScale d x)) (Fraction.mul d (det p x))",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_self",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x : Point) : Fraction.equiv (det x x) (Fraction.ofInt 0)",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_coordinate_resolution",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(u v x : Point) : pointEquiv (pointScale (det u v) x) (pointSub (pointScale (det x v) u) (pointScale (det x u) v))",
+    "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeSubdivision.det_coordinates_injective",
+    "private": false,
+    "file": "BarrowLib/Polygon/PointAlgebra.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(u v : Point) (h : (det u v).num ≠ 0) {x y : Point} (hx : Fraction.equiv (det x v) (det y v)) (hy : Fraction.equiv (det x u) (det y u)) : pointEquiv x y",
     "interpretation_and_remaining_premises": "Generic finite rational point algebra and determinants in BarrowLib. Existing declaration namespaces are retained for import compatibility. No mechanical, historical, continuum or action interpretation is a premise."
   },
   {
@@ -6784,6 +6919,29 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t₀ t₁ : BinaryTime.BinaryTime T d.time_nonnegative) : SweptArea.AreaBetween T d.time_nonnegative (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t₀ t₁ (GeneralForceArea.intervalAreaValue o E0 T tau L B s hE d t₀ t₁) ∧ GeneralForceArea.intervalAreaValue o E0 T tau L B s hE d t₀ t₁ = SecantValues.secantValue (CentralSchedule.momentum s).abs.half (SweptArea.intervalElapsedValue T d.time_nonnegative t₀ t₁) (CauchyValues.embed FanValues.zeroState) ∧ Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))",
     "interpretation_and_remaining_premises": "NATP00090 Theorem 1: separately named modern interval consequence. Actual constructed unsigned interval fans converge to |ell|*|t1-t0|/2, with both endpoint addresses quantified, and derived intervening-content exhaustion. Regional Lipschitz/window data remain modern premises, planarity is built in, and multiplicity is counted. No other witness or full historical proof is certified."
+  },
+  {
+    "name": "DeMotu1684.Composition.natp00090_lemma1_endpoint_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/Composition.lean",
+    "source_passages": [
+      "NATP00090.par10",
+      "NATP00090.par11"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) (t : Fraction) (h : (TimeSubdivision.det (pointScale t u) (pointScale t v)).num ≠ 0) : pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t) (diagonal p (pointScale t u) (pointScale t v))",
+    "interpretation_and_remaining_premises": "Witness-local finite rational parallelogram composition reconstructions. NATP00090 Lemma 1 has the transverse-approach/intersection proof; its Law 2 citation is a marked addition with unresolved chronology. NATP00089 instead states a composition hypothesis; its separate model consequence is not a historical proof of that hypothesis. No printed limiting lemma is imported."
+  },
+  {
+    "name": "DeMotu1684.Composition.natp00089_composition_model",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/Composition.lean",
+    "source_passages": [
+      "NATP00089.par7"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) (t : Fraction) : pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t) (diagonal p (pointScale t u) (pointScale t v))",
+    "interpretation_and_remaining_premises": "Separate modern rational consequence of the additive impulse/uniform-motion model. NATP00089 states simultaneous/successive composition as a hypothesis; this does not prove that mechanical hypothesis historically or inherit NATP00090 Lemma 1."
   },
   {
     "name": "NewtonLimitDynamics.Diagnostic.ConstructedHarmonicPotential.finite_work_remainder",
@@ -15192,6 +15350,81 @@
     "interpretation_and_remaining_premises": "Modern mesh-uniform finite harmonic estimate derived from the actual schedules and common-denominator finite product bound. The displayed T=2*n*h is proved equivalent to both actual elapsed times. Under h>=0 and T*(1+abs(w))<=1/2, coarse/fine amplification powers are at most 2, their actual state magnitudes are at most twice the initial M, and actual state error is at most 3*T*h*abs(w)*M. The threshold uses the chosen coordinate/unit calibration. Exact boundary, zero and false unrestricted-power controls compile. No supplied curve, completion, unsigned intervening-area geometry or historical continuum/mechanical limit is inferred."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.ImpulseComposition.impulse_transverse_unchanged",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ImpulseComposition.lean",
+    "source_passages": [
+      "NATP00076.par4",
+      "NATP00076.par8",
+      "NATP00081.par4",
+      "NATP00081.par8",
+      "NATP00090.par11"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(velocity direction : Point) (k : Fraction) : ParallelThrough (pointAdd velocity (pointScale k direction)) velocity direction",
+    "interpretation_and_remaining_premises": "Modern finite rational mechanical reconstruction: directed additive velocity changes and uniform subsequent motion are model premises. Parallel impulse transverse invariance and simultaneous endpoint-line constraints are proved without assuming the diagonal; elementary unique intersection gives the diagonal for independent directions. Direct composition handles zero/parallel/opposite impulses and is used by the actual next central-force arrival. No physical proof of Laws I/II, force continuity or limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_impulse_diagonal",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ImpulseComposition.lean",
+    "source_passages": [
+      "NATP00076.par4",
+      "NATP00076.par8",
+      "NATP00081.par4",
+      "NATP00081.par8",
+      "NATP00090.par11"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) (t : Fraction) : pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t) (diagonal p (pointScale t u) (pointScale t v))",
+    "interpretation_and_remaining_premises": "Modern finite rational mechanical reconstruction: directed additive velocity changes and uniform subsequent motion are model premises. Parallel impulse transverse invariance and simultaneous endpoint-line constraints are proved without assuming the diagonal; elementary unique intersection gives the diagonal for independent directions. Direct composition handles zero/parallel/opposite impulses and is used by the actual next central-force arrival. No physical proof of Laws I/II, force continuity or limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_endpoint_lines",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ImpulseComposition.lean",
+    "source_passages": [
+      "NATP00076.par4",
+      "NATP00076.par8",
+      "NATP00081.par4",
+      "NATP00081.par8",
+      "NATP00090.par11"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) (t : Fraction) : ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t) (ZeroForce.inertialAt p u t) (pointScale t v) ∧ ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t) (ZeroForce.inertialAt p v t) (pointScale t u)",
+    "interpretation_and_remaining_premises": "Modern finite rational mechanical reconstruction: directed additive velocity changes and uniform subsequent motion are model premises. Parallel impulse transverse invariance and simultaneous endpoint-line constraints are proved without assuming the diagonal; elementary unique intersection gives the diagonal for independent directions. Direct composition handles zero/parallel/opposite impulses and is used by the actual next central-force arrival. No physical proof of Laws I/II, force continuity or limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ImpulseComposition.endpoint_from_components",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ImpulseComposition.lean",
+    "source_passages": [
+      "NATP00076.par4",
+      "NATP00076.par8",
+      "NATP00081.par4",
+      "NATP00081.par8",
+      "NATP00090.par11"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v x : Point) (h : (det u v).num ≠ 0) (hM : ParallelThrough x (pointAdd p u) v) (hN : ParallelThrough x (pointAdd p v) u) : pointEquiv x (diagonal p u v)",
+    "interpretation_and_remaining_premises": "Modern finite rational mechanical reconstruction: directed additive velocity changes and uniform subsequent motion are model premises. Parallel impulse transverse invariance and simultaneous endpoint-line constraints are proved without assuming the diagonal; elementary unique intersection gives the diagonal for independent directions. Direct composition handles zero/parallel/opposite impulses and is used by the actual next central-force arrival. No physical proof of Laws I/II, force continuity or limit."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ImpulseComposition.next_arrival_diagonal",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/ImpulseComposition.lean",
+    "source_passages": [
+      "NATP00076.par4",
+      "NATP00076.par8",
+      "NATP00081.par4",
+      "NATP00081.par8",
+      "NATP00090.par11"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : CentralSchedule.Field) (h k : Fraction) (s : Point × Point) : pointEquiv (CentralSchedule.cell a k (CentralSchedule.cell a h s)).1 (diagonal (CentralSchedule.cell a h s).1 (pointScale k s.2) (pointScale k (pointScale h (a (CentralSchedule.cell a h s).1))))",
+    "interpretation_and_remaining_premises": "Modern finite rational mechanical reconstruction: directed additive velocity changes and uniform subsequent motion are model premises. Parallel impulse transverse invariance and simultaneous endpoint-line constraints are proved without assuming the diagonal; elementary unique intersection gives the diagonal for independent directions. Direct composition handles zero/parallel/opposite impulses and is used by the actual next central-force arrival. No physical proof of Laws I/II, force continuity or limit."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.InertialControl.radius_positive",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/InertialControl.lean",
@@ -15332,19 +15565,6 @@
     ],
     "classification": "modern_reconstruction",
     "premise_signature": "(p v : Point) (a b c d : Fraction) : Fraction.equiv (closedBoundaryTwice (inertialAt p v a) (inertialAt p v b) (inertialAt p v c) (inertialAt p v d)) (Fraction.ofInt 0)",
-    "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.InertialDefect.fracNeg_congr",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/InertialDefect.lean",
-    "source_passages": [
-      "NATP00076.par1",
-      "NATP00081.par1",
-      "NATP00090.par5"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "{a b : Fraction} (h : Fraction.equiv a b) : Fraction.equiv (fracNeg a) (fracNeg b)",
     "interpretation_and_remaining_premises": "Modern rational coordinate identity for zero impressed acceleration: directed determinants of samples on one inertial line compose additively, so every finite closed walk, including its explicit connector, has zero signed doubled area; four actual zero-force schedules with different partitions give a vanishing boundary. Signed sums only; no unsigned enclosure estimate, timing identification, continuum curve, or historical proof dependency is inferred."
   },
   {
@@ -16841,62 +17061,6 @@
     "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
   },
   {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.det_add_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(q x y : Point) : Fraction.equiv (det (pointAdd x y) q) (Fraction.add (det x q) (det y q))",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.det_scale_left",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) (q x : Point) : Fraction.equiv (det (pointScale d x) q) (Fraction.mul d (det x q))",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.det_scale_right",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(d : Fraction) (p x : Point) : Fraction.equiv (det p (pointScale d x)) (Fraction.mul d (det p x))",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
-    "name": "NewtonLimitDynamics.Polygon.StripArea.det_self",
-    "private": true,
-    "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
-    "source_passages": [
-      "NATP00089.par9",
-      "NATP00090.par17",
-      "NATP00077.par45",
-      "NATP00082.par51"
-    ],
-    "classification": "modern_reconstruction",
-    "premise_signature": "(x : Point) : Fraction.equiv (det x x) (Fraction.ofInt 0)",
-    "interpretation_and_remaining_premises": "Modern finite strip-area bookkeeping for the constant-force polygon (order 3). For a uniform rational cell h and constant force a, the chord of each cell is h times the incoming velocity, and the two-cell chord triangle has doubled area h cubed times det(v, a); because det(w + s a, a) = det(w, a) every such triangle has the same signed doubled area and the signed total over k triangles is k times h cubed times det(v, a). The common value may be negative; the absolute-area sum and a geometric strip decomposition remain open. Finite Fraction arithmetic only; no curve, limit or force law."
-  },
-  {
     "name": "NewtonLimitDynamics.Polygon.StripArea.det_kick_direction_constant",
     "private": false,
     "file": "NewtonLimitDynamics/Polygon/StripArea.lean",
@@ -17545,6 +17709,30 @@
     "interpretation_and_remaining_premises": "Constructed ratio and triangle cancellation; contact limits, mechanical enclosure and positive coefficient remain premises."
   },
   {
+    "name": "Principia1687.Laws.corollary1_endpoint_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/Laws.lean",
+    "source_passages": [
+      "NATP00076.par7",
+      "NATP00076.par8"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) (t : Fraction) (h : (TimeSubdivision.det (pointScale t u) (pointScale t v)).num ≠ 0) : pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t) (diagonal p (pointScale t u) (pointScale t v))",
+    "interpretation_and_remaining_premises": "1687 Laws Corollary 1 finite rational reconstruction. The independent transverse endpoint-line constraints are derived in the additive impulse/uniform-motion model, then unique intersection proves the opposite corner. The all-direction model identity covers degenerate forces. Mechanical laws are premises of the model; the 1687 proof does not explicitly cite Laws II/I or the 1713 initial-impulse/uniform-motion qualifications."
+  },
+  {
+    "name": "Principia1687.Laws.corollary1_uniform_impulse_model",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/Laws.lean",
+    "source_passages": [
+      "NATP00076.par7",
+      "NATP00076.par8"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) (t : Fraction) : pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t) (diagonal p (pointScale t u) (pointScale t v))",
+    "interpretation_and_remaining_premises": "1687 Laws Corollary 1 finite rational reconstruction. The independent transverse endpoint-line constraints are derived in the additive impulse/uniform-motion model, then unique intersection proves the opposite corner. The all-direction model identity covers degenerate forces. Mechanical laws are premises of the model; the 1687 proof does not explicitly cite Laws II/I or the 1713 initial-impulse/uniform-motion qualifications."
+  },
+  {
     "name": "Principia1687.lemmaX_reconstruction",
     "private": false,
     "file": "NewtonLimitDynamics/Principia1687/LemmaX.lean",
@@ -17649,6 +17837,30 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(k f t : Fraction) (hk : positive k) (hf : positive f) : equiv (quotient (generated k f t) (mul k f) (positive_mul k f hk hf)) (mul t t)",
     "interpretation_and_remaining_premises": "Exact coefficient algebra only; common calibration, comparable force and positive denominators. Variable-force initial comparison not proved."
+  },
+  {
+    "name": "Principia1713.Laws.corollary1_endpoint_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/Laws.lean",
+    "source_passages": [
+      "NATP00081.par7",
+      "NATP00081.par8"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) (t : Fraction) (h : (TimeSubdivision.det (pointScale t u) (pointScale t v)).num ≠ 0) : pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t) (diagonal p (pointScale t u) (pointScale t v))",
+    "interpretation_and_remaining_premises": "1713 Laws Corollary 1 finite rational reconstruction. Additive initial impulses (Law II) and uniform subsequent motion (Law I) are mechanical premises of the model. Transverse endpoint lines are independently derived, then their unique intersection gives the diagonal for independent directions; direct composition includes degenerate directions. Both law citations and the impulse-at-A qualification belong to this witness."
+  },
+  {
+    "name": "Principia1713.Laws.corollary1_uniform_impulse_model",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/Laws.lean",
+    "source_passages": [
+      "NATP00081.par7",
+      "NATP00081.par8"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(p u v : Point) (t : Fraction) : pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t) (diagonal p (pointScale t u) (pointScale t v)) ∧ ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t) (ZeroForce.inertialAt p u t) (pointScale t v) ∧ ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t) (ZeroForce.inertialAt p v t) (pointScale t u)",
+    "interpretation_and_remaining_premises": "1713 Laws Corollary 1 finite rational reconstruction. Additive initial impulses (Law II) and uniform subsequent motion (Law I) are mechanical premises of the model. Transverse endpoint lines are independently derived, then their unique intersection gives the diagonal for independent directions; direct composition includes degenerate directions. Both law citations and the impulse-at-A qualification belong to this witness."
   },
   {
     "name": "Principia1713.lemmaX_reconstruction",

@@ -614,7 +614,8 @@
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17",
       "revision_layer": "all marked additions and deletions retained; relative chronology unresolved",
       "formal_refs": [
-        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction"
+        "DeMotu1684.Composition.natp00090_lemma1_endpoint_reconstruction",
+        "NewtonLimitDynamics.Polygon.ImpulseComposition.next_arrival_diagonal"
       ],
       "source_stage": "NATP00090"
     },
@@ -1069,8 +1070,8 @@
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45",
       "revision_layer": "printed edition; transcription corrections retained",
       "formal_refs": [
-        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
-        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+        "Principia1687.Laws.corollary1_endpoint_reconstruction",
+        "NewtonLimitDynamics.Polygon.ImpulseComposition.next_arrival_diagonal"
       ],
       "source_stage": "1687"
     },
@@ -1134,8 +1135,8 @@
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51",
       "revision_layer": "printed edition; transcription corrections retained",
       "formal_refs": [
-        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
-        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+        "Principia1713.Laws.corollary1_endpoint_reconstruction",
+        "NewtonLimitDynamics.Polygon.ImpulseComposition.next_arrival_diagonal"
       ],
       "source_stage": "1713"
     },
@@ -1658,7 +1659,10 @@
       "witness": "Axiomata Sive Leges Motus (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.ImpulseComposition.impulse_transverse_unchanged",
+        "NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_endpoint_lines"
+      ],
       "source_stage": "1713"
     },
     {
@@ -1672,7 +1676,9 @@
       "witness": "Axiomata Sive Leges Motus (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "Principia1713.Laws.corollary1_uniform_impulse_model"
+      ],
       "source_stage": "1713"
     },
     {
@@ -1686,7 +1692,10 @@
       "witness": "'De motu sphæricorum corporum in fluidis'",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par11",
       "revision_layer": "all marked additions and deletions retained; relative chronology unresolved",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.ImpulseComposition.impulse_transverse_unchanged",
+        "NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_endpoint_lines"
+      ],
       "source_stage": "NATP00090"
     }
   ],

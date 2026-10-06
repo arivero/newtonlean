@@ -11,10 +11,10 @@ digraph formalisation-coverage {
   "Draft.sections" [label="Draft.sections\nSections IV and V", fillcolor="#f7e6c4", color="#8d8d8d", penwidth=1];
   "NATP00089.T1" [label="NATP00089.T1\nPolygonal equal areas; infinitely many\ninfinitesimal triangles asserted", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "NATP00089.T2" [label="NATP00089.T2\nUniform circular-force comparison by\nsquared simultaneous arcs divided by", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
-  "NATP00090.L1" [label="NATP00090.L1\nParallelogram composition of motions\nproduced in the same time", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
+  "NATP00090.L1" [label="NATP00090.L1\nParallelogram composition of motions\nproduced in the same time\n2 Lean result(s)", fillcolor="#e8d5b7", color="#2c6e31", penwidth=2];
   "NATP00090.Law1" [label="NATP00090.Law1\nRectilinear inertia", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "NATP00090.Law2" [label="NATP00090.Law2\nChange of state proportional to the\nimpressed force and in its direction;", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
-  "NATP00090.T1" [label="NATP00090.T1\nPolygonal equal areas; infinitely many\ninfinitesimal triangles asserted\n1 Lean result(s)", fillcolor="#e8d5b7", color="#2c6e31", penwidth=2];
+  "NATP00090.T1" [label="NATP00090.T1\nPolygonal equal areas; infinitely many\ninfinitesimal triangles asserted\n3 Lean result(s)", fillcolor="#e8d5b7", color="#2c6e31", penwidth=2];
   "NATP00090.T2" [label="NATP00090.T2\nUniform circular-force comparison by\nsquared simultaneous arcs divided by", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "P1687.Composition" [label="P1687.Composition\nParallelogram composition", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.EuclidI40" [label="P1687.EuclidI40\nEuclid I.40, equal triangles on equal\nbases and in the same parallels", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
@@ -32,12 +32,12 @@ digraph formalisation-coverage {
   "P1687.Law2" [label="P1687.Law2\nImpressed force and generated motion", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.LawCor5" [label="P1687.LawCor5\nUniform translation leaves relative\nmotions unchanged", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.LawCor6" [label="P1687.LawCor6\nEqual parallel accelerations leave\nrelative motions unchanged", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.P1" [label="P1687.P1\nEqual-time areas from central impulses\nand polygon limit\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
+  "P1687.P1" [label="P1687.P1\nEqual-time areas from central impulses\nand polygon limit\n4 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.P2" [label="P1687.P2\nArea-time proportionality about a fixed\nor uniformly translating point implies", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.P3" [label="P1687.P3\nRelative area law about a moving body\nidentifies the difference of\n4 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.P4" [label="P1687.P4\nUniform circular-force comparison by\nsquared simultaneous arcs divided by", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.P6" [label="P1687.P6\nForce through tangent departure and time\nsquared", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1713.Composition" [label="P1713.Composition\nParallelogram composition", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.Composition" [label="P1713.Composition\nParallelogram composition\n3 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.EuclidI40" [label="P1713.EuclidI40\nEuclid I.40, equal triangles on equal\nbases and in the same parallels", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L1" [label="P1713.L1\nUltimate equality from approach closer\nthan any given difference", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L10" [label="P1713.L10\nInitial displacement under finite force", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
@@ -57,7 +57,7 @@ digraph formalisation-coverage {
   "P1713.Law2" [label="P1713.Law2\nImpressed force and generated motion", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.LawCor5" [label="P1713.LawCor5\nUniform translation leaves relative\nmotions unchanged", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.LawCor6" [label="P1713.LawCor6\nEqual parallel accelerations leave\nrelative motions unchanged", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.P1" [label="P1713.P1\nEqual-time areas from central impulses\nand polygon limit\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.P1" [label="P1713.P1\nEqual-time areas from central impulses\nand polygon limit\n4 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.P1C2" [label="P1713.P1C2\nThe limiting diagonal from two\nequal-time chords passes through the", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.P1C4" [label="P1713.P1C4\nForce comparison by equal-time sagittae", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.P2" [label="P1713.P2\nArea-time proportionality about a fixed\nor uniformly translating point implies", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];

@@ -10,6 +10,9 @@ import NewtonLimitDynamics.Polygon.Finite
 import NewtonLimitDynamics.DeMotu1684.AreaLaw
 import NewtonLimitDynamics.Principia1687.PropositionI
 import NewtonLimitDynamics.Principia1713.PropositionI
+import NewtonLimitDynamics.Principia1687.Laws
+import NewtonLimitDynamics.Principia1713.Laws
+import NewtonLimitDynamics.DeMotu1684.Composition
 import NewtonLimitDynamics.Polygon.Enclosure
 import NewtonLimitDynamics.Polygon.Contact
 import NewtonLimitDynamics.Polygon.RefinementStrip

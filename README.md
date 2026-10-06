@@ -119,6 +119,11 @@ Unsigned swept area counts multiplicity;
 ordinary sector-union content and the historical limiting passage remain open.
 The [Latin proof route](research/PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route)
 traces Proposition I through the cited laws and the proofs of Lemmas I–III.
+The Laws' Corollary 1 now has a finite rational proof of transverse invariance
+and unique parallelogram intersection, with separate source witnesses and an
+application to the actual central-force recurrence. Lemma III Corollary 4 is
+next; the completion estimate is unchanged. See the
+[proof checkpoint](research/verification/laws-corollary1-2026-10-06.md).
 BinaryLift now shares the two-input completion kit used by pairings, secants
 and area sums; this consolidation receives no completion credit.
 

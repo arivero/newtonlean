@@ -399,6 +399,24 @@ explicitly cite those results; De Motu's composition references and unnumbered
 limiting passage stay witness-local. Source-map entries and conditional
 interfaces do not certify the invoked proofs.
 
+## Invoked composition proof increment, 6 October
+
+The Laws' Corollary 1 has a checked finite rational reconstruction of its
+proof: directed parallel impulse changes preserve transverse motion;
+`uniform_endpoint_lines` derives the two endpoint constraints independently
+of the diagonal theorem; elementary determinant coordinates prove their
+unique intersection. Separate 1687/1713 and NATP00090 results use this route.
+The uniform impulse model also covers parallel, opposite and zero impulses,
+and `next_arrival_diagonal` proves that the actual central-force recurrence
+uses the same composition. Mechanical Law I/II premises remain explicit in
+the model, 1713's added wording stays local, and NATP00089's hypothesis is
+not relabelled as a historically proved lemma. No completion score changes.
+
+Next within Order 1: prove Lemma III Corollary 4 through its own finite
+enclosures and preceding corollaries, keeping the given-curve premise and
+boundary/perimeter convergence distinct from scalar area or arclength.
+Connect that proof to the constructed general family before any force instance.
+
 ## Verification and reporting, every increment
 
 - The README verification list, at least: `lake build`;

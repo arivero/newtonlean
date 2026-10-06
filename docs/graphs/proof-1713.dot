@@ -1,7 +1,7 @@
 digraph proof-1713 {
   rankdir=LR;
   node [shape=box, style="rounded,filled"];
-  "P1713.Composition" [label="P1713.Composition\nParallelogram composition", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.Composition" [label="P1713.Composition\nParallelogram composition\n3 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.EuclidI40" [label="P1713.EuclidI40\nEuclid I.40, equal triangles on equal\nbases and in the same parallels", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L1" [label="P1713.L1\nUltimate equality from approach closer\nthan any given difference", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L10" [label="P1713.L10\nInitial displacement under finite force", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
@@ -21,7 +21,7 @@ digraph proof-1713 {
   "P1713.Law2" [label="P1713.Law2\nImpressed force and generated motion", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.LawCor5" [label="P1713.LawCor5\nUniform translation leaves relative\nmotions unchanged", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.LawCor6" [label="P1713.LawCor6\nEqual parallel accelerations leave\nrelative motions unchanged", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.P1" [label="P1713.P1\nEqual-time areas from central impulses\nand polygon limit\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.P1" [label="P1713.P1\nEqual-time areas from central impulses\nand polygon limit\n4 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.P1C2" [label="P1713.P1C2\nThe limiting diagonal from two\nequal-time chords passes through the", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.P1C4" [label="P1713.P1C4\nForce comparison by equal-time sagittae", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.P2" [label="P1713.P2\nArea-time proportionality about a fixed\nor uniformly translating point implies", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
