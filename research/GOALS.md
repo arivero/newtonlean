@@ -41,8 +41,9 @@ reconstruction must be named separately.
 
 The four targets are the central-force area law, its converse, relative motion
 and force composition, and uniform circular-force comparison. Missing De Motu
-counterparts are to be reported, not supplied by analogy. Existing M1–M4
-results support this programme but do not discharge it.
+counterparts are to be reported, not supplied by analogy. Retained supporting
+results do not discharge the historical targets; their current boundaries
+and open obligations are consolidated in STATE.md.
 
 ## Instants, intervals and trajectory realization
 
@@ -125,13 +126,15 @@ provenance is checked separately from the source evidence in Markdown/Lean;
 neither an untainted partial theorem nor a dependency comment completes
 Newton's proof.
 
-The selected architecture is now executed in the uncommitted working tree.
-Historical witness sections, elementary/classical/modern library ownership and
-API/source checks are recorded in the migration report. The user requires an
-ultracorrection review before committing the Lean refactor; preserve that hold.
-The user separately authorized committing the Markdown documentation only.
+The selected architecture was committed and pushed as `60180f2` after the
+user released the review hold. Historical witness sections and library
+ownership are authoritative in the current Lean files. The migration note
+records deliberate ownership changes; current verification is in VERIFICATION.md.
 
 The user subsequently authorized removal of the JSON bookkeeping and its
 Python management tools. Maintain source evidence, obligations and editorial
 estimates in the existing Markdown and Lean files, and use Git for history.
-Do not introduce replacement manifests or catalogs in another format.
+Do not introduce replacement manifests or catalogs in another format. The
+remaining Python, generated counts/plots and whole-library interleaving are
+also removed. Keep one state/obligations file and the handoff cited by AGENTS.md;
+Git preserves superseded reports. Render reader Markdown only when needed.

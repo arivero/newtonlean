@@ -1,7 +1,7 @@
 import BarrowLib.Polygon.TimeSubdivision
 
 /-!
-Order 3 remainder (TASKS.md): the strip-area sum of the constant-force polygon.
+Supporting remainder (STATE.md): the strip-area sum of the constant-force polygon.
 For a uniform rational cell `h`, initial velocity `v` and constant accelerative
 force `a`, the end-kick recurrence gives velocity `v_n = v + (n·h)·a` and chord
 `c_n = h·v_n` (the drift of cell `n`).  The two-cell chord triangle

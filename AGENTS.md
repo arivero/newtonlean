@@ -1,11 +1,10 @@
 # Project method
 
-- Current review hold: the 6 October historical-file refactor is deliberately
-  uncommitted at the user's request. Do not commit or push it before the user
-  releases the hold after their ultracorrection review.
-  Markdown and obsolete-path deletions were committed at the user's request.
-  The remaining refactor still needs review before commit or push. The user
-  separately authorized removing all JSON bookkeeping and its Python tools.
+- The user released the review hold on 6 October with “push as it is”. The
+  verified refactor and source-only cleanup were committed and pushed as
+  `60180f2`. Continue with verified increments, preserving unrelated changes.
+  State and open obligations live together in research/STATE.md; the current
+  verification checklist is research/VERIFICATION.md, not a session log.
 
 - User-selected refactor direction, 6 October: one file per historical result,
   with separate edition/witness sections in that file. Each section contains
@@ -51,6 +50,12 @@
   removed too. Recover graphs from current Lean source and compiled dependencies
   with `lake env lean scripts/inspect_graphs.lean`; distinguish source evidence,
   imports and actual formal uses. Keep the archived originals and their hashes.
+  The remaining Python/parser, progress plots, whole-library interleaved
+  reference and rendered PDFs are removed too. Historical Lean files provide
+  the result correspondence; reader Markdown can be rendered on demand.
+  Keep only the handoff named below. Retain the Lean verification harnesses;
+  superseded handoffs, milestone/session reports and checkpoint notes live
+  in Git rather than as a parallel working record.
 
 - Work source-first. Preserve Newton's textual stages separately; never merge
   *De Motu*, 1687, proposed 1694, 1713, or 1726 claims silently.
@@ -63,7 +68,8 @@
 - The approved programme is Book I, Section II, Propositions I–IV in
   De Motu (corresponding arguments, without retrospective numbering), 1687,
   and 1713. See research/GOALS.md. Proposed 1694 and 1726 are supporting
-  comparisons. M1–M4 remain supporting work, not certified complete proofs.
+  comparisons. The former M1–M4 milestones remain supporting work, not
+  certified complete proofs; their reports are retained in Git.
 - Keep the boundary/action-constant hypothesis in a separate diagnostic layer.
   Do not use quantum or later mechanical premises to close historical proofs;
   a failed tactic does not establish a mathematical obstruction.
@@ -71,7 +77,7 @@
   as the machine-readable authority where available.
 - Do not claim a Lean proof until it compiles with the declared Lean/mathlib
   version. The current environment may lack Lean; record that fact explicitly.
-- M1 uses Lean core only. Do not download mathlib or use post-Newtonian
+- The project uses Lean core only. Do not download mathlib or use post-Newtonian
   theorems to fill historical proof gaps. Ratios, geometric constructions,
   and limiting premises must be explicit; name conditional reconstructions
   honestly. Any later dependency expansion requires reconsideration with the user.
@@ -86,13 +92,7 @@
   Do not silently fall back to a v5 model. Run at most one
   subagent at a time, with concise reports; no Astra subagents. This is the
   user's approved resource policy. Do not launch parallel agent work.
-- User-authorized handoff exception: the next bounded task and its commit are
-  assigned to the upgraded Claude Code. This supersedes the old handoff's
-  prohibition on Claude for that task. Claude Code may implement and verify
-  the task itself; the Codex-specific model assignments above do not prevent
-  this handoff. Keep execution sequential and all proof/source constraints.
 - Current handoff: research/HANDOFF-2026-10-06-REWORKED-SOURCES.md.
   The user retired the 4 October handoff as an execution plan after the
   source refactor and bookkeeping cleanup. Preserve its results, but follow
-  the new source-local proof order and carried-forward obligations. The
-  exception above covered the 22 September session's tasks, which are complete.
+  the new source-local proof order and carried-forward obligations.

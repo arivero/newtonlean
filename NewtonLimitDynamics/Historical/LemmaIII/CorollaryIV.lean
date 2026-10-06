@@ -1,4 +1,5 @@
 import ModernLib.Polygon.GeneralForcePolygonCurve
+import ModernLib.Reconstruction.SupportingBoundary
 
 /-! Historical result: lemma_iii_corollary_iv.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
@@ -35,6 +36,20 @@ namespace Principia1687.LemmaIII
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon
 open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveTrace
 
+/-- Modern supporting-line perimeter limit under explicit supporting cells and
+uniform endpoint agreement. The cells are not identified with force polygons. -/
+theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤ T.num)
+    (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
+    (points : Nat → Nat → Point)
+    (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1)))
+    (hpoints : ∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ m, N ≤ m →
+      ∀ k, k ≤ blocks m → CauchyValues.Within (embedPosition (points m k)).val
+        (f (nodeTime T hT m k)).val eps) :
+    BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m))
+      (ImageTrace f) :=
+  ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
+    T hT f hf points cells hpoints
+
 theorem corollary4_chord_reconstruction (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) :
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) :=
@@ -70,6 +85,20 @@ LATIN END NATP00082.par11 -/
 namespace Principia1713.LemmaIII
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon
 open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveTrace
+
+/-- The 1713 witness has the same conditional supporting-line perimeter
+model; its area statement and tangent identification remain open. -/
+theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤ T.num)
+    (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
+    (points : Nat → Nat → Point)
+    (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1)))
+    (hpoints : ∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ m, N ≤ m →
+      ∀ k, k ≤ blocks m → CauchyValues.Within (embedPosition (points m k)).val
+        (f (nodeTime T hT m k)).val eps) :
+    BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m))
+      (ImageTrace f) :=
+  ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
+    T hT f hf points cells hpoints
 
 theorem corollary4_chord_reconstruction (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) :

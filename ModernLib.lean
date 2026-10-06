@@ -1,8 +1,4 @@
 import ModernLib.Comparison.CircleCompare
-import ModernLib.Comparison.Routes
-import ModernLib.Contact.AreaCoefficient
-import ModernLib.Contact.Bounds
-import ModernLib.Contact.FiniteSums
 import ModernLib.Diagnostic.ConstructedHarmonicPotential
 import ModernLib.Diagnostic.DeflectionPotential
 import ModernLib.Diagnostic.InverseCubeAreal

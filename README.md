@@ -1,361 +1,58 @@
 # Newton's changing proof architecture
 
-The [approved goals](research/GOALS.md) target Book I, Section II,
-Propositions I–IV in 1687 and 1713 and their De Motu antecedents, with explicit
-joining, refinement and trajectory-identification obligations. A universal action
-constant is a separate research hypothesis, not a premise of these proofs.
-The [three-stage source map](research/SECTION_II.md) records the actual
-dependencies; the [obligation queue](research/TASKS.md) separates finite
-mechanics, refinement, realization and force identification. Propositions
-I–III each have a source-linked note: [Proposition I](research/PROP_I_REALIZATION.md),
-[Proposition II](research/TASKS.md) and [Proposition III](research/PROP_III.md).
+This repository formalizes Newton's Book I, Section II, Propositions I–IV in
+Lean 4.19.0 core/Std, with no mathlib. De Motu antecedents, the 1687 edition
+and the 1713 edition keep their own statements, proof passages and premises.
+Proposed 1694 and 1726 material serves comparison without supplying earlier
+premises silently.
 
-Current priority is Proposition I, then II, III and IV, retaining all three
-stages. Follow the [current handoff](research/HANDOFF-2026-10-06-REWORKED-SOURCES.md);
-the 4 October construction work order is retired. The [historical-file refactor](research/HISTORICAL_FILE_REFACTOR.md)
-organizes each result around its Latin text and proof, with separate
-elementary, classical and modern support libraries. Following the user's 6 October clarification, the primary proof takes
-an existing trajectory as an explicit postulate and proves its radius-swept
-area law: equal swept areas in equal times. The nonnegative area between
-Newton's polygon and that given trajectory is a separate approximation
-control, whose decay must be proved. Neither area conclusion nor polygon/curve
-agreement is postulated. The verified motion constructions remain supporting
-results. A [conditional given-motion theorem](research/verification/given-trajectory-consistency-2026-10-06.md)
-now derives polygon agreement, the swept-fan law and separate between-path
-content decay from explicit local consistency. Deriving that consistency
-from motion laws and identifying ordinary sector area remain open. Follow the [proof obligations](research/PROP_I_REALIZATION.md) and the
-[construction ledger](research/CAUCHY_REALIZATION.md) and
-[current checkpoint](research/verification/constructed-central-area-2026-10-05.md).
+Start with [the goals](research/GOALS.md),
+[the current handoff](research/HANDOFF-2026-10-06-REWORKED-SOURCES.md) and
+[state and open obligations](research/STATE.md). Proposition I comes first.
+The complete historical proofs remain open; finite, conditional and modern
+results are labelled by their actual scope. Theorem counts and estimated
+percentages are not completion measures.
 
-Source-linked reconstructions of quadratic deflection, central-impulse polygons,
-contact-area bounds and proposed revisions, with separate De Motu, 1687,
-proposed-1694, 1713 and 1726 witnesses. Lean 4.19.0 core/Std only; no mathlib.
+## Historical files and libraries
 
-The supporting M1–M4 milestones remain **incomplete**. Geometric, mechanical
-and manuscript gaps remain explicit in
-[research state](research/STATE.md), [M1](research/M1.md), [M2](research/M2.md),
-[M3](research/M3.md), and [M4](research/M4.md). Historical results are distinct
-from conditional reconstructions and coordinate consistency examples.
+[Historical results](NewtonLimitDynamics/Historical/) have one file per theorem,
+lemma, law or corollary, with separate witness sections. Each section contains
+exact Latin, source path/hash/URL, proof correspondence, definitions and checked
+results. Newton Project TEI in docs/m1 and docs/m4 is the transcription authority;
+see [source coverage](research/sources.md).
 
-Evidence lives in the archived TEI/XML, [source maps](research/SECTION_II.md),
-[edition observations](research/M4.md) and the Latin/proof correspondence in
-each historical Lean file. Git records
-changes; there are no parallel JSON catalogs or ledgers.
+BarrowLib contains elementary arithmetic, finite geometry and explicit
+exhaustion arguments. ClassicsLib contains source-identified classical
+mathematics, currently Euclidean coordinate special cases. ModernLib contains
+completion, modern motion constructions and diagnostics. Primary historical
+proofs use elementary/classical support and untainted historical results.
+Anachronical proofs occupy a section below five full lines of `=` and
+`ANACHRONICAL PROOFS`. Modern use taints downstream types and proofs, including
+private helpers and uses across files. An import alone does not classify every
+declaration in a file.
 
-## Library layout
+The trajectory is given explicitly in the primary route, with mechanical laws
+and regularity separately stated. Proposition I must prove swept sector areas
+proportional to time. Nonnegative area between the curve and Newton's polygon
+is separate approximation control. Neither area conclusion nor polygon/curve
+agreement is included in existence.
 
-`NewtonLimitDynamics/Historical/` has one file per Newton result, with separate
-Latin and formalization sections for its witnesses. Each file records its
-source anchors and proof status. BarrowLib contains elementary
-support, ClassicsLib the source-identified Euclidean coordinate special cases,
-and ModernLib the completions, modern motion constructions and diagnostics.
-Primary proofs use elementary/classical support. Anachronical proofs in the
-same historical file appear below a five-line `=` header and may use ModernLib.
-Using an anachronical result taints a downstream proof transitively; compiled
-types and proof bodies determine this, rather than file imports alone.
-The current partial proofs still do not derive Newton's cited historical
-dependency chain; those gaps remain open. All 2,252 public declarations are
-retained through nine ownership renames recorded in the
-[refactor note](research/HISTORICAL_FILE_REFACTOR.md). The Lean roots and imports
-show current module ownership; Git records the old paths.
-The Lean refactor is currently uncommitted for the user's ultracorrection review.
-Markdown documentation is authorized for a separate commit.
+The retained general construction proves local interval fan proportionality
+and between-path content decay under regional calibrated conditions. A given-
+trajectory theorem derives the same conclusions under explicit local consistency.
+Ordinary swept-sector identification and the historical limiting proof remain
+open. The next increment is Lemma I, then the invoked Lemmas II–III and corollary
+chain. Kepler is a later application of the general Proposition I proof.
 
-## Progress
-
-The declaration counts across the four libraries are obtained from the Lean
-sources and Git history; the plots' values are in
-[progress history](docs/progress/history.csv). The default build and all four explicit library targets pass.
-The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
-foundation work, compatibility overhead and biases in those heuristic counts;
-they do not measure discharged obligations.
-They construct acceleration values, bound actual sampled polygons and derive
-mesh-uniform refinement control and continuous local consistency. General
-Lipschitz central samples now have constructed fixed-time motion names/values
-on a calibrated window. GeneralForceGrowth derives their actual/coarse/shadow
-force bounds from the initial state and Lipschitz data on a computed finite
-ball. RegionConfinement derives actual/coarse and both shadow membership
-before sampling on a ball or annulus. The existing construction, completed
-force and secants now use those regional certificates; gamma_band proves the
-closed inner and outer curve bounds. A proper annular harmonic control tests
-the interface. The general Proposition I proof comes before the actual Euclidean Kepler
-application, as the user clarified on 5 October evening. The harmonic instance equals the old endpoint value.
-Elementary geometry stays in BarrowLib; Cauchy completions and binary-time values now live in ModernLib.
-Harmonic E/G agreement at every dyadic rational time and whole-edge convergence are
-proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
-Actual integer-subdivision accumulation proves the dyadic agreement, including
-the three-tick completed values whose finite schedules differ. GeneralForceTime now constructs a continuous local binary-time state/position
-map from actual central samples, with uniform prefix convergence, initial/zero
-cases and full-endpoint E/G agreement. Its harmonic instance derives the extra
-actual-grid bounds and equals the old maps. Kepler sampling, gluing and
-general interior-time E/G remain open.
-GeneralForcePolygonCurve now constructs the general coarse polygon quotient
-and proves uniform whole-edge error (T*V+A)/2^m, reusing the same finite-vertex
-alias proofs as the harmonic map. GeneralForcePathRegion/Content now construct
-the actual general matched region and its cover-independent nonnegative
-outer-content scalar, with bound 4*C²/2^m and geometric decay. MatchedRegion
-shares cell-closure and connector geometry with the retained harmonic region;
-the general harmonic specialization has exactly its old region and content.
-GeneralForceSecants now identifies constructed velocity as the uniform
-limit of completed bracketing dyadic position secants; the harmonic curve is
-a proved corollary. GeneralForceAccelerationSecants now proves uniform
-convergence of completed dyadic velocity secants to the force at the constructed
-position, with the retained harmonic curve as a corollary. Unrestricted-rate
-and ordinary-area identification remain separate. CompletedForce constructs the force at
-completed positions and bounds actual prefix force samples uniformly by
-(A*L+3*E0)/2^j, independently of the force precision scale. Its harmonic
-specialization equals completed scaling by -w. Explicit positive time
-calibration now gives weighted finite bounds and dimensionless windows, with
-proved Cauchy-gauge and time-unit invariance; it fixes no universal constant.
-QuadraticEstimates now derives finite second-order position control with the
-explicit half-mesh bias. Actual parallel-force endpoint Cauchy values have the
-exact quadratic formula at every nonnegative rational time. The Galilean
-potential and tangent-triangle relations apply to those constructed endpoints,
-with both coefficients halved. GeneralForceQuadraticSecants now derives the
-normalized half-coefficient departure criterion on the actual general curve:
-2*(Delta_x/H-v_left)/H converges uniformly to completed force, with error
-H*L*(2V+K), including the final boundary. It reuses the existing completed
-secants; the harmonic curve is a corollary. ConstructedHarmonicPotential now evaluates the harmonic polynomial potential
-on the actual completed curve and its tangent continuation. PairingValues
-shares one derived Cauchy/representative proof for dot products and determinants;
-QuadraticPotentialValues composes it with existing completed secants. The finite
-work identity identifies the polynomial with the harmonic force. Actual node
-bounds and the shared finite second-order estimate give a uniform O(H) bound:
-Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
-including the last one. No potential-step asymptotic is assumed. General radial
-potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
-remain open. This law test receives no extra completion score.
-GeneralForceTangentTriangle now constructs the signed doubled triangle between
-the actual left curve point, its tangent continuation and the actual right
-curve point. TangentTriangleValues proves its rational embedding and exact
-completed identity: triangle/H³ equals half the determinant of velocity and
-normalized second departure. The proved second-order bound and actual velocity
-caps give error H*L*V² against det(v_left,a_left)/2, uniformly over every dyadic
-cell including the last. The signed doubled triangle is distinct from unsigned
-lobe area and matched-region D_mesh; their geometric identification and general
-radial potential steps remain open. These supporting quantity results receive
-no separate completion credit.
-
-GeneralForceArea now constructs swept area from triangle fans of actual points
-on the general local curve and proves |ell|*t/2 (ell*t/2 oriented). The actual
-completed between-path content has a grounded enclosure and vanishing proof.
-Separate De Motu witness, 1687 and 1713 wrappers retain modern
-regional-Lipschitz/window premises. Arbitrary local time intervals now have
-actual unsigned curve-fan area |ell|*|t1-t0|/2, with address independence,
-zero/reversal controls and equal areas for equal elapsed lengths. The estimate
-remains about 40% overall and 66% for Proposition I.
-Unsigned swept area counts multiplicity;
-ordinary sector-union content and the historical limiting passage remain open.
-The [Latin proof route](research/PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route)
-traces Proposition I through the cited laws and the proofs of Lemmas I–III.
-The Laws' Corollary 1 now has a finite rational proof of transverse invariance
-and unique parallelogram intersection, with separate source witnesses and an
-application to the actual central-force recurrence. Lemma III Corollary 4's
-chord-boundary case now has two-sided trace convergence, also derived for the
-actual force polygons. The full enclosure/tangent proof remains open; the
-completion estimate is unchanged. See the
-[composition checkpoint](research/verification/laws-corollary1-2026-10-06.md) and
-[boundary checkpoint](research/verification/lemma3-chord-boundaries-2026-10-06.md).
-The supporting-line branch now derives finite crossings and endpoint rectangle
-bounds, then proves two-sided convergence of the entire closed joined boundary
-under explicit monotone line data, convergent finite samples and a given-curve
-modulus. Coincident lines and reversed coordinate orientations are included.
-Actual tangent identification and the full curvilinear-area enclosure remain
-open. See the
-[supporting-boundary checkpoint](research/verification/lemma3-supporting-boundaries-2026-10-06.md).
-Lower/upper rectangle point sets now have proved enclosure of a given
-monotone graph and its completed closure. Their actual maximum width is
-constructed, and their finite side-product sum gap has both the equal-width
-identity and unequal-width bound, followed by exhaustion. Ordinary union-area
-and the ultimate curvilinear-area ratio remain open. See the
-[rectangle checkpoint](research/verification/lemma2-3-monotone-rectangles-2026-10-06.md).
-The completion estimate is unchanged by these supporting increments.
-BinaryLift now shares the two-input completion kit used by pairings, secants
-and area sums; this consolidation receives no completion credit.
-
-Historical snapshot at `507d041` (4 October 2026, 68 commits). Regenerate with
-`python3 scripts/progress_stats.py`; the per-commit numbers behind every plot
-are in [history.csv](docs/progress/history.csv).
-
-- **793 library theorems, 501 of them substantive**, and 414 definitions in
-  10,709 lines of Lean. Both build targets pass, and no commit in the history
-  contains `sorry`. Another 13 theorems are verification harnesses in
-  `research/verification/`.
-- The classification is a heuristic over statements, defined in
-  `scripts/progress_stats.py`. Of the 793, 174 are arithmetic plumbing (only
-  fraction/point algebra, determinants, constants or generic list sums), 105
-  check specific numbers (counterexamples count as substantive) and 13 repeat
-  an earlier statement, mostly the deliberate per-edition restatements of
-  one finite result.
-- Until 4 October the history was almost purely additive: 845 theorems added,
-  24 modified and 2 deleted. Commit `507d041` then merged 50 duplicated helper
-  theorems (`add_equiv` alone had 10 private copies) into shared lemmas in
-  `Common/RationalMagnitudes.lean`, `TimeSubdivision` and `PointBounds`. The
-  total fell from 843 to 793 while the substantive count stayed at 501.
-- Growth is recent and concentrated. The 3–4 October session added 314 of the
-  501 substantive theorems, and 489 of all 793 (62%) serve the Proposition I
-  realization.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/theorems-total-dark.svg">
-  <img alt="Cumulative theorems, substantive theorems and definitions per commit" src="docs/progress/theorems-total.svg">
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/theorems-churn-dark.svg">
-  <img alt="Theorems added, modified and deleted per commit" src="docs/progress/theorems-churn.svg">
-</picture>
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/theorems-by-area-dark.svg">
-  <img alt="Cumulative theorems by proof obligation" src="docs/progress/theorems-by-area.svg">
-</picture>
-
-**Estimated completion: about 40% (36–47% under alternative weightings), reassessed 5 October.**
-The 6 October change to a postulated existing trajectory adds no proof credit.
-These figures retain the earlier construction-based estimate; they are not
-a new percentage of the revised given-trajectory proof.
-This figure is an editorial judgement and certifies nothing. Each proposition
-is scored on four milestones weighted by expected difficulty: source map (10%),
-finite step in Lean (20%), limiting passage or realization (45%), and area and
-force identification (25%). Propositions I–IV carry 22.5% each and the
-action-hypothesis assessment 10%. The table and discussion below retain the
-scores and their evidence. Update this Markdown when reassessing them;
-the plot reads these estimates directly.
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="docs/progress/completion-dark.svg">
-  <img alt="Editorial completion estimate per target" src="docs/progress/completion.svg">
-</picture>
-
-| Target | Source map | Finite step | Limit / realization | Identification | Estimate |
-| --- | --- | --- | --- | --- | --- |
-| Prop. I | done | done | harmonic and general Lipschitz local time maps | actual curve-fan swept-area law and grounded outer content; dyadic velocity/force secants | 66% |
-| Prop. II | done | done | stated | open | 32% |
-| Prop. III | done | done | open | open | 30% |
-| Prop. IV | done | finite core | routes documented | open | 30% |
-| Action assessment | | | | | 40% |
-
-Under the stricter [completion ledger](research/CONTINUATION.md), no target is
-discharged yet. Source maps and finite steps are essentially finished. The
-increase from 34% credits whole-edge convergence, agreement of the two harmonic
-constructions, calibrated general Lipschitz endpoint and local binary-time maps, and Arg007's exact
-finite potential identities, harmonic and general matched-region outer content and
-constructed dyadic velocity/force-secants identification. The new
-GeneralForceArea.constructed_area_law raises Proposition I's identification
-score from 0.35 to 0.55 for actual curve-fan area and grounded content
-exhaustion. It
-gives no extra credit for theorem count,
-helper consolidation or foundation migration. Kepler sampling and gluing,
-ordinary sector-union area identification and P5 unrestricted-rate identification
-remain open, as do the limiting passages of Propositions II–IV.
-The harmonic time map still uses a short window; the general time map names
-its positive calibration, regional Lipschitz comparison, band force bound
-and geometric time budgets explicitly. It constructs BinaryTime rather than assuming a real
-trajectory. General interior-time E/G, precision/partition independence and
-merely continuous-force existence/uniqueness also remain open.
-Modern reconstructions keep their premises separate from De Motu, 1687 and
-1713, so this estimate does not certify any historical proposition.
-
-## Working hypothesis: what difficulties might Newton have recognized?
-
-**Educated guess, not an established account of Newton's intentions.** Our
-best-supported reading is that he recognized restrictions and ambiguities in
-passing between geometric approximations and force-generated motion. The
-sources inspected do not establish that he discovered an internal contradiction
-in his mechanics. The following ranking separates textual evidence from our
-reconstruction; it adds no historical proof-dependency edge.
-
-1. **Quadratic contact needs restricted geometry — strong textual evidence.**
-   The 1687 Lemma XI scholium explicitly discusses departures of different
-   orders and restricts the curvature; 1713 puts a curvature condition in the
-   lemma's statement. Thus Newton demonstrably recognized the danger of
-   applying a quadratic comparison beyond its permitted contact geometry.
-   This qualification already exists in 1687, so it is not evidence of a
-   contradiction first discovered between editions.
-   Sources: [1687, NATP00077 par39](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par39),
-   [1713, NATP00082 par36](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par36).
-
-2. **Different measures of departure need a justified correspondence — plausible
-   interpretation of the revisions.** The later organization of Proposition VI
-   emphasizes a sagitta route, but retains Lemma X as an alternative. It is
-   plausible that Newton wanted to secure or clarify the relation between
-   generated displacement and geometric departure. Our matched-duration
-   constant-force calculation shows why their calibration matters; it does
-   not demonstrate that Newton made that numerical error or abandoned the
-   earlier argument. Proposition VI is supporting comparison material, outside
-   the primary I–IV target.
-   Sources: [1713, NATP00082 par89–90](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par89),
-   [edition-local comparison](research/M4.md#verified-actual-edition-changes),
-   [checked special case](research/M4.md#checked-route-comparison).
-
-3. **Approximating a given curve and constructing a motion are different
-   obligations.** The primary proof now postulates trajectory existence, by
-   the user's 6 October convention. The construction question is retained
-   as supporting research, with weak evidence about Newton's own diagnosis. Lemmas II–III begin with geometric figures; Proposition I
-   invokes Lemma III corollary 4 when passing from impulsive polygons to
-   uninterrupted action. The supporting construction question asks whether the permitted premises
-   also secure a coherent time-to-position map for those polygons.
-   The inspected passages do not document Newton identifying this as an
-   existence gap. Their retention in 1713 also prevents treating the later
-   revisions as evidence that he explicitly repaired it.
-   Sources: [1687, NATP00077 par3–10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par3),
-   [1687 Proposition I, par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45),
-   [1713 Proposition I, par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51).
-
-4. **Boundaries in every dimension, the boundary theorem in only one — firm
-   chronology; the concept rests on one struck-out draft definition.** In the
-   draft *De motu corporum in mediis regulariter cedentibus* (late 1684/5),
-   Newton wrote and then struck through a definition of moments as the
-   generating or altering principles of quantities in continuous flux: present
-   time of past and future, centripetal force of impetus, the point of a line,
-   the line of a surface, the surface of a solid. We see him weighing the
-   notion and withdrawing it; it is absent from the other stored De Motu
-   witnesses, the 1687 and 1713 definitions and Book I of all three editions.
-   The theorem relating a region to its boundary was his
-   only in one dimension, as Barrow's theorem (1670). Its higher-dimensional
-   forms, which need oriented surfaces and volumes, came later: Green (1828),
-   Gauss–Ostrogradsky (1810s–1820s), Kelvin–Stokes (1850s).
-   Source: [NATP00091 par24, deleted Def. 16](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00091#par24).
-
-The finite results constrain the third conjecture. Under our stated constant-force
-impulse schedule, subdivision changes endpoints, but the exact position
-residual is `(Σ d_i²/2)*a`, with coefficient bounded by half the largest cell
-duration times elapsed time. The harmonic construction now derives geometric
-Cauchy tails for actual prefixes of one dyadic polygon family and realizes
-their state values in an explicitly proved quotient. A continuous state map
-now descends to the constructed binary-time domain; its planar projection,
-coordinate squares and sample position separation are proved. The harmonic
-coarse polygon map and between-path outer content are now constructed.
-Globally compared Lipschitz central samples also have a continuous local map
-and completed force values, under named sample bounds. Mechanical identification
-and the full general central-force programme remain open.
-See [the constructed partition comparison](research/PARTITION_CONTROL.md).
-
-**Zero-force support.** The [first inertial suite](research/ZERO_FORCE.md)
-now derives rational-time rectilinear motion, exact subdivision independence,
-restart and within-cell positions from the recurrence, including rest.
-Collinear paths can have zero geometric defect while different
-time parametrizations describe different motions; therefore zero area defect
-alone is insufficient identifying data. The successful finite inertial
-construction narrows the conjecture: no joining or subdivision obstruction
-appears here once the initial position, velocity and elapsed time are fixed.
-General geometric defect and full Euclidean-time claims remain separate.
-The explicit inertial small-time bound is now implemented: a positive rational
-time radius controls both displacement coordinates for any positive rational
-tolerance, uniformly in base time. See [the bound](research/ZERO_FORCE.md#small-time-estimate).
-Signed inertial defect cancellation is also checked: any finite closed walk of
-rational-time inertial samples has zero signed doubled determinant sum. See
-[general finite signed defect](research/ZERO_FORCE.md#general-finite-signed-defect).
-No result so far establishes a universal nonzero action constant; candidate
-arguments and their verdicts are kept in [action-arguments](research/action-arguments/README.md).
+The [Latin proof route](research/PROP_I_REALIZATION.md),
+[two-area distinction](research/PROP_I_PATH_DEFECT.md),
+[construction](research/CAUCHY_REALIZATION.md) and
+[dependency diagrams](research/figures.md) give focused details. Diagrams derive
+from current historical source comments and compiled declarations. The separate
+[action arguments](research/action-arguments/README.md) supply no historical
+premises or assumed universal constant.
 
 ## Verification
-
-The JSON catalog, graph and migration-check pipelines were removed at the
-user's request on 6 October. Source evidence and proof obligations are
-maintained in Markdown and historical Lean comments, with Git for history.
-Lake's dependency lockfile is build metadata and remains.
 
 ```sh
 lake build
@@ -365,28 +62,25 @@ lake build ModernLib
 lake build NewtonLimitDynamics
 lake env lean research/CheckReferences.lean
 lake env lean scripts/inspect_graphs.lean
-python3 scripts/test_lean_declarations.py
-python3 scripts/progress_stats.py
 sha256sum -c docs/SHA256SUMS
 git diff HEAD --check
 ```
 
-`CheckReferences.lean` inspects the compiled project constants directly. It
-rejects project axioms and `sorryAx`, and propagates anachronical dependency
-through types and stored proof/definition bodies. Historical section ownership
-comes from the source positions and five-line header, without a manifest.
-Only Lean's standard `propext`, `Classical.choice` and `Quot.sound` are permitted.
-This establishes neither a supplied premise nor Newton's unproved limit step.
+Run the retained Lean scope harnesses described in [verification](research/VERIFICATION.md).
+Passing checks certify the stated Lean results without discharging supplied
+historical premises. Git retains previous tools, figures and session records;
+there are no JSON catalogs, Python bookkeeping scripts or completion plots.
 
-For changed historical results, read the corresponding archived TEI and check
-Latin, witness, source hash/URL and the stated dependencies in that result's
-Lean documentation. Run the relevant Lean scope harnesses under
-`research/verification/`. Keep stages and explicit premises separate.
+Readable source-specific notes remain in Markdown. Render them on demand:
 
-The progress generator reads Git and this README. The reading-document generator
-reads Markdown and Lean source comments directly:
-`python3 scripts/principia_lean_interleave.py WORKTREE`. Its placement is
-editorial, not evidence of a proof dependency. Graph inspection reads the
-current historical source comments and compiled Lean modules, separating
-textual evidence, module imports and formal uses. See [figures](research/figures.md) and the
-[verification record](research/VERIFICATION.md) for scope and limitations.
+```sh
+pandoc docs/reference/principia-1687-modern.md -o /tmp/principia-1687-modern.pdf \
+  --pdf-engine=xelatex -V mainfont='DejaVu Serif' \
+  -V monofont='DejaVu Sans Mono' -V mathfont='DejaVu Math TeX Gyre' \
+  --toc --toc-depth=2
+```
+
+The reader renderings are aids; original sources and historical Lean witness
+sections remain authoritative. The [theorem-growth analysis](research/THEOREM_PROLIFERATION.md)
+explains why infrastructure and interface counts do not measure discharged
+proof obligations.

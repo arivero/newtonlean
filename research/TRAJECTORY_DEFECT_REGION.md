@@ -97,4 +97,4 @@ Unrestricted differentiation and the leading curved potential step remain open. 
 ODE, measure or quantum premise closes them.
 
 Verification details are in the
-[content checkpoint](verification/constructed-path-content-2026-10-05.md).
+[content checkpoint](VERIFICATION.md).

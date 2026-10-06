@@ -5,10 +5,11 @@ handoff is retired as an execution plan; its completed results and outstanding
 questions are preserved below and in Git. Do not resume its task letters or
 old file paths as an independent queue. Read AGENTS.md and GOALS.md first.
 
-The historical-file refactor and cleanup are awaiting review. Keep them staged
-for the user's ultracorrection tool; do not commit or push until the user
-releases that hold. Earlier Markdown and obsolete-path commits do not release
-it. This handoff introduces no new mathematical result or completion credit.
+The user released the review hold with “push as it is”; the verified refactor
+and source-only cleanup are pushed as `60180f2`. The further consolidation
+removes Python/plots, whole-library interleaving and superseded session records.
+Only this handoff remains active. Commit verified increments after the current
+checks; the cleanup itself adds no historical proof-completion credit.
 
 ## Goal and proof boundary
 
@@ -58,8 +59,8 @@ proof correspondence and dependency evidence:
 Use the archived TEI in docs/m1 and docs/m4 as the transcription authority.
 The five removed generated research reports/indexes are not live sources.
 sources.md retains archive provenance; SHA256SUMS checks retained originals.
-The [realization note](PROP_I_REALIZATION.md) and dated scope checkpoints
-explain the retained construction results. The [migration note](HISTORICAL_FILE_REFACTOR.md)
+The [realization note](PROP_I_REALIZATION.md), [STATE.md](STATE.md) and retained
+Lean scope harnesses explain the current boundaries. The [migration note](HISTORICAL_FILE_REFACTOR.md)
 records the library boundaries and nine ownership corrections.
 
 `lake env lean scripts/inspect_graphs.lean` recovers diagrams in figures.md
@@ -158,24 +159,33 @@ Do not rebuild or discard the verified construction:
   action/potential investigations and former review housekeeping do not
   supersede the historical proof order. No universal constant is assumed.
 
-The dated verification notes retain former API/source checks and their stated
-limits. Their retired JSON/Python command names describe history, not commands
-to rerun. Git, maintained Markdown and historical Lean files are authoritative;
-do not introduce replacement bookkeeping formats.
+Four root-only Contact/comparison modules were retired: Bounds, FiniteSums,
+AreaCoefficient and Comparison.Routes. Their conditional coefficient/contact
+results are preserved in Git rather than represented as live APIs. CircleCompare,
+Polygon.Contact, diagnostics, harmonic specializations and active construction
+remain. Given-motion and combined rectangle/supporting-boundary modules now
+have real applications in the anachronical sections of AreaLaw, LemmaIII and
+LemmaIII/CorollaryIV. These applications neither identify ordinary sector area
+nor complete the historical chain.
+
+Former API/source checks and checkpoint notes are preserved in Git. Use the
+one short VERIFICATION.md and the retained Lean harnesses. Git, maintained
+Markdown and historical Lean files are authoritative; do not introduce
+replacement bookkeeping formats or count-based completion metrics.
 
 ## Verification and handoff discipline
 
 Run the current README checklist: default build and all four library targets,
-direct compiled axiom/taint inspection, graph inspection, declaration-reader
-controls, Git-based progress generation, archive hashes and whitespace checks.
+direct compiled axiom/taint inspection, graph inspection, archive hashes and
+whitespace checks.
 For touched proofs, run the applicable existing Lean scope harnesses under
-research/verification. If the reading artifact changes, regenerate it from
-WORKTREE, check verbatim coverage and inspect the regenerated PDF.
+research/verification. Read historical statements/proofs in their owning files.
+Reader Markdown can be rendered with pandoc on demand; generated whole-library
+documents and checked-in reader PDFs are removed.
 
 Use Lean 4.19 core/Std only, no mathlib, no sorry and no project axioms.
 Delegated work remains sequential v6 Sol/Luna under AGENTS.md, without Astra.
-Preserve unrelated worktree changes. Stage reviewable changes, but keep the
-current commit/push hold. Once the user releases it, commit only verified
-increments under the requested author identity. Update maintained status and
-scope notes where the result changes them. Completion estimates change only
-with new mathematical evidence; this handoff and cleanup add none.
+Preserve unrelated worktree changes. Commit only verified increments under
+the requested Sol6.1 identity and push as authorized. Update STATE.md and the
+owning source/scope notes when the result changes them. Measure progress by
+discharged historical obligations, not counts, relocation or wrapper names.

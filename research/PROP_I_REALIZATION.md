@@ -1,250 +1,8 @@
 # Proposition I realization: premises and checked finite steps
 
-## Historical-file migration, 6 October
-
-The uncommitted refactor places one Newton result in each historical file,
-with exact diplomatic Latin and separate witness formalizations. Elementary
-support remains in BarrowLib, classical coordinate special cases in ClassicsLib,
-and completed/modern motion work in ModernLib. Qualified names and theorem
-statements are preserved; module paths intentionally change. See the
-[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october)
-and [verification](verification/historical-file-refactor-2026-10-06.md).
-This changes organization, not historical proof-completion credit.
-
-## Given-motion consistency bridge, 6 October
-
-[The consistency checkpoint](verification/given-trajectory-consistency-2026-10-06.md)
-now proves a conditional theorem for an independently supplied state curve.
-Finite stability accumulates its rational samples' one-cell mechanical
-residuals; a shrinking scalar local-source budget and representation of the
-supplied curve then prove equality with the retained polygon limit. The
-all-interval swept-fan law follows, and the actual matched-region outer
-content tends to zero in a separate theorem. Neither agreement nor either
-area conclusion is assumed. Local consistency is an additional explicit
-premise, not part of trajectory existence. Deriving it from independently
-stated motion laws, identifying ordinary swept-sector area and certifying
-Newton's stage-local limiting proofs remain open. This adds no historical
-completion credit and does not release force-specific applications.
-
-
-## Primary proof convention, 6 October
-
-The user now authorizes an existing trajectory as an explicit postulate.
-In Lean this is the given curve parameter, with mechanical and regularity
-premises stated separately. Existence is assumed in this route, not credited
-as proved. The earlier trajectory constructions remain checked supporting
-results; they are no longer a prerequisite for the primary historical proof.
-
-(A) Proposition I's goal is swept sector area proportional to elapsed time,
-hence equal swept areas in equal times. `SweptArea.Proportional` states the
-intrinsic curve-fan version for a given trajectory, and
-`GeneralForceArea.proportional_swept_area` supplies the retained constructive
-instance. (B) The nonnegative area between Newton's polygon and the given
-trajectory is a separate approximation control. Proving (B) tends to zero
-helps justify the limiting passage; it is not the area law. Neither (A),
-(B), nor convergence to the supplied trajectory belongs in the existence
-postulate. Equal sector sums do not establish (B).
-
-This is a user-authorized editorial interpretation of the proof convention,
-not an explicit new axiom quoted from Newton. The Lean parameter introduces
-no global `axiom`. Ordinary sector-area identification, the mechanical
-polygon-to-given-curve bridge, and the invoked lemma proofs remain obligations.
-See [trajectory-postulate checkpoint](verification/trajectory-postulate-2026-10-06.md).
-The following construction record is retained as supporting work.
-
-A.6 now uses regional Conditions throughout the existing construction.
-The finite frame records a sample bound B on a coordinate band, the small-time
-budgets r0*V<=|ell| and |x0|+T*V<=R0, and that this band lies in the oracle
-region; V=|v0|+T*B. One partial-time invariant derives actual/coarse and both
-shadow membership before sampling, including the first shadow kick. Endpoint,
-prefix, time, polygon, region/content and secant results use these derived
-certificates. No membership trace or whole-plane force premise is supplied.
-
-SampledValues and CompletedForce now operate on values with a certified
-regional representative. Representative independence is proved before choosing
-that name; an equivalent arbitrary name need not stay inside the region.
-GeneralForceTime.gamma_band passes both radii to the constructed curve: the
-upper closed-ball bound holds, and any closed ball containing the position
-has radius at least r0. These are coordinate L1 bounds, not an inverse-square
-law. The harmonic instance retains its True region and old public names.
-The actual Euclidean Kepler sampling instance remains within A.6, after the
-general Proposition I proof, as the user clarified on 5 October evening.
-GeneralForceArea now constructs swept area from fans of actual curve nodes
-and proves area = |ell|*t/2 (or ell*t/2 oriented) on the existing local
-regional Lipschitz curve. The actual completed between-path content now has
-a grounded PolygonTrajectoryEnclosure and Vanishes instance; no enclosure or
-area-limit hypothesis is supplied. BinaryLift shares the two-input completion
-kit before the new area operation is built. Separate De Motu witness, 1687 and
-1713 wrappers remain modern reconstructions, with planarity built into the
-model. Unsigned swept area counts multiplicity; ordinary sector-union content,
-unrestricted force/rate identification and the historical limiting passage
-remain separate. See the [curve-area checkpoint](verification/constructed-central-area-2026-10-05.md)
-and the [Latin proof route](PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route).
-
-`GeneralForceArea.constructed_interval_area_law` now extends that conclusion
-to every pair of times in the same local domain: actual unsigned interval
-fans converge to `abs(ell)*abs(t1-t0)/2`. Address independence, uniqueness,
-endpoint reversal, zero-length intervals and equal areas for equal elapsed
-lengths are proved; adjacent completed fans compose by addition. See the
-[interval checkpoint](verification/constructed-area-intervals-2026-10-06.md).
-The Laws' Corollary 1 now has a checked finite rational proof route:
-`ImpulseComposition.uniform_endpoint_lines` derives both transverse endpoint
-constraints without using the diagonal theorem; `Parallelogram.intersection_unique`
-then proves the opposite corner. The separate 1687, 1713 and NATP00090
-reconstructions follow that route. Direct impulse composition includes
-parallel/opposite/zero cases and `next_arrival_diagonal` connects it to the
-actual central-force recurrence. Directed additive velocity changes and
-subsequent uniform motion remain explicit mechanical model premises. Only
-1713 explicitly states impulses at A and cites Laws II/I in this proof;
-NATP00089's composition assertion remains a hypothesis. See the
-[composition checkpoint](verification/laws-corollary1-2026-10-06.md).
-Lemma III Corollary 4's chord-boundary component is now proved for a given
-uniformly controlled curve, including every completed point of each closed
-chord and both trace directions. `constructed_uniform_curve` derives that
-modulus for the actual general motion; `constructed_chord_boundary_limit`
-and `constructed_polygon_boundary_limit` prove the inscribed-chord and actual
-force-polygon limits separately. The source graph now traces the preceding
-corollaries, with distinct De Motu witnesses and printed editions. See the
-[boundary checkpoint](verification/lemma3-chord-boundaries-2026-10-06.md).
-The supporting-line boundary branch now constructs finite meetings from
-support inequalities, derives their endpoint rectangle, and controls every
-completed point of both joined segments. With convergent finite samples of a
-given uniformly controlled curve, shrinking maximum cell spans give a
-proved two-sided boundary limit. Coincident lines and both coordinate
-orientations are included. The 1687 and 1713 wrappers remain separate; actual
-tangent identification, vertical tangent patches and the full curvilinear-area
-enclosure proof remain open. See the
-[supporting-boundary checkpoint](verification/lemma3-supporting-boundaries-2026-10-06.md).
-The monotone-rectangle increment now derives lower/upper rectangle-set
-enclosure of a fixed given graph, including all completed closure points,
-and constructs the largest actual cell width. It proves the exact equal-width
-rectangle-sum gap and the unequal-width bound by maximum width × total height,
-then exhausts that derived gap. Endpoint aliases and zero widths are included.
-This connects finite geometry to the rectangle sums; ordinary union-area
-identification and the ultimate curvilinear-area ratio remain open. See the
-[rectangle checkpoint](verification/lemma2-3-monotone-rectangles-2026-10-06.md).
-No arclength theorem or completion-score increase is added; force-specific
-applications remain held.
-
-GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
-With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
-and its force bound is B=L*R+E. CalibratedGrowth.driftCap_budget proves
-|x0|+T*(|v0|+T*B)<=R directly from the existing calibrated window. This closes
-the geometric budget before using regional force growth; the shared invariant
-then derives every actual/coarse/shadow sample bound. Data depends on the
-initial state and precision scale and only requires the oracle region to
-contain that finite ball. The length cap retains positive time-unit invariance.
-Singular laws use the annular Conditions constructor. No completion score or
-historical proof is added by this interface repair.
-
-TASKS.md order 4. This note identifies, stage by stage, what Proposition I
-asserts, what its cited dependencies supply, and which further premises a
-realization of the motion needs for a **varying** central force. Lean results
-are modern rational-coordinate reconstructions (`modern_reconstruction`),
-not historical proofs.
-
-The [theorem-growth study](THEOREM_PROLIFERATION.md) separates implementation
-inventory from discharged obligations. PolygonValues now shares the finite polygon alias/joining proof, and
-GeneralForcePolygonCurve constructs the general whole-edge map;
-the historical P1–P5 boundaries below stay unchanged.
-
-The 4 October handoff's [foundation inventory](BARROWLIB_BOUNDARY.md) is
-implemented for its minimal bootstrap. BarrowLib's generic finite triangular
-maps now have actual iteration bounds, cross-map perturbation (including
-sampling error E), local two-half/full-cell estimates and derived finite
-mesh-uniform accumulation in the retained τ₀=1 gauge under T(1+L) ≤ 1/2. Global-contract foundation names wrap shared pointwise estimates;
-the regional Newton clients certify only the actual comparisons used. [ForceClasses](GENERAL_FORCE_DESIGN.md)
-constructs acceleration values, connects bounded iterates to actual Newton
-schedules, and derives continuous-force local consistency from a modulus.
-Harmonic and parallel fields remain instances. GeneralForceEndpoint now
-constructs fixed-time endpoint Cauchy names/values from actual Lipschitz central
-sample schedules, with derived geometric precision and adjacent error. Its
-premises are regional force comparison, a calibrated window and a band
-force bound with geometric time budgets; every actual/shadow bound is derived. Harmonic force
-bounds are derived on its short family, and the resulting general value equals
-the old harmonic endpoint value. GeneralForcePrefix/GeneralForceTime now
-construct a continuous local binary-time state/position map with uniform prefix
-convergence, address independence, initial/zero values and full-endpoint E/G
-agreement. The harmonic map is an exact corollary with all its bounds derived.
-Kepler sampling, restart/gluing, interior-time E/G and
-precision/partition independence and unrestricted P5 remain
-explicit obligations. D.2 extracts the generic completion, geometry,
-binary-time and position-value layers. B.1 proves E/G agreement at every
-dyadic rational time, with explicit finite numerator addresses and endpoint cases. B.2 constructs
-within-cell polygon names and a mesh-explicit whole-edge bound. Both same-cell
-and shared-boundary aliases agree before polygonMap is lifted to the time
-quotient. Fixed-integer harmonic subdivision and its actual accumulated bound
-now yield dyadic E/G agreement. TimeCalibration now proves the weighted gauge
-|x|+τ₀|v|, actual finite sample-error accumulation, dimensionless growth/windows,
-Cauchy-gauge equivalence and positive time-unit invariance. Harmonic and parallel
-cells are instances; exact harmonic mechanics commute with unit rescaling.
-C.1 now constructs the actual harmonic matched region as cell closures of
-rational simultaneous connectors. Its nonnegative finite-square outer content
-D_mesh has a derived 4*C²/2^m bound and decay. HarmonicPathContent constructs
-its Cauchy scalar from the all-cover cut by shrinking intervals; lower-cut
-identification and independence of the initial cover are proved. No scalar
-area or Cauchy premise is supplied. GeneralForceSecants now derives uniform
-convergence of completed bracketing dyadic position secants to constructed
-velocity; HarmonicSecants applies it to the retained harmonic curve. These
-are actual curve endpoints, including the final boundary, not finite polygon
-secants alone. CompletedForce now constructs force values at completed
-positions from the actual oracle samples, with representative independence,
-Lipschitz control and precision-scale independence. Actual prefix force samples
-converge uniformly to the force at the constructed curve; the retained harmonic
-extension equals scaling by -w. GeneralForceAccelerationSecants now proves
-uniform convergence of completed dyadic velocity secants to the force at the
-constructed position, with derived bound H_m*L*(V+K) and a retained harmonic
-corollary. Ordinary-area identification and unrestricted difference quotients
-remain open.
-GeneralForcePolygonCurve now constructs the actual quotient coarse polygon
-with whole-edge error (T*V+A)/2^m and uniform convergence, including zero time
-and shared initial endpoint. Six retained harmonic proofs now instantiate the
-shared PolygonValues core with unchanged theorem statements; the general
-harmonic polygon equals the retained map. GeneralForcePathRegion/Content now
-construct the actual general closed-cell connector union and its all-cover cut
-and canonical scalar, with budget 4*C²/2^m, nonnegativity, zero time and decay.
-MatchedRegion shares closure/connector/cover geometry with the retained harmonic
-client. Their harmonic instance has exactly the old region and scalar content,
-independently of the different initial cover bounds.
-QuadraticEstimates now derives the actual finite second-order position
-remainder t²*(L*t*V+E) and exact t*h*|a(x0)|/2 half-mesh bias. The actual
-parallel endpoint family constructs Cauchy values at every nonnegative rational
-time and proves the exact quadratic state. Galilean potential and triangle
-identities apply to those completed endpoints with the half coefficients; the
-ratio stays motion-dependent. GeneralForceQuadraticSecants now passes the
-actual finite remainders to completed central curve values. The normalized
-position departure 2*(Delta_x/H-v_left)/H converges uniformly to the completed
-force with error H*L*(2V+K), including the final boundary. Cauchy-name tail
-boundedness proves that mesh times the actual force sample magnitude vanishes;
-no extra force-bound or Taylor field is supplied. The retained harmonic curve
-inherits the result. ConstructedHarmonicPotential now evaluates the harmonic polynomial potential
-on the actual completed curve and its tangent continuation. PairingValues
-shares one derived Cauchy/representative proof for dot products and determinants;
-QuadraticPotentialValues composes it with existing completed secants. The finite
-work identity identifies the polynomial with the harmonic force. Actual node
-bounds and the shared finite second-order estimate give a uniform O(H) bound:
-Delta V/H² converges to -mass*dot(a_left,a_left)/2 over all dyadic cells,
-including the last one. No potential-step asymptotic is assumed. General radial
-potentials, unrestricted quotients and the triangle/lobe relation to D_mesh
-remain open. This law test receives no extra completion score.
-GeneralForceTangentTriangle now constructs the signed doubled triangle between
-the actual left curve point, its tangent continuation and the actual right
-curve point. TangentTriangleValues proves its rational embedding and exact
-completed identity: triangle/H³ equals half the determinant of velocity and
-normalized second departure. The proved second-order bound and actual velocity
-caps give error H*L*V² against det(v_left,a_left)/2, uniformly over every dyadic
-cell including the last. The signed doubled triangle is distinct from unsigned
-lobe area and matched-region D_mesh; their geometric identification and general
-radial potential steps remain open. Those supporting quantity results receive no separate completion credit.
-The foundation has no import from a Newton-specific file and no derivative,
-integral or ODE primitive.
-
-The governing target is now the **given-trajectory proof variant**. Existence
-is an explicit postulate; the swept-area law is the conclusion to prove. The
-area BETWEEN polygon and trajectory remains a distinct approximation control.
-See [path defect](PROP_I_PATH_DEFECT.md) for stage-local premises and the
-remaining geometric identification obligations. Given-curve lemmas serve
-this primary route; constructive existence remains supporting work.
+Current status and open obligations are maintained in [STATE.md](STATE.md).
+Follow [the current handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md);
+this note retains the source argument and mathematical scope.
 
 ## What the text asserts
 
@@ -262,7 +20,7 @@ share the argument almost verbatim:
    *indesinenter*, and the areas remain proportional to the times.
 
 De Motu Theorem 1 (NATP00089 par9, NATP00090 par17) makes the same passage
-with no numbered limiting lemma (M2.md).
+with no numbered limiting lemma (see the historical AreaLaw file).
 
 ## Proof dependencies and the implementation route
 
@@ -290,11 +48,12 @@ has changing marginal hypothesis/lemma labels whose chronology is unresolved.
 Both proofs pass to infinitely many infinitely small triangles without citing
 a numbered limiting lemma. Neither witness inherits the printed Lemma III.
 
-The active proof route is therefore: finite construction and equal triangles;
-construct the general curve from those motions; derive the intervening
-enclosure and exhaustion; identify actual curve-fan swept area; conclude
-proportionality to time. `GeneralForceArea.constructed_area_law` packages the
-last two steps for the existing local regional Lipschitz construction. Its
+The primary proof route takes the trajectory as given: justify Newton's finite
+construction and equal triangles, derive the approximation and intervening
+control from independently stated motion premises, and connect the finite
+areas to ordinary swept-sector area through the invoked historical lemmas.
+`GeneralForceArea.constructed_area_law` supplies a modern supporting fan law
+for the existing local regional Lipschitz construction. Its
 regularity/window premises are a **modern reconstruction**, not assumptions
 read into Newton's proof. Ordinary sector-union area, unrestricted force/rate
 identification and the historical limiting passage remain explicitly separate.
@@ -348,56 +107,12 @@ the finite content it needs when cells are unequal.
 
 ## Next bounded step
 
-The next primary step is to derive the new local consistency premises from
-independently stated mechanical laws and regularity of the given motion.
-The conditional identification, all-interval fan law and separate matched-region
-content decay now compile; they do not derive those consistency premises. Trace
-Newton's finite impulse and limiting arguments against that curve; derive
-the between-path control separately, without hiding curve/polygon agreement
-in the existence postulate. In the invoked Lemmas II–III chain, the remaining
-area bridge identifies rectangle side-product sums with their geometric
-unions and the enclosed curvilinear area, then proves the ultimate ratio
-with its nonzero-area premise. This supporting bridge is not Proposition I's
-conclusion and is no longer a reason to restart trajectory construction.
-Ordered finite partitions now derive their actual point-set
-coverage and completed enclosure; their maximum width, exact equal-width
-sum gap, unequal-width bound and exhaustion are proved. The supporting-line
-branch also has derived crossings and whole closed boundary limits with
-explicit finite data. Actual tangent identification and vertical patches
-remain separate. The actual constructed force polygons already have their
-own derived two-sided limit. Scalar area, trace convergence and arclength
-remain distinct. Force-specific applications follow the general proof.
-
-The harmonic field now has derived mesh-uniform actual state and endpoint-error
-bounds, a proved square enclosure and nonnegative cover budget for matched
-polygonal patches, and constructed fixed-rational-time endpoint Cauchy names;
-see [harmonic refinement](HARMONIC_REFINEMENT.md). Uniform variation with
-rational time is now derived in HarmonicTimeComparison, with an explicit
-positive tolerance controlling every approximant. HarmonicBinaryPrefix now
-constructs Cauchy names from actual intermediate-time prefixes of one global
-polygon family. CauchyValues now realizes them in an explicit quotient and
-proves representative-invariant time/tail bounds. BinaryTime and
-HarmonicTimeRealization now construct the time quotient and continuous state
-map, including endpoint/alias identities. PositionValues now derives the planar
-position map, completed coordinate squares and positive position separation.
-Addresswise same-time coarse polygon names and uniform whole-edge distance
-control are now proved in HarmonicPolygonCurve. Both kinds of alias independence
-construct polygonMap on the same time quotient. HarmonicPathRegion now
-constructs the closed matched region, its all-cover infimum lower cut and a
-derived vanishing square enclosure. See TRAJECTORY_DEFECT_REGION.md.
-Cauchy scalar realization and cover independence are now proved in
-HarmonicPathContent. Ordinary sector-union area identification, P5 and partition
-independence remain distinct. CompletedForce now proves representative compatibility for regional Lipschitz
-sampled force data on the certified completion domain; finite centrality alone
-does not supply it. gamma_band proves the constructed curve's closed radial
-bounds. The proper annular harmonic control tests that interface; the actual
-Euclidean Kepler oracle remains required by A.6. P3's existence is postulated in the primary route; identifying Newton's
-polygons with that given trajectory remains open. P4 now has the intrinsic local curve-fan area law; ordinary sector-union
-identification and Newton's historical limiting passage remain open.
-The [construction ledger](CAUCHY_REALIZATION.md) records the checked quotient
-and time-domain steps and the remaining geometric obligations.
-
-For a general varying field, any force-difference premise must be explicit and
-named: a Lipschitz-type bound is a modern repair; the 1713 monotone-finite
-qualification on a radial segment is an editorial candidate and does not alone
-control a force vector's change of direction. No ODE theorem is imported.
+Follow the current handoff: formalize the two missing historical Lemma I
+proofs, then identify the rectangle side-product sums with geometric union
+area and apply that lemma to the actual enclosed curvilinear quantity.
+Preserve nonzero area where a ratio requires it. The source-local corollary
+chain and Proposition I's swept-sector conclusion follow those invoked steps.
+Modern given-motion consistency remains additional supporting proof work;
+it is not a reason to reconstruct trajectory existence or to import a modern
+limit theorem as the primary historical argument. Tangent identification,
+vertical patches, ordinary sector area and unrestricted force remain open.

@@ -1,176 +1,40 @@
-# BarrowLib boundary inventory (Task D.1)
+# Elementary, classical and modern support
 
-Current boundary, following the user's 6 October refactor: BarrowLib contains
-reusable elementary rational arithmetic, finite geometry, ratios and explicit
-exhaustion arguments. Cauchy-name completions, completed topology and scalar
-outer contents belong in ModernLib. Source-identified classical coordinate
-special cases belong in ClassicsLib. Newton's textual results belong in the
-one-result files under NewtonLimitDynamics/Historical, with separate witness
-sections. Their primary proofs may use BarrowLib/ClassicsLib; their
-anachronical proofs may use ModernLib in a section below the required
-five-line separator. Anachronical use taints downstream proofs transitively
-through compiled types and bodies. Supporting libraries import no historical
-result file.
+Current ownership after the 6 October historical-file refactor is determined
+by the actual Lean files/imports. The earlier extraction design is in Git;
+its placement of Cauchy machinery in BarrowLib is superseded.
 
-The inventory below records the earlier extraction and its retained names.
-Its old advice placing Cauchy infrastructure in BarrowLib is superseded by
-[this migration](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october).
-The current module ownership is authoritative in
-the actual Lean root imports and source files; Git records the old paths.
+BarrowLib contains rational arithmetic, ordered ratios, finite sums/products,
+coordinate point/determinant geometry, finite refinement and explicit
+exhaustion arguments. An explicit abstract order/limiting premise must not
+hide its desired conclusion. Coordinate L1 bounds are a chosen estimate,
+not automatically an intrinsic physical magnitude.
 
-| Current location | Foundation content | Remains in NewtonLimitDynamics |
-| --- | --- | --- |
-| `Common/Quadratic` | All: `Magnitudes`, `Near`, `Ultimate`, enclosure and non-vacuity lemmas; `Ultimate` is an explicit formal encoding. | None. |
-| `Common/RationalMagnitudes` | All `Fraction` arithmetic, `magnitudes`, `deflectionRatio`/`square_ratio` (generic quadratic ratios), `ratio`/`ultimate_congr`/`triangle_normalized_limit`, and finite `triangleArea`/`triangle_area_ratio`/`constructed_triangle_limit`. The last two limit theorems remain explicitly conditional on a supplied slope limit. | Historical interpretation of these generic ratio facts; the words “deflection” and “contact” in names/comments confer no historical premise. |
-| `Common/FiniteGrowth` | All list weight/product/amplification bounds, including the arithmetic boundary examples; no motion parameter occurs. | None. |
-| `Polygon/TimeSubdivision` | `Point`, `pointAdd`, `pointScale`, `pointNeg`, `pointSub`, `pointEquiv`, decidability/congruence (lines 9–54), plus `det`/`det_add_right` (182–194); `closedBoundaryTwice` is reusable finite determinant bookkeeping. | `positiveDuration`, `endKick`, `coarse`, `fine`, `totalDuration`, endpoint mismatch and the named kick examples, `directedConnector` and its example. The closed-boundary example stays with the Newton finite polygon. |
-| `Polygon/PointBounds` | All coordinate L1 point/state definitions and bounds. Record that this is a chosen coordinate magnitude, not an intrinsic physical norm. | None. |
-| `Polygon/TriangleBounds` | All determinant/unsigned triangle bounds, transformations and sign-control examples; sums count patches with multiplicity. | The Newton interpretation of polygon versus curve area remains outside. |
-| `Polygon/ConvexCover` | `UnitInterval`, rational interpolation, point-subtraction/triangle lemmas, L1 ball and square enclosure, and `matchedPatch` bounds. The latter is a generic quadrilateral construction despite the current physical-time comment. | Any claim that these covers define the polygon–curve area or a region's area. |
-| `Polygon/CauchyValues` | `distance`, `NameEquiv`, `Value`, `realize`, `constantName`, `embed`, `NameBound`, `Within`, and their generic results through `within_zero_iff` (line 463), including `constant_approximants_converge`; move `le_add_cancel_left` (515) to generic Fraction arithmetic. | `timeValue`, `binaryValue`, their harmonic bounds, `endpointValue`, and the harmonic sample (465–514, 536–end). |
-| `Polygon/BinaryTime` | Binary tick/time approximation, Cauchy time names, `AddressEquiv` and quotient `BinaryTime`: no force appears in their statements. | The identification of those names with harmonic prefixes/realized motion. |
-| `HarmonicDyadic`, `HarmonicBinaryPrefix`, `HarmonicAccumulation` | Extract only coefficient-parameter dyadic tail algebra (`tailCap`, `doubleTail`, halving, doubling, precision modulus, and the finite-gap/two-sided argument under an abstract adjacent-error bound), `two_pow_ge_succ`, and generic `fpower`/`fpower_nonnegative`. | Distinct endpoint/prefix coefficients, `adjacentCap_tail`, schedule errors, small-time premises, and the harmonic instances of the generic tail results. Their different coefficients must not be identified. |
+ClassicsLib identifies the classical source result, currently Euclid I.37
+and I.38 coordinate special cases and their finite lattice realization.
+A determinant implementation is not a completed synthetic Euclidean proof.
+Classical support may use BarrowLib.
 
-**Acyclic extraction order.** Move `Quadratic` before `RationalMagnitudes`:
-the latter currently imports the former. Extract point algebra and determinant
-from `TimeSubdivision` next; then `PointBounds`, `TriangleBounds` and
-`ConvexCover`. Extract `HarmonicComparison.stateSub`,
-`HarmonicDyadic.stateSub_congr`/`stateSub_norm_symm`, and
-`HarmonicAccumulation.stateSub_triangle`/`stateSub_self_norm_zero` to a generic
-state-distance module after `PointBounds`. `EndpointCauchyName` currently lives
-in `HarmonicDyadic` (line 331); move it after that distance module and before
-the generic `CauchyValues` core. The current `CauchyValues →
-HarmonicBinaryPrefix → HarmonicDyadic` import must be replaced by this direct
-generic dependency; only a Newton-side value-instances file imports both.
-Similarly extract `HarmonicBinaryPrefix.bit`/`ticks`,
-`HarmonicDyadic.blocks`/`duration`/`duration_halving`, and the scalar
-`HarmonicTimeComparison.durationDifference` to generic dyadic/time arithmetic
-before moving `BinaryTime`. `BinaryTime` then imports the generic quotient and
-dyadic modules, never a harmonic module. Generic tail arithmetic imports only
-Fraction and generic distance/triangle results; harmonic coefficients import
-it in the opposite direction.
+ModernLib contains Cauchy names and quotient values, completed time/position/
+scalar operations, metric closure, Lipschitz-oracle reconstruction and the
+modern supplied-curve consistency route. Shared BinaryLift and completed
+pairings/secants avoid repeating completion proofs. General force and harmonic
+clients retain their distinct coefficients and explicit calibrated/regional
+premises. Coordinate Euclidean dot products and L1 error gauges stay distinct.
 
-For migration, retain existing fully qualified declaration names where
-practical by using their current `NewtonLimitDynamics.*` namespaces inside
-`BarrowLib` files. Fully migrated old modules become import-only compatibility
-facades; mixed modules such as `TimeSubdivision` and `CauchyValues` import the
-new generic file and keep only their Newton-specific declarations. Remove
-original definitions to avoid duplicates. No `BarrowLib` file imports an old
-facade or mixed module. Add the separate `lean_lib` and update
-catalogues/references/checks in D.2, after verifying each layer.
+Historical files own one result with separate edition/witness sections.
+Primary proofs may use elementary/classical support and untainted historical
+results. Modern proofs remain below the five-line anachronical separator;
+their types and dependencies taint downstream use. Supporting libraries do
+not import historical files. Generic mathematics is not historical merely
+because it uses a Newton-themed namespace.
 
-Task A can start before the full D.2 migration by bootstrapping the minimal
-`BarrowLib` chain (`Quadratic`, Fraction arithmetic, point algebra and
-`PointBounds`) with those facades. Put new generic `Point → Point` Lipschitz,
-growth/confinement and parameter-coefficient tail estimates under
-`BarrowLib/` immediately. State them without `CentralSchedule.Field` or a
-harmonic `w`; Newton-side modules instantiate them for central/parallel laws.
-This small bootstrap and its library registration are part of A's verified
-increment; D.2 migrates the remaining generic modules and completes the
-catalogue, count and verification-command changes. Every new generic estimate
-is therefore in the foundation from its first checked version.
+Actual polygon fans count multiplicity. Square-cover content and signed
+completed tangent triangles are separate geometric objects; neither asserts
+ordinary sector-union area or a mechanical potential identity. Conditional
+contact arithmetic is not a proved curve/tangent construction.
 
-
-The 5 October curve-area increment adds `BinaryLift` for shared two-input
-completion, `GeometricApproximation` for actual approximants with a derived
-geometric reference bound, rational scalar enclosures, finite determinant
-fans, completed fans and the intrinsic `SweptArea.AreaAt` predicate. These
-modules contain no Newton imports or force data. Secants and pairings retain
-their names and approximants while using the shared lift. Unsigned fans count
-multiplicity; neither they nor square outer content assert ordinary
-sector-union area. The Newton-specific derivation belongs in
-`GeneralForceArea`, with regional Lipschitz and calibrated-window premises.
-
-## D.2 extraction, 4 October
-
-The remaining geometry, state-distance, Cauchy-name/quotient, dyadic arithmetic,
-binary-time and generic position-value layers now live under `BarrowLib/`.
-Mixed Newton files import the generic definitions and retain the force-specific
-instances; whole migrated modules are old-path compatibility imports. Existing
-fully qualified declaration names remain stable. The generic finite triangle
-and cover examples still make no physical region-area assertion.
-
-`GeometricTail` proves the coefficient-parameter finite-gap/two-sided estimates
-and a positive-tolerance modulus from an explicit adjacent bound. The actual
-harmonic endpoint and prefix constructions supply that bound through their
-own finite refinement estimates and retain their different coefficients.
-No generic Cauchy premise is counted as a derived mechanical estimate.
-The completed position projections and coordinate squares also move to the
-foundation; the harmonic gamma maps and samples remain Newton-side.
-
-The separate `BarrowLib` build and import-boundary inspection check that no
-foundation file imports a Newton-specific file. Cauchy completion remains
-explicitly modern elementary infrastructure, with no derivative, integral
-or ODE result used as a primitive. Counts and catalogue paths include both
-library roots; this reorganization alone changes no completion score.
-
-## Completed pairings and quadratic values, 5 October
-
-PairingValues completes dot products and determinants of position values with
-one Cauchy and representative-independence argument. It uses finite bilinear
-difference identities, coordinate L1 bounds and boundedness on a proved
-Cauchy tail. SampledValues requires a fixed regional Lipschitz coefficient and cannot
-complete these pairings on an unbounded plane. Reach for PairingValues for
-scalar products or directed areas of completed points; SampledValues now
-restricts its existing sampled-map operation to a certified regional domain. Pairing outputs are scalar-coded values. Determinants are signed doubled
-areas, and dot products define the Euclidean squared magnitude, distinct from
-the L1 error gauge.
-
-QuadraticPotentialValues constructs c*dot(p,p) and its normalized increment
-between a completed endpoint and the tangent continuation. The finite
-remainder bound uses the existing normalized second departure and explicit
-finite point/velocity/departure bounds. It states no mechanical potential
-relation. The Newton diagnostic ConstructedHarmonicPotential supplies that
-relation by a finite work identity and actual node estimates. Its all-cell
-leading potential result is the live client. Rational embedding compatibility,
-the finite nonzero polynomial remainder control, Lean kernel reference checks
-and all three library/default builds validate the construction; the rational
-control is not an independent numerical oracle. No derivative, integral, ODE,
-Newton-specific foundation import or historical edge is added.
-
-TangentTriangleValues adds the signed doubled triangle of a completed point,
-its tangent continuation and a completed next point. Reach for it for that
-three-point geometry, rather than for area of a lobe or a matched region.
-Rational embeddings agree with triangleTwice, and exact completed algebra
-identifies its H^-3 normalization with half the determinant of velocity and
-normalized second departure. PairingValues now transfers a closed bound in
-one input under proved bounds on the other name's tail. The actual general
-curve supplies its velocity cap and existing second-order bound, yielding
-H*L*V² error for the normalized triangle. Shared completion, finite embedding
-identities and all library/reference checks validate the construction; no
-potential, area expansion or new historical premise enters the foundation.
-
-CalibratedGrowth derives actual finite run bounds from the growth contract
-|a(p)|<=L|p|+E, without supplied arrival bounds. Reach for it to compute state
-and sampling caps; use BoundedIteration when arrival bounds are already known.
-It reuses component amplification, finite powers and source budgets, and returns
-a length cap M=2*(|x0|+tau|v0|+tau*T*E) on the calibrated window. Its time-unit
-invariance and kernel-checked finite recurrence validate the output.
-GeneralForceGrowth is the live Newton client: global comparison and centrality
-derive growth, then all actual/coarse/shadow sample fields. This does not derive
-region confinement or cover singular laws. No analytic primitive is added.
-
-A.6 adds one shared positive-factor cancellation and one determinant/radial
-lower-bound lemma to the existing arithmetic/triangle modules. The latter
-returns r<=|p|_1 from r*V<=|det(p,v)| and |v|_1<=V, with V>0. The finite
-RegionConfinement client keeps its central invariant and sampling order in
-NewtonLimitDynamics; no force instance or new completed operation enters the
-foundation. A zero-speed control rejects cancellation for a positive inner
-radius. Kernel checks and all library builds validate the shared helpers.
-
-The A.6 regional comparison repair moves the force-comparison premise of the
-existing cell proofs to their actual two sampled arrivals. FiniteEstimates,
-TimeCalibration and EquivalentDuration expose `_at` primitives; the old global
-contract statements wrap those proofs. Reach for `_at` when membership is
-available only at actual points. RegionConfinement.sampled_cell_comparison is
-the live Newton client: confinement derives both certificates before local
-force comparison. Seven foundation theorem rows share the old arithmetic
-proofs rather than duplicate them. No completed quantity is added.
-
-CalibratedRefinement.BlockComparisons bundles the four actual force pairs of
-one coarse/two-half block. Pointwise source accumulation and uniform closing
-reuse the existing finite recurrence and power bounds. EquivalentDuration
-accumulates only comparisons of the two actual represented runs. Their old
-global-contract statements wrap these proofs. RegionConfinement is the live
-client for both: every membership certificate comes from its finite invariant,
-including both shadow arrivals. No new completed operation is introduced.
+Build all four library targets and run CheckReferences.lean to check the
+compiled proof boundary. The source-specific correspondence and outstanding
+mechanical/geometric premises remain in the historical files and STATE.md.
+Relocation, interfaces and these boundary notes add no historical proof credit.

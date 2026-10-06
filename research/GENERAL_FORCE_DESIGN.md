@@ -15,9 +15,10 @@ GeneralForceTime.gamma_band passes both radii to the constructed curve: the
 upper closed-ball bound holds, and any closed ball containing the position
 has radius at least r0. These are coordinate L1 bounds, not an inverse-square
 law. The harmonic instance retains its True region and old public names.
-The actual Euclidean Kepler sampling instance still remains within A.6 and
-comes next. Task E and new completed quantities have not started. See the
-[regional construction checkpoint](verification/regional-construction-2026-10-05.md).
+The actual Euclidean Kepler instance remains deferred until the general
+historical Proposition I proof. Constructed fan area and between-path content
+are proved modern support, not ordinary sector-area identification. See
+[STATE.md](STATE.md) for the active order and [verification](VERIFICATION.md).
 
 Task A of the 4 October handoff, Sol 6.1. This design is fixed before the
 estimates are implemented. Its mathematical layer is `modern_reconstruction`;
@@ -282,7 +283,7 @@ local defect and propagated additive sample error. B bounds first-half samples
 and V coarse velocities only for `k<n`. The global comparison contract also
 covers comparison locations that are not vertices of the coarse polygon;
 a region-local replacement must prove those locations confined. See the
-[accumulation verification](verification/general-accumulation-2026-10-04.md).
+[accumulation verification](VERIFICATION.md).
 The cross-map theorem compares different fine and coarse rational samples;
 `sampled_uniform_refinement` instantiates it at precisions j+1 and j with
 the derived discrepancy `3e_j`, under its explicit global-region premise.

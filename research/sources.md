@@ -22,8 +22,8 @@ English Motte/Chittenden 1846 and Motte/Wilkins 1729 reading aids remain in
 ../navstokgap/docs. They are not substitutes for the 1687 Latin witness.
 The original M1 pass excluded 1694; the authorized M4 additions below now cover selected revision evidence.
 
-See [M1.md](M1.md) for translations, classification, confidence, additional
-premises, and outstanding first-state witness identification.
+Historical Lean witness sections and [STATE.md](STATE.md) record classification,
+explicit premises and outstanding first-state witness identification.
 
 ## M1–M4 implementation additions (2026-09-21)
 

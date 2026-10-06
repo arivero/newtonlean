@@ -1,7 +1,7 @@
 import BarrowLib.Common.RationalMagnitudes
 
 /-!
-Proposition IV, finite circular comparison (TASKS.md order 7).  Both editions
+Proposition IV, finite circular comparison (STATE.md). Both editions
 compare the centripetal forces of bodies describing circles in equal times by
 the squares of the simultaneous arcs divided by the radii, `F ∝ arc²/(r·t²)`.
 The exact finite circle fact behind every route is the sagitta-chord relation

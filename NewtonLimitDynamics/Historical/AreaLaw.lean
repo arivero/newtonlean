@@ -1,6 +1,7 @@
 import BarrowLib.Polygon.Finite
 import ModernLib.Polygon.PathDefect
 import ModernLib.Polygon.GeneralForceArea
+import ModernLib.Polygon.GivenTrajectoryArea
 
 /-! Historical result: area_law.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
@@ -262,6 +263,29 @@ end DeMotu1684.AreaLaw
 namespace Principia1687.PropositionI
 open NewtonLimitDynamics.Polygon NewtonLimitDynamics NewtonLimitDynamics.Polygon.PathDefect
 
+/-- Modern conditional reconstruction for an independently supplied state curve.
+`Consistency` gives rational samples and local residual control, not a fan law
+or polygon agreement. The conclusions are all-interval fan proportionality
+and vanishing nonnegative outer content between paths; ordinary geometric
+sector-union identification remains open. -/
+theorem supplied_trajectory_fan_and_path_content
+    (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (u : BinaryTime.BinaryTime T d.time_nonnegative → CauchyValues.Value)
+    (c : GivenTrajectoryArea.Consistency o E0 T tau L B s hE d u) :
+    SweptArea.Proportional T d.time_nonnegative (fun t => PositionValues.asPosition (u t))
+      (CentralSchedule.momentum s) ∧
+    ∃ covers : ∀ m, SquareOuterContent.Cover
+        (MatchedRegion.Region T d.time_nonnegative
+          (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m)
+          (fun t => PositionValues.asPosition (u t)) m),
+      ∀ eps : Fraction, 0 < eps.num → ∃ N, ∀ m, N ≤ m →
+        CauchyValues.Within (SquareContentValues.contentValue _ (covers m)).val
+          (CauchyValues.embed (BinaryTime.scalarState (Fraction.ofInt 0))) eps :=
+  ⟨GivenTrajectoryArea.proportional_swept_area o E0 T tau L B s hE d u c,
+    GivenTrajectoryArea.between_path_content_tends_zero o E0 T tau L B s hE d u c⟩
+
 theorem polygon_trajectory_defect_control
     (polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget)
     (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
@@ -303,6 +327,26 @@ end Principia1687.PropositionI
 /-! Principia1713.PropositionI conditional reconstructions (Latin in the primary witness section above). -/
 namespace Principia1713.PropositionI
 open NewtonLimitDynamics.Polygon NewtonLimitDynamics NewtonLimitDynamics.Polygon.PathDefect
+
+/-- The same modern supplied-motion fan and path-content reconstruction, kept
+separate for the 1713 witness. Its historical limiting step remains open. -/
+theorem supplied_trajectory_fan_and_path_content
+    (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (u : BinaryTime.BinaryTime T d.time_nonnegative → CauchyValues.Value)
+    (c : GivenTrajectoryArea.Consistency o E0 T tau L B s hE d u) :
+    SweptArea.Proportional T d.time_nonnegative (fun t => PositionValues.asPosition (u t))
+      (CentralSchedule.momentum s) ∧
+    ∃ covers : ∀ m, SquareOuterContent.Cover
+        (MatchedRegion.Region T d.time_nonnegative
+          (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m)
+          (fun t => PositionValues.asPosition (u t)) m),
+      ∀ eps : Fraction, 0 < eps.num → ∃ N, ∀ m, N ≤ m →
+        CauchyValues.Within (SquareContentValues.contentValue _ (covers m)).val
+          (CauchyValues.embed (BinaryTime.scalarState (Fraction.ofInt 0))) eps :=
+  ⟨GivenTrajectoryArea.proportional_swept_area o E0 T tau L B s hE d u c,
+    GivenTrajectoryArea.between_path_content_tends_zero o E0 T tau L B s hE d u c⟩
 
 theorem polygon_trajectory_defect_control
     (polygonTrajectoryArea budget : Fraction → Fraction) (hbudget : Vanishes budget)

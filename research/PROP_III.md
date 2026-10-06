@@ -1,6 +1,6 @@
 # Proposition III: relative motion and force composition
 
-TASKS.md order 6. Both printed editions state and prove the proposition in the
+STATE.md: Proposition III. Both printed editions state and prove the proposition in the
 same way, so the source map for this order is short and the two stages agree
 step for step. Lean results here are modern integer-coordinate
 reconstructions (`modern_reconstruction`), not historical proofs.
@@ -91,7 +91,7 @@ All results are in `Polygon/RelativeMotion.lean`, on the lattice polygon of
   realized orbit sweeping areas proportional to times; here it is an hypothesis
   about the constructed relative polygon, exactly as in `Converse.lean`.
 - **No limit.** The vanishing-triangle passage from a given curve is the same
-  open obligation as for Proposition II (TASKS.md order 5) and is not attempted.
+  open obligation as for Proposition II (STATE.md: Proposition II) and is not attempted.
 - **No De Motu counterpart is claimed.** The inspected De Motu ranges contain no
   counterpart of Proposition III; that absence is a statement about the
   inspected witnesses only (SECTION_II.md).

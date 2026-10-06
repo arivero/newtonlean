@@ -1,3 +1,0 @@
-/tmp/newtonlean-harmonic-holdout3-15d50ad-corrupted-comparator.lean:23:2: error: tactic 'decide' proved that the proposition
-  (radius holdW holdH holdInitial 2).equiv (f 1492297 4354560 ⋯)
-is false

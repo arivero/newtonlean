@@ -1,3 +1,5 @@
+import ModernLib.Reconstruction.MonotoneRectangles
+
 /-! Historical result: lemma_iii.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
@@ -36,3 +38,66 @@ LATIN END NATP00082.par6 -/
 /- LATIN BEGIN NATP00082.par7
 Sit enim AF æqualis latitudini maximæ, & compleatur parallelogrammum FAaf. Hoc erit majus quam differentia Figuræ inscriptæ & Figuræ circumscriptæ; at latitudine sua AF in infinitum diminuta, minus fiet quam datum quodvis rectangulum. Q.E.D.
 LATIN END NATP00082.par7 -/
+
+/-
+===============================================================================
+===============================================================================
+===============================================================================
+===============================================================================
+===============================================================================
+ANACHRONICAL PROOFS
+-/
+
+/-! The completed-figure and gap estimates below use modern metric closure.
+They do not identify the numerical sums with ordinary curvilinear area. -/
+namespace Principia1687.LemmaIII
+open NewtonLimitDynamics NewtonLimitDynamics.Polygon
+
+theorem unequal_width_completed_enclosure_and_gap
+    (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0 ≤ (g a).num)
+    (hmesh : ∀ delta : Fraction, 0 < delta.num → ∃ N : Nat, ∀ m, N ≤ m →
+      Fraction.lt (MonotoneRectangles.maxWidth (parts m)) delta) :
+    (∀ m, (∀ x, MonotoneRectangles.completed (MonotoneRectangles.lowerFigure g (parts m)) x →
+        MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x) ∧
+      (∀ x, MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x →
+        MonotoneRectangles.completed (MonotoneRectangles.upperFigure g (parts m)) x)) ∧
+    (∀ m, (0 ≤ (MonotoneRectangles.lowerSum g (parts m)).num ∧
+        0 ≤ (MonotoneRectangles.upperSum g (parts m)).num) ∧
+      (0 ≤ (MonotoneRectangles.gap g (parts m)).num ∧
+        Fraction.le (MonotoneRectangles.gap g (parts m))
+          (Fraction.mul (MonotoneRectangles.maxWidth (parts m))
+            (HarmonicTimeComparison.durationDifference (g a) (g b))))) ∧
+    (∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ m, N ≤ m →
+      Fraction.lt (MonotoneRectangles.gap g (parts m)) eps) :=
+  ModernLib.Reconstruction.Principia1687.LemmaIIIII.lemmas2_3_monotone_rectangle_reconstruction
+    g a b parts hg hbase hmesh
+
+end Principia1687.LemmaIII
+
+namespace Principia1713.LemmaIII
+open NewtonLimitDynamics NewtonLimitDynamics.Polygon
+
+theorem unequal_width_completed_enclosure_and_gap
+    (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0 ≤ (g a).num)
+    (hmesh : ∀ delta : Fraction, 0 < delta.num → ∃ N : Nat, ∀ m, N ≤ m →
+      Fraction.lt (MonotoneRectangles.maxWidth (parts m)) delta) :
+    (∀ m, (∀ x, MonotoneRectangles.completed (MonotoneRectangles.lowerFigure g (parts m)) x →
+        MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x) ∧
+      (∀ x, MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x →
+        MonotoneRectangles.completed (MonotoneRectangles.upperFigure g (parts m)) x)) ∧
+    (∀ m, (0 ≤ (MonotoneRectangles.lowerSum g (parts m)).num ∧
+        0 ≤ (MonotoneRectangles.upperSum g (parts m)).num) ∧
+      (0 ≤ (MonotoneRectangles.gap g (parts m)).num ∧
+        Fraction.le (MonotoneRectangles.gap g (parts m))
+          (Fraction.mul (MonotoneRectangles.maxWidth (parts m))
+            (HarmonicTimeComparison.durationDifference (g a) (g b))))) ∧
+    (∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ m, N ≤ m →
+      Fraction.lt (MonotoneRectangles.gap g (parts m)) eps) :=
+  ModernLib.Reconstruction.Principia1713.LemmaIIIII.lemmas2_3_monotone_rectangle_reconstruction
+    g a b parts hg hbase hmesh
+
+end Principia1713.LemmaIII
