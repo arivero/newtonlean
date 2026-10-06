@@ -1,5 +1,21 @@
 # Research state
 
+## Given-motion consistency bridge, 6 October
+
+[The consistency checkpoint](verification/given-trajectory-consistency-2026-10-06.md)
+now proves a conditional theorem for an independently supplied state curve.
+Finite stability accumulates its rational samples' one-cell mechanical
+residuals; a shrinking scalar local-source budget and representation of the
+supplied curve then prove equality with the retained polygon limit. The
+all-interval swept-fan law follows, and the actual matched-region outer
+content tends to zero in a separate theorem. Neither agreement nor either
+area conclusion is assumed. Local consistency is an additional explicit
+premise, not part of trajectory existence. Deriving it from independently
+stated motion laws, identifying ordinary swept-sector area and certifying
+Newton's stage-local limiting proofs remain open. This adds no historical
+completion credit and does not release force-specific applications.
+
+
 ## Primary proof convention, 6 October
 
 Trajectory existence is now an explicit given-curve premise. (A) The goal

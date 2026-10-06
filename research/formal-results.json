@@ -6723,6 +6723,24 @@
     "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.run_sample_distance_le_source",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a : Point → Point) (h L E D : Fraction) (s : Point × Point) (q : Nat → Point × Point) (N : Nat) (hL : 0 ≤ L.num) (hq0 : q 0 = s) (hlocal : ∀ k, k < N → Fraction.le (pointDistance (a (cell a h (BoundedIteration.run a h s k)).1) (a (cell a h (q k)).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a h (BoundedIteration.run a h s k)).1 (cell a h (q k)).1)) E)) (hres : ∀ k, k < N → Fraction.le (distance tau (q (k+1)) (cell a h (q k))) D) : (n : Nat) → n ≤ N → Fraction.le (distance tau (BoundedIteration.run a h s n) (q n)) (FiniteRecurrence.sourceBudget (amplification tau h L ht) (sampleSource tau h E D) n)",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.TimeCalibration.run_sample_distance_le_two",
+    "private": false,
+    "file": "BarrowLib/Polygon/TimeCalibration.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(tau : Fraction) (ht : 0 < tau.num) (a : Point → Point) (h L E D : Fraction) (s : Point × Point) (q : Nat → Point × Point) (N : Nat) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hD : 0 ≤ D.num) (hq0 : q 0 = s) (hlocal : ∀ k, k < N → Fraction.le (pointDistance (a (cell a h (BoundedIteration.run a h s k)).1) (a (cell a h (q k)).1)) (Fraction.add (Fraction.mul L (pointDistance (cell a h (BoundedIteration.run a h s k)).1 (cell a h (q k)).1)) E)) (hres : ∀ k, k < N → Fraction.le (distance tau (q (k+1)) (cell a h (q k))) D) (n : Nat) (hn : n ≤ N) (hw : Window tau h L ht n) : Fraction.le (distance tau (BoundedIteration.run a h s n) (q n)) (Fraction.mul (Fraction.ofInt (2 * (n : Int))) (sampleSource tau h E D))",
+    "interpretation_and_remaining_premises": "Explicit positive rational time calibration for a weighted state gauge, actual finite triangular-map perturbation and sample-error accumulation. Pointwise cell comparison uses only the actual two arrival values, and the prior global-contract theorem remains a wrapper. Dimensionless factors h/tau and tau*h*L have product h^2*L; a derived window bounds repeated amplification by two. Weighted norms/distances, coefficients, windows, sampling budgets and Cauchy conditions respect positive changes of time unit. The calibrated and ordinary coordinate Cauchy conditions are equivalent for every fixed tau>0. Exact rescaling and omitted-calibration controls compile. The calibration is free data, with no universal physical constant, motion-Cauchy premise, supplied trajectory, ODE or historical claim."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.TimeCalibration.cauchy_rescale",
     "private": false,
     "file": "BarrowLib/Polygon/TimeCalibration.lean",
@@ -10633,6 +10651,42 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : gammaValue o E0 T tau L B s hE d (rightTime T d.time_nonnegative) = endpointValue o E0 T tau L B s hE d.toConditions",
     "interpretation_and_remaining_premises": "Modern continuous local binary-time state and position maps from actual regional inward central-force prefixes. Finite same-grid time control proves address independence before quotient lifting. Uniform convergence and initial/zero/full-endpoint identities are derived. prefix_band and gamma_band pass the certified coordinate L1 inner/outer radii to the curve: the upper closed-ball bound holds and every containing closed ball has radius at least the inner bound. gamma_admissible supplies a regional representative for the restricted existing completed force. No new completed norm, external real interval or confinement trace is introduced. Kepler sampling, gluing, arbitrary partition/motion-precision independence, unrestricted P5 and constructed-curve area law remain separate."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GivenMotionComparison.count_sample_stateDistance_le_budget",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GivenMotionComparison.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j : Nat) (q : Nat → Point × Point) (D : Fraction) (hD : 0 ≤ D.num) (hq0 : q 0 = s) (hcandidate : ∀ k, k < blocks j → o.region (cell (field o E0 hE j) (duration T j) (q k)).1) (hres : ∀ k, k < blocks j → Fraction.le (TimeCalibration.distance tau (q (k+1)) (cell (field o E0 hE j) (duration T j) (q k))) D) (n : Nat) (hn : n ≤ blocks j) : Fraction.le (stateDistance (countState o E0 T s hE j n) (q n)) (errorBudget tau d.calibration_positive (duration T j) (sampleError o E0 hE j) D (blocks j))",
+    "interpretation_and_remaining_premises": "Finite comparison of actual regional central-force polygons with independent rational motion samples. A local one-cell residual and candidate drift-arrival region are explicit premises. Actual polygon arrival membership is derived from Conditions. Finite recurrence and the calibrated window give a uniform full-grid state-distance bound; no trajectory, convergence, area law or whole-plane premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GivenTrajectoryArea.equals_constructed",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GivenTrajectoryArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (u : BinaryTime T d.time_nonnegative → Value) (c : Consistency o E0 T tau L B s hE d u) : u = gammaValue o E0 T tau L B s hE d",
+    "interpretation_and_remaining_premises": "Modern conditional theorem for an independently supplied state curve. Its own rational samples represent it, satisfy local cell residual bounds in the force region, share the initial state, and have a vanishing scalar accumulated local-source budget. Finite stability derives equality with the retained polygon limit, then the all-interval unsigned swept-fan law and separate actual matched-region outer-content decay. Neither equality nor either area conclusion is supplied. Derivation of local consistency from independent motion laws, ordinary sector-union identification, unrestricted intervals and stage-local historical certification remain open; this is not bare trajectory existence implying an area law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GivenTrajectoryArea.proportional_swept_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GivenTrajectoryArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (u : BinaryTime T d.time_nonnegative → Value) (c : Consistency o E0 T tau L B s hE d u) : SweptArea.Proportional T d.time_nonnegative (fun t => asPosition (u t)) (CentralSchedule.momentum s)",
+    "interpretation_and_remaining_premises": "Modern conditional theorem for an independently supplied state curve. Its own rational samples represent it, satisfy local cell residual bounds in the force region, share the initial state, and have a vanishing scalar accumulated local-source budget. Finite stability derives equality with the retained polygon limit, then the all-interval unsigned swept-fan law and separate actual matched-region outer-content decay. Neither equality nor either area conclusion is supplied. Derivation of local consistency from independent motion laws, ordinary sector-union identification, unrestricted intervals and stage-local historical certification remain open; this is not bare trajectory existence implying an area law."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GivenTrajectoryArea.between_path_content_tends_zero",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GivenTrajectoryArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (u : BinaryTime T d.time_nonnegative → Value) (c : Consistency o E0 T tau L B s hE d u) : ∃ covers : ∀ m, SquareOuterContent.Cover (MatchedRegion.Region T d.time_nonnegative (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m) (fun t => asPosition (u t)) m), ∀ eps : Fraction, 0 < eps.num → ∃ N, ∀ m, N ≤ m → Within (SquareContentValues.contentValue _ (covers m)).val (embed (BinaryTime.scalarState (Fraction.ofInt 0))) eps",
+    "interpretation_and_remaining_premises": "Modern conditional theorem for an independently supplied state curve. Its own rational samples represent it, satisfy local cell residual bounds in the force region, share the initial state, and have a vanishing scalar accumulated local-source budget. Finite stability derives equality with the retained polygon limit, then the all-interval unsigned swept-fan law and separate actual matched-region outer-content decay. Neither equality nor either area conclusion is supplied. Derivation of local consistency from independent motion laws, ordinary sector-union identification, unrestricted intervals and stage-local historical certification remain open; this is not bare trajectory existence implying an area law."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicAccelerationSecants.cellAccelerationSecant_eq",

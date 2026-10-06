@@ -90,3 +90,5 @@ import NewtonLimitDynamics.Polygon.HarmonicQuadraticSecants
 import NewtonLimitDynamics.Diagnostic.ConstructedHarmonicPotential
 import NewtonLimitDynamics.Polygon.GeneralForceTangentTriangle
 import NewtonLimitDynamics.Polygon.GeneralForceArea
+
+import NewtonLimitDynamics.Polygon.GivenTrajectoryArea

@@ -17,7 +17,10 @@ area law: equal swept areas in equal times. The nonnegative area between
 Newton's polygon and that given trajectory is a separate approximation
 control, whose decay must be proved. Neither area conclusion nor polygon/curve
 agreement is postulated. The verified motion constructions remain supporting
-results. Follow the [proof obligations](research/PROP_I_REALIZATION.md) and the
+results. A [conditional given-motion theorem](research/verification/given-trajectory-consistency-2026-10-06.md)
+now derives polygon agreement, the swept-fan law and separate between-path
+content decay from explicit local consistency. Deriving that consistency
+from motion laws and identifying ordinary sector area remain open. Follow the [proof obligations](research/PROP_I_REALIZATION.md) and the
 [construction ledger](research/CAUCHY_REALIZATION.md) and
 [current checkpoint](research/verification/constructed-central-area-2026-10-05.md).
 

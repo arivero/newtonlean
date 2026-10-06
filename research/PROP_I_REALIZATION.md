@@ -1,5 +1,21 @@
 # Proposition I realization: premises and checked finite steps
 
+## Given-motion consistency bridge, 6 October
+
+[The consistency checkpoint](verification/given-trajectory-consistency-2026-10-06.md)
+now proves a conditional theorem for an independently supplied state curve.
+Finite stability accumulates its rational samples' one-cell mechanical
+residuals; a shrinking scalar local-source budget and representation of the
+supplied curve then prove equality with the retained polygon limit. The
+all-interval swept-fan law follows, and the actual matched-region outer
+content tends to zero in a separate theorem. Neither agreement nor either
+area conclusion is assumed. Local consistency is an additional explicit
+premise, not part of trajectory existence. Deriving it from independently
+stated motion laws, identifying ordinary swept-sector area and certifying
+Newton's stage-local limiting proofs remain open. This adds no historical
+completion credit and does not release force-specific applications.
+
+
 ## Primary proof convention, 6 October
 
 The user now authorizes an existing trajectory as an explicit postulate.
@@ -279,7 +295,7 @@ identification and the historical limiting passage remain explicitly separate.
 | P1 finite area law | **Checked in the rational planar model, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
 | P3 trajectory existence and identification | **Existence postulated in the primary route, 6 October; identification remains to prove.** Supply a trajectory map, its separately stated mechanical laws and any required regularity. Do not assume that Newton's polygons converge to it or that either area conclusion holds. The verified `GeneralForceEndpoint`/`Prefix`/`Time` construction remains supporting work, including its regional assumptions and open gluing/partition questions. |
-| P4(A) swept-area law, the Proposition I conclusion | **Retained constructed-curve fan law checked; general given-trajectory proof open.** `SweptArea.Proportional` states the all-interval fan-area target, with the curve provided as data. `GeneralForceArea.proportional_swept_area` derives the retained regional instance from the checked interval law. The actual curve-node fans give `abs(ell)*abs(t1-t0)/2`; existence of the fan limit is part of the conclusion. Unsigned fans count multiplicity. Ordinary sector-union identification and the historical limiting passage remain open. No area law is assumed in the trajectory postulate. |
+| P4(A) swept-area law, the Proposition I conclusion | **Constructed-curve and conditional given-motion fan laws checked; historical given-trajectory proof open.** `SweptArea.Proportional` states the all-interval fan-area target, with the curve provided as data. `GeneralForceArea.proportional_swept_area` derives the retained regional instance from the checked interval law. The actual curve-node fans give `abs(ell)*abs(t1-t0)/2`; existence of the fan limit is part of the conclusion. Unsigned fans count multiplicity. Ordinary sector-union identification and the historical limiting passage remain open. No area law is assumed in the trajectory postulate. |
 | P4(B) between-path approximation control | **Retained constructed-curve content control checked; bridge to an independently given mechanical trajectory open.** `GeneralForcePathContent.polygon_trajectory_enclosure` and `polygon_trajectory_defect_vanishes` ground actual matched-region all-cover content with bound `4*C²/2^m`. Initial endpoints agree and the final connector is retained. This set counts overlaps once and is distinct from swept fan area. Its convergence is not part of trajectory existence, and equal swept sums alone do not prove it. |
 | P5 force identification | **Constructed dyadic rate bridges checked.** `GeneralForceSecants` identifies completed bracketing position secants with constructed velocity; `GeneralForceAccelerationSecants` identifies completed bracketing velocity secants with force at the constructed position, uniformly including the final boundary. `CompletedForce` operates on the certified regional completion domain and is independent of force precision. Restarted finite remainders and exhaustion derive the estimates; harmonic results are corollaries. Unrestricted difference quotients, motion-precision/partition independence and historical justification of continuously acting force remain open. |
 
@@ -321,8 +337,10 @@ the finite content it needs when cells are unequal.
 
 ## Next bounded step
 
-The next primary step is to formulate the given trajectory's mechanical
-premises and prove the swept-area law without rebuilding existence. Trace
+The next primary step is to derive the new local consistency premises from
+independently stated mechanical laws and regularity of the given motion.
+The conditional identification, all-interval fan law and separate matched-region
+content decay now compile; they do not derive those consistency premises. Trace
 Newton's finite impulse and limiting arguments against that curve; derive
 the between-path control separately, without hiding curve/polygon agreement
 in the existence postulate. In the invoked Lemmas II–III chain, the remaining

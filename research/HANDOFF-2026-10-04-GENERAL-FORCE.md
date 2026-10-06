@@ -468,8 +468,9 @@ bound, then exhausts the derived gap as maximum widths shrink. Separate
 1687/1713 wrappers preserve the source passages and modern geometric premises.
 See verification/lemma2-3-monotone-rectangles-2026-10-06.md.
 
-Next within Order 1 after the 6 October clarification: formulate the given
-trajectory's mechanical premises and prove its swept-area law without
+The conditional given-motion bridge below now supplies a swept-fan law from
+explicit local consistency. Next derive that consistency from the given
+trajectory's independent mechanical premises, without
 rebuilding existence or assuming polygon/curve agreement. The separate
 between-path control supports the limiting passage. In the invoked-lemma
 chain, identify the finite rectangle side-product sums with ordinary
@@ -553,3 +554,25 @@ goes on the queue, in this order:
 Items 1 and 3 are part of Tasks E and A.6; items 2, 4 and 5 are small and can
 be done when their modules are next touched; item 6 is housekeeping for a
 quiet moment. None changes a completion score.
+
+## Given-motion consistency bridge, 6 October
+
+[The consistency checkpoint](verification/given-trajectory-consistency-2026-10-06.md)
+now proves a conditional theorem for an independently supplied state curve.
+Finite stability accumulates its rational samples' one-cell mechanical
+residuals; a shrinking scalar local-source budget and representation of the
+supplied curve then prove equality with the retained polygon limit. The
+all-interval swept-fan law follows, and the actual matched-region outer
+content tends to zero in a separate theorem. Neither agreement nor either
+area conclusion is assumed. Local consistency is an additional explicit
+premise, not part of trajectory existence. Deriving it from independently
+stated motion laws, identifying ordinary swept-sector area and certifying
+Newton's stage-local limiting proofs remain open. This adds no historical
+completion credit and does not release force-specific applications.
+
+Next within Order 1: derive the local cell residual and its shrinking rate
+from separately stated motion laws and regularity, rather than defining a
+physical trajectory by the polygon limit. Preserve the independence of the
+curve's own rational representation. Ordinary sector-area identification and
+the invoked Lemmas II–III area passage remain open. No new historical wrapper
+is added for the conditional consistency theorem.
