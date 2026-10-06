@@ -127,4 +127,46 @@ theorem natp00090_constructed_central_area_law (o : ForceClasses.CentralOracle) 
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
 
+/-- NATP00089 Theorem 1: modern interval consequence of equal areas in equal times.
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par9.
+Actual curve-node interval fans give |ell|*|t1-t0|/2, with derived vanishing
+intervening content. Planarity is built into the model, swept multiplicity
+is counted, and regional Lipschitz/window data remain modern premises.
+No printed-edition componendo sentence or limiting lemma is attributed to this witness. No other witness supplies a premise. -/
+theorem natp00089_constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime.BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaBetween T d.time_nonnegative
+      (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t₀ t₁
+      (GeneralForceArea.intervalAreaValue o E0 T tau L B s hE d t₀ t₁) ∧
+    GeneralForceArea.intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      SecantValues.secantValue (CentralSchedule.momentum s).abs.half
+        (SweptArea.intervalElapsedValue T d.time_nonnegative t₀ t₁)
+        (CauchyValues.embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  GeneralForceArea.constructed_interval_area_law o E0 T tau L B s hE d t₀ t₁
+
+/-- NATP00090 Theorem 1: separately named modern interval consequence.
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17.
+Actual curve-node interval fans give |ell|*|t1-t0|/2, with derived vanishing
+intervening content. Planarity is built into the model, swept multiplicity
+is counted, and regional Lipschitz/window data remain modern premises.
+No printed-edition componendo sentence or limiting lemma is attributed to this witness. No other witness supplies a premise. -/
+theorem natp00090_constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime.BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaBetween T d.time_nonnegative
+      (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t₀ t₁
+      (GeneralForceArea.intervalAreaValue o E0 T tau L B s hE d t₀ t₁) ∧
+    GeneralForceArea.intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      SecantValues.secantValue (CentralSchedule.momentum s).abs.half
+        (SweptArea.intervalElapsedValue T d.time_nonnegative t₀ t₁)
+        (CauchyValues.embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  GeneralForceArea.constructed_interval_area_law o E0 T tau L B s hE d t₀ t₁
+
 end DeMotu1684.AreaLaw

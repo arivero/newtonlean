@@ -29,6 +29,16 @@ unrestricted force/rate identification and the historical limiting passage
 remain separate. See the [curve-area checkpoint](verification/constructed-central-area-2026-10-05.md)
 and the [Latin proof route](PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route).
 
+`GeneralForceArea.constructed_interval_area_law` now extends that conclusion
+to every pair of times in the same local domain: actual unsigned interval
+fans converge to `abs(ell)*abs(t1-t0)/2`. Address independence, uniqueness,
+endpoint reversal, zero-length intervals and equal areas for equal elapsed
+lengths are proved; adjacent completed fans compose by addition. See the
+[interval checkpoint](verification/constructed-area-intervals-2026-10-06.md).
+The 6 October user direction puts proofs of the Laws' Corollary 1 and
+Lemma III Corollary 4 next, following their stage-local proof dependencies,
+before force-specific applications. Their source links do not supply proofs.
+
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
 and its force bound is B=L*R+E. CalibratedGrowth.driftCap_budget proves

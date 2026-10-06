@@ -380,6 +380,25 @@ force identification, arbitrary partitions and historical limiting proof
 certification remain open. These are part of the general target's scope;
 Kepler work stays held until the general proof requirements are met.
 
+## Interval extension and next dependencies, 6 October
+
+`GeneralForceArea.constructed_interval_area_law` extends the same actual
+local curve construction to unsigned fans between arbitrary BinaryTime
+endpoints. Their area is `abs(ell)*abs(t1-t0)/2`, with address independence,
+uniqueness, reversal and zero-length controls. The diagonal area name retains
+actual curve-node fan approximants. The formula follows from their proved
+geometric error; it is not the area's definition. Canonical finite and completed
+interval fans compose by addition. All existing initial-time APIs remain.
+No force instance or completion-score increase is added.
+
+Latest user direction: after this patch, prove the results Proposition I
+invokes, at least the Laws' Corollary 1 and Lemma III Corollary 4, following
+their own proof dependencies. This is the next concrete work within Order 1,
+before Kepler or another force-specific application. The printed editions
+explicitly cite those results; De Motu's composition references and unnumbered
+limiting passage stay witness-local. Source-map entries and conditional
+interfaces do not certify the invoked proofs.
+
 ## Verification and reporting, every increment
 
 - The README verification list, at least: `lake build`;

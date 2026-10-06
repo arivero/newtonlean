@@ -23,6 +23,41 @@ def fan (p : Nat → Point) (n : Nat) : Fraction :=
 def unsignedFan (p : Nat → Point) (n : Nat) : Fraction :=
   sum (fun i => (det (p i) (p (i+1))).abs) n
 
+/-- Cells starting at `lo`, with a count independent of the initial prefix. -/
+def intervalSum (a : Nat → Fraction) (lo count : Nat) : Fraction :=
+  sum (fun i => a (lo+i)) count
+
+def intervalFan (unsigned : Bool) (p : Nat → Point) (lo count : Nat) : Fraction :=
+  intervalSum (fun i => if unsigned then (det (p i) (p (i+1))).abs
+    else det (p i) (p (i+1))) lo count
+
+theorem intervalSum_compose (a : Nat → Fraction) (lo n k : Nat) :
+    Fraction.equiv (intervalSum a lo (n+k))
+      (Fraction.add (intervalSum a lo n) (intervalSum a (lo+n) k)) := by
+  induction k with
+  | zero =>
+    simp only [Nat.add_zero, intervalSum, sum]
+    simp only [Fraction.equiv,Fraction.add,Fraction.ofInt]
+    simp only [Int.zero_mul,Int.add_zero,Int.mul_one]
+  | succ k ih =>
+    have h := Fraction.add_equiv ih (Fraction.equiv_refl (a (lo+(n+k))))
+    have hassoc : Fraction.equiv
+        (Fraction.add (Fraction.add (intervalSum a lo n) (intervalSum a (lo+n) k))
+          (a (lo+(n+k))))
+        (Fraction.add (intervalSum a lo n)
+          (Fraction.add (intervalSum a (lo+n) k) (a ((lo+n)+k)))) := by
+      simp only [Fraction.equiv,Fraction.add]
+      simp only [Int.add_mul,Int.mul_add]
+      ac_nf
+    simpa only [intervalSum, sum, Nat.add_succ, Nat.add_assoc] using
+      Fraction.equiv_trans h hassoc
+
+theorem intervalFan_compose (unsigned : Bool) (p : Nat → Point) (lo n k : Nat) :
+    Fraction.equiv (intervalFan unsigned p lo (n+k))
+      (Fraction.add (intervalFan unsigned p lo n)
+        (intervalFan unsigned p (lo+n) k)) :=
+  intervalSum_compose _ lo n k
+
 theorem det_congr {p p' q q' : Point}
     (hp : pointEquiv p p') (hq : pointEquiv q q') :
     Fraction.equiv (det p q) (det p' q') :=
@@ -162,6 +197,12 @@ theorem sum_error (a b : Nat → Fraction) (e : Fraction) (n : Nat)
         (sum_abs_le (fun i => sub (a i) (b i)) n))
       (sum_mono _ _ n h))
     (sum_constant e n)
+
+theorem intervalSum_error (a b : Nat → Fraction) (lo count : Nat) (e : Fraction)
+    (h : ∀ i, i<count → Fraction.le (sub (a (lo+i)) (b (lo+i))).abs e) :
+    Fraction.le (sub (intervalSum a lo count) (intervalSum b lo count)).abs
+      (Fraction.mul (Fraction.ofInt count) e) :=
+  sum_error (fun i => a (lo+i)) (fun i => b (lo+i)) e count h
 
 theorem fan_error (p q : Nat → Point) (e : Fraction) (n : Nat)
     (h : ∀ i, i<n → Fraction.le

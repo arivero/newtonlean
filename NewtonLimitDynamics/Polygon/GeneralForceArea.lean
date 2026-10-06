@@ -12,7 +12,7 @@ window assumptions remain explicit modern reconstruction premises. -/
 namespace NewtonLimitDynamics.Polygon.GeneralForceArea
 open NewtonLimitDynamics
 open TimeSubdivision PointBounds ForceClasses HarmonicDyadic HarmonicBinaryPrefix
-open CauchyValues BinaryTime PositionValues SecantValues PairingValues DyadicNodes HarmonicTimeRealization
+open CauchyValues BinaryTime PositionValues SecantValues PairingValues DyadicNodes HarmonicTimeRealization SweptArea
 open GeneralForceEndpoint GeneralForcePrefix GeneralForceTime GeneralForceSecants
 
 theorem count_areal_product (o : CentralOracle) (E0 T : Fraction)
@@ -158,6 +158,92 @@ theorem fan_approximant_bound (unsigned : Bool) (o : CentralOracle) (E0 T tau L 
   exact Fraction.le_equiv_left
     (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr (Fraction.equiv_symm hc) (Fraction.equiv_refl _))) hs
 
+noncomputable def curveIntervalName (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m : Nat) : EndpointCauchyName :=
+  FanValues.intervalName true (nodeName o E0 T tau L B s hE d m)
+    (intervalStart b c m) (intervalCount b c m)
+
+noncomputable def curveIntervalValue (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m : Nat) : Value :=
+  FanValues.intervalValue true
+    (fun k => gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
+    (intervalStart b c m) (intervalCount b c m)
+
+theorem curveIntervalValue_realize (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m : Nat) :
+    curveIntervalValue o E0 T tau L B s hE d b c m =
+      realize (curveIntervalName o E0 T tau L B s hE d b c m) := by
+  unfold curveIntervalValue curveIntervalName
+  rw [← funext (node_value o E0 T tau L B s hE d m)]
+  exact FanValues.intervalValue_realize true _ _ _
+
+theorem interval_fan_approximant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m j : Nat) :
+    Fraction.le
+      (distance ((curveIntervalName o E0 T tau L B s hE d b c m).approx j)
+        (scalarState (Fraction.mul (countTime T m (intervalCount b c m))
+          (areaMomentum true s))))
+      (Fraction.mul (Fraction.ofInt (intervalCount b c m : Int))
+        (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B))) := by
+  rw [curveIntervalName,FanValues.intervalName_approx]
+  apply Fraction.le_equiv_left (scalarState_distance _ _)
+  let lo := intervalStart b c m
+  let n := intervalCount b c m
+  let e := Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)
+  let c₀ := Fraction.mul (duration T m) (areaMomentum true s)
+  let p := fun i => ((nodeName o E0 T tau L B s hE d m i).approx j).1
+  let terms := fun i => (TimeSubdivision.det (p i) (p (i+1))).abs
+  have hterms : ∀ i, i<n → Fraction.le (PolygonFanArea.sub (terms (lo+i)) c₀).abs e := by
+    intro i hi
+    have hb := node_triangle_bound o E0 T tau L B s hE d m (lo+i) j
+      (by have he := interval_end_le_blocks b c m; dsimp [lo,n] at *; omega)
+    have he : Fraction.equiv
+        (Fraction.mul (duration T m) (CentralSchedule.momentum s)).abs c₀ :=
+      Fraction.equiv_trans (Fraction.abs_mul _ _)
+        (Fraction.mul_equiv (Fraction.abs_of_nonnegative _ d.time_nonnegative) (Fraction.equiv_refl _))
+    exact Fraction.le_equiv_left
+      (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr (Fraction.equiv_symm he) (Fraction.equiv_refl _)))
+      (Fraction.magnitudes.le_trans (PolygonFanArea.duration_abs_reverse _ _) hb)
+  have hs := PolygonFanArea.intervalSum_error terms (fun _ => c₀) lo n e hterms
+  have hc : Fraction.equiv (PolygonFanArea.intervalSum (fun _ => c₀) lo n)
+      (Fraction.mul (countTime T m n) (areaMomentum true s)) :=
+    Fraction.equiv_trans (PolygonFanArea.sum_constant c₀ n)
+      (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+  change Fraction.le (HarmonicTimeComparison.durationDifference _ _).abs _
+  exact Fraction.le_equiv_left
+    (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
+      (Fraction.equiv_symm hc) (Fraction.equiv_refl _))) hs
+
+def intervalReferenceName (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
+    (s : Point × Point) : EndpointCauchyName :=
+  secantName (areaMomentum true s).half (intervalElapsedName b c T hT)
+    (constantName FanValues.zeroState)
+
+theorem interval_reference_approx (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
+    (s : Point × Point) (m : Nat) :
+    stateEquiv ((intervalReferenceName b c T hT s).approx m)
+      (FanValues.halfState (scalarState
+        (Fraction.mul (countTime T m (intervalCount b c m)) (areaMomentum true s)))) := by
+  have he := interval_elapsed_approx b c T hT m
+  have hs : stateEquiv ((intervalReferenceName b c T hT s).approx m)
+      (secantState (areaMomentum true s).half
+        (scalarState (countTime T m (intervalCount b c m))) FanValues.zeroState) := by
+    exact ⟨pointScale_congr _
+      (pointSub_congr he.1 ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩),
+      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
+  have hp := FanValues.half_scalar_product (areaMomentum true s)
+    (countTime T m (intervalCount b c m))
+  exact ⟨pointEquiv_trans hs.1 (pointEquiv_symm hp.1),
+    pointEquiv_trans hs.2 (pointEquiv_symm hp.2)⟩
+
 theorem outer_radius_nonnegative (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : 0 ≤ d.outer_radius.num :=
@@ -230,6 +316,199 @@ theorem area_fan_reference_bound (unsigned : Bool) (b : Nat → Bool) (o : Centr
       from ⟨⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩,⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
     ⟨pointEquiv_symm hp.1,pointEquiv_symm hp.2⟩)
   exact Fraction.le_equiv_left hd hb
+
+theorem interval_fan_approximant_geometric (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m j : Nat) :
+    Fraction.le
+      (distance ((curveIntervalName o E0 T tau L B s hE d b c m).approx j)
+        (scalarState (Fraction.mul (countTime T m (intervalCount b c m))
+          (areaMomentum true s))))
+      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
+  have hr := outer_radius_nonnegative o E0 T tau L B s hE d
+  let e := Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)
+  have he : 0 ≤ e.num := fanErrorCoefficient_nonnegative (duration T m) B d.outer_radius
+    d.time_nonnegative d.bound_nonnegative hr
+  have hn : intervalCount b c m ≤ blocks m := by
+    have h := interval_end_le_blocks b c m
+    omega
+  have hcount : Fraction.le (Fraction.ofInt (intervalCount b c m : Int))
+      (Fraction.ofInt (blocks m : Int)) := by
+    simpa only [Fraction.le,Fraction.ofInt,Int.mul_one] using Int.ofNat_le.mpr hn
+  have hb := Fraction.magnitudes.le_trans
+    (interval_fan_approximant_bound o E0 T tau L B s hE d b c m j)
+    (Fraction.mul_le_mul_nonnegative hcount e he)
+  apply Fraction.le_equiv_right hb
+  simp only [e,fanErrorCoefficient,duration,blocks,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
+  ac_nf
+
+theorem interval_fan_reference_bound (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m j : Nat) :
+    Fraction.le
+      (distance (FanValues.halfState
+        ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
+        ((intervalReferenceName b c T d.time_nonnegative s).approx m))
+      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
+  have hb := Fraction.magnitudes.le_trans (FanValues.half_nonexpansive _ _)
+    (interval_fan_approximant_geometric o E0 T tau L B s hE d b c m j)
+  have hp := interval_reference_approx b c T d.time_nonnegative s m
+  have hd := stateNorm_equiv (stateSub_congr
+    (show stateEquiv
+      (FanValues.halfState ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
+      (FanValues.halfState ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
+      from ⟨⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩,⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
+    ⟨pointEquiv_symm hp.1,pointEquiv_symm hp.2⟩)
+  exact Fraction.le_equiv_left (Fraction.equiv_symm hd) hb
+
+/-- The diagonal approximants are the half-fans of actual curve nodes. -/
+noncomputable def intervalName (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : EndpointCauchyName :=
+  GeometricApproximation.name (intervalReferenceName b c T d.time_nonnegative s)
+    (fun m => FanValues.halfState
+      ((curveIntervalName o E0 T tau L B s hE d b c m).approx m))
+    (fanErrorCoefficient T B d.outer_radius)
+    (fanErrorCoefficient_nonnegative T B d.outer_radius d.time_nonnegative d.bound_nonnegative
+      (outer_radius_nonnegative o E0 T tau L B s hE d))
+    (fun m => interval_fan_reference_bound b c o E0 T tau L B s hE d m m)
+
+theorem intervalName_equiv_reference (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    NameEquiv (intervalName b c o E0 T tau L B s hE d)
+      (intervalReferenceName b c T d.time_nonnegative s) :=
+  GeometricApproximation.name_equiv _ _ _ _ _
+
+theorem intervalName_address_equiv (b c b' c' : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (hb : AddressEquiv T d.time_nonnegative b b')
+    (hc : AddressEquiv T d.time_nonnegative c c') :
+    NameEquiv (intervalName b c o E0 T tau L B s hE d)
+      (intervalName b' c' o E0 T tau L B s hE d) := by
+  have he : NameEquiv (intervalElapsedName b c T d.time_nonnegative)
+      (intervalElapsedName b' c' T d.time_nonnegative) :=
+    mapName_equiv FanValues.absoluteState FanValues.absolute_nonexpansive
+      (secantName_equiv (Fraction.ofInt 1) _ _ _ _ hb hc)
+  have hr := secantName_equiv (areaMomentum true s).half _ _ _ _ he
+    (nameEquiv_refl (constantName FanValues.zeroState))
+  exact nameEquiv_trans (intervalName_equiv_reference b c o E0 T tau L B s hE d)
+    (nameEquiv_trans hr
+      (nameEquiv_symm (intervalName_equiv_reference b' c' o E0 T tau L B s hE d)))
+
+/-- Actual interval-fan approximants construct the area. Their address
+independence is established before this two-endpoint quotient lift. -/
+noncomputable def intervalAreaValue (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) : Value :=
+  Quotient.liftOn₂ t₀ t₁
+    (fun b c => realize (intervalName b c o E0 T tau L B s hE d))
+    (fun b c b' c' hb hc => Quotient.sound
+      (intervalName_address_equiv b c b' c' o E0 T tau L B s hE d hb hc))
+
+theorem intervalAreaValue_reference (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    intervalAreaValue o E0 T tau L B s hE d (Quotient.mk _ b) (Quotient.mk _ c) =
+      realize (intervalReferenceName b c T d.time_nonnegative s) :=
+  Quotient.sound (intervalName_equiv_reference b c o E0 T tau L B s hE d)
+
+/-- The elapsed-time formula is a consequence of the actual fan construction. -/
+theorem interval_area_time_formula (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
+    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      secantValue (CentralSchedule.momentum s).abs.half
+        (intervalElapsedValue T d.time_nonnegative t₀ t₁)
+        (embed FanValues.zeroState) := by
+  induction t₀ using Quotient.inductionOn with
+  | _ b =>
+    induction t₁ using Quotient.inductionOn with
+    | _ c => exact intervalAreaValue_reference b c o E0 T tau L B s hE d
+
+/-- The unsigned fan on the actual curve-node interval converges to the
+absolute elapsed-time area. Both addresses are quantified in `AreaBetween`. -/
+theorem interval_area_is_swept (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaBetween T d.time_nonnegative
+      (gammaPosition o E0 T tau L B s hE d) t₀ t₁
+      (intervalAreaValue o E0 T tau L B s hE d t₀ t₁) := by
+  intro b c hb hc eps heps
+  subst t₀
+  subst t₁
+  rw [intervalAreaValue_reference]
+  let C := fanErrorCoefficient T B d.outer_radius
+  have hC := fanErrorCoefficient_nonnegative T B d.outer_radius
+    d.time_nonnegative d.bound_nonnegative
+    (outer_radius_nonnegative o E0 T tau L B s hE d)
+  obtain ⟨N,hN⟩ := duration_eventually_small C eps.half hC heps
+  obtain ⟨M,hM⟩ := constant_approximants_converge
+    (intervalReferenceName b c T d.time_nonnegative s) eps.half heps
+  refine ⟨max N M,fun m hm => ?_⟩
+  have hf : Within (FanValues.halfValue
+      (curveIntervalValue o E0 T tau L B s hE d b c m))
+      (embed ((intervalReferenceName b c T d.time_nonnegative s).approx m))
+      (duration C m) := by
+    rw [curveIntervalValue_realize,FanValues.halfValue_realize]
+    exact nameBound_of_eventual_le _ _ _ 0
+      (fun j _ => interval_fan_reference_bound b c o E0 T tau L B s hE d m j)
+  have hs := within_mono _ _ _ _ (Fraction.magnitudes.lt_implies_le (hN m (by omega))) hf
+  have ht := within_mono _ _ _ _ (Fraction.le_of_equiv (Fraction.half_add_self eps))
+    (within_triangle _ _ _ _ _ hs (hM m (by omega)))
+  change Within (FanValues.halfValue (FanValues.intervalValue true
+    (fun k => positionValue (gammaValue o E0 T tau L B s hE d
+      (nodeTime T d.time_nonnegative m k)))
+    (intervalStart b c m) (intervalCount b c m))) _ eps
+  rw [FanValues.intervalValue_positions]
+  exact ht
+
+theorem interval_area_reverse (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
+    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      intervalAreaValue o E0 T tau L B s hE d t₁ t₀ :=
+  SweptArea.areaBetween_unique T d.time_nonnegative _ _ _ _ _
+    (interval_area_is_swept o E0 T tau L B s hE d t₀ t₁)
+    (SweptArea.areaBetween_reverse T d.time_nonnegative _ _ _ _
+      (interval_area_is_swept o E0 T tau L B s hE d t₁ t₀))
+
+theorem interval_areas_equal_of_equal_elapsed (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ u₀ u₁ : BinaryTime T d.time_nonnegative)
+    (h : intervalElapsedValue T d.time_nonnegative t₀ t₁ =
+      intervalElapsedValue T d.time_nonnegative u₀ u₁) :
+    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      intervalAreaValue o E0 T tau L B s hE d u₀ u₁ := by
+  rw [interval_area_time_formula o E0 T tau L B s hE d t₀ t₁,
+    interval_area_time_formula o E0 T tau L B s hE d u₀ u₁,h]
+
+/-- A zero-length interval is empty even when the time has several addresses. -/
+theorem interval_area_zero (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime T d.time_nonnegative) :
+    intervalAreaValue o E0 T tau L B s hE d t t = embed FanValues.zeroState := by
+  induction t using Quotient.inductionOn with
+  | _ b =>
+    apply Quotient.sound
+    apply nameEquiv_of_levelwise_stateEquiv
+    intro m
+    change stateEquiv
+      (FanValues.halfState
+        ((FanValues.intervalName true (nodeName o E0 T tau L B s hE d m)
+          (intervalStart b b m) (intervalCount b b m)).approx m)) FanValues.zeroState
+    simp only [intervalCount,intervalStart,Nat.max_self,Nat.min_self,Nat.sub_self,
+      FanValues.intervalName,FanValues.fanName,FanValues.sumNames,constantName]
+    change stateEquiv (FanValues.halfState FanValues.zeroState) FanValues.zeroState
+    decide
 
 /-- Actual inscribed triangle fan approximants, on progressively finer grids.
 The reference proves their Cauchy property; it is not their definition. -/
@@ -335,6 +614,27 @@ theorem constructed_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
       (RationalEnclosure.level mesh)) :=
   ⟨sector_area_is_swept true o E0 T tau L B s hE d t,
     sector_area_time_formula true o E0 T tau L B s hE d t,
+    GeneralForcePathContent.polygon_trajectory_defect_vanishes o E0 T tau L B s hE d⟩
+
+/-- Unsigned swept area on any interval of the actual local curve, with its
+derived elapsed-time formula and the existing intervening-content exhaustion.
+This is a modern regional reconstruction; the historical invoked corollaries
+remain separate proof obligations. -/
+theorem constructed_interval_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaBetween T d.time_nonnegative
+      (gammaPosition o E0 T tau L B s hE d) t₀ t₁
+      (intervalAreaValue o E0 T tau L B s hE d t₀ t₁) ∧
+    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      secantValue (CentralSchedule.momentum s).abs.half
+        (intervalElapsedValue T d.time_nonnegative t₀ t₁)
+        (embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  ⟨interval_area_is_swept o E0 T tau L B s hE d t₀ t₁,
+    interval_area_time_formula o E0 T tau L B s hE d t₀ t₁,
     GeneralForcePathContent.polygon_trajectory_defect_vanishes o E0 T tau L B s hE d⟩
 
 end NewtonLimitDynamics.Polygon.GeneralForceArea

@@ -65,4 +65,30 @@ theorem truncation_time_within (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.n
   exact TailValues.approximant_bound (BinaryTime.timeName b T hT) T hT
     (fun j => adjacent_time_bound b T j hT) m
 
+def intervalStart (b c : Nat → Bool) (m : Nat) : Nat := min (ticks b m) (ticks c m)
+def intervalCount (b c : Nat → Bool) (m : Nat) : Nat :=
+  max (ticks b m) (ticks c m) - intervalStart b c m
+
+theorem interval_end_le_blocks (b c : Nat → Bool) (m : Nat) :
+    intervalStart b c m + intervalCount b c m ≤ blocks m := by
+  simp only [intervalStart,intervalCount]
+  have hb := ticks_le_blocks b m
+  have hc := ticks_le_blocks c m
+  omega
+
+theorem interval_count_time_gap (T : Fraction) (hT : 0 ≤ T.num)
+    (u v m : Nat) :
+    Fraction.equiv (countTime T m (max u v - min u v))
+      (HarmonicTimeComparison.durationDifference (countTime T m u) (countTime T m v)).abs := by
+  rcases Nat.le_total u v with huv | hvu
+  · rw [Nat.max_eq_right huv,Nat.min_eq_left huv]
+    have hs : u + (v-u) = v := Nat.add_sub_of_le huv
+    simpa only [countTime,hs] using
+      (Fraction.equiv_symm (countTime_abs_difference T m u (v-u) hT))
+  · rw [Nat.max_eq_left hvu,Nat.min_eq_right hvu]
+    have hs : v + (u-v) = u := Nat.add_sub_of_le hvu
+    simpa only [countTime,hs] using Fraction.equiv_trans (Fraction.equiv_symm
+      (countTime_abs_difference T m v (u-v) hT))
+      (durationDifference_abs_symm _ _)
+
 end NewtonLimitDynamics.Polygon.DyadicNodes

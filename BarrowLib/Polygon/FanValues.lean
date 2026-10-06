@@ -106,6 +106,13 @@ def fanValue (unsigned : Bool) (p : Nat → Value) (n : Nat) : Value :=
 def finiteFan (unsigned : Bool) (p : Nat → Point) (n : Nat) : Fraction :=
   if unsigned then PolygonFanArea.unsignedFan p n else PolygonFanArea.fan p n
 
+/-- A fan over the cells `lo, ..., lo+count-1`, retaining their actual nodes. -/
+def intervalName (unsigned : Bool) (p : Nat → EndpointCauchyName)
+    (lo count : Nat) : EndpointCauchyName := fanName unsigned (fun i => p (lo+i)) count
+
+def intervalValue (unsigned : Bool) (p : Nat → Value)
+    (lo count : Nat) : Value := fanValue unsigned (fun i => p (lo+i)) count
+
 theorem fanValue_realize (unsigned : Bool) (p : Nat → EndpointCauchyName) (n : Nat) :
     fanValue unsigned (fun i => realize (p i)) n = realize (fanName unsigned p n) := by
   cases unsigned <;> exact sumValues_realize _ _
@@ -124,11 +131,56 @@ theorem fanValue_positions (unsigned : Bool) (p : Nat → Value) (n : Nat) :
   unfold fanValue
   rw [hf]
 
+theorem intervalValue_positions (unsigned : Bool) (p : Nat → Value)
+    (lo count : Nat) :
+    intervalValue unsigned (fun i => positionValue (p i)) lo count =
+      intervalValue unsigned p lo count :=
+  fanValue_positions unsigned (fun i => p (lo+i)) count
+
 theorem fanName_approx (unsigned : Bool) (p : Nat → EndpointCauchyName) (n j : Nat) :
     (fanName unsigned p n).approx j = scalarState (finiteFan unsigned (fun i => (p i).approx j |>.1) n) := by
   cases unsigned <;> exact sumNames_approx _ _ _
 
+theorem intervalValue_realize (unsigned : Bool) (p : Nat → EndpointCauchyName)
+    (lo count : Nat) :
+    intervalValue unsigned (fun i => realize (p i)) lo count =
+      realize (intervalName unsigned p lo count) :=
+  fanValue_realize unsigned (fun i => p (lo+i)) count
+
+theorem intervalName_approx (unsigned : Bool) (p : Nat → EndpointCauchyName)
+    (lo count j : Nat) :
+    (intervalName unsigned p lo count).approx j =
+      scalarState (PolygonFanArea.intervalFan unsigned
+        (fun i => (p i).approx j |>.1) lo count) := by
+  cases unsigned <;>
+    simp only [intervalName,fanName_approx,PolygonFanArea.intervalFan,
+      PolygonFanArea.intervalSum,finiteFan,PolygonFanArea.unsignedFan,
+      PolygonFanArea.fan,Nat.add_assoc,Bool.false_eq_true,ite_false,ite_true]
+
 def zeroState : Point × Point := scalarState (Fraction.ofInt 0)
+
+/-- Adjacent blocks of actual completed triangle fans compose by addition. -/
+theorem intervalValue_compose (unsigned : Bool) (p : Nat → Value) (lo n k : Nat) :
+    intervalValue unsigned p lo (n+k) =
+      sumValue (intervalValue unsigned p lo n) (intervalValue unsigned p (lo+n) k) := by
+  classical
+  let names := fun i => Classical.choose (Quotient.exists_rep (p i))
+  have hp : (fun i => realize (names i)) = p :=
+    funext (fun i => Classical.choose_spec (Quotient.exists_rep (p i)))
+  rw [← hp,intervalValue_realize,intervalValue_realize,intervalValue_realize,sumValue_realize]
+  apply Quotient.sound
+  apply nameEquiv_of_levelwise_stateEquiv
+  intro j
+  change stateEquiv ((intervalName unsigned names lo (n+k)).approx j)
+    (sumState ((intervalName unsigned names lo n).approx j)
+      ((intervalName unsigned names (lo+n) k).approx j))
+  rw [intervalName_approx,intervalName_approx,intervalName_approx]
+  let pts := fun i => ((names i).approx j).1
+  change stateEquiv (scalarState (PolygonFanArea.intervalFan unsigned pts lo (n+k)))
+    (scalarState (Fraction.add (PolygonFanArea.intervalFan unsigned pts lo n)
+      (PolygonFanArea.intervalFan unsigned pts (lo+n) k)))
+  exact ⟨⟨PolygonFanArea.intervalFan_compose unsigned pts lo n k,Fraction.equiv_refl _⟩,
+    ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
 
 def halfState (s : Point × Point) : Point × Point :=
   secantState (Fraction.ofInt 1).half s zeroState

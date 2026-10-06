@@ -1,5 +1,30 @@
 # Verification record
 
+## Constructed swept-area intervals, 6 October 2026
+
+`GeneralForceArea.constructed_interval_area_law` constructs unsigned swept
+area between arbitrary local time endpoints from actual curve-node fans and
+derives `abs(ell)*abs(t1-t0)/2`. Both endpoint addresses are quantified in
+`SweptArea.AreaBetween`; address independence precedes the actual fan-name
+quotient lift. Finite and completed adjacent fans compose. Uniqueness, zero,
+reversal and equal-elapsed comparisons compile, including aliases and T=0.
+The four separate stage/witness wrappers remain modern regional-Lipschitz
+reconstructions. Ordinary sector-union content and the historical invoked
+corollary proofs remain open; completion scores are unchanged.
+
+One independent sequential gpt-6-luna verifier ran all 16 README commands
+and the scope harness, all exiting 0. The catalogue has 1,650 theorem rows,
+1,506 references, 82 nodes, 75 edges and 253 passages. All 2,093 prior public
+names and signatures remain, with 44 additions. Only propext, Classical.choice
+and Quot.sound occur; packages remain empty and the foundation import
+direction is intact. Root reviewed the source/axiom/API logs; the graph PDF
+was preserved after checking that only date metadata changed. Full logs:
+/tmp/newton-sol61-interval-final-01.log through -16.log; scope:
+/tmp/newton-sol61-interval-scope-final.log; API:
+/tmp/newton-sol61-interval-api.json. See the
+[interval checkpoint](verification/constructed-area-intervals-2026-10-06.md).
+Conversation-export changes remain untouched and excluded.
+
 ## Current handoff: constructed central curve area, 5–6 October 2026
 
 GeneralForceArea constructs unsigned swept area from actual curve-node fans
@@ -41,11 +66,12 @@ target is discharged. Full logs: /tmp/newton-sol61-area-final-01.log through
 /tmp/newton-sol61-area-api.json. See the
 [checkpoint](verification/constructed-central-area-2026-10-05.md).
 
-The session mounts this checkout's .git read-only: staging failed when Git
-could not create index.lock. The verified Sol 6.1 increment is therefore saved
-with isolated Git metadata under /tmp/newton-sol61-area-commit.git and an
-importable /tmp/newton-sol61-constructed-central-area.bundle. This checkout's
-HEAD is not advanced; the conversation-export changes remain excluded.
+The original session mounted this checkout's .git read-only, so the verified
+Sol 6.1 increment was first saved with isolated Git metadata in
+/tmp/newton-sol61-area-commit.git and an importable bundle. After the user
+changed the session permissions on 6 October, root checked all 64 files
+against the saved commit, imported `0d9f69b` into this checkout and pushed it
+to origin/master. Both conversation-export changes remained excluded.
 
 ### Regional construction at 5d06aa6, 5 October 2026
 

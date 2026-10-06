@@ -73,4 +73,25 @@ theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau 
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
 
+/-- 1687 Proposition I: modern reconstruction of the explicit componendo step.
+https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45.
+Actual curve-node interval fans give |ell|*|t1-t0|/2, with derived vanishing
+intervening content. Planarity is built into the model, swept multiplicity
+is counted, and regional Lipschitz/window data remain modern premises.
+The source invokes the Laws' Corollary 1 and Lemma III Corollary 4; their historical proofs are separate obligations. No other witness supplies a premise. -/
+theorem constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime.BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaBetween T d.time_nonnegative
+      (GeneralForceTime.gammaPosition o E0 T tau L B s hE d) t₀ t₁
+      (GeneralForceArea.intervalAreaValue o E0 T tau L B s hE d t₀ t₁) ∧
+    GeneralForceArea.intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      SecantValues.secantValue (CentralSchedule.momentum s).abs.half
+        (SweptArea.intervalElapsedValue T d.time_nonnegative t₀ t₁)
+        (CauchyValues.embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  GeneralForceArea.constructed_interval_area_law o E0 T tau L B s hE d t₀ t₁
+
 end Principia1687.PropositionI

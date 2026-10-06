@@ -111,7 +111,11 @@ GeneralForceArea now constructs swept area from triangle fans of actual points
 on the general local curve and proves |ell|*t/2 (ell*t/2 oriented). The actual
 completed between-path content has a grounded enclosure and vanishing proof.
 Separate De Motu witness, 1687 and 1713 wrappers retain modern
-regional-Lipschitz/window premises. Unsigned swept area counts multiplicity;
+regional-Lipschitz/window premises. Arbitrary local time intervals now have
+actual unsigned curve-fan area |ell|*|t1-t0|/2, with address independence,
+zero/reversal controls and equal areas for equal elapsed lengths. The estimate
+remains about 40% overall and 66% for Proposition I.
+Unsigned swept area counts multiplicity;
 ordinary sector-union content and the historical limiting passage remain open.
 The [Latin proof route](research/PROP_I_REALIZATION.md#proof-dependencies-and-the-implementation-route)
 traces Proposition I through the cited laws and the proofs of Lemmas I–III.

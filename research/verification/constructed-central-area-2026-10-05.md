@@ -74,8 +74,9 @@ rational clients and explicit compatibility checks compile. Verified reference
 inventory: 1,476; graph 82 nodes, 75 edges, 253 passages. Final gate results
 are recorded in [VERIFICATION.md](../VERIFICATION.md).
 
-The session mounts the checkout's .git read-only and staging failed at
-index.lock. Root saves the verified commit as Sol 6.1 using isolated Git
-metadata in /tmp/newton-sol61-area-commit.git, and an importable bundle at
-/tmp/newton-sol61-constructed-central-area.bundle. The primary checkout's
-HEAD remains unchanged; neither conversation-export change is staged.
+The original session mounted the checkout's .git read-only and staging failed
+at index.lock. Root first saved the verified Sol 6.1 commit with isolated Git
+metadata and an importable bundle in /tmp. After permissions changed on
+6 October, root checked all 64 committed files against the workspace bytes,
+imported `0d9f69b` into the primary checkout and pushed it to origin/master.
+Neither conversation-export change was staged or modified.
