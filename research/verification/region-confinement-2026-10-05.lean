@@ -1,5 +1,5 @@
-import NewtonLimitDynamics.Polygon.RegionConfinement
-import NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint
+import ModernLib.Polygon.RegionConfinement
+import ModernLib.Polygon.HarmonicGeneralEndpoint
 
 /-! Scope controls for the finite A.6 invariant. These are kernel-checked
 instances and a degenerate countermodel, not an independent numerical orbit

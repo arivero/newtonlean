@@ -1,4 +1,4 @@
-import NewtonLimitDynamics.Polygon.HarmonicCover
+import ModernLib.Polygon.HarmonicCover
 
 set_option maxRecDepth 100000
 set_option maxHeartbeats 1000000

@@ -1,5 +1,5 @@
-import NewtonLimitDynamics.Polygon.RegionConfinement
-import NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint
+import ModernLib.Polygon.RegionConfinement
+import ModernLib.Polygon.HarmonicGeneralEndpoint
 
 /-! Proper-annulus controls for actual paired accumulation and distinct
 represented durations. No regional trace or whole-plane premise is supplied.

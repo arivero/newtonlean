@@ -1,5 +1,5 @@
-import NewtonLimitDynamics.Polygon.RegionConfinement
-import NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint
+import ModernLib.Polygon.RegionConfinement
+import ModernLib.Polygon.HarmonicGeneralEndpoint
 
 /-! A proper annular oracle tests the A.6 comparison interface: the origin
 is excluded, and finite cell comparison uses only derived arrival membership.

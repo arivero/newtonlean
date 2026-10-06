@@ -1,7 +1,7 @@
-import NewtonLimitDynamics.Polygon.GeneralForceGrowth
-import NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants
-import NewtonLimitDynamics.Polygon.GeneralForceQuadraticSecants
-import NewtonLimitDynamics.Polygon.HarmonicGeneralEndpoint
+import ModernLib.Polygon.GeneralForceGrowth
+import ModernLib.Polygon.GeneralForceAccelerationSecants
+import ModernLib.Polygon.GeneralForceQuadraticSecants
+import ModernLib.Polygon.HarmonicGeneralEndpoint
 
 /-! Regional construction controls. The proper annulus excludes the origin;
 its curve and completed force use derived certificates at every mesh. The
