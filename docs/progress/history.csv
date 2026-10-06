@@ -118,3 +118,5 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 117,f4778c0,2026-10-06T05:31:22+02:00,Derive monotone rectangle enclosure and maximum-width exhaustion,1727,21,0,0,0,0,785,26396,25,1300,208,171,48,0,325,153,30,1182,37
 118,8c9ad34,2026-10-06T07:32:23+02:00,Take trajectory existence as a premise and separate area obligations,1729,2,0,0,0,0,786,26441,25,1302,208,171,48,0,327,153,30,1182,37
 119,85a76ec,2026-10-06T13:26:05+02:00,Derive given-motion area laws from explicit local consistency,1735,6,0,0,0,0,789,26698,25,1305,208,174,48,0,331,153,30,1184,37
+120,9f3ec58,2026-10-06T13:31:59+02:00,Plan historical result files with separate edition sections,1735,0,0,0,0,0,789,26698,25,1305,208,174,48,0,331,153,30,1184,37
+121,45b953f,2026-10-06T14:54:30+02:00,Document historical proof sections and refactor review boundaries,1735,0,0,0,0,0,789,26698,25,1305,208,174,48,0,331,153,30,1184,37
