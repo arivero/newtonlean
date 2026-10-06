@@ -433,9 +433,20 @@ give a two-sided boundary limit as the maximum cell span shrinks. Separate
 curve modulus. Actual tangent identification and vertical tangent patches
 remain separate. See verification/lemma3-supporting-boundaries-2026-10-06.md.
 
-Next within Order 1: the full historical curvilinear-area enclosure chain.
-Connect actual lower/upper rectangle sets to the given monotone figure and
-their finite sums before exhausting the maximum-width gap by Lemma I.
+The following monotone-rectangle increment derives the actual lower/upper
+rectangle sets around a fixed given rational graph, including all completed
+closure points. Ordered partition coverage and represented endpoint transport
+are proved. It constructs the largest actual width, proves the exact
+equal-width rectangle-sum identity and unequal-width maximum-times-height
+bound, then exhausts the derived gap as maximum widths shrink. Separate
+1687/1713 wrappers preserve the source passages and modern geometric premises.
+See verification/lemma2-3-monotone-rectangles-2026-10-06.md.
+
+Next within Order 1: identify these finite side-product sums with ordinary
+area of the rectangle unions and realize the given curvilinear figure's area
+between them, before concluding the ultimate ratio by Lemma I with a
+nonzero-area premise made explicit. Actual tangent
+identification and vertical patches remain separate.
 Neither trace convergence nor a scalar area budget proves arclength convergence.
 No force instance or completion-score increase is added.
 

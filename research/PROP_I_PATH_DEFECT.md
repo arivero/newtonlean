@@ -63,6 +63,14 @@ orientations are included. The 1687 and 1713 wrappers remain separate; actual
 tangent identification, vertical tangent patches and the full curvilinear-area
 enclosure proof remain open. See the
 [supporting-boundary checkpoint](verification/lemma3-supporting-boundaries-2026-10-06.md).
+The monotone-rectangle increment now derives lower/upper rectangle-set
+enclosure of a fixed given graph, including all completed closure points,
+and constructs the largest actual cell width. It proves the exact equal-width
+rectangle-sum gap and the unequal-width bound by maximum width × total height,
+then exhausts that derived gap. Endpoint aliases and zero widths are included.
+This connects finite geometry to the rectangle sums; ordinary union-area
+identification and the ultimate curvilinear-area ratio remain open. See the
+[rectangle checkpoint](verification/lemma2-3-monotone-rectangles-2026-10-06.md).
 No arclength theorem or completion-score increase is added; force-specific
 applications remain held.
 

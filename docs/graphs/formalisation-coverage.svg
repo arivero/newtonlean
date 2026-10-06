@@ -3,83 +3,83 @@
 <text x="26" y="26" font-size="16" font-weight="bold">Formalisation coverage of the whole evidence graph</text>
 <text x="26" y="44" font-size="11" fill="#555">every node, ranked by dependency depth; green = attached Lean references</text>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="context-stroke"/></marker></defs>
-<path d="M 232.8 2717.0 C 480.6 2717.0, 480.6 902.0, 728.4 902.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 635.2 1292.0 C 681.8 1292.0, 681.8 902.0, 728.4 902.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 232.8 512.0 C 305.0 512.0, 305.0 309.5, 377.2 309.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 287.2 572.0 C 332.2 572.0, 332.2 309.5, 377.2 309.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 290.4 159.5 C 333.8 159.5, 333.8 309.5, 377.2 309.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 284.0 639.5 C 330.6 639.5, 330.6 309.5, 377.2 309.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 287.2 572.0 C 340.2 572.0, 340.2 384.5, 393.2 384.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 628.8 384.5 C 680.2 384.5, 680.2 347.0, 731.6 347.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 232.8 512.0 C 482.2 512.0, 482.2 347.0, 731.6 347.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 644.8 309.5 C 688.2 309.5, 688.2 347.0, 731.6 347.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 644.8 309.5 C 689.8 309.5, 689.8 264.5, 734.8 264.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 293.6 384.5 C 514.2 384.5, 514.2 264.5, 734.8 264.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 648.0 174.5 C 691.4 174.5, 691.4 264.5, 734.8 264.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 232.8 1262.0 C 305.0 1262.0, 305.0 684.5, 377.2 684.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 287.2 1322.0 C 332.2 1322.0, 332.2 684.5, 377.2 684.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 290.4 714.5 C 333.8 714.5, 333.8 684.5, 377.2 684.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 284.0 1389.5 C 330.6 1389.5, 330.6 684.5, 377.2 684.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 287.2 1322.0 C 340.2 1322.0, 340.2 894.5, 393.2 894.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 628.8 894.5 C 680.2 894.5, 680.2 752.0, 731.6 752.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 232.8 1262.0 C 482.2 1262.0, 482.2 752.0, 731.6 752.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 644.8 684.5 C 688.2 684.5, 688.2 752.0, 731.6 752.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 644.8 684.5 C 689.8 684.5, 689.8 669.5, 734.8 669.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 287.2 1464.5 C 511.0 1464.5, 511.0 669.5, 734.8 669.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 296.8 1532.0 C 515.8 1532.0, 515.8 669.5, 734.8 669.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 290.4 1134.5 C 512.6 1134.5, 512.6 669.5, 734.8 669.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 268.0 2657.0 C 357.8 2657.0, 357.8 1217.0, 447.6 1217.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 236.0 452.0 C 305.0 452.0, 305.0 242.0, 374.0 242.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 236.0 1202.0 C 306.6 1202.0, 306.6 752.0, 377.2 752.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 300.0 857.0 C 340.2 857.0, 340.2 534.5, 380.4 534.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 2717.0 C 480.6 2717.0, 480.6 932.0, 728.4 932.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 635.2 1322.0 C 681.8 1322.0, 681.8 932.0, 728.4 932.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 512.0 C 305.0 512.0, 305.0 324.5, 377.2 324.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 287.2 572.0 C 332.2 572.0, 332.2 324.5, 377.2 324.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 290.4 159.5 C 333.8 159.5, 333.8 324.5, 377.2 324.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 284.0 639.5 C 330.6 639.5, 330.6 324.5, 377.2 324.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 287.2 572.0 C 340.2 572.0, 340.2 399.5, 393.2 399.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 628.8 399.5 C 680.2 399.5, 680.2 362.0, 731.6 362.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 512.0 C 482.2 512.0, 482.2 362.0, 731.6 362.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 644.8 324.5 C 688.2 324.5, 688.2 362.0, 731.6 362.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 644.8 324.5 C 689.8 324.5, 689.8 279.5, 734.8 279.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 293.6 384.5 C 514.2 384.5, 514.2 279.5, 734.8 279.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 648.0 189.5 C 691.4 189.5, 691.4 279.5, 734.8 279.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 1262.0 C 305.0 1262.0, 305.0 714.5, 377.2 714.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 287.2 1322.0 C 332.2 1322.0, 332.2 714.5, 377.2 714.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 290.4 714.5 C 333.8 714.5, 333.8 714.5, 377.2 714.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 284.0 1389.5 C 330.6 1389.5, 330.6 714.5, 377.2 714.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 287.2 1322.0 C 340.2 1322.0, 340.2 924.5, 393.2 924.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 628.8 924.5 C 680.2 924.5, 680.2 782.0, 731.6 782.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 1262.0 C 482.2 1262.0, 482.2 782.0, 731.6 782.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 644.8 714.5 C 688.2 714.5, 688.2 782.0, 731.6 782.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 644.8 714.5 C 689.8 714.5, 689.8 699.5, 734.8 699.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 287.2 1464.5 C 511.0 1464.5, 511.0 699.5, 734.8 699.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 296.8 1532.0 C 515.8 1532.0, 515.8 699.5, 734.8 699.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 290.4 1134.5 C 512.6 1134.5, 512.6 699.5, 734.8 699.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 268.0 2657.0 C 357.8 2657.0, 357.8 1247.0, 447.6 1247.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 236.0 452.0 C 305.0 452.0, 305.0 257.0, 374.0 257.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 236.0 1202.0 C 306.6 1202.0, 306.6 782.0, 377.2 782.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 300.0 857.0 C 340.2 857.0, 340.2 564.5, 380.4 564.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 232.8 512.0 C 1163.8 512.0, 1163.8 107.0, 2094.8 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 252.0 92.0 C 1173.4 92.0, 1173.4 107.0, 2094.8 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 2020.8 99.5 C 2057.8 99.5, 2057.8 107.0, 2094.8 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 954.4 99.5 C 1353.8 99.5, 1353.8 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 107.0 C 1353.8 107.0, 1353.8 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 232.8 1262.0 C 1163.8 1262.0, 1163.8 197.0, 2094.8 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 600.0 819.5 C 1347.4 819.5, 1347.4 197.0, 2094.8 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 600.0 849.5 C 1347.4 849.5, 1347.4 197.0, 2094.8 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 2020.8 174.5 C 2057.8 174.5, 2057.8 197.0, 2094.8 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 954.4 429.5 C 1353.8 429.5, 1353.8 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 648.0 174.5 C 685.0 174.5, 685.0 182.0, 722.0 182.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 290.4 309.5 C 332.2 309.5, 332.2 174.5, 374.0 174.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 648.0 609.5 C 685.0 609.5, 685.0 587.0, 722.0 587.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 290.4 1059.5 C 332.2 1059.5, 332.2 609.5, 374.0 609.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 296.8 1532.0 C 519.0 1532.0, 519.0 504.5, 741.2 504.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 229.6 917.0 C 485.4 917.0, 485.4 504.5, 741.2 504.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 280.8 984.5 C 511.0 984.5, 511.0 504.5, 741.2 504.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 641.6 534.5 C 691.4 534.5, 691.4 504.5, 741.2 504.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 296.8 2177.0 C 345.0 2177.0, 345.0 969.5, 393.2 969.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 229.6 1862.0 C 311.4 1862.0, 311.4 969.5, 393.2 969.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 280.8 1929.5 C 337.0 1929.5, 337.0 969.5, 393.2 969.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 280.8 1802.0 C 337.0 1802.0, 337.0 969.5, 393.2 969.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 232.8 2117.0 C 319.4 2117.0, 319.4 1157.0, 406.0 1157.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 258.4 2057.0 C 340.2 2057.0, 340.2 1097.0, 422.0 1097.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 248.8 1997.0 C 337.0 1997.0, 337.0 1037.0, 425.2 1037.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 596.8 1037.0 C 693.0 1037.0, 693.0 827.0, 789.2 827.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 452.0 C 1353.8 452.0, 1353.8 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 648.0 189.5 C 685.0 189.5, 685.0 197.0, 722.0 197.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 290.4 309.5 C 332.2 309.5, 332.2 189.5, 374.0 189.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 648.0 639.5 C 685.0 639.5, 685.0 617.0, 722.0 617.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 290.4 1059.5 C 332.2 1059.5, 332.2 639.5, 374.0 639.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 296.8 1532.0 C 519.0 1532.0, 519.0 534.5, 741.2 534.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 229.6 917.0 C 485.4 917.0, 485.4 534.5, 741.2 534.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 280.8 984.5 C 511.0 984.5, 511.0 534.5, 741.2 534.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 641.6 564.5 C 691.4 564.5, 691.4 534.5, 741.2 534.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 296.8 2177.0 C 345.0 2177.0, 345.0 999.5, 393.2 999.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 229.6 1862.0 C 311.4 1862.0, 311.4 999.5, 393.2 999.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 280.8 1929.5 C 337.0 1929.5, 337.0 999.5, 393.2 999.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 280.8 1802.0 C 337.0 1802.0, 337.0 999.5, 393.2 999.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 2117.0 C 319.4 2117.0, 319.4 1187.0, 406.0 1187.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 258.4 2057.0 C 340.2 2057.0, 340.2 1127.0, 422.0 1127.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 248.8 1997.0 C 337.0 1997.0, 337.0 1067.0, 425.2 1067.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 596.8 1067.0 C 693.0 1067.0, 693.0 857.0, 789.2 857.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 287.2 572.0 C 1358.6 572.0, 1358.6 99.5, 2430.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 648.0 242.0 C 1539.0 242.0, 1539.0 99.5, 2430.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 648.0 257.0 C 1539.0 257.0, 1539.0 99.5, 2430.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 2356.0 107.0 C 2393.0 107.0, 2393.0 99.5, 2430.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 293.6 234.5 C 335.4 234.5, 335.4 99.5, 377.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 644.8 99.5 C 704.2 99.5, 704.2 99.5, 763.6 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 293.6 789.5 C 335.4 789.5, 335.4 459.5, 377.2 459.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 644.8 459.5 C 704.2 459.5, 704.2 429.5, 763.6 429.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 287.2 1322.0 C 354.6 1322.0, 354.6 819.5, 422.0 819.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 232.8 1262.0 C 327.4 1262.0, 327.4 819.5, 422.0 819.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 290.4 2784.5 C 338.6 2784.5, 338.6 1292.0, 386.8 1292.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 954.4 99.5 C 1012.2 99.5, 1012.2 99.5, 1070.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1344.0 99.5 C 1381.0 99.5, 1381.0 99.5, 1418.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 954.4 99.5 C 1012.2 99.5, 1012.2 182.0, 1070.0 182.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1344.0 99.5 C 1548.6 99.5, 1548.6 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 293.6 234.5 C 335.4 234.5, 335.4 107.0, 377.2 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 644.8 107.0 C 704.2 107.0, 704.2 107.0, 763.6 107.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 293.6 789.5 C 335.4 789.5, 335.4 482.0, 377.2 482.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 644.8 482.0 C 704.2 482.0, 704.2 452.0, 763.6 452.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 287.2 1322.0 C 354.6 1322.0, 354.6 849.5, 422.0 849.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 1262.0 C 327.4 1262.0, 327.4 849.5, 422.0 849.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 290.4 2784.5 C 338.6 2784.5, 338.6 1322.0, 386.8 1322.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 107.0 C 1012.2 107.0, 1012.2 107.0, 1070.0 107.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 107.0 C 1381.0 107.0, 1381.0 99.5, 1418.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 107.0 C 1012.2 107.0, 1012.2 197.0, 1070.0 197.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 107.0 C 1548.6 107.0, 1548.6 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 1679.2 99.5 C 1716.2 99.5, 1716.2 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1344.0 182.0 C 1548.6 182.0, 1548.6 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 954.4 429.5 C 1012.2 429.5, 1012.2 264.5, 1070.0 264.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1344.0 264.5 C 1381.0 264.5, 1381.0 174.5, 1418.0 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 954.4 429.5 C 1012.2 429.5, 1012.2 347.0, 1070.0 347.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1344.0 264.5 C 1548.6 264.5, 1548.6 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 197.0 C 1548.6 197.0, 1548.6 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 452.0 C 1012.2 452.0, 1012.2 287.0, 1070.0 287.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 287.0 C 1381.0 287.0, 1381.0 174.5, 1418.0 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 452.0 C 1012.2 452.0, 1012.2 377.0, 1070.0 377.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 287.0 C 1548.6 287.0, 1548.6 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 1679.2 174.5 C 1716.2 174.5, 1716.2 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1344.0 347.0 C 1548.6 347.0, 1548.6 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 226.4 3122.0 C 324.2 3122.0, 324.2 1427.0, 422.0 1427.0" fill="none" stroke="#8a6d1f" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 258.4 3062.0 C 338.6 3062.0, 338.6 1367.0, 418.8 1367.0" fill="none" stroke="#8a6d1f" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 377.0 C 1548.6 377.0, 1548.6 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 226.4 3122.0 C 324.2 3122.0, 324.2 1457.0, 422.0 1457.0" fill="none" stroke="#8a6d1f" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 258.4 3062.0 C 338.6 3062.0, 338.6 1397.0, 418.8 1397.0" fill="none" stroke="#8a6d1f" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
 <rect x="38.8" y="2410.0" width="248.4" height="59.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="47.8" y="2428.0" font-size="12" font-weight="bold" fill="#1a1a1a">DM89.local</text>
 <text x="47.8" y="2443.0" font-size="12" fill="#444">Local force quadratic premise; Hyp 1</text>
@@ -87,18 +87,18 @@
 <rect x="58.0" y="2635.0" width="210.0" height="44.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="67.0" y="2653.0" font-size="12" font-weight="bold" fill="#1a1a1a">DM90.L2</text>
 <text x="67.0" y="2668.0" font-size="12" fill="#444">Initial quadratic displacement</text>
-<rect x="447.6" y="1195.0" width="126.8" height="44.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="456.6" y="1213.0" font-size="12" font-weight="bold" fill="#1a1a1a">DM90.local</text>
-<text x="456.6" y="1228.0" font-size="12" fill="#444">Local force proof</text>
-<rect x="422.0" y="1405.0" width="178.0" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="431.0" y="1423.0" font-size="12" font-weight="bold" fill="#1a1a1a">Draft.booklet</text>
-<text x="431.0" y="1438.0" font-size="12" fill="#444">Separate proposed booklet</text>
+<rect x="447.6" y="1225.0" width="126.8" height="44.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="456.6" y="1243.0" font-size="12" font-weight="bold" fill="#1a1a1a">DM90.local</text>
+<text x="456.6" y="1258.0" font-size="12" fill="#444">Local force proof</text>
+<rect x="422.0" y="1435.0" width="178.0" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="431.0" y="1453.0" font-size="12" font-weight="bold" fill="#1a1a1a">Draft.booklet</text>
+<text x="431.0" y="1468.0" font-size="12" fill="#444">Separate proposed booklet</text>
 <rect x="102.8" y="2980.0" width="120.4" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="111.8" y="2998.0" font-size="12" font-weight="bold" fill="#1a1a1a">Draft.comparison</text>
 <text x="111.8" y="3013.0" font-size="12" fill="#444">Comparison route</text>
-<rect x="418.8" y="1345.0" width="184.4" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="427.8" y="1363.0" font-size="12" font-weight="bold" fill="#1a1a1a">Draft.conic</text>
-<text x="427.8" y="1378.0" font-size="12" fill="#444">Proposed conic application</text>
+<rect x="418.8" y="1375.0" width="184.4" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="427.8" y="1393.0" font-size="12" font-weight="bold" fill="#1a1a1a">Draft.conic</text>
+<text x="427.8" y="1408.0" font-size="12" fill="#444">Proposed conic application</text>
 <rect x="67.6" y="3040.0" width="190.8" height="44.0" rx="5" fill="#f7e6c4" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="76.6" y="3058.0" font-size="12" font-weight="bold" fill="#1a1a1a">Draft.sagitta</text>
 <text x="76.6" y="3073.0" font-size="12" fill="#444">Sagitta and curvature route</text>
@@ -113,11 +113,11 @@
 <text x="47.8" y="2578.0" font-size="12" font-weight="bold" fill="#1a1a1a">NATP00089.T2</text>
 <text x="47.8" y="2593.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
 <text x="47.8" y="2608.0" font-size="12" fill="#444">squared simultaneous arcs divided by</text>
-<rect x="386.8" y="1255.0" width="248.4" height="74.0" rx="5" fill="#e8d5b7" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="395.8" y="1273.0" font-size="12" font-weight="bold" fill="#1a1a1a">NATP00090.L1</text>
-<text x="395.8" y="1288.0" font-size="12" fill="#444">Parallelogram composition of motions</text>
-<text x="395.8" y="1303.0" font-size="12" fill="#444">produced in the same time</text>
-<text x="395.8" y="1318.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="386.8" y="1285.0" width="248.4" height="74.0" rx="5" fill="#e8d5b7" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="395.8" y="1303.0" font-size="12" font-weight="bold" fill="#1a1a1a">NATP00090.L1</text>
+<text x="395.8" y="1318.0" font-size="12" fill="#444">Parallelogram composition of motions</text>
+<text x="395.8" y="1333.0" font-size="12" fill="#444">produced in the same time</text>
+<text x="395.8" y="1348.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
 <rect x="93.2" y="2695.0" width="139.6" height="44.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="102.2" y="2713.0" font-size="12" font-weight="bold" fill="#1a1a1a">NATP00090.Law1</text>
 <text x="102.2" y="2728.0" font-size="12" fill="#444">Rectilinear inertia</text>
@@ -125,11 +125,11 @@
 <text x="44.6" y="2773.0" font-size="12" font-weight="bold" fill="#1a1a1a">NATP00090.Law2</text>
 <text x="44.6" y="2788.0" font-size="12" fill="#444">Change of state proportional to the</text>
 <text x="44.6" y="2803.0" font-size="12" fill="#444">impressed force and in its direction;</text>
-<rect x="728.4" y="865.0" width="261.2" height="74.0" rx="5" fill="#e8d5b7" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="737.4" y="883.0" font-size="12" font-weight="bold" fill="#1a1a1a">NATP00090.T1</text>
-<text x="737.4" y="898.0" font-size="12" fill="#444">Polygonal equal areas; infinitely many</text>
-<text x="737.4" y="913.0" font-size="12" fill="#444">infinitesimal triangles asserted</text>
-<text x="737.4" y="928.0" font-size="12" fill="#2c6e31">3 Lean result(s)</text>
+<rect x="728.4" y="895.0" width="261.2" height="74.0" rx="5" fill="#e8d5b7" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="737.4" y="913.0" font-size="12" font-weight="bold" fill="#1a1a1a">NATP00090.T1</text>
+<text x="737.4" y="928.0" font-size="12" fill="#444">Polygonal equal areas; infinitely many</text>
+<text x="737.4" y="943.0" font-size="12" fill="#444">infinitesimal triangles asserted</text>
+<text x="737.4" y="958.0" font-size="12" fill="#2c6e31">3 Lean result(s)</text>
 <rect x="38.8" y="2830.0" width="248.4" height="59.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="47.8" y="2848.0" font-size="12" font-weight="bold" fill="#1a1a1a">NATP00090.T2</text>
 <text x="47.8" y="2863.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
@@ -145,43 +145,46 @@
 <text x="41.4" y="223.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L1</text>
 <text x="41.4" y="238.0" font-size="12" fill="#444">Ultimate equality from approach closer</text>
 <text x="41.4" y="253.0" font-size="12" fill="#444">than any given difference</text>
-<rect x="374.0" y="220.0" width="274.0" height="44.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="383.0" y="238.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L10</text>
-<text x="383.0" y="253.0" font-size="12" fill="#444">Initial displacement under regular force</text>
-<rect x="374.0" y="145.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="383.0" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L11</text>
-<text x="383.0" y="178.0" font-size="12" fill="#444">Contact subtense ultimately quadratic in</text>
-<text x="383.0" y="193.0" font-size="12" fill="#444">arc chord</text>
-<rect x="722.0" y="145.0" width="274.0" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="731.0" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L11Cubic</text>
-<text x="731.0" y="178.0" font-size="12" fill="#444">Cubic curvilinear areas and segments via</text>
-<text x="731.0" y="193.0" font-size="12" fill="#444">the parabola</text>
-<text x="731.0" y="208.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="374.0" y="235.0" width="274.0" height="44.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="383.0" y="253.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L10</text>
+<text x="383.0" y="268.0" font-size="12" fill="#444">Initial displacement under regular force</text>
+<rect x="374.0" y="160.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="383.0" y="178.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L11</text>
+<text x="383.0" y="193.0" font-size="12" fill="#444">Contact subtense ultimately quadratic in</text>
+<text x="383.0" y="208.0" font-size="12" fill="#444">arc chord</text>
+<rect x="722.0" y="160.0" width="274.0" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="731.0" y="178.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L11Cubic</text>
+<text x="731.0" y="193.0" font-size="12" fill="#444">Cubic curvilinear areas and segments via</text>
+<text x="731.0" y="208.0" font-size="12" fill="#444">the parabola</text>
+<text x="731.0" y="223.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
 <rect x="35.6" y="280.0" width="254.8" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="44.6" y="298.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L11Restriction</text>
 <text x="44.6" y="313.0" font-size="12" fill="#444">Finite nonzero curvature restriction;</text>
 <text x="44.6" y="328.0" font-size="12" fill="#444">higher/lower orders excluded</text>
-<rect x="377.2" y="70.0" width="267.6" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<rect x="377.2" y="70.0" width="267.6" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="386.2" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L2</text>
 <text x="386.2" y="103.0" font-size="12" fill="#444">Equal-width inscribed and circumscribed</text>
 <text x="386.2" y="118.0" font-size="12" fill="#444">figures approach the given curve</text>
-<rect x="763.6" y="70.0" width="190.8" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="386.2" y="133.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="763.6" y="70.0" width="190.8" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="772.6" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3</text>
 <text x="772.6" y="103.0" font-size="12" fill="#444">Unequal-width enclosure and</text>
 <text x="772.6" y="118.0" font-size="12" fill="#444">maximum-width refinement</text>
-<rect x="1070.0" y="70.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="772.6" y="133.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="1070.0" y="70.0" width="274.0" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="1079.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C1</text>
 <text x="1079.0" y="103.0" font-size="12" fill="#444">Ultimate rectangle figures coincide with</text>
 <text x="1079.0" y="118.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<text x="1079.0" y="133.0" font-size="12" fill="#2c6e31">1 Lean result(s)</text>
 <rect x="1418.0" y="70.0" width="261.2" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="1427.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C2</text>
 <text x="1427.0" y="103.0" font-size="12" fill="#444">Chord figure coincides ultimately with</text>
 <text x="1427.0" y="118.0" font-size="12" fill="#444">the given curvilinear figure</text>
-<rect x="1070.0" y="145.0" width="274.0" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="1079.0" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C3</text>
-<text x="1079.0" y="178.0" font-size="12" fill="#444">Tangent figure coincides ultimately with</text>
-<text x="1079.0" y="193.0" font-size="12" fill="#444">the given curvilinear figure</text>
-<text x="1079.0" y="208.0" font-size="12" fill="#2c6e31">3 Lean result(s)</text>
+<rect x="1070.0" y="160.0" width="274.0" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="1079.0" y="178.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C3</text>
+<text x="1079.0" y="193.0" font-size="12" fill="#444">Tangent figure coincides ultimately with</text>
+<text x="1079.0" y="208.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<text x="1079.0" y="223.0" font-size="12" fill="#2c6e31">3 Lean result(s)</text>
 <rect x="1753.2" y="70.0" width="267.6" height="59.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="1762.2" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C4</text>
 <text x="1762.2" y="103.0" font-size="12" fill="#444">Curvilinear limit of polygon perimeters</text>
@@ -203,36 +206,36 @@
 <text x="51.0" y="628.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.LawCor5</text>
 <text x="51.0" y="643.0" font-size="12" fill="#444">Uniform translation leaves relative</text>
 <text x="51.0" y="658.0" font-size="12" fill="#444">motions unchanged</text>
-<rect x="393.2" y="355.0" width="235.6" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="402.2" y="373.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.LawCor6</text>
-<text x="402.2" y="388.0" font-size="12" fill="#444">Equal parallel accelerations leave</text>
-<text x="402.2" y="403.0" font-size="12" fill="#444">relative motions unchanged</text>
+<rect x="393.2" y="370.0" width="235.6" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="402.2" y="388.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.LawCor6</text>
+<text x="402.2" y="403.0" font-size="12" fill="#444">Equal parallel accelerations leave</text>
+<text x="402.2" y="418.0" font-size="12" fill="#444">relative motions unchanged</text>
 <rect x="2094.8" y="70.0" width="261.2" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="2103.8" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P1</text>
 <text x="2103.8" y="103.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
 <text x="2103.8" y="118.0" font-size="12" fill="#444">and polygon limit</text>
 <text x="2103.8" y="133.0" font-size="12" fill="#2c6e31">5 Lean result(s)</text>
-<rect x="377.2" y="280.0" width="267.6" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="386.2" y="298.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P2</text>
-<text x="386.2" y="313.0" font-size="12" fill="#444">Area-time proportionality about a fixed</text>
-<text x="386.2" y="328.0" font-size="12" fill="#444">or uniformly translating point implies</text>
-<rect x="731.6" y="310.0" width="254.8" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="740.6" y="328.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P3</text>
-<text x="740.6" y="343.0" font-size="12" fill="#444">Relative area law about a moving body</text>
-<text x="740.6" y="358.0" font-size="12" fill="#444">identifies the difference of</text>
-<text x="740.6" y="373.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
-<rect x="734.8" y="235.0" width="248.4" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="743.8" y="253.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P4</text>
-<text x="743.8" y="268.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
-<text x="743.8" y="283.0" font-size="12" fill="#444">squared simultaneous arcs divided by</text>
+<rect x="377.2" y="295.0" width="267.6" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="386.2" y="313.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P2</text>
+<text x="386.2" y="328.0" font-size="12" fill="#444">Area-time proportionality about a fixed</text>
+<text x="386.2" y="343.0" font-size="12" fill="#444">or uniformly translating point implies</text>
+<rect x="731.6" y="325.0" width="254.8" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="740.6" y="343.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P3</text>
+<text x="740.6" y="358.0" font-size="12" fill="#444">Relative area law about a moving body</text>
+<text x="740.6" y="373.0" font-size="12" fill="#444">identifies the difference of</text>
+<text x="740.6" y="388.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
+<rect x="734.8" y="250.0" width="248.4" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="743.8" y="268.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P4</text>
+<text x="743.8" y="283.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
+<text x="743.8" y="298.0" font-size="12" fill="#444">squared simultaneous arcs divided by</text>
 <rect x="2430.0" y="70.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="2439.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P6</text>
 <text x="2439.0" y="103.0" font-size="12" fill="#444">Force through tangent departure and time</text>
 <text x="2439.0" y="118.0" font-size="12" fill="#444">squared</text>
-<rect x="422.0" y="790.0" width="178.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="431.0" y="808.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.Composition</text>
-<text x="431.0" y="823.0" font-size="12" fill="#444">Parallelogram composition</text>
-<text x="431.0" y="838.0" font-size="12" fill="#2c6e31">3 Lean result(s)</text>
+<rect x="422.0" y="820.0" width="178.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="431.0" y="838.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.Composition</text>
+<text x="431.0" y="853.0" font-size="12" fill="#444">Parallelogram composition</text>
+<text x="431.0" y="868.0" font-size="12" fill="#2c6e31">3 Lean result(s)</text>
 <rect x="35.6" y="685.0" width="254.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="44.6" y="703.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.EuclidI40</text>
 <text x="44.6" y="718.0" font-size="12" fill="#444">Euclid I.40, equal triangles on equal</text>
@@ -241,20 +244,20 @@
 <text x="41.4" y="778.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L1</text>
 <text x="41.4" y="793.0" font-size="12" fill="#444">Ultimate equality from approach closer</text>
 <text x="41.4" y="808.0" font-size="12" fill="#444">than any given difference</text>
-<rect x="377.2" y="730.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="386.2" y="748.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L10</text>
-<text x="386.2" y="763.0" font-size="12" fill="#444">Initial displacement under finite force</text>
+<rect x="377.2" y="760.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="386.2" y="778.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L10</text>
+<text x="386.2" y="793.0" font-size="12" fill="#444">Initial displacement under finite force</text>
 <rect x="26.0" y="835.0" width="274.0" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="35.0" y="853.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L10C3</text>
 <text x="35.0" y="868.0" font-size="12" fill="#444">Spaces jointly as force and time squared</text>
-<rect x="380.4" y="505.0" width="261.2" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="389.4" y="523.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L10C4</text>
-<text x="389.4" y="538.0" font-size="12" fill="#444">Force as space divided by time squared</text>
-<text x="389.4" y="553.0" font-size="12" fill="#2c6e31">1 Lean result(s)</text>
-<rect x="374.0" y="580.0" width="274.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="383.0" y="598.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11</text>
-<text x="383.0" y="613.0" font-size="12" fill="#444">Contact subtense ultimately quadratic in</text>
-<text x="383.0" y="628.0" font-size="12" fill="#444">arc chord</text>
+<rect x="380.4" y="535.0" width="261.2" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="389.4" y="553.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L10C4</text>
+<text x="389.4" y="568.0" font-size="12" fill="#444">Force as space divided by time squared</text>
+<text x="389.4" y="583.0" font-size="12" fill="#2c6e31">1 Lean result(s)</text>
+<rect x="374.0" y="610.0" width="274.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="383.0" y="628.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11</text>
+<text x="383.0" y="643.0" font-size="12" fill="#444">Contact subtense ultimately quadratic in</text>
+<text x="383.0" y="658.0" font-size="12" fill="#444">arc chord</text>
 <rect x="96.4" y="895.0" width="133.2" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="105.4" y="913.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11C2</text>
 <text x="105.4" y="928.0" font-size="12" fill="#444">Quadratic sagittae</text>
@@ -262,36 +265,39 @@
 <text x="54.2" y="973.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11C3</text>
 <text x="54.2" y="988.0" font-size="12" fill="#444">Sagitta quadratic in time at given</text>
 <text x="54.2" y="1003.0" font-size="12" fill="#444">velocity</text>
-<rect x="722.0" y="550.0" width="274.0" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="731.0" y="568.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11Cubic</text>
-<text x="731.0" y="583.0" font-size="12" fill="#444">Cubic curvilinear areas and segments via</text>
-<text x="731.0" y="598.0" font-size="12" fill="#444">the parabola</text>
-<text x="731.0" y="613.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="722.0" y="580.0" width="274.0" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="731.0" y="598.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11Cubic</text>
+<text x="731.0" y="613.0" font-size="12" fill="#444">Cubic curvilinear areas and segments via</text>
+<text x="731.0" y="628.0" font-size="12" fill="#444">the parabola</text>
+<text x="731.0" y="643.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
 <rect x="35.6" y="1030.0" width="254.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="44.6" y="1048.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L11Restriction</text>
 <text x="44.6" y="1063.0" font-size="12" fill="#444">Finite nonzero curvature restriction;</text>
 <text x="44.6" y="1078.0" font-size="12" fill="#444">higher/lower orders excluded</text>
-<rect x="377.2" y="430.0" width="267.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="386.2" y="448.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L2</text>
-<text x="386.2" y="463.0" font-size="12" fill="#444">Equal-width inscribed and circumscribed</text>
-<text x="386.2" y="478.0" font-size="12" fill="#444">figures approach the given curve</text>
-<rect x="763.6" y="400.0" width="190.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="772.6" y="418.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3</text>
-<text x="772.6" y="433.0" font-size="12" fill="#444">Unequal-width enclosure and</text>
-<text x="772.6" y="448.0" font-size="12" fill="#444">maximum-width refinement</text>
-<rect x="1070.0" y="235.0" width="274.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="1079.0" y="253.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C1</text>
-<text x="1079.0" y="268.0" font-size="12" fill="#444">Ultimate rectangle figures coincide with</text>
-<text x="1079.0" y="283.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<rect x="377.2" y="445.0" width="267.6" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="386.2" y="463.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L2</text>
+<text x="386.2" y="478.0" font-size="12" fill="#444">Equal-width inscribed and circumscribed</text>
+<text x="386.2" y="493.0" font-size="12" fill="#444">figures approach the given curve</text>
+<text x="386.2" y="508.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="763.6" y="415.0" width="190.8" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="772.6" y="433.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3</text>
+<text x="772.6" y="448.0" font-size="12" fill="#444">Unequal-width enclosure and</text>
+<text x="772.6" y="463.0" font-size="12" fill="#444">maximum-width refinement</text>
+<text x="772.6" y="478.0" font-size="12" fill="#2c6e31">2 Lean result(s)</text>
+<rect x="1070.0" y="250.0" width="274.0" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="1079.0" y="268.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C1</text>
+<text x="1079.0" y="283.0" font-size="12" fill="#444">Ultimate rectangle figures coincide with</text>
+<text x="1079.0" y="298.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<text x="1079.0" y="313.0" font-size="12" fill="#2c6e31">1 Lean result(s)</text>
 <rect x="1418.0" y="145.0" width="261.2" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="1427.0" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C2</text>
 <text x="1427.0" y="178.0" font-size="12" fill="#444">Chord figure coincides ultimately with</text>
 <text x="1427.0" y="193.0" font-size="12" fill="#444">the given curvilinear figure</text>
-<rect x="1070.0" y="310.0" width="274.0" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="1079.0" y="328.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C3</text>
-<text x="1079.0" y="343.0" font-size="12" fill="#444">Tangent figure coincides ultimately with</text>
-<text x="1079.0" y="358.0" font-size="12" fill="#444">the given curvilinear figure</text>
-<text x="1079.0" y="373.0" font-size="12" fill="#2c6e31">3 Lean result(s)</text>
+<rect x="1070.0" y="340.0" width="274.0" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="1079.0" y="358.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C3</text>
+<text x="1079.0" y="373.0" font-size="12" fill="#444">Tangent figure coincides ultimately with</text>
+<text x="1079.0" y="388.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<text x="1079.0" y="403.0" font-size="12" fill="#2c6e31">3 Lean result(s)</text>
 <rect x="1753.2" y="145.0" width="267.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="1762.2" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C4</text>
 <text x="1762.2" y="178.0" font-size="12" fill="#444">Curvilinear limit of polygon perimeters</text>
@@ -313,10 +319,10 @@
 <text x="51.0" y="1378.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.LawCor5</text>
 <text x="51.0" y="1393.0" font-size="12" fill="#444">Uniform translation leaves relative</text>
 <text x="51.0" y="1408.0" font-size="12" fill="#444">motions unchanged</text>
-<rect x="393.2" y="865.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="402.2" y="883.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.LawCor6</text>
-<text x="402.2" y="898.0" font-size="12" fill="#444">Equal parallel accelerations leave</text>
-<text x="402.2" y="913.0" font-size="12" fill="#444">relative motions unchanged</text>
+<rect x="393.2" y="895.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="402.2" y="913.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.LawCor6</text>
+<text x="402.2" y="928.0" font-size="12" fill="#444">Equal parallel accelerations leave</text>
+<text x="402.2" y="943.0" font-size="12" fill="#444">relative motions unchanged</text>
 <rect x="2094.8" y="160.0" width="261.2" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="2103.8" y="178.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1</text>
 <text x="2103.8" y="193.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
@@ -329,23 +335,23 @@
 <rect x="29.2" y="1510.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="38.2" y="1528.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1C4</text>
 <text x="38.2" y="1543.0" font-size="12" fill="#444">Force comparison by equal-time sagittae</text>
-<rect x="377.2" y="655.0" width="267.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="386.2" y="673.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P2</text>
-<text x="386.2" y="688.0" font-size="12" fill="#444">Area-time proportionality about a fixed</text>
-<text x="386.2" y="703.0" font-size="12" fill="#444">or uniformly translating point implies</text>
-<rect x="731.6" y="715.0" width="254.8" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="740.6" y="733.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P3</text>
-<text x="740.6" y="748.0" font-size="12" fill="#444">Relative area law about a moving body</text>
-<text x="740.6" y="763.0" font-size="12" fill="#444">identifies the difference of</text>
-<text x="740.6" y="778.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
-<rect x="734.8" y="640.0" width="248.4" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="743.8" y="658.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P4</text>
-<text x="743.8" y="673.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
-<text x="743.8" y="688.0" font-size="12" fill="#444">squared simultaneous arcs divided by</text>
-<rect x="741.2" y="475.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="750.2" y="493.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P6</text>
-<text x="750.2" y="508.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>
-<text x="750.2" y="523.0" font-size="12" fill="#444">squared</text>
+<rect x="377.2" y="685.0" width="267.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="386.2" y="703.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P2</text>
+<text x="386.2" y="718.0" font-size="12" fill="#444">Area-time proportionality about a fixed</text>
+<text x="386.2" y="733.0" font-size="12" fill="#444">or uniformly translating point implies</text>
+<rect x="731.6" y="745.0" width="254.8" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="740.6" y="763.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P3</text>
+<text x="740.6" y="778.0" font-size="12" fill="#444">Relative area law about a moving body</text>
+<text x="740.6" y="793.0" font-size="12" fill="#444">identifies the difference of</text>
+<text x="740.6" y="808.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
+<rect x="734.8" y="670.0" width="248.4" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="743.8" y="688.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P4</text>
+<text x="743.8" y="703.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
+<text x="743.8" y="718.0" font-size="12" fill="#444">squared simultaneous arcs divided by</text>
+<rect x="741.2" y="505.0" width="235.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="750.2" y="523.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P6</text>
+<text x="750.2" y="538.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>
+<text x="750.2" y="553.0" font-size="12" fill="#444">squared</text>
 <rect x="61.2" y="1570.0" width="203.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="70.2" y="1588.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P6C1</text>
 <text x="70.2" y="1603.0" font-size="12" fill="#444">Tangent-departure force ratio</text>
@@ -357,15 +363,15 @@
 <text x="44.6" y="1723.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P7C3</text>
 <text x="44.6" y="1738.0" font-size="12" fill="#444">Force-centre comparison in same orbit</text>
 <text x="44.6" y="1753.0" font-size="12" fill="#444">and period</text>
-<rect x="406.0" y="1135.0" width="210.0" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="415.0" y="1153.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L10</text>
-<text x="415.0" y="1168.0" font-size="12" fill="#444">Initial generated displacement</text>
+<rect x="406.0" y="1165.0" width="210.0" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="415.0" y="1183.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L10</text>
+<text x="415.0" y="1198.0" font-size="12" fill="#444">Initial generated displacement</text>
 <rect x="45.2" y="1780.0" width="235.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="54.2" y="1798.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L10C4</text>
 <text x="54.2" y="1813.0" font-size="12" fill="#444">Generated-displacement force ratio</text>
-<rect x="425.2" y="1015.0" width="171.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="434.2" y="1033.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L11</text>
-<text x="434.2" y="1048.0" font-size="12" fill="#444">Finite-curvature contact</text>
+<rect x="425.2" y="1045.0" width="171.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="434.2" y="1063.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L11</text>
+<text x="434.2" y="1078.0" font-size="12" fill="#444">Finite-curvature contact</text>
 <rect x="96.4" y="1840.0" width="133.2" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="105.4" y="1858.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L11C2</text>
 <text x="105.4" y="1873.0" font-size="12" fill="#444">Quadratic sagittae</text>
@@ -373,9 +379,9 @@
 <text x="54.2" y="1918.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L11C3</text>
 <text x="54.2" y="1933.0" font-size="12" fill="#444">Sagitta quadratic in time at given</text>
 <text x="54.2" y="1948.0" font-size="12" fill="#444">velocity</text>
-<rect x="789.2" y="805.0" width="139.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="798.2" y="823.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L11Cubic</text>
-<text x="798.2" y="838.0" font-size="12" fill="#444">Cubic contact areas</text>
+<rect x="789.2" y="835.0" width="139.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="798.2" y="853.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L11Cubic</text>
+<text x="798.2" y="868.0" font-size="12" fill="#444">Cubic contact areas</text>
 <rect x="77.2" y="1975.0" width="171.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="86.2" y="1993.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L11Restriction</text>
 <text x="86.2" y="2008.0" font-size="12" fill="#444">Finite nonzero curvature</text>
@@ -385,16 +391,16 @@
 <rect x="93.2" y="2095.0" width="139.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="102.2" y="2113.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.L9</text>
 <text x="102.2" y="2128.0" font-size="12" fill="#444">Initial area ratios</text>
-<rect x="422.0" y="1075.0" width="178.0" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="431.0" y="1093.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.P1</text>
-<text x="431.0" y="1108.0" font-size="12" fill="#444">Central equal-area motion</text>
+<rect x="422.0" y="1105.0" width="178.0" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="431.0" y="1123.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.P1</text>
+<text x="431.0" y="1138.0" font-size="12" fill="#444">Central equal-area motion</text>
 <rect x="29.2" y="2155.0" width="267.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="38.2" y="2173.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.P1C4</text>
 <text x="38.2" y="2188.0" font-size="12" fill="#444">Force comparison by equal-time sagittae</text>
-<rect x="393.2" y="940.0" width="235.6" height="59.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="402.2" y="958.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.P6</text>
-<text x="402.2" y="973.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>
-<text x="402.2" y="988.0" font-size="12" fill="#444">squared</text>
+<rect x="393.2" y="970.0" width="235.6" height="59.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="402.2" y="988.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.P6</text>
+<text x="402.2" y="1003.0" font-size="12" fill="#444">Mid-arc force as sagitta over time</text>
+<text x="402.2" y="1018.0" font-size="12" fill="#444">squared</text>
 <rect x="61.2" y="2215.0" width="203.6" height="44.0" rx="5" fill="#f0d9ec" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="70.2" y="2233.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1726.P6C1</text>
 <text x="70.2" y="2248.0" font-size="12" fill="#444">Tangent-departure force ratio</text>

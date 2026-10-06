@@ -174,6 +174,32 @@ theorem sum_mono (a b : Nat → Fraction) (n : Nat)
   | zero => exact Fraction.le_of_equiv (Fraction.equiv_refl _)
   | succ n ih => exact Fraction.add_le_add (ih (fun i hi => h i (by omega))) (h n (by omega))
 
+theorem sum_nonnegative (a : Nat → Fraction) (n : Nat) (ha : ∀ i, i<n → 0≤(a i).num) :
+    0≤(sum a n).num := by
+  induction n with
+  | zero => exact Int.le_refl 0
+  | succ n ih =>
+    exact Fraction.nonnegative_add _ _ (ih (fun i hi => ha i (by omega))) (ha n (by omega))
+
+/-- Finite rational sums preserve a common factor. -/
+theorem sum_mul (a : Nat → Fraction) (c : Fraction) : ∀ n,
+    Fraction.equiv (sum (fun i => Fraction.mul c (a i)) n) (Fraction.mul c (sum a n))
+  | 0 => Fraction.equiv_symm (Fraction.mul_zero c)
+  | n+1 => Fraction.equiv_trans (Fraction.add_equiv (sum_mul a c n) (Fraction.equiv_refl _))
+      (Fraction.equiv_symm (Fraction.mul_add c (sum a n) (a n)))
+
+/-- The sum of consecutive rational differences is the endpoint difference. -/
+theorem sum_telescope (a : Nat → Fraction) : ∀ n,
+    Fraction.equiv (sum (fun i => durationDifference (a i) (a (i+1))) n)
+      (durationDifference (a 0) (a n))
+  | 0 => by
+      simp only [sum,durationDifference,HarmonicStability.negF,Fraction.equiv,
+        Fraction.add,Fraction.ofInt,Int.zero_mul,Int.mul_one,Int.neg_mul]
+      omega
+  | n+1 => Fraction.equiv_trans
+      (Fraction.add_equiv (sum_telescope a n) (Fraction.equiv_refl _))
+      (Fraction.equiv_symm (durationDifference_chain (a 0) (a n) (a (n+1))))
+
 theorem sum_constant (e : Fraction) : ∀ n,
     Fraction.equiv (sum (fun _ => e) n) (Fraction.mul (Fraction.ofInt n) e)
   | 0 => by

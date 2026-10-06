@@ -63,6 +63,14 @@ orientations are included. The 1687 and 1713 wrappers remain separate; actual
 tangent identification, vertical tangent patches and the full curvilinear-area
 enclosure proof remain open. See the
 [supporting-boundary checkpoint](verification/lemma3-supporting-boundaries-2026-10-06.md).
+The monotone-rectangle increment now derives lower/upper rectangle-set
+enclosure of a fixed given graph, including all completed closure points,
+and constructs the largest actual cell width. It proves the exact equal-width
+rectangle-sum gap and the unequal-width bound by maximum width × total height,
+then exhausts that derived gap. Endpoint aliases and zero widths are included.
+This connects finite geometry to the rectangle sums; ordinary union-area
+identification and the ultimate curvilinear-area ratio remain open. See the
+[rectangle checkpoint](verification/lemma2-3-monotone-rectangles-2026-10-06.md).
 No arclength theorem or completion-score increase is added; force-specific
 applications remain held.
 
@@ -218,8 +226,8 @@ records a reconstruction, not certification of the full historical step.
 | Why the parallelogram gives the position | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par8) | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8) | Both proofs use unchanged transverse approach velocity and the intersection of two parallel lines. `uniform_endpoint_lines` now derives those constraints in the rational mechanical model, then `intersection_unique` derives the opposite corner. `next_arrival_diagonal` connects composition to the actual central cell. Only 1713 explicitly cites Laws II/I and initial impulses; the separate 1687 model specialization does not attribute those clauses to its text. |
 | Finite composition of the areas | [Prop. I par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45) | [Prop. I par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51) | The equal-triangle argument is iterated and the areas are added. The separate edition `finite_componendo` results and `CentralSchedule.swept_eq` implement this finite step. Constant areal product alone does not implement the swept-area conclusion. |
 | Curvilinear perimeter | [Lemma III Cor. 4 par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10) | [Lemma III Cor. 4 par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11) | Proposition I explicitly cites this corollary. *Et propterea* refers to the preceding rectangle/chord/tangent figures, now traced in separate source edges. The given-curve chord case has a proved two-sided closed-boundary limit with an explicit uniform modulus. The actual general force curve derives its own modulus, and its varying polygons have their own proved whole-edge boundary limit. Finite rational monotone supporting cells now have derived crossings, rectangle enclosures and two-sided whole closed boundary limits. Tangent identification and the full historical curvilinear-area enclosure inference remain open; no arclength claim is made. |
-| Unequal widths reduce to the largest width | [Lemma III proof par6](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par6) | [Lemma III proof par7](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par7) | Lemma III reuses Lemma II's figures and equal limiting ratios implicitly (*Eædem rationes ultimæ*), then bounds the gap by the rectangle of maximum width. `rectangle_gap_bound` checks the finite arithmetic; geometry and shrinking width must be supplied or derived for the actual construction. |
-| The enclosing rectangle becomes arbitrarily small | [Lemma II proof par4](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4) | [Lemma II proof par5](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5) | Lemma II identifies the gap with one width times total height and explicitly invokes Lemma I. The general path-content budget and its grounded `polygon_trajectory_enclosure` implement an analogous exhaustion for the actual constructed maps; they are modern square-content results, not the historical curvilinear-area identity. |
+| Unequal widths reduce to the largest width | [Lemma III proof par6](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par6) | [Lemma III proof par7](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par7) | Lemma III reuses Lemma II's figures and equal limiting ratios implicitly (*Eædem rationes ultimæ*), then bounds the gap by the rectangle of maximum width. `rectangle_gap_bound` retains the integer arithmetic. The fixed-interval monotone graph reconstruction now derives completed lower/upper point-set enclosure, constructs the actual largest width and proves the rational rectangle-sum gap bound and exhaustion. Identification with ordinary geometric union area and the actual motion remains separate. |
+| The enclosing rectangle becomes arbitrarily small | [Lemma II proof par4](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4) | [Lemma II proof par5](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5) | Lemma II identifies the gap with one width times total height and explicitly invokes Lemma I. The rational graph reconstruction now proves the exact equal-width rectangle-sum gap and its exhaustion. The actual path-content budget and grounded `polygon_trajectory_enclosure` remain separate modern square-content results. Ordinary union-area and the ultimate curvilinear-area ratio remain open. |
 | Approach closer than any assigned difference gives equality | [Lemma I proof par2](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par2) | [Lemma I proof par3](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par3) | Newton assumes a final difference D and contradicts the approach hypothesis. The current rational exhaustion and quotient equality arguments justify their particular constructed limits. A general historical ultimate-ratio certificate is a separate obligation. |
 
 De Motu keeps its own chain. [NATP00090 par17](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17)
@@ -286,17 +294,18 @@ the finite content it needs when cells are unequal.
 
 ## Next bounded step
 
-The next step is the actual curvilinear-area enclosure behind Lemmas II–III:
-connect the lower/upper rectangle sums to the given monotone figure, derive
-their maximum-width gap, and exhaust it by Lemma I. The supporting-line
-branch now constructs crossings and proves its whole closed boundary limit
-with explicit rational monotone cells; identifying those lines with actual
-curve tangents and covering vertical tangent patches remain separate. The
-actual constructed force polygons already have their own derived two-sided
-limit. Scalar area, trace convergence and arclength remain distinct. The Laws
-Corollary 1 finite proof route is checked in its mechanical model. These
-components do not certify the full historical continuously acting-force or
-ordinary-sector conclusion. Force-specific applications follow the general proof.
+The next step is to identify the lower/upper rectangle side-product sums
+with ordinary area of their geometric unions, and realize the given
+curvilinear figure's area between them before concluding the ultimate ratio
+by Lemma I, with any nonzero-area premise for ratios stated explicitly.
+Ordered finite partitions now derive their actual point-set
+coverage and completed enclosure; their maximum width, exact equal-width
+sum gap, unequal-width bound and exhaustion are proved. The supporting-line
+branch also has derived crossings and whole closed boundary limits with
+explicit finite data. Actual tangent identification and vertical patches
+remain separate. The actual constructed force polygons already have their
+own derived two-sided limit. Scalar area, trace convergence and arclength
+remain distinct. Force-specific applications follow the general proof.
 
 The harmonic field now has derived mesh-uniform actual state and endpoint-error
 bounds, a proved square enclosure and nonnegative cover budget for matched

@@ -1639,11 +1639,14 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "per Lemma I: after the equal-width gap is identified with one shrinking rectangle, Lemma I supplies ultimate equality. This is the proof citation, not proximity of statements.",
+      "notes": "per Lemma I: after the equal-width gap is identified with one shrinking rectangle, Lemma I supplies ultimate equality. This is the proof citation, not proximity of statements. Modern monotone-graph rectangle sets now have a derived enclosure and exact finite sum gap, exhausted under shrinking actual maximum widths. Ordinary union-area and ultimate curvilinear ratio identification remain open.",
       "witness": "De Motu Corporum (Liber Primus) (1687)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "Principia1687.LemmaIII.lemma2_equal_width_gap",
+        "NewtonLimitDynamics.Polygon.MonotoneRectangles.gaps_vanish"
+      ],
       "source_stage": "1687"
     },
     {
@@ -1653,11 +1656,14 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Eædem rationes ultimæ: Lemma III retains Lemma II's inscribed/circumscribed figures and ultimate equal ratios while allowing unequal widths. Its par6 proof replaces the common width by the maximum; it does not name Lemma II.",
+      "notes": "Eædem rationes ultimæ: Lemma III retains Lemma II's inscribed/circumscribed figures and ultimate equal ratios while allowing unequal widths. Its par6 proof replaces the common width by the maximum; it does not name Lemma II. The modern fixed-interval rational graph model constructs the actual maximum width and derives the corresponding rectangle-sum bound; this reference does not certify the historical area-ratio conclusion.",
       "witness": "De Motu Corporum (Liber Primus) (1687)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par5",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.MonotoneRectangles.maxWidth_bounds",
+        "NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_bound"
+      ],
       "source_stage": "1687"
     },
     {
@@ -1667,11 +1673,14 @@
       "relation": "proof_dependency",
       "status": "explicit_dependency",
       "confidence": "high",
-      "notes": "per Lemma I: the equal-width gap is the shrinking rectangle, followed by the explicit cited ultimate-equality argument.",
+      "notes": "per Lemma I: the equal-width gap is the shrinking rectangle, followed by the explicit cited ultimate-equality argument. Modern monotone-graph rectangle sets now have a derived enclosure and exact finite sum gap, exhausted under shrinking actual maximum widths. Ordinary union-area and ultimate curvilinear ratio identification remain open.",
       "witness": "De Motu Corporum (Liber Primus) (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "Principia1713.LemmaIII.lemma2_equal_width_gap",
+        "NewtonLimitDynamics.Polygon.MonotoneRectangles.gaps_vanish"
+      ],
       "source_stage": "1713"
     },
     {
@@ -1681,11 +1690,14 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Eædem rationes ultimæ and the retained inscribed/circumscribed figures carry Lemma II's argument into unequal widths. The maximum-width proof in par7 confirms the reuse; no named Lemma II citation occurs.",
+      "notes": "Eædem rationes ultimæ and the retained inscribed/circumscribed figures carry Lemma II's argument into unequal widths. The maximum-width proof in par7 confirms the reuse; no named Lemma II citation occurs. The modern fixed-interval rational graph model constructs the actual maximum width and derives the corresponding rectangle-sum bound; this reference does not certify the historical area-ratio conclusion.",
       "witness": "De Motu Corporum (Liber Primus) (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "NewtonLimitDynamics.Polygon.MonotoneRectangles.maxWidth_bounds",
+        "NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_bound"
+      ],
       "source_stage": "1713"
     },
     {
@@ -1745,11 +1757,13 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Hinc: inference from the vanishing rectangle enclosure.",
+      "notes": "Hinc: inference from the vanishing rectangle enclosure. The modern graph reconstruction derives actual completed point-set enclosure and finite rectangle-sum gap exhaustion. Ordinary curvilinear area and its ultimate ratio remain separate.",
       "witness": "De Motu Corporum (Liber Primus) (1687)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "Principia1687.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction"
+      ],
       "source_stage": "1687"
     },
     {
@@ -1837,11 +1851,13 @@
       "relation": "proof_dependency",
       "status": "implicit_dependency",
       "confidence": "high",
-      "notes": "Hinc: inference from the vanishing rectangle enclosure.",
+      "notes": "Hinc: inference from the vanishing rectangle enclosure. The modern graph reconstruction derives actual completed point-set enclosure and finite rectangle-sum gap exhaustion. Ordinary curvilinear area and its ultimate ratio remain separate.",
       "witness": "De Motu Corporum (Liber Primus) (1713)",
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8",
       "revision_layer": "printed edition; transcription corrections retained",
-      "formal_refs": [],
+      "formal_refs": [
+        "Principia1713.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction"
+      ],
       "source_stage": "1713"
     },
     {

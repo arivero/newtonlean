@@ -134,7 +134,13 @@ modulus. Coincident lines and reversed coordinate orientations are included.
 Actual tangent identification and the full curvilinear-area enclosure remain
 open. See the
 [supporting-boundary checkpoint](research/verification/lemma3-supporting-boundaries-2026-10-06.md).
-The completion estimate is unchanged by this supporting increment.
+Lower/upper rectangle point sets now have proved enclosure of a given
+monotone graph and its completed closure. Their actual maximum width is
+constructed, and their finite side-product sum gap has both the equal-width
+identity and unequal-width bound, followed by exhaustion. Ordinary union-area
+and the ultimate curvilinear-area ratio remain open. See the
+[rectangle checkpoint](research/verification/lemma2-3-monotone-rectangles-2026-10-06.md).
+The completion estimate is unchanged by these supporting increments.
 BinaryLift now shares the two-input completion kit used by pairings, secants
 and area sums; this consolidation receives no completion credit.
 

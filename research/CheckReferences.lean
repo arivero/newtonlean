@@ -2229,6 +2229,26 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.MonotoneEnclosure.pos_const
 #check NewtonLimitDynamics.Polygon.MonotoneEnclosure.vel_bounds
 #print axioms NewtonLimitDynamics.Polygon.MonotoneEnclosure.vel_bounds
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.completed_enclosure
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.completed_enclosure
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.figure_enclosure
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.figure_enclosure
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_bound
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_bound
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_equal_width
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_equal_width
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_identity
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_identity
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.gaps_vanish
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.gaps_vanish
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.maxWidth_bounds
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.maxWidth_bounds
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.node_bounds
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.node_bounds
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.partition_cover
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.partition_cover
+#check NewtonLimitDynamics.Polygon.MonotoneRectangles.sums_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.MonotoneRectangles.sums_nonnegative
 #check NewtonLimitDynamics.Polygon.PairingValues.difference_bound
 #print axioms NewtonLimitDynamics.Polygon.PairingValues.difference_bound
 #check NewtonLimitDynamics.Polygon.PairingValues.dot_abs_le_product
@@ -2395,6 +2415,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.PolygonFanArea.sum_error
 #check NewtonLimitDynamics.Polygon.PolygonFanArea.sum_mono
 #print axioms NewtonLimitDynamics.Polygon.PolygonFanArea.sum_mono
+#check NewtonLimitDynamics.Polygon.PolygonFanArea.sum_mul
+#print axioms NewtonLimitDynamics.Polygon.PolygonFanArea.sum_mul
+#check NewtonLimitDynamics.Polygon.PolygonFanArea.sum_nonnegative
+#print axioms NewtonLimitDynamics.Polygon.PolygonFanArea.sum_nonnegative
+#check NewtonLimitDynamics.Polygon.PolygonFanArea.sum_telescope
+#print axioms NewtonLimitDynamics.Polygon.PolygonFanArea.sum_telescope
 #check NewtonLimitDynamics.Polygon.PolygonFanArea.unsignedFan_congr
 #print axioms NewtonLimitDynamics.Polygon.PolygonFanArea.unsignedFan_congr
 #check NewtonLimitDynamics.Polygon.PolygonFanArea.unsignedFan_error
@@ -3089,6 +3115,10 @@ import NewtonLimitDynamics
 #print axioms Principia1687.LemmaIII.corollary4_chord_reconstruction
 #check Principia1687.LemmaIII.corollary4_constructed_polygon_boundary
 #print axioms Principia1687.LemmaIII.corollary4_constructed_polygon_boundary
+#check Principia1687.LemmaIII.lemma2_equal_width_gap
+#print axioms Principia1687.LemmaIII.lemma2_equal_width_gap
+#check Principia1687.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction
+#print axioms Principia1687.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction
 #check Principia1687.PropositionI.constructed_central_area_law
 #print axioms Principia1687.PropositionI.constructed_central_area_law
 #check Principia1687.PropositionI.constructed_central_interval_area_law
@@ -3115,6 +3145,10 @@ import NewtonLimitDynamics
 #print axioms Principia1713.LemmaIII.corollary4_chord_reconstruction
 #check Principia1713.LemmaIII.corollary4_constructed_polygon_boundary
 #print axioms Principia1713.LemmaIII.corollary4_constructed_polygon_boundary
+#check Principia1713.LemmaIII.lemma2_equal_width_gap
+#print axioms Principia1713.LemmaIII.lemma2_equal_width_gap
+#check Principia1713.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction
+#print axioms Principia1713.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction
 #check Principia1713.PropositionI.constructed_central_area_law
 #print axioms Principia1713.PropositionI.constructed_central_area_law
 #check Principia1713.PropositionI.constructed_central_interval_area_law

@@ -23,9 +23,9 @@ digraph formalisation-coverage {
   "P1687.L11" [label="P1687.L11\nContact subtense ultimately quadratic in\narc chord", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L11Cubic" [label="P1687.L11Cubic\nCubic curvilinear areas and segments via\nthe parabola\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.L11Restriction" [label="P1687.L11Restriction\nFinite nonzero curvature restriction;\nhigher/lower orders excluded", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.L2" [label="P1687.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.L3" [label="P1687.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.L3C1" [label="P1687.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
+  "P1687.L2" [label="P1687.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
+  "P1687.L3" [label="P1687.L3\nUnequal-width enclosure and\nmaximum-width refinement\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
+  "P1687.L3C1" [label="P1687.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure\n1 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.L3C2" [label="P1687.L3C2\nChord figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L3C3" [label="P1687.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure\n3 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.L3C4" [label="P1687.L3C4\nCurvilinear limit of polygon perimeters\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
@@ -51,9 +51,9 @@ digraph formalisation-coverage {
   "P1713.L11C3" [label="P1713.L11C3\nSagitta quadratic in time at given\nvelocity", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L11Cubic" [label="P1713.L11Cubic\nCubic curvilinear areas and segments via\nthe parabola\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L11Restriction" [label="P1713.L11Restriction\nFinite nonzero curvature restriction;\nhigher/lower orders excluded", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L2" [label="P1713.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L3" [label="P1713.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L3C1" [label="P1713.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L2" [label="P1713.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.L3" [label="P1713.L3\nUnequal-width enclosure and\nmaximum-width refinement\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.L3C1" [label="P1713.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure\n1 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L3C2" [label="P1713.L3C2\nChord figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3C3" [label="P1713.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure\n3 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L3C4" [label="P1713.L3C4\nCurvilinear limit of polygon perimeters\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];

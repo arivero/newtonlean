@@ -63,3 +63,4 @@ import BarrowLib.Polygon.SweptArea
 import BarrowLib.Polygon.CurveTrace
 import BarrowLib.Polygon.SupportingTangents
 import BarrowLib.Polygon.SupportingBoundary
+import BarrowLib.Polygon.MonotoneRectangles

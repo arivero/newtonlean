@@ -4347,6 +4347,132 @@
     "interpretation_and_remaining_premises": "Generic unsigned cell-closure union of simultaneous rational connectors between two proved maps on constructed binary time. A shared endpoint square yields convex-connector and closed-cell containment, hence an actual finite cover. Every connector, reversed connector and each map lies in the set; the right endpoint is retained. One square of radius C/2^m per dyadic cell has budget 4*C^2/2^m. Map construction is supplied by each client, not asserted by this geometry. Harmonic and general constructed maps are distinct actual clients. No force, derivative, integral, ODE, Newton import or historical dependency is a premise."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.node_order",
+    "private": true,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (p : Partition a b) (j : Nat) : ∀ i, i≤j → j≤p.count → Fraction.le (p.nodes i) (p.nodes j)",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.node_bounds",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (p : Partition a b) (i : Nat) (hi : i≤p.count) : Fraction.le a (p.nodes i) ∧ Fraction.le (p.nodes i) b",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.partition_cover",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (p : Partition a b) (x : Fraction) (ha : Fraction.le a x) (hb : Fraction.le x b) : ∃ i, i<p.count ∧ Fraction.le (p.nodes i) x ∧ Fraction.le x (p.nodes (i+1))",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.figure_enclosure",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (p : Partition a b) (hg : MonotoneOn g a b) : (∀ x, lowerFigure g p x → figure g a b x) ∧ (∀ x, figure g a b x → upperFigure g p x)",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.completed_enclosure",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (p : Partition a b) (hg : MonotoneOn g a b) : (∀ x, completed (lowerFigure g p) x → completed (figure g a b) x) ∧ (∀ x, completed (figure g a b) x → completed (upperFigure g p) x)",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.prefixMax_bounds",
+    "private": true,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(f : Nat → Fraction) (n : Nat) : (∀ i, i≤n → Fraction.le (f i) (prefixMax f n)) ∧ (∀ M, (∀ i, i≤n → Fraction.le (f i) M) → Fraction.le (prefixMax f n) M)",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.maxWidth_bounds",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (p : Partition a b) : (∀ i, i<p.count → Fraction.le (width p i) (maxWidth p)) ∧ (∀ M, (∀ i, i<p.count → Fraction.le (width p i) M) → Fraction.le (maxWidth p) M)",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_identity",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (p : Partition a b) : Fraction.equiv (gap g p) (sum (fun i => Fraction.mul (width p i) (durationDifference (g (p.nodes i)) (g (p.nodes (i+1))))) p.count)",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.graph_congr",
+    "private": true,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (hg : MonotoneOn g a b) (x y : Fraction) (hx : Fraction.le a x ∧ Fraction.le x b) (hy : Fraction.le a y ∧ Fraction.le y b) (he : Fraction.equiv x y) : Fraction.equiv (g x) (g y)",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.height_sum",
+    "private": true,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (p : Partition a b) (hg : MonotoneOn g a b) : Fraction.equiv (sum (fun i => durationDifference (g (p.nodes i)) (g (p.nodes (i+1)))) p.count) (durationDifference (g a) (g b))",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.sums_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (p : Partition a b) (hg : MonotoneOn g a b) (hbase : 0≤(g a).num) : 0≤(lowerSum g p).num ∧ 0≤(upperSum g p).num",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_equal_width",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (p : Partition a b) (hg : MonotoneOn g a b) (M : Fraction) (hM : ∀ i, i<p.count → Fraction.equiv (width p i) M) : Fraction.equiv (gap g p) (Fraction.mul M (durationDifference (g a) (g b)))",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.gap_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (p : Partition a b) (hg : MonotoneOn g a b) (M : Fraction) (hM : ∀ i, i<p.count → Fraction.le (width p i) M) : 0≤(gap g p).num ∧ Fraction.le (gap g p) (Fraction.mul M (durationDifference (g a) (g b)))",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.MonotoneRectangles.gaps_vanish",
+    "private": false,
+    "file": "BarrowLib/Polygon/MonotoneRectangles.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{a b : Fraction} (g : Fraction → Fraction) (parts : Nat → Partition a b) (hg : MonotoneOn g a b) (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m → Fraction.lt (maxWidth (parts m)) delta) : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → Fraction.lt (gap g (parts m)) eps",
+    "interpretation_and_remaining_premises": "Finite rational lower and upper rectangle point sets for a given graph monotone on a fixed interval. Ordered finite partition coverage, endpoint-alias transport and graph-region enclosure are derived, including every completed closure point. The actual maximum width is constructed from the partition. Rectangle side-product sums are nonnegative with a nonnegative initial ordinate; their exact equal-width gap and unequal-width maximum-times-total-height bound are proved, then exhausted as actual maximum widths shrink. There is no completed area quantity, ordinary union-area/additivity theorem, area-ratio or actual motion/tangent identification. The source correspondence is assigned only in the separate stage wrappers."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.PairingValues.dot_abs_le_product",
     "private": false,
     "file": "BarrowLib/Polygon/PairingValues.lean",
@@ -4875,6 +5001,33 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(a b : Nat → Fraction) (n : Nat) (h : ∀ i, i<n → Fraction.le (a i) (b i)) : Fraction.le (sum a n) (sum b n)",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, shifted interval fans with composition and finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_nonnegative",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → Fraction) (n : Nat) (ha : ∀ i, i<n → 0≤(a i).num) : 0≤(sum a n).num",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, shifted interval fans with composition and finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_mul",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → Fraction) (c : Fraction) : ∀ n, Fraction.equiv (sum (fun i => Fraction.mul c (a i)) n) (Fraction.mul c (sum a n))",
+    "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, shifted interval fans with composition and finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.PolygonFanArea.sum_telescope",
+    "private": false,
+    "file": "BarrowLib/Polygon/PolygonFanArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Nat → Fraction) : ∀ n, Fraction.equiv (sum (fun i => durationDifference (a i) (a (i+1))) n) (durationDifference (a 0) (a n))",
     "interpretation_and_remaining_premises": "Finite rational determinant fans, cellwise unsigned fans, shifted interval fans with composition and finite sum error accumulation, reverse absolute-value difference and inertial triangle remainder bounds. Unsigned fans count swept triangles with multiplicity and cannot cancel opposite signs. No curve existence, union content, force, calculus or Newton import."
   },
   {
@@ -18034,6 +18187,30 @@
     "interpretation_and_remaining_premises": "1687 Corollaries 3-4 supporting-line branch, modern rational reconstruction: affine crossing and endpoint rectangle are derived from finite support/monotonicity inequalities; entire joined closed segments approach the given curve in both directions. Uniform curve modulus and convergence of finite nodes remain explicit. Dyadic time spans and coverage are derived. Tangent existence, arbitrary vertical patches, identification with actual force tangents, arclength and the full source enclosure/area proof remain open. No chord-to-tangent dependency or other edition premise is inferred."
   },
   {
+    "name": "Principia1687.LemmaIII.lemma2_equal_width_gap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/LemmaIII.lean",
+    "source_passages": [
+      "NATP00077.par4"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Fraction → Fraction) (a b M : Fraction) (p : MonotoneRectangles.Partition a b) (hg : MonotoneRectangles.MonotoneOn g a b) (hM : ∀ i, i<p.count → Fraction.equiv (MonotoneRectangles.width p i) M) : Fraction.equiv (MonotoneRectangles.gap g p) (Fraction.mul M (HarmonicTimeComparison.durationDifference (g a) (g b)))",
+    "interpretation_and_remaining_premises": "Stage-local modern rational reconstruction of Lemma II's exact finite rectangle-sum identity. A fixed monotone graph, ordered partition with represented endpoint equality and equal cell widths give gap = common width times total height. No ordinary union-area or curvilinear ratio identification is supplied or inferred."
+  },
+  {
+    "name": "Principia1687.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/LemmaIII.lean",
+    "source_passages": [
+      "NATP00077.par3",
+      "NATP00077.par4",
+      "NATP00077.par6"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Fraction → Fraction) (a b : Fraction) (parts : Nat → MonotoneRectangles.Partition a b) (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num) (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m → Fraction.lt (MonotoneRectangles.maxWidth (parts m)) delta) : (∀ m, (∀ x, MonotoneRectangles.completed (MonotoneRectangles.lowerFigure g (parts m)) x → MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x) ∧ (∀ x, MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x → MonotoneRectangles.completed (MonotoneRectangles.upperFigure g (parts m)) x)) ∧ (∀ m, (0≤(MonotoneRectangles.lowerSum g (parts m)).num ∧ 0≤(MonotoneRectangles.upperSum g (parts m)).num) ∧ (0≤(MonotoneRectangles.gap g (parts m)).num ∧ Fraction.le (MonotoneRectangles.gap g (parts m)) (Fraction.mul (MonotoneRectangles.maxWidth (parts m)) (HarmonicTimeComparison.durationDifference (g a) (g b))))) ∧ (∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → Fraction.lt (MonotoneRectangles.gap g (parts m)) eps)",
+    "interpretation_and_remaining_premises": "Stage-local modern rational monotone-graph reconstruction of Lemmas II-III. Actual lower/upper rectangle point sets enclose the given graph region, including completed closure points. The largest cell width is constructed; finite side-product sums have a derived nonnegative gap at most that width times fixed total height, and it vanishes under shrinking maximum widths. Graph monotonicity on the fixed interval, nonnegative initial ordinate and the selected shrinking partitions remain explicit premises. No supplied enclosure, area limit, ordinary union content, completed curvilinear area, ultimate equality ratio, actual force/tangent identification or full historical proof is certified."
+  },
+  {
     "name": "Principia1687.lemmaX_reconstruction",
     "private": false,
     "file": "NewtonLimitDynamics/Principia1687/LemmaX.lean",
@@ -18198,6 +18375,30 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) (points : Nat → Nat → Point) (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1))) (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → ∀ k, k≤blocks m → CauchyValues.Within (embedPosition (points m k)).val (f (nodeTime T hT m k)).val eps) : BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m)) (ImageTrace f)",
     "interpretation_and_remaining_premises": "1713-local Corollaries 3-4 supporting-line branch, modern rational reconstruction with explicit finite monotone supporting cells and convergent endpoint samples on a given uniformly controlled curve. The crossing, endpoint rectangle, whole completed segments and both boundary directions are derived. Dyadic spans/coverage are proved. Tangent existence, arbitrary vertical patches, actual motion tangent identification and the full historical enclosure/area inference remain separate; no arclength or inter-witness proof is certified."
+  },
+  {
+    "name": "Principia1713.LemmaIII.lemma2_equal_width_gap",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/LemmaIII.lean",
+    "source_passages": [
+      "NATP00082.par5"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Fraction → Fraction) (a b M : Fraction) (p : MonotoneRectangles.Partition a b) (hg : MonotoneRectangles.MonotoneOn g a b) (hM : ∀ i, i<p.count → Fraction.equiv (MonotoneRectangles.width p i) M) : Fraction.equiv (MonotoneRectangles.gap g p) (Fraction.mul M (HarmonicTimeComparison.durationDifference (g a) (g b)))",
+    "interpretation_and_remaining_premises": "Stage-local modern rational reconstruction of Lemma II's exact finite rectangle-sum identity. A fixed monotone graph, ordered partition with represented endpoint equality and equal cell widths give gap = common width times total height. No ordinary union-area or curvilinear ratio identification is supplied or inferred."
+  },
+  {
+    "name": "Principia1713.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/LemmaIII.lean",
+    "source_passages": [
+      "NATP00082.par4",
+      "NATP00082.par5",
+      "NATP00082.par7"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(g : Fraction → Fraction) (a b : Fraction) (parts : Nat → MonotoneRectangles.Partition a b) (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num) (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m → Fraction.lt (MonotoneRectangles.maxWidth (parts m)) delta) : (∀ m, (∀ x, MonotoneRectangles.completed (MonotoneRectangles.lowerFigure g (parts m)) x → MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x) ∧ (∀ x, MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x → MonotoneRectangles.completed (MonotoneRectangles.upperFigure g (parts m)) x)) ∧ (∀ m, (0≤(MonotoneRectangles.lowerSum g (parts m)).num ∧ 0≤(MonotoneRectangles.upperSum g (parts m)).num) ∧ (0≤(MonotoneRectangles.gap g (parts m)).num ∧ Fraction.le (MonotoneRectangles.gap g (parts m)) (Fraction.mul (MonotoneRectangles.maxWidth (parts m)) (HarmonicTimeComparison.durationDifference (g a) (g b))))) ∧ (∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → Fraction.lt (MonotoneRectangles.gap g (parts m)) eps)",
+    "interpretation_and_remaining_premises": "Stage-local modern rational monotone-graph reconstruction of Lemmas II-III. Actual lower/upper rectangle point sets enclose the given graph region, including completed closure points. The largest cell width is constructed; finite side-product sums have a derived nonnegative gap at most that width times fixed total height, and it vanishes under shrinking maximum widths. Graph monotonicity on the fixed interval, nonnegative initial ordinate and the selected shrinking partitions remain explicit premises. No supplied enclosure, area limit, ordinary union content, completed curvilinear area, ultimate equality ratio, actual force/tangent identification or full historical proof is certified."
   },
   {
     "name": "Principia1713.lemmaX_reconstruction",

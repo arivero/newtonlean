@@ -6,9 +6,9 @@ digraph section-II {
   "P1687.L1" [label="P1687.L1\nUltimate equality from approach closer\nthan any given difference", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L11" [label="P1687.L11\nContact subtense ultimately quadratic in\narc chord", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L11Restriction" [label="P1687.L11Restriction\nFinite nonzero curvature restriction;\nhigher/lower orders excluded", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.L2" [label="P1687.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.L3" [label="P1687.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.L3C1" [label="P1687.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
+  "P1687.L2" [label="P1687.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
+  "P1687.L3" [label="P1687.L3\nUnequal-width enclosure and\nmaximum-width refinement\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
+  "P1687.L3C1" [label="P1687.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure\n1 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.L3C2" [label="P1687.L3C2\nChord figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L3C3" [label="P1687.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure\n3 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.L3C4" [label="P1687.L3C4\nCurvilinear limit of polygon perimeters\n2 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
@@ -24,9 +24,9 @@ digraph section-II {
   "P1713.Composition" [label="P1713.Composition\nParallelogram composition\n3 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.EuclidI40" [label="P1713.EuclidI40\nEuclid I.40, equal triangles on equal\nbases and in the same parallels", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L1" [label="P1713.L1\nUltimate equality from approach closer\nthan any given difference", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L2" [label="P1713.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L3" [label="P1713.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L3C1" [label="P1713.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L2" [label="P1713.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.L3" [label="P1713.L3\nUnequal-width enclosure and\nmaximum-width refinement\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.L3C1" [label="P1713.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure\n1 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L3C2" [label="P1713.L3C2\nChord figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3C3" [label="P1713.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure\n3 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L3C4" [label="P1713.L3C4\nCurvilinear limit of polygon perimeters\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];

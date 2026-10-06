@@ -1,5 +1,34 @@
 # Verification record
 
+## Lemmas II–III monotone rectangle reconstruction, 6 October 2026
+
+For a nondecreasing rational graph on a fixed rational interval, actual lower
+and upper rectangle point sets enclose the graph region, and completed
+closures preserve those inclusions. The derived finite side-product sums
+have nonnegative values, an exact equal-width gap, and an unequal-width
+maximum-width bound whose exhaustion is proved. Repeated nodes, endpoint
+aliases and zero widths are included. This does not identify sums with
+ordinary union area or realize a completed curvilinear area. A ratio still
+requires nonzero area, and zero-gap controls assert no ratio at zero.
+Descending patches require a coordinate change; no descending-coordinate
+invariance, arbitrary completed ordinate-valued graph, sector-chart or force
+theorem is claimed.
+
+One independent sequential gpt-6-luna verifier ran all 16 README checks and
+both scope harnesses, all exit 0. Against HEAD f753c6b, all 2,211 prior named
+public declarations retain their signatures; 29 names were added. Catalogue
+inventory: 1,727 theorems; progress count: 1,706 library theorems at f753c6b.
+Graph: 88 nodes, 87 edges, 253 passages and 1,582 Lean references. The
+separate 1687 and 1713 source edges retain their explicit/implicit statuses
+and witnesses. Only propext, Classical.choice and Quot.sound occur. No source
+sorry/admit/project axioms/Mathlib, external packages or reversed BarrowLib
+imports appear. Logs: /tmp/newton-sol61-rect-final-01.log through -16.log;
+scopes /tmp/newton-sol61-rect-scope-final.log and
+/tmp/newton-sol61-rect-support-scope-final.log;
+API /tmp/newton-sol61-rect-api.json. See the
+[checkpoint](verification/lemma2-3-monotone-rectangles-2026-10-06.md).
+Conversation-export changes remain untouched and excluded.
+
 ## Lemma III supporting boundaries, 6 October 2026
 
 Finite endpoint-supported lines now yield a rational meeting parameter,
