@@ -1,6 +1,6 @@
 # Primary passages: separate witnesses
 
-Mechanical TEI extraction: [del], [add], [note], [unclear] retain revision boundaries; spelling follows orig. Formula layout requires consultation of the original.
+Mechanical TEI extraction: [del], [add], [note], [unclear] retain revision boundaries; spelling follows orig; fw forme-work (catchwords and page furniture) is omitted. Formula layout requires consultation of the original.
 
 ## NATP00089.par1
 
@@ -218,7 +218,7 @@ Witness: 'De motu sphæricorum corporum in fluidis'
 
 https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17
 
-Dividatur tempus in partes æquales, et prima temporis parte describat corpus vi insita rectam AB. Idem secunda temporis parte si nil impediret [del: ] a [note: a [del: Hypoth.] [add: Lex] 1.] rectà pergeret ad c describens42 describens lineam Bc æqualem ipsi AB adeo ut radijs AS, BS, cS ad centrum actis confectæ forent æquales areæ ASB, BSc. Verum ubi corpus venit ad B agat vis centripeta impulsu unico sed magno, faciat corpus a recta Bc deflectere et pergere in recta BC. Ipsi BS parallela agatur cC occurrens BC in C et completa secunda temporis parte [del: ] b [note: b Lem. 1.] corpus reperietur in C. Iunge SC et triangulum SBC ob parallelas SB, Cc æquale erit triangulo SBc at adeo etiam triangulo SAB. Simili argumento si vis centripeta successivè agat in C, D, E &c faciens corpus singulis temporis momentis singulas describere rectas CD, DE, EF &c triangulum SCD triangulo SBC et SDE ipsi SCD et SEF ipsi SDE æquale erit. Æqualibus igitur temporibus æquales areæ describuntur. Sunto jam hæc triangula numero infinita et infinitè parva, sic, ut singulis temporis momentis singula respondeant triangula, agente vi centripeta sine intermissione, et constabit propositio.
+Dividatur tempus in partes æquales, et prima temporis parte describat corpus vi insita rectam AB. Idem secunda temporis parte si nil impediret [del: ] a [note: a [del: Hypoth.] [add: Lex] 1.] rectà pergeret ad c describens lineam Bc æqualem ipsi AB adeo ut radijs AS, BS, cS ad centrum actis confectæ forent æquales areæ ASB, BSc. Verum ubi corpus venit ad B agat vis centripeta impulsu unico sed magno, faciat corpus a recta Bc deflectere et pergere in recta BC. Ipsi BS parallela agatur cC occurrens BC in C et completa secunda temporis parte [del: ] b [note: b Lem. 1.] corpus reperietur in C. Iunge SC et triangulum SBC ob parallelas SB, Cc æquale erit triangulo SBc at adeo etiam triangulo SAB. Simili argumento si vis centripeta successivè agat in C, D, E &c faciens corpus singulis temporis momentis singulas describere rectas CD, DE, EF &c triangulum SCD triangulo SBC et SDE ipsi SCD et SEF ipsi SDE æquale erit. Æqualibus igitur temporibus æquales areæ describuntur. Sunto jam hæc triangula numero infinita et infinitè parva, sic, ut singulis temporis momentis singula respondeant triangula, agente vi centripeta sine intermissione, et constabit propositio.
 
 Translation status: identifying_translation_not_full. Equal time cells and central impulses yield equal triangles; infinitely many infinitely small triangles are asserted to give uninterrupted force. No numbered limiting lemma is cited in this passage.
 

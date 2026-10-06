@@ -11,7 +11,7 @@ I–III each have a source-linked note: [Proposition I](research/PROP_I_REALIZAT
 [Proposition II](research/TASKS.md) and [Proposition III](research/PROP_III.md).
 
 Current priority is Proposition I, then II, III and IV, retaining all three
-stages. The proposed [historical-file refactor](research/HISTORICAL_FILE_REFACTOR.md)
+stages. The [historical-file refactor](research/HISTORICAL_FILE_REFACTOR.md)
 organizes each result around its Latin text and proof, with separate
 elementary, classical and modern support libraries. Following the user's 6 October clarification, the primary proof takes
 an existing trajectory as an explicit postulate and proves its radius-swept
@@ -40,11 +40,30 @@ Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
 [edition comparison](research/edition-comparison.md), and
 [formal result ledger](research/formal-results.json).
 
+## Library layout
+
+`NewtonLimitDynamics/Historical/` has one file per Newton result, with separate
+Latin and formalization sections for its witnesses. The [result index](research/HISTORICAL_INDEX.md)
+records their source anchors and proof status. BarrowLib contains elementary
+support, ClassicsLib the source-identified Euclidean coordinate special cases,
+and ModernLib the completions, modern motion constructions and diagnostics.
+Primary proofs use elementary/classical support. Anachronical proofs in the
+same historical file appear below a five-line `=` header and may use ModernLib.
+Using an anachronical result taints a downstream proof transitively; compiled
+types and proof bodies determine this, rather than file imports alone.
+The [dependency ledger](research/proof-dependencies.json) also records missing
+formal uses of Newton's source-evidenced dependencies. Those gaps remain open.
+All 2,252 public declarations are retained through nine
+[explicit renames](research/declaration-renames.json); old module paths are
+listed in the [migration map](research/module-migration.json).
+The Lean refactor is currently uncommitted for the user's ultracorrection review.
+Markdown documentation is authorized for a separate commit.
+
 ## Progress
 
-The checked declaration counts across NewtonLimitDynamics and BarrowLib are
+The checked declaration counts across the four libraries are
 recorded in the [formal result ledger](research/formal-results.json) and
-[progress history](docs/progress/history.csv). All three explicit build targets pass.
+[progress history](docs/progress/history.csv). The default build and all four explicit library targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
 they do not measure discharged obligations.
@@ -59,7 +78,7 @@ force and secants now use those regional certificates; gamma_band proves the
 closed inner and outer curve bounds. A proper annular harmonic control tests
 the interface. The general Proposition I proof comes before the actual Euclidean Kepler
 application, as the user clarified on 5 October evening. The harmonic instance equals the old endpoint value.
-The generic geometry, completion and binary-time layers are now in BarrowLib.
+Elementary geometry stays in BarrowLib; Cauchy completions and binary-time values now live in ModernLib.
 Harmonic E/G agreement at every dyadic rational time and whole-edge convergence are
 proved. Same-cell and shared-boundary aliases now give a quotient polygon map.
 Actual integer-subdivision accumulation proves the dyadic agreement, including
@@ -348,6 +367,27 @@ python3 scripts/test_graph_rendering.py
 sha256sum -c docs/SHA256SUMS
 git diff --check
 ```
+
+After that list, verify the refactored libraries and historical source ownership:
+
+```sh
+lake build ClassicsLib
+lake build ModernLib
+python3 scripts/check_architecture.py
+python3 scripts/test_architecture.py
+python3 scripts/check_migration_api.py
+python3 scripts/check_proof_layers.py --report research/proof-dependencies.json
+python3 scripts/test_proof_layers.py
+```
+
+The historical checker rejects source-text drift, mixed-result ownership and
+backward library imports. The compiled dependency checker rejects transitive
+anachronical use in primary sections, including through private helpers or
+types. Its success does not derive supplied premises or complete a historical
+proof. The API audit applies the explicit rename map; `--kernel` also compares
+Lean-printed types against the isolated baseline. See the
+[refactor verification](research/verification/historical-file-refactor-2026-10-06.md).
+
 
 The historical extraction command name is retained; selections.json now covers
 all milestones. `collate_sources.py` checks selected TEI anchors, page/facsimile

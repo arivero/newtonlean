@@ -1,8 +1,8 @@
 # One historical result per file
 
 Requested by the user on 6 October 2026, after the given-motion consistency
-increment `85a76ec`. This is the migration design and current inventory, not
-an assertion that the migration has been performed.
+increment `85a76ec`. The design and starting inventory are retained below; the executed working-tree
+migration is recorded in the final section.
 
 ## Unit of organization
 
@@ -47,6 +47,29 @@ proof and limits; do not put a merged Latin statement above a single proof.
 Dependencies on other historical results import their one canonical file
 but call only the justified witness-specific declaration.
 
+The user's later 6 October clarification permits anachronical proofs in the
+same result file. Primary proofs use BarrowLib, ClassicsLib and untainted
+historical results. Place anachronical proofs after the primary witness
+sections, below this exact form of comment header:
+
+```lean
+/-
+===============================================================================
+===============================================================================
+===============================================================================
+===============================================================================
+===============================================================================
+ANACHRONICAL PROOFS
+-/
+```
+
+Keep witness subsections within that separate section. They may use ModernLib.
+An anachronical result taints every downstream proof that uses it, including
+through a type, private helper or another historical document. Importing a
+file with both sections does not taint an otherwise independent primary
+proof. This clarification supersedes starting-inventory suggestions that
+all edition-specific modern wrappers must leave historical files.
+
 This describes ownership, not completed proofs. A result awaiting proof has
 its Latin text, the exact checked partial reconstruction, and explicit open
 obligations; never a `sorry` or a theorem-shaped axiom standing in for Newton.
@@ -77,6 +100,11 @@ an explicit diplomatic rendering of the archived TEI. The existing
 `scripts/catalogue_m1.py:render` already preserves orig rather than joining
 orig and reg, and marks additions/deletions/notes/unclear readings. Reuse and
 test that extraction rule rather than introduce a second transcription.
+TEI `fw` elements are page furniture and catchwords: omit them from the
+running-text rendering while preserving their following text. The original
+TEI and its hash remain intact. In particular, this removes the duplicated
+catchword/page number from NATP00090 par17; the suspicious 1713 reading
+`Ipsi S BS` remains unchanged because it is the TEI's body text.
 Whitespace presentation can be normalized only if documented; the TEI stays
 the machine-readable authority. A check must fail when embedded Latin drifts
 from its selected source. Literal TEI fragments or their hashes preserve the
@@ -167,3 +195,114 @@ passed on the design checkpoint; logs are
 `/tmp/newton-sol61-refactor-design-01.log` through `-16.log`.
 The selected layout is recorded in AGENTS.md and GOALS.md. Migration and new
 library targets are still pending; no proof-completion credit is added.
+
+## Executed migration, 6 October
+
+The complete existing Lean implementation has been reorganized in the working
+tree for ultracorrection review. No refactor commit or push has been made.
+The earlier design and inventory above remain a record of the starting layout.
+
+There are now 19 one-result historical files with 67 source-checked paragraph
+anchors. Each witness section contains diplomatic Latin, source path, hash,
+URL, proof-step correspondence and the already recorded dependency edges
+with their classifications and confidence. The result catalogue and
+[historical index](HISTORICAL_INDEX.md) distinguish checked partial statements
+from text-only open obligations. De Motu keeps its two manuscripts and their
+own numbering; printed editions keep separate names and premises.
+
+The retained public statements live in 39 elementary BarrowLib modules,
+three ClassicsLib modules and 109 ModernLib modules, plus the 19 historical
+files. The finite calibration and tolerance arithmetic, and rational
+monotone-rectangle geometry, were separated from their Cauchy/closure clients.
+ClassicsLib owns the existing integer-coordinate special cases of Euclid
+I.37/I.38, with source links and limits. It does not claim to prove those
+synthetic propositions in full. The modern Cauchy, completed-value, force
+construction and diagnostics live in ModernLib. Edition-specific conditional
+area clients remain in AreaLaw's anachronical section. The manifest partitions
+43 historical declarations into 25 primary and 18 anachronical declarations;
+these include definitions and partial results, not 25 completed Newton proofs.
+No supporting library imports a historical result file.
+
+All 2,252 public declarations are retained, with nine intentional renames in
+[declaration-renames.json](declaration-renames.json). Lemma I/II namespaces now
+match their own result. Lemma II's two equal-width names change accordingly;
+four combined II–III/Corollaries III–IV reconstructions are generic modern
+support rather than proofs owned by one historical result; three generic
+quadratic/coefficient names lose misleading historical ownership. Other
+qualified names are unchanged. Statements and proof/definition bodies are
+unchanged after applying that map. Old import-only facades were removed. Module import paths
+intentionally change; [module-migration.json](module-migration.json) records
+old-to-new ownership, including split modules. The old one-module build API
+should be migrated using that map; the aggregate `import NewtonLimitDynamics`
+still exposes the complete declaration API under the recorded renames.
+
+Elementary historical wrappers were returned from ModernLib to their owning
+result files, and their finite support closure was moved to BarrowLib or the
+source-identified ClassicsLib lattice model. A historical namespace does not
+by itself justify elementary placement: completion-dependent proofs retain
+their anachronical status.
+
+The compiled ledger currently finds no cross-file use of a manifested
+historical declaration. Its 75 source-evidenced proof dependencies are all
+still without a detected formal use: 26 have a source result outside the current historical
+files, 41 have no primary source formalization, five have no primary target
+formalization, and three have no primary declaration use. These counts expose
+the interface gap; they do not invalidate Newton's source dependencies or
+turn comments into checked proof steps. The next mathematical work must
+derive the needed interfaces from the corresponding historical lemmas.
+
+### Verification tools
+
+- `scripts/check_architecture.py` checks one-result ownership, declaration
+  section membership, source hashes/URLs, exact embedded diplomatic text,
+  duplicate public declarations, import existence/cycles and library boundaries.
+  It also checks the five-line separator, primary/anachronical ownership,
+  Lemma I/II namespaces and absence of combined-result historical theorem names.
+  It is a local provenance/architecture check, not a historical proof certificate.
+- `scripts/test_architecture.py` checks known running-text examples and rejects
+  eight corruptions, including catchword reinjection, a missing separator,
+  wrong lemma namespace and false primary classification.
+- `scripts/check_migration_api.py` compares public names, normalized statements
+  and bodies against `9f3ec58`. With `--kernel` it also builds an isolated old
+  checkout and compares every printed declaration type to the working tree,
+  after the nine declared renames and joining only printer continuation lines.
+- `scripts/proof_dependencies.lean` inspects compiled types and proof/definition
+  bodies, including generated/private constants. `scripts/check_proof_layers.py`
+  propagates taint from ModernLib and explicitly anachronical historical
+  declarations. It rejects tainted primary declarations and emits
+  [proof-dependencies.json](proof-dependencies.json), keeping actual kernel
+  uses separate from the quoted source-evidence edges. No detected modern
+  dependency means only that: supplied interfaces can still hide unfinished
+  historical proof obligations. `scripts/test_proof_layers.py` includes a
+  compiled private-bridge control, type-only use, transitive cross-document
+  use and cyclic dependency controls.
+- `catalogue_formal.py` now inventories four libraries and emits the historical
+  navigation index. Declaration origins preserve source attribution across
+  moves. `progress_stats.py` recognizes all four libraries at future commits;
+  old snapshots retain their historical paths. The declaration reader now
+  recognizes `private noncomputable` correctly, with a regression control.
+- Existing verification harness imports follow the relocated modules. The
+  old archived source hashes and the historical dependency graph are unchanged.
+
+The final verification record is
+[historical-file-refactor-2026-10-06.md](verification/historical-file-refactor-2026-10-06.md).
+This migration adds no theorem, axiom or proof-completion credit. New historical
+files for missing portions contain their exact source and open status; they
+introduce no theorem-shaped placeholder.
+
+### Tool update, 6 October review corrections
+
+The existing renderer and architecture/API tools were patched rather than
+replaced. The new instrument answers a previously unchecked question: which
+compiled constants does a primary declaration actually use, and does any
+dependency path reach an anachronical result? Counts of files, imports and
+source comments cannot answer it. The negative controls above check that the
+instrument detects intentionally planted violations. This is provenance
+verification, not an independent proof of the mathematical premises.
+
+After changing the rendering rule, regenerate source text deliberately with
+`python3 scripts/catalogue_m1.py --refresh-historical`, then run the normal
+source/formal catalogues and graph check. For ordinary review, run
+`python3 scripts/check_proof_layers.py --report research/proof-dependencies.json`
+and `python3 scripts/test_proof_layers.py` after the architecture checks. The
+manifest hash and compiled-graph hash identify the ledger's inputs.

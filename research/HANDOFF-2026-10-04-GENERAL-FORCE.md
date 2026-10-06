@@ -589,3 +589,14 @@ This is a design record; the migration has not yet been performed. The
 user selected one file per historical result, with separate edition sections
 containing each witness's own Latin, definitions, proof and dependency record.
 Existing proof status and the separation of editions remain unchanged.
+
+## Refactor execution, 6 October
+
+The one-result/multiple-witness migration is now executed in the uncommitted
+working tree, awaiting the user's ultracorrection tool before any commit.
+All implementation libraries and module ownership were migrated; see
+[the executed migration](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october)
+and [result index](HISTORICAL_INDEX.md). Preserve this review hold. The former
+routine instruction to commit verified increments does not authorize a commit
+of this refactor: the user's later instruction expressly forbids it for now.
+Proof status, the general-first order and the separate area obligations remain.

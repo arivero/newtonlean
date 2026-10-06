@@ -109,3 +109,19 @@ Move support according to mathematical content into BarrowLib, ClassicsLib
 and ModernLib. The concrete migration plan and current ownership problems
 are recorded in [HISTORICAL_FILE_REFACTOR.md](HISTORICAL_FILE_REFACTOR.md).
 This refactor changes presentation and ownership, not the proof-status bar.
+
+Primary Newton proofs use BarrowLib, ClassicsLib and untainted historical
+results. Anachronical proofs can occupy a separate section in the same file,
+using ModernLib. Its header has five full lines of `=` characters followed
+by `ANACHRONICAL PROOFS`. Anachronical dependencies taint a proof transitively
+through types and proof bodies, including across files and private helpers.
+An import alone does not taint every declaration in its file. Compiled-term
+provenance is checked separately from the source-evidence dependency ledger;
+neither an untainted partial theorem nor a dependency comment completes
+Newton's proof.
+
+The selected architecture is now executed in the uncommitted working tree.
+Historical witness sections, elementary/classical/modern library ownership and
+API/source checks are recorded in the migration report. The user requires an
+ultracorrection review before committing the Lean refactor; preserve that hold.
+The user separately authorized committing the Markdown documentation only.

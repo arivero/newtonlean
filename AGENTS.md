@@ -1,5 +1,11 @@
 # Project method
 
+- Current review hold: the 6 October historical-file refactor is deliberately
+  uncommitted at the user's request. Do not commit or push it before the user
+  releases the hold after their ultracorrection review.
+  The user has now authorized committing the Markdown documentation only;
+  the Lean refactor, scripts, JSON and other artifacts remain under this hold.
+
 - User-selected refactor direction, 6 October: one file per historical result,
   with separate edition/witness sections in that file. Each section contains
   its exact Latin statement and proof, then the corresponding definitions
@@ -7,9 +13,20 @@
   revisions explicit; sharing a file does not merge their premises. Supporting
   mathematics belongs in BarrowLib (elementary), ClassicsLib (source-identified
   classical results, e.g. Euclid), or ModernLib (post-Newtonian concepts).
-  See research/HISTORICAL_FILE_REFACTOR.md for the approved layout and pending
+  See research/HISTORICAL_FILE_REFACTOR.md for the approved layout and executed
   migration. The old placement of modern Cauchy machinery in BarrowLib is to
   be revised; do not count relocation as mathematical proof progress.
+
+- User clarification, 6 October: primary Newton proofs may use BarrowLib,
+  ClassicsLib and other primary historical results. Anachronical proofs may
+  occupy a separate section of the same result file and use ModernLib.
+  Separate that section with a comment header containing exactly five full
+  lines of `=` characters, followed by `ANACHRONICAL PROOFS`. Using an
+  anachronical result taints every downstream proof, including uses through
+  other files, private helpers or types. File imports alone do not classify
+  a proof. Check the compiled dependency graph with
+  `python3 scripts/check_proof_layers.py`; source dependency comments alone
+  do not establish formal use or discharge supplied interfaces.
 
 - User clarification, 6 October: the primary historical proof takes the
   trajectory's existence as an explicit postulate, represented in Lean by

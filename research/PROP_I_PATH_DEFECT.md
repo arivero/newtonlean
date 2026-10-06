@@ -1,5 +1,16 @@
 # Polygon–trajectory area: Theorem 1 / Proposition I
 
+## Historical-file migration, 6 October
+
+The uncommitted refactor places one Newton result in each historical file,
+with exact diplomatic Latin and separate witness formalizations. Elementary
+support remains in BarrowLib, classical coordinate special cases in ClassicsLib,
+and completed/modern motion work in ModernLib. Qualified names and theorem
+statements are preserved; module paths intentionally change. See the
+[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october)
+and [verification](verification/historical-file-refactor-2026-10-06.md).
+This changes organization, not historical proof-completion credit.
+
 ## Given-motion consistency bridge, 6 October
 
 [The consistency checkpoint](verification/given-trajectory-consistency-2026-10-06.md)

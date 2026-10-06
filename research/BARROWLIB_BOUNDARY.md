@@ -1,13 +1,22 @@
 # BarrowLib boundary inventory (Task D.1)
 
-`BarrowLib` contains reusable finite rational geometry, ordered-ratio and
-exhaustion arguments, elementary finite sums/products, and explicitly modern
-Cauchy-name infrastructure. Its declarations may quantify over an arbitrary
-point map or bound, but may not mention a particular force, kick schedule,
-Newton proposition or edition, physical area/action, or a supplied trajectory.
-It imports Lean core/Std only and has no derivative, integral or ODE primitive.
-The Cauchy quotient is a modern construction, not a premise attributed to
-Newton. Historical claims and force-law instances stay in `NewtonLimitDynamics`.
+Current boundary, following the user's 6 October refactor: BarrowLib contains
+reusable elementary rational arithmetic, finite geometry, ratios and explicit
+exhaustion arguments. Cauchy-name completions, completed topology and scalar
+outer contents belong in ModernLib. Source-identified classical coordinate
+special cases belong in ClassicsLib. Newton's textual results belong in the
+one-result files under NewtonLimitDynamics/Historical, with separate witness
+sections. Their primary proofs may use BarrowLib/ClassicsLib; their
+anachronical proofs may use ModernLib in a section below the required
+five-line separator. Anachronical use taints downstream proofs transitively
+through compiled types and bodies. Supporting libraries import no historical
+result file.
+
+The inventory below records the earlier extraction and its retained names.
+Its old advice placing Cauchy infrastructure in BarrowLib is superseded by
+[this migration](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october).
+The current module ownership is authoritative in
+[module-migration.json](module-migration.json) and the architecture checker.
 
 | Current location | Foundation content | Remains in NewtonLimitDynamics |
 | --- | --- | --- |

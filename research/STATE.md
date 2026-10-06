@@ -1,5 +1,26 @@
 # Research state
 
+## Historical-file migration, 6 October
+
+The uncommitted refactor places one Newton result in each historical file,
+with exact diplomatic Latin and separate witness formalizations. Primary
+proofs use BarrowLib and ClassicsLib; anachronical proofs occupy a separate
+section below five full lines of `=` characters and may use ModernLib.
+Compiled types and proof bodies propagate anachronical taint across files
+and private helpers. All 2,252 public declarations are retained through nine
+explicit ownership renames, with unchanged statements/bodies after applying
+that map. Module paths intentionally change. See the
+[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october),
+[verification](verification/historical-file-refactor-2026-10-06.md) and
+[compiled dependency ledger](proof-dependencies.json).
+
+The ledger exposes the remaining gap: the current partial proofs do not use
+the source-evidenced historical dependency chain. Deriving those interfaces
+from the appropriate witness-specific lemmas remains proof work; adding
+unused imports would not discharge it. This refactor changes organization,
+not historical proof-completion credit. Do not commit or push during the
+user's review hold.
+
 ## Given-motion consistency bridge, 6 October
 
 [The consistency checkpoint](verification/given-trajectory-consistency-2026-10-06.md)
