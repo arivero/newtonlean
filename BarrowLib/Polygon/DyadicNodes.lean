@@ -2,6 +2,7 @@ import BarrowLib.Polygon.FiniteAddress
 import BarrowLib.Polygon.BinaryEndpoints
 import BarrowLib.Polygon.SecantValues
 import BarrowLib.Polygon.TailValues
+import BarrowLib.Polygon.CompletionGeometry
 
 /-! Actual dyadic nodes of the constructed binary-time domain, including
 the right endpoint. A truncation lies within one cell of its time value. -/
@@ -64,6 +65,20 @@ theorem truncation_time_within (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.n
   rw [node_time_coordinate T hT m (ticks b m) (ticks_le_blocks b m)]
   exact TailValues.approximant_bound (BinaryTime.timeName b T hT) T hT
     (fun j => adjacent_time_bound b T j hT) m
+
+/-- The actual times of consecutive grid nodes differ by one mesh cell. -/
+theorem adjacent_node_time_within (T : Fraction) (hT : 0 ≤ T.num)
+    (m k : Nat) (hk : k<blocks m) :
+    TimeWithin T hT (nodeTime T hT m k) (nodeTime T hT m (k+1)) (duration T m) := by
+  unfold TimeWithin
+  rw [node_time_coordinate T hT m k (by omega),
+    node_time_coordinate T hT m (k+1) (by omega)]
+  apply (CompletionGeometry.within_embedded_iff _ _ _).mpr
+  apply Fraction.le_of_equiv
+  apply Fraction.equiv_trans (scalarState_distance _ _)
+  apply Fraction.equiv_trans (durationDifference_abs_symm _ _)
+  apply Fraction.equiv_trans (countTime_abs_difference T m k 1 hT)
+  simp only [countTime,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_one,Int.one_mul,Int.mul_one]
 
 def intervalStart (b c : Nat → Bool) (m : Nat) : Nat := min (ticks b m) (ticks c m)
 def intervalCount (b c : Nat → Bool) (m : Nat) : Nat :=

@@ -10,12 +10,12 @@ digraph comparison {
   "NATP00089.T1" [label="NATP00089.T1\nPolygonal equal areas; infinitely many\ninfinitesimal triangles asserted", fillcolor="#e8d5b7", color="#8d8d8d", penwidth=1];
   "P1687.L10" [label="P1687.L10\nInitial displacement under regular force", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1687.L11" [label="P1687.L11\nContact subtense ultimately quadratic in\narc chord", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
-  "P1687.P1" [label="P1687.P1\nEqual-time areas from central impulses\nand polygon limit\n4 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
+  "P1687.P1" [label="P1687.P1\nEqual-time areas from central impulses\nand polygon limit\n5 Lean result(s)", fillcolor="#cfe3f7", color="#2c6e31", penwidth=2];
   "P1687.P6" [label="P1687.P6\nForce through tangent departure and time\nsquared", fillcolor="#cfe3f7", color="#8d8d8d", penwidth=1];
   "P1713.L10" [label="P1713.L10\nInitial displacement under finite force", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L11" [label="P1713.L11\nContact subtense ultimately quadratic in\narc chord", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L11Cubic" [label="P1713.L11Cubic\nCubic curvilinear areas and segments via\nthe parabola\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
-  "P1713.P1" [label="P1713.P1\nEqual-time areas from central impulses\nand polygon limit\n4 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.P1" [label="P1713.P1\nEqual-time areas from central impulses\nand polygon limit\n5 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.P6" [label="P1713.P6\nMid-arc force as sagitta over time\nsquared", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.P6C1" [label="P1713.P6C1\nTangent-departure force ratio\n2 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.P6C3" [label="P1713.P6C3\nCurvature-chord force ratio", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];

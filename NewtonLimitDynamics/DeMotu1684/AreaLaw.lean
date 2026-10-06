@@ -169,4 +169,27 @@ theorem natp00090_constructed_central_interval_area_law (o : ForceClasses.Centra
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_interval_area_law o E0 T tau L B s hE d t₀ t₁
 
+/-- Modern boundary reconstruction of NATP00089 par9's unnumbered limiting
+passage. The actual constructed polygon trace approaches the constructed
+curve in both directions; no printed Lemma III is attributed to this witness.
+Regional Lipschitz/window premises and the Cauchy-plane model remain explicit. -/
+theorem natp00089_constructed_boundary_limit (o : ForceClasses.CentralOracle)
+    (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point)
+    (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    CurveTrace.BoundaryLimit (fun m => CurveTrace.ImageTrace
+      (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m))
+      (CurveTrace.ImageTrace (GeneralForceTime.gammaPosition o E0 T tau L B s hE d)) :=
+  GeneralForcePolygonCurve.constructed_polygon_boundary_limit o E0 T tau L B s hE d
+
+/-- Separately named modern reconstruction of NATP00090 par17. Boundary
+convergence is derived for the actual family, not supplied as an area limit
+or imported from a later printed lemma. No arclength statement is made. -/
+theorem natp00090_constructed_boundary_limit (o : ForceClasses.CentralOracle)
+    (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point)
+    (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    CurveTrace.BoundaryLimit (fun m => CurveTrace.ImageTrace
+      (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m))
+      (CurveTrace.ImageTrace (GeneralForceTime.gammaPosition o E0 T tau L B s hE d)) :=
+  GeneralForcePolygonCurve.constructed_polygon_boundary_limit o E0 T tau L B s hE d
+
 end DeMotu1684.AreaLaw

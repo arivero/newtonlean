@@ -46,9 +46,17 @@ subsequent uniform motion remain explicit mechanical model premises. Only
 1713 explicitly states impulses at A and cites Laws II/I in this proof;
 NATP00089's composition assertion remains a hypothesis. See the
 [composition checkpoint](verification/laws-corollary1-2026-10-06.md).
-Lemma III Corollary 4 and its enclosure/perimeter dependencies are the next
-proof obligation before force-specific applications. This finite increment
-adds no completion score or historical limiting certification.
+Lemma III Corollary 4's chord-boundary component is now proved for a given
+uniformly controlled curve, including every completed point of each closed
+chord and both trace directions. `constructed_uniform_curve` derives that
+modulus for the actual general motion; `constructed_chord_boundary_limit`
+and `constructed_polygon_boundary_limit` prove the inscribed-chord and actual
+force-polygon limits separately. The source graph now traces the preceding
+corollaries, with distinct De Motu witnesses and printed editions. See the
+[boundary checkpoint](verification/lemma3-chord-boundaries-2026-10-06.md).
+The full historical enclosure chain and tangent-boundary case remain the next
+proof obligations. No arclength theorem or completion-score increase is added;
+force-specific applications remain held.
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau

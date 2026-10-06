@@ -27,6 +27,9 @@ flowchart LR
   n62["P1687.EuclidI40"]
   n77["P1687.L1"]
   n78["P1687.L2"]
+  n82["P1687.L3C1"]
+  n83["P1687.L3C2"]
+  n84["P1687.L3C3"]
   n13 -->|explicit_dependency| n56
   n51 -->|explicit_dependency| n56
   n62 -->|explicit_dependency| n56
@@ -50,6 +53,12 @@ flowchart LR
   n10 -->|implicit_dependency| n50
   n77 -->|explicit_dependency| n78
   n78 -->|implicit_dependency| n11
+  n11 -->|implicit_dependency| n82
+  n82 -->|implicit_dependency| n83
+  n11 -->|implicit_dependency| n84
+  n82 -->|implicit_dependency| n12
+  n83 -->|implicit_dependency| n12
+  n84 -->|implicit_dependency| n12
 ```
 
 ## 1713
@@ -86,6 +95,9 @@ flowchart LR
   n71["P1713.EuclidI40"]
   n79["P1713.L1"]
   n80["P1713.L2"]
+  n85["P1713.L3C1"]
+  n86["P1713.L3C2"]
+  n87["P1713.L3C3"]
   n18 -->|explicit_dependency| n63
   n68 -->|explicit_dependency| n63
   n71 -->|explicit_dependency| n63
@@ -114,6 +126,12 @@ flowchart LR
   n80 -->|implicit_dependency| n16
   n68 -->|explicit_dependency| n19
   n18 -->|explicit_dependency| n19
+  n16 -->|implicit_dependency| n85
+  n85 -->|implicit_dependency| n86
+  n16 -->|implicit_dependency| n87
+  n85 -->|implicit_dependency| n17
+  n86 -->|implicit_dependency| n17
+  n87 -->|implicit_dependency| n17
 ```
 
 ## 1726
@@ -277,6 +295,12 @@ flowchart LR
   n79["P1713.L1"]
   n80["P1713.L2"]
   n81["NATP00090.Law2"]
+  n82["P1687.L3C1"]
+  n83["P1687.L3C2"]
+  n84["P1687.L3C3"]
+  n85["P1713.L3C1"]
+  n86["P1713.L3C2"]
+  n87["P1713.L3C3"]
   n4 -.->|editorial_interpretation| n6
   n9 -.->|editorial_interpretation| n1
   n20 -.->|editorial_interpretation| n10

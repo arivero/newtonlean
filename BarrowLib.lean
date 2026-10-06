@@ -60,3 +60,4 @@ import BarrowLib.Polygon.PolygonFanArea
 import BarrowLib.Polygon.GeometricApproximation
 import BarrowLib.Polygon.FanValues
 import BarrowLib.Polygon.SweptArea
+import BarrowLib.Polygon.CurveTrace

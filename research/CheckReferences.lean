@@ -1,6 +1,8 @@
 import NewtonLimitDynamics
 
 -- Generated; compile with lake env lean research/CheckReferences.lean.
+#check DeMotu1684.AreaLaw.natp00089_constructed_boundary_limit
+#print axioms DeMotu1684.AreaLaw.natp00089_constructed_boundary_limit
 #check DeMotu1684.AreaLaw.natp00089_constructed_central_area_law
 #print axioms DeMotu1684.AreaLaw.natp00089_constructed_central_area_law
 #check DeMotu1684.AreaLaw.natp00089_constructed_central_interval_area_law
@@ -11,6 +13,8 @@ import NewtonLimitDynamics
 #print axioms DeMotu1684.AreaLaw.natp00089_finite_equal_areas
 #check DeMotu1684.AreaLaw.natp00089_polygon_trajectory_defect_control
 #print axioms DeMotu1684.AreaLaw.natp00089_polygon_trajectory_defect_control
+#check DeMotu1684.AreaLaw.natp00090_constructed_boundary_limit
+#print axioms DeMotu1684.AreaLaw.natp00090_constructed_boundary_limit
 #check DeMotu1684.AreaLaw.natp00090_constructed_central_area_law
 #print axioms DeMotu1684.AreaLaw.natp00090_constructed_central_area_law
 #check DeMotu1684.AreaLaw.natp00090_constructed_central_interval_area_law
@@ -681,6 +685,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexName_ball
 #check NewtonLimitDynamics.Polygon.ConvexValues.convexName_equiv
 #print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexName_equiv
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexName_relative_bound
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexName_relative_bound
 #check NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_one
 #print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_one
 #check NewtonLimitDynamics.Polygon.ConvexValues.convexPosition_square
@@ -699,6 +705,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_one
 #check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_position
 #print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_position
+#check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_relative_bound
+#print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_relative_bound
 #check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_swap
 #print axioms NewtonLimitDynamics.Polygon.ConvexValues.convexValue_swap
 #check NewtonLimitDynamics.Polygon.ConvexValues.convexValue_zero
@@ -713,6 +721,20 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.ConvexValues.secondValue_convex
 #check NewtonLimitDynamics.Polygon.ConvexValues.second_convex_state
 #print axioms NewtonLimitDynamics.Polygon.ConvexValues.second_convex_state
+#check NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_limit
+#print axioms NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_limit
+#check NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_near
+#print axioms NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_near
+#check NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_node
+#print axioms NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_node
+#check NewtonLimitDynamics.Polygon.CurveTrace.closedChord_anchor
+#print axioms NewtonLimitDynamics.Polygon.CurveTrace.closedChord_anchor
+#check NewtonLimitDynamics.Polygon.CurveTrace.dyadic_chordTrace_limit
+#print axioms NewtonLimitDynamics.Polygon.CurveTrace.dyadic_chordTrace_limit
+#check NewtonLimitDynamics.Polygon.CurveTrace.imageTrace_limit
+#print axioms NewtonLimitDynamics.Polygon.CurveTrace.imageTrace_limit
+#check NewtonLimitDynamics.Polygon.DyadicNodes.adjacent_node_time_within
+#print axioms NewtonLimitDynamics.Polygon.DyadicNodes.adjacent_node_time_within
 #check NewtonLimitDynamics.Polygon.DyadicNodes.blocks_add
 #print axioms NewtonLimitDynamics.Polygon.DyadicNodes.blocks_add
 #check NewtonLimitDynamics.Polygon.DyadicNodes.finiteAddress_later_ticks
@@ -1185,6 +1207,12 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePathRegion.final_connector_in_region
 #check NewtonLimitDynamics.Polygon.GeneralForcePathRegion.simultaneous_endpoints_square
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePathRegion.simultaneous_endpoints_square
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_chord_boundary_limit
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_chord_boundary_limit
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_polygon_boundary_limit
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_polygon_boundary_limit
+#check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_uniform_curve
+#print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_uniform_curve
 #check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeCoefficient_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeCoefficient_nonnegative
 #check NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeRadius_geometric
@@ -3029,6 +3057,10 @@ import NewtonLimitDynamics
 #print axioms Principia1687.Laws.corollary1_endpoint_reconstruction
 #check Principia1687.Laws.corollary1_uniform_impulse_model
 #print axioms Principia1687.Laws.corollary1_uniform_impulse_model
+#check Principia1687.LemmaIII.corollary4_chord_reconstruction
+#print axioms Principia1687.LemmaIII.corollary4_chord_reconstruction
+#check Principia1687.LemmaIII.corollary4_constructed_polygon_boundary
+#print axioms Principia1687.LemmaIII.corollary4_constructed_polygon_boundary
 #check Principia1687.PropositionI.constructed_central_area_law
 #print axioms Principia1687.PropositionI.constructed_central_area_law
 #check Principia1687.PropositionI.constructed_central_interval_area_law
@@ -3049,6 +3081,10 @@ import NewtonLimitDynamics
 #print axioms Principia1713.Laws.corollary1_endpoint_reconstruction
 #check Principia1713.Laws.corollary1_uniform_impulse_model
 #print axioms Principia1713.Laws.corollary1_uniform_impulse_model
+#check Principia1713.LemmaIII.corollary4_chord_reconstruction
+#print axioms Principia1713.LemmaIII.corollary4_chord_reconstruction
+#check Principia1713.LemmaIII.corollary4_constructed_polygon_boundary
+#print axioms Principia1713.LemmaIII.corollary4_constructed_polygon_boundary
 #check Principia1713.PropositionI.constructed_central_area_law
 #print axioms Principia1713.PropositionI.constructed_central_area_law
 #check Principia1713.PropositionI.constructed_central_interval_area_law

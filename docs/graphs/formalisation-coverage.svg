@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2047" height="3436" viewBox="0 0 2047 3436" font-family="DejaVu Sans, Helvetica, sans-serif">
+<svg xmlns="http://www.w3.org/2000/svg" width="2730" height="3436" viewBox="0 0 2730 3436" font-family="DejaVu Sans, Helvetica, sans-serif">
 <rect width="100%" height="100%" fill="#ffffff"/>
 <text x="26" y="26" font-size="16" font-weight="bold">Formalisation coverage of the whole evidence graph</text>
 <text x="26" y="44" font-size="11" fill="#555">every node, ranked by dependency depth; green = attached Lean references</text>
@@ -32,14 +32,14 @@
 <path d="M 236.0 452.0 C 305.0 452.0, 305.0 242.0, 374.0 242.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 236.0 1202.0 C 306.6 1202.0, 306.6 752.0, 377.2 752.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 300.0 857.0 C 340.2 857.0, 340.2 534.5, 380.4 534.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 232.8 512.0 C 822.2 512.0, 822.2 107.0, 1411.6 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 252.0 92.0 C 831.8 92.0, 831.8 107.0, 1411.6 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1337.6 92.0 C 1374.6 92.0, 1374.6 107.0, 1411.6 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 954.4 99.5 C 1012.2 99.5, 1012.2 92.0, 1070.0 92.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 232.8 1262.0 C 822.2 1262.0, 822.2 197.0, 1411.6 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 600.0 819.5 C 1005.8 819.5, 1005.8 197.0, 1411.6 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1337.6 152.0 C 1374.6 152.0, 1374.6 197.0, 1411.6 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 954.4 429.5 C 1012.2 429.5, 1012.2 152.0, 1070.0 152.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 512.0 C 1163.8 512.0, 1163.8 107.0, 2094.8 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 252.0 92.0 C 1173.4 92.0, 1173.4 107.0, 2094.8 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 2020.8 99.5 C 2057.8 99.5, 2057.8 107.0, 2094.8 107.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 99.5 C 1353.8 99.5, 1353.8 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 232.8 1262.0 C 1163.8 1262.0, 1163.8 197.0, 2094.8 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 600.0 819.5 C 1347.4 819.5, 1347.4 197.0, 2094.8 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 2020.8 174.5 C 2057.8 174.5, 2057.8 197.0, 2094.8 197.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 429.5 C 1353.8 429.5, 1353.8 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 648.0 174.5 C 685.0 174.5, 685.0 182.0, 722.0 182.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 290.4 309.5 C 332.2 309.5, 332.2 174.5, 374.0 174.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 648.0 609.5 C 685.0 609.5, 685.0 587.0, 722.0 587.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
@@ -56,9 +56,9 @@
 <path d="M 258.4 2057.0 C 340.2 2057.0, 340.2 1097.0, 422.0 1097.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 248.8 1997.0 C 337.0 1997.0, 337.0 1037.0, 425.2 1037.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 596.8 1037.0 C 693.0 1037.0, 693.0 827.0, 789.2 827.0" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 287.2 572.0 C 1017.0 572.0, 1017.0 99.5, 1746.8 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 648.0 242.0 C 1197.4 242.0, 1197.4 99.5, 1746.8 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
-<path d="M 1672.8 107.0 C 1709.8 107.0, 1709.8 99.5, 1746.8 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 287.2 572.0 C 1358.6 572.0, 1358.6 99.5, 2430.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 648.0 242.0 C 1539.0 242.0, 1539.0 99.5, 2430.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 2356.0 107.0 C 2393.0 107.0, 2393.0 99.5, 2430.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 293.6 234.5 C 335.4 234.5, 335.4 99.5, 377.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 644.8 99.5 C 704.2 99.5, 704.2 99.5, 763.6 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 293.6 789.5 C 335.4 789.5, 335.4 459.5, 377.2 459.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
@@ -66,6 +66,18 @@
 <path d="M 287.2 1322.0 C 354.6 1322.0, 354.6 819.5, 422.0 819.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 232.8 1262.0 C 327.4 1262.0, 327.4 819.5, 422.0 819.5" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 290.4 2784.5 C 338.6 2784.5, 338.6 1292.0, 386.8 1292.0" fill="none" stroke="#33475b" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 99.5 C 1012.2 99.5, 1012.2 99.5, 1070.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 99.5 C 1381.0 99.5, 1381.0 99.5, 1418.0 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 99.5 C 1012.2 99.5, 1012.2 174.5, 1070.0 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 99.5 C 1548.6 99.5, 1548.6 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1679.2 99.5 C 1716.2 99.5, 1716.2 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 174.5 C 1548.6 174.5, 1548.6 99.5, 1753.2 99.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 429.5 C 1012.2 429.5, 1012.2 249.5, 1070.0 249.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 249.5 C 1381.0 249.5, 1381.0 174.5, 1418.0 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 954.4 429.5 C 1012.2 429.5, 1012.2 324.5, 1070.0 324.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 249.5 C 1548.6 249.5, 1548.6 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1679.2 174.5 C 1716.2 174.5, 1716.2 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
+<path d="M 1344.0 324.5 C 1548.6 324.5, 1548.6 174.5, 1753.2 174.5" fill="none" stroke="#33475b" stroke-width="1.3" stroke-dasharray="6 4" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 226.4 3122.0 C 324.2 3122.0, 324.2 1427.0, 422.0 1427.0" fill="none" stroke="#8a6d1f" stroke-width="1.3" marker-end="url(#arrow)" opacity="0.85"/>
 <path d="M 258.4 3062.0 C 338.6 3062.0, 338.6 1367.0, 418.8 1367.0" fill="none" stroke="#8a6d1f" stroke-width="1.3" stroke-dasharray="2 4" marker-end="url(#arrow)" opacity="0.85"/>
 <rect x="38.8" y="2410.0" width="248.4" height="59.0" rx="5" fill="#e8d5b7" stroke="#8d8d8d" stroke-width="1.0"/>
@@ -157,9 +169,22 @@
 <text x="772.6" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3</text>
 <text x="772.6" y="103.0" font-size="12" fill="#444">Unequal-width enclosure and</text>
 <text x="772.6" y="118.0" font-size="12" fill="#444">maximum-width refinement</text>
-<rect x="1070.0" y="70.0" width="267.6" height="44.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="1079.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C4</text>
-<text x="1079.0" y="103.0" font-size="12" fill="#444">Curvilinear limit of polygon perimeters</text>
+<rect x="1070.0" y="70.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="1079.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C1</text>
+<text x="1079.0" y="103.0" font-size="12" fill="#444">Ultimate rectangle figures coincide with</text>
+<text x="1079.0" y="118.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<rect x="1418.0" y="70.0" width="261.2" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="1427.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C2</text>
+<text x="1427.0" y="103.0" font-size="12" fill="#444">Chord figure coincides ultimately with</text>
+<text x="1427.0" y="118.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<rect x="1070.0" y="145.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="1079.0" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C3</text>
+<text x="1079.0" y="178.0" font-size="12" fill="#444">Tangent figure coincides ultimately with</text>
+<text x="1079.0" y="193.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<rect x="1753.2" y="70.0" width="267.6" height="59.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="1762.2" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L3C4</text>
+<text x="1762.2" y="103.0" font-size="12" fill="#444">Curvilinear limit of polygon perimeters</text>
+<text x="1762.2" y="118.0" font-size="12" fill="#2c6e31">1 Lean result(s)</text>
 <rect x="32.4" y="355.0" width="261.2" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="41.4" y="373.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.L5</text>
 <text x="41.4" y="388.0" font-size="12" fill="#444">Corresponding sides and duplicate area</text>
@@ -181,11 +206,11 @@
 <text x="402.2" y="373.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.LawCor6</text>
 <text x="402.2" y="388.0" font-size="12" fill="#444">Equal parallel accelerations leave</text>
 <text x="402.2" y="403.0" font-size="12" fill="#444">relative motions unchanged</text>
-<rect x="1411.6" y="70.0" width="261.2" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="1420.6" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P1</text>
-<text x="1420.6" y="103.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
-<text x="1420.6" y="118.0" font-size="12" fill="#444">and polygon limit</text>
-<text x="1420.6" y="133.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
+<rect x="2094.8" y="70.0" width="261.2" height="74.0" rx="5" fill="#cfe3f7" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="2103.8" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P1</text>
+<text x="2103.8" y="103.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
+<text x="2103.8" y="118.0" font-size="12" fill="#444">and polygon limit</text>
+<text x="2103.8" y="133.0" font-size="12" fill="#2c6e31">5 Lean result(s)</text>
 <rect x="377.2" y="280.0" width="267.6" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="386.2" y="298.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P2</text>
 <text x="386.2" y="313.0" font-size="12" fill="#444">Area-time proportionality about a fixed</text>
@@ -199,10 +224,10 @@
 <text x="743.8" y="253.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P4</text>
 <text x="743.8" y="268.0" font-size="12" fill="#444">Uniform circular-force comparison by</text>
 <text x="743.8" y="283.0" font-size="12" fill="#444">squared simultaneous arcs divided by</text>
-<rect x="1746.8" y="70.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="1755.8" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P6</text>
-<text x="1755.8" y="103.0" font-size="12" fill="#444">Force through tangent departure and time</text>
-<text x="1755.8" y="118.0" font-size="12" fill="#444">squared</text>
+<rect x="2430.0" y="70.0" width="274.0" height="59.0" rx="5" fill="#cfe3f7" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="2439.0" y="88.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1687.P6</text>
+<text x="2439.0" y="103.0" font-size="12" fill="#444">Force through tangent departure and time</text>
+<text x="2439.0" y="118.0" font-size="12" fill="#444">squared</text>
 <rect x="422.0" y="790.0" width="178.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
 <text x="431.0" y="808.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.Composition</text>
 <text x="431.0" y="823.0" font-size="12" fill="#444">Parallelogram composition</text>
@@ -253,9 +278,22 @@
 <text x="772.6" y="418.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3</text>
 <text x="772.6" y="433.0" font-size="12" fill="#444">Unequal-width enclosure and</text>
 <text x="772.6" y="448.0" font-size="12" fill="#444">maximum-width refinement</text>
-<rect x="1070.0" y="130.0" width="267.6" height="44.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
-<text x="1079.0" y="148.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C4</text>
-<text x="1079.0" y="163.0" font-size="12" fill="#444">Curvilinear limit of polygon perimeters</text>
+<rect x="1070.0" y="220.0" width="274.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="1079.0" y="238.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C1</text>
+<text x="1079.0" y="253.0" font-size="12" fill="#444">Ultimate rectangle figures coincide with</text>
+<text x="1079.0" y="268.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<rect x="1418.0" y="145.0" width="261.2" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="1427.0" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C2</text>
+<text x="1427.0" y="178.0" font-size="12" fill="#444">Chord figure coincides ultimately with</text>
+<text x="1427.0" y="193.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<rect x="1070.0" y="295.0" width="274.0" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
+<text x="1079.0" y="313.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C3</text>
+<text x="1079.0" y="328.0" font-size="12" fill="#444">Tangent figure coincides ultimately with</text>
+<text x="1079.0" y="343.0" font-size="12" fill="#444">the given curvilinear figure</text>
+<rect x="1753.2" y="145.0" width="267.6" height="59.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="1762.2" y="163.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L3C4</text>
+<text x="1762.2" y="178.0" font-size="12" fill="#444">Curvilinear limit of polygon perimeters</text>
+<text x="1762.2" y="193.0" font-size="12" fill="#2c6e31">1 Lean result(s)</text>
 <rect x="35.6" y="1105.0" width="254.8" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="44.6" y="1123.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.L7</text>
 <text x="44.6" y="1138.0" font-size="12" fill="#444">Vanishing arc, chord and tangent have</text>
@@ -277,11 +315,11 @@
 <text x="402.2" y="883.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.LawCor6</text>
 <text x="402.2" y="898.0" font-size="12" fill="#444">Equal parallel accelerations leave</text>
 <text x="402.2" y="913.0" font-size="12" fill="#444">relative motions unchanged</text>
-<rect x="1411.6" y="160.0" width="261.2" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
-<text x="1420.6" y="178.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1</text>
-<text x="1420.6" y="193.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
-<text x="1420.6" y="208.0" font-size="12" fill="#444">and polygon limit</text>
-<text x="1420.6" y="223.0" font-size="12" fill="#2c6e31">4 Lean result(s)</text>
+<rect x="2094.8" y="160.0" width="261.2" height="74.0" rx="5" fill="#d6ecd2" stroke="#2c6e31" stroke-width="2.2"/>
+<text x="2103.8" y="178.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1</text>
+<text x="2103.8" y="193.0" font-size="12" fill="#444">Equal-time areas from central impulses</text>
+<text x="2103.8" y="208.0" font-size="12" fill="#444">and polygon limit</text>
+<text x="2103.8" y="223.0" font-size="12" fill="#2c6e31">5 Lean result(s)</text>
 <rect x="38.8" y="1435.0" width="248.4" height="59.0" rx="5" fill="#d6ecd2" stroke="#8d8d8d" stroke-width="1.0"/>
 <text x="47.8" y="1453.0" font-size="12" font-weight="bold" fill="#1a1a1a">P1713.P1C2</text>
 <text x="47.8" y="1468.0" font-size="12" fill="#444">The limiting diagonal from two</text>
@@ -371,9 +409,9 @@
 <text x="35.0" y="2953.0" font-size="12" fill="#444">4 in edited Royal Society copy</text>
 <text x="26" y="3228" font-size="12" font-weight="bold">Stages</text>
 <rect x="36" y="3234" width="16" height="14" fill="#cfe3f7" stroke="#666"/>
-<text x="58" y="3246" font-size="11">1687 (21 nodes)</text>
+<text x="58" y="3246" font-size="11">1687 (24 nodes)</text>
 <rect x="36" y="3260" width="16" height="14" fill="#d6ecd2" stroke="#666"/>
-<text x="58" y="3272" font-size="11">1713 (30 nodes)</text>
+<text x="58" y="3272" font-size="11">1713 (33 nodes)</text>
 <rect x="36" y="3286" width="16" height="14" fill="#f0d9ec" stroke="#666"/>
 <text x="58" y="3298" font-size="11">1726 (15 nodes)</text>
 <rect x="36" y="3312" width="16" height="14" fill="#e8d5b7" stroke="#666"/>

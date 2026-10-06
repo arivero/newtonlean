@@ -1,5 +1,35 @@
 # Verification record
 
+## Lemma III chord boundaries, 6 October 2026
+
+The given-curve chord-boundary component now proves two-sided convergence of
+entire closed chord traces under an explicit uniform modulus and shrinking
+maximum time-cell span/coverage. Dyadic spans and coverage are derived,
+including the right endpoint and zero window. The actual general construction
+derives its own curve modulus and closed-chord limit; independently, the
+actual force polygons have the same two-sided trace limit from their proved
+whole-edge comparison. Separate 1687, 1713 and De Motu witness wrappers
+preserve source provenance. Tangent boundaries, the complete historical
+enclosure chain, ordinary sector-union area and unrestricted continuously
+acting-force certification remain open. No arclength assertion or score change.
+
+One independent sequential gpt-6-luna verifier ran all 16 README checklist
+commands and the scope harness, all exit 0. It confirmed completed-centre
+projection/closure, both trace directions, derived mesh coverage and the
+actual construction clients. All 2,165 prior named public signatures remain,
+with 24 additions. Catalogue: 1,689 theorems; graph: 88 nodes, 87 edges,
+253 passages and 1,550 Lean references. The six new preceding-corollary nodes
+and twelve implicit edges retain exact sources; tangent enclosure reuse stays
+medium-confidence and does not assert chord-to-tangent dependence. Only
+propext, Classical.choice and Quot.sound occur. No source sorry/admit/new
+axioms/mathlib, external packages or reversed foundation imports appear.
+Root reviewed the source, logs/API report and changed proof graphs.
+Logs: /tmp/newton-sol61-cor4-final-01.log through -16.log;
+scope /tmp/newton-sol61-cor4-scope-final.log;
+API /tmp/newton-sol61-cor4-api.json. See the
+[checkpoint](verification/lemma3-chord-boundaries-2026-10-06.md).
+Conversation-export changes remain untouched and excluded.
+
 ## Laws Corollary 1 proof route, 6 October 2026
 
 The finite rational reconstruction now derives transverse endpoint lines

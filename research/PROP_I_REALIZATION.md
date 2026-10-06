@@ -46,9 +46,17 @@ subsequent uniform motion remain explicit mechanical model premises. Only
 1713 explicitly states impulses at A and cites Laws II/I in this proof;
 NATP00089's composition assertion remains a hypothesis. See the
 [composition checkpoint](verification/laws-corollary1-2026-10-06.md).
-Lemma III Corollary 4 and its enclosure/perimeter dependencies are the next
-proof obligation before force-specific applications. This finite increment
-adds no completion score or historical limiting certification.
+Lemma III Corollary 4's chord-boundary component is now proved for a given
+uniformly controlled curve, including every completed point of each closed
+chord and both trace directions. `constructed_uniform_curve` derives that
+modulus for the actual general motion; `constructed_chord_boundary_limit`
+and `constructed_polygon_boundary_limit` prove the inscribed-chord and actual
+force-polygon limits separately. The source graph now traces the preceding
+corollaries, with distinct De Motu witnesses and printed editions. See the
+[boundary checkpoint](verification/lemma3-chord-boundaries-2026-10-06.md).
+The full historical enclosure chain and tangent-boundary case remain the next
+proof obligations. No arclength theorem or completion-score increase is added;
+force-specific applications remain held.
 
 GeneralForceGrowth now needs Lipschitz regularity only on the computed ball.
 With E=2*E0, S=|x0|+tau*|v0|, M=2*(S+tau*T*E), its radius is R=M+T*M/tau
@@ -201,7 +209,7 @@ records a reconstruction, not certification of the full historical step.
 | Rectilinear continuation and impulse composition | [Prop. I par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45) | [Prop. I par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51) | Law I and the laws' Corollary 1 are explicit citations. The finite drift/kick construction must reproduce the inertial continuation and the radial deflection before proving equal triangles. `CentralSchedule.cell_momentum`, `det_cell_area` and `swept_eq` supply the rational planar reconstruction. |
 | Why the parallelogram gives the position | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par8) | [Laws Cor. 1 proof par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8) | Both proofs use unchanged transverse approach velocity and the intersection of two parallel lines. `uniform_endpoint_lines` now derives those constraints in the rational mechanical model, then `intersection_unique` derives the opposite corner. `next_arrival_diagonal` connects composition to the actual central cell. Only 1713 explicitly cites Laws II/I and initial impulses; the separate 1687 model specialization does not attribute those clauses to its text. |
 | Finite composition of the areas | [Prop. I par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45) | [Prop. I par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51) | The equal-triangle argument is iterated and the areas are added. The separate edition `finite_componendo` results and `CentralSchedule.swept_eq` implement this finite step. Constant areal product alone does not implement the swept-area conclusion. |
-| Curvilinear perimeter | [Lemma III Cor. 4 par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10) | [Lemma III Cor. 4 par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11) | Proposition I explicitly cites this corollary. Its inference from the preceding enclosures is implicit, signalled by *Et propterea*. The corollary concerns figures drawn on a given curve; applying it to the varying force polygons requires construction of that curve and a justified enclosure. |
+| Curvilinear perimeter | [Lemma III Cor. 4 par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10) | [Lemma III Cor. 4 par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11) | Proposition I explicitly cites this corollary. *Et propterea* refers to the preceding rectangle/chord/tangent figures, now traced in separate source edges. The given-curve chord case has a proved two-sided closed-boundary limit with an explicit uniform modulus. The actual general force curve derives its own modulus, and its varying polygons have their own proved whole-edge boundary limit. Tangent figures and the full historical enclosure inference remain open; no arclength claim is made. |
 | Unequal widths reduce to the largest width | [Lemma III proof par6](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par6) | [Lemma III proof par7](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par7) | Lemma III reuses Lemma II's figures and equal limiting ratios implicitly (*Eædem rationes ultimæ*), then bounds the gap by the rectangle of maximum width. `rectangle_gap_bound` checks the finite arithmetic; geometry and shrinking width must be supplied or derived for the actual construction. |
 | The enclosing rectangle becomes arbitrarily small | [Lemma II proof par4](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4) | [Lemma II proof par5](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5) | Lemma II identifies the gap with one width times total height and explicitly invokes Lemma I. The general path-content budget and its grounded `polygon_trajectory_enclosure` implement an analogous exhaustion for the actual constructed maps; they are modern square-content results, not the historical curvilinear-area identity. |
 | Approach closer than any assigned difference gives equality | [Lemma I proof par2](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par2) | [Lemma I proof par3](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par3) | Newton assumes a final difference D and contradicts the approach hypothesis. The current rational exhaustion and quotient equality arguments justify their particular constructed limits. A general historical ultimate-ratio certificate is a separate obligation. |
@@ -270,12 +278,14 @@ the finite content it needs when cells are unequal.
 
 ## Next bounded step
 
-The next step is Lemma III Corollary 4 through Lemmas I–III and the
-preceding corollaries, preserving the given-curve premise and distinguishing
-perimeter convergence from scalar-area convergence. The finite Laws Corollary
-1 proof route is now checked in the rational mechanical model. Applying the
-given-curve limiting argument to the constructed central-force family remains
-a separate obligation. Force-specific applications follow the general proof.
+The next step is the remaining historical enclosure chain and tangent case
+behind Lemma III Corollary 4. Its chord-boundary component is now checked with
+an explicit given-curve modulus; the actual constructed motion derives that
+modulus and has its own two-sided whole-edge boundary limit. Scalar area,
+trace convergence and arclength remain distinct. The Laws Corollary 1 finite
+proof route is checked in its mechanical model. Force-specific applications
+follow the general proof; these components do not certify the full historical
+continuously acting-force or ordinary-sector conclusion.
 
 The harmonic field now has derived mesh-uniform actual state and endpoint-error
 bounds, a proved square enclosure and nonnegative cover budget for matched

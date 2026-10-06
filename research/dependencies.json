@@ -583,6 +583,48 @@
       "type": "mechanical_premise",
       "statement": "Change of state proportional to the impressed force and in its direction; marked revision retained",
       "passage": "NATP00090.par6"
+    },
+    {
+      "id": "P1687.L3C1",
+      "stage": "1687",
+      "type": "corollary",
+      "statement": "Ultimate rectangle figures coincide with the given curvilinear figure",
+      "passage": "NATP00077.par7"
+    },
+    {
+      "id": "P1687.L3C2",
+      "stage": "1687",
+      "type": "corollary",
+      "statement": "Chord figure coincides ultimately with the given curvilinear figure",
+      "passage": "NATP00077.par8"
+    },
+    {
+      "id": "P1687.L3C3",
+      "stage": "1687",
+      "type": "corollary",
+      "statement": "Tangent figure coincides ultimately with the given curvilinear figure",
+      "passage": "NATP00077.par9"
+    },
+    {
+      "id": "P1713.L3C1",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Ultimate rectangle figures coincide with the given curvilinear figure",
+      "passage": "NATP00082.par8"
+    },
+    {
+      "id": "P1713.L3C2",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Chord figure coincides ultimately with the given curvilinear figure",
+      "passage": "NATP00082.par9"
+    },
+    {
+      "id": "P1713.L3C3",
+      "stage": "1713",
+      "type": "corollary",
+      "statement": "Tangent figure coincides ultimately with the given curvilinear figure",
+      "passage": "NATP00082.par10"
     }
   ],
   "edges": [
@@ -1087,8 +1129,7 @@
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45",
       "revision_layer": "printed edition; transcription corrections retained",
       "formal_refs": [
-        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
-        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+        "Principia1687.LemmaIII.corollary4_constructed_polygon_boundary"
       ],
       "source_stage": "1687"
     },
@@ -1152,8 +1193,7 @@
       "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51",
       "revision_layer": "printed edition; transcription corrections retained",
       "formal_refs": [
-        "NewtonLimitDynamics.Polygon.equal_time_area_reconstruction",
-        "NewtonLimitDynamics.Polygon.sector_ratio_reconstruction"
+        "Principia1713.LemmaIII.corollary4_constructed_polygon_boundary"
       ],
       "source_stage": "1713"
     },
@@ -1697,6 +1737,178 @@
         "NewtonLimitDynamics.Polygon.ImpulseComposition.uniform_endpoint_lines"
       ],
       "source_stage": "NATP00090"
+    },
+    {
+      "from": "P1687.L3",
+      "to": "P1687.L3C1",
+      "passage": "NATP00077.par7",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Hinc: inference from the vanishing rectangle enclosure.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L3C1",
+      "to": "P1687.L3C2",
+      "passage": "NATP00077.par8",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et multo magis: the inscribed chord figure extends the preceding rectangle enclosure inference.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par8",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L3",
+      "to": "P1687.L3C3",
+      "passage": "NATP00077.par9",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "medium",
+      "notes": "Ut & figura rectilinea: analogous tangent-figure coincidence under the retained shrinking enclosure. Reuse of the enclosure is implicit; the connective does not prove a dependency on the chord proof. Tangent enclosure geometry remains a proof obligation.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L3C1",
+      "to": "P1687.L3C4",
+      "passage": "NATP00077.par10",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L3C2",
+      "to": "P1687.L3C4",
+      "passage": "NATP00077.par10",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "Principia1687.LemmaIII.corollary4_chord_reconstruction"
+      ],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1687.L3C3",
+      "to": "P1687.L3C4",
+      "passage": "NATP00077.par10",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths.",
+      "witness": "De Motu Corporum (Liber Primus) (1687)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1687"
+    },
+    {
+      "from": "P1713.L3",
+      "to": "P1713.L3C1",
+      "passage": "NATP00082.par8",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Hinc: inference from the vanishing rectangle enclosure.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L3C1",
+      "to": "P1713.L3C2",
+      "passage": "NATP00082.par9",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et multo magis: the inscribed chord figure extends the preceding rectangle enclosure inference.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par9",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L3",
+      "to": "P1713.L3C3",
+      "passage": "NATP00082.par10",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "medium",
+      "notes": "Ut & figura rectilinea: analogous tangent-figure coincidence under the retained shrinking enclosure. Reuse of the enclosure is implicit; the connective does not prove a dependency on the chord proof. Tangent enclosure geometry remains a proof obligation.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L3C1",
+      "to": "P1713.L3C4",
+      "passage": "NATP00082.par11",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L3C2",
+      "to": "P1713.L3C4",
+      "passage": "NATP00082.par11",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [
+        "Principia1713.LemmaIII.corollary4_chord_reconstruction"
+      ],
+      "source_stage": "1713"
+    },
+    {
+      "from": "P1713.L3C3",
+      "to": "P1713.L3C4",
+      "passage": "NATP00082.par11",
+      "relation": "proof_dependency",
+      "status": "implicit_dependency",
+      "confidence": "high",
+      "notes": "Et propterea hae figurae ultimae (quoad perimetros): collective inference about the boundaries of the preceding figures, not their arclengths.",
+      "witness": "De Motu Corporum (Liber Primus) (1713)",
+      "url": "https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11",
+      "revision_layer": "printed edition; transcription corrections retained",
+      "formal_refs": [],
+      "source_stage": "1713"
     }
   ],
   "open_questions": [

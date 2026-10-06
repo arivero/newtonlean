@@ -2367,6 +2367,24 @@
     "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
   },
   {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexName_relative_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (s t centre : EndpointCauchyName) (R : Fraction) (hs : NameBound s centre R) (ht : NameBound t centre R) : NameBound (convexName a ha s t) (mapName positionState position_nonexpansive centre) R",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexValue_relative_bound",
+    "private": false,
+    "file": "BarrowLib/Polygon/ConvexValues.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y centre : Value) (R : Fraction) (hx : Within x centre R) (hy : Within y centre R) : Within (convexValue a ha x y) (positionValue centre) R",
+    "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
     "name": "NewtonLimitDynamics.Polygon.ConvexValues.convexValue_ball",
     "private": false,
     "file": "BarrowLib/Polygon/ConvexValues.lean",
@@ -2482,6 +2500,60 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(a : Fraction) (ha : UnitInterval a) (x y : PositionValue) : convexPosition a ha x y = convexPosition (complement a) (complement_interval a ha) y x",
     "interpretation_and_remaining_premises": "Actual rational interpolation of two Cauchy names, derived Cauchy and equivalence proofs before quotient lifting. Completed positions preserve coordinate-square enclosures; zero/one endpoints and connector reversal compile. No curve, area, force or historical premise is supplied."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CurveTrace.closedChord_anchor",
+    "private": false,
+    "file": "BarrowLib/Polygon/CurveTrace.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(x y z : PositionValue) (R : Fraction) (hR : 0≤R.num) (hy : Within y.val x.val R) (hz : ClosedChord x y z) : Within z.val x.val R",
+    "interpretation_and_remaining_premises": "Generic closed chord boundaries of a given Cauchy-plane curve. Every completed chord point is included through closure. A uniform curve modulus plus a shrinking maximum time-cell span and coverage derives two-sided trace convergence, allowing unequal cells. Actual dyadic node spans and coverage are proved, including right endpoints and zero windows. This is boundary/trace convergence, not scalar area, arclength, a tangent-polygon theorem or motion partition independence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_node",
+    "private": false,
+    "file": "BarrowLib/Polygon/CurveTrace.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{I : Type} (f : I → PositionValue) (nodes : Nat → I) (n : Nat) (hn : 0<n) (k : Nat) (hk : k≤n) : chordTrace f nodes n (f (nodes k))",
+    "interpretation_and_remaining_premises": "Generic closed chord boundaries of a given Cauchy-plane curve. Every completed chord point is included through closure. A uniform curve modulus plus a shrinking maximum time-cell span and coverage derives two-sided trace convergence, allowing unequal cells. Actual dyadic node spans and coverage are proved, including right endpoints and zero windows. This is boundary/trace convergence, not scalar area, arclength, a tangent-polygon theorem or motion partition independence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_near",
+    "private": false,
+    "file": "BarrowLib/Polygon/CurveTrace.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (eps delta mesh : Fraction) (heps : 0<eps.num) (nodes : Nat → BinaryTime T hT) (n : Nat) (hn : 0<n) (hmesh : Fraction.le mesh delta) (hc : ∀ x y, TimeWithin T hT x y delta → Within (f x).val (f y).val eps) (hadj : ∀ k, k<n → TimeWithin T hT (nodes k) (nodes (k+1)) mesh) (hcover : ∀ t, ∃ k, k≤n ∧ TimeWithin T hT t (nodes k) mesh) : TraceNear (chordTrace f nodes n) (ImageTrace f) eps ∧ TraceNear (ImageTrace f) (chordTrace f nodes n) eps",
+    "interpretation_and_remaining_premises": "Generic closed chord boundaries of a given Cauchy-plane curve. Every completed chord point is included through closure. A uniform curve modulus plus a shrinking maximum time-cell span and coverage derives two-sided trace convergence, allowing unequal cells. Actual dyadic node spans and coverage are proved, including right endpoints and zero windows. This is boundary/trace convergence, not scalar area, arclength, a tangent-polygon theorem or motion partition independence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CurveTrace.chordTrace_limit",
+    "private": false,
+    "file": "BarrowLib/Polygon/CurveTrace.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) (nodes : Nat → Nat → BinaryTime T hT) (count : Nat → Nat) (mesh : Nat → Fraction) (hn : ∀ m, 0<count m) (hadj : ∀ m k, k<count m → TimeWithin T hT (nodes m k) (nodes m (k+1)) (mesh m)) (hcover : ∀ m t, ∃ k, k≤count m ∧ TimeWithin T hT t (nodes m k) (mesh m)) (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m → Fraction.le (mesh m) delta) : BoundaryLimit (fun m => chordTrace f (nodes m) (count m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "Generic closed chord boundaries of a given Cauchy-plane curve. Every completed chord point is included through closure. A uniform curve modulus plus a shrinking maximum time-cell span and coverage derives two-sided trace convergence, allowing unequal cells. Actual dyadic node spans and coverage are proved, including right endpoints and zero windows. This is boundary/trace convergence, not scalar area, arclength, a tangent-polygon theorem or motion partition independence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CurveTrace.dyadic_chordTrace_limit",
+    "private": false,
+    "file": "BarrowLib/Polygon/CurveTrace.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) : BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "Generic closed chord boundaries of a given Cauchy-plane curve. Every completed chord point is included through closure. A uniform curve modulus plus a shrinking maximum time-cell span and coverage derives two-sided trace convergence, allowing unequal cells. Actual dyadic node spans and coverage are proved, including right endpoints and zero windows. This is boundary/trace convergence, not scalar area, arclength, a tangent-polygon theorem or motion partition independence."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.CurveTrace.imageTrace_limit",
+    "private": false,
+    "file": "BarrowLib/Polygon/CurveTrace.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "{I : Type} (p : Nat → I → PositionValue) (f : I → PositionValue) (h : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m → ∀ t, Within (p m t).val (f t).val eps) : BoundaryLimit (fun m => ImageTrace (p m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "Generic closed chord boundaries of a given Cauchy-plane curve. Every completed chord point is included through closure. A uniform curve modulus plus a shrinking maximum time-cell span and coverage derives two-sided trace convergence, allowing unequal cells. Actual dyadic node spans and coverage are proved, including right endpoints and zero windows. This is boundary/trace convergence, not scalar area, arclength, a tangent-polygon theorem or motion partition independence."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.HarmonicDyadic.blocks_succ",
@@ -2724,6 +2796,15 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) : TimeWithin T hT (nodeTime T hT m (ticks b m)) (Quotient.mk _ b) (duration T m)",
+    "interpretation_and_remaining_premises": "Generic dyadic nodes on the constructed binary-time domain, including the right boundary. Actual later tick counts and represented durations identify each node coordinate with its rational embedded time; truncation lies within one dyadic cell of the original time value. No force, motion, external real interval, rate or historical premise is imported."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.DyadicNodes.adjacent_node_time_within",
+    "private": false,
+    "file": "BarrowLib/Polygon/DyadicNodes.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (m k : Nat) (hk : k<blocks m) : TimeWithin T hT (nodeTime T hT m k) (nodeTime T hT m (k+1)) (duration T m)",
     "interpretation_and_remaining_premises": "Generic dyadic nodes on the constructed binary-time domain, including the right boundary. Actual later tick counts and represented durations identify each node coordinate with its rational embedded time; truncation lies within one dyadic cell of the original time value. No force, motion, external real interval, rate or historical premise is imported."
   },
   {
@@ -6921,6 +7002,28 @@
     "interpretation_and_remaining_premises": "NATP00090 Theorem 1: separately named modern interval consequence. Actual constructed unsigned interval fans converge to |ell|*|t1-t0|/2, with both endpoint addresses quantified, and derived intervening-content exhaustion. Regional Lipschitz/window data remain modern premises, planarity is built in, and multiplicity is counted. No other witness or full historical proof is certified."
   },
   {
+    "name": "DeMotu1684.AreaLaw.natp00089_constructed_boundary_limit",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00089.par9"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : CurveTrace.BoundaryLimit (fun m => CurveTrace.ImageTrace (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m)) (CurveTrace.ImageTrace (GeneralForceTime.gammaPosition o E0 T tau L B s hE d))",
+    "interpretation_and_remaining_premises": "NATP00089 unnumbered infinitely-small-triangle passage: modern reconstruction of two-sided boundary convergence for the actual constructed regional force polygons. No printed Lemma III, tangent-polygon or arclength premise is attributed to this witness."
+  },
+  {
+    "name": "DeMotu1684.AreaLaw.natp00090_constructed_boundary_limit",
+    "private": false,
+    "file": "NewtonLimitDynamics/DeMotu1684/AreaLaw.lean",
+    "source_passages": [
+      "NATP00090.par17"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : CurveTrace.BoundaryLimit (fun m => CurveTrace.ImageTrace (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m)) (CurveTrace.ImageTrace (GeneralForceTime.gammaPosition o E0 T tau L B s hE d))",
+    "interpretation_and_remaining_premises": "NATP00090 separately named modern two-sided boundary convergence for the actual regional constructed polygons. No printed limiting lemma is imported and no historical tangent/arclength/continuous-force proof is certified."
+  },
+  {
     "name": "DeMotu1684.Composition.natp00090_lemma1_endpoint_reconstruction",
     "private": false,
     "file": "NewtonLimitDynamics/DeMotu1684/Composition.lean",
@@ -9620,7 +9723,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) : 0 ≤ (edgeCoefficient E0 T tau L B s ht).num",
-    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.edgeRadius_geometric",
@@ -9629,7 +9732,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(E0 T tau L B : Fraction) (s : Point × Point) (ht : 0 < tau.num) (m : Nat) : Fraction.equiv (Fraction.add (Fraction.mul (duration T m) (velocityCap T B s)) (GeometricTail.tailCap (GeneralForcePrefix.coefficient E0 T tau L B s ht) m)) (duration (edgeCoefficient E0 T tau L B s ht) m)",
-    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygon_vertex_bound",
@@ -9638,7 +9741,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Within (polygonMap o E0 T s hE d.time_nonnegative m (Quotient.mk _ b)).val (positionValue (embed (prefixState b o E0 T s hE m))) (Fraction.mul (duration T m) (velocityCap T B s))",
-    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.whole_edge_bound",
@@ -9647,7 +9750,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Within (polygonMap o E0 T s hE d.time_nonnegative m (Quotient.mk _ b)).val (gammaPosition o E0 T tau L B s hE d (Quotient.mk _ b)).val (duration (edgeCoefficient E0 T tau L B s d.calibration_positive) m)",
-    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_whole_edge_bound",
@@ -9656,7 +9759,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (t : BinaryTime T d.time_nonnegative) : Within (polygonMap o E0 T s hE d.time_nonnegative m t).val (gammaPosition o E0 T tau L B s hE d t).val (duration (edgeCoefficient E0 T tau L B s d.calibration_positive) m)",
-    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_uniform_convergence",
@@ -9665,7 +9768,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) : ∃ N : Nat, ∀ m, N≤m → ∀ t : BinaryTime T d.time_nonnegative, Within (polygonMap o E0 T s hE d.time_nonnegative m t).val (gammaPosition o E0 T tau L B s hE d t).val eps",
-    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.polygonMap_left",
@@ -9674,7 +9777,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T : Fraction) (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (m : Nat) : polygonMap o E0 T s hE hT m (leftTime T hT) = embedPosition s.1",
-    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.shared_initial_endpoint",
@@ -9683,7 +9786,34 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : polygonMap o E0 T s hE d.time_nonnegative m (leftTime T d.time_nonnegative) = gammaPosition o E0 T tau L B s hE d (leftTime T d.time_nonnegative)",
-    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred."
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_uniform_curve",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : CurveTrace.UniformCurve T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d)",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_chord_boundary_limit",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : CurveTrace.BoundaryLimit (fun m => CurveTrace.chordTrace (gammaPosition o E0 T tau L B s hE d) (DyadicNodes.nodeTime T d.time_nonnegative m) (blocks m)) (CurveTrace.ImageTrace (gammaPosition o E0 T tau L B s hE d))",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve.constructed_polygon_boundary_limit",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForcePolygonCurve.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : CurveTrace.BoundaryLimit (fun m => CurveTrace.ImageTrace (polygonMap o E0 T s hE d.time_nonnegative m)) (CurveTrace.ImageTrace (gammaPosition o E0 T tau L B s hE d))",
+    "interpretation_and_remaining_premises": "Modern actual coarse polygon quotient for the already constructed regionally compared Lipschitz central-force map. Actual vertices satisfy shared-position joins and instantiate one generic alias/affine core. Derived actual velocity cap V=|v0|+T*B and existing prefix-to-curve coefficient A give whole-edge radius [T*V+A]/2^m, uniformly over the constructed binary-time quotient. Shared initial endpoint is proved. Explicit calibration, regional comparison and derived actual/coarse/shadow bounds remain premises. No area, Kepler sampling, gluing, partition independence, unrestricted differentiation or historical limiting theorem is inferred. Derived uniform continuity now instantiates the generic given-curve closed-chord boundary proof, and actual whole-edge convergence separately proves two-sided boundary convergence of the force polygons. No tangent-polygon or arclength theorem is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForcePrecision.target_positive",
@@ -17733,6 +17863,30 @@
     "interpretation_and_remaining_premises": "1687 Laws Corollary 1 finite rational reconstruction. The independent transverse endpoint-line constraints are derived in the additive impulse/uniform-motion model, then unique intersection proves the opposite corner. The all-direction model identity covers degenerate forces. Mechanical laws are premises of the model; the 1687 proof does not explicitly cite Laws II/I or the 1713 initial-impulse/uniform-motion qualifications."
   },
   {
+    "name": "Principia1687.LemmaIII.corollary4_chord_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/LemmaIII.lean",
+    "source_passages": [
+      "NATP00077.par8",
+      "NATP00077.par10"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) : BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "1687 Lemma III Corollary 4 chord-boundary component, modern reconstruction. The given-curve theorem explicitly requires its uniform modulus. The actual regional constructed-force client derives its curve, modulus and whole-edge bounds; no curve/boundary convergence is supplied. The finite max-width enclosure argument is retained separately; tangent boundaries and certification of the full historical limiting proof remain open. No 1713 premise is imported."
+  },
+  {
+    "name": "Principia1687.LemmaIII.corollary4_constructed_polygon_boundary",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1687/LemmaIII.lean",
+    "source_passages": [
+      "NATP00077.par10",
+      "NATP00077.par45"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : BoundaryLimit (fun m => ImageTrace (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m)) (ImageTrace (GeneralForceTime.gammaPosition o E0 T tau L B s hE d))",
+    "interpretation_and_remaining_premises": "1687 Proposition I application of the Corollary 4 boundary component, modern reconstruction: whole-edge convergence of the actual regional constructed force polygons derives two-sided boundary convergence to their constructed curve. No given curve, modulus or boundary-limit field is a premise; regional force/window Conditions remain explicit. Full tangent/enclosure and unrestricted historical limiting proof remain open."
+  },
+  {
     "name": "Principia1687.lemmaX_reconstruction",
     "private": false,
     "file": "NewtonLimitDynamics/Principia1687/LemmaX.lean",
@@ -17861,6 +18015,30 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(p u v : Point) (t : Fraction) : pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t) (diagonal p (pointScale t u) (pointScale t v)) ∧ ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t) (ZeroForce.inertialAt p u t) (pointScale t v) ∧ ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t) (ZeroForce.inertialAt p v t) (pointScale t u)",
     "interpretation_and_remaining_premises": "1713 Laws Corollary 1 finite rational reconstruction. Additive initial impulses (Law II) and uniform subsequent motion (Law I) are mechanical premises of the model. Transverse endpoint lines are independently derived, then their unique intersection gives the diagonal for independent directions; direct composition includes degenerate directions. Both law citations and the impulse-at-A qualification belong to this witness."
+  },
+  {
+    "name": "Principia1713.LemmaIII.corollary4_chord_reconstruction",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/LemmaIII.lean",
+    "source_passages": [
+      "NATP00082.par9",
+      "NATP00082.par11"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) : BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f)",
+    "interpretation_and_remaining_premises": "1713 Lemma III Corollary 4 chord-boundary component, separately named modern reconstruction. Given-curve uniform continuity is explicit; the actual regional force client derives its own curve and whole-edge comparison. Two-sided trace convergence is distinct from area and arclength. Tangent boundaries and the full historical enclosure/continuous-force invocation remain open; no 1687 premise is imported."
+  },
+  {
+    "name": "Principia1713.LemmaIII.corollary4_constructed_polygon_boundary",
+    "private": false,
+    "file": "NewtonLimitDynamics/Principia1713/LemmaIII.lean",
+    "source_passages": [
+      "NATP00082.par11",
+      "NATP00082.par51"
+    ],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : BoundaryLimit (fun m => ImageTrace (GeneralForcePolygonCurve.polygonMap o E0 T s hE d.time_nonnegative m)) (ImageTrace (GeneralForceTime.gammaPosition o E0 T tau L B s hE d))",
+    "interpretation_and_remaining_premises": "1713 separately named actual constructed-force boundary application. Whole-edge convergence derives two-sided trace convergence without a supplied curve or boundary limit. Regional force/window Conditions remain modern. Tangent/enclosure and unrestricted historical force certification remain open."
   },
   {
     "name": "Principia1713.lemmaX_reconstruction",

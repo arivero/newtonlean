@@ -138,6 +138,40 @@ theorem convexName_ball (a : Fraction) (ha : UnitInterval a)
   exact Fraction.magnitudes.lt_of_le_lt (convexState_anchor_bound a ha _ _ _ _ hp hq)
     (CauchyValues.add_lt_add_left (Fraction.half_lt eps heps) R)
 
+/-- A common completed centre need not be a rational embedded point. The
+finite convex bound is applied to projected approximants of that centre. -/
+theorem convexName_relative_bound (a : Fraction) (ha : UnitInterval a)
+    (s t centre : EndpointCauchyName) (R : Fraction)
+    (hs : NameBound s centre R) (ht : NameBound t centre R) :
+    NameBound (convexName a ha s t)
+      (mapName positionState position_nonexpansive centre) R := by
+  intro eps heps
+  obtain ⟨N,hN⟩ := hs eps.half heps
+  obtain ⟨M,hM⟩ := ht eps.half heps
+  refine ⟨max N M,?_⟩
+  intro n hn
+  have hp := Fraction.magnitudes.le_trans
+    (position_nonexpansive (s.approx n) (centre.approx n))
+    (Fraction.magnitudes.lt_implies_le (hN n (Nat.le_trans (Nat.le_max_left _ _) hn)))
+  have hq := Fraction.magnitudes.le_trans
+    (position_nonexpansive (t.approx n) (centre.approx n))
+    (Fraction.magnitudes.lt_implies_le (hM n (Nat.le_trans (Nat.le_max_right _ _) hn)))
+  exact Fraction.magnitudes.lt_of_le_lt
+    (convexState_anchor_bound a ha (positionState (s.approx n))
+      (positionState (t.approx n)) (centre.approx n).1 _ hp hq)
+    (CauchyValues.add_lt_add_left (Fraction.half_lt eps heps) R)
+
+theorem convexValue_relative_bound (a : Fraction) (ha : UnitInterval a)
+    (x y centre : Value) (R : Fraction)
+    (hx : Within x centre R) (hy : Within y centre R) :
+    Within (convexValue a ha x y) (positionValue centre) R := by
+  induction x using Quotient.inductionOn with
+  | _ s =>
+    induction y using Quotient.inductionOn with
+    | _ t =>
+      induction centre using Quotient.inductionOn with
+      | _ c => exact convexName_relative_bound a ha s t c R hx hy
+
 theorem convexValue_ball (a : Fraction) (ha : UnitInterval a)
     (x y : Value) (centre : Point) (R : Fraction)
     (hx : Within x (embed (centre,zeroPoint)) R)

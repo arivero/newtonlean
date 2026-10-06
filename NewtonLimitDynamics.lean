@@ -13,6 +13,8 @@ import NewtonLimitDynamics.Principia1713.PropositionI
 import NewtonLimitDynamics.Principia1687.Laws
 import NewtonLimitDynamics.Principia1713.Laws
 import NewtonLimitDynamics.DeMotu1684.Composition
+import NewtonLimitDynamics.Principia1687.LemmaIII
+import NewtonLimitDynamics.Principia1713.LemmaIII
 import NewtonLimitDynamics.Polygon.Enclosure
 import NewtonLimitDynamics.Polygon.Contact
 import NewtonLimitDynamics.Polygon.RefinementStrip

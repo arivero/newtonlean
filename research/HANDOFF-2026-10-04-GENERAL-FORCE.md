@@ -412,10 +412,19 @@ uses the same composition. Mechanical Law I/II premises remain explicit in
 the model, 1713's added wording stays local, and NATP00089's hypothesis is
 not relabelled as a historically proved lemma. No completion score changes.
 
-Next within Order 1: prove Lemma III Corollary 4 through its own finite
-enclosures and preceding corollaries, keeping the given-curve premise and
-boundary/perimeter convergence distinct from scalar area or arclength.
-Connect that proof to the constructed general family before any force instance.
+The next boundary increment proves the chord component behind Lemma III
+Corollary 4: closed chord traces approach a given uniformly controlled curve
+in both directions as the maximum cell span shrinks. Dyadic spans/coverage
+are derived, including endpoints and zero windows. The actual general curve
+derives its own modulus, and both its inscribed chords and its actual force
+polygons have proved two-sided boundary limits. Separate printed-edition and
+De Motu wrappers preserve source provenance. The preceding corollaries are
+now traced through their proof connectives in the source graph; the tangent
+inference is kept distinct from the chord proof.
+
+Next within Order 1: the remaining full historical enclosure chain and tangent
+case of Corollary 4. Neither trace convergence nor a scalar area budget proves
+arclength convergence. No force instance or completion-score increase is added.
 
 ## Verification and reporting, every increment
 

@@ -121,9 +121,12 @@ The [Latin proof route](research/PROP_I_REALIZATION.md#proof-dependencies-and-th
 traces Proposition I through the cited laws and the proofs of Lemmas I–III.
 The Laws' Corollary 1 now has a finite rational proof of transverse invariance
 and unique parallelogram intersection, with separate source witnesses and an
-application to the actual central-force recurrence. Lemma III Corollary 4 is
-next; the completion estimate is unchanged. See the
-[proof checkpoint](research/verification/laws-corollary1-2026-10-06.md).
+application to the actual central-force recurrence. Lemma III Corollary 4's
+chord-boundary case now has two-sided trace convergence, also derived for the
+actual force polygons. The full enclosure/tangent proof remains open; the
+completion estimate is unchanged. See the
+[composition checkpoint](research/verification/laws-corollary1-2026-10-06.md) and
+[boundary checkpoint](research/verification/lemma3-chord-boundaries-2026-10-06.md).
 BinaryLift now shares the two-input completion kit used by pairings, secants
 and area sums; this consolidation receives no completion credit.
 

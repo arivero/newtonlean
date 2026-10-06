@@ -1,5 +1,6 @@
 import NewtonLimitDynamics.Polygon.GeneralForceTime
 import BarrowLib.Polygon.PolygonValues
+import BarrowLib.Polygon.CurveTrace
 
 /-! An actual coarse polygon quotient for the general sampled central-force
 construction. Shared finite-vertex geometry proves all aliases; the actual
@@ -103,5 +104,47 @@ theorem shared_initial_endpoint (o : ForceClasses.CentralOracle)
     (gammaValue o E0 T tau L B s hE d (leftTime T d.time_nonnegative))
   rw [GeneralForceTime.left_endpoint_value]
   rfl
+
+/-- The given-curve modulus needed by the chord-boundary argument is derived
+for the actual constructed general curve, rather than supplied as a limit. -/
+theorem constructed_uniform_curve (o : ForceClasses.CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    CurveTrace.UniformCurve T d.time_nonnegative
+      (gammaPosition o E0 T tau L B s hE d) := by
+  intro eps heps
+  refine ⟨timeTolerance T tau B s d.time_nonnegative d.calibration_positive
+    d.bound_nonnegative eps,
+    timeTolerance_positive T tau B s d.time_nonnegative d.calibration_positive
+      d.bound_nonnegative eps heps,?_⟩
+  intro x y hxy
+  exact within_mono _ _ _ _ (Fraction.magnitudes.lt_implies_le (Fraction.half_lt eps heps))
+    (positionValue_within _ _ _ (gamma_uniform_continuity o E0 T tau L B s hE d eps heps x y hxy))
+
+/-- The closed chords of the actual constructed curve have its entire trace
+as their two-sided boundary limit. This is the given-curve chord case of
+Lemma III Corollary 4, instantiated without a supplied curve modulus. -/
+theorem constructed_chord_boundary_limit (o : ForceClasses.CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    CurveTrace.BoundaryLimit (fun m => CurveTrace.chordTrace
+      (gammaPosition o E0 T tau L B s hE d)
+      (DyadicNodes.nodeTime T d.time_nonnegative m) (blocks m))
+      (CurveTrace.ImageTrace (gammaPosition o E0 T tau L B s hE d)) :=
+  CurveTrace.dyadic_chordTrace_limit T d.time_nonnegative _
+    (constructed_uniform_curve o E0 T tau L B s hE d)
+
+/-- The actual force polygons have the same boundary limit, independently
+of the constructed curve's inscribed chord family. The whole-edge comparison
+provides both directions; scalar area convergence is not used as a premise.
+No tangent-polygon or arclength assertion is made. -/
+theorem constructed_polygon_boundary_limit (o : ForceClasses.CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    CurveTrace.BoundaryLimit (fun m => CurveTrace.ImageTrace
+      (polygonMap o E0 T s hE d.time_nonnegative m))
+      (CurveTrace.ImageTrace (gammaPosition o E0 T tau L B s hE d)) :=
+  CurveTrace.imageTrace_limit _ _
+    (fun eps heps => polygonMap_uniform_convergence o E0 T tau L B s hE d eps heps)
 
 end NewtonLimitDynamics.Polygon.GeneralForcePolygonCurve

@@ -14,14 +14,17 @@ digraph proof-1713 {
   "P1713.L11Restriction" [label="P1713.L11Restriction\nFinite nonzero curvature restriction;\nhigher/lower orders excluded", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L2" [label="P1713.L2\nEqual-width inscribed and circumscribed\nfigures approach the given curve", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L3" [label="P1713.L3\nUnequal-width enclosure and\nmaximum-width refinement", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.L3C4" [label="P1713.L3C4\nCurvilinear limit of polygon perimeters", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L3C1" [label="P1713.L3C1\nUltimate rectangle figures coincide with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L3C2" [label="P1713.L3C2\nChord figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L3C3" [label="P1713.L3C3\nTangent figure coincides ultimately with\nthe given curvilinear figure", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
+  "P1713.L3C4" [label="P1713.L3C4\nCurvilinear limit of polygon perimeters\n1 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.L7" [label="P1713.L7\nVanishing arc, chord and tangent have\nthe ultimate ratio of equality", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.L9" [label="P1713.L9\nLimiting area ratios", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.Law1" [label="P1713.Law1\nRectilinear inertia", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.Law2" [label="P1713.Law2\nImpressed force and generated motion", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.LawCor5" [label="P1713.LawCor5\nUniform translation leaves relative\nmotions unchanged", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.LawCor6" [label="P1713.LawCor6\nEqual parallel accelerations leave\nrelative motions unchanged", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
-  "P1713.P1" [label="P1713.P1\nEqual-time areas from central impulses\nand polygon limit\n4 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
+  "P1713.P1" [label="P1713.P1\nEqual-time areas from central impulses\nand polygon limit\n5 Lean result(s)", fillcolor="#d6ecd2", color="#2c6e31", penwidth=2];
   "P1713.P1C2" [label="P1713.P1C2\nThe limiting diagonal from two\nequal-time chords passes through the", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.P1C4" [label="P1713.P1C4\nForce comparison by equal-time sagittae", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
   "P1713.P2" [label="P1713.P2\nArea-time proportionality about a fixed\nor uniformly translating point implies", fillcolor="#d6ecd2", color="#8d8d8d", penwidth=1];
@@ -56,4 +59,10 @@ digraph proof-1713 {
   "P1713.L2" -> "P1713.L3" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
   "P1713.Law2" -> "P1713.Composition" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
   "P1713.Law1" -> "P1713.Composition" [style=solid, label="proof dependency: explicit_dependency", fontsize=9];
+  "P1713.L3" -> "P1713.L3C1" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1713.L3C1" -> "P1713.L3C2" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1713.L3" -> "P1713.L3C3" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1713.L3C1" -> "P1713.L3C4" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1713.L3C2" -> "P1713.L3C4" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
+  "P1713.L3C3" -> "P1713.L3C4" [style=dashed, label="proof dependency: implicit_dependency", fontsize=9];
 }
