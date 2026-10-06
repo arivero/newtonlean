@@ -1,5 +1,17 @@
 # Project method
 
+- User clarification, 6 October: the primary historical proof takes the
+  trajectory's existence as an explicit postulate, represented in Lean by
+  the supplied curve parameter. Do not require a new trajectory-existence
+  construction before proving Proposition I. Its goal is (A) swept sector
+  areas proportional to time. The separate (B) nonnegative area between the
+  given curve and Newton's polygon is an approximation control to be proved.
+  Neither (A), (B), nor polygon/curve agreement belongs in the existence
+  postulate. Retain completed constructive results as supporting work.
+  This convention is user-authorized interpretation, not a new quotation or
+  explicit historical axiom attributed to Newton. Ordinary Lean proofs still
+  have no sorry or undeclared axioms; a given curve is an explicit premise.
+
 - Work source-first. Preserve Newton's textual stages separately; never merge
   *De Motu*, 1687, proposed 1694, 1713, or 1726 claims silently.
 - For every historical edge record the exact passage, witness, URL, status

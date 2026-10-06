@@ -115,3 +115,4 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 114,159b4bd,2026-10-06T02:41:16+02:00,Prove the finite Laws Corollary 1 composition argument,1671,26,5,0,3,0,759,25270,21,1253,208,171,39,3,276,153,30,1175,37
 115,0b1032a,2026-10-06T02:54:46+02:00,Prove closed chord and constructed polygon boundary limits,1689,18,0,0,0,0,765,25592,21,1266,208,171,44,0,288,153,30,1181,37
 116,f753c6b,2026-10-06T05:15:23+02:00,Derive supporting-cell enclosure and closed boundary limits,1706,17,0,0,1,0,772,26008,22,1281,208,171,46,1,304,153,30,1182,37
+117,f4778c0,2026-10-06T05:31:22+02:00,Derive monotone rectangle enclosure and maximum-width exhaustion,1727,21,0,0,0,0,785,26396,25,1300,208,171,48,0,325,153,30,1182,37

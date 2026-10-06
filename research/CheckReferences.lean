@@ -1101,6 +1101,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceArea.node_triangle_bound
 #check NewtonLimitDynamics.Polygon.GeneralForceArea.outer_radius_nonnegative
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceArea.outer_radius_nonnegative
+#check NewtonLimitDynamics.Polygon.GeneralForceArea.proportional_swept_area
+#print axioms NewtonLimitDynamics.Polygon.GeneralForceArea.proportional_swept_area
 #check NewtonLimitDynamics.Polygon.GeneralForceArea.sectorName_address_equiv
 #print axioms NewtonLimitDynamics.Polygon.GeneralForceArea.sectorName_address_equiv
 #check NewtonLimitDynamics.Polygon.GeneralForceArea.sectorName_equiv_reference
@@ -2773,6 +2775,8 @@ import NewtonLimitDynamics
 #print axioms NewtonLimitDynamics.Polygon.SweptArea.area_unique
 #check NewtonLimitDynamics.Polygon.SweptArea.interval_elapsed_approx
 #print axioms NewtonLimitDynamics.Polygon.SweptArea.interval_elapsed_approx
+#check NewtonLimitDynamics.Polygon.SweptArea.proportional_equal_times
+#print axioms NewtonLimitDynamics.Polygon.SweptArea.proportional_equal_times
 #check NewtonLimitDynamics.Polygon.TailValues.approximant_bound
 #print axioms NewtonLimitDynamics.Polygon.TailValues.approximant_bound
 #check NewtonLimitDynamics.Polygon.TangentTriangleValues.normalized_triangle_identity

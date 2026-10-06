@@ -5,12 +5,25 @@ and 1713. The printed-edition targets are Book I, Section II, Propositions
 I–IV; De Motu requires an explicit correspondence search, not retrospective
 proposition numbering. Proposed 1694 and 1726 remain comparison witnesses.
 
-Latest user direction, 3 October: prioritize Proposition I, then II, III and IV
-in all three stages. The primary forward variant constructs the trajectory
-from polygonal motions; its existence must be proved. The main geometric area
-is the nonnegative region BETWEEN polygon and trajectory, distinct from the
-Kepler swept-sector area of Theorem 1 / Proposition I. A supplied-curve estimate
-is a diagnostic variant and cannot complete this primary construction target.
+Latest user direction, 6 October: prioritize Proposition I, then II, III and IV
+in all three stages, taking the trajectory's existence as an explicit
+postulate. In Lean, provide the trajectory as a curve parameter; its physical
+laws and any regularity assumptions must remain separately stated. Do not
+postulate that the curve equals the limit of Newton's polygons.
+
+The primary conclusion (A) is the Kepler swept-area law: equal swept sector
+areas in equal times, more generally areas proportional to elapsed times.
+The separate quantity (B) is the nonnegative region BETWEEN polygon and
+given trajectory. Its decay is a proof obligation controlling Newton's
+approximation, not Proposition I's conclusion. Neither area proportionality
+nor vanishing between-path area is included in the existence postulate.
+Equal swept areas alone establish neither path agreement nor (B).
+
+This supersedes the 3 October requirement to construct a trajectory before
+the primary proof. Preserve the verified construction as supporting work.
+The existence convention is a user-authorized editorial interpretation;
+do not label it an explicit postulate in Newton's text. The given-curve
+lemmas can now serve the primary proof, with their remaining premises visible.
 
 ## Historical derivation
 
@@ -36,9 +49,10 @@ Investigate these obligations separately:
    impulse-free join; or a specified mechanical velocity jump.
 2. Subdivision and refinement: identify which old vertex, time and mechanical
    data survive a refinement, rather than assume nested polygonal motions.
-3. Realization: construct a map from times to positions with the required
-   properties. Existence, uniqueness and independence of partition are
-   separate questions, and uniqueness is required only where used.
+3. Realization: the primary historical route takes an existing trajectory as
+   data. Identification of Newton's approximations with that trajectory,
+   uniqueness where used, and independence of partition remain separate
+   questions. Constructing trajectories is retained in the supporting route.
 4. Limits: distinguish convergence of scalar areas, positions, velocities and
    impulse/force data. A sector-area limit does not itself provide a trajectory.
 

@@ -1,5 +1,14 @@
 # Polygon–trajectory area: Theorem 1 / Proposition I
 
+## Primary proof convention, 6 October
+
+Trajectory existence is now an explicit given-curve premise. (A) The goal
+is swept sector area proportional to time. (B) Between-path area is a
+separate approximation control whose decay must be proved. Neither area
+conclusion nor polygon/curve agreement is postulated. The construction record
+below remains supporting work. See [the approved goals](GOALS.md) and the
+[postulate checkpoint](verification/trajectory-postulate-2026-10-06.md).
+
 A.6 now uses regional Conditions throughout the existing construction.
 The finite frame records a sample bound B on a coordinate band, the small-time
 budgets r0*V<=|ell| and |x0|+T*V<=R0, and that this band lies in the oracle
@@ -196,14 +205,14 @@ interiors occupy adjacent ranges 0<x<1 and 1<x<2; the Lean result verifies
 finite determinant arithmetic, not a general theory of planar regions or a
 mechanical trajectory.
 
-## Separate construction targets
+## Separate stage-local approximation obligations
 
 | Stage | Passage and witness | Supported premise and remaining construction |
 | --- | --- | --- |
-| De Motu NATP00089 | [Theorema 1, par8–9](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par8) | Explicit polygon followed by infinitely small triangles. High confidence. Marginal revision chronology remains unresolved; no printed limiting lemma is imported. Construct gamma and control D_mesh from this witness's permitted data. |
-| De Motu NATP00090 | [Theorema 1, par16–17](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par16) | Explicit polygon, Law 1/Lemma 1 references, and final limiting assertion. High confidence. Keep this witness distinct; construct gamma and D_mesh without borrowing NATP00089's unresolved labels. |
-| 1687 | [Proposition I, par44–45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44) | `explicit_dependency`, high confidence: this edition's Law I, laws' Corollary 1 and Lemma III Corollary 4. Construct the trajectory of the moving-vertex impulse family, then justify D_mesh enclosure. A result for figures on a supplied curve does not create it. |
-| 1713 | [Proposition I, par50–51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50) | The same explicit citations in this edition, high confidence. Separately scoped realization, D_mesh enclosure and force identification; no silent 1687 or later premise. |
+| De Motu NATP00089 | [Theorema 1, par8–9](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par8) | Explicit polygon followed by infinitely small triangles. High confidence. Marginal revision chronology remains unresolved; no printed limiting lemma is imported. Take gamma as given under the user-authorized convention; prove the swept-area law and control D_mesh using this witness's permitted data. |
+| De Motu NATP00090 | [Theorema 1, par16–17](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par16) | Explicit polygon, Law 1/Lemma 1 references, and final limiting assertion. High confidence. Keep this witness distinct; prove the area law and D_mesh control for given gamma without borrowing NATP00089's unresolved labels. |
+| 1687 | [Proposition I, par44–45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44) | `explicit_dependency`, high confidence: this edition's Law I, laws' Corollary 1 and Lemma III Corollary 4. Take the trajectory as given; identify the moving-vertex impulse approximation with it and justify D_mesh control. The area law remains the conclusion. |
+| 1713 | [Proposition I, par50–51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50) | The same explicit citations in this edition, high confidence. Separately scoped given trajectory, D_mesh control and force identification; no silent 1687 or later premise. |
 
 The D_mesh obligation is a `modern_reconstruction` of the user's question,
 not a separate defect-area theorem quoted from Newton. Exact passages were
@@ -223,9 +232,11 @@ are two finite polygons with matched spatial patch endpoints. They do not yet
 constitute a force/time-compatible refining family or an actual trajectory.
 
 The stage-local `polygon_trajectory_defect_control` theorems are explicitly
-**supplied-curve diagnostic variants**. Their scalar region function must have
-the stated geometric meaning, and enclosure/vanishing budget must be supplied.
-They cannot create a curve or complete the primary construction variant.
+**conditional area-control interfaces**. Their scalar region function must
+have the stated geometric meaning, and their enclosure and vanishing budget
+still require proofs. Given-curve results are now permitted in the primary
+route, but an assumed scalar enclosure does not complete the approximation
+proof or establish Proposition I's swept-area conclusion.
 
 The harmonic field now has actual common-time refinement, uniform state/error
 bounds and a finite geometric cover in `HarmonicCover.lean`. Both matched

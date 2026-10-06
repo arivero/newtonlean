@@ -6333,7 +6333,16 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) : stateEquiv ((intervalElapsedName b c T hT).approx m) (scalarState (countTime T m (intervalCount b c m)))",
-    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates on the constructed binary-time domain: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
+    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates for a given trajectory on the binary-time domain. Trajectory existence is an explicit supplied-curve premise under the 6 October user convention. Proportional is the area-law target to prove, never a field of the existence postulate; its equal-times consequence includes existence of the common swept area. These predicates remain separate from between-path outer content: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.SweptArea.proportional_equal_times",
+    "private": false,
+    "file": "BarrowLib/Polygon/SweptArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (curve : BinaryTime T hT → PositionValue) (ell : Fraction) (hlaw : Proportional T hT curve ell) (t₀ t₁ u₀ u₁ : BinaryTime T hT) (htime : intervalElapsedValue T hT t₀ t₁ = intervalElapsedValue T hT u₀ u₁) : ∃ area, AreaBetween T hT curve t₀ t₁ area ∧ AreaBetween T hT curve u₀ u₁ area",
+    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates for a given trajectory on the binary-time domain. Trajectory existence is an explicit supplied-curve premise under the 6 October user convention. Proportional is the area-law target to prove, never a field of the existence postulate; its equal-times consequence includes existence of the common swept area. These predicates remain separate from between-path outer content: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SweptArea.areaBetween_reverse",
@@ -6342,7 +6351,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (curve : BinaryTime T hT → PositionValue) (t₀ t₁ : BinaryTime T hT) (area : Value) (h : AreaBetween T hT curve t₀ t₁ area) : AreaBetween T hT curve t₁ t₀ area",
-    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates on the constructed binary-time domain: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
+    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates for a given trajectory on the binary-time domain. Trajectory existence is an explicit supplied-curve premise under the 6 October user convention. Proportional is the area-law target to prove, never a field of the existence postulate; its equal-times consequence includes existence of the common swept area. These predicates remain separate from between-path outer content: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SweptArea.areaBetween_unique",
@@ -6351,7 +6360,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(T : Fraction) (hT : 0 ≤ T.num) (curve : BinaryTime T hT → PositionValue) (t₀ t₁ : BinaryTime T hT) (a b : Value) (ha : AreaBetween T hT curve t₀ t₁ a) (hb : AreaBetween T hT curve t₀ t₁ b) : a=b",
-    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates on the constructed binary-time domain: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
+    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates for a given trajectory on the binary-time domain. Trajectory existence is an explicit supplied-curve premise under the 6 October user convention. Proportional is the area-law target to prove, never a field of the existence postulate; its equal-times consequence includes existence of the common swept area. These predicates remain separate from between-path outer content: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.SweptArea.area_unique",
@@ -6360,7 +6369,7 @@
     "source_passages": [],
     "classification": "modern_reconstruction",
     "premise_signature": "(unsigned : Bool) (T : Fraction) (hT : 0 ≤ T.num) (curve : BinaryTime T hT → PositionValue) (t : BinaryTime T hT) (a b : Value) (ha : AreaAt unsigned T hT curve t a) (hb : AreaAt unsigned T hT curve t b) : a=b",
-    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates on the constructed binary-time domain: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
+    "interpretation_and_remaining_premises": "Intrinsic initial-time and arbitrary-interval swept-area predicates for a given trajectory on the binary-time domain. Trajectory existence is an explicit supplied-curve premise under the 6 October user convention. Proportional is the area-law target to prove, never a field of the existence postulate; its equal-times consequence includes existence of the common swept area. These predicates remain separate from between-path outer content: half triangle fans at actual curve nodes converge for every address of the endpoint times, with minimum/maximum ticks selecting interval cells. The predicate assumes no area existence; uniqueness follows from metric exhaustion. Unsigned fans count repeated coverage with multiplicity, oriented fans retain signed winding. No ordinary sector-union area or arbitrary partition independence is asserted."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.TailValues.approximant_bound",
@@ -9580,6 +9589,15 @@
     "classification": "modern_reconstruction",
     "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (t₀ t₁ : BinaryTime T d.time_nonnegative) : SweptArea.AreaBetween T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d) t₀ t₁ (intervalAreaValue o E0 T tau L B s hE d t₀ t₁) ∧ intervalAreaValue o E0 T tau L B s hE d t₀ t₁ = secantValue (CentralSchedule.momentum s).abs.half (intervalElapsedValue T d.time_nonnegative t₀ t₁) (embed FanValues.zeroState) ∧ Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d (RationalEnclosure.level mesh))",
     "interpretation_and_remaining_premises": "Modern general local central-force area reconstruction on the actual constructed regional Lipschitz curve. Exact finite areal products and restarted kinematic remainders derive error <=R*B*T^2/2^m for fans of actual curve nodes, uniformly in the internal completion index. Actual inscribed fan approximants construct address-independent initial and arbitrary-interval area values; their intrinsic curve-fan properties and proportionality |ell|*t/2 (or ell*t/2 oriented initially), and |ell|*|t1-t0|/2 for unsigned intervals, are proved without an area-limit/enclosure premise. The actual intervening region content also vanishes. Planarity is built into the model, unsigned fans count multiplicity, and regional Lipschitz sampling plus calibrated short-window data remain modern premises. No ordinary sector-union content, arbitrary partition, external real interval, unrestricted force identification or historical limiting proof is certified."
+  },
+  {
+    "name": "NewtonLimitDynamics.Polygon.GeneralForceArea.proportional_swept_area",
+    "private": false,
+    "file": "NewtonLimitDynamics/Polygon/GeneralForceArea.lean",
+    "source_passages": [],
+    "classification": "modern_reconstruction",
+    "premise_signature": "(o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : SweptArea.Proportional T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d) (CentralSchedule.momentum s)",
+    "interpretation_and_remaining_premises": "The retained regional constructed curve discharges the given-trajectory Proportional target using the existing interval fan-area theorem. This packages a previous result; it does not prove a new area law for an arbitrary given mechanical trajectory or discharge ordinary sector-union identification. Between-path area remains separate. No completion credit."
   },
   {
     "name": "NewtonLimitDynamics.Polygon.GeneralForceEndpoint.Conditions.run_band",

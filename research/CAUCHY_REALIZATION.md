@@ -1,4 +1,13 @@
-# Constructing motion from sampled central polygon families
+# Supporting construction of motion from sampled central polygon families
+
+## Primary proof convention, 6 October
+
+Trajectory existence is now an explicit given-curve premise. (A) The goal
+is swept sector area proportional to time. (B) Between-path area is a
+separate approximation control whose decay must be proved. Neither area
+conclusion nor polygon/curve agreement is postulated. The construction record
+below remains supporting work. See [the approved goals](GOALS.md) and the
+[postulate checkpoint](verification/trajectory-postulate-2026-10-06.md).
 
 A.6 now uses regional Conditions throughout the existing construction.
 The finite frame records a sample bound B on a coordinate band, the small-time

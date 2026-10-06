@@ -1,5 +1,41 @@
 # Verification record
 
+## Given trajectory and separate area obligations, 6 October 2026
+
+The primary historical route now postulates trajectory existence, as an
+explicit curve argument, under the user's direction. Proposition I's swept
+area law remains the conclusion to prove; the nonnegative between-path
+content remains a separate approximation control. No global Lean axiom or
+area/convergence field is added to the existence premise.
+
+`SweptArea.Proportional` names the existing-trajectory target.
+`proportional_equal_times` gives a common area for equal elapsed intervals,
+and `GeneralForceArea.proportional_swept_area` packages the previously proved
+regional constructed instance. There is no new general given-motion proof
+or increase in completion credit. See
+[the checkpoint](verification/trajectory-postulate-2026-10-06.md).
+
+One independent sequential gpt-6-luna verifier ran all 16 README commands
+and the trajectory-postulate scope harness; every command exited 0. All
+three build targets passed. The scope review found no circularity or hidden
+area result in the trajectory parameter. The two new theorem axiom sets
+contain only propext, Classical.choice and Quot.sound. No project axiom,
+sorry/admit, mathlib dependency or reversed foundation import was added.
+
+The source API inventory against f4778c0, independently repeated by the root,
+found all 2,241 prior public package names/signatures unchanged and exactly
+three additions (one goal definition and two theorem interfaces). Catalogue:
+1,729 theorems. Graph: 88 nodes, 87 edges, 253 passages and 1,584 checked Lean
+references. Progress artifacts record the committed baseline's 1,727
+library theorems; the editorial completion scores are unchanged. This is
+an interface and programme revision, not another proof of the general
+historical Proposition I.
+
+Logs: `/tmp/newton-astra-postulate-final-01.log` through `-16.log`;
+scope `/tmp/newton-astra-postulate-scope.log`;
+API `/tmp/newton-astra-postulate-api.json`. Conversation exports remain
+excluded. Final `git diff --check` passed before commit.
+
 ## Lemmas II–III monotone rectangle reconstruction, 6 October 2026
 
 For a nondecreasing rational graph on a fixed rational interval, actual lower

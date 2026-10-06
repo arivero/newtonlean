@@ -1,5 +1,14 @@
 # Research state
 
+## Primary proof convention, 6 October
+
+Trajectory existence is now an explicit given-curve premise. (A) The goal
+is swept sector area proportional to time. (B) Between-path area is a
+separate approximation control whose decay must be proved. Neither area
+conclusion nor polygon/curve agreement is postulated. The construction record
+below remains supporting work. See [the approved goals](GOALS.md) and the
+[postulate checkpoint](verification/trajectory-postulate-2026-10-06.md).
+
 A.6 now uses regional Conditions throughout the existing construction.
 The finite frame records a sample bound B on a coordinate band, the small-time
 budgets r0*V<=|ell| and |x0|+T*V<=R0, and that this band lies in the oracle
@@ -227,10 +236,10 @@ obligation there and in TASKS.md rather than repeating the original task.
 Continued autonomous work across the programme is authorized; see
 [completion criteria](CONTINUATION.md).
 
-Latest priority (3 October user instruction): **Proposition I, then II, III,
-IV, in De Motu, 1687 and 1713 separately**. Construct the trajectory in the
-primary forward variant. Its main area lies BETWEEN polygon and trajectory,
-distinct from the Kepler area law. See [path defect](PROP_I_PATH_DEFECT.md)
+Latest priority (6 October user clarification): **Proposition I, then II, III,
+IV, in De Motu, 1687 and 1713 separately**. Take the trajectory as given and
+prove the Kepler swept-area law. The distinct BETWEEN-path area controls the
+polygon approximation; its decay must still be justified. See [path defect](PROP_I_PATH_DEFECT.md)
 and the [overnight checkpoint](OVERNIGHT-2026-10-03.md). Zero-force support
 remains useful. The harmonic construction now has a checked local common-time
 position/velocity and area comparison, coordinate triangle estimates and an

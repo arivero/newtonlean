@@ -2,7 +2,7 @@
 
 The [approved goals](research/GOALS.md) target Book I, Section II,
 Propositions I–IV in 1687 and 1713 and their De Motu antecedents, with explicit
-joining, refinement and trajectory-existence obligations. A universal action
+joining, refinement and trajectory-identification obligations. A universal action
 constant is a separate research hypothesis, not a premise of these proofs.
 The [three-stage source map](research/SECTION_II.md) records the actual
 dependencies; the [obligation queue](research/TASKS.md) separates finite
@@ -11,10 +11,13 @@ I–III each have a source-linked note: [Proposition I](research/PROP_I_REALIZAT
 [Proposition II](research/TASKS.md) and [Proposition III](research/PROP_III.md).
 
 Current priority is Proposition I, then II, III and IV, retaining all three
-stages. The primary forward variant constructs the motion from its impulse
-polygons and proves their constructed curve's radius-swept area law. The
-nonnegative area between polygon and trajectory is a separate geometric
-obligation that supports the limiting passage. Follow the
+stages. Following the user's 6 October clarification, the primary proof takes
+an existing trajectory as an explicit postulate and proves its radius-swept
+area law: equal swept areas in equal times. The nonnegative area between
+Newton's polygon and that given trajectory is a separate approximation
+control, whose decay must be proved. Neither area conclusion nor polygon/curve
+agreement is postulated. The verified motion constructions remain supporting
+results. Follow the [proof obligations](research/PROP_I_REALIZATION.md) and the
 [construction ledger](research/CAUCHY_REALIZATION.md) and
 [current checkpoint](research/verification/constructed-central-area-2026-10-05.md).
 
@@ -183,6 +186,9 @@ are in [history.csv](docs/progress/history.csv).
 </picture>
 
 **Estimated completion: about 40% (36–47% under alternative weightings), reassessed 5 October.**
+The 6 October change to a postulated existing trajectory adds no proof credit.
+These figures retain the earlier construction-based estimate; they are not
+a new percentage of the revised given-trajectory proof.
 This figure is an editorial judgement and certifies nothing. Each proposition
 is scored on four milestones weighted by expected difficulty: source map (10%),
 finite step in Lean (20%), limiting passage or realization (45%), and area and
@@ -257,11 +263,12 @@ reconstruction; it adds no historical proof-dependency edge.
    [checked special case](research/M4.md#checked-route-comparison).
 
 3. **Approximating a given curve and constructing a motion are different
-   obligations — our leading research conjecture, weak evidence about Newton's
-   own diagnosis.** Lemmas II–III begin with geometric figures; Proposition I
+   obligations.** The primary proof now postulates trajectory existence, by
+   the user's 6 October convention. The construction question is retained
+   as supporting research, with weak evidence about Newton's own diagnosis. Lemmas II–III begin with geometric figures; Proposition I
    invokes Lemma III corollary 4 when passing from impulsive polygons to
-   uninterrupted action. Our question is whether the permitted premises also
-   secure a coherent time-to-position map for the constructed polygons.
+   uninterrupted action. The supporting construction question asks whether the permitted premises
+   also secure a coherent time-to-position map for those polygons.
    The inspected passages do not document Newton identifying this as an
    existence gap. Their retention in 1713 also prevents treating the later
    revisions as evidence that he explicitly repaired it.

@@ -2,7 +2,9 @@ import BarrowLib.Polygon.FanValues
 import BarrowLib.Polygon.DyadicNodes
 
 /-! Area swept by a curve, defined intrinsically by triangle fans at its
-actual dyadic time nodes. Unsigned fans count repeated coverage with
+actual dyadic time nodes. The curve argument is the explicitly given
+trajectory: its existence is a premise, not an obligation of this area layer.
+Unsigned fans count repeated coverage with
 multiplicity; oriented fans keep the signed winding convention. Neither is
 the unsigned union content between two paths. No area existence is assumed. -/
 
@@ -60,6 +62,36 @@ def AreaBetween (T : Fraction) (hT : 0 ≤ T.num)
         (fun k => (curve (nodeTime T hT m k)).val)
         (min (ticks b m) (ticks c m))
         (max (ticks b m) (ticks c m)-min (ticks b m) (ticks c m)))) area eps
+
+/-- Proposition I's swept-area target for an existing trajectory. The curve
+is given; this proposition must be proved, never included in the trajectory
+existence postulate. It asserts actual curve-node fan convergence on every
+interval, with proportionality coefficient `abs(ell)/2`. The coefficient
+must be identified from the mechanical data in a central-force proof.
+
+This is obligation (A). It says nothing about the nonnegative region between
+the curve and an impulse polygon, obligation (B), and does not identify
+fan area counted with multiplicity with ordinary sector-union content. -/
+def Proportional (T : Fraction) (hT : 0 ≤ T.num)
+    (curve : BinaryTime T hT → PositionValue) (ell : Fraction) : Prop :=
+  ∀ t₀ t₁, AreaBetween T hT curve t₀ t₁
+    (secantValue ell.abs.half (intervalElapsedValue T hT t₀ t₁)
+      (embed FanValues.zeroState))
+
+/-- Equal swept areas in equal times follow from the proportional-area
+theorem. Existence of the common area is part of the conclusion, so this
+cannot succeed vacuously when no fan limit exists. -/
+theorem proportional_equal_times (T : Fraction) (hT : 0 ≤ T.num)
+    (curve : BinaryTime T hT → PositionValue) (ell : Fraction)
+    (hlaw : Proportional T hT curve ell)
+    (t₀ t₁ u₀ u₁ : BinaryTime T hT)
+    (htime : intervalElapsedValue T hT t₀ t₁ = intervalElapsedValue T hT u₀ u₁) :
+    ∃ area, AreaBetween T hT curve t₀ t₁ area ∧
+      AreaBetween T hT curve u₀ u₁ area := by
+  refine ⟨secantValue ell.abs.half (intervalElapsedValue T hT t₀ t₁)
+    (embed FanValues.zeroState),hlaw t₀ t₁,?_⟩
+  rw [htime]
+  exact hlaw u₀ u₁
 
 theorem areaBetween_reverse (T : Fraction) (hT : 0 ≤ T.num)
     (curve : BinaryTime T hT → PositionValue)

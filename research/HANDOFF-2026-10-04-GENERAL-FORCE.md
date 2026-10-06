@@ -7,6 +7,30 @@ separation (De Motu, 1687, 1713), source-first edges, Lean 4.19 core only with
 no mathlib, no `sorry`, both build targets, sequential v6 subagents and the
 separate action-hypothesis layer all apply unchanged.
 
+## Controlling user clarification, 6 October
+
+Take the trajectory's existence as an explicit postulate in the primary
+historical proof. In Lean, supply the curve as a parameter; retain its
+mechanical laws and any regularity requirements as separately visible
+premises. This supersedes the earlier requirement to construct a motion
+before proving Proposition I. The completed constructions remain supporting
+results and are preserved.
+
+Keep the two areas distinct. (A) The goal of Proposition I is swept sector
+area proportional to elapsed time, hence equal swept areas in equal times.
+(B) The nonnegative area between Newton's impulse polygon and the given
+trajectory is a reference for proving that his approximation approaches
+the curve. Neither (A), (B), nor convergence/identification of the polygon
+with the curve may be smuggled into the existence postulate. Equal swept
+areas alone imply neither path agreement nor vanishing (B).
+
+`SweptArea.Proportional` now names the given-trajectory curve-fan target;
+`GeneralForceArea.proportional_swept_area` supplies the already proved
+constructive instance. This adds no new existence or historical area proof.
+The postulate is a user-authorized editorial convention, not an explicit
+axiom attributed to Newton. See
+[the checkpoint](verification/trajectory-postulate-2026-10-06.md).
+
 ## Where things stand
 
 - 793 library theorems, 501 substantive by the heuristic in
@@ -336,21 +360,23 @@ primitives.
 Original order: D.1, A, D.2, B.1–B.2, C.1–C.2, B.3 and C.3, classes (c)
 and (d). Steps D.1, A (first pass), D.2, B.1–B.3 and C.2 are done.
 
-Order clarified by the user on 5 October evening:
+Order clarified on 5 October evening and amended by the user on 6 October:
 
 Completed before this clarification: `GeneralForceGrowth` and the general
 regional construction repair. Preserve the verified regional premises and
 derived polygon/coarse/shadow/curve confinement.
 
-1. **Proposition I itself comes first:** construct the general central-force
-   motion and prove that its swept areas are proportional to elapsed times,
+1. **Proposition I itself comes first:** take the central-force trajectory
+   as given and prove that its swept areas are proportional to elapsed times,
    with separate De Motu, 1687 and 1713 wrappers. Task E.1's constant areal
    product is a supporting lemma, not the proposition. Tasks C.1/C.3 and
-   E.2/E.3 must connect the actual constructed curve, intervening region and
-   sector area. The evening review's item 1 supplies the first concrete step:
+   E.2/E.3 must connect the given trajectory, intervening region and
+   sector area. The existence constructions remain supporting results; the
+   approximation to the given trajectory still needs proof. The evening
+   review's item 1 supplied the first concrete construction step:
    ground the actual general `PolygonTrajectoryEnclosure` from the proved
    content decay; retained instances inherit the same general proof.
-2. Only after that general construction and conclusion are proved, finish A.6
+2. Only after that general given-trajectory proof is complete, finish A.6
    and instantiate the theorem for Kepler's `1/r²`. Force-specific work is an application of
    the general proof, not a substitute for it. The started Kepler work is held
    separately until this step.
@@ -442,7 +468,11 @@ bound, then exhausts the derived gap as maximum widths shrink. Separate
 1687/1713 wrappers preserve the source passages and modern geometric premises.
 See verification/lemma2-3-monotone-rectangles-2026-10-06.md.
 
-Next within Order 1: identify these finite side-product sums with ordinary
+Next within Order 1 after the 6 October clarification: formulate the given
+trajectory's mechanical premises and prove its swept-area law without
+rebuilding existence or assuming polygon/curve agreement. The separate
+between-path control supports the limiting passage. In the invoked-lemma
+chain, identify the finite rectangle side-product sums with ordinary
 area of the rectangle unions and realize the given curvilinear figure's area
 between them, before concluding the ultimate ratio by Lemma I with a
 nonzero-area premise made explicit. Actual tangent

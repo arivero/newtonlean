@@ -637,4 +637,17 @@ theorem constructed_interval_area_law (o : CentralOracle) (E0 T tau L B : Fracti
     interval_area_time_formula o E0 T tau L B s hE d t₀ t₁,
     GeneralForcePathContent.polygon_trajectory_defect_vanishes o E0 T tau L B s hE d⟩
 
+/-- The retained constructive development supplies one proved instance of
+the given-trajectory swept-area target. Construction is supporting work;
+`SweptArea.Proportional` itself requires only an existing curve as data.
+The between-path content theorem is separate and is not a field of this law. -/
+theorem proportional_swept_area (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    SweptArea.Proportional T d.time_nonnegative
+      (gammaPosition o E0 T tau L B s hE d) (CentralSchedule.momentum s) := by
+  intro t₀ t₁
+  have h := interval_area_is_swept o E0 T tau L B s hE d t₀ t₁
+  rwa [interval_area_time_formula o E0 T tau L B s hE d t₀ t₁] at h
+
 end NewtonLimitDynamics.Polygon.GeneralForceArea

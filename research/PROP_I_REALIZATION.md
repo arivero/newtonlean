@@ -1,5 +1,30 @@
 # Proposition I realization: premises and checked finite steps
 
+## Primary proof convention, 6 October
+
+The user now authorizes an existing trajectory as an explicit postulate.
+In Lean this is the given curve parameter, with mechanical and regularity
+premises stated separately. Existence is assumed in this route, not credited
+as proved. The earlier trajectory constructions remain checked supporting
+results; they are no longer a prerequisite for the primary historical proof.
+
+(A) Proposition I's goal is swept sector area proportional to elapsed time,
+hence equal swept areas in equal times. `SweptArea.Proportional` states the
+intrinsic curve-fan version for a given trajectory, and
+`GeneralForceArea.proportional_swept_area` supplies the retained constructive
+instance. (B) The nonnegative area between Newton's polygon and the given
+trajectory is a separate approximation control. Proving (B) tends to zero
+helps justify the limiting passage; it is not the area law. Neither (A),
+(B), nor convergence to the supplied trajectory belongs in the existence
+postulate. Equal sector sums do not establish (B).
+
+This is a user-authorized editorial interpretation of the proof convention,
+not an explicit new axiom quoted from Newton. The Lean parameter introduces
+no global `axiom`. Ordinary sector-area identification, the mechanical
+polygon-to-given-curve bridge, and the invoked lemma proofs remain obligations.
+See [trajectory-postulate checkpoint](verification/trajectory-postulate-2026-10-06.md).
+The following construction record is retained as supporting work.
+
 A.6 now uses regional Conditions throughout the existing construction.
 The finite frame records a sample bound B on a coordinate band, the small-time
 budgets r0*V<=|ell| and |x0|+T*V<=R0, and that this band lies in the oracle
@@ -187,11 +212,12 @@ radial potential steps remain open. Those supporting quantity results receive no
 The foundation has no import from a Newton-specific file and no derivative,
 integral or ODE primitive.
 
-The governing target is the **unsupplied-curve construction variant**. The main
-area BETWEEN polygon and actual trajectory is distinct from the Kepler area
-swept by the radius. See [path defect](PROP_I_PATH_DEFECT.md) for all three
-stage interfaces and separate existence/enclosure obligations. Estimates
-against a supplied curve are conditional diagnostics only.
+The governing target is now the **given-trajectory proof variant**. Existence
+is an explicit postulate; the swept-area law is the conclusion to prove. The
+area BETWEEN polygon and trajectory remains a distinct approximation control.
+See [path defect](PROP_I_PATH_DEFECT.md) for stage-local premises and the
+remaining geometric identification obligations. Given-curve lemmas serve
+this primary route; constructive existence remains supporting work.
 
 ## What the text asserts
 
@@ -252,11 +278,12 @@ identification and the historical limiting passage remain explicitly separate.
 | --- | --- |
 | P1 finite area law | **Checked in the rational planar model, generalized**: `CentralSchedule.swept_eq` holds for any central field and arbitrary *unequal* rational cells. Newton uses equal cells. |
 | P2 refinement family | **Exact finite identities**: for any field, splitting a cell `h+k` moves the endpoint by exactly `h*k*a(y)` (`refine_position`). The velocity changes by `h*(a y − a X) + k*(a z − a X)` (`refine_velocity`). The harmonic example proves both changes are nonzero while swept areas agree. The refined polygons are different polygons. |
-| P3 existence of the ultimate curve | **Modern local construction checked; general historical claim open.** `GeneralForceEndpoint`, `GeneralForcePrefix` and `GeneralForceTime` construct motion names and a continuous position map on BinaryTime from regional central samples, with derived actual/coarse/shadow confinement and explicit calibrated-window data. No curve or motion Cauchy premise is supplied. The harmonic map is an exact instance; full-endpoint E/G agrees. Lemma III concerns figures on a given curve, so its use on this varying polygon family still needs historical justification. Gluing, general interior-time E/G, arbitrary partitions, motion-precision independence, an external real interval and merely continuous-force existence remain separate. |
-| P4 intervening defect and area law | **Actual local curve-fan area law checked.** `GeneralForceArea.constructed_area_law` constructs intrinsic unsigned swept area from actual curve nodes and proves `abs(ell)*t/2` (`ell*t/2` oriented), with no area-limit or enclosure premise. `GeneralForcePathContent.polygon_trajectory_enclosure` and `polygon_trajectory_defect_vanishes` ground the actual completed all-cover content, with bound `4*C²/2^m`. Initial endpoints agree and the final connector is retained. The general harmonic region/content equal the retained objects. Unsigned fans count swept triangles with multiplicity; the matched set counts overlaps once. Four separate stage/witness wrappers are modern reconstructions. Ordinary sector-union area and the historical limiting proof remain open. |
+| P3 trajectory existence and identification | **Existence postulated in the primary route, 6 October; identification remains to prove.** Supply a trajectory map, its separately stated mechanical laws and any required regularity. Do not assume that Newton's polygons converge to it or that either area conclusion holds. The verified `GeneralForceEndpoint`/`Prefix`/`Time` construction remains supporting work, including its regional assumptions and open gluing/partition questions. |
+| P4(A) swept-area law, the Proposition I conclusion | **Retained constructed-curve fan law checked; general given-trajectory proof open.** `SweptArea.Proportional` states the all-interval fan-area target, with the curve provided as data. `GeneralForceArea.proportional_swept_area` derives the retained regional instance from the checked interval law. The actual curve-node fans give `abs(ell)*abs(t1-t0)/2`; existence of the fan limit is part of the conclusion. Unsigned fans count multiplicity. Ordinary sector-union identification and the historical limiting passage remain open. No area law is assumed in the trajectory postulate. |
+| P4(B) between-path approximation control | **Retained constructed-curve content control checked; bridge to an independently given mechanical trajectory open.** `GeneralForcePathContent.polygon_trajectory_enclosure` and `polygon_trajectory_defect_vanishes` ground actual matched-region all-cover content with bound `4*C²/2^m`. Initial endpoints agree and the final connector is retained. This set counts overlaps once and is distinct from swept fan area. Its convergence is not part of trajectory existence, and equal swept sums alone do not prove it. |
 | P5 force identification | **Constructed dyadic rate bridges checked.** `GeneralForceSecants` identifies completed bracketing position secants with constructed velocity; `GeneralForceAccelerationSecants` identifies completed bracketing velocity secants with force at the constructed position, uniformly including the final boundary. `CompletedForce` operates on the certified regional completion domain and is independent of force precision. Restarted finite remainders and exhaustion derive the estimates; harmonic results are corollaries. Unrestricted difference quotients, motion-precision/partition independence and historical justification of continuously acting force remain open. |
 
-## Candidate permitted premise for P3
+## Regularity questions retained separately from existence
 
 Proposition I cites no premise on the force's regularity. The nearest
 same-stage qualification is in Lemma X, which Proposition I does not cite:
@@ -294,10 +321,15 @@ the finite content it needs when cells are unequal.
 
 ## Next bounded step
 
-The next step is to identify the lower/upper rectangle side-product sums
-with ordinary area of their geometric unions, and realize the given
-curvilinear figure's area between them before concluding the ultimate ratio
-by Lemma I, with any nonzero-area premise for ratios stated explicitly.
+The next primary step is to formulate the given trajectory's mechanical
+premises and prove the swept-area law without rebuilding existence. Trace
+Newton's finite impulse and limiting arguments against that curve; derive
+the between-path control separately, without hiding curve/polygon agreement
+in the existence postulate. In the invoked Lemmas II–III chain, the remaining
+area bridge identifies rectangle side-product sums with their geometric
+unions and the enclosed curvilinear area, then proves the ultimate ratio
+with its nonzero-area premise. This supporting bridge is not Proposition I's
+conclusion and is no longer a reason to restart trajectory construction.
 Ordered finite partitions now derive their actual point-set
 coverage and completed enclosure; their maximum width, exact equal-width
 sum gap, unequal-width bound and exhaustion are proved. The supporting-line
@@ -330,8 +362,8 @@ independence remain distinct. CompletedForce now proves representative compatibi
 sampled force data on the certified completion domain; finite centrality alone
 does not supply it. gamma_band proves the constructed curve's closed radial
 bounds. The proper annular harmonic control tests that interface; the actual
-Euclidean Kepler oracle remains required by A.6. P3's historical claim stays
-open. P4 now has the intrinsic local curve-fan area law; ordinary sector-union
+Euclidean Kepler oracle remains required by A.6. P3's existence is postulated in the primary route; identifying Newton's
+polygons with that given trajectory remains open. P4 now has the intrinsic local curve-fan area law; ordinary sector-union
 identification and Newton's historical limiting passage remain open.
 The [construction ledger](CAUCHY_REALIZATION.md) records the checked quotient
 and time-domain steps and the remaining geometric obligations.
