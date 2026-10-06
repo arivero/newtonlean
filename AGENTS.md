@@ -1,5 +1,16 @@
 # Project method
 
+- User-selected refactor direction, 6 October: one file per historical result,
+  with separate edition/witness sections in that file. Each section contains
+  its exact Latin statement and proof, then the corresponding definitions
+  and checked formalization. Keep different Newton stages and De Motu witness
+  revisions explicit; sharing a file does not merge their premises. Supporting
+  mathematics belongs in BarrowLib (elementary), ClassicsLib (source-identified
+  classical results, e.g. Euclid), or ModernLib (post-Newtonian concepts).
+  See research/HISTORICAL_FILE_REFACTOR.md for the approved layout and pending
+  migration. The old placement of modern Cauchy machinery in BarrowLib is to
+  be revised; do not count relocation as mathematical proof progress.
+
 - User clarification, 6 October: the primary historical proof takes the
   trajectory's existence as an explicit postulate, represented in Lean by
   the supplied curve parameter. Do not require a new trajectory-existence

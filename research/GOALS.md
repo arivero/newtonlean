@@ -100,3 +100,12 @@ reference/axiom inspection and evidence-graph checks. Compilation is not
 certification that supplied premises have been derived. Preserve unrelated
 conversation archives. Work and verification agents run sequentially according
 to AGENTS.md; no bulk downloads are needed for the first finite obligations.
+
+## Historical file architecture, selected 6 October
+
+Use one file per historical result, with separate edition/witness sections;
+each includes exact Latin and its corresponding formal definitions and proof.
+Move support according to mathematical content into BarrowLib, ClassicsLib
+and ModernLib. The concrete migration plan and current ownership problems
+are recorded in [HISTORICAL_FILE_REFACTOR.md](HISTORICAL_FILE_REFACTOR.md).
+This refactor changes presentation and ownership, not the proof-status bar.

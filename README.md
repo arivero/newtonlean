@@ -11,7 +11,9 @@ I–III each have a source-linked note: [Proposition I](research/PROP_I_REALIZAT
 [Proposition II](research/TASKS.md) and [Proposition III](research/PROP_III.md).
 
 Current priority is Proposition I, then II, III and IV, retaining all three
-stages. Following the user's 6 October clarification, the primary proof takes
+stages. The proposed [historical-file refactor](research/HISTORICAL_FILE_REFACTOR.md)
+organizes each result around its Latin text and proof, with separate
+elementary, classical and modern support libraries. Following the user's 6 October clarification, the primary proof takes
 an existing trajectory as an explicit postulate and proves its radius-swept
 area law: equal swept areas in equal times. The nonnegative area between
 Newton's polygon and that given trajectory is a separate approximation

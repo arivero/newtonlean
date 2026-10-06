@@ -576,3 +576,16 @@ physical trajectory by the polygon limit. Preserve the independence of the
 curve's own rational representation. Ordinary sector-area identification and
 the invoked Lemmas II–III area passage remain open. No new historical wrapper
 is added for the conditional consistency theorem.
+
+## Refactor requested after the consistency increment, 6 October
+
+The user asks to consider a main library with exactly one historical theorem,
+lemma, law or corollary per file, containing its exact Latin and corresponding
+formal definitions/proof. Supporting material is to be organized in BarrowLib,
+ClassicsLib and ModernLib according to mathematical content. The concrete
+inventory, source policy and proposed migration order are in
+[HISTORICAL_FILE_REFACTOR.md](HISTORICAL_FILE_REFACTOR.md).
+This is a design record; the migration has not yet been performed. The
+user selected one file per historical result, with separate edition sections
+containing each witness's own Latin, definitions, proof and dependency record.
+Existing proof status and the separation of editions remain unchanged.
