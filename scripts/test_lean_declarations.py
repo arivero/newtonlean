@@ -1,5 +1,6 @@
-"""Known-source controls for the catalogue's premise-boundary reader."""
+"""Known-source controls for the source declaration reader."""
 from lean_declarations import declarations
+from principia_lean_interleave import ANCHOR_TO_ITEM, source_anchors
 
 source = '''
 namespace Example.Nested
@@ -31,3 +32,18 @@ for damaged in [rows[0][2].replace('(hn : n ≤ 3) ', ''),
                 rows[1][2] + ' | 0 => 0']:
     assert damaged not in (rows[0][2], rows[1][2])
 print('Passed named, nested-comment, equation and nested-let premise controls')
+
+# Multiple modifiers must retain private visibility (prefixMax regression).
+assert list(declarations("private noncomputable def hidden : Nat := 0"))[0][4]
+assert not list(declarations("noncomputable def publicValue : Nat := 0"))[0][4]
+
+# Editorial source placement reads comments, including refactored Latin markers,
+# and does not mistake strings in Lean declarations for source citations.
+anchors = source_anchors('''
+/- LATIN BEGIN NATP00077.par44
+LATIN END NATP00077.par44 -/
+/-! 1713 NATP00082 par50; repeated NATP00077.par44 -/
+def example := "NATP00077.par48"
+''')
+assert anchors == ['NATP00077.par44', 'NATP00082.par50']
+assert ANCHOR_TO_ITEM[anchors[0]] == ANCHOR_TO_ITEM[anchors[1]]

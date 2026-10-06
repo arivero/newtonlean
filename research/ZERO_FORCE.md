@@ -19,7 +19,8 @@ rational representation.
 | 1687, NATP00076 | [par1](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par1), `Corpus omne perseverare in statu suo quiescendi vel movendi uniformiter in directum, nisi quatenus a viribus impressis cogitur statum illum mutare.` | Law I; exact stage-local source for the inertial premise |
 | 1713, NATP00081 | [par1](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par1), `Corpus omne perseverare in statu suo quiescendi vel movendi uniformiter in directum, nisi quatenus a viribus impressis cogitur statum illum mutare.` | Law I of this edition; not borrowed as a premise for 1687 or De Motu |
 
-The full diplomatic extracts and TEI anchors are already in passages.json.
+The full diplomatic extracts and TEI anchors are in the historical Law I
+file and the archived TEI.
 Confidence in these textual locators is high; any identification of this
 formal interface with Newton's complete argument remains a modern
 reconstruction.

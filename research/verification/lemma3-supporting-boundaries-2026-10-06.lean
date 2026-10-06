@@ -125,7 +125,7 @@ private theorem constantUniform (T : Fraction) (hT : 0≤T.num) (q : Point) :
 example : BoundaryLimit (fun m => supportingTrace (fun _ => p 0 0)
     (fun _ => constantCell (p 0 0)) (blocks m))
     (ImageTrace (fun _ : BinaryTime (Fraction.ofInt 0) (by decide) => embedPosition (p 0 0))) := by
-  apply Principia1687.LemmaIII.corollary3_4_supporting_boundary_reconstruction
+  apply ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
     (Fraction.ofInt 0) (by decide) _ (constantUniform _ _ _) (fun _ _ => p 0 0)
     (fun _ _ => constantCell (p 0 0))
   intro eps heps
@@ -141,13 +141,13 @@ example (T : Fraction) (hT : 0≤T.num) (f : BinaryTime T hT → PositionValue)
       ∀ k, k≤blocks m → Within (embedPosition (points m k)).val
         (f (nodeTime T hT m k)).val eps) :
     BoundaryLimit (fun m => supportingTrace (points m) (cells m) (blocks m)) (ImageTrace f) :=
-  Principia1713.LemmaIII.corollary3_4_supporting_boundary_reconstruction T hT f hf points cells hpoints
+  ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction T hT f hf points cells hpoints
 
 #print axioms SupportingTangents.affine_crossing
 #print axioms SupportingTangents.meeting_exists
 #print axioms SupportingTangents.meeting_unique
 #print axioms SupportingTangents.meeting_rectangle
 #print axioms SupportingBoundary.supportingTrace_limit
-#print axioms Principia1687.LemmaIII.corollary3_4_supporting_boundary_reconstruction
-#print axioms Principia1713.LemmaIII.corollary3_4_supporting_boundary_reconstruction
+#print axioms ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
+#print axioms ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
 end NewtonLimitDynamics.Polygon.SupportingBoundaryControls

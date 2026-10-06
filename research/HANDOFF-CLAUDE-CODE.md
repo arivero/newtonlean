@@ -1,5 +1,8 @@
 # Handoff to Claude Code
 
+Historical handoff: JSON bookkeeping commands below were retired at the
+user's request on 6 October. Use the current README for verification.
+
 Status: the bounded task below is implemented in `Polygon/PartialCell.lean`;
 see PARTITION_CONTROL.md, STATE.md and VERIFICATION.md. Superseded by
 [HANDOFF-2026-09-22-NEXT.md](HANDOFF-2026-09-22-NEXT.md).

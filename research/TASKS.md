@@ -1,5 +1,17 @@
 # Active proof obligations
 
+## Current work order, 6 October
+
+Follow [the reworked-source handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md).
+The user retired the 4 October handoff as an active queue. The next bounded
+increment is the source-local proof of Lemma I in its two empty namespaces,
+then the geometric area passage in Lemmas II–III and the invoked corollary
+chain, then Proposition I's swept-sector proof. Keep the trajectory given and
+the separate between-path control explicit. Kepler and other force-specific
+applications follow the general proposition. The detailed entries below
+retain progress and open questions; their old task letters and file paths
+are historical context, superseded by the current handoff. Keep the review hold.
+
 ## Historical-file migration, 6 October
 
 The uncommitted refactor places one Newton result in each historical file,
@@ -10,11 +22,14 @@ Compiled types and proof bodies propagate anachronical taint across files
 and private helpers. All 2,252 public declarations are retained through nine
 explicit ownership renames, with unchanged statements/bodies after applying
 that map. Module paths intentionally change. See the
-[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october),
-[verification](verification/historical-file-refactor-2026-10-06.md) and
-[compiled dependency ledger](proof-dependencies.json).
+[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october)
+and [verification](verification/historical-file-refactor-2026-10-06.md).
+JSON bookkeeping and its management scripts were removed at the user's
+request. Source evidence stays in Markdown and historical Lean documentation;
+Git records moves and renames. Direct Lean inspection checks compiled axioms
+and anachronical dependencies without a saved catalog.
 
-The ledger exposes the remaining gap: the current partial proofs do not use
+The preceding compiled inspection exposed the remaining gap: the current partial proofs do not use
 the source-evidenced historical dependency chain. Deriving those interfaces
 from the appropriate witness-specific lemmas remains proof work; adding
 unused imports would not discharge it. This refactor changes organization,
@@ -179,7 +194,7 @@ For obligations 4–7, report a proved special case separately from the whole
 proposition. If a historical premise cannot be recovered, continue independent
 obligations while retaining that gap. A source-map entry is not a Lean theorem.
 
-Order 4, current handoff: D.1 and the minimal foundation bootstrap are
+Order 4, retired construction handoff: D.1 and the minimal foundation bootstrap are
 recorded. The user-requested [theorem-growth study](THEOREM_PROLIFERATION.md)
 and one explicitly requested sequential Astra review recommend the next bounded
 unit: a shared finite-vertex polygon core and actual general whole-edge map.
@@ -270,6 +285,6 @@ The binary-time parallel map remains open.
 
 Validation is sequential and delegated. The final verification agent runs both
 build targets and source/reference checks after implementation agents finish.
-Use the formal-result ledger for actual theorem premises and the research state
+Use the owning Lean statements for actual theorem premises and the research state
 for current completion boundaries. No task is marked complete solely because
 a structure contains a field asserting its desired conclusion.

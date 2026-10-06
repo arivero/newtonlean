@@ -16,7 +16,7 @@ The inventory below records the earlier extraction and its retained names.
 Its old advice placing Cauchy infrastructure in BarrowLib is superseded by
 [this migration](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october).
 The current module ownership is authoritative in
-[module-migration.json](module-migration.json) and the architecture checker.
+the actual Lean root imports and source files; Git records the old paths.
 
 | Current location | Foundation content | Remains in NewtonLimitDynamics |
 | --- | --- | --- |

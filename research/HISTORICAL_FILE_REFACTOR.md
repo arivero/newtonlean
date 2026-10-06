@@ -97,9 +97,9 @@ proved law. The NATP00089 composition passage is such a case.
 
 Latin should be embedded as readable Lean documentation and checked against
 an explicit diplomatic rendering of the archived TEI. The existing
-`scripts/catalogue_m1.py:render` already preserves orig rather than joining
-orig and reg, and marks additions/deletions/notes/unclear readings. Reuse and
-test that extraction rule rather than introduce a second transcription.
+The diplomatic rendering preserves orig rather than joining orig and reg,
+and marks additions/deletions/notes/unclear readings. Compare the embedded
+Latin directly with its named archived TEI paragraph.
 TEI `fw` elements are page furniture and catchwords: omit them from the
 running-text rendering while preserving their following text. The original
 TEI and its hash remain intact. In particular, this removes the duplicated
@@ -161,31 +161,21 @@ dependency is inferred from this file inventory.
 
 ## Migration order and acceptance
 
-1. Implement the chosen one-result/multiple-edition layout, write a source/result manifest, and
-   provide source-checked specimens for the area law and its immediate
-   Laws Corollary I dependency. Preserve all existing declarations while
-   moving their ownership; avoid wrapper proliferation.
-2. Extract the modern completion chain from BarrowLib, then the modern Newton
-   clients. Register `ModernLib` as a real build target. Update catalogues,
-   inventories, source-reference checks, dependency checks and progress tools
-   so moved declarations are still counted exactly once.
-3. Identify and source the classical facts actually used by those proofs;
-   add ClassicsLib with checked content rather than a renamed bag of geometry.
-4. Split historical mixed-result files in the Proposition I dependency order:
-   Laws Corollary I; Lemmas I–III and their separately identified corollaries;
-   Proposition I. Repeat with separate evidence for 1687 and 1713, and keep
-   De Motu's own route. Supporting Lemma X work follows without merging stages.
-5. Remove obsolete historical facades or move compatibility imports outside
-   the result tree. Preserve fully qualified Lean names where practical and
-   document unavoidable API changes. Do not keep duplicate proofs solely to
-   preserve old paths.
+The user removed the JSON bookkeeping layer on 6 October. The approved
+one-result layout and library boundaries remain; the earlier proposal for
+catalogs, manifests and mapping files is superseded.
 
-Every migrated increment must pass the full existing 16-check list, the
-historical-unit/embedded-Latin check, the new library builds when registered,
-and an API/import-boundary audit. No mathematical completion score increases
-because files moved or Latin was embedded. The migration is complete only
-when every main historical file has one manifested result and the checked
-source text of each included witness, and support has no backward imports into those files.
+1. Put each result's exact source identity, Latin, explicit premises and
+   checked partial argument in its owning Lean file, separately by witness.
+2. Put reusable elementary, classical and modern mathematics in the appropriate
+   supporting library and update actual imports. Use Git to inspect moves.
+3. Keep source evidence and open proof obligations in the existing Markdown
+   notes. Do not make a second inventory in another format.
+4. Build the default target and all four libraries; run the direct Lean
+   verification and relevant scope harnesses, source hashes and whitespace
+   checks in README. Read changed historical text against its archived TEI.
+
+Relocation, tool deletion and embedded Latin add no proof-completion credit.
 
 ## Design checkpoint
 
@@ -198,111 +188,80 @@ library targets are still pending; no proof-completion credit is added.
 
 ## Executed migration, 6 October
 
-The complete existing Lean implementation has been reorganized in the working
-tree for ultracorrection review. No refactor commit or push has been made.
-The earlier design and inventory above remain a record of the starting layout.
+The working tree contains 19 one-result historical files, with 40 witness
+sections and 67 embedded source paragraphs. Each section includes source path,
+hash, URL, Latin, proof correspondence, explicit remaining premises and the
+recorded dependency evidence. The historical files themselves provide the
+result inventory and witness-specific source anchors.
 
-There are now 19 one-result historical files with 67 source-checked paragraph
-anchors. Each witness section contains diplomatic Latin, source path, hash,
-URL, proof-step correspondence and the already recorded dependency edges
-with their classifications and confidence. The result catalogue and
-[historical index](HISTORICAL_INDEX.md) distinguish checked partial statements
-from text-only open obligations. De Motu keeps its two manuscripts and their
-own numbering; printed editions keep separate names and premises.
+There are 39 BarrowLib, three ClassicsLib, 109 ModernLib and 19 historical
+implementation modules, plus four import roots. Elementary finite geometry
+stays below the completion layer. ClassicsLib contains the existing coordinate
+special cases of Euclid I.37/I.38, without claiming the full synthetic proofs.
+Edition-specific modern area results sit below the five-line anachronical
+header in AreaLaw. No supporting library imports a historical result file.
 
-The retained public statements live in 39 elementary BarrowLib modules,
-three ClassicsLib modules and 109 ModernLib modules, plus the 19 historical
-files. The finite calibration and tolerance arithmetic, and rational
-monotone-rectangle geometry, were separated from their Cauchy/closure clients.
-ClassicsLib owns the existing integer-coordinate special cases of Euclid
-I.37/I.38, with source links and limits. It does not claim to prove those
-synthetic propositions in full. The modern Cauchy, completed-value, force
-construction and diagnostics live in ModernLib. Edition-specific conditional
-area clients remain in AreaLaw's anachronical section. The manifest partitions
-43 historical declarations into 25 primary and 18 anachronical declarations;
-these include definitions and partial results, not 25 completed Newton proofs.
-No supporting library imports a historical result file.
+### Public-name corrections
 
-All 2,252 public declarations are retained, with nine intentional renames in
-[declaration-renames.json](declaration-renames.json). Lemma I/II namespaces now
-match their own result. Lemma II's two equal-width names change accordingly;
-four combined II–III/Corollaries III–IV reconstructions are generic modern
-support rather than proofs owned by one historical result; three generic
-quadratic/coefficient names lose misleading historical ownership. Other
-qualified names are unchanged. Statements and proof/definition bodies are
-unchanged after applying that map. Old import-only facades were removed. Module import paths
-intentionally change; [module-migration.json](module-migration.json) records
-old-to-new ownership, including split modules. The old one-module build API
-should be migrated using that map; the aggregate `import NewtonLimitDynamics`
-still exposes the complete declaration API under the recorded renames.
+The verified migration retained all 2,252 public declarations. Nine names
+changed to correct ownership, without changing the normalized statements or
+proof/definition bodies. The generic changes are:
 
-Elementary historical wrappers were returned from ModernLib to their owning
-result files, and their finite support closure was moved to BarrowLib or the
-source-identified ClassicsLib lattice model. A historical namespace does not
-by itself justify elementary placement: completion-dependent proofs retain
-their anachronical status.
+| Old name | New name |
+| --- | --- |
+| `DeMotu1684.QuadraticInitialDeflection` | `NewtonLimitDynamics.QuadraticInitialDeflection` |
+| `Principia1713.quotient` | `NewtonLimitDynamics.Fraction.quotient` |
+| `Principia1713.generated` | `NewtonLimitDynamics.Fraction.generated` |
 
-The compiled ledger currently finds no cross-file use of a manifested
-historical declaration. Its 75 source-evidenced proof dependencies are all
-still without a detected formal use: 26 have a source result outside the current historical
-files, 41 have no primary source formalization, five have no primary target
-formalization, and three have no primary declaration use. These counts expose
-the interface gap; they do not invalidate Newton's source dependencies or
-turn comments into checked proof steps. The next mathematical work must
-derive the needed interfaces from the corresponding historical lemmas.
+The other six changes apply independently to the 1687 and 1713 names:
+`LemmaIII.lemma2_equal_width_gap` moves to `LemmaII.lemma2_equal_width_gap`;
+`LemmaIII.lemmas2_3_monotone_rectangle_reconstruction` moves under
+`ModernLib.Reconstruction.Principia1687.LemmaIIIII` or its separately named
+1713 counterpart; `LemmaIII.corollary3_4_supporting_boundary_reconstruction`
+moves under `ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries` or its
+1713 counterpart. The two combined-result families are generic modern support,
+not proofs owned by one historical result. Current imports are authoritative;
+Git records their previous paths.
 
-### Verification tools
+### Proof boundary
 
-- `scripts/check_architecture.py` checks one-result ownership, declaration
-  section membership, source hashes/URLs, exact embedded diplomatic text,
-  duplicate public declarations, import existence/cycles and library boundaries.
-  It also checks the five-line separator, primary/anachronical ownership,
-  Lemma I/II namespaces and absence of combined-result historical theorem names.
-  It is a local provenance/architecture check, not a historical proof certificate.
-- `scripts/test_architecture.py` checks known running-text examples and rejects
-  eight corruptions, including catchword reinjection, a missing separator,
-  wrong lemma namespace and false primary classification.
-- `scripts/check_migration_api.py` compares public names, normalized statements
-  and bodies against `9f3ec58`. With `--kernel` it also builds an isolated old
-  checkout and compares every printed declaration type to the working tree,
-  after the nine declared renames and joining only printer continuation lines.
-- `scripts/proof_dependencies.lean` inspects compiled types and proof/definition
-  bodies, including generated/private constants. `scripts/check_proof_layers.py`
-  propagates taint from ModernLib and explicitly anachronical historical
-  declarations. It rejects tainted primary declarations and emits
-  [proof-dependencies.json](proof-dependencies.json), keeping actual kernel
-  uses separate from the quoted source-evidence edges. No detected modern
-  dependency means only that: supplied interfaces can still hide unfinished
-  historical proof obligations. `scripts/test_proof_layers.py` includes a
-  compiled private-bridge control, type-only use, transitive cross-document
-  use and cyclic dependency controls.
-- `catalogue_formal.py` now inventories four libraries and emits the historical
-  navigation index. Declaration origins preserve source attribution across
-  moves. `progress_stats.py` recognizes all four libraries at future commits;
-  old snapshots retain their historical paths. The declaration reader now
-  recognizes `private noncomputable` correctly, with a regression control.
-- Existing verification harness imports follow the relocated modules. The
-  old archived source hashes and the historical dependency graph are unchanged.
+The original compiled inspection found no cross-file use of a historical
+declaration: the partial proofs still use abstract interfaces rather than
+implement Newton's cited chain. Source comments alone do not discharge that
+chain. The primary finite/conditional results and the anachronical constructed
+results remain separate; untainted does not mean historically complete.
+See [the verification checkpoint](verification/historical-file-refactor-2026-10-06.md)
+and the stage-local proof notes for these open obligations.
 
-The final verification record is
-[historical-file-refactor-2026-10-06.md](verification/historical-file-refactor-2026-10-06.md).
-This migration adds no theorem, axiom or proof-completion credit. New historical
-files for missing portions contain their exact source and open status; they
-introduce no theorem-shaped placeholder.
+### Removal of bookkeeping, 6 October
 
-### Tool update, 6 October review corrections
+At the user's request, the JSON catalogs, source selections/annotations,
+dependency/edition records, migration maps and saved API/provenance reports
+were removed, along with their Python extractors, validators, graph generators
+and tests. The schema and JSON-exporting Lean helper were also removed.
+Their earlier check results remain dated history in the verification notes;
+they are no longer current commands. No replacement tracking format was added.
+The archived TEI/XML, substantive source notes, Latin and checked library
+proofs remain. At the user's further request, the obsolete 22 graph artifacts,
+five generated research reports/indexes, 28 docs/m1 Markdown companions,
+three byte-identical root source copies and the completed conversation audit
+were removed. Rouse Ball's substantive provenance is retained in sources.md;
+the source archive and SHA256SUMS retain byte identity checks.
 
-The existing renderer and architecture/API tools were patched rather than
-replaced. The new instrument answers a previously unchecked question: which
-compiled constants does a primary declaration actually use, and does any
-dependency path reach an anachronical result? Counts of files, imports and
-source comments cannot answer it. The negative controls above check that the
-instrument detects intentionally planted violations. This is provenance
-verification, not an independent proof of the mathematical premises.
+`research/CheckReferences.lean` now inspects the compiled environment directly,
+checking standard axioms and transitive anachronical use from actual source
+sections. It replaces the generated reference list and JSON/Python pipeline,
+without a saved catalog. The existing progress generator reads Git and the
+README estimates; the reading generator reads Markdown/Lean source anchors.
+Their output is heuristic/editorial, not a historical proof certificate.
+`scripts/inspect_graphs.lean` recovers Mermaid figures in research/figures.md
+from the current source comments and compiled environment. It separates
+witness-specific textual dependencies, editorial comparisons, file imports
+and direct formal uses, without a separate tracking database. The current
+source-comment coverage is partial; no missing edge establishes historical
+absence, and a graph does not certify completion of a proof.
 
-After changing the rendering rule, regenerate source text deliberately with
-`python3 scripts/catalogue_m1.py --refresh-historical`, then run the normal
-source/formal catalogues and graph check. For ordinary review, run
-`python3 scripts/check_proof_layers.py --report research/proof-dependencies.json`
-and `python3 scripts/test_proof_layers.py` after the architecture checks. The
-manifest hash and compiled-graph hash identify the ledger's inputs.
+Run the current README checks. The source-header convention omits TEI `fw`
+forme-work while preserving body text: NATP00090 par17's catchword/page number
+is excluded, and 1713's source-faithful `Ipsi S BS` remains. The exact source
+hashes and paragraph anchors remain beside each witness's Latin.

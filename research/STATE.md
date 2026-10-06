@@ -1,5 +1,16 @@
 # Research state
 
+## Active handoff, 6 October
+
+At the user's request, the 4 October execution plan is retired. Continue from
+[the reworked-source handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md): prove
+the invoked historical lemma chain and Proposition I's swept-sector conclusion
+before force-specific applications. The next bounded proof is Lemma I, whose
+two historical namespaces are still empty. Retained constructions and open
+geometric/mechanical bridges remain explicitly separate. The refactor and
+cleanup stay staged for review; no new proof-completion credit or commit
+authorization follows from the new handoff.
+
 ## Historical-file migration, 6 October
 
 The uncommitted refactor places one Newton result in each historical file,
@@ -10,11 +21,14 @@ Compiled types and proof bodies propagate anachronical taint across files
 and private helpers. All 2,252 public declarations are retained through nine
 explicit ownership renames, with unchanged statements/bodies after applying
 that map. Module paths intentionally change. See the
-[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october),
-[verification](verification/historical-file-refactor-2026-10-06.md) and
-[compiled dependency ledger](proof-dependencies.json).
+[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october)
+and [verification](verification/historical-file-refactor-2026-10-06.md).
+JSON bookkeeping and its management scripts were removed at the user's
+request. Source evidence stays in Markdown and historical Lean documentation;
+Git records moves and renames. Direct Lean inspection checks compiled axioms
+and anachronical dependencies without a saved catalog.
 
-The ledger exposes the remaining gap: the current partial proofs do not use
+The preceding compiled inspection exposed the remaining gap: the current partial proofs do not use
 the source-evidenced historical dependency chain. Deriving those interfaces
 from the appropriate witness-specific lemmas remains proof work; adding
 unused imports would not discharge it. This refactor changes organization,
@@ -262,9 +276,9 @@ See the [acceleration secants checkpoint](verification/constructed-acceleration-
 See the [general polygon checkpoint](verification/general-polygon-map-2026-10-05.md)
 and [general content checkpoint](verification/general-path-content-2026-10-05.md).
 
-Resume context: start from the [latest handoff](HANDOFF-2026-10-04-GENERAL-FORCE.md)
-(4 October: general central forces, the polygon–curve defect and a foundation
-library). It supersedes the [22 September handoff](HANDOFF-2026-09-22-NEXT.md)
+Resume context: start from the [latest handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md).
+It supersedes the retired 4 October work order and the
+[22 September handoff](HANDOFF-2026-09-22-NEXT.md)
 written at the end of that Claude Code session. The earlier
 [22 September handoff](HANDOFF-2026-09-22.md) records the user's defect-area
 correction. Its bounded common-time/force comparison
@@ -461,13 +475,13 @@ core/Std only; external dependencies remain empty.
 
 **M1–M4 are not certified complete.** Compiling conditional theorems and four
 reports do not discharge their displayed geometric and historical premises.
-See M1.md through M4.md and formal-results.json for exact boundaries.
+See M1.md through M4.md and the historical Lean files for exact boundaries.
 
 Sources: TEI is the machine-readable authority; identifying translations and
 untranslated passages are labelled. The source-collation report records page
 and facsimile targets without downloading or reading manuscript images.
 Selected PDF passages were visually checked; no general manuscript-image audit
-is claimed. See [collation](collation.md) and edition-comparison.md.
+is claimed. See [source coverage](sources.md) and [edition observations](M4.md).
 
 Validation commands are in README.md. No sorry or project axioms were added;
 standard Lean logical axioms can appear in generated dependency inspection.
@@ -494,9 +508,9 @@ the source-built Lean 4.19.0 (core/Std only, no mathlib), both build targets, an
   finite sagitta-chord relation as a premise and proves equal-time
   `forceBySagitta` ratios proportional to the sagittae;
   per-edition limiting routes recorded, not derived (editions kept separate).
-- Dependency graphs: `scripts/plot_graphs.py` renders the module and
-  passage/reference dependency graphs to `docs/graphs/*.png`; see
-  `research/figures.md`.
+- Dependency figures are recovered from the current historical Lean source
+  comments and compiled modules. See `research/figures.md`; the previous
+  JSON-backed figures were removed on 6 October.
 Open: order 4 (P3 convergence — needs a Fraction Cauchy-Schwarz/triangle
 inequality, which the raw `equiv` relation makes non-trivial), order 8
 (Arg004-Arg006), absolute polygon-strip sums, and the limiting routes/ODE

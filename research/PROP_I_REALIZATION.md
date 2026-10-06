@@ -268,9 +268,9 @@ with no numbered limiting lemma (M2.md).
 
 The following chain was checked against the **proof paragraphs** of the
 archived TEI on 5 October evening, rather than inferred from the order of the
-statements. [dependencies.json](dependencies.json) records each accepted edge
-with its witness, passage, URL, classification and confidence. Formal references now identify the finite composition proofs on their own
-edges. The remaining limiting edges are still obligations; a reference
+statements. The historical Lean comments and this source route record the witness,
+passage, URL, classification and confidence. The finite composition proofs
+retain their source correspondence. The remaining limiting edges are still obligations; a reference
 records a reconstruction, not certification of the full historical step.
 
 | Proof step | 1687 proof passage | 1713 proof passage | Dependency and formal obligation |

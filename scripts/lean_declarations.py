@@ -1,4 +1,4 @@
-"""Shared bounded Lean declaration reader for catalogue and progress.
+"""Bounded Lean declaration reader for source counts and progress plots.
 
 This is a source inventory, not a Lean parser or proof verifier.
 """
@@ -52,7 +52,7 @@ def declarations(src):
                 kind, name = m.group(2), m.group(3)
                 qual = '.'.join([x for x in ns if x] + [name]) if name else None
                 cur = {'kind': kind, 'name': qual, 'lines': [line],
-                       'private': 'private' in (m.group(1) or '')}
+                       'private': 'private' in line[:m.start(2)].split()}
                 continue
             words = line.split()
             if words[0] == 'namespace' and len(words) > 1:
@@ -108,5 +108,4 @@ def finish(cur):
     body = ' '.join(source.split())
     statement = ' '.join(statement_prefix(source).split())
     return cur['kind'], cur['name'], statement, body, cur['private']
-
 

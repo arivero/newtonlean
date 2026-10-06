@@ -20,6 +20,9 @@ def add (a b : Fraction) : Fraction :=
   ⟨a.num * b.den + b.num * a.den, a.den * b.den, Int.mul_pos a.den_pos b.den_pos⟩
 def mul (a b : Fraction) : Fraction :=
   ⟨a.num * b.num, a.den * b.den, Int.mul_pos a.den_pos b.den_pos⟩
+def quotient (a b : Fraction) (hb : positive b) : Fraction :=
+  ⟨a.num * b.den, a.den * b.num, Int.mul_pos a.den_pos hb⟩
+def generated (k f t : Fraction) : Fraction := mul (mul k f) (mul t t)
 def half (a : Fraction) : Fraction := ⟨a.num, 2 * a.den, Int.mul_pos (by decide) a.den_pos⟩
 
 /-- Unsigned scalar magnitude. This arithmetic operation does not identify a

@@ -3,8 +3,9 @@
 - Current review hold: the 6 October historical-file refactor is deliberately
   uncommitted at the user's request. Do not commit or push it before the user
   releases the hold after their ultracorrection review.
-  The user has now authorized committing the Markdown documentation only;
-  the Lean refactor, scripts, JSON and other artifacts remain under this hold.
+  Markdown and obsolete-path deletions were committed at the user's request.
+  The remaining refactor still needs review before commit or push. The user
+  separately authorized removing all JSON bookkeeping and its Python tools.
 
 - User-selected refactor direction, 6 October: one file per historical result,
   with separate edition/witness sections in that file. Each section contains
@@ -24,9 +25,9 @@
   lines of `=` characters, followed by `ANACHRONICAL PROOFS`. Using an
   anachronical result taints every downstream proof, including uses through
   other files, private helpers or types. File imports alone do not classify
-  a proof. Check the compiled dependency graph with
-  `python3 scripts/check_proof_layers.py`; source dependency comments alone
-  do not establish formal use or discharge supplied interfaces.
+  a proof. Inspect compiled dependencies with
+  `lake env lean research/CheckReferences.lean`; source dependency comments
+  alone do not establish formal use or discharge supplied interfaces.
 
 - User clarification, 6 October: the primary historical proof takes the
   trajectory's existence as an explicit postulate, represented in Lean by
@@ -39,6 +40,17 @@
   This convention is user-authorized interpretation, not a new quotation or
   explicit historical axiom attributed to Newton. Ordinary Lean proofs still
   have no sorry or undeclared axioms; a given curve is an explicit premise.
+
+- User direction, 6 October: no JSON source catalogs, proof ledgers, migration
+  manifests or bookkeeping schemas, and no Python tools managing them. Use
+  Git for history, Markdown for maintained research evidence/status, and the
+  historical Lean files for exact Latin and proof correspondence. Do not
+  replace the removed layer with an equivalent tracking format. Lake's own
+  dependency lockfile is build metadata and is retained.
+  Obsolete generated graphs, source indexes and docs/m1 Markdown stubs are
+  removed too. Recover graphs from current Lean source and compiled dependencies
+  with `lake env lean scripts/inspect_graphs.lean`; distinguish source evidence,
+  imports and actual formal uses. Keep the archived originals and their hashes.
 
 - Work source-first. Preserve Newton's textual stages separately; never merge
   *De Motu*, 1687, proposed 1694, 1713, or 1726 claims silently.
@@ -79,8 +91,8 @@
   prohibition on Claude for that task. Claude Code may implement and verify
   the task itself; the Codex-specific model assignments above do not prevent
   this handoff. Keep execution sequential and all proof/source constraints.
-- Current handoff: research/HANDOFF-2026-10-04-GENERAL-FORCE.md, written by
-  Claude Code on 4 October at the user's request for the current working
-  agent: general central forces, the polygon–curve defect and a foundation
-  library. It supersedes research/HANDOFF-2026-09-22-NEXT.md. The exception
-  above covered the 22 September session's tasks, which are complete.
+- Current handoff: research/HANDOFF-2026-10-06-REWORKED-SOURCES.md.
+  The user retired the 4 October handoff as an execution plan after the
+  source refactor and bookkeeping cleanup. Preserve its results, but follow
+  the new source-local proof order and carried-forward obligations. The
+  exception above covered the 22 September session's tasks, which are complete.

@@ -1,6 +1,5 @@
-import BarrowLib.Polygon.CompletionGeometry
 import BarrowLib.Polygon.PolygonFanArea
-import BarrowLib.Polygon.ScaledTolerance
+import BarrowLib.Common.RationalTolerance
 
 /-! Explicit lower/upper rectangle sets around a given rational monotone
 graph. Their inclusion is derived from graph monotonicity and finite ordered
@@ -9,7 +8,7 @@ gap and exhaustion. Sums are finite rectangle-area arithmetic: identification
 with ordinary union content or a completed curvilinear area is separate. -/
 
 namespace NewtonLimitDynamics.Polygon.MonotoneRectangles
-open NewtonLimitDynamics TimeSubdivision PositionValues CompletionGeometry
+open NewtonLimitDynamics TimeSubdivision
 open HarmonicTimeComparison HarmonicTimeRealization PolygonFanArea
 
 structure Partition (a b : Fraction) where
@@ -94,24 +93,6 @@ theorem figure_enclosure {a b : Fraction} (g : Fraction → Fraction) (p : Parti
     obtain ⟨i,hi,hl,hr⟩ := partition_cover p x.1 ha hb
     exact ⟨i,hi,hl,hr,hy0,Fraction.magnitudes.le_trans hy
       (hg _ _ ha hr (node_bounds p (i+1) (by omega)).2)⟩
-
-def completed (A : Point → Prop) (x : PositionValue) : Prop :=
-  Closure (fun z => ∃ y : Point, A y ∧ z=embedPosition y) x
-
-/-- Metric closure transfers the proved point-set enclosure to all completed
-points, rather than retaining only rational samples of the figure. -/
-theorem completed_enclosure {a b : Fraction} (g : Fraction → Fraction) (p : Partition a b)
-    (hg : MonotoneOn g a b) :
-    (∀ x, completed (lowerFigure g p) x → completed (figure g a b) x) ∧
-      (∀ x, completed (figure g a b) x → completed (upperFigure g p) x) := by
-  have hs := figure_enclosure g p hg
-  constructor
-  · intro x hx
-    exact closure_mono _ _ (fun z hz => by
-      obtain ⟨y,hy,he⟩ := hz; exact ⟨y,hs.1 y hy,he⟩) x hx
-  · intro x hx
-    exact closure_mono _ _ (fun z hz => by
-      obtain ⟨y,hy,he⟩ := hz; exact ⟨y,hs.2 y hy,he⟩) x hx
 
 def width {a b : Fraction} (p : Partition a b) (i : Nat) : Fraction :=
   durationDifference (p.nodes i) (p.nodes (i+1))

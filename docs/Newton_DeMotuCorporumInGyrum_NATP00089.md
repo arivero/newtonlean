@@ -10,9 +10,9 @@
 
 ## Local originals
 
-- `Newton_DeMotuCorporumInGyrum_NATP00089_diplomatic.html`
-- `Newton_DeMotuCorporumInGyrum_NATP00089_normalized.html`
-- `Newton_DeMotuCorporumInGyrum_NATP00089.xml`
+- [Diplomatic HTML](m1/NATP00089_diplomatic.html)
+- [Normalized HTML](m1/NATP00089_normalized.html)
+- [TEI/XML](m1/NATP00089.xml)
 
 The TEI header gives approximately 3,911 words, nine pages, and a late-1684
 date. The Newton Project marks the electronic transcription as restricted and

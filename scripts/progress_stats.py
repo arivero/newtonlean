@@ -6,7 +6,7 @@ or re-exported theorem keeps its identity; a private -> public switch counts
 as a visibility change.  Statements are compared up to the first `:=`, with
 comments and whitespace ignored, so a docstring edit is not a change.
 
-Library theorems are those under NewtonLimitDynamics/ or BarrowLib/. Theorems in
+Library theorems are those under NewtonLimitDynamics/, BarrowLib/, ClassicsLib/ or ModernLib/. Theorems in
 research/verification/ are holdout/comparator harnesses and are counted
 separately.
 
@@ -24,14 +24,13 @@ Outputs (docs/progress/):
   theorems-total[-dark].svg     cumulative theorems, substantive theorems, definitions
   theorems-churn[-dark].svg     added / modified / deleted per commit
   theorems-by-area[-dark].svg   cumulative theorems by proof obligation
-  completion[-dark].svg         editorial completion estimate, from
-                                completion-estimate.json
+  completion[-dark].svg         editorial estimates copied from README.md
 
-Requires matplotlib.  The completion figure plots a judgement recorded in
-completion-estimate.json; edit that file, not this script, to revise it.
+Requires matplotlib.  The completion figure reads the existing README table
+and headline; revise those words to revise the chart.
 """
+import argparse
 import csv
-import json
 import re
 import subprocess
 from collections import Counter
@@ -178,7 +177,7 @@ def walk():
         groups = Counter()
         located, defs_by_file = [], {}
         for f in files:
-            library = f.startswith(('NewtonLimitDynamics', 'BarrowLib'))
+            library = f.startswith(('NewtonLimitDynamics', 'BarrowLib', 'ClassicsLib', 'ModernLib'))
             src = git('show', f'{full}:{f}')
             if library:
                 lines += src.count('\n')
@@ -352,71 +351,68 @@ def plot_groups(rows, theme):
     save(fig, 'theorems-by-area', theme)
 
 
-def completion_numbers(est):
-    def overall(weights):
-        props = sum(tg['weight'] * sum(weights[m] * tg['scores'][m] for m in weights)
-                    for tg in est['targets'])
-        return props + est['action_diagnostic']['weight'] * est['action_diagnostic']['score']
-    base = {m: v['weight'] for m, v in est['milestones'].items()}
-    alts = [overall(w) for w in est['alternative_weightings'].values()]
-    return overall(base), min(alts + [overall(base)]), max(alts + [overall(base)])
+def completion_numbers(markdown):
+    """Read the editorial headline and target estimates; do not recompute them."""
+    headline = re.search(r'\*\*Estimated completion: about (\d+)% \((\d+)–(\d+)%', markdown)
+    if not headline:
+        raise ValueError('README.md has no estimated-completion headline')
+    targets = []
+    for line in markdown.splitlines():
+        match = re.match(r'\| (Prop\. [IVX]+|Action assessment) \|.*\| (\d+)% \|$', line)
+        if match:
+            targets.append((match.group(1), int(match.group(2))))
+    if len(targets) != 5 or len({label for label, _ in targets}) != 5:
+        raise ValueError('README.md must have four proposition estimates and one action estimate')
+    return tuple(map(int, headline.groups())), targets
 
 
-def plot_completion(est, theme):
+def plot_completion(headline, targets, theme):
     t, fig, ax = setup(theme, (9, 3.6))
-    milestones = list(est['milestones'].items())
-    rows = est['targets'] + [{'label': est['action_diagnostic']['label'], 'action': True}]
-    y = list(range(len(rows)))[::-1]
-    for yi, tg in zip(y, rows):
+    y = list(range(len(targets)))[::-1]
+    for yi, (label, score) in zip(y, targets):
         ax.barh(yi, 100, 0.5, color=t['track'], edgecolor='none')
-        left = 0.0
-        if tg.get('action'):
-            share = 100 * est['action_diagnostic']['score']
-            ax.barh(yi, share, 0.5, left=0, color=t['series'][4], edgecolor=t['surface'], linewidth=1.5)
-            left = share
-        else:
-            for i, (m, spec) in enumerate(milestones):
-                share = 100 * spec['weight'] * tg['scores'][m]
-                if share > 0:
-                    ax.barh(yi, share, 0.5, left=left, color=t['series'][i], edgecolor=t['surface'],
-                            linewidth=1.5, label=spec['label'] if yi == y[0] else None)
-                left += share
-        ax.text(left + 1.2, yi, f'{left:.0f}%', va='center', color=t['ink'], fontweight='bold')
-    ax.set_yticks(y, [tg['label'] for tg in rows])
+        ax.barh(yi, score, 0.5, color=t['series'][4 if label == 'Action assessment' else 3],
+                edgecolor=t['surface'], linewidth=1.5)
+        ax.text(score + 1.2, yi, f'{score}%', va='center', color=t['ink'], fontweight='bold')
+    ax.set_yticks(y, [label for label, _ in targets])
     ax.tick_params(axis='y', colors=t['ink2'], length=0)
     ax.set_xlim(0, 100)
     ax.set_xticks([0, 25, 50, 75, 100], ['0%', '25%', '50%', '75%', '100%'])
     ax.grid(axis='y', visible=False)
     ax.spines['left'].set_visible(False)
-    mid, lo, hi = completion_numbers(est)
-    ax.set_title(f'Estimated completion: about {mid * 100:.0f}% overall '
-                 f'(range {lo * 100:.0f}–{hi * 100:.0f}%)')
-    ax.legend(loc='upper center', bbox_to_anchor=(0.5, -0.14), ncol=4, handlelength=1.2)
+    mid, lo, hi = headline
+    ax.set_title(f'Editorial estimate: about {mid}% overall (range {lo}–{hi}%)')
     save(fig, 'completion', theme)
 
 
 # --------------------------------------------------------------------- main
 
 def main():
+    global out_dir
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--output-dir', type=Path, default=out_dir)
+    args = parser.parse_args()
+    out_dir = args.output_dir
+    out_dir.mkdir(parents=True, exist_ok=True)
     rows = walk()
     with open(out_dir / 'history.csv', 'w', newline='') as fh:
         writer = csv.DictWriter(fh, fieldnames=list(rows[0]), lineterminator='\n')
         writer.writeheader()
         writer.writerows(rows)
-    est = json.loads((out_dir / 'completion-estimate.json').read_text())
+    headline, targets = completion_numbers((root / 'README.md').read_text())
     for theme in THEMES:
         plot_total(rows, theme)
         plot_churn(rows, theme)
         plot_groups(rows, theme)
-        plot_completion(est, theme)
+        plot_completion(headline, targets, theme)
     last = rows[-1]
-    mid, lo, hi = completion_numbers(est)
+    mid, lo, hi = headline
     print(f"{len(rows)} commits; {last['theorems']} library theorems at {last['commit']} "
           f"(+{sum(r['added'] for r in rows)} / -{sum(r['deleted'] for r in rows)} / "
           f"~{sum(r['modified'] for r in rows)} modified); {last['harness_theorems']} harness theorems")
     print('by obligation:', {g: last[f'group_{g}'] for g, _ in GROUPS})
     print('by kind:', {k: last[k] for k in ('substantive', 'plumbing', 'sample', 'duplicate')})
-    print(f'estimated completion {mid:.1%} (range {lo:.1%}-{hi:.1%})')
+    print(f'editorial estimated completion {mid}% (range {lo}%-{hi}%)')
 
 
 if __name__ == '__main__':

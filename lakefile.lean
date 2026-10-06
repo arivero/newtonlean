@@ -8,3 +8,7 @@ package NewtonLimitDynamics where
 lean_lib NewtonLimitDynamics
 
 lean_lib BarrowLib
+
+lean_lib ClassicsLib
+
+lean_lib ModernLib

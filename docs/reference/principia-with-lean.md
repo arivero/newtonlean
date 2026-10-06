@@ -57,24 +57,23 @@ $\mathbf a \times \mathbf b = a_1 b_2 - a_2 b_1$.
 
 ## How to read this version
 
-After each Definition, Law, Lemma, Proposition or Scholium, the theorems of
-the Lean reconstruction whose catalogued source passages cite that item are
-printed as complete modules in a smaller monospace face: definitions,
-docstrings, statements and proofs, verbatim, in the order of the library
-import lists. The catalogue (`research/formal-results.json`) assigns each
-theorem to Newton Project paragraph anchors; a module whose theorems cite
-several items is printed under the item most of them cite, with a
-cross-reference under the others. Each item collects the anchors of the same
+After each Definition, Law, Lemma, Proposition or Scholium, Lean modules with
+comments naming that source item are printed in a smaller monospace face:
+definitions, docstrings, statements and proofs, verbatim, in the order of
+the library import lists. The source comments give Newton Project paragraph
+anchors; a module naming several items is printed under the first represented
+item and cross-referenced under the others. This placement is editorial; it
+does not show that any theorem proves the item or uses it as a dependency.
+Each item collects the anchors of the same
 proposition in De Motu, 1687 and 1713, so the stage-local modules
 appear together under the 1687 item while keeping their own namespaces. In
 the refactored tree, one historical result file contains separate witness
-sections; source-only open results are placed by the ownership manifest.
+sections; source-only open results are placed by their in-file Latin markers.
 Primary proofs use elementary/classical support; anachronical proofs in the
 same file follow a five-line separator. Using an anachronical proof taints a
-downstream proof transitively through its compiled type or body. The ledger
-`research/proof-dependencies.json` checks these uses and records missing
-formal uses of Newton's cited dependencies. An untainted partial result is
-not a completed historical proof. Items that no theorem cites say so.
+downstream proof transitively through its compiled type or body. This reading
+artifact does not inspect compiled proof dependencies. A partial result is
+not a completed historical proof. Items with no anchored module say so.
 The encoding uses rational arithmetic and Lean 4 core only: it supplies no historical premise,
 and its appearance under an item records that the item motivated it, not that
 the item is thereby proved. Two appendices print, in full, the modules
@@ -137,7 +136,7 @@ accurate pendulum experiments show (shown later).
 > **1713.** The example adds: in triple the space, sextuple.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded. The model has no mass: forces are accelerative (Definition VII). A `mass` parameter appears only in the potential diagnostics (`Diagnostic/DeflectionPotential`, `Diagnostic/QuadraticEndpointPotential`, `Diagnostic/ConstructedHarmonicPotential`).}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded. The model has no mass: forces are accelerative (Definition VII). A `mass` parameter appears only in the potential diagnostics (`Diagnostic/DeflectionPotential`, `Diagnostic/QuadraticEndpointPotential`, `Diagnostic/ConstructedHarmonicPotential`).}}
 
 
 **Definition II.** *The quantity of motion is its measure, arising from the
@@ -150,7 +149,7 @@ as large with equal velocity has double the motion, and with double velocity
 quadruple.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded; with mass absent, velocity stands in for quantity of motion.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded; with mass absent, velocity stands in for quantity of motion.}}
 
 
 **Definition III.** *The inherent force of matter (vis insita) is a power of
@@ -167,7 +166,7 @@ state). Common usage gives resistance to bodies at rest and impetus to moving
 ones; but rest and motion, as commonly conceived, differ only relatively.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Encoded, not proved: the inertial drift `pointAdd s.1 (pointScale d s.2)` that opens every cell (`CentralSchedule.cell`), and `ZeroForce.inertialAt`.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Encoded, not proved: the inertial drift `pointAdd s.1 (pointScale d s.2)` that opens every cell (`CentralSchedule.cell`), and `ZeroForce.inertialAt`.}}
 
 
 **Definition IV.** *Impressed force is an action exerted on a body to change
@@ -178,7 +177,7 @@ the body perseveres in any new state by the force of inertia alone. Impressed
 force has various origins: percussion, pressure, centripetal force.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Encoded, not proved: the velocity kick `pointAdd s.2 (pointScale d (a y))` of every cell, with the field evaluated at the arrival vertex in `CentralSchedule.cell`; `TimeSubdivision.endKick` is the same kick for a constant acceleration.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Encoded, not proved: the velocity kick `pointAdd s.2 (pointScale d (a y))` of every cell, with the field evaluated at the arrival vertex in `CentralSchedule.cell`; `TimeSubdivision.endKick` is the same kick for a constant acceleration.}}
 
 
 **Definition V.** *Centripetal force is that by which a body is drawn,
@@ -218,7 +217,7 @@ lines. Its quantity is of three kinds: absolute, accelerative and motive.
 > alternative reads simply "or go off into the heavens".
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Encoded as the predicate `CentralSchedule.central` (`det p (a p) = 0`: the force is parallel to the radius) and the `inward` field of `ForceClasses.CentralOracle` (every sample a nonnegative multiple of `-p`).}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Encoded as the predicate `CentralSchedule.central` (`det p (a p) = 0`: the force is parallel to the radius) and the `inward` field of `ForceClasses.CentralOracle` (every sample a nonnegative multiple of `-p`).}}
 
 
 **Definition VI.** *The absolute quantity of a centripetal force is its
@@ -231,7 +230,7 @@ For instance, magnetic power is greater in one magnet and less in another.
 > power".
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded.}}
 
 
 **Definition VII.** *The accelerative quantity of a centripetal force is its
@@ -247,7 +246,7 @@ the same on all sides, because all falling bodies, heavy or light, large or
 small, are equally accelerated once air resistance is removed.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Encoded: a force is a map `Field := Point → Point` from positions to accelerations (`CentralSchedule`), or its rational samples with error (`ForceClasses.Oracle`).}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Encoded: a force is a map `Field := Point → Point` from positions to accelerations (`CentralSchedule`), or its rational samples with error (`ForceClasses.Oracle`).}}
 
 
 **Definition VIII.** *The motive quantity of a centripetal force is its
@@ -297,7 +296,7 @@ physical cause, nor to attribute forces truly and physically to centres, which
 are mathematical points.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded (no mass).}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded (no mass).}}
 
 
 ## Scholium
@@ -433,7 +432,7 @@ and conversely, is taught more fully in what follows; the treatise was
 composed for this purpose.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Absolute time is the rational parameter of every schedule and, in the completed layer, the constructed `BinaryTime` quotient; absolute space is the rational plane `Point := Fraction × Fraction` (`BarrowLib/Polygon/PointAlgebra`, in the `TimeSubdivision` namespace). Relative motion appears only as the uniformly moving centre of Proposition II, Case 2.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Absolute time is the rational parameter of every schedule and, in the completed layer, the constructed `BinaryTime` quotient; absolute space is the rational plane `Point := Fraction × Fraction` (`BarrowLib/Polygon/PointAlgebra`, in the `TimeSubdivision` namespace). Relative motion appears only as the uniformly moving centre of Proposition II, Case 2.}}
 
 
 # Axioms, or Laws of Motion
@@ -451,469 +450,9 @@ retards it. The greater bodies of planets and comets keep their progressive
 and circular motions longer in less resisting spaces.
 
 
-\noindent{\small\textit{Lean reconstruction: 36 theorems in 5 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 0 theorems in 1 module placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{Also encoded as the drift in every cell, and stated as `RelativeMotion.lawI\_uniform` (printed under Proposition III, which cites it).}}
-
-\noindent{\small\texttt{BarrowLib/Polygon/ZeroForce.lean}}{\small, definitions only, 16 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.TimeSubdivision
-
-namespace NewtonLimitDynamics.Polygon.ZeroForce
-
-open NewtonLimitDynamics
-open TimeSubdivision
-
-/-- The zero impressed acceleration used in the finite end-kick recurrence. -/
-def zeroPoint : Point := (Fraction.ofInt 0, Fraction.ofInt 0)
-
-/-- The rational-time affine map for an inertial state. Agreement with the
-    actual finite recurrence is proved in `partitionMotion_zero_force`. -/
-def inertialAt (p v : Point) (t : Fraction) : Point :=
-  pointAdd p (pointScale t v)
-
-end NewtonLimitDynamics.Polygon.ZeroForce
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/InertialControl.lean}}{\small, 6 theorems, 114 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.ZeroForce
-
-namespace NewtonLimitDynamics.Polygon.InertialControl
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open ZeroForce
-
-/-- Strict comparison of the absolute value of a represented rational with a
-    positive rational. It is cross multiplication, so it tolerates unnormalised
-    representatives. -/
-def absLt (a bound : Fraction) : Prop :=
-  (a.num.natAbs : Int) * bound.den < bound.num * a.den
-
-/-- A common positive integer bound for both velocity numerators. -/
-def velocityBound (v : Point) : Nat :=
-  v.1.num.natAbs + v.2.num.natAbs + 1
-
-/-- An explicit time radius, for an arbitrary fixed rational velocity. -/
-def radius (eps : Fraction) (v : Point) : Fraction :=
-  ⟨eps.num, eps.den * (velocityBound v : Int),
-    Int.mul_pos eps.den_pos (by
-      unfold velocityBound
-      exact Int.ofNat_pos.mpr (by omega))⟩
-
-theorem radius_positive (eps : Fraction) (v : Point)
-    (heps : Fraction.positive eps) : Fraction.positive (radius eps v) := heps
-
-private theorem scalar_bound (eps h x : Fraction) (K : Nat)
-    (heps : Fraction.positive eps) (hK : x.num.natAbs < K)
-    (hh : absLt h ⟨eps.num, eps.den * (K : Int),
-      Int.mul_pos eps.den_pos (Int.ofNat_pos.mpr (by omega))⟩) :
-    absLt (Fraction.mul h x) eps := by
-  have hK' : (x.num.natAbs : Int) ≤ K := Int.ofNat_le.mpr (Nat.le_of_lt hK)
-  have hden : 1 ≤ x.den := by
-    have := x.den_pos
-    omega
-  have hleft : 0 ≤ (h.num.natAbs : Int) * eps.den :=
-    Int.mul_nonneg (Int.ofNat_zero_le _) (Int.le_of_lt eps.den_pos)
-  have hmul := Int.mul_le_mul_of_nonneg_left hK' hleft
-  have hright : 0 ≤ eps.num * h.den :=
-    Int.mul_nonneg (Int.le_of_lt heps) (Int.le_of_lt h.den_pos)
-  have hdenmul := Int.mul_le_mul_of_nonneg_left hden hright
-  have hsmall : (h.num.natAbs : Int) * eps.den * (K : Int) < eps.num * h.den := by
-    unfold absLt at hh
-    dsimp at hh
-    simpa only [Int.mul_assoc] using hh
-  have hchain : (h.num.natAbs : Int) * (x.num.natAbs : Int) * eps.den <
-      eps.num * (h.den * x.den) := by
-    calc
-      (h.num.natAbs : Int) * (x.num.natAbs : Int) * eps.den
-          = ((h.num.natAbs : Int) * eps.den) * (x.num.natAbs : Int) := by ac_rfl
-      _ ≤ ((h.num.natAbs : Int) * eps.den) * (K : Int) := hmul
-      _ < eps.num * h.den := hsmall
-      _ ≤ (eps.num * h.den) * x.den := by simpa using hdenmul
-      _ = eps.num * (h.den * x.den) := by ac_rfl
-  unfold absLt Fraction.mul
-  dsimp
-  rw [Int.natAbs_mul]
-  exact hchain
-
-/-- For each positive rational tolerance, one explicit radius controls both
-    coordinates of every rational drift at fixed velocity. -/
-theorem drift_small (eps : Fraction) (v : Point)
-    (heps : Fraction.positive eps) (h : Fraction)
-    (hh : absLt h (radius eps v)) :
-    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps := by
-  have hK1 : v.1.num.natAbs < velocityBound v := by
-    unfold velocityBound
-    omega
-  have hK2 : v.2.num.natAbs < velocityBound v := by
-    unfold velocityBound
-    omega
-  constructor
-  · exact scalar_bound eps h v.1 (velocityBound v) heps hK1 hh
-  · exact scalar_bound eps h v.2 (velocityBound v) heps hK2 hh
-
-/-- The controlled drift is the increment in the rational inertial map at
-    every rational base time. This is an equivalence of represented positions,
-    not an assumed curve or a limit theorem. -/
-theorem inertialAt_small_increment (eps : Fraction) (p v : Point)
-    (heps : Fraction.positive eps) (t h : Fraction)
-    (hh : absLt h (radius eps v)) :
-    pointEquiv (inertialAt (inertialAt p v t) v h)
-      (inertialAt p v (Fraction.add t h)) ∧
-    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps := by
-  exact ⟨inertialAt_add p v t h, drift_small eps v heps h hh⟩
-
-/-- The same estimate applies to an actual zero-force end-kick cell begun at
-    any rational inertial time. -/
-theorem endKick_zero_small_increment (eps : Fraction) (p v : Point)
-    (heps : Fraction.positive eps) (t h : Fraction)
-    (hh : absLt h (radius eps v)) :
-    pointEquiv (endKick h (inertialAt p v t, v) zeroPoint).1
-      (inertialAt p v (Fraction.add t h)) ∧
-    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps := by
-  have hcell := (endKick_zero h (inertialAt p v t, v)).1
-  have hmap := inertialAt_add p v t h
-  exact ⟨⟨Fraction.equiv_trans hcell.1 hmap.1,
-    Fraction.equiv_trans hcell.2 hmap.2⟩, drift_small eps v heps h hh⟩
-
-/-- Quantified small-time form. The witness is `radius eps v`, independent of
-    the base time and initial position. -/
-theorem exists_uniform_inertial_radius (eps : Fraction) (v : Point)
-    (heps : Fraction.positive eps) :
-    ∃ delta : Fraction, Fraction.positive delta ∧
-      ∀ (p : Point) (t h : Fraction), absLt h delta →
-        pointEquiv (inertialAt (inertialAt p v t) v h)
-          (inertialAt p v (Fraction.add t h)) ∧
-        absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps := by
-  exact ⟨radius eps v, radius_positive eps v heps,
-    fun p t h hh => inertialAt_small_increment eps p v heps t h hh⟩
-
-end NewtonLimitDynamics.Polygon.InertialControl
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/InertialDefect.lean}}{\small, 8 theorems, 102 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.ZeroForce
-
-namespace NewtonLimitDynamics.Polygon.InertialDefect
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open ZeroForce
-open PartitionControl
-
-/-- The directed determinant of two rational-time inertial samples. -/
-def inertialEdge (p v : Point) (s t : Fraction) : Fraction :=
-  det (inertialAt p v s) (inertialAt p v t)
-
-/-- Three samples of the same finite zero-force comparison map have an
-    additive directed determinant.  The identity is finite Fraction arithmetic. -/
-theorem inertialEdge_compose (p v : Point) (s t u : Fraction) :
-    Fraction.equiv
-      (Fraction.add (inertialEdge p v s t) (inertialEdge p v t u))
-      (inertialEdge p v s u) := by
-  unfold Fraction.equiv Fraction.add inertialEdge det inertialAt pointAdd pointScale
-    Fraction.mul Fraction.add
-  dsimp
-  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
-  ac_nf
-  omega
-
-/-- Determinant of a degenerate connector. -/
-theorem inertialEdge_self (p v : Point) (s : Fraction) :
-    Fraction.equiv (inertialEdge p v s s) (Fraction.ofInt 0) := by
-  unfold Fraction.equiv inertialEdge det Fraction.add Fraction.mul Fraction.ofInt
-  dsimp
-  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
-  ac_nf
-  omega
-
-/-- Directed determinant along a finite list, including its final connector. -/
-def inertialWalk (p v : Point) (a b : Fraction) : List Fraction → Fraction
-  | [] => inertialEdge p v a b
-  | t :: ts => Fraction.add (inertialEdge p v a t) (inertialWalk p v t b ts)
-
-/-- Every finite collinear walk telescopes to its end connector. -/
-theorem inertialWalk_eq_edge (p v : Point) (a b : Fraction) (times : List Fraction) :
-    Fraction.equiv (inertialWalk p v a b times) (inertialEdge p v a b) := by
-  induction times generalizing a with
-  | nil => exact Fraction.equiv_refl _
-  | cons t ts ih =>
-      exact Fraction.equiv_trans (Fraction.add_equiv_left _ (ih t))
-        (inertialEdge_compose p v a t b)
-
-/-- Any finite closed polygon sampled from an inertial recurrence has zero
-    signed doubled determinant sum, for any start, times, and velocity. -/
-theorem inertialWalk_closed (p v : Point) (a : Fraction) (times : List Fraction) :
-    Fraction.equiv (inertialWalk p v a a times) (Fraction.ofInt 0) := by
-  exact Fraction.equiv_trans (inertialWalk_eq_edge p v a a times)
-    (inertialEdge_self p v a)
-
-/-- The four-vertex boundary used by the finite scheduling diagnostic is a
-    special case of the arbitrary closed walk. -/
-theorem inertial_closedBoundaryTwice (p v : Point) (a b c d : Fraction) :
-    Fraction.equiv
-      (closedBoundaryTwice (inertialAt p v a) (inertialAt p v b)
-        (inertialAt p v c) (inertialAt p v d)) (Fraction.ofInt 0) := by
-  exact Fraction.equiv_trans
-    (Fraction.add_assoc (inertialEdge p v a b) (inertialEdge p v b c)
-      (Fraction.add (inertialEdge p v c d) (inertialEdge p v d a)))
-    (inertialWalk_closed p v a [b, c, d])
-
-/-- The represented directed determinant respects point equivalence. -/
-theorem det_congr {a a' b b' : Point} (ha : pointEquiv a a')
-    (hb : pointEquiv b b') : Fraction.equiv (det a b) (det a' b') :=
-  TimeSubdivision.det_congr ha hb
-
-theorem closedBoundaryTwice_congr {a a' b b' c c' d d' : Point}
-    (ha : pointEquiv a a') (hb : pointEquiv b b')
-    (hc : pointEquiv c c') (hd : pointEquiv d d') :
-    Fraction.equiv (closedBoundaryTwice a b c d) (closedBoundaryTwice a' b' c' d') := by
-  unfold closedBoundaryTwice
-  exact Fraction.add_equiv (Fraction.add_equiv (det_congr ha hb) (det_congr hb hc))
-    (Fraction.add_equiv (det_congr hc hd) (det_congr hd ha))
-
-/-- Four arbitrary actual zero-force schedules (possibly with different
-    partitions) have a vanishing signed determinant boundary. -/
-theorem partitionMotion_closedBoundaryTwice (D : Nat) (hD : 0 < D)
-    (p v : Point) (w₀ w₁ w₂ w₃ : List Nat) :
-    Fraction.equiv
-      (closedBoundaryTwice
-        (partitionMotion D hD p v zeroPoint w₀).1
-        (partitionMotion D hD p v zeroPoint w₁).1
-        (partitionMotion D hD p v zeroPoint w₂).1
-        (partitionMotion D hD p v zeroPoint w₃).1)
-      (Fraction.ofInt 0) := by
-  exact Fraction.equiv_trans
-    (closedBoundaryTwice_congr
-      (partitionMotion_zero_force D hD p v w₀).1
-      (partitionMotion_zero_force D hD p v w₁).1
-      (partitionMotion_zero_force D hD p v w₂).1
-      (partitionMotion_zero_force D hD p v w₃).1)
-    (inertial_closedBoundaryTwice p v
-      (duration D (total w₀) hD) (duration D (total w₁) hD)
-      (duration D (total w₂) hD) (duration D (total w₃) hD))
-
-end NewtonLimitDynamics.Polygon.InertialDefect
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/ZeroForce.lean}}{\small, 22 theorems, 208 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.ZeroForce
-import ModernLib.Polygon.PartitionControl
-
-namespace NewtonLimitDynamics.Polygon.ZeroForce
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open PartitionControl
-
-private theorem pointEquiv_refl (p : Point) : pointEquiv p p :=
-  ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩
-
-private theorem inertial_add_scalar (p v s t : Fraction) :
-    Fraction.equiv
-      (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul t v))
-      (Fraction.add p (Fraction.mul (Fraction.add s t) v)) := by
-  have hsum : Fraction.equiv (Fraction.add (Fraction.mul s v) (Fraction.mul t v))
-      (Fraction.mul (Fraction.add s t) v) := by
-    exact Fraction.equiv_trans
-      (Fraction.equiv_trans
-        (Fraction.add_equiv_right (Fraction.mul t v) (Fraction.mul_comm s v))
-        (Fraction.add_equiv_left (Fraction.mul v s) (Fraction.mul_comm t v)))
-      (Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_add v s t))
-        (Fraction.equiv_symm (Fraction.mul_comm (Fraction.add s t) v)))
-  exact Fraction.equiv_trans (Fraction.add_assoc p (Fraction.mul s v) (Fraction.mul t v))
-    (Fraction.add_equiv_left p hsum)
-
-/-- Inertial rational-time evolution joins by addition of elapsed times. -/
-theorem inertialAt_add (p v : Point) (s t : Fraction) :
-    pointEquiv (inertialAt (inertialAt p v s) v t) (inertialAt p v (Fraction.add s t)) := by
-  constructor <;> apply inertial_add_scalar
-
-private theorem zero_scale (d : Fraction) : pointEquiv (pointScale d zeroPoint) zeroPoint := by
-  constructor <;> unfold pointScale zeroPoint Fraction.equiv Fraction.mul Fraction.ofInt <;> dsimp <;> simp
-
-private theorem pointAdd_zero (p : Point) : pointEquiv (pointAdd p zeroPoint) p := by
-  constructor <;> unfold pointAdd zeroPoint Fraction.equiv Fraction.add Fraction.ofInt <;> dsimp <;> simp
-
-/-- One actual zero-force cell is exactly a drift at its stated Fraction time,
-    and leaves velocity unchanged. -/
-theorem endKick_zero (d : Fraction) (state : Point × Point) :
-    pointEquiv (endKick d state zeroPoint).1 (inertialAt state.1 state.2 d) ∧
-      pointEquiv (endKick d state zeroPoint).2 state.2 := by
-  constructor
-  · exact pointEquiv_refl _
-  · change pointEquiv (pointAdd state.2 (pointScale d zeroPoint)) state.2
-    exact pointEquiv_trans (pointAdd_congr (pointEquiv_refl _) (zero_scale d)) (pointAdd_zero state.2)
-
-/-- Replacing a rational time by an equivalent fraction leaves its inertial
-    position unchanged. -/
-theorem inertialAt_time_congr (p v : Point) {s t : Fraction} (h : Fraction.equiv s t) :
-    pointEquiv (inertialAt p v s) (inertialAt p v t) := by
-  apply pointAdd_congr (pointEquiv_refl _)
-  constructor
-  · exact Fraction.equiv_trans (Fraction.mul_comm s v.1)
-      (Fraction.equiv_trans (Fraction.mul_equiv_left v.1 h) (Fraction.equiv_symm (Fraction.mul_comm t v.1)))
-  · exact Fraction.equiv_trans (Fraction.mul_comm s v.2)
-      (Fraction.equiv_trans (Fraction.mul_equiv_left v.2 h) (Fraction.equiv_symm (Fraction.mul_comm t v.2)))
-
-private theorem encodedPosition_zero (D : Nat) (hD : 0 < D) (s : PartitionStats) (p v : Point) :
-    pointEquiv (encodedPosition D hD s p v zeroPoint)
-      (inertialAt p v (duration D s.T hD)) := by
-  unfold encodedPosition inertialAt
-  exact pointEquiv_trans
-    (pointAdd_congr (pointEquiv_refl _)
-      (zero_scale (squareDuration D s.A hD)))
-    (pointAdd_zero _)
-
-private theorem encodedVelocity_zero (D : Nat) (hD : 0 < D) (s : PartitionStats) (v : Point) :
-    pointEquiv (encodedVelocity D hD s v zeroPoint) v := by
-  unfold encodedVelocity
-  exact pointEquiv_trans
-    (pointAdd_congr (pointEquiv_refl _)
-      (zero_scale (duration D s.T hD)))
-    (pointAdd_zero _)
-
-/-- Every actual finite zero-force schedule reaches the inertial map at its
-    elapsed rational time and retains its incoming velocity. -/
-theorem partitionMotion_zero_force (D : Nat) (hD : 0 < D) (p v : Point) (weights : List Nat) :
-    pointEquiv (partitionMotion D hD p v zeroPoint weights).1
-      (inertialAt p v (duration D (total weights) hD)) ∧
-    pointEquiv (partitionMotion D hD p v zeroPoint weights).2 v := by
-  have hformula := partitionMotion_formula D hD p v zeroPoint weights
-  constructor
-  · exact pointEquiv_trans hformula.1
-      (encodedPosition_zero D hD (stats weights) p v)
-  · exact pointEquiv_trans hformula.2
-      (encodedVelocity_zero D hD (stats weights) v)
-
-/-- Addition of two common-denominator elapsed times represents their summed
-    numerator. -/
-theorem duration_add (D a b : Nat) (hD : 0 < D) :
-    Fraction.equiv (Fraction.add (duration D a hD) (duration D b hD))
-      (duration D (a + b) hD) := by
-  unfold Fraction.equiv Fraction.add duration
-  dsimp
-  simp only [Int.ofNat_add, Int.mul_add, Int.add_mul]
-  ac_rfl
-
-/-- The finite recurrence itself restarts exactly: this is `foldl_append`, not
-    an assumption about a background curve. -/
-theorem partitionMotion_append (D : Nat) (hD : 0 < D) (p v : Point)
-    (ws xs : List Nat) :
-    partitionMotion D hD p v zeroPoint (ws ++ xs) =
-      partitionMotion D hD (partitionMotion D hD p v zeroPoint ws).1
-        (partitionMotion D hD p v zeroPoint ws).2 zeroPoint xs := by
-  unfold partitionMotion
-  rw [List.foldl_append]
-
-private theorem inertialAt_state_congr {p p' v v' : Point} (hp : pointEquiv p p')
-    (hv : pointEquiv v v') (t : Fraction) :
-    pointEquiv (inertialAt p v t) (inertialAt p' v' t) :=
-  pointAdd_congr hp (pointScale_congr t hv)
-
-/-- Drifting for a rational amount `r` from the actual prefix state agrees
-    with the inertial map at elapsed prefix time plus `r`. -/
-theorem withinCell_position (D : Nat) (hD : 0 < D) (p v : Point)
-    (pre : List Nat) (r : Fraction) :
-    pointEquiv (endKick r (partitionMotion D hD p v zeroPoint pre) zeroPoint).1
-      (inertialAt p v (Fraction.add (duration D (total pre) hD) r)) := by
-  have hp := partitionMotion_zero_force D hD p v pre
-  have hkick := endKick_zero r (partitionMotion D hD p v zeroPoint pre)
-  exact pointEquiv_trans hkick.1
-    (pointEquiv_trans (inertialAt_state_congr hp.1 hp.2 r)
-      (inertialAt_add p v (duration D (total pre) hD) r))
-
-/-- The same algebra applies to an in-cell physical drift; the displayed
-    inequalities express that `r` lies between the prefix vertex and the next
-    cell endpoint and are not used as algebraic premises. -/
-theorem withinCell_position_bounded (D w : Nat) (hD : 0 < D) (p v : Point)
-    (pre : List Nat) (r : Fraction)
-    (_hr0 : Fraction.le (Fraction.ofInt 0) r)
-    (_hrcell : Fraction.le r (duration D w hD)) :
-    pointEquiv (endKick r (partitionMotion D hD p v zeroPoint pre) zeroPoint).1
-      (inertialAt p v (Fraction.add (duration D (total pre) hD) r)) :=
-  withinCell_position D hD p v pre r
-
-/-- Rest is the zero-velocity specialization of the actual finite recurrence. -/
-theorem partitionMotion_rest (D : Nat) (hD : 0 < D) (p : Point) (weights : List Nat) :
-    pointEquiv (partitionMotion D hD p zeroPoint zeroPoint weights).1 p ∧
-      pointEquiv (partitionMotion D hD p zeroPoint zeroPoint weights).2 zeroPoint := by
-  have h := partitionMotion_zero_force D hD p zeroPoint weights
-  constructor
-  · exact pointEquiv_trans h.1 (by
-      unfold inertialAt
-      exact pointEquiv_trans
-        (pointAdd_congr (pointEquiv_refl _) (zero_scale (duration D (total weights) hD)))
-        (pointAdd_zero _))
-  · exact h.2
-
-/-- Equal rational elapsed times give equal positions even for schedules with
-    different positive common denominators and different partitions. -/
-theorem partitionMotion_cross_partition (D E : Nat) (hD : 0 < D) (hE : 0 < E)
-    (p v : Point) (ws xs : List Nat)
-    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total xs) hE)) :
-    pointEquiv (partitionMotion D hD p v zeroPoint ws).1
-      (partitionMotion E hE p v zeroPoint xs).1 := by
-  have hleft := partitionMotion_zero_force D hD p v ws
-  have hright := partitionMotion_zero_force E hE p v xs
-  exact pointEquiv_trans hleft.1
-    (pointEquiv_trans (inertialAt_time_congr p v ht)
-      ⟨Fraction.equiv_symm hright.1.1, Fraction.equiv_symm hright.1.2⟩)
-
-/-- Cross-partition agreement includes the unchanged terminal velocity. -/
-theorem partitionMotion_cross_partition_state (D E : Nat) (hD : 0 < D) (hE : 0 < E)
-    (p v : Point) (ws xs : List Nat)
-    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total xs) hE)) :
-    pointEquiv (partitionMotion D hD p v zeroPoint ws).1
-      (partitionMotion E hE p v zeroPoint xs).1 ∧
-    pointEquiv (partitionMotion D hD p v zeroPoint ws).2
-      (partitionMotion E hE p v zeroPoint xs).2 := by
-  constructor
-  · exact partitionMotion_cross_partition D E hD hE p v ws xs ht
-  · have hleft := partitionMotion_zero_force D hD p v ws
-    have hright := partitionMotion_zero_force E hE p v xs
-    exact pointEquiv_trans hleft.2
-      ⟨Fraction.equiv_symm hright.2.1, Fraction.equiv_symm hright.2.2⟩
-
-def scalarZero : Fraction := Fraction.ofInt 0
-def scalarOne : Fraction := Fraction.ofInt 1
-def scalarTwo : Fraction := Fraction.ofInt 2
-def scalarHalf : Fraction := ⟨1, 2, by decide⟩
-
-def slow (t : Fraction) : Point := (t, scalarZero)
-def fast (t : Fraction) : Point := (Fraction.mul scalarTwo t, scalarZero)
-
-/-- Same endpoint with different elapsed times: `slow(1) = fast(1/2)`. -/
-theorem slow_fast_equal_endpoint : pointEquiv (slow scalarOne) (fast scalarHalf) := by
-  decide
-
-/-- At a common half-time the two velocity choices give different positions. -/
-theorem slow_fast_different_half_time : ¬ pointEquiv (slow scalarHalf) (fast scalarHalf) := by
-  decide
-
-/-- Collinear samples of these distinct motions close with zero directed area.
-    This is a geometric diagnostic only, not fixed-data nonuniqueness. -/
-theorem slow_fast_collinear_closedBoundary :
-    Fraction.equiv (closedBoundaryTwice zeroPoint (slow scalarHalf) (slow scalarOne)
-      (fast scalarHalf)) scalarZero := by
-  decide
-
-/-- A concrete two-cell actual schedule has the expected inertial endpoint. -/
-theorem slow_two_cell_schedule :
-    pointEquiv (partitionMotion 2 (by decide) zeroPoint (slow scalarOne) zeroPoint [1, 1]).1
-      (slow scalarOne) := by
-  decide
-
-end NewtonLimitDynamics.Polygon.ZeroForce
-\end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Historical/LawI.lean}}{\small, definitions only, 37 lines}
 
@@ -921,7 +460,7 @@ end NewtonLimitDynamics.Polygon.ZeroForce
 
 
 /-! Historical result: law_i.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Text-only open dependency; formal model hypotheses are elsewhere. -/
@@ -972,79 +511,9 @@ force, is added to the body's earlier motion if they conspire, subtracted if
 contrary, and compounded obliquely if oblique, according to both directions.
 
 
-\noindent{\small\textit{Lean reconstruction: 5 theorems in 2 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 0 theorems in 1 module placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{Encoded in impulse form by the kick of `CentralSchedule.cell`: the change of velocity is `d · a(y)`, along the force and proportional to it; and by `Finite.EuclideanConstruction.kick`, which displaces the vertex parallel to the radius.}}
-
-\noindent{\small\texttt{BarrowLib/Polygon/ImpulseComposition.lean}}{\small, 5 theorems, 65 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.Parallelogram
-import BarrowLib.Polygon.ZeroForce
-import BarrowLib.Polygon.CentralSchedule
-
-/-! Finite rational reconstruction of Newton's Laws Corollary 1 proof.
-The mechanical model takes the change of velocity from an impulse to be an
-added vector (Law II and its explanation), and subsequent motion to be the
-existing uniform affine map (Law I). These are mechanical premises, not laws
-proved from geometry. Transverse invariance, unique intersection for independent
-directions, diagonal uniform motion, and the actual central cell's use of that
-composition are proved. No force continuity or limit is assumed. -/
-
-namespace NewtonLimitDynamics.Polygon.ImpulseComposition
-open NewtonLimitDynamics TimeSubdivision Parallelogram
-
-/-- Law II's directed additive velocity change preserves the transverse
-component. The proportionality constant is the explicit scalar `k`. -/
-theorem impulse_transverse_unchanged (velocity direction : Point) (k : Fraction) :
-    ParallelThrough (pointAdd velocity (pointScale k direction)) velocity direction :=
-  parallel_translation velocity direction k
-
-/-- Impulses at the initial point followed by uniform motion give the
-parallelogram diagonal at every rational elapsed time. Parallel, opposite
-and zero impulse vectors require no division and are included. -/
-theorem uniform_impulse_diagonal (p u v : Point) (t : Fraction) :
-    pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t)
-      (diagonal p (pointScale t u) (pointScale t v)) :=
-  pointEquiv_trans
-    (pointAdd_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (pointScale_add t u v))
-    (pointEquiv_symm (pointAdd_assoc p (pointScale t u) (pointScale t v)))
-
-/-- The simultaneous endpoint is on both lines reached by the separate
-motions. This establishes Newton's two line constraints from the mechanical
-model, rather than assuming the parallelogram conclusion. -/
-theorem uniform_endpoint_lines (p u v : Point) (t : Fraction) :
-    ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t)
-      (ZeroForce.inertialAt p u t) (pointScale t v) ∧
-    ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t)
-      (ZeroForce.inertialAt p v t) (pointScale t u) := by
-  constructor <;>
-    simp only [ParallelThrough,ZeroForce.inertialAt,pointAdd,pointScale,det,
-      Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add,
-      Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
-
-/-- Newton's independent endpoint-line argument: any endpoint with the two
-unchanged transverse coordinates is the opposite corner. Uniform motion or
-an impulse-at-A clause is not required for this finite inference. -/
-theorem endpoint_from_components (p u v x : Point) (h : (det u v).num ≠ 0)
-    (hM : ParallelThrough x (pointAdd p u) v)
-    (hN : ParallelThrough x (pointAdd p v) u) :
-    pointEquiv x (diagonal p u v) :=
-  intersection_unique p u v x h hM hN
-
-/-- The actual central-force recurrence uses this same composition. After
-the first arrival's impulse, the next drift is its inertial continuation plus
-the impulse-generated displacement. This is proved for any sampled field. -/
-theorem next_arrival_diagonal (a : CentralSchedule.Field) (h k : Fraction)
-    (s : Point × Point) :
-    pointEquiv (CentralSchedule.cell a k (CentralSchedule.cell a h s)).1
-      (diagonal (CentralSchedule.cell a h s).1 (pointScale k s.2)
-        (pointScale k (pointScale h (a (CentralSchedule.cell a h s).1)))) :=
-  uniform_impulse_diagonal (CentralSchedule.cell a h s).1 s.2
-    (pointScale h (a (CentralSchedule.cell a h s).1)) k
-
-end NewtonLimitDynamics.Polygon.ImpulseComposition
-\end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Historical/LawII.lean}}{\small, definitions only, 37 lines}
 
@@ -1052,7 +521,7 @@ end NewtonLimitDynamics.Polygon.ImpulseComposition
 
 
 /-! Historical result: law_ii.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Text-only open dependency; formal model hypotheses are elsewhere. -/
@@ -1111,7 +580,7 @@ In modern terms: $m_A \Delta \mathbf v_A = -m_B \Delta \mathbf v_B$.
 > proved in the next Scholium.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded: the model is single-body. Proposition III cancels the second body's force by Corollary VI, not by Law III.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded: the model is single-body. Proposition III cancels the second body's force by Corollary VI, not by Law III.}}
 
 
 **Corollary I.** *A body acted on by two forces jointly describes the diagonal
@@ -1135,7 +604,7 @@ In modern terms: $\overrightarrow{AD} = \overrightarrow{AB} + \overrightarrow{AC
 > one place, followed by inertial motion.
 
 
-\noindent{\small\textit{Lean reconstruction: 4 theorems in 1 module cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 6 theorems in 1 module placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{Encoded as `Finite.step g p q j = g.kick q (g.extend p q) j` with the field `same\_base\_parallels` of `EuclideanConstruction`: the displaced vertex lies on the line through the inertial point parallel to the radius, Newton's parallelogram.}}
 
@@ -1145,7 +614,7 @@ In modern terms: $\overrightarrow{AD} = \overrightarrow{AB} + \overrightarrow{AC
 import BarrowLib.Polygon.ImpulseComposition
 
 /-! Historical result: composition_of_motions.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! NATP00089. Hypothesis, modern finite model only; no historical proof asserted. -/
@@ -1295,7 +764,7 @@ follow the forces of all machines built from wheels, drums, pulleys, levers,
 taut strings and weights, and of the muscles moving the bones of animals.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded.}}
 
 
 **Corollary III.** *The quantity of motion, obtained by taking the sum of the
@@ -1325,7 +794,7 @@ difference is unchanged. Collisions also produce rotations about the bodies'
 own centres, which are not considered here.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded (no mass, single body).}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded (no mass, single body).}}
 
 
 **Corollary IV.** *The common centre of gravity of two or more bodies does not
@@ -1364,7 +833,7 @@ between pairs of bodies or compounded of such, so the common centre of all is
 never changed by them.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded.}}
 
 
 **Corollary V.** *The motions of bodies contained in a given space are the same
@@ -1383,7 +852,7 @@ In modern terms: the laws are invariant under
 $\mathbf r' = \mathbf r - \mathbf u t$, $t' = t$, with $\mathbf u$ constant.
 
 
-\noindent{\small\textit{Lean reconstruction: 0 theorems in 1 module cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 0 theorems in 1 module placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{Used as `Converse.moving\_centre\_equal\_areas\_central`, Proposition II, Case 2 (printed under Proposition II).}}
 
@@ -1393,7 +862,7 @@ $\mathbf r' = \mathbf r - \mathbf u t$, $t' = t$, with $\mathbf u$ constant.
 import ModernLib.Polygon.Converse
 
 /-! Historical result: laws_corollary_v.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 Each edition retains its exact source statement and proof.
 -/
 
@@ -1436,9 +905,9 @@ bodies) along parallel lines, move all bodies equally as to velocity (Law II),
 and so never change their positions and motions among themselves.
 
 
-\noindent{\small\textit{Lean reconstruction: 0 theorems in 1 module cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 0 theorems in 1 module placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
-\noindent{\small\textit{Stated and used as `RelativeMotion.corVI\_relative` (printed under Proposition III, whose dependency edge in `research/dependencies.json` names it).}}
+\noindent{\small\textit{Stated and used as `RelativeMotion.corVI\_relative` (printed under Proposition III).}}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Historical/LawsCorollaryVI.lean}}{\small, definitions only, 40 lines}
 
@@ -1446,7 +915,7 @@ and so never change their positions and motions among themselves.
 import ModernLib.Polygon.RelativeMotion
 
 /-! Historical result: laws_corollary_vi.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 Each edition retains its exact source statement and proof.
 -/
 
@@ -1561,7 +1030,7 @@ reaction are always equal in every use of instruments. Mechanics is not the
 subject here; this only shows how widely and how surely the third Law holds.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded, except that Galileo's parabola is the parallel-force instance `ForceClasses.parallelOracle` and `Polygon/ParallelQuadraticEndpoint`.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded, except that Galileo's parabola is the parallel-force instance `ForceClasses.parallelOracle` and `Polygon/ParallelQuadraticEndpoint`.}}
 
 
 # Book I: On the Motion of Bodies
@@ -1588,7 +1057,7 @@ hypothesis.
 > ultimately unequal".
 
 
-\noindent{\small\textit{Lean reconstruction: 0 theorems in 1 module cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 0 theorems in 1 module placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{Encoded as the limit interface of `BarrowLib/Common/Quadratic.lean`: `Near` and `Ultimate` (ultimate equality is approach closer than any given difference), used by `enclosure\_reconstruction`, the squeeze; and as the `Within` and `Vanishes` predicates of `CauchyValues` and `Enclosure`.}}
 
@@ -1598,7 +1067,7 @@ hypothesis.
 
 
 /-! Historical result: lemma_i.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Ultimate equality remains an explicit open historical dependency. -/
@@ -1666,73 +1135,9 @@ and still more the curvilinear figure between them, become ultimately equal.
 In modern terms: $U_n - L_n = \Delta x \,(f(a) - f(b)) \to 0$.
 
 
-\noindent{\small\textit{Lean reconstruction: 4 theorems in 2 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 2 theorems in 1 module placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{The equal-width rectangle-sum gap is a checked finite partial reconstruction; geometric union-area identification and the ultimate curvilinear ratio remain open.}}
-
-\noindent{\small\texttt{ModernLib/Reconstruction/MonotoneRectangles.lean}}{\small, 2 theorems, 59 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Foundation.Polygon.MonotoneRectangles
-
-/-! Cross-result monotone rectangle reconstruction; the two witness models remain distinct. -/
-
-namespace ModernLib.Reconstruction.Principia1687.LemmaIIIII
-open NewtonLimitDynamics NewtonLimitDynamics.Polygon
-
-theorem lemmas2_3_monotone_rectangle_reconstruction (g : Fraction → Fraction) (a b : Fraction)
-    (parts : Nat → MonotoneRectangles.Partition a b)
-    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
-    (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m →
-      Fraction.lt (MonotoneRectangles.maxWidth (parts m)) delta) :
-    (∀ m, (∀ x, MonotoneRectangles.completed (MonotoneRectangles.lowerFigure g (parts m)) x →
-        MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x) ∧
-      (∀ x, MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x →
-        MonotoneRectangles.completed (MonotoneRectangles.upperFigure g (parts m)) x)) ∧
-    (∀ m, (0≤(MonotoneRectangles.lowerSum g (parts m)).num ∧
-        0≤(MonotoneRectangles.upperSum g (parts m)).num) ∧
-      (0≤(MonotoneRectangles.gap g (parts m)).num ∧
-        Fraction.le (MonotoneRectangles.gap g (parts m))
-          (Fraction.mul (MonotoneRectangles.maxWidth (parts m))
-            (HarmonicTimeComparison.durationDifference (g a) (g b))))) ∧
-    (∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
-      Fraction.lt (MonotoneRectangles.gap g (parts m)) eps) :=
-  ⟨fun m => MonotoneRectangles.completed_enclosure g (parts m) hg,
-    fun m => ⟨MonotoneRectangles.sums_nonnegative g (parts m) hg hbase,
-      MonotoneRectangles.gap_bound g (parts m) hg (MonotoneRectangles.maxWidth (parts m))
-        (MonotoneRectangles.maxWidth_bounds (parts m)).1⟩,
-    MonotoneRectangles.gaps_vanish g parts hg hmesh⟩
-
-end ModernLib.Reconstruction.Principia1687.LemmaIIIII
-
-namespace ModernLib.Reconstruction.Principia1713.LemmaIIIII
-open NewtonLimitDynamics NewtonLimitDynamics.Polygon
-
-theorem lemmas2_3_monotone_rectangle_reconstruction (g : Fraction → Fraction) (a b : Fraction)
-    (parts : Nat → MonotoneRectangles.Partition a b)
-    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
-    (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m →
-      Fraction.lt (MonotoneRectangles.maxWidth (parts m)) delta) :
-    (∀ m, (∀ x, MonotoneRectangles.completed (MonotoneRectangles.lowerFigure g (parts m)) x →
-        MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x) ∧
-      (∀ x, MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x →
-        MonotoneRectangles.completed (MonotoneRectangles.upperFigure g (parts m)) x)) ∧
-    (∀ m, (0≤(MonotoneRectangles.lowerSum g (parts m)).num ∧
-        0≤(MonotoneRectangles.upperSum g (parts m)).num) ∧
-      (0≤(MonotoneRectangles.gap g (parts m)).num ∧
-        Fraction.le (MonotoneRectangles.gap g (parts m))
-          (Fraction.mul (MonotoneRectangles.maxWidth (parts m))
-            (HarmonicTimeComparison.durationDifference (g a) (g b))))) ∧
-    (∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
-      Fraction.lt (MonotoneRectangles.gap g (parts m)) eps) :=
-  ⟨fun m => MonotoneRectangles.completed_enclosure g (parts m) hg,
-    fun m => ⟨MonotoneRectangles.sums_nonnegative g (parts m) hg hbase,
-      MonotoneRectangles.gap_bound g (parts m) hg (MonotoneRectangles.maxWidth (parts m))
-        (MonotoneRectangles.maxWidth_bounds (parts m)).1⟩,
-    MonotoneRectangles.gaps_vanish g parts hg hmesh⟩
-
-end ModernLib.Reconstruction.Principia1713.LemmaIIIII
-\end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Historical/LemmaII.lean}}{\small, 2 theorems, 63 lines}
 
@@ -1740,7 +1145,7 @@ end ModernLib.Reconstruction.Principia1713.LemmaIIIII
 import BarrowLib.Polygon.MonotoneRectangles
 
 /-! Historical result: lemma_ii.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Equal-width gap identity in an explicit rational monotone graph model. -/
@@ -1829,138 +1234,9 @@ the same arcs.
 $acE$) are not rectilinear, but curvilinear limits of rectilinear figures.
 
 
-\noindent{\small\textit{Lean reconstruction: 13 theorems in 7 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 4 theorems in 5 modules placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{Separate result files own Lemma III and its four corollaries. Maximum-width rectangle gap exhaustion and modern chord/supporting-boundary limits are checked with explicit premises. Scalar area, boundary convergence, tangent identification and the historical ultimate-area passage remain separate.}}
-
-\noindent{\small\texttt{ModernLib/Polygon/Enclosure.lean}}{\small, 7 theorems, 82 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ClassicsLib.Euclid.FiniteLattice
-import BarrowLib.Common.RationalMagnitudes
-import ModernLib.Foundation.Polygon.RationalEnclosure
-
-namespace NewtonLimitDynamics.Polygon
-
-theorem isum_mono (f g : Nat → Int) (n : Nat) (h : ∀ i, i < n → f i ≤ g i) :
-    isum f n ≤ isum g n := by
-  induction n with
-  | zero => exact Int.le_refl _
-  | succ n ih =>
-    simp only [isum]
-    exact Int.add_le_add (ih (fun i hi => h i (by omega))) (h n (by omega))
-
-theorem isum_mul (f : Nat → Int) (c : Int) (n : Nat) :
-    isum (fun i => c * f i) n = c * isum f n := by
-  induction n with
-  | zero => simp [isum]
-  | succ n ih => simp [isum, ih, Int.mul_add]
-
-theorem telescoping (height : Nat → Int) (n : Nat) :
-    isum (fun i => height (i+1) - height i) n = height n - height 0 := by
-  induction n with
-  | zero => simp [isum]
-  | succ n ih => simp only [isum, ih]; omega
-
-/-- Lemmas II/III's finite rectangle estimate, for a monotone patch. Widths
-    may be unequal; every width must obey the SAME maximum. Multiplication
-    measures rectangle area. A curve enclosed by these rectangles is an
-    additional geometric hypothesis, not supplied by this arithmetic result. -/
-theorem rectangle_gap_bound (width height : Nat → Int) (maxWidth : Int) (n : Nat)
-    (hw : ∀ i, i < n → width i ≤ maxWidth)
-    (hh : ∀ i, i < n → height i ≤ height (i+1)) :
-    isum (fun i => width i * (height (i+1)-height i)) n ≤
-      maxWidth * (height n - height 0) := by
-  have h := isum_mono (fun i => width i * (height (i+1)-height i))
-    (fun i => maxWidth * (height (i+1)-height i)) n (by
-      intro i hi
-      exact Int.mul_le_mul_of_nonneg_right (hw i hi) (by have := hh i hi; omega))
-  rw [isum_mul, telescoping] at h
-  exact h
-
-/-- Refinement indexed by positive rational mesh. The budget represents the
-    maximum-width times total-height estimate. Making that budget small must
-    be justified for the selected curve; it does not assert a trajectory. -/
-def Vanishes {A : Type} [RationalEnclosure.Magnitude A] (gap : Fraction → A) : Prop :=
-  ∀ epsilon, Fraction.positive epsilon →
-    Near Fraction.magnitudes (fun mesh => RationalEnclosure.Magnitude.small (gap mesh) epsilon)
-
-theorem enclosed_gap_vanishes {A : Type} [RationalEnclosure.Magnitude A]
-    (gap : Fraction → A) (budget : Fraction → Fraction)
-    (hbudget : Vanishes budget)
-    (henclose : Near Fraction.magnitudes (fun mesh =>
-      RationalEnclosure.Magnitude.bounded (gap mesh) (budget mesh))) :
-    Vanishes gap := by
-  intro epsilon hepsilon
-  obtain ⟨d, hd, h⟩ := near_and Fraction.magnitudes _ _ henclose (hbudget epsilon hepsilon)
-  exact ⟨d, hd, fun mesh hm hmd =>
-    RationalEnclosure.Magnitude.small_of_bound _ _ _ (h mesh hm hmd).1 (h mesh hm hmd).2⟩
-
-/-- An explicit unconditional rational budget instance, including zero
-coefficient. This is the squeeze used by constructed geometric content. -/
-theorem linear_budget_vanishes (A : Fraction) (hA : 0 ≤ A.num) :
-    Vanishes (fun mesh => Fraction.mul mesh A) := by
-  intro eps heps
-  refine ⟨Polygon.HarmonicTimeRealization.factorDelta A eps hA,
-    Polygon.HarmonicTimeRealization.factorDelta_positive A eps hA heps,?_⟩
-  intro mesh hm hmd
-  exact Polygon.HarmonicTimeRealization.factor_control A eps mesh hA (Int.le_of_lt hm) hmd
-
-/-- Conditional transfer of polygon area ratios to enclosed sector area ratios.
-    Lower and upper limits are geometric premises. No trajectory existence or
-    identification with continuous force follows from this type. -/
-theorem sector_ratio_reconstruction (sector inner outer : Fraction → Fraction)
-    (c : Fraction) (hin : Ultimate Fraction.magnitudes inner c)
-    (hout : Ultimate Fraction.magnitudes outer c)
-    (henclose : Near Fraction.magnitudes (fun mesh =>
-      Fraction.le (inner mesh) (sector mesh) ∧ Fraction.le (sector mesh) (outer mesh))) :
-    Ultimate Fraction.magnitudes sector c :=
-  enclosure_reconstruction Fraction.magnitudes sector inner outer c hin hout henclose
-
-end NewtonLimitDynamics.Polygon
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Reconstruction/SupportingBoundary.lean}}{\small, 2 theorems, 37 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Foundation.Polygon.SupportingBoundary
-
-/-! Cross-result Corollaries III-IV boundary reconstruction; witness models remain distinct. -/
-
-namespace ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries
-open NewtonLimitDynamics NewtonLimitDynamics.Polygon
-open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveTrace
-
-theorem corollary3_4_supporting_boundary_reconstruction (T : Fraction) (hT : 0≤T.num)
-    (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
-    (points : Nat → Nat → Point)
-    (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1)))
-    (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
-      ∀ k, k≤blocks m → CauchyValues.Within (embedPosition (points m k)).val
-        (f (nodeTime T hT m k)).val eps) :
-    BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m))
-      (ImageTrace f) :=
-  SupportingBoundary.dyadic_supportingTrace_limit T hT f hf points cells hpoints
-
-end ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries
-
-namespace ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries
-open NewtonLimitDynamics NewtonLimitDynamics.Polygon
-open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveTrace
-
-theorem corollary3_4_supporting_boundary_reconstruction (T : Fraction) (hT : 0≤T.num)
-    (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
-    (points : Nat → Nat → Point)
-    (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1)))
-    (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
-      ∀ k, k≤blocks m → CauchyValues.Within (embedPosition (points m k)).val
-        (f (nodeTime T hT m k)).val eps) :
-    BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m))
-      (ImageTrace f) :=
-  SupportingBoundary.dyadic_supportingTrace_limit T hT f hf points cells hpoints
-
-end ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries
-\end{Verbatim}
 
 \noindent{\small\texttt{NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean}}{\small, definitions only, 41 lines}
 
@@ -1968,7 +1244,7 @@ end ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries
 
 
 /-! Historical result: lemma_iii_corollary_i.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Text-only open dependency; no boundary theorem discharges this claim. -/
@@ -2014,7 +1290,7 @@ end Principia1713.LemmaIII
 
 
 /-! Historical result: lemma_iii_corollary_ii.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Text-only open dependency; no boundary theorem discharges this claim. -/
@@ -2060,7 +1336,7 @@ end Principia1713.LemmaIII
 
 
 /-! Historical result: lemma_iii_corollary_iii.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Text-only open dependency; no boundary theorem discharges this claim. -/
@@ -2106,7 +1382,7 @@ end Principia1713.LemmaIII
 import ModernLib.Polygon.GeneralForcePolygonCurve
 
 /-! Historical result: lemma_iii_corollary_iv.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Modern boundary reconstructions only; supporting result also relates to Corollary III but does not prove its area claim. -/
@@ -2196,7 +1472,7 @@ end Principia1713.LemmaIII
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
 /-! Historical result: lemma_iii.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Unequal-width estimate uses maximum width; no union-area theorem. -/
@@ -2260,7 +1536,7 @@ parallelograms, and so, in the limit, in the ultimate ratio of parallelogram
 to parallelogram, that is (by hypothesis) of part to part.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded.}}
 
 
 **Lemma V.** *All corresponding sides of similar figures, curvilinear as well as
@@ -2271,7 +1547,7 @@ In modern terms: under a similarity of ratio $\lambda$, lengths scale by
 $\lambda$ and areas by $\lambda^2$.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded; Proposition IV's limiting route through it is documented as an editorial interpretation, not derived.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded; Proposition IV's limiting route through it is documented as an editorial interpretation, not derived.}}
 
 
 **Lemma VI.** *If any arc $AB$, given in position, is subtended by its chord
@@ -2295,7 +1571,7 @@ The latter is contrary to the nature of curvature, so the former holds.
 > here and in Lemmas VII and VIII.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded; the chord, tangent and arc comparison is not needed by the finite steps of Propositions I–IV.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded; the chord, tangent and arc comparison is not needed by the finite steps of Propositions I–IV.}}
 
 
 **Lemma VII.** *Under the same suppositions, the ultimate ratio of the arc, the
@@ -2332,7 +1608,7 @@ each other is the ratio of equality.
 argument about ultimate ratios.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded (see Lemma VI).}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded (see Lemma VI).}}
 
 
 **Lemma VIII.** *If the given straight lines $AR$, $BR$ form with the arc $AB$,
@@ -2355,7 +1631,7 @@ proportional to these, become ultimately similar and equal to each other.
 argument about ultimate ratios.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded (see Lemma VI).}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded (see Lemma VI).}}
 
 
 **Lemma IX.** *If a straight line $AE$ and a curve $AC$, given in position, cut
@@ -2383,12 +1659,7 @@ the sides $AD$, $AE$.
 > points $B$, $C$ coalesce with $A$ *while the length $Ae$ stays fixed*.
 
 
-\noindent{\small\textit{Lean reconstruction: 0 theorems in 0 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
-
-\noindent{\small\textit{Also cited by theorems printed under: Lemma X. (LemmaX.lean, 1).}}
-
-\noindent{\small\textit{The catalogue anchors this module to Lemma IX; its `Ultimate` conclusions are conditional on `Ultimate` hypotheses (the limit interface transports limits, it does not produce one).}}
-
+\noindent{\small\textit{No Lean source module is anchored to this item. The `Ultimate` conclusions are conditional on `Ultimate` hypotheses (the limit interface transports limits, it does not produce one).}}
 
 
 **Lemma X.** *The spaces which a body describes, urged by any regular force,
@@ -2451,185 +1722,9 @@ body.
 > ratio.
 
 
-\noindent{\small\textit{Lean reconstruction: 15 theorems in 5 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 12 theorems in 4 modules placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{`LemmaXPremises` (both editions) is a bundle of `Ultimate` fields whose theorem is their squeeze; no instance is ever built, and the 1713 structure only wraps the 1687 one, so the 1713 force clause has no separate formal content. `MonotoneEnclosure` formalizes that clause on finite cells, unconnected to the theorem.}}
-
-\noindent{\small\texttt{ModernLib/Contact/AreaCoefficient.lean}}{\small, 4 theorems, 171 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Contact.FiniteSums
-
-namespace NewtonLimitDynamics.Contact
-
-private theorem zero_of_scaled_bounds (delta C : Int)
-    (h : ∀ n : Nat, 0 < n → (n : Int)*delta ≤ C ∧ (n : Int)*(-delta) ≤ C) : delta = 0 := by
-  let n := C.natAbs + 1
-  have hn : 0 < n := by omega
-  obtain ⟨hu, hl⟩ := h n hn
-  have habs : C ≤ (C.natAbs : Int) := Int.le_natAbs
-  have hnlarge : C < (n : Int) := by dsimp [n]; omega
-  have hnp : 0 ≤ (n : Int) := by omega
-  by_cases hp : 0 < delta
-  · have hd : 1 ≤ delta := by omega
-    have hm := Int.mul_le_mul_of_nonneg_left hd hnp
-    simp only [Int.mul_one] at hm
-    omega
-  · by_cases hm : delta < 0
-    · have hd : 1 ≤ -delta := by omega
-      have hb := Int.mul_le_mul_of_nonneg_left hd hnp
-      simp only [Int.mul_one] at hb
-      omega
-    · omega
-
-def lowerParabola (n : Nat) (hn : 0 < n) : Fraction :=
-  ⟨(nsum (fun i => i*i) n : Int), (n*n*n : Nat),
-    Int.ofNat_lt.mpr (Nat.mul_pos (Nat.mul_pos hn hn) hn)⟩
-def upperParabola (n : Nat) (hn : 0 < n) : Fraction :=
-  ⟨(nsum (fun i => i*i) n + n*n : Nat), (n*n*n : Nat),
-    Int.ofNat_lt.mpr (Nat.mul_pos (Nat.mul_pos hn hn) hn)⟩
-
-/-- Rectangle enclosure determines the normalized parabolic area as 1/3.
-    Only finite sums and rational order are used. The geometric assertion that
-    a selected curve's area obeys these rectangle enclosures is the premise. -/
-theorem parabolic_area_coefficient (area : Fraction)
-    (enclosed : ∀ n : Nat, (hn : 0 < n) →
-      Fraction.le (lowerParabola n hn) area ∧ Fraction.le area (upperParabola n hn)) :
-    Fraction.equiv area ⟨1, 3, by decide⟩ := by
-  have heq : 3*area.num-area.den = 0 := by
-    apply zero_of_scaled_bounds _ (2*area.den)
-    intro n hn
-    let N : Int := n
-    let S : Int := nsum (fun i => i*i) n
-    have hN : 0 < N := Int.ofNat_lt.mpr hn
-    have hNN := Int.mul_pos hN hN
-    obtain ⟨hl, hu⟩ := enclosed n hn
-    change S*area.den ≤ area.num*(N*N*N) at hl
-    change area.num*(N*N*N) ≤ (S+N*N)*area.den at hu
-    have hi := congrArg (fun x : Nat => (x : Int)) (quadratic_rectangles n)
-    simp only [Int.ofNat_add, Int.ofNat_mul] at hi
-    have hid := congrArg (fun x : Int => x*area.den) hi
-    have ident : 6*(S*area.den)+3*(N*N*area.den) =
-        2*(N*N*N*area.den)+N*area.den := by
-      simpa only [Int.add_mul, Int.mul_assoc] using hid
-    have hlo := Int.mul_le_mul_of_nonneg_left hl (by decide : (0 : Int) ≤ 6)
-    have hhi := Int.mul_le_mul_of_nonneg_left hu (by decide : (0 : Int) ≤ 6)
-    simp only [Int.add_mul, Int.mul_add] at hhi
-    have wpos := Int.mul_pos hN area.den_pos
-    have wle : N*area.den ≤ N*N*area.den := by
-      have hge : (1 : Int) ≤ N := by omega
-      have ht := Int.mul_le_mul_of_nonneg_right hge (Int.le_of_lt wpos)
-      simpa only [Int.one_mul, Int.mul_assoc] using ht
-    have hupper : 6*(area.num*(N*N*N))-2*(N*N*N*area.den) ≤ 4*(N*N*area.den) := by omega
-    have hlower : 2*(N*N*N*area.den)-6*(area.num*(N*N*N)) ≤ 4*(N*N*area.den) := by omega
-    have factor : 2*(N*(3*area.num-area.den))*(N*N) =
-        6*(area.num*(N*N*N))-2*(N*N*N*area.den) := by
-      simp only [Int.mul_sub, Int.sub_mul]
-      have six : (6 : Int) = 2*3 := by decide
-      rw [six]
-      congr 1 <;> ac_rfl
-    have factor' : 2*(N*(area.den-3*area.num))*(N*N) =
-        2*(N*N*N*area.den)-6*(area.num*(N*N*N)) := by
-      simp only [Int.mul_sub, Int.sub_mul]
-      have six : (6 : Int) = 2*3 := by decide
-      rw [six]
-      congr 1 <;> ac_rfl
-    have rhs : 4*(N*N*area.den) = (4*area.den)*(N*N) := by ac_rfl
-    rw [← factor, rhs] at hupper
-    rw [← factor', rhs] at hlower
-    have hu' := Int.le_of_mul_le_mul_right hupper hNN
-    have hl' := Int.le_of_mul_le_mul_right hlower hNN
-    have hnneg : N*(-(3*area.num-area.den)) = N*(area.den-3*area.num) := by
-      congr 1
-      omega
-    change N*(3*area.num-area.den) ≤ 2*area.den ∧ N*(-(3*area.num-area.den)) ≤ 2*area.den
-    rw [hnneg]
-    omega
-  unfold Fraction.equiv
-  dsimp
-  omega
-
-def lowerLinear (n : Nat) (hn : 0 < n) : Fraction :=
-  ⟨(nsum (fun i => i) n : Int), (n*n : Nat),
-    Int.ofNat_lt.mpr (Nat.mul_pos hn hn)⟩
-def upperLinear (n : Nat) (hn : 0 < n) : Fraction :=
-  ⟨(nsum (fun i => i) n + n : Nat), (n*n : Nat),
-    Int.ofNat_lt.mpr (Nat.mul_pos hn hn)⟩
-
-/-- Normalized linear velocity area is 1/2, from finite rectangles alone. -/
-theorem linear_area_coefficient (area : Fraction)
-    (enclosed : ∀ n : Nat, (hn : 0 < n) →
-      Fraction.le (lowerLinear n hn) area ∧ Fraction.le area (upperLinear n hn)) :
-    Fraction.equiv area ⟨1, 2, by decide⟩ := by
-  have heq : 2*area.num-area.den = 0 := by
-    apply zero_of_scaled_bounds _ area.den
-    intro n hn
-    let N : Int := n
-    let S : Int := nsum (fun i => i) n
-    have hN : 0 < N := Int.ofNat_lt.mpr hn
-    obtain ⟨hl, hu⟩ := enclosed n hn
-    change S*area.den ≤ area.num*(N*N) at hl
-    change area.num*(N*N) ≤ (S+N)*area.den at hu
-    have hi := congrArg (fun x : Nat => (x : Int)) (linear_rectangles n)
-    simp only [Int.ofNat_add, Int.ofNat_mul] at hi
-    have hid := congrArg (fun x : Int => x*area.den) hi
-    have ident : 2*(S*area.den)+N*area.den = N*N*area.den := by
-      simpa only [Int.add_mul, Int.mul_assoc] using hid
-    have hlo := Int.mul_le_mul_of_nonneg_left hl (by decide : (0 : Int) ≤ 2)
-    have hhi := Int.mul_le_mul_of_nonneg_left hu (by decide : (0 : Int) ≤ 2)
-    simp only [Int.add_mul, Int.mul_add] at hhi
-    have hupper : 2*(area.num*(N*N))-N*N*area.den ≤ N*area.den := by omega
-    have hlower : N*N*area.den-2*(area.num*(N*N)) ≤ N*area.den := by omega
-    have factor : (N*(2*area.num-area.den))*N = 2*(area.num*(N*N))-N*N*area.den := by
-      simp only [Int.mul_sub, Int.sub_mul]
-      congr 1 <;> ac_rfl
-    have factor' : (N*(area.den-2*area.num))*N = N*N*area.den-2*(area.num*(N*N)) := by
-      simp only [Int.mul_sub, Int.sub_mul]
-      congr 1 <;> ac_rfl
-    have rhs : N*area.den = area.den*N := by ac_rfl
-    rw [← factor, rhs] at hupper
-    rw [← factor', rhs] at hlower
-    have hu' := Int.le_of_mul_le_mul_right hupper hN
-    have hl' := Int.le_of_mul_le_mul_right hlower hN
-    have hnneg : N*(-(2*area.num-area.den)) = N*(area.den-2*area.num) := by
-      congr 1
-      omega
-    change N*(2*area.num-area.den) ≤ area.den ∧ N*(-(2*area.num-area.den)) ≤ area.den
-    rw [hnneg]
-    exact ⟨hu', hl'⟩
-  unfold Fraction.equiv
-  dsimp
-  omega
-
-/-- Constant-force example with unit tangential speed and zero initial normal
-    velocity. Similarity scales normalized rectangle areas. Mechanical
-    identification with displacement/defect is still separate from this
-    geometric coefficient theorem. -/
-theorem constant_force_area_coefficients (acc time linearArea parabolaArea : Fraction)
-    (hlinear : ∀ n : Nat, (hn : 0 < n) →
-      Fraction.le (lowerLinear n hn) linearArea ∧ Fraction.le linearArea (upperLinear n hn))
-    (hparabola : ∀ n : Nat, (hn : 0 < n) →
-      Fraction.le (lowerParabola n hn) parabolaArea ∧ Fraction.le parabolaArea (upperParabola n hn)) :
-    Fraction.equiv (Fraction.mul (Fraction.mul acc (Fraction.mul time time)) linearArea)
-      (Fraction.half (Fraction.mul acc (Fraction.mul time time))) ∧
-    Fraction.equiv (Fraction.mul (Fraction.half (Fraction.mul acc (Fraction.mul time (Fraction.mul time time)))) parabolaArea)
-      (Fraction.mul ⟨1, 6, by decide⟩ (Fraction.mul acc (Fraction.mul time (Fraction.mul time time)))) := by
-  constructor
-  · apply Fraction.equiv_trans (Fraction.mul_equiv_left _ (linear_area_coefficient linearArea hlinear))
-    unfold Fraction.equiv Fraction.mul Fraction.half
-    dsimp
-    simp only [Int.one_mul, Int.mul_one]
-    ac_rfl
-  · apply Fraction.equiv_trans (Fraction.mul_equiv_left _ (parabolic_area_coefficient parabolaArea hparabola))
-    unfold Fraction.equiv Fraction.mul Fraction.half
-    dsimp
-    simp only [Int.one_mul, Int.mul_one]
-    have six : (6 : Int) = 2*3 := by decide
-    rw [six]
-    ac_rfl
-
-end NewtonLimitDynamics.Contact
-\end{Verbatim}
 
 \noindent{\small\texttt{ModernLib/Polygon/MonotoneEnclosure.lean}}{\small, 6 theorems, 97 lines}
 
@@ -2739,7 +1834,7 @@ end NewtonLimitDynamics.Polygon.MonotoneEnclosure
 import BarrowLib.Common.RationalMagnitudes
 
 /-! Historical result: lemma_x_corollary_iv.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1713. Exact coefficient algebra; finite-time force law remains an explicit premise. -/
@@ -2776,7 +1871,7 @@ end Principia1713
 import BarrowLib.Common.RationalMagnitudes
 
 /-! Historical result: lemma_x_corollary_v.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1713. Exact coefficient algebra with positive force; finite-time law remains an explicit premise. -/
@@ -2812,7 +1907,7 @@ import BarrowLib.Common.RationalMagnitudes
 import BarrowLib.Common.Quadratic
 
 /-! Historical result: lemma_x.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! 1687. Conditional area-diagram reconstruction; velocity-area and enclosures explicit. -/
@@ -2980,208 +2075,7 @@ and segments are in the triplicate ratio both of the tangents $AD$, $Ad$ and of
 the chords and arcs $AB$, $Ab$.
 
 
-\noindent{\small\textit{Lean reconstruction: 13 theorems in 2 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
-
-\noindent{\small\textit{`ContactEnclosure` is likewise a bundle of limit fields with no instance; its docstring says establishing them from an actual curved diagram remains open.}}
-
-\noindent{\small\texttt{ModernLib/Contact/Bounds.lean}}{\small, 4 theorems, 64 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Common.RationalMagnitudes
-import BarrowLib.Common.RationalMagnitudes
-
-namespace NewtonLimitDynamics.Contact
-open Fraction
-
-/-- The normal contact subtense, the tangent departure and the defect area
-    are separate quantities. Identifying any two is an additional configuration
-    hypothesis. For oblique contact subtenses an angle factor is required. -/
-structure Quantities where
-  tangentLength : Fraction
-  chordLength : Fraction
-  normalSubtense : Fraction
-  tangentDeparture : Fraction
-  defectArea : Fraction
-
-theorem le_quotient_iff (a b c : Fraction) (hc : positive c) :
-    le a (NewtonLimitDynamics.Fraction.quotient b c hc) ↔ le (mul a c) b := by
-  unfold le NewtonLimitDynamics.Fraction.quotient mul
-  dsimp
-  have e1 : a.num * (b.den * c.num) = a.num * c.num * b.den := by ac_rfl
-  have e2 : b.num * c.den * a.den = b.num * (a.den * c.den) := by ac_rfl
-  rw [e1, e2]
-
-/-- Circle identity AB²=AG*BD imported from Lemma XI case 1. A uniform
-    positive lower bound on AG is essential; the identity alone is insufficient.
-    This proves an inequality, not existence of the osculating configuration. -/
-theorem normal_subtense_bound (chord subtense diameter minDiameter : Fraction)
-    (hs : positive subtense) (hd : positive minDiameter)
-    (hmin : le minDiameter diameter)
-    (circle : equiv (mul diameter subtense) (mul chord chord)) :
-    le subtense (NewtonLimitDynamics.Fraction.quotient (mul chord chord) minDiameter hd) := by
-  apply (le_quotient_iff _ _ _ hd).mpr
-  have hc := (equiv_iff_mutual_le _ _).mp (mul_comm subtense minDiameter)
-  have hm := mul_le_mul_positive hmin subtense hs
-  have he := (equiv_iff_mutual_le _ _).mp circle
-  exact magnitudes.le_trans hc.1 (magnitudes.le_trans hm he.1)
-
-/-- Explicit finite cubic inequality from a rectangle enclosing the defect.
-    K is a proved/assumed quadratic bound valid on the SAME neighbourhood.
-    No assertion of contact or enclosure is hidden in power notation. -/
-theorem cubic_rectangle_bound (base departure defect K : Fraction)
-    (hb : positive base)
-    (hquad : le departure (mul K (mul base base)))
-    (henclose : le defect (mul departure base)) :
-    le defect (mul K (mul base (mul base base))) := by
-  have hm := mul_le_mul_positive hquad base hb
-  have he : equiv (mul (mul K (mul base base)) base) (mul K (mul base (mul base base))) := by
-    unfold equiv mul
-    dsimp
-    ac_rfl
-  exact magnitudes.le_trans henclose (magnitudes.le_trans hm ((equiv_iff_mutual_le _ _).mp he).1)
-
-/-- Coordinate construction for Lemma XI case 1: A=(0,0), B=(x,y),
-    G=(0,D), with AB perpendicular to BG. The corresponding right-triangle
-    relation yields AB²=AG*BD; existence of G and its limiting position is
-    deliberately not inferred. This is a reconstruction of circle geometry. -/
-theorem circle_identity_from_perpendicular (x y D : Int)
-    (perpendicular : x*x + y*(y-D) = 0) : x*x+y*y = D*y := by
-  rw [Int.mul_sub] at perpendicular
-  have h : y*D = D*y := Int.mul_comm _ _
-  omega
-
-end NewtonLimitDynamics.Contact
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Contact/FiniteSums.lean}}{\small, 9 theorems, 125 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.Enclosure
-
-namespace NewtonLimitDynamics.Contact
-
-def nsum (f : Nat → Nat) : Nat → Nat
-  | 0 => 0
-  | n+1 => nsum f n + f n
-
-/-- Lower rectangles for a linear velocity diagram. With n equal cells the
-    doubled lower sum differs from n² by n, yielding coefficient 1/2. -/
-theorem linear_rectangles (n : Nat) : 2 * nsum (fun i => i) n + n = n*n := by
-  induction n with
-  | zero => decide
-  | succ n ih =>
-    simp only [nsum, Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.one_mul]
-    omega
-
-/-- Lower rectangles for y=x². Division by 6n³ yields the area coefficient
-    1/3 with explicit corrections -1/(2n)+1/(6n²), not an integral theorem. -/
-theorem quadratic_rectangles (n : Nat) :
-    6 * nsum (fun i => i*i) n + 3*(n*n) = 2*(n*n*n)+n := by
-  induction n with
-  | zero => decide
-  | succ n ih =>
-    simp only [nsum, Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.one_mul]
-    omega
-
-theorem upper_lower_gap (n : Nat) :
-    nsum (fun i => (i+1)*(i+1)) n = nsum (fun i => i*i) n + n*n := by
-  induction n with
-  | zero => decide
-  | succ n ih => simp only [nsum, ih]
-
-/-- Error of the lower quadratic rectangle sum in units of 6n³ is ≤3n²;
-    after positive division this is ≤1/(2n). -/
-theorem quadratic_lower_error (n : Nat) :
-    2*(n*n*n) ≤ 6*nsum (fun i => i*i) n + 3*(n*n) := by
-  have := quadratic_rectangles n
-  omega
-
-theorem sum_bound (f : Nat → Nat) (C n : Nat) (hf : ∀ i, i < n → f i ≤ C) :
-    nsum f n ≤ n*C := by
-  induction n with
-  | zero => simp [nsum]
-  | succ n ih =>
-    have h := ih (fun i hi => hf i (by omega))
-    have hn := hf n (by omega)
-    simp only [nsum, Nat.add_mul, Nat.one_mul]
-    omega
-
-/-- Uniform partition error, expressed without division: n²*Σ error_i ≤ C.
-    All errors use a common unit; the local bound is n³*error_i ≤ C for EVERY
-    cell of the fixed interval. C must include the fixed interval's T³ factor.
-    Positivity of n permits cancellation; pointwise local scaling is not enough. -/
-theorem uniform_partition_error (error : Nat → Nat) (C n : Nat) (hn : 0 < n)
-    (hlocal : ∀ i, i < n → n*n*n*error i ≤ C) :
-    n*n*nsum error n ≤ C := by
-  have hs := sum_bound (fun i => n*n*n*error i) C n hlocal
-  have hmul : ∀ k, nsum (fun i => n*n*n*error i) k = n*n*n*nsum error k := by
-    intro k
-    induction k with
-    | zero => simp [nsum]
-    | succ k ih => simp [nsum, ih, Nat.mul_add]
-  rw [hmul] at hs
-  have he : n*n*n*nsum error n = n*(n*n*nsum error n) := by ac_rfl
-  rw [he] at hs
-  exact Nat.le_of_mul_le_mul_left hs hn
-
-theorem nsum_mul (f : Nat → Nat) (k n : Nat) :
-    nsum (fun i => f i*k) n = nsum f n*k := by
-  induction n with
-  | zero => simp [nsum]
-  | succ n ih => simp [nsum, ih, Nat.add_mul]
-
-/-- Rational version: errors have a common denominator D within this partition,
-    and the fixed uniform coefficient is Knum/Kden. D may vary with refinement.
-    Hence this is not restricted to integer errors eventually becoming zero. -/
-theorem rational_uniform_partition_error (error : Nat → Nat)
-    (Knum Kden D n : Nat) (hk : 0 < Kden) (hd : 0 < D) (hn : 0 < n)
-    (hlocal : ∀ i, i < n → n*n*n*(error i*Kden) ≤ Knum*D) :
-    Fraction.le
-      ⟨(nsum error n : Int), (D : Int), Int.ofNat_lt.mpr hd⟩
-      ⟨(Knum : Int), (Kden*(n*n) : Nat),
-        Int.ofNat_lt.mpr (Nat.mul_pos hk (Nat.mul_pos hn hn))⟩ := by
-  have h := uniform_partition_error (fun i => error i*Kden) (Knum*D) n hn hlocal
-  rw [nsum_mul] at h
-  have he : n*n*(nsum error n*Kden) = nsum error n*(Kden*(n*n)) := by ac_rfl
-  rw [he] at h
-  unfold Fraction.le
-  dsimp
-  simpa only [Int.ofNat_mul] using (Int.ofNat_le.mpr h)
-
-/-- The same error sum with a nonuniform coefficient cannot in general obey
-    the proposed uniform budget. This boundary is executable without analysis. -/
-example : ¬ (2*2*nsum (fun _ => 1) 2 ≤ 1) := by decide
-
-/-- Sequential vanishing appropriate to a finite-sum refinement index. -/
-def SeqVanishes (error : Nat → Fraction) : Prop :=
-  ∀ epsilon, Fraction.positive epsilon →
-    ∃ N : Nat, ∀ n, N ≤ n → Fraction.lt (error n) epsilon
-
-/-- An explicit Archimedean argument for rational error budgets C/n.
-    This imports no analytic convergence theorem. -/
-theorem reciprocal_budget_vanishes (error : Nat → Fraction) (C : Nat)
-    (hbound : ∀ n, (hn : 0 < n) → Fraction.le (error n)
-      ⟨(C : Int), (n : Int), Int.ofNat_lt.mpr hn⟩) : SeqVanishes error := by
-  intro e he
-  refine ⟨C * e.den.natAbs + 1, ?_⟩
-  intro n hn
-  have hnpos : 0 < n := by omega
-  have hd : (e.den.natAbs : Int) = e.den := Int.natAbs_of_nonneg (Int.le_of_lt e.den_pos)
-  have hlarge : (C : Int) * e.den < (n : Int) := by
-    have hnat : C * e.den.natAbs < n := by omega
-    have hi := Int.ofNat_lt.mpr hnat
-    simpa only [Int.ofNat_mul, hd] using hi
-  have hen : 1 ≤ e.num := by unfold Fraction.positive at he; omega
-  have hm := Int.mul_le_mul_of_nonneg_right hen (Int.le_of_lt (Int.ofNat_lt.mpr hnpos))
-  have hbracket : Fraction.lt ⟨(C : Int), (n : Int), Int.ofNat_lt.mpr hnpos⟩ e := by
-    unfold Fraction.lt
-    dsimp
-    simp only [Int.one_mul] at hm
-    omega
-  exact Fraction.magnitudes.lt_of_le_lt (hbound n hnpos) hbracket
-
-end NewtonLimitDynamics.Contact
-\end{Verbatim}
+\noindent{\small\textit{No Lean source module is anchored to this item. `ContactEnclosure` is likewise a bundle of limit fields with no instance; its docstring says establishing them from an actual curved diagram remains open.}}
 
 
 ### Scholium
@@ -3263,7 +2157,7 @@ In modern terms: an ultimate ratio is $\lim X/Y$, and Lemma I supplies its
 defining property.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded; its distinction between vanishing divisible quantities and indivisibles is the reading the rational construction follows.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded; its distinction between vanishing divisible quantities and indivisibles is the reading the rational construction follows.}}
 
 
 ## Section II. On finding centripetal forces
@@ -3357,57 +2251,9 @@ consequentia*.
 > not at rest but move uniformly in a straight line.
 
 
-\noindent{\small\textit{Lean reconstruction: 472 theorems in 26 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 63 theorems in 4 modules placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{The finite central polygon area law is exact. Modern support proves the constructed curve's all-interval swept-fan law and matched-region outer-content decay. The given-motion theorem derives agreement and those laws from explicit local consistency; deriving that consistency from independent motion laws and identifying ordinary sector-union area remain open. The historical AreaLaw file contains separate witness texts and finite proof steps, then an explicitly separated anachronical section. No complete historical limit proof is claimed.}}
-
-\noindent{\small\texttt{ClassicsLib/Euclid/PropositionI37.lean}}{\small, 1 theorem, 18 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.LatticeGeometry
-
-/-! Euclid, Elements, Book I.
-Source: https://mathcs.clarku.edu/~djoyce/elements/bookI/propI37.html
-Triangles on the same base between the same parallels. The retained parallel_identity is the integer-coordinate special case with base from the origin to q and third vertex translated parallel to q. It proves determinant preservation, not the full synthetic Euclidean area semantics.
-Status: modern_reconstruction of this classical coordinate special case;
-not an assertion that Newton explicitly cites the proposition by number.
-The existing proof and qualified name are preserved. -/
-
-namespace NewtonLimitDynamics.Polygon
-
-theorem parallel_identity (q x : LatticePoint) (j : Int) : det q (kick q x j) = det q x := by
-  simp only [det, kick, Int.mul_add]
-  have h : q.1 * (j * q.2) = q.2 * (j * q.1) := by ac_rfl
-  omega
-
-
-end NewtonLimitDynamics.Polygon
-\end{Verbatim}
-
-\noindent{\small\texttt{ClassicsLib/Euclid/PropositionI38.lean}}{\small, 1 theorem, 20 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.LatticeGeometry
-
-/-! Euclid, Elements, Book I.
-Source: https://mathcs.clarku.edu/~djoyce/elements/bookI/propI38.html
-Triangles on equal bases between the same parallels. The retained extension_identity is the integer-coordinate special case of consecutive equal collinear bases and the fixed opposite vertex at the origin. It proves determinant preservation, not the full synthetic Euclidean theorem.
-Status: modern_reconstruction of this classical coordinate special case;
-not an assertion that Newton explicitly cites the proposition by number.
-The existing proof and qualified name are preserved. -/
-
-namespace NewtonLimitDynamics.Polygon
-
-theorem extension_identity (p q : LatticePoint) : det q (extend p q) = det p q := by
-  simp only [det, extend, Int.mul_sub, Int.mul_assoc]
-  have h : q.1 * (2 * q.2) = q.2 * (2 * q.1) := by ac_rfl
-  have h1 : q.1 * p.2 = p.2 * q.1 := Int.mul_comm _ _
-  have h2 : q.2 * p.1 = p.1 * q.2 := Int.mul_comm _ _
-  omega
-
-
-end NewtonLimitDynamics.Polygon
-\end{Verbatim}
 
 \noindent{\small\texttt{ModernLib/Diagnostic/PhaseArea.lean}}{\small, 9 theorems, 147 lines}
 
@@ -3820,2838 +2666,6 @@ theorem harmonic_equal_swept :
 end NewtonLimitDynamics.Polygon.CentralSchedule
 \end{Verbatim}
 
-\noindent{\small\texttt{ModernLib/Polygon/Contact.lean}}{\small, 21 theorems, 240 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ClassicsLib.Euclid.FiniteLattice
-
-namespace NewtonLimitDynamics.Polygon
-
-/-- Data for one finite motion cell. `departure` and `arrival` are kept
-    separate: sharing an endpoint in space does not itself say how motion
-    passes through that endpoint. This is a modern diagnostic reconstruction
-    of the finite polygon stage, not a continuous trajectory. -/
-structure FiniteSegment (Point Velocity : Type) where
-  first : Point
-  last : Point
-  departure : Velocity
-  arrival : Velocity
-
-variable {Point Velocity Impulse : Type}
-
-/-- The two pieces meet at the same spatial point. -/
-def positionContact (left right : FiniteSegment Point Velocity) : Prop :=
-  left.last = right.first
-
-/-- A join with no velocity jump. -/
-def velocityContact (left right : FiniteSegment Point Velocity) : Prop :=
-  positionContact left right ∧ left.arrival = right.departure
-
-/-- A join whose velocity jump is accounted for by the displayed impulse. -/
-def impulseContact (advance : Velocity → Impulse → Velocity)
-    (left right : FiniteSegment Point Velocity) (j : Impulse) : Prop :=
-  positionContact left right ∧ right.departure = advance left.arrival j
-
-theorem velocityContact_position (left right : FiniteSegment Point Velocity)
-    (h : velocityContact left right) : positionContact left right :=
-  h.1
-
-theorem impulseContact_position (advance : Velocity → Impulse → Velocity)
-    (left right : FiniteSegment Point Velocity) (j : Impulse)
-    (h : impulseContact advance left right j) : positionContact left right :=
-  h.1
-
-/-- Two finite cells with separately recorded incoming and outgoing data at
-    their shared instant. -/
-structure TwoCellPath (Point Velocity : Type) where
-  firstPoint : Point
-  middlePoint : Point
-  lastPoint : Point
-  initialDeparture : Velocity
-  middleArrival : Velocity
-  middleDeparture : Velocity
-  finalArrival : Velocity
-
-def TwoCellPath.left (path : TwoCellPath Point Velocity) : FiniteSegment Point Velocity :=
-  ⟨path.firstPoint, path.middlePoint, path.initialDeparture, path.middleArrival⟩
-
-def TwoCellPath.right (path : TwoCellPath Point Velocity) : FiniteSegment Point Velocity :=
-  ⟨path.middlePoint, path.lastPoint, path.middleDeparture, path.finalArrival⟩
-
-/-- Assemble two cells only after their spatial endpoints have been shown to
-    agree. The construction retains, rather than erases, the possible velocity
-    jump at the shared instant. -/
-def glue (left right : FiniteSegment Point Velocity)
-    (_h : positionContact left right) : TwoCellPath Point Velocity :=
-  ⟨left.first, right.first, right.last,
-    left.departure, left.arrival, right.departure, right.arrival⟩
-
-theorem glue_first (left right : FiniteSegment Point Velocity)
-    (h : positionContact left right) : (glue left right h).firstPoint = left.first :=
-  rfl
-
-theorem glue_last (left right : FiniteSegment Point Velocity)
-    (h : positionContact left right) : (glue left right h).lastPoint = right.last :=
-  rfl
-
-theorem glue_middle_from_left (left right : FiniteSegment Point Velocity)
-    (h : positionContact left right) : (glue left right h).middlePoint = left.last :=
-  h.symm
-
-theorem glue_middle_from_right (left right : FiniteSegment Point Velocity)
-    (h : positionContact left right) : (glue left right h).middlePoint = right.first :=
-  rfl
-
-theorem glued_position_contact (left right : FiniteSegment Point Velocity)
-    (h : positionContact left right) :
-    positionContact (glue left right h).left (glue left right h).right :=
-  rfl
-
-/-- A finite sample records point values at instants, but leaves arrival and
-    departure data independent. It therefore represents no claim that a
-    continuous trajectory exists. -/
-structure SampledPath (Point Velocity : Type) where
-  point : Nat → Point
-  arriving : Nat → Velocity
-  departing : Nat → Velocity
-
-def SampledPath.cell (path : SampledPath Point Velocity) (i : Nat) :
-    FiniteSegment Point Velocity :=
-  ⟨path.point i, path.point (i+1), path.departing i, path.arriving (i+1)⟩
-
-/-- Restriction is re-indexing of already supplied samples; it constructs no
-    new point at an intermediate time. -/
-def SampledPath.restrict (path : SampledPath Point Velocity) (offset : Nat) :
-    SampledPath Point Velocity :=
-  ⟨fun i => path.point (offset+i), fun i => path.arriving (offset+i),
-    fun i => path.departing (offset+i)⟩
-
-theorem restriction_cell (path : SampledPath Point Velocity) (offset i : Nat) :
-    (path.restrict offset).cell i = path.cell (offset+i) := by
-  simp [SampledPath.restrict, SampledPath.cell, Nat.add_assoc]
-
-theorem adjacent_position_contact (path : SampledPath Point Velocity) (i : Nat) :
-    positionContact (path.cell i) (path.cell (i+1)) :=
-  rfl
-
-theorem adjacent_velocityContact_iff (path : SampledPath Point Velocity) (i : Nat) :
-    velocityContact (path.cell i) (path.cell (i+1)) ↔
-      path.arriving (i+1) = path.departing (i+1) := by
-  simp [velocityContact, positionContact, SampledPath.cell]
-
-theorem adjacent_impulseContact_iff (advance : Velocity → Impulse → Velocity)
-    (path : SampledPath Point Velocity) (i : Nat) (j : Impulse) :
-    impulseContact advance (path.cell i) (path.cell (i+1)) j ↔
-      path.departing (i+1) = advance (path.arriving (i+1)) j := by
-  simp [impulseContact, positionContact, SampledPath.cell]
-
-/-- Restarting the finite construction from its kth constructed pair, with the
-    shifted impulse sequence, gives the original construction after k+n cells.
-    This is a theorem about the existing recursive polygonal motion only. -/
-theorem motion_restart (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (k n : Nat) :
-    motion g (motion g p q impulse k).1 (motion g p q impulse k).2
-      (fun i => impulse (k+i)) n = motion g p q impulse (k+n) := by
-  induction n with
-  | zero => simp [motion]
-  | succ n ih =>
-    rw [show k + (n+1) = (k+n)+1 by omega]
-    simp only [motion]
-    rw [ih]
-
-/-- Consecutive pairs created by `motion` share their middle vertex. -/
-theorem motion_adjacent_pair_position_contact
-    (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (n : Nat) :
-    (motion g p q impulse n).2 = (motion g p q impulse (n+1)).1 :=
-  rfl
-
-/-- Discrete velocity for unit-time lattice cells. -/
-def latticeVelocity (p q : LatticePoint) : LatticePoint :=
-  (q.1-p.1, q.2-p.2)
-
-def latticeAdd (p q : LatticePoint) : LatticePoint :=
-  (p.1+q.1, p.2+q.2)
-
-def latticeScale (j : Int) (q : LatticePoint) : LatticePoint :=
-  (j*q.1, j*q.2)
-
-/-- The actual lattice step changes discrete velocity by the radial impulse.
-    Unit time is built into the use of adjacent vertex differences. -/
-theorem lattice_step_velocity_jump (p q : LatticePoint) (j : Int) :
-    latticeVelocity q (step lattice p q j) =
-      latticeAdd (latticeVelocity p q) (latticeScale j q) := by
-  apply Prod.ext <;>
-    simp [latticeVelocity, latticeAdd, latticeScale, step, lattice, kick, extend] <;>
-    omega
-
-theorem motion_lattice_velocity_jump (p q : LatticePoint)
-    (impulse : Nat → Int) (n : Nat) :
-    latticeVelocity (motion lattice p q impulse n).2
-      (motion lattice p q impulse (n+1)).2 =
-      latticeAdd
-        (latticeVelocity (motion lattice p q impulse n).1
-          (motion lattice p q impulse n).2)
-        (latticeScale (impulse n) (motion lattice p q impulse n).2) := by
-  change latticeVelocity (motion lattice p q impulse n).2
-      (step lattice (motion lattice p q impulse n).1
-        (motion lattice p q impulse n).2 (impulse n)) = _
-  exact lattice_step_velocity_jump _ _ _
-
-/-- The nth actual lattice motion cell arrives and departs with its own
-    finite-difference velocity. The following cell may have a different one. -/
-def latticeMotionCell (p q : LatticePoint) (impulse : Nat → Int) (n : Nat) :
-    FiniteSegment LatticePoint LatticePoint :=
-  let cell := motion lattice p q impulse n
-  ⟨cell.1, cell.2, latticeVelocity cell.1 cell.2, latticeVelocity cell.1 cell.2⟩
-
-theorem latticeMotionCell_adjacent_position_contact (p q : LatticePoint)
-    (impulse : Nat → Int) (n : Nat) :
-    positionContact (latticeMotionCell p q impulse n)
-      (latticeMotionCell p q impulse (n+1)) :=
-  motion_adjacent_pair_position_contact lattice p q impulse n
-
-theorem latticeMotionCell_impulseContact (p q : LatticePoint)
-    (impulse : Nat → Int) (n : Nat) :
-    impulseContact latticeAdd (latticeMotionCell p q impulse n)
-      (latticeMotionCell p q impulse (n+1))
-      (latticeScale (impulse n) (motion lattice p q impulse n).2) := by
-  constructor
-  · exact latticeMotionCell_adjacent_position_contact p q impulse n
-  · change latticeVelocity (motion lattice p q impulse (n+1)).1
-      (motion lattice p q impulse (n+1)).2 = _
-    rw [← motion_adjacent_pair_position_contact lattice p q impulse n]
-    exact motion_lattice_velocity_jump p q impulse n
-
-theorem latticeMotionCell_zero_impulse_velocityContact (p q : LatticePoint)
-    (impulse : Nat → Int) (n : Nat) (hzero : impulse n = 0) :
-    velocityContact (latticeMotionCell p q impulse n)
-      (latticeMotionCell p q impulse (n+1)) := by
-  constructor
-  · exact latticeMotionCell_adjacent_position_contact p q impulse n
-  · change latticeVelocity (motion lattice p q impulse n).1
-      (motion lattice p q impulse n).2 =
-        latticeVelocity (motion lattice p q impulse (n+1)).1
-          (motion lattice p q impulse (n+1)).2
-    rw [← motion_adjacent_pair_position_contact lattice p q impulse n]
-    rw [motion_lattice_velocity_jump, hzero]
-    simp [latticeAdd, latticeScale]
-
-/-- The two displayed inward central-impulse (discrete-force) histories start
-    with the same vertices. Every polygonal swept-area sum agrees, although
-    their first constructed next vertex differs. Thus equal areas do not
-    identify a polygonal path. The histories are different, so this is not
-    nonuniqueness for a fixed specified force law. -/
-def inwardOneRadialImpulse : Nat → Int := fun _ => -1
-def inwardTwoRadialImpulse : Nat → Int := fun _ => -2
-
-theorem inward_impulses_same_swept (n : Nat) :
-    swept lattice (1, 0) (1, 1) inwardOneRadialImpulse n =
-      swept lattice (1, 0) (1, 1) inwardTwoRadialImpulse n := by
-  rw [swept_eq, swept_eq]
-
-theorem inward_impulses_distinct_next_vertex :
-    (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 ≠
-      (motion lattice (1, 0) (1, 1) inwardTwoRadialImpulse 1).2 := by
-  decide
-
-theorem equal_swept_area_does_not_identify_next_vertex :
-    (∀ n, swept lattice (1, 0) (1, 1) inwardOneRadialImpulse n =
-      swept lattice (1, 0) (1, 1) inwardTwoRadialImpulse n) ∧
-    (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 ≠
-      (motion lattice (1, 0) (1, 1) inwardTwoRadialImpulse 1).2 :=
-  ⟨inward_impulses_same_swept, inward_impulses_distinct_next_vertex⟩
-
-end NewtonLimitDynamics.Polygon
-\end{Verbatim}
-
-\noindent{\small\texttt{ClassicsLib/Euclid/FiniteLattice.lean}}{\small, 4 theorems, 43 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.Finite
-import ClassicsLib.Euclid.PropositionI37
-import ClassicsLib.Euclid.PropositionI38
-
-namespace NewtonLimitDynamics.Polygon
-
-def lattice : EuclideanConstruction LatticePoint Int :=
-  ⟨det, extend, kick, extension_identity, parallel_identity⟩
-
-/-- Checked orientation control: signed and unsigned sums agree here. -/
-theorem positive_orientation_unsigned_example :
-    swept lattice (1, 0) (1, 1) (fun _ => 0) 3 = 3 ∧
-      unsignedBlock lattice (1, 0) (1, 1) (fun _ => 0) 0 3 = 3 := by
-  decide
-
-/-- Reversing orientation preserves unsigned magnitude, not the signed sum. -/
-theorem negative_orientation_unsigned_example :
-    swept lattice (1, 0) (1, -1) (fun _ => 0) 3 = -3 ∧
-      unsignedBlock lattice (1, 0) (1, -1) (fun _ => 0) 0 3 = 3 ∧
-      swept lattice (1, 0) (1, -1) (fun _ => 0) 3 ≠
-        (unsignedBlock lattice (1, 0) (1, -1) (fun _ => 0) 0 3 : Int) := by
-  decide
-
-/-- Radial degeneracy, rest, and empty blocks need no area division. -/
-theorem degenerate_unsigned_examples :
-    unsignedBlock lattice (1, 0) (2, 0) (fun _ => -1) 2 3 = 0 ∧
-      unsignedBlock lattice (1, 0) (1, 0) (fun _ => 0) 2 3 = 0 ∧
-      unsignedBlock lattice (1, 0) (1, 1) (fun _ => 0) 4 0 = 0 := by
-  decide
-
-/-- Even inward radial impulses can revisit triangles. The unsigned cell sum
-    counts repeated coverage and therefore cannot identify a sector union. -/
-theorem repeated_triangle_coverage_example :
-    motion lattice (1, 0) (0, 1) (fun _ => -2) 4 = ((1, 0), (0, 1)) ∧
-      unsignedBlock lattice (1, 0) (0, 1) (fun _ => -2) 0 4 = 4 ∧
-      unsignedBlock lattice (1, 0) (0, 1) (fun _ => -2) 0 8 = 8 := by
-  decide
-
-/-- Zero force is permitted; radial/zero-area configurations need no division. -/
-example : swept lattice (1,0) (1,1) (fun _ => 0) 3 = 3 := by decide
-example : swept lattice (1,0) (2,0) (fun _ => -1) 3 = 0 := by decide
-
-end NewtonLimitDynamics.Polygon
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/GeneralForceArea.lean}}{\small, 30 theorems, 653 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.GeneralForceSecants
-import ModernLib.Polygon.GeneralForcePathContent
-import ModernLib.Foundation.Polygon.PairingValues
-import ModernLib.Foundation.Polygon.FanValues
-import ModernLib.Foundation.Polygon.GeometricApproximation
-import ModernLib.Foundation.Polygon.SweptArea
-
-/-! Swept area of the actual constructed local central-force curve.
-The model is planar by definition. All regularity, finite-force and calibrated
-window assumptions remain explicit modern reconstruction premises. -/
-
-namespace NewtonLimitDynamics.Polygon.GeneralForceArea
-open NewtonLimitDynamics
-open TimeSubdivision PointBounds ForceClasses HarmonicDyadic HarmonicBinaryPrefix
-open CauchyValues BinaryTime PositionValues SecantValues PairingValues DyadicNodes HarmonicTimeRealization SweptArea
-open GeneralForceEndpoint GeneralForcePrefix GeneralForceTime GeneralForceSecants
-
-theorem count_areal_product (o : CentralOracle) (E0 T : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num) (j n : Nat) :
-    Fraction.equiv (CentralSchedule.momentum (countState o E0 T s hE j n))
-      (CentralSchedule.momentum s) := by
-  rw [GeneralForcePrefix.countState,run_eq_schedule]
-  exact CentralSchedule.schedule_momentum _ (sample_central o _) _ s
-
-/-- Supporting differential content. This is not the swept-area theorem:
-the determinant of the constructed position and its identified velocity is
-constant because every actual finite prefix has that determinant. -/
-theorem areal_product_value (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t : BinaryTime T d.time_nonnegative) :
-    pairingValue detForm (gammaValue o E0 T tau L B s hE d t)
-      (velocityValue (gammaValue o E0 T tau L B s hE d t)) =
-      embed (scalarState (CentralSchedule.momentum s)) := by
-  induction t using Quotient.inductionOn with
-  | _ b =>
-    apply Quotient.sound
-    apply nameEquiv_of_levelwise_stateEquiv
-    intro j
-    change stateEquiv (scalarState (CentralSchedule.momentum (prefixState b o E0 T s hE j)))
-      (scalarState (CentralSchedule.momentum s))
-    exact ⟨⟨count_areal_product o E0 T s hE j (ticks b j),Fraction.equiv_refl _⟩,
-      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
-
-/-- A determinant triangle uses two actual curve-node approximants. The
-restarted finite drift remainder gives its quadratic error, uniformly in the
-approximant index. It is not a triangle of an assumed trajectory. -/
-theorem node_triangle_bound (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (m k j : Nat) (hk : k+1≤blocks m) :
-    Fraction.le
-      (HarmonicTimeComparison.durationDifference
-        (Fraction.mul (duration T m) (CentralSchedule.momentum s))
-        (TimeSubdivision.det ((nodeName o E0 T tau L B s hE d m k).approx j).1
-          ((nodeName o E0 T tau L B s hE d m (k+1)).approx j).1)).abs
-      (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)) := by
-  rw [node_approx o E0 T tau L B s hE d m k (by omega) j,
-    node_approx o E0 T tau L B s hE d m (k+1) hk j]
-  let a := field o E0 hE (m+j)
-  let h := duration T (m+j)
-  let n := k*blocks j
-  let q := GeneralForcePrefix.countState o E0 T s hE (m+j) n
-  let u := BoundedIteration.time h (blocks j)
-  have hn : n+blocks j ≤ blocks (m+j) := by
-    rw [blocks_add]
-    have hm := Nat.mul_le_mul_right (blocks j) hk
-    simpa only [n,Nat.add_mul,Nat.one_mul] using hm
-  have hb := BoundedIteration.boundedSamples_restart a h s B (blocks (m+j)) n (blocks j)
-    hn (d.actual_samples (m+j))
-  have hr := KinematicEstimates.position_remainder a h q B d.time_nonnegative d.bound_nonnegative (blocks j) hb
-  have hp : Fraction.le (pointNorm q.1) d.outer_radius :=
-    (d.toConditions.run_band (m+j) h d.time_nonnegative n
-      (count_time_le T d.time_nonnegative (m+j) n (by omega))).2
-  have he : Fraction.equiv u (duration T m) := grid_time T m j
-  have hm := count_areal_product o E0 T s hE (m+j) n
-  have ha := PolygonFanArea.det_inertial_remainder_bound q.1 q.2
-    (BoundedIteration.run a h q (blocks j)).1 u d.outer_radius
-    (Fraction.mul (Fraction.mul u u) B) hp hr
-  have hleft := HarmonicTimeComparison.difference_congr
-    (Fraction.mul_equiv (Fraction.equiv_symm he) (Fraction.equiv_symm hm))
-    (Fraction.equiv_refl (TimeSubdivision.det q.1 (BoundedIteration.run a h q (blocks j)).1))
-  have hright := Fraction.mul_equiv (Fraction.equiv_refl d.outer_radius)
-    (Fraction.mul_equiv (Fraction.mul_equiv he he) (Fraction.equiv_refl B))
-  have hbound := Fraction.le_equiv_right
-    (Fraction.le_equiv_left (Fraction.abs_equiv hleft) ha) hright
-  change Fraction.le (HarmonicTimeComparison.durationDifference _
-    (TimeSubdivision.det (BoundedIteration.run a h s n).1
-      (BoundedIteration.run a h (BoundedIteration.run a h s n) (blocks j)).1)).abs _ at hbound
-  rw [← BoundedIteration.run_add] at hbound
-  have hecount : n+blocks j=(k+1)*blocks j := by simp only [n,Nat.add_mul,Nat.one_mul]
-  rw [hecount] at hbound
-  exact hbound
-
-def areaMomentum (unsigned : Bool) (s : Point × Point) : Fraction :=
-  if unsigned then (CentralSchedule.momentum s).abs else CentralSchedule.momentum s
-
-noncomputable def curveFanName (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) : EndpointCauchyName :=
-  FanValues.fanName unsigned (nodeName o E0 T tau L B s hE d m) n
-
-/-- A doubled triangle fan built from actual points of the constructed curve.
-The right boundary is included when n=2^m. -/
-noncomputable def curveFanValue (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) : Value :=
-  FanValues.fanValue unsigned
-    (fun k => gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)) n
-
-theorem curveFanValue_realize (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) :
-    curveFanValue unsigned o E0 T tau L B s hE d m n =
-      realize (curveFanName unsigned o E0 T tau L B s hE d m n) := by
-  unfold curveFanValue
-  rw [← funext (node_value o E0 T tau L B s hE d m)]
-  exact FanValues.fanValue_realize unsigned _ n
-
-/-- Unsigned and oriented fans share the same cell-error proof. Absolute
-values are taken cell by cell, so opposite lobes cannot cancel in the former. -/
-theorem fan_approximant_bound (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n j : Nat) (hn : n≤blocks m) :
-    Fraction.le
-      (distance ((curveFanName unsigned o E0 T tau L B s hE d m n).approx j)
-        (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s))))
-      (Fraction.mul (Fraction.ofInt (n : Int))
-        (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B))) := by
-  rw [curveFanName,FanValues.fanName_approx]
-  apply Fraction.le_equiv_left (scalarState_distance _ _)
-  let c := Fraction.mul (duration T m) (areaMomentum unsigned s)
-  let p := fun i => ((nodeName o E0 T tau L B s hE d m i).approx j).1
-  let terms := fun i => if unsigned then (TimeSubdivision.det (p i) (p (i+1))).abs
-    else TimeSubdivision.det (p i) (p (i+1))
-  have hterms : ∀ i, i<n → Fraction.le (PolygonFanArea.sub (terms i) c).abs
-      (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)) := by
-    intro i hi
-    have hb := node_triangle_bound o E0 T tau L B s hE d m i j (by omega)
-    cases unsigned with
-    | false => exact hb
-    | true =>
-      have he : Fraction.equiv
-          (Fraction.mul (duration T m) (CentralSchedule.momentum s)).abs c :=
-        Fraction.equiv_trans (Fraction.abs_mul _ _)
-          (Fraction.mul_equiv (Fraction.abs_of_nonnegative _ d.time_nonnegative) (Fraction.equiv_refl _))
-      exact Fraction.le_equiv_left
-        (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr (Fraction.equiv_symm he) (Fraction.equiv_refl _)))
-        (Fraction.magnitudes.le_trans (PolygonFanArea.duration_abs_reverse _ _) hb)
-  have hs := PolygonFanArea.sum_error terms (fun _ => c) _ n hterms
-  have hc : Fraction.equiv (PolygonFanArea.sum (fun _ => c) n)
-      (Fraction.mul (countTime T m n) (areaMomentum unsigned s)) :=
-    Fraction.equiv_trans (PolygonFanArea.sum_constant c n)
-      (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
-  have hf : FanValues.finiteFan unsigned p n = PolygonFanArea.sum terms n := by
-    cases unsigned <;> rfl
-  rw [hf]
-  exact Fraction.le_equiv_left
-    (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr (Fraction.equiv_symm hc) (Fraction.equiv_refl _))) hs
-
-noncomputable def curveIntervalName (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (b c : Nat → Bool) (m : Nat) : EndpointCauchyName :=
-  FanValues.intervalName true (nodeName o E0 T tau L B s hE d m)
-    (intervalStart b c m) (intervalCount b c m)
-
-noncomputable def curveIntervalValue (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (b c : Nat → Bool) (m : Nat) : Value :=
-  FanValues.intervalValue true
-    (fun k => gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
-    (intervalStart b c m) (intervalCount b c m)
-
-theorem curveIntervalValue_realize (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (b c : Nat → Bool) (m : Nat) :
-    curveIntervalValue o E0 T tau L B s hE d b c m =
-      realize (curveIntervalName o E0 T tau L B s hE d b c m) := by
-  unfold curveIntervalValue curveIntervalName
-  rw [← funext (node_value o E0 T tau L B s hE d m)]
-  exact FanValues.intervalValue_realize true _ _ _
-
-theorem interval_fan_approximant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (b c : Nat → Bool) (m j : Nat) :
-    Fraction.le
-      (distance ((curveIntervalName o E0 T tau L B s hE d b c m).approx j)
-        (scalarState (Fraction.mul (countTime T m (intervalCount b c m))
-          (areaMomentum true s))))
-      (Fraction.mul (Fraction.ofInt (intervalCount b c m : Int))
-        (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B))) := by
-  rw [curveIntervalName,FanValues.intervalName_approx]
-  apply Fraction.le_equiv_left (scalarState_distance _ _)
-  let lo := intervalStart b c m
-  let n := intervalCount b c m
-  let e := Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)
-  let c₀ := Fraction.mul (duration T m) (areaMomentum true s)
-  let p := fun i => ((nodeName o E0 T tau L B s hE d m i).approx j).1
-  let terms := fun i => (TimeSubdivision.det (p i) (p (i+1))).abs
-  have hterms : ∀ i, i<n → Fraction.le (PolygonFanArea.sub (terms (lo+i)) c₀).abs e := by
-    intro i hi
-    have hb := node_triangle_bound o E0 T tau L B s hE d m (lo+i) j
-      (by have he := interval_end_le_blocks b c m; dsimp [lo,n] at *; omega)
-    have he : Fraction.equiv
-        (Fraction.mul (duration T m) (CentralSchedule.momentum s)).abs c₀ :=
-      Fraction.equiv_trans (Fraction.abs_mul _ _)
-        (Fraction.mul_equiv (Fraction.abs_of_nonnegative _ d.time_nonnegative) (Fraction.equiv_refl _))
-    exact Fraction.le_equiv_left
-      (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr (Fraction.equiv_symm he) (Fraction.equiv_refl _)))
-      (Fraction.magnitudes.le_trans (PolygonFanArea.duration_abs_reverse _ _) hb)
-  have hs := PolygonFanArea.intervalSum_error terms (fun _ => c₀) lo n e hterms
-  have hc : Fraction.equiv (PolygonFanArea.intervalSum (fun _ => c₀) lo n)
-      (Fraction.mul (countTime T m n) (areaMomentum true s)) :=
-    Fraction.equiv_trans (PolygonFanArea.sum_constant c₀ n)
-      (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
-  change Fraction.le (HarmonicTimeComparison.durationDifference _ _).abs _
-  exact Fraction.le_equiv_left
-    (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
-      (Fraction.equiv_symm hc) (Fraction.equiv_refl _))) hs
-
-def intervalReferenceName (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
-    (s : Point × Point) : EndpointCauchyName :=
-  secantName (areaMomentum true s).half (intervalElapsedName b c T hT)
-    (constantName FanValues.zeroState)
-
-theorem interval_reference_approx (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
-    (s : Point × Point) (m : Nat) :
-    stateEquiv ((intervalReferenceName b c T hT s).approx m)
-      (FanValues.halfState (scalarState
-        (Fraction.mul (countTime T m (intervalCount b c m)) (areaMomentum true s)))) := by
-  have he := interval_elapsed_approx b c T hT m
-  have hs : stateEquiv ((intervalReferenceName b c T hT s).approx m)
-      (secantState (areaMomentum true s).half
-        (scalarState (countTime T m (intervalCount b c m))) FanValues.zeroState) := by
-    exact ⟨pointScale_congr _
-      (pointSub_congr he.1 ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩),
-      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
-  have hp := FanValues.half_scalar_product (areaMomentum true s)
-    (countTime T m (intervalCount b c m))
-  exact ⟨pointEquiv_trans hs.1 (pointEquiv_symm hp.1),
-    pointEquiv_trans hs.2 (pointEquiv_symm hp.2)⟩
-
-theorem outer_radius_nonnegative (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : 0 ≤ d.outer_radius.num :=
-  Fraction.nonnegative_of_le (Fraction.nonnegative_add _ _ (pointNorm_nonnegative _)
-    (Fraction.nonnegative_mul _ _ d.time_nonnegative
-      (velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative))) d.frame.outer_bound
-
-def fanErrorCoefficient (T B R : Fraction) : Fraction :=
-  Fraction.mul R (Fraction.mul (Fraction.mul T T) B)
-
-theorem fanErrorCoefficient_nonnegative (T B R : Fraction)
-    (hT : 0 ≤ T.num) (hB : 0 ≤ B.num) (hR : 0 ≤ R.num) :
-    0 ≤ (fanErrorCoefficient T B R).num :=
-  Fraction.nonnegative_mul _ _ hR
-    (Fraction.nonnegative_mul _ _ (Fraction.nonnegative_mul _ _ hT hT) hB)
-
-/-- Uniform geometric decay for a fan on actual curve nodes. No curve-area
-law or convergence premise is supplied. The sum has at most 2^m cells. -/
-theorem fan_approximant_geometric (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n j : Nat) (hn : n≤blocks m) :
-    Fraction.le
-      (distance ((curveFanName unsigned o E0 T tau L B s hE d m n).approx j)
-        (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s))))
-      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
-  have hr := outer_radius_nonnegative o E0 T tau L B s hE d
-  let e := Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)
-  have he : 0 ≤ e.num := fanErrorCoefficient_nonnegative (duration T m) B d.outer_radius
-    d.time_nonnegative d.bound_nonnegative hr
-  have hcount : Fraction.le (Fraction.ofInt (n : Int)) (Fraction.ofInt (blocks m : Int)) := by
-    simpa only [Fraction.le,Fraction.ofInt,Int.mul_one] using Int.ofNat_le.mpr hn
-  have hb := Fraction.magnitudes.le_trans
-    (fan_approximant_bound unsigned o E0 T tau L B s hE d m n j hn)
-    (Fraction.mul_le_mul_nonnegative hcount e he)
-  apply Fraction.le_equiv_right hb
-  simp only [e,fanErrorCoefficient,duration,blocks,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
-  ac_nf
-
-theorem curve_fan_polygon_bound (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) (hn : n≤blocks m) :
-    Within (curveFanValue unsigned o E0 T tau L B s hE d m n)
-      (embed (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s))))
-      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
-  rw [curveFanValue_realize]
-  exact nameBound_of_eventual_le _ _ _ 0
-    (fun j _ => fan_approximant_geometric unsigned o E0 T tau L B s hE d m n j hn)
-
-def areaReferenceName (unsigned : Bool) (b : Nat → Bool) (T : Fraction)
-    (hT : 0 ≤ T.num) (s : Point × Point) : EndpointCauchyName :=
-  secantName (areaMomentum unsigned s).half (BinaryTime.timeName b T hT)
-    (constantName FanValues.zeroState)
-
-/-- The fan's completed half-area is close to its level-m polygon area.
-This estimate uses genuine curve-node fan approximants for every j. -/
-theorem area_fan_reference_bound (unsigned : Bool) (b : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m j : Nat) :
-    Fraction.le
-      (distance (FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx j))
-        ((areaReferenceName unsigned b T d.time_nonnegative s).approx m))
-      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
-  have hb := Fraction.magnitudes.le_trans (FanValues.half_nonexpansive _ _)
-    (fan_approximant_geometric unsigned o E0 T tau L B s hE d m (ticks b m) j (ticks_le_blocks b m))
-  have hp := FanValues.half_scalar_product (areaMomentum unsigned s) (timeApprox b T m)
-  have hd := stateNorm_equiv (stateSub_congr
-    (show stateEquiv
-      (FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx j))
-      (FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx j))
-      from ⟨⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩,⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
-    ⟨pointEquiv_symm hp.1,pointEquiv_symm hp.2⟩)
-  exact Fraction.le_equiv_left hd hb
-
-theorem interval_fan_approximant_geometric (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (b c : Nat → Bool) (m j : Nat) :
-    Fraction.le
-      (distance ((curveIntervalName o E0 T tau L B s hE d b c m).approx j)
-        (scalarState (Fraction.mul (countTime T m (intervalCount b c m))
-          (areaMomentum true s))))
-      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
-  have hr := outer_radius_nonnegative o E0 T tau L B s hE d
-  let e := Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)
-  have he : 0 ≤ e.num := fanErrorCoefficient_nonnegative (duration T m) B d.outer_radius
-    d.time_nonnegative d.bound_nonnegative hr
-  have hn : intervalCount b c m ≤ blocks m := by
-    have h := interval_end_le_blocks b c m
-    omega
-  have hcount : Fraction.le (Fraction.ofInt (intervalCount b c m : Int))
-      (Fraction.ofInt (blocks m : Int)) := by
-    simpa only [Fraction.le,Fraction.ofInt,Int.mul_one] using Int.ofNat_le.mpr hn
-  have hb := Fraction.magnitudes.le_trans
-    (interval_fan_approximant_bound o E0 T tau L B s hE d b c m j)
-    (Fraction.mul_le_mul_nonnegative hcount e he)
-  apply Fraction.le_equiv_right hb
-  simp only [e,fanErrorCoefficient,duration,blocks,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
-  ac_nf
-
-theorem interval_fan_reference_bound (b c : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m j : Nat) :
-    Fraction.le
-      (distance (FanValues.halfState
-        ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
-        ((intervalReferenceName b c T d.time_nonnegative s).approx m))
-      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
-  have hb := Fraction.magnitudes.le_trans (FanValues.half_nonexpansive _ _)
-    (interval_fan_approximant_geometric o E0 T tau L B s hE d b c m j)
-  have hp := interval_reference_approx b c T d.time_nonnegative s m
-  have hd := stateNorm_equiv (stateSub_congr
-    (show stateEquiv
-      (FanValues.halfState ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
-      (FanValues.halfState ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
-      from ⟨⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩,⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
-    ⟨pointEquiv_symm hp.1,pointEquiv_symm hp.2⟩)
-  exact Fraction.le_equiv_left (Fraction.equiv_symm hd) hb
-
-/-- The diagonal approximants are the half-fans of actual curve nodes. -/
-noncomputable def intervalName (b c : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : EndpointCauchyName :=
-  GeometricApproximation.name (intervalReferenceName b c T d.time_nonnegative s)
-    (fun m => FanValues.halfState
-      ((curveIntervalName o E0 T tau L B s hE d b c m).approx m))
-    (fanErrorCoefficient T B d.outer_radius)
-    (fanErrorCoefficient_nonnegative T B d.outer_radius d.time_nonnegative d.bound_nonnegative
-      (outer_radius_nonnegative o E0 T tau L B s hE d))
-    (fun m => interval_fan_reference_bound b c o E0 T tau L B s hE d m m)
-
-theorem intervalName_equiv_reference (b c : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
-    NameEquiv (intervalName b c o E0 T tau L B s hE d)
-      (intervalReferenceName b c T d.time_nonnegative s) :=
-  GeometricApproximation.name_equiv _ _ _ _ _
-
-theorem intervalName_address_equiv (b c b' c' : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (hb : AddressEquiv T d.time_nonnegative b b')
-    (hc : AddressEquiv T d.time_nonnegative c c') :
-    NameEquiv (intervalName b c o E0 T tau L B s hE d)
-      (intervalName b' c' o E0 T tau L B s hE d) := by
-  have he : NameEquiv (intervalElapsedName b c T d.time_nonnegative)
-      (intervalElapsedName b' c' T d.time_nonnegative) :=
-    mapName_equiv FanValues.absoluteState FanValues.absolute_nonexpansive
-      (secantName_equiv (Fraction.ofInt 1) _ _ _ _ hb hc)
-  have hr := secantName_equiv (areaMomentum true s).half _ _ _ _ he
-    (nameEquiv_refl (constantName FanValues.zeroState))
-  exact nameEquiv_trans (intervalName_equiv_reference b c o E0 T tau L B s hE d)
-    (nameEquiv_trans hr
-      (nameEquiv_symm (intervalName_equiv_reference b' c' o E0 T tau L B s hE d)))
-
-/-- Actual interval-fan approximants construct the area. Their address
-independence is established before this two-endpoint quotient lift. -/
-noncomputable def intervalAreaValue (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t₀ t₁ : BinaryTime T d.time_nonnegative) : Value :=
-  Quotient.liftOn₂ t₀ t₁
-    (fun b c => realize (intervalName b c o E0 T tau L B s hE d))
-    (fun b c b' c' hb hc => Quotient.sound
-      (intervalName_address_equiv b c b' c' o E0 T tau L B s hE d hb hc))
-
-theorem intervalAreaValue_reference (b c : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
-    intervalAreaValue o E0 T tau L B s hE d (Quotient.mk _ b) (Quotient.mk _ c) =
-      realize (intervalReferenceName b c T d.time_nonnegative s) :=
-  Quotient.sound (intervalName_equiv_reference b c o E0 T tau L B s hE d)
-
-/-- The elapsed-time formula is a consequence of the actual fan construction. -/
-theorem interval_area_time_formula (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
-    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
-      secantValue (CentralSchedule.momentum s).abs.half
-        (intervalElapsedValue T d.time_nonnegative t₀ t₁)
-        (embed FanValues.zeroState) := by
-  induction t₀ using Quotient.inductionOn with
-  | _ b =>
-    induction t₁ using Quotient.inductionOn with
-    | _ c => exact intervalAreaValue_reference b c o E0 T tau L B s hE d
-
-/-- The unsigned fan on the actual curve-node interval converges to the
-absolute elapsed-time area. Both addresses are quantified in `AreaBetween`. -/
-theorem interval_area_is_swept (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
-    SweptArea.AreaBetween T d.time_nonnegative
-      (gammaPosition o E0 T tau L B s hE d) t₀ t₁
-      (intervalAreaValue o E0 T tau L B s hE d t₀ t₁) := by
-  intro b c hb hc eps heps
-  subst t₀
-  subst t₁
-  rw [intervalAreaValue_reference]
-  let C := fanErrorCoefficient T B d.outer_radius
-  have hC := fanErrorCoefficient_nonnegative T B d.outer_radius
-    d.time_nonnegative d.bound_nonnegative
-    (outer_radius_nonnegative o E0 T tau L B s hE d)
-  obtain ⟨N,hN⟩ := duration_eventually_small C eps.half hC heps
-  obtain ⟨M,hM⟩ := constant_approximants_converge
-    (intervalReferenceName b c T d.time_nonnegative s) eps.half heps
-  refine ⟨max N M,fun m hm => ?_⟩
-  have hf : Within (FanValues.halfValue
-      (curveIntervalValue o E0 T tau L B s hE d b c m))
-      (embed ((intervalReferenceName b c T d.time_nonnegative s).approx m))
-      (duration C m) := by
-    rw [curveIntervalValue_realize,FanValues.halfValue_realize]
-    exact nameBound_of_eventual_le _ _ _ 0
-      (fun j _ => interval_fan_reference_bound b c o E0 T tau L B s hE d m j)
-  have hs := within_mono _ _ _ _ (Fraction.magnitudes.lt_implies_le (hN m (by omega))) hf
-  have ht := within_mono _ _ _ _ (Fraction.le_of_equiv (Fraction.half_add_self eps))
-    (within_triangle _ _ _ _ _ hs (hM m (by omega)))
-  change Within (FanValues.halfValue (FanValues.intervalValue true
-    (fun k => positionValue (gammaValue o E0 T tau L B s hE d
-      (nodeTime T d.time_nonnegative m k)))
-    (intervalStart b c m) (intervalCount b c m))) _ eps
-  rw [FanValues.intervalValue_positions]
-  exact ht
-
-theorem interval_area_reverse (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
-    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
-      intervalAreaValue o E0 T tau L B s hE d t₁ t₀ :=
-  SweptArea.areaBetween_unique T d.time_nonnegative _ _ _ _ _
-    (interval_area_is_swept o E0 T tau L B s hE d t₀ t₁)
-    (SweptArea.areaBetween_reverse T d.time_nonnegative _ _ _ _
-      (interval_area_is_swept o E0 T tau L B s hE d t₁ t₀))
-
-theorem interval_areas_equal_of_equal_elapsed (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t₀ t₁ u₀ u₁ : BinaryTime T d.time_nonnegative)
-    (h : intervalElapsedValue T d.time_nonnegative t₀ t₁ =
-      intervalElapsedValue T d.time_nonnegative u₀ u₁) :
-    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
-      intervalAreaValue o E0 T tau L B s hE d u₀ u₁ := by
-  rw [interval_area_time_formula o E0 T tau L B s hE d t₀ t₁,
-    interval_area_time_formula o E0 T tau L B s hE d u₀ u₁,h]
-
-/-- A zero-length interval is empty even when the time has several addresses. -/
-theorem interval_area_zero (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t : BinaryTime T d.time_nonnegative) :
-    intervalAreaValue o E0 T tau L B s hE d t t = embed FanValues.zeroState := by
-  induction t using Quotient.inductionOn with
-  | _ b =>
-    apply Quotient.sound
-    apply nameEquiv_of_levelwise_stateEquiv
-    intro m
-    change stateEquiv
-      (FanValues.halfState
-        ((FanValues.intervalName true (nodeName o E0 T tau L B s hE d m)
-          (intervalStart b b m) (intervalCount b b m)).approx m)) FanValues.zeroState
-    simp only [intervalCount,intervalStart,Nat.max_self,Nat.min_self,Nat.sub_self,
-      FanValues.intervalName,FanValues.fanName,FanValues.sumNames,constantName]
-    change stateEquiv (FanValues.halfState FanValues.zeroState) FanValues.zeroState
-    decide
-
-/-- Actual inscribed triangle fan approximants, on progressively finer grids.
-The reference proves their Cauchy property; it is not their definition. -/
-noncomputable def sectorName (unsigned : Bool) (b : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : EndpointCauchyName :=
-  GeometricApproximation.name (areaReferenceName unsigned b T d.time_nonnegative s)
-    (fun m => FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx m))
-    (fanErrorCoefficient T B d.outer_radius)
-    (fanErrorCoefficient_nonnegative T B d.outer_radius d.time_nonnegative d.bound_nonnegative
-      (outer_radius_nonnegative o E0 T tau L B s hE d))
-    (fun m => area_fan_reference_bound unsigned b o E0 T tau L B s hE d m m)
-
-theorem sectorName_equiv_reference (unsigned : Bool) (b : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
-    NameEquiv (sectorName unsigned b o E0 T tau L B s hE d)
-      (areaReferenceName unsigned b T d.time_nonnegative s) :=
-  GeometricApproximation.name_equiv _ _ _ _ _
-
-theorem sectorName_address_equiv (unsigned : Bool) (b c : Nat → Bool) (o : CentralOracle)
-    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (hbc : AddressEquiv T d.time_nonnegative b c) :
-    NameEquiv (sectorName unsigned b o E0 T tau L B s hE d)
-      (sectorName unsigned c o E0 T tau L B s hE d) :=
-  nameEquiv_trans (sectorName_equiv_reference unsigned b o E0 T tau L B s hE d)
-    (nameEquiv_trans (secantName_equiv _ _ _ _ _ hbc (nameEquiv_refl _))
-      (nameEquiv_symm (sectorName_equiv_reference unsigned c o E0 T tau L B s hE d)))
-
-/-- Swept sector area constructed from triangle fans of the actual curve.
-Unsigned fans count swept triangles with multiplicity, including repeated
-revolutions. Oriented fans retain the orientation. This is not union content. -/
-noncomputable def sectorAreaValue (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t : BinaryTime T d.time_nonnegative) : Value :=
-  Quotient.liftOn t (fun b => realize (sectorName unsigned b o E0 T tau L B s hE d))
-    (fun b c hbc => Quotient.sound (sectorName_address_equiv unsigned b c o E0 T tau L B s hE d hbc))
-
-/-- The area law, in the constructed time/value spaces: area = ell*t/2 for
-oriented area and |ell|*t/2 for unsigned swept area. No area limit premise. -/
-theorem sector_area_time_formula (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t : BinaryTime T d.time_nonnegative) :
-    sectorAreaValue unsigned o E0 T tau L B s hE d t =
-      secantValue (areaMomentum unsigned s).half
-        (timeCoordinate T d.time_nonnegative t) (embed FanValues.zeroState) := by
-  induction t using Quotient.inductionOn with
-  | _ b => exact Quotient.sound (sectorName_equiv_reference unsigned b o E0 T tau L B s hE d)
-
-/-- This is the geometric identification: the constructed area is the limit
-of triangle fans whose vertices lie on the actual constructed position map.
-No polygon-sector enclosure or assumed area-convergence premise occurs. -/
-theorem sector_area_is_swept (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t : BinaryTime T d.time_nonnegative) :
-    SweptArea.AreaAt unsigned T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d) t
-      (sectorAreaValue unsigned o E0 T tau L B s hE d t) := by
-  intro b hbt eps heps
-  subst t
-  have harea : sectorAreaValue unsigned o E0 T tau L B s hE d (Quotient.mk _ b) =
-      realize (areaReferenceName unsigned b T d.time_nonnegative s) :=
-    Quotient.sound (sectorName_equiv_reference unsigned b o E0 T tau L B s hE d)
-  rw [harea]
-  let C := fanErrorCoefficient T B d.outer_radius
-  have hC := fanErrorCoefficient_nonnegative T B d.outer_radius d.time_nonnegative d.bound_nonnegative
-    (outer_radius_nonnegative o E0 T tau L B s hE d)
-  obtain ⟨N,hN⟩ := duration_eventually_small C eps.half hC heps
-  obtain ⟨M,hM⟩ := constant_approximants_converge
-    (areaReferenceName unsigned b T d.time_nonnegative s) eps.half heps
-  refine ⟨max N M,fun m hm => ?_⟩
-  have hf : Within (FanValues.halfValue (curveFanValue unsigned o E0 T tau L B s hE d m (ticks b m)))
-      (embed ((areaReferenceName unsigned b T d.time_nonnegative s).approx m)) (duration C m) := by
-    rw [curveFanValue_realize,FanValues.halfValue_realize]
-    exact nameBound_of_eventual_le _ _ _ 0
-      (fun j _ => area_fan_reference_bound unsigned b o E0 T tau L B s hE d m j)
-  have hs := within_mono _ _ _ _ (Fraction.magnitudes.lt_implies_le (hN m (by omega))) hf
-  have ht := within_mono _ _ _ _ (Fraction.le_of_equiv (Fraction.half_add_self eps))
-    (within_triangle _ _ _ _ _ hs (hM m (by omega)))
-  change Within (FanValues.halfValue (FanValues.fanValue unsigned
-    (fun k => positionValue (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
-    (ticks b m))) _ eps
-  rw [FanValues.fanValue_positions]
-  exact ht
-
-/-- General local Proposition I reconstruction: the actual position curve
-has unsigned swept area proportional to time, and its actual intervening
-polygon-region content vanishes. The area coefficient and enclosure are
-derived, not premises. Regularity/window data remain modern premises. -/
-theorem constructed_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t : BinaryTime T d.time_nonnegative) :
-    SweptArea.AreaAt true T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d) t
-      (sectorAreaValue true o E0 T tau L B s hE d t) ∧
-    sectorAreaValue true o E0 T tau L B s hE d t =
-      secantValue (CentralSchedule.momentum s).abs.half
-        (timeCoordinate T d.time_nonnegative t) (embed FanValues.zeroState) ∧
-    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
-      (RationalEnclosure.level mesh)) :=
-  ⟨sector_area_is_swept true o E0 T tau L B s hE d t,
-    sector_area_time_formula true o E0 T tau L B s hE d t,
-    GeneralForcePathContent.polygon_trajectory_defect_vanishes o E0 T tau L B s hE d⟩
-
-/-- Unsigned swept area on any interval of the actual local curve, with its
-derived elapsed-time formula and the existing intervening-content exhaustion.
-This is a modern regional reconstruction; the historical invoked corollaries
-remain separate proof obligations. -/
-theorem constructed_interval_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
-    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
-    SweptArea.AreaBetween T d.time_nonnegative
-      (gammaPosition o E0 T tau L B s hE d) t₀ t₁
-      (intervalAreaValue o E0 T tau L B s hE d t₀ t₁) ∧
-    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
-      secantValue (CentralSchedule.momentum s).abs.half
-        (intervalElapsedValue T d.time_nonnegative t₀ t₁)
-        (embed FanValues.zeroState) ∧
-    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
-      (RationalEnclosure.level mesh)) :=
-  ⟨interval_area_is_swept o E0 T tau L B s hE d t₀ t₁,
-    interval_area_time_formula o E0 T tau L B s hE d t₀ t₁,
-    GeneralForcePathContent.polygon_trajectory_defect_vanishes o E0 T tau L B s hE d⟩
-
-/-- The retained constructive development supplies one proved instance of
-the given-trajectory swept-area target. Construction is supporting work;
-`SweptArea.Proportional` itself requires only an existing curve as data.
-The between-path content theorem is separate and is not a field of this law. -/
-theorem proportional_swept_area (o : CentralOracle) (E0 T tau L B : Fraction)
-    (s : Point × Point) (hE : 0 < E0.num)
-    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
-    SweptArea.Proportional T d.time_nonnegative
-      (gammaPosition o E0 T tau L B s hE d) (CentralSchedule.momentum s) := by
-  intro t₀ t₁
-  have h := interval_area_is_swept o E0 T tau L B s hE d t₀ t₁
-  rwa [interval_area_time_formula o E0 T tau L B s hE d t₀ t₁] at h
-
-end NewtonLimitDynamics.Polygon.GeneralForceArea
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/HarmonicAccumulation.lean}}{\small, 31 theorems, 371 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.DyadicArithmetic
-import BarrowLib.Polygon.FinitePower
-import BarrowLib.Polygon.StateDistance
-import ModernLib.Polygon.HarmonicRefinement
-import ModernLib.Polygon.HarmonicComparison
-
-/-!
-Finite global comparison of actual harmonic end-kick schedules with common
-elapsed time. This is a coordinate L1 state budget only. It constructs no
-limiting trajectory and makes no claim about the nonnegative region between
-polygonal paths or the separate Kepler swept areas. The De Motu, 1687, and
-1713 historical stages remain distinct from this modern rational estimate.
--/
-
-namespace NewtonLimitDynamics.Polygon.HarmonicAccumulation
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open CentralSchedule
-open HarmonicStability
-open HarmonicRefinement
-open HarmonicComparison
-open PointBounds
-
-def localFactor (w h : Fraction) : Fraction :=
-  Fraction.mul (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)
-    (Fraction.add (kappa w h) (Fraction.ofInt 1))
-
-def coarseFactor (w h : Fraction) : Fraction := kappa w (Fraction.add h h)
-def fineFactor (w h : Fraction) : Fraction := Fraction.mul (kappa w h) (kappa w h)
-
-private def localA (w h : Fraction) : Fraction :=
-  Fraction.mul (Fraction.mul h h) w
-private def localC (w h : Fraction) : Fraction :=
-  Fraction.mul (Fraction.mul (Fraction.mul h h) h) (Fraction.mul w w)
-
-/-- The actual fine-minus-coarse state displacement, as represented rational
-values. The first component is the position error, the second the velocity
-error. -/
-theorem local_error_identity (w h : Fraction) (s : Point × Point) :
-    stateEquiv (stateSub (HarmonicRefinement.fine w h s) (HarmonicRefinement.coarse w h s))
-      (pointScale (negF (localA w h)) (middle w h s),
-        pointAdd (pointScale (localA w h) s.2)
-          (pointScale (localC w h) (middle w h s))) := by
-  constructor <;> constructor <;>
-    simp only [stateSub, localA, localC, HarmonicRefinement.fine,
-      HarmonicRefinement.coarse, middle,
-      pointEquiv, pointSub, pointNeg, cell, linearField, negF,
-      pointAdd, pointScale, Fraction.equiv, Fraction.add, Fraction.mul,
-      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
-    ac_nf <;> omega
-
-private theorem localA_abs (w h : Fraction) :
-    Fraction.equiv (localA w h).abs
-      (Fraction.mul (Fraction.mul h.abs h.abs) w.abs) := by
-  simp only [localA, Fraction.equiv, Fraction.abs, Fraction.mul,
-    Int.natAbs_mul, Int.ofNat_mul]
-
-private theorem neg_localA_abs (w h : Fraction) :
-    Fraction.equiv (negF (localA w h)).abs
-      (Fraction.mul (Fraction.mul h.abs h.abs) w.abs) :=
-  Fraction.equiv_trans (Fraction.abs_neg (localA w h)) (localA_abs w h)
-
-private theorem localC_abs (w h : Fraction) :
-    Fraction.equiv (localC w h).abs
-      (Fraction.mul (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)
-        (Fraction.mul h.abs w.abs)) := by
-  simp only [localC, Fraction.equiv, Fraction.abs, Fraction.mul,
-    Int.natAbs_mul, Int.ofNat_mul]
-  ac_nf
-
-private theorem middle_norm_bound (w h : Fraction) (s : Point × Point) :
-    Fraction.le (pointNorm (middle w h s))
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs) (stateNorm s)) :=
-  Fraction.magnitudes.le_trans (point_le_state (drift h s)) (drift_bound h s)
-
-private def amplitude (w h : Fraction) : Fraction :=
-  Fraction.mul (Fraction.mul h.abs h.abs) w.abs
-
-private def kickMagnitude (w h : Fraction) : Fraction := Fraction.mul h.abs w.abs
-
-private theorem amplitude_nonnegative (w h : Fraction) :
-    0 ≤ (amplitude w h).num :=
-  Fraction.nonnegative_mul _ _
-    (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _))
-    (Fraction.abs_num_nonnegative _)
-
-private theorem kickMagnitude_nonnegative (w h : Fraction) :
-    0 ≤ (kickMagnitude w h).num :=
-  Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _)
-
-/-- Triangle and scaling estimate for the explicit local mismatch. -/
-theorem local_error_expanded_bound (w h : Fraction) (s : Point × Point) :
-    Fraction.le
-      (stateNorm (stateSub (HarmonicRefinement.fine w h s)
-        (HarmonicRefinement.coarse w h s)))
-      (Fraction.add
-        (Fraction.mul (amplitude w h) (pointNorm (middle w h s)))
-        (Fraction.add
-          (Fraction.mul (amplitude w h) (pointNorm s.2))
-          (Fraction.mul (Fraction.mul (amplitude w h) (kickMagnitude w h))
-            (pointNorm (middle w h s))))) := by
-  let y := middle w h s
-  let a := pointScale (negF (localA w h)) y
-  let b := pointScale (localA w h) s.2
-  let c := pointScale (localC w h) y
-  have he := stateNorm_equiv (local_error_identity w h s)
-  have ht := Fraction.add_le_add_left (pointNorm_add_le b c) (pointNorm a)
-  have hp : Fraction.equiv (pointNorm a)
-      (Fraction.mul (amplitude w h) (pointNorm y)) :=
-    Fraction.equiv_trans (pointNorm_scale _ _)
-      (Fraction.mul_equiv (neg_localA_abs w h) (Fraction.equiv_refl _))
-  have hv : Fraction.equiv (pointNorm b)
-      (Fraction.mul (amplitude w h) (pointNorm s.2)) :=
-    Fraction.equiv_trans (pointNorm_scale _ _)
-      (Fraction.mul_equiv (localA_abs w h) (Fraction.equiv_refl _))
-  have hc : Fraction.equiv (pointNorm c)
-      (Fraction.mul (Fraction.mul (amplitude w h) (kickMagnitude w h))
-        (pointNorm y)) :=
-    Fraction.equiv_trans (pointNorm_scale _ _)
-      (Fraction.mul_equiv (localC_abs w h) (Fraction.equiv_refl _))
-  exact Fraction.le_equiv_left he
-    (Fraction.le_equiv_right ht (Fraction.add_equiv hp (Fraction.add_equiv hv hc)))
-
-/-- The local defect of two actual half-cells against one full cell is bounded
-by `|h|²|w|(kappa+1)` times the current state magnitude. -/
-theorem local_error_bound (w h : Fraction) (s : Point × Point) :
-    Fraction.le
-      (stateNorm (stateSub (HarmonicRefinement.fine w h s)
-        (HarmonicRefinement.coarse w h s)))
-      (Fraction.mul (localFactor w h) (stateNorm s)) := by
-  have h₀ := local_error_expanded_bound w h s
-  have hy := middle_norm_bound w h s
-  have hv := velocity_le_state s
-  have ha := amplitude_nonnegative w h
-  have hat := Fraction.nonnegative_mul (amplitude w h) (kickMagnitude w h) ha
-    (kickMagnitude_nonnegative w h)
-  have h₁ := Fraction.mul_le_mul_nonnegative_left hy (amplitude w h) ha
-  have h₂ := Fraction.mul_le_mul_nonnegative_left hv (amplitude w h) ha
-  have h₃ := Fraction.mul_le_mul_nonnegative_left hy
-    (Fraction.mul (amplitude w h) (kickMagnitude w h)) hat
-  have hs := Fraction.add_le_add h₁ (Fraction.add_le_add h₂ h₃)
-  have hchain := Fraction.magnitudes.le_trans h₀ hs
-  apply Fraction.le_equiv_right hchain
-  simp only [localFactor, amplitude, kickMagnitude, kappa, Fraction.equiv,
-    Fraction.add, Fraction.mul, Fraction.ofInt]
-  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-  ac_nf
-
-
-/-- The two actual endpoint recurrences, each block of duration `h+h`. -/
-def coarseAt (w h : Fraction) (s : Point × Point) : Nat → Point × Point
-  | 0 => s
-  | n + 1 => HarmonicRefinement.coarse w h (coarseAt w h s n)
-
-def fineAt (w h : Fraction) (s : Point × Point) : Nat → Point × Point
-  | 0 => s
-  | n + 1 => HarmonicRefinement.fine w h (fineAt w h s n)
-
-def fineDurations (h : Fraction) : Nat → List Fraction
-  | 0 => []
-  | n + 1 => h :: h :: fineDurations h n
-
-private theorem coarseAt_comm (w h : Fraction) (s : Point × Point) :
-    (n : Nat) →
-      coarseAt w h (HarmonicRefinement.coarse w h s) n =
-        HarmonicRefinement.coarse w h (coarseAt w h s n)
-  | 0 => rfl
-  | n + 1 => by
-      simp only [coarseAt]
-      rw [coarseAt_comm w h s n]
-
-private theorem fineAt_comm (w h : Fraction) (s : Point × Point) :
-    (n : Nat) →
-      fineAt w h (HarmonicRefinement.fine w h s) n =
-        HarmonicRefinement.fine w h (fineAt w h s n)
-  | 0 => rfl
-  | n + 1 => by
-      simp only [fineAt]
-      rw [fineAt_comm w h s n]
-
-/-- The coarse recurrence is the actual list schedule of `n` full cells. -/
-theorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :
-    (n : Nat) →
-      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =
-        coarseAt w h s n
-  | 0 => rfl
-  | n + 1 => by
-      simp only [List.replicate_succ, schedule]
-      change schedule (linearField w) (List.replicate n (Fraction.add h h))
-        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)
-      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]
-      exact coarseAt_comm w h s n
-
-/-- The fine recurrence is the actual schedule of `2n` half-cells. -/
-theorem fineAt_schedule (w h : Fraction) (s : Point × Point) :
-    (n : Nat) →
-      schedule (linearField w) (fineDurations h n) s = fineAt w h s n
-  | 0 => rfl
-  | n + 1 => by
-      simp only [fineDurations, schedule]
-      change schedule (linearField w) (fineDurations h n)
-        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)
-      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]
-      exact fineAt_comm w h s n
-
-/-- Both actual lists have the same represented elapsed duration. -/
-theorem schedules_common_time (w h : Fraction) :
-    (n : Nat) →
-      Fraction.equiv
-        (elapsed (List.replicate n (Fraction.add h h)))
-        (elapsed (fineDurations h n))
-  | 0 => Fraction.equiv_refl _
-  | n + 1 => by
-      simp only [List.replicate_succ, fineDurations, elapsed]
-      exact Fraction.equiv_trans
-        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))
-        (Fraction.add_equiv (Fraction.equiv_refl h)
-          (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))
-
-def errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction
-  | 0 => Fraction.ofInt 0
-  | n + 1 =>
-      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))
-        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))
-          (stateNorm s))
-
-theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num := by
-  unfold kappa
-  apply Fraction.nonnegative_mul
-  · exact Fraction.nonnegative_add _ _ (by decide) (Fraction.abs_num_nonnegative _)
-  · exact Fraction.nonnegative_add _ _ (by decide) (kickMagnitude_nonnegative w h)
-
-theorem localFactor_nonnegative (w h : Fraction) :
-    0 ≤ (localFactor w h).num :=
-  Fraction.nonnegative_mul _ _ (amplitude_nonnegative w h)
-    (Fraction.nonnegative_add _ _ (kappa_nonnegative w h) (by decide))
-
-theorem fineFactor_nonnegative (w h : Fraction) :
-    0 ≤ (fineFactor w h).num :=
-  Fraction.nonnegative_mul _ _ (kappa_nonnegative w h) (kappa_nonnegative w h)
-
-private theorem coarseFactor_nonnegative (w h : Fraction) :
-    0 ≤ (coarseFactor w h).num := kappa_nonnegative w (Fraction.add h h)
-
-theorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :
-    (n : Nat) → 0 ≤ (errorBudget w h s n).num
-  | 0 => by simp [errorBudget, Fraction.ofInt]
-  | n + 1 =>
-      Fraction.nonnegative_add _ _
-        (Fraction.nonnegative_mul _ _ (fineFactor_nonnegative w h)
-          (errorBudget_nonnegative w h s n))
-        (Fraction.nonnegative_mul _ _
-          (Fraction.nonnegative_mul _ _ (localFactor_nonnegative w h)
-            (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))
-          (stateNorm_nonnegative s))
-
-/-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/
-theorem fine_perturbation (w h : Fraction) (s t : Point × Point) :
-    Fraction.le
-      (stateNorm (stateSub (HarmonicRefinement.fine w h s)
-        (HarmonicRefinement.fine w h t)))
-      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t))) := by
-  have h₁ := cell_perturbation w h (cell (linearField w) h s)
-    (cell (linearField w) h t)
-  have h₂ := cell_perturbation w h s t
-  have hm := Fraction.mul_le_mul_nonnegative_left h₂ (kappa w h)
-    (kappa_nonnegative w h)
-  have hc := Fraction.magnitudes.le_trans h₁ hm
-  apply Fraction.le_equiv_right hc
-  simp only [fineFactor, Fraction.equiv, Fraction.mul]
-  ac_nf
-
-/-- Every actual coarse state is bounded by `b^n` times the initial state
-magnitude, with `b = kappa(w,h+h)`. -/
-theorem coarse_norm_bound (w h : Fraction) (s : Point × Point) :
-    (n : Nat) →
-      Fraction.le (stateNorm (coarseAt w h s n))
-        (Fraction.mul (fpower (coarseFactor w h) n) (stateNorm s))
-  | 0 => by
-      apply Fraction.le_of_equiv
-      simp only [coarseAt, fpower, Fraction.equiv, Fraction.mul, Fraction.ofInt]
-      simp only [Int.one_mul, Int.mul_one]
-  | n + 1 => by
-      have hc := cell_bound w (Fraction.add h h) (coarseAt w h s n)
-      have hi := coarse_norm_bound w h s n
-      have hm := Fraction.mul_le_mul_nonnegative_left hi (coarseFactor w h)
-        (coarseFactor_nonnegative w h)
-      have hchain := Fraction.magnitudes.le_trans hc hm
-      apply Fraction.le_equiv_right hchain
-      simp only [coarseAt, fpower, coarseFactor, Fraction.equiv, Fraction.mul]
-      ac_nf
-
-/-- The actual endpoints after `n` common blocks obey the recursively
-constructed finite error budget. The recurrence uses the coarse state at each
-block for the local defect and propagates the previous actual endpoint error
-through two actual fine cells. -/
-theorem actual_error_bound (w h : Fraction) (s : Point × Point) :
-    (n : Nat) →
-      Fraction.le (stateNorm (stateSub (fineAt w h s n) (coarseAt w h s n)))
-        (errorBudget w h s n)
-  | 0 => Fraction.le_of_equiv (stateSub_self_norm_zero s)
-  | n + 1 => by
-      let F := fineAt w h s n
-      let C := coarseAt w h s n
-      have ht := stateSub_triangle
-        (HarmonicRefinement.fine w h F)
-        (HarmonicRefinement.fine w h C)
-        (HarmonicRefinement.coarse w h C)
-      have hp := fine_perturbation w h F C
-      have hl := local_error_bound w h C
-      have hraw := Fraction.magnitudes.le_trans ht (Fraction.add_le_add hp hl)
-      have hi := actual_error_bound w h s n
-      have hc := coarse_norm_bound w h s n
-      have hbi := Fraction.mul_le_mul_nonnegative_left hi (fineFactor w h)
-        (fineFactor_nonnegative w h)
-      have hbc := Fraction.mul_le_mul_nonnegative_left hc (localFactor w h)
-        (localFactor_nonnegative w h)
-      have hbudget := Fraction.add_le_add hbi hbc
-      have hchain := Fraction.magnitudes.le_trans hraw hbudget
-      apply Fraction.le_equiv_right hchain
-      simp only [errorBudget, Fraction.equiv, Fraction.add, Fraction.mul]
-      simp only [Int.add_mul, Int.mul_add]
-      ac_nf
-
-private def one : Fraction := ⟨1, 1, by decide⟩
-private def zero : Fraction := ⟨0, 1, by decide⟩
-private def half : Fraction := ⟨1, 2, by decide⟩
-private def sample : Point × Point := ((one, zero), (zero, one))
-
-private instance (s t : Point × Point) : Decidable (stateEquiv s t) :=
-  inferInstanceAs (Decidable (pointEquiv s.1 t.1 ∧ pointEquiv s.2 t.2))
-
-theorem sample_zero_blocks :
-    stateEquiv (fineAt one zero sample 1) (coarseAt one zero sample 1) := by decide
-
-theorem sample_zero_error :
-    Fraction.equiv
-      (stateNorm (stateSub (fineAt one zero sample 1) (coarseAt one zero sample 1)))
-      zero := by decide
-
-theorem sample_zero_budget :
-    Fraction.equiv (errorBudget one zero sample 1) zero := by decide
-
-theorem sample_initial_error :
-    Fraction.equiv
-      (stateNorm (stateSub (fineAt one half sample 0) (coarseAt one half sample 0)))
-      zero := by decide
-
-theorem sample_local_factor :
-    Fraction.equiv (localFactor one half) ⟨13, 16, by decide⟩ := by decide
-
-/-- Exact one-block state error. Its four component magnitudes are `1/4`,
-`1/8`, `1/8`, and `5/16`; their sum is `13/16`. -/
-theorem sample_one_block_error :
-    Fraction.equiv
-      (stateNorm (stateSub (fineAt one half sample 1) (coarseAt one half sample 1)))
-      ⟨13, 16, by decide⟩ := by decide
-
-theorem sample_one_block_budget :
-    Fraction.equiv (errorBudget one half sample 1) ⟨13, 8, by decide⟩ := by decide
-
-theorem sample_two_block_error :
-    Fraction.equiv
-      (stateNorm (stateSub (fineAt one half sample 2) (coarseAt one half sample 2)))
-      ⟨173, 256, by decide⟩ := by decide
-
-theorem sample_one_block_distinct :
-    ¬ stateEquiv (fineAt one half sample 1) (coarseAt one half sample 1) := by decide
-
-end NewtonLimitDynamics.Polygon.HarmonicAccumulation
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/HarmonicBinaryPrefix.lean}}{\small, 32 theorems, 530 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.GeometricTail
-import BarrowLib.Polygon.DyadicArithmetic
-import BarrowLib.Polygon.FinitePower
-import ModernLib.Polygon.HarmonicTimeComparison
-
-/-!
-Actual intermediate prefixes of one dyadic harmonic polygon family, indexed
-by binary addresses. The approximants are finite schedules only. No completed
-point, continuum trajectory, or region between polygon and trajectory is
-assumed; Kepler swept area remains a distinct quantity.
--/
-
-namespace NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open CentralSchedule
-open HarmonicStability
-open HarmonicComparison
-open HarmonicAccumulation
-open HarmonicUniform
-open HarmonicDyadic
-open HarmonicTimeComparison
-open PointBounds
-
-def prefixState (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
-    (j : Nat) : Point × Point :=
-  schedule (linearField w) (List.replicate (ticks b j) (duration T j)) s
-
-theorem prefix_coarse (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat) :
-    stateEquiv (prefixState b w T s j)
-      (coarseAt w (duration T (j + 1)) s (ticks b j)) := by
-  let h := duration T (j + 1)
-  have hc := schedule_replicate_congr w (duration T j) (Fraction.add h h)
-    (duration_halving T j) (ticks b j) s s
-    ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
-      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
-  simpa only [prefixState, coarseAt_schedule] using hc
-
-theorem prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    Fraction.le (stateNorm (prefixState b w T s j))
-      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) := by
-  let h := duration T (j + 1)
-  have hprefix := smallTime_prefix w h (ticks b j) (blocks j) hT
-    (ticks_le_blocks b j) (dyadic_smallTime w T j hs)
-  have hc := coarse_state_le_two w h s (ticks b j) hT hprefix
-  exact Fraction.le_equiv_left
-    (stateNorm_equiv (prefix_coarse b w T s j)) hc
-
-theorem elapsed_replicate (d : Fraction) :
-    (n : Nat) → Fraction.equiv (elapsed (List.replicate n d))
-      (Fraction.mul (Fraction.ofInt (n : Int)) d)
-  | 0 => by
-      simp only [elapsed, List.replicate_zero, Fraction.equiv,
-        Fraction.ofInt, Fraction.mul]
-      simp
-  | n + 1 => by
-      have ih := elapsed_replicate d n
-      have he := Fraction.add_equiv (Fraction.equiv_refl d) ih
-      apply Fraction.equiv_trans he
-      simp only [elapsed, List.replicate_succ, Fraction.equiv,
-        Fraction.add, Fraction.mul, Fraction.ofInt, Int.natCast_add]
-      simp only [Int.add_mul, Int.mul_add, Int.one_mul, Int.mul_one]
-      ac_nf
-
-theorem prefix_elapsed (b : Nat → Bool) (T : Fraction) (j : Nat) :
-    Fraction.equiv
-      (elapsed (List.replicate (ticks b j) (duration T j)))
-      (Fraction.mul (Fraction.ofInt (ticks b j : Int)) (duration T j)) :=
-  elapsed_replicate (duration T j) (ticks b j)
-
-theorem prefix_elapsed_le_time (b : Nat → Bool) (T : Fraction) (j : Nat)
-    (hT : 0 ≤ T.num) :
-    Fraction.le (elapsed (List.replicate (ticks b j) (duration T j))) T := by
-  let d := duration T j
-  have hcount : Fraction.le (Fraction.ofInt (ticks b j : Int))
-      (Fraction.ofInt (blocks j : Int)) := by
-    unfold Fraction.le Fraction.ofInt
-    dsimp
-    simp only [Int.mul_one]
-    exact Int.ofNat_le.mpr (ticks_le_blocks b j)
-  have hm := Fraction.mul_le_mul_nonnegative hcount d hT
-  have hfull := endpoint_elapsed T j
-  have he := elapsed_replicate d (blocks j)
-  have hbound := Fraction.le_equiv_left
-    (prefix_elapsed b T j) hm
-  exact Fraction.le_equiv_right hbound
-    (Fraction.equiv_trans (Fraction.equiv_symm he) hfull)
-
-theorem schedule_replicate_step (w h : Fraction) (s : Point × Point) :
-    (n : Nat) →
-      schedule (linearField w) (List.replicate (n + 1) h) s =
-        cell (linearField w) h
-          (schedule (linearField w) (List.replicate n h) s)
-  | 0 => rfl
-  | n + 1 => by
-      simp only [List.replicate_succ, schedule]
-      change schedule (linearField w) (List.replicate (n + 1) h)
-        (cell (linearField w) h s) =
-          cell (linearField w) h
-            (schedule (linearField w) (List.replicate n h)
-              (cell (linearField w) h s))
-      rw [schedule_replicate_step w h (cell (linearField w) h s) n]
-
-theorem prefix_next (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat) :
-    prefixState b w T s (j + 1) =
-      if b j then
-        cell (linearField w) (duration T (j + 1))
-          (fineAt w (duration T (j + 1)) s (ticks b j))
-      else fineAt w (duration T (j + 1)) s (ticks b j) := by
-  let h := duration T (j + 1)
-  by_cases hb : b j
-  · simp only [prefixState, ticks_next]
-    simp only [bit, hb, ↓reduceIte]
-    change schedule (linearField w)
-      (List.replicate ((ticks b j + ticks b j) + 1) h) s = _
-    rw [schedule_replicate_step]
-    rw [← fineDurations_replicate]
-    exact congrArg (cell (linearField w) h)
-      (fineAt_schedule w h s (ticks b j))
-  · simp only [prefixState, ticks_next]
-    simp [bit, hb] at *
-    rw [← fineDurations_replicate]
-    exact fineAt_schedule w h s (ticks b j)
-
-private theorem scalar_one_bound (a b c : Fraction)
-    (ha : 0 ≤ a.num) :
-    Fraction.le
-      (Fraction.add b (Fraction.mul c (Fraction.add a b)))
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c)
-        (Fraction.add a b)) := by
-  let M := Fraction.add a b
-  have hbM : Fraction.le b M := by
-    unfold Fraction.le M Fraction.add
-    dsimp
-    rw [Int.add_mul]
-    have hnon := Int.mul_nonneg
-      (Int.mul_nonneg ha (Int.le_of_lt b.den_pos)) (Int.le_of_lt b.den_pos)
-    have he : b.num * (a.den * b.den) = b.num * a.den * b.den := by ac_rfl
-    rw [he]
-    omega
-  have hfirst := Fraction.add_le_add_right hbM (Fraction.mul c M)
-  apply Fraction.le_equiv_right hfirst
-  simp only [Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-  simp only [M, Fraction.add]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
-
-theorem cell_parameter_bound_one (w sigma tau : Fraction) (s : Point × Point)
-    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
-    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
-    Fraction.le
-      (stateNorm (stateSub (cell (linearField w) tau s)
-        (cell (linearField w) sigma s)))
-      (Fraction.mul (durationDifference sigma tau).abs
-        (Fraction.mul
-          (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm s))) := by
-  let d := durationDifference sigma tau
-  have hp := short_sum_point_bound sigma tau s.1 s.2 hσ hτ hsum
-  have hw := Fraction.mul_le_mul_nonnegative_left hp w.abs
-    (Fraction.abs_num_nonnegative w)
-  have ha := Fraction.add_le_add_left hw (pointNorm s.2)
-  have hd := Fraction.mul_le_mul_nonnegative_left ha d.abs
-    (Fraction.abs_num_nonnegative d)
-  have hc := scalar_one_bound (pointNorm s.1) (pointNorm s.2) w.abs
-    (pointNorm_nonnegative s.1)
-  have hdc := Fraction.mul_le_mul_nonnegative_left hc d.abs
-    (Fraction.abs_num_nonnegative d)
-  have hf := cell_parameter_norm_formula w sigma tau s
-  exact Fraction.le_equiv_right
-    (Fraction.magnitudes.le_trans (Fraction.le_equiv_left hf hd) hdc)
-    (by simp only [stateNorm]; exact Fraction.equiv_refl _)
-
-private def zero : Fraction := ⟨0, 1, by decide⟩
-
-theorem cell_increment_bound (w h : Fraction) (s : Point × Point)
-    (hh : 0 ≤ h.num) (hsmall : Fraction.le h (Fraction.ofInt 1)) :
-    Fraction.le (stateNorm (stateSub (cell (linearField w) h s) s))
-      (Fraction.mul h.abs
-        (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm s))) := by
-  have hsum : Fraction.le (Fraction.add zero h) (Fraction.ofInt 1) :=
-    Fraction.le_equiv_left (by
-      simp only [zero, Fraction.equiv, Fraction.add]
-      simp) hsmall
-  have hb := cell_parameter_bound_one w zero h s (by decide) hh hsum
-  have he : stateEquiv
-      (stateSub (cell (linearField w) h s) s)
-      (stateSub (cell (linearField w) h s) (cell (linearField w) zero s)) :=
-    stateSub_congr
-      ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
-        ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
-      ⟨⟨Fraction.equiv_symm (zero_step w s).1.1,
-          Fraction.equiv_symm (zero_step w s).1.2⟩,
-        ⟨Fraction.equiv_symm (zero_step w s).2.1,
-          Fraction.equiv_symm (zero_step w s).2.2⟩⟩
-  have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hb
-  apply Fraction.le_equiv_right hfirst
-  simp only [durationDifference, zero, negF, Fraction.equiv,
-    Fraction.abs, Fraction.add, Fraction.mul]
-  simp only [Int.zero_mul, Int.mul_zero, Int.add_zero,
-    Int.natAbs_zero, Int.ofNat_zero, Int.mul_one, Int.one_mul,
-    Int.neg_zero]
-
-theorem fine_prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    Fraction.le
-      (stateNorm (fineAt w (duration T (j + 1)) s (ticks b j)))
-      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) := by
-  let h := duration T (j + 1)
-  have hprefix := smallTime_prefix w h (ticks b j) (blocks j) hT
-    (ticks_le_blocks b j) (dyadic_smallTime w T j hs)
-  exact fine_state_le_two w h s (ticks b j) hT hprefix
-
-theorem prefix_totalTime_le (b : Nat → Bool) (T : Fraction) (j : Nat)
-    (hT : 0 ≤ T.num) :
-    Fraction.le (totalTime (duration T (j + 1)) (ticks b j)) T := by
-  let h := duration T (j + 1)
-  have he : Fraction.equiv (totalTime h (ticks b j))
-      (elapsed (List.replicate (ticks b j) (duration T j))) :=
-    Fraction.equiv_trans
-      (Fraction.equiv_symm (coarse_elapsed_totalTime h (ticks b j)))
-      (elapsed_replicate_congr
-        (Fraction.equiv_symm (duration_halving T j)) (ticks b j))
-  exact Fraction.le_equiv_left he (prefix_elapsed_le_time b T j hT)
-
-theorem fine_optional_increment (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    Fraction.le
-      (stateNorm (stateSub
-        (cell (linearField w) (duration T (j + 1))
-          (fineAt w (duration T (j + 1)) s (ticks b j)))
-        (fineAt w (duration T (j + 1)) s (ticks b j))))
-      (Fraction.mul (Fraction.ofInt 2)
-        (Fraction.mul (duration T (j + 1))
-          (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs)
-            (stateNorm s)))) := by
-  let h := duration T (j + 1)
-  let q := fineAt w h s (ticks b j)
-  have hle : Fraction.le h (Fraction.ofInt 1) := by
-    have h₁ := duration_le_time T (j + 1) hT
-    have h₂ := dyadic_time_le_half w T hT hs
-    have h₃ : Fraction.le (⟨1, 2, by decide⟩ : Fraction)
-        (Fraction.ofInt 1) := by unfold Fraction.le; decide
-    exact Fraction.magnitudes.le_trans h₁
-      (Fraction.magnitudes.le_trans h₂ h₃)
-  have hb := cell_increment_bound w h q hT hle
-  have hq := fine_prefix_state_le_two b w T s j hT hs
-  have hm₁ := Fraction.mul_le_mul_nonnegative_left hq
-    (Fraction.add (Fraction.ofInt 1) w.abs) (by
-      unfold Fraction.add Fraction.ofInt Fraction.abs
-      dsimp
-      have hw := Int.ofNat_nonneg w.num.natAbs
-      have hd := w.den_pos
-      omega)
-  have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁ h hT
-  have habs := Fraction.abs_of_nonnegative h hT
-  have he := Fraction.mul_equiv habs
-    (Fraction.equiv_refl
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm q)))
-  have hchain := Fraction.magnitudes.le_trans
-    (Fraction.le_equiv_right hb he) hm₂
-  apply Fraction.le_equiv_right hchain
-  simp only [h]
-  simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-  ac_nf
-
-def refinementCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
-  Fraction.mul (Fraction.ofInt 3)
-    (Fraction.mul T
-      (Fraction.mul (duration T (j + 1))
-        (Fraction.mul w.abs (stateNorm s))))
-
-def optionalCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
-  Fraction.mul (Fraction.ofInt 2)
-    (Fraction.mul (duration T (j + 1))
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs)
-        (stateNorm s)))
-
-theorem prefix_refinement_error (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    Fraction.le
-      (stateNorm (stateSub
-        (fineAt w (duration T (j + 1)) s (ticks b j))
-        (prefixState b w T s j)))
-      (refinementCap w T s j) := by
-  let h := duration T (j + 1)
-  let n := ticks b j
-  have hs' := smallTime_prefix w h n (blocks j) hT
-    (ticks_le_blocks b j) (dyadic_smallTime w T j hs)
-  have hb := actual_uniform_error w h s n hT hs'
-  have he : stateEquiv
-      (stateSub (fineAt w h s n) (prefixState b w T s j))
-      (stateSub (fineAt w h s n) (coarseAt w h s n)) :=
-    stateSub_congr
-      ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
-        ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
-      (prefix_coarse b w T s j)
-  have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hb
-  have htime := prefix_totalTime_le b T j hT
-  have hnon : 0 ≤ (Fraction.mul h (Fraction.mul w.abs (stateNorm s))).num :=
-    Int.mul_nonneg hT
-      (Int.mul_nonneg (Fraction.abs_num_nonnegative w)
-        (stateNorm_nonnegative s))
-  have hm₁ := Fraction.mul_le_mul_nonnegative htime
-    (Fraction.mul h (Fraction.mul w.abs (stateNorm s))) hnon
-  have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁
-    (Fraction.ofInt 3) (by decide)
-  exact Fraction.magnitudes.le_trans hfirst hm₂
-
-def adjacentCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
-  Fraction.add (optionalCap w T s j) (refinementCap w T s j)
-
-private theorem optionalCap_nonnegative (w T : Fraction) (s : Point × Point)
-    (j : Nat) (hT : 0 ≤ T.num) :
-    0 ≤ (optionalCap w T s j).num := by
-  unfold optionalCap
-  have hfactor : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
-    unfold Fraction.add Fraction.ofInt Fraction.abs
-    dsimp
-    have hw := Int.ofNat_nonneg w.num.natAbs
-    have hd := w.den_pos
-    omega
-  exact Int.mul_nonneg (by decide)
-    (Int.mul_nonneg hT
-      (Int.mul_nonneg hfactor (stateNorm_nonnegative s)))
-
-private theorem le_add_optional (a c : Fraction) (hc : 0 ≤ c.num) :
-    Fraction.le a (Fraction.add c a) := by
-  have hz : Fraction.le (Fraction.ofInt 0) c := by
-    unfold Fraction.le Fraction.ofInt
-    dsimp
-    simp only [Int.zero_mul, Int.mul_one]
-    exact hc
-  have h := Fraction.add_le_add_left hz a
-  have he : Fraction.equiv (Fraction.add a (Fraction.ofInt 0)) a := by
-    simp only [Fraction.equiv, Fraction.add, Fraction.ofInt]
-    simp only [Int.zero_mul, Int.mul_zero, Int.add_zero,
-      Int.mul_one, Int.one_mul]
-  exact Fraction.le_equiv_right
-    (Fraction.le_equiv_left (Fraction.equiv_symm he) h)
-    (Fraction.add_comm a c)
-
-theorem adjacent_error_le_add (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    Fraction.le
-      (stateNorm (stateSub (prefixState b w T s (j + 1))
-        (prefixState b w T s j)))
-      (adjacentCap w T s j) := by
-  have hnext := prefix_next b w T s j
-  have href := prefix_refinement_error b w T s j hT hs
-  by_cases hb : b j
-  · rw [hnext, if_pos hb]
-    have htri := stateSub_triangle
-      (cell (linearField w) (duration T (j + 1))
-        (fineAt w (duration T (j + 1)) s (ticks b j)))
-      (fineAt w (duration T (j + 1)) s (ticks b j))
-      (prefixState b w T s j)
-    exact Fraction.magnitudes.le_trans htri
-      (Fraction.add_le_add (fine_optional_increment b w T s j hT hs) href)
-  · rw [hnext, if_neg hb]
-    exact Fraction.magnitudes.le_trans href
-      (le_add_optional _ _ (optionalCap_nonnegative w T s j hT))
-
-/-- `A=T*M*(2*(1+|w|)+3*T*|w|)` for intermediate prefixes. -/
-def coefficient (w T : Fraction) (s : Point × Point) : Fraction :=
-  Fraction.mul T
-    (Fraction.mul (stateNorm s)
-      (Fraction.add
-        (Fraction.mul (Fraction.ofInt 2)
-          (Fraction.add (Fraction.ofInt 1) w.abs))
-        (Fraction.mul (Fraction.ofInt 3) (Fraction.mul T w.abs))))
-
-def tailCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
-  let A := coefficient w T s
-  ⟨A.num, A.den * (2 : Int) ^ j,
-    Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
-
-def doubleTail (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
-  let A := coefficient w T s
-  ⟨2 * A.num, A.den * (2 : Int) ^ j,
-    Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
-
-theorem adjacentCap_tail (w T : Fraction) (s : Point × Point) (j : Nat) :
-    Fraction.equiv (adjacentCap w T s j) (tailCap w T s (j + 1)) := by
-  simp only [adjacentCap, optionalCap, refinementCap, tailCap,
-    coefficient, duration, Fraction.equiv, Fraction.add,
-    Fraction.mul, Fraction.ofInt, Fraction.abs,
-    Int.pow_succ]
-  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-  ac_nf
-
-theorem adjacent_error_le (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    Fraction.le
-      (stateNorm (stateSub (prefixState b w T s (j + 1))
-        (prefixState b w T s j)))
-      (tailCap w T s (j + 1)) :=
-  Fraction.le_equiv_right (adjacent_error_le_add b w T s j hT hs)
-    (adjacentCap_tail w T s j)
-
-theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num := by
-  have hOneW : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
-    unfold Fraction.add Fraction.ofInt Fraction.abs
-    dsimp
-    have hw := Int.ofNat_nonneg w.num.natAbs
-    have hd := w.den_pos
-    omega
-  have h₁ : 0 ≤ (Fraction.mul (Fraction.ofInt 2)
-      (Fraction.add (Fraction.ofInt 1) w.abs)).num :=
-    Int.mul_nonneg (by decide) hOneW
-  have h₂ : 0 ≤ (Fraction.mul (Fraction.ofInt 3)
-      (Fraction.mul T w.abs)).num :=
-    Int.mul_nonneg (by decide)
-      (Int.mul_nonneg hT (Fraction.abs_num_nonnegative w))
-  unfold coefficient
-  exact Int.mul_nonneg hT
-    (Int.mul_nonneg (stateNorm_nonnegative s)
-      (Fraction.nonnegative_add _ _ h₁ h₂))
-
-theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
-    Fraction.equiv
-      (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))
-      (tailCap w T s j) := by
-  exact GeometricTail.tail_halving (coefficient w T s) j
-
-theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
-    Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))
-      (doubleTail w T s j) := by
-  exact GeometricTail.tail_double (coefficient w T s) j
-
-theorem finite_gap_error (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    (k j : Nat) → Fraction.le
-      (stateNorm (stateSub (prefixState b w T s (j + k))
-        (prefixState b w T s j))) (tailCap w T s j) := by
-  intro k j
-  exact GeometricTail.finite_gap (prefixState b w T s) (coefficient w T s)
-    (coefficient_nonnegative w T s hT)
-    (fun i => adjacent_error_le b w T s i hT hs) k j
-
-theorem two_sided_error (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
-    (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
-    Fraction.le
-      (stateNorm (stateSub (prefixState b w T s m) (prefixState b w T s n)))
-      (doubleTail w T s N) := by
-  exact GeometricTail.two_sided (prefixState b w T s) (coefficient w T s)
-    (coefficient_nonnegative w T s hT)
-    (fun i => adjacent_error_le b w T s i hT hs) N m n hm hn
-
-def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
-  (2 * (coefficient w T s).num * eps.den).toNat
-
-theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
-    (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
-    Fraction.lt (doubleTail w T s (modulus w T s eps)) eps := by
-  exact GeometricTail.doubleTail_lt_tolerance (coefficient w T s) eps
-    (coefficient_nonnegative w T s hT) heps
-
-theorem prefix_cauchy (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    ∀ eps : Fraction, 0 < eps.num →
-      ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
-        Fraction.lt
-          (stateNorm (stateSub (prefixState b w T s m)
-            (prefixState b w T s n))) eps := by
-  intro eps heps
-  refine ⟨modulus w T s eps, ?_⟩
-  intro m n hm hn
-  exact Fraction.magnitudes.lt_of_le_lt
-    (two_sided_error b w T s hT hs _ m n hm hn)
-    (doubleTail_lt_tolerance w T s eps hT heps)
-
-def prefixName (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : EndpointCauchyName where
-  approx := prefixState b w T s
-  cauchy := prefix_cauchy b w T s hT hs
-
-theorem all_zero_prefix (w T : Fraction) (s : Point × Point) (j : Nat) :
-    prefixState (fun _ => false) w T s j = s := by
-  simp [prefixState, all_zero_ticks, schedule]
-
-theorem zero_time_prefix (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat) (hT : T.num = 0) :
-    stateEquiv (prefixState b w T s j) s := by
-  exact zero_duration_schedule w (duration T j) (by exact hT) (ticks b j) s
-
-private def sampleOne : Fraction := ⟨1, 1, by decide⟩
-private def sampleZero : Fraction := ⟨0, 1, by decide⟩
-private def sampleQuarter : Fraction := ⟨1, 4, by decide⟩
-private def sampleState : Point × Point :=
-  ((sampleOne, sampleZero), (sampleZero, sampleOne))
-private def firstBit (j : Nat) : Bool := j == 0
-
-theorem sample_ticks : ticks firstBit 1 = 1 ∧ ticks firstBit 2 = 2 := by decide
-
-theorem sample_first_error :
-    Fraction.equiv
-      (stateNorm (stateSub
-        (prefixState firstBit sampleOne sampleQuarter sampleState 1)
-        (prefixState firstBit sampleOne sampleQuarter sampleState 0)))
-      ⟨17, 64, by decide⟩ := by decide
-
-theorem sample_coefficient :
-    Fraction.equiv (coefficient sampleOne sampleQuarter sampleState)
-      ⟨19, 8, by decide⟩ := by decide
-
-theorem sample_second_error :
-    Fraction.equiv
-      (stateNorm (stateSub
-        (prefixState firstBit sampleOne sampleQuarter sampleState 2)
-        (prefixState firstBit sampleOne sampleQuarter sampleState 1)))
-      ⟨545, 65536, by decide⟩ := by decide
-
-def sample_prefix_cauchy_name : EndpointCauchyName :=
-  prefixName firstBit sampleOne sampleQuarter sampleState
-    (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
-
-end NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/HarmonicComparison.lean}}{\small, 18 theorems, 214 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.StateDistance
-import BarrowLib.Polygon.PointBounds
-import BarrowLib.Polygon.FiniteEstimates
-import ModernLib.Polygon.HarmonicStability
-
-/-!
-Finite perturbation comparisons for the actual harmonic end-kick cell. The L1
-state magnitude is a chosen coordinate diagnostic and requires a unit
-calibration before interpreting position and velocity together physically.
--/
-
-namespace NewtonLimitDynamics.Polygon.HarmonicComparison
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open CentralSchedule
-open HarmonicStability
-open PointBounds
-
-def kappa (w h : Fraction) : Fraction :=
-  Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs)
-    (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs))
-
-private theorem zero_le_product (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
-    Fraction.le (Fraction.ofInt 0) (Fraction.mul a b) := by
-  unfold Fraction.le Fraction.ofInt Fraction.mul
-  dsimp
-  simpa using Int.mul_nonneg ha hb
-
-private theorem one_plus_bound_right (a b c : Fraction)
-    (ha : 0 ≤ a.num) (hc : 0 ≤ c.num) :
-    Fraction.le (Fraction.add (Fraction.add a b) (Fraction.mul c b))
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c) (Fraction.add a b)) := by
-  let lhs := Fraction.add (Fraction.add a b) (Fraction.mul c b)
-  have h := Fraction.add_le_add_left (zero_le_product c a hc ha) lhs
-  have h' : Fraction.le lhs (Fraction.add lhs (Fraction.mul c a)) :=
-    Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.add_zero lhs)) h
-  apply Fraction.le_equiv_right h'
-  simp only [lhs, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-  ac_nf
-
-private theorem one_plus_bound_left (a b c : Fraction)
-    (hb : 0 ≤ b.num) (hc : 0 ≤ c.num) :
-    Fraction.le (Fraction.add (Fraction.add a b) (Fraction.mul c a))
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c) (Fraction.add a b)) := by
-  let lhs := Fraction.add (Fraction.add a b) (Fraction.mul c a)
-  have h := Fraction.add_le_add_left (zero_le_product c b hc hb) lhs
-  have h' : Fraction.le lhs (Fraction.add lhs (Fraction.mul c b)) :=
-    Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.add_zero lhs)) h
-  apply Fraction.le_equiv_right h'
-  simp only [lhs, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-  ac_nf
-
-def drift (h : Fraction) (s : Point × Point) : Point × Point :=
-  (pointAdd s.1 (pointScale h s.2), s.2)
-
-def kick (w h : Fraction) (s : Point × Point) : Point × Point :=
-  (s.1, pointAdd s.2 (pointScale h (linearField w s.1)))
-
-theorem cell_eq_kick_drift (w h : Fraction) (s : Point × Point) :
-    cell (linearField w) h s = kick w h (drift h s) := rfl
-
-theorem drift_bound (h : Fraction) (s : Point × Point) :
-    Fraction.le (stateNorm (drift h s))
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs) (stateNorm s)) := by
-  have h₁ := Fraction.add_le_add_right (pointNorm_add_le s.1 (pointScale h s.2))
-    (pointNorm s.2)
-  have h₂ : Fraction.equiv
-      (Fraction.add (Fraction.add (pointNorm s.1) (pointNorm (pointScale h s.2)))
-        (pointNorm s.2))
-      (Fraction.add (Fraction.add (pointNorm s.1) (pointNorm s.2))
-        (Fraction.mul h.abs (pointNorm s.2))) := by
-    have hs := pointNorm_scale h s.2
-    have hh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.1)) hs
-    have hhh := Fraction.add_equiv hh (Fraction.equiv_refl (pointNorm s.2))
-    exact Fraction.equiv_trans hhh (by
-      simp only [Fraction.equiv, Fraction.add, Fraction.mul]
-      simp only [Int.add_mul, Int.mul_add]
-      ac_nf)
-  have h₃ := Fraction.le_equiv_right h₁ h₂
-  exact Fraction.magnitudes.le_trans h₃
-    (one_plus_bound_right (pointNorm s.1) (pointNorm s.2) h.abs
-      (pointNorm_nonnegative _) (Fraction.abs_num_nonnegative _))
-
-private theorem kick_scale_norm (w h : Fraction) (p : Point) :
-    Fraction.equiv (pointNorm (pointScale h (linearField w p)))
-      (Fraction.mul (Fraction.mul h.abs w.abs) (pointNorm p)) := by
-  simp only [Fraction.equiv, pointNorm, pointScale, linearField, negF,
-    Fraction.abs, Fraction.add, Fraction.mul, Int.natAbs_mul,
-    Int.natAbs_neg, Int.ofNat_mul]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
-
-theorem kick_bound (w h : Fraction) (s : Point × Point) :
-    Fraction.le (stateNorm (kick w h s))
-      (Fraction.mul
-        (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs))
-        (stateNorm s)) := by
-  have h₁ := Fraction.add_le_add_left
-    (pointNorm_add_le s.2 (pointScale h (linearField w s.1))) (pointNorm s.1)
-  have h₂ : Fraction.equiv
-      (Fraction.add (pointNorm s.1)
-        (Fraction.add (pointNorm s.2)
-          (pointNorm (pointScale h (linearField w s.1)))))
-      (Fraction.add (Fraction.add (pointNorm s.1) (pointNorm s.2))
-        (Fraction.mul (Fraction.mul h.abs w.abs) (pointNorm s.1))) := by
-    have hf := kick_scale_norm w h s.1
-    have hh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.2)) hf
-    have hhh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.1)) hh
-    exact Fraction.equiv_trans hhh (by
-      simp only [Fraction.equiv, Fraction.add, Fraction.mul]
-      simp only [Int.add_mul, Int.mul_add]
-      ac_nf)
-  have h₃ := Fraction.le_equiv_right h₁ h₂
-  exact Fraction.magnitudes.le_trans h₃
-    (one_plus_bound_left (pointNorm s.1) (pointNorm s.2)
-      (Fraction.mul h.abs w.abs) (pointNorm_nonnegative _)
-      (Int.mul_nonneg (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _)))
-
-/-- One actual harmonic end-kick cell amplifies the coordinate L1 state
-magnitude by at most `(1+|h|)(1+|h||w|)`, including signed and zero data. -/
-theorem cell_bound (w h : Fraction) (s : Point × Point) :
-    Fraction.le (stateNorm (cell (linearField w) h s))
-      (Fraction.mul (kappa w h) (stateNorm s)) := by
-  rw [cell_eq_kick_drift]
-  have hk := kick_bound w h (drift h s)
-  have hd := drift_bound h s
-  have hc : 0 ≤ (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs)).num := by
-    have hp := Int.mul_pos h.abs.den_pos w.abs.den_pos
-    have hn := Int.mul_nonneg (Fraction.abs_num_nonnegative h)
-      (Fraction.abs_num_nonnegative w)
-    unfold Fraction.add Fraction.ofInt Fraction.mul
-    dsimp
-    omega
-  have hm := Fraction.mul_le_mul_nonnegative_left hd
-    (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs)) hc
-  have hchain := Fraction.magnitudes.le_trans hk hm
-  apply Fraction.le_equiv_right hchain
-  simp only [kappa, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-  ac_nf
-
-/-- Subtracting the outputs of two actual cells equals applying the same
-linear harmonic cell to their input difference, as rational values. -/
-theorem cell_difference (w h : Fraction) (s t : Point × Point) :
-    stateEquiv (stateSub (cell (linearField w) h s) (cell (linearField w) h t))
-      (cell (linearField w) h (stateSub s t)) := by
-  constructor <;> constructor <;>
-    simp only [zero, stateSub, pointEquiv, pointSub, pointNeg, cell, linearField,
-      negF, pointAdd, pointScale, Fraction.equiv, Fraction.add, Fraction.mul,
-      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
-    ac_nf <;> omega
-
-/-- A one-step perturbation estimate for two actual cells under the same
-linear field and duration. The input difference is a represented state. -/
-theorem linearField_comparison_contract (w : Fraction) :
-    FiniteEstimates.comparisonContract (linearField w) (linearField w)
-      w.abs (Fraction.ofInt 0) := by
-  intro p q
-  have hs := FiniteEstimates.difference_scale (negF w) p q
-  have he := Fraction.equiv_trans hs
-    (Fraction.mul_equiv (Fraction.abs_neg w) (Fraction.equiv_refl _))
-  exact Fraction.le_of_equiv (Fraction.equiv_trans he
-    (Fraction.equiv_symm (Fraction.add_zero _)))
-
-theorem cell_perturbation (w h : Fraction) (s t : Point × Point) :
-    Fraction.le
-      (stateNorm (stateSub (cell (linearField w) h s) (cell (linearField w) h t)))
-      (Fraction.mul (kappa w h) (stateNorm (stateSub s t))) := by
-  have hg := FiniteEstimates.cell_amplification (linearField w) (linearField w)
-    h w.abs (Fraction.ofInt 0) s t (Fraction.abs_num_nonnegative w)
-    (linearField_comparison_contract w)
-  apply Fraction.le_equiv_right hg
-  exact Fraction.equiv_trans (Fraction.add_equiv (Fraction.equiv_refl _)
-    (Fraction.mul_zero h.abs)) (Fraction.add_zero _)
-
-private def one : Fraction := ⟨1, 1, by decide⟩
-private def zero : Fraction := ⟨0, 1, by decide⟩
-private def half : Fraction := ⟨1, 2, by decide⟩
-private def sample : Point × Point := ((one, zero), (zero, one))
-
-/-- Zero duration leaves the represented state unchanged in rational value. -/
-theorem zero_step (w : Fraction) (s : Point × Point) :
-    stateEquiv (cell (linearField w) zero s) s := by
-  constructor <;> constructor <;>
-    simp only [zero, stateSub, pointEquiv, pointSub, pointNeg, cell, linearField,
-      negF, pointAdd, pointScale, Fraction.equiv, Fraction.add, Fraction.mul,
-      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg,
-      Int.zero_mul, Int.mul_zero, Int.add_zero] <;>
-    ac_nf <;> omega
-
-theorem zero_step_norm (w : Fraction) (s : Point × Point) :
-    Fraction.equiv (stateNorm (cell (linearField w) zero s)) (stateNorm s) :=
-  stateNorm_equiv (zero_step w s)
-
-theorem zero_kappa (w : Fraction) : Fraction.equiv (kappa w zero) one := by
-  simp only [kappa, zero, one, Fraction.equiv, Fraction.abs, Fraction.ofInt,
-    Fraction.add, Fraction.mul]
-  dsimp
-  simp only [Int.zero_mul, Int.mul_zero, Int.add_zero, Int.mul_one, Int.one_mul]
-
-theorem sample_kappa : Fraction.equiv (kappa one half) ⟨9, 4, by decide⟩ := by decide
-theorem sample_initial_norm : Fraction.equiv (stateNorm sample) (Fraction.ofInt 2) := by decide
-theorem sample_cell_norm :
-    Fraction.equiv (stateNorm (cell (linearField one) half sample)) ⟨11, 4, by decide⟩ := by decide
-theorem sample_cell_bound :
-    Fraction.le (stateNorm (cell (linearField one) half sample))
-      (Fraction.mul (kappa one half) (stateNorm sample)) := by
-  unfold Fraction.le
-  decide
-
-end NewtonLimitDynamics.Polygon.HarmonicComparison
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/HarmonicCover.lean}}{\small, 36 theorems, 434 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.ConvexCover
-import ModernLib.Foundation.Polygon.SquareOuterContent
-import ModernLib.Polygon.HarmonicUniform
-
-/-!
-Explicit finite square covers for matched pieces of the actual harmonic
-coarse and fine polygonal paths. The square area is counted with multiplicity
-over blocks. This is a geometric covering budget, not the area of the union
-or the area between a polygon and a realized continuum trajectory. It is
-separate from Kepler's centre-swept area.
--/
-
-namespace NewtonLimitDynamics.Polygon.HarmonicCover
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open CentralSchedule
-open HarmonicStability
-open HarmonicRefinement
-open HarmonicComparison
-open HarmonicAccumulation
-open HarmonicUniform
-open PointBounds
-open ConvexCover
-
-private def two : Fraction := Fraction.ofInt 2
-private def four : Fraction := Fraction.ofInt 4
-
-def maxError (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
-  Fraction.mul (Fraction.ofInt 3)
-    (Fraction.mul (totalTime h n)
-      (Fraction.mul h (Fraction.mul w.abs (stateNorm s))))
-
-def halfDriftBudget (h : Fraction) (s : Point × Point) : Fraction :=
-  Fraction.mul two (Fraction.mul h (stateNorm s))
-
-def fullDriftBudget (h : Fraction) (s : Point × Point) : Fraction :=
-  Fraction.mul four (Fraction.mul h (stateNorm s))
-
-/-- The radius is `4hM + Emax`; this additive form makes the corner estimates
-direct. `radius_formula` gives the equivalent compact expression. -/
-def radius (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
-  Fraction.add (fullDriftBudget h s) (maxError w h s n)
-
-def squareArea (R : Fraction) : Fraction := SquareOuterContent.squareArea R
-
-/-- Sum of `n` square areas, counted with multiplicity. -/
-def coverBudget (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
-  Fraction.mul (Fraction.ofInt (n : Int)) (squareArea (radius w h s n))
-
-private theorem totalTime_nonnegative (h : Fraction) (n : Nat) (hh : 0 ≤ h.num) :
-    0 ≤ (totalTime h n).num := by
-  unfold totalTime Fraction.mul Fraction.ofInt
-  exact Int.mul_nonneg (Int.mul_nonneg (by decide) (Int.ofNat_nonneg _)) hh
-
-private theorem maxError_nonnegative (w h : Fraction) (s : Point × Point)
-    (n : Nat) (hh : 0 ≤ h.num) : 0 ≤ (maxError w h s n).num :=
-  Fraction.nonnegative_mul _ _ (by decide)
-    (Fraction.nonnegative_mul _ _ (totalTime_nonnegative h n hh)
-      (Fraction.nonnegative_mul _ _ hh
-        (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))))
-
-private theorem halfDriftBudget_nonnegative (h : Fraction) (s : Point × Point)
-    (hh : 0 ≤ h.num) : 0 ≤ (halfDriftBudget h s).num :=
-  Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
-
-private theorem fullDriftBudget_nonnegative (h : Fraction) (s : Point × Point)
-    (hh : 0 ≤ h.num) : 0 ≤ (fullDriftBudget h s).num :=
-  Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
-
-theorem radius_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
-    (hh : 0 ≤ h.num) : 0 ≤ (radius w h s n).num :=
-  Fraction.nonnegative_add _ _ (fullDriftBudget_nonnegative h s hh)
-    (maxError_nonnegative w h s n hh)
-
-theorem squareArea_nonnegative (R : Fraction) (hR : 0 ≤ R.num) :
-    0 ≤ (squareArea R).num := SquareOuterContent.squareArea_nonnegative R hR
-
-theorem coverBudget_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
-    (hh : 0 ≤ h.num) : 0 ≤ (coverBudget w h s n).num :=
-  Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _)
-    (squareArea_nonnegative _ (radius_nonnegative w h s n hh))
-
-private theorem totalTime_le (h : Fraction) (i n : Nat)
-    (hh : 0 ≤ h.num) (hin : i ≤ n) :
-    Fraction.le (totalTime h i) (totalTime h n) := by
-  have hi : (i : Int) ≤ (n : Int) := Int.ofNat_le.mpr hin
-  have hcoef : 0 ≤ 2 * h.num * h.den :=
-    Int.mul_nonneg (Int.mul_nonneg (by decide) hh) (Int.le_of_lt h.den_pos)
-  have hm := Int.mul_le_mul_of_nonneg_right hi hcoef
-  unfold Fraction.le totalTime Fraction.mul Fraction.ofInt
-  dsimp
-  simp only [Int.one_mul]
-  calc
-    2 * (i : Int) * h.num * h.den ≤
-        2 * (n : Int) * h.num * h.den := by
-      calc
-        _ = (i : Int) * (2 * h.num * h.den) := by ac_rfl
-        _ ≤ (n : Int) * (2 * h.num * h.den) := hm
-        _ = _ := by ac_rfl
-
-/-- Every earlier actual endpoint error is bounded by the final-count cap. -/
-private theorem prefix_error_le_max (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
-    (hs : SmallTime w h n) :
-    Fraction.le
-      (stateNorm (stateSub (fineAt w h s i) (coarseAt w h s i)))
-      (maxError w h s n) := by
-  have hsmall := smallTime_prefix w h i n hh hin hs
-  have he := actual_uniform_error w h s i hh hsmall
-  have ht := totalTime_le h i n hh hin
-  have hfactor : 0 ≤ (Fraction.mul h (Fraction.mul w.abs (stateNorm s))).num :=
-    Fraction.nonnegative_mul _ _ hh
-      (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))
-  have hm := Fraction.mul_le_mul_nonnegative ht
-    (Fraction.mul h (Fraction.mul w.abs (stateNorm s))) hfactor
-  have hm' := Fraction.mul_le_mul_nonnegative_left hm (Fraction.ofInt 3) (by decide)
-  exact Fraction.magnitudes.le_trans he hm'
-
-private theorem drift_offset_le_state (d : Fraction) (hd : 0 ≤ d.num)
-    (t : Point × Point) :
-    Fraction.le
-      (pointNorm (pointSub (pointAdd t.1 (pointScale d t.2)) t.1))
-      (Fraction.mul d (stateNorm t)) := by
-  have he := pointNorm_equiv (drift_offset d t.1 t.2)
-  have hs := pointNorm_scale d t.2
-  have hdabs := Fraction.abs_of_nonnegative d hd
-  have hmul := Fraction.mul_equiv hdabs (Fraction.equiv_refl (pointNorm t.2))
-  have hstart := Fraction.equiv_trans he (Fraction.equiv_trans hs hmul)
-  have hv := velocity_le_state t
-  have hm := Fraction.mul_le_mul_nonnegative_left hv d hd
-  exact Fraction.le_equiv_left hstart hm
-
-private theorem two_le_four (h : Fraction) (s : Point × Point)
-    (hh : 0 ≤ h.num) :
-    Fraction.le (halfDriftBudget h s) (fullDriftBudget h s) := by
-  have ht : Fraction.le two four := by
-    unfold Fraction.le two four Fraction.ofInt
-    decide
-  exact Fraction.mul_le_mul_nonnegative ht (Fraction.mul h (stateNorm s))
-    (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
-
-private theorem half_drift_le (h : Fraction) (s t : Point × Point)
-    (hh : 0 ≤ h.num)
-    (ht : Fraction.le (stateNorm t) (Fraction.mul two (stateNorm s))) :
-    Fraction.le
-      (pointNorm (pointSub (pointAdd t.1 (pointScale h t.2)) t.1))
-      (halfDriftBudget h s) := by
-  have h₀ := drift_offset_le_state h hh t
-  have h₁ := Fraction.mul_le_mul_nonnegative_left ht h hh
-  have hc := Fraction.magnitudes.le_trans h₀ h₁
-  apply Fraction.le_equiv_right hc
-  simp only [halfDriftBudget, two, Fraction.equiv, Fraction.mul, Fraction.ofInt]
-  ac_nf
-
-private theorem full_drift_le (h : Fraction) (s t : Point × Point)
-    (hh : 0 ≤ h.num)
-    (ht : Fraction.le (stateNorm t) (Fraction.mul two (stateNorm s))) :
-    Fraction.le
-      (pointNorm (pointSub (pointAdd t.1 (pointScale (Fraction.add h h) t.2)) t.1))
-      (fullDriftBudget h s) := by
-  have hsum : 0 ≤ (Fraction.add h h).num :=
-    Fraction.nonnegative_add h h hh hh
-  have h₀ := drift_offset_le_state (Fraction.add h h) hsum t
-  have h₁ := Fraction.mul_le_mul_nonnegative_left ht (Fraction.add h h) hsum
-  have hc := Fraction.magnitudes.le_trans h₀ h₁
-  apply Fraction.le_equiv_right hc
-  simp only [fullDriftBudget, two, four, Fraction.equiv, Fraction.add,
-    Fraction.mul, Fraction.ofInt]
-  simp only [show (4 : Int) = 2 + 2 by rfl,
-    Int.add_mul, Int.mul_add]
-  ac_nf
-
-def coarseStart (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
-  (coarseAt w h s i).1
-
-def fineStart (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
-  (fineAt w h s i).1
-
-/-- Position halfway along the actual coarse cell's inertial drift. This
-vertex is a comparison subdivision; the coarse schedule has no impulse here. -/
-def coarseMid (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
-  (cell (linearField w) h (coarseAt w h s i)).1
-
-def fineMid (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
-  (cell (linearField w) h (fineAt w h s i)).1
-
-def coarseEnd (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
-  (coarseAt w h s (i + 1)).1
-
-def fineEnd (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
-  (fineAt w h s (i + 1)).1
-
-private theorem coarse_mid_le_half (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
-    (hs : SmallTime w h n) :
-    Fraction.le (pointNorm (pointSub (coarseMid w h s i) (coarseStart w h s i)))
-      (halfDriftBudget h s) :=
-  half_drift_le h s (coarseAt w h s i) hh
-    (coarse_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
-
-private theorem fine_mid_own_le_half (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
-    (hs : SmallTime w h n) :
-    Fraction.le (pointNorm (pointSub (fineMid w h s i) (fineStart w h s i)))
-      (halfDriftBudget h s) :=
-  half_drift_le h s (fineAt w h s i) hh
-    (fine_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
-
-private theorem coarse_end_le_full (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
-    (hs : SmallTime w h n) :
-    Fraction.le (pointNorm (pointSub (coarseEnd w h s i) (coarseStart w h s i)))
-      (fullDriftBudget h s) :=
-  full_drift_le h s (coarseAt w h s i) hh
-    (coarse_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
-
-private theorem fine_start_error_le (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
-    (hs : SmallTime w h n) :
-    Fraction.le (pointNorm (pointSub (fineStart w h s i) (coarseStart w h s i)))
-      (maxError w h s n) :=
-  Fraction.magnitudes.le_trans
-    (point_le_state (stateSub (fineAt w h s i) (coarseAt w h s i)))
-    (prefix_error_le_max w h s i n hh hin hs)
-
-private theorem fine_mid_le (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
-    (hs : SmallTime w h n) :
-    Fraction.le (pointNorm (pointSub (fineMid w h s i) (coarseStart w h s i)))
-      (Fraction.add (maxError w h s n) (halfDriftBudget h s)) := by
-  have ht := pointSub_triangle (fineMid w h s i) (fineStart w h s i)
-    (coarseStart w h s i)
-  have h₁ := fine_mid_own_le_half w h s i n hh hin hs
-  have h₂ := fine_start_error_le w h s i n hh hin hs
-  have hc := Fraction.magnitudes.le_trans ht (Fraction.add_le_add h₁ h₂)
-  exact Fraction.le_equiv_right hc
-    (Fraction.add_comm (halfDriftBudget h s) (maxError w h s n))
-
-private theorem fine_end_le (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
-    (hs : SmallTime w h n) :
-    Fraction.le (pointNorm (pointSub (fineEnd w h s i) (coarseStart w h s i)))
-      (Fraction.add (maxError w h s n) (fullDriftBudget h s)) := by
-  have hnext : i + 1 ≤ n := Nat.succ_le_of_lt hin
-  have ht := pointSub_triangle (fineEnd w h s i) (coarseEnd w h s i)
-    (coarseStart w h s i)
-  have h₁ := fine_start_error_le w h s (i + 1) n hh hnext hs
-  have h₂ := coarse_end_le_full w h s i n hh (Nat.le_of_lt hin) hs
-  exact Fraction.magnitudes.le_trans ht (Fraction.add_le_add h₁ h₂)
-
-private theorem zero_le (R : Fraction) (hR : 0 ≤ R.num) :
-    Fraction.le (Fraction.ofInt 0) R := by
-  unfold Fraction.le Fraction.ofInt
-  simpa using hR
-
-/-- Six actual vertices, each measured from the coarse block start, fit in
-the same coordinate L1 ball of radius `4hM + Emax`. The midpoint is only a
-subdivision of the coarse drift; it receives no impulse. -/
-theorem actual_corners_in_ball (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
-    (hs : SmallTime w h n) :
-    let x := coarseStart w h s i
-    let R := radius w h s n
-    Fraction.le (pointNorm (pointSub x x)) R ∧
-    Fraction.le (pointNorm (pointSub (coarseMid w h s i) x)) R ∧
-    Fraction.le (pointNorm (pointSub (coarseEnd w h s i) x)) R ∧
-    Fraction.le (pointNorm (pointSub (fineStart w h s i) x)) R ∧
-    Fraction.le (pointNorm (pointSub (fineMid w h s i) x)) R ∧
-    Fraction.le (pointNorm (pointSub (fineEnd w h s i) x)) R := by
-  dsimp
-  have hi : i ≤ n := Nat.le_of_lt hin
-  have hE := maxError_nonnegative w h s n hh
-  have hH := fullDriftBudget_nonnegative h s hh
-  have hH2 := two_le_four h s hh
-  have hHR : Fraction.le (fullDriftBudget h s) (radius w h s n) :=
-    Fraction.le_add_nonnegative _ _ hE
-  have hER : Fraction.le (maxError w h s n) (radius w h s n) :=
-    Fraction.le_equiv_right (Fraction.le_add_nonnegative _ _ hH)
-      (Fraction.add_comm (maxError w h s n) (fullDriftBudget h s))
-  have hsum : Fraction.le
-      (Fraction.add (maxError w h s n) (halfDriftBudget h s))
-      (radius w h s n) :=
-    Fraction.le_equiv_right
-      (Fraction.add_le_add_left hH2 (maxError w h s n))
-      (Fraction.add_comm (maxError w h s n) (fullDriftBudget h s))
-  have hlast : Fraction.equiv
-      (Fraction.add (maxError w h s n) (fullDriftBudget h s))
-      (radius w h s n) :=
-    Fraction.add_comm _ _
-  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
-  · exact Fraction.le_equiv_left (pointSub_self_zero _)
-      (zero_le _ (radius_nonnegative w h s n hh))
-  · exact Fraction.magnitudes.le_trans (coarse_mid_le_half w h s i n hh hi hs)
-      (Fraction.magnitudes.le_trans hH2 hHR)
-  · exact Fraction.magnitudes.le_trans (coarse_end_le_full w h s i n hh hi hs) hHR
-  · exact Fraction.magnitudes.le_trans (fine_start_error_le w h s i n hh hi hs) hER
-  · exact Fraction.magnitudes.le_trans (fine_mid_le w h s i n hh hi hs) hsum
-  · exact Fraction.le_equiv_right (fine_end_le w h s i n hh hin hs) hlast
-
-/-- The first matched patch compares the two paths over the first half-cell. -/
-def firstPatch (w h : Fraction) (s : Point × Point) (i : Nat)
-    (theta lambda : Fraction) : Point :=
-  matchedPatch theta lambda (coarseStart w h s i) (coarseMid w h s i)
-    (fineStart w h s i) (fineMid w h s i)
-
-/-- The second matched patch compares the same second-half physical times. -/
-def secondPatch (w h : Fraction) (s : Point × Point) (i : Nat)
-    (theta lambda : Fraction) : Point :=
-  matchedPatch theta lambda (coarseMid w h s i) (coarseEnd w h s i)
-    (fineMid w h s i) (fineEnd w h s i)
-
-theorem firstPatch_square (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
-    (hs : SmallTime w h n) (theta lambda : Fraction)
-    (ht : UnitInterval theta) (hl : UnitInterval lambda) :
-    SquareContains (coarseStart w h s i) (radius w h s n)
-      (firstPatch w h s i theta lambda) := by
-  obtain ⟨hc0, hc1, _, hf0, hf1, _⟩ := actual_corners_in_ball w h s i n hh hin hs
-  exact matchedPatch_square theta lambda ht hl _ _ _ _ _ _ hc0 hc1 hf0 hf1
-
-theorem secondPatch_square (w h : Fraction) (s : Point × Point)
-    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
-    (hs : SmallTime w h n) (theta lambda : Fraction)
-    (ht : UnitInterval theta) (hl : UnitInterval lambda) :
-    SquareContains (coarseStart w h s i) (radius w h s n)
-      (secondPatch w h s i theta lambda) := by
-  obtain ⟨_, hc0, hc1, _, hf0, hf1⟩ := actual_corners_in_ball w h s i n hh hin hs
-  exact matchedPatch_square theta lambda ht hl _ _ _ _ _ _ hc0 hc1 hf0 hf1
-
-def shapeFactor (w h : Fraction) (n : Nat) : Fraction :=
-  Fraction.add (Fraction.ofInt 4)
-    (Fraction.mul (Fraction.ofInt 3) (Fraction.mul (totalTime h n) w.abs))
-
-/-- Compact radius formula: `R=h*M*(4+3*T*|w|)`. -/
-theorem radius_formula (w h : Fraction) (s : Point × Point) (n : Nat) :
-    Fraction.equiv (radius w h s n)
-      (Fraction.mul (Fraction.mul h (stateNorm s)) (shapeFactor w h n)) := by
-  simp only [radius, fullDriftBudget, maxError, shapeFactor, four,
-    Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
-
-/-- The summed square budget is `2*T*h*M²*(4+3*T*|w|)²`. It counts one
-square per coarse block; no union-area or disjointness assertion is used. -/
-theorem coverBudget_formula (w h : Fraction) (s : Point × Point) (n : Nat) :
-    Fraction.equiv (coverBudget w h s n)
-      (Fraction.mul (Fraction.ofInt 2)
-        (Fraction.mul (totalTime h n)
-          (Fraction.mul h
-            (Fraction.mul (Fraction.mul (stateNorm s) (stateNorm s))
-              (Fraction.mul (shapeFactor w h n) (shapeFactor w h n)))))) := by
-  let R := radius w h s n
-  let Q := shapeFactor w h n
-  let M := stateNorm s
-  have hr := radius_formula w h s n
-  have hsq := Fraction.mul_equiv hr hr
-  have harea := Fraction.mul_equiv (Fraction.equiv_refl (Fraction.ofInt 4)) hsq
-  have hbudget := Fraction.mul_equiv (Fraction.equiv_refl (Fraction.ofInt (n : Int))) harea
-  apply Fraction.equiv_trans hbudget
-  simp only [coverBudget, squareArea, R, Q, M, totalTime,
-    Fraction.equiv, Fraction.mul, Fraction.ofInt]
-  simp only [show (4 : Int) = 2 * 2 by rfl]
-  ac_nf
-
-private def one : Fraction := ⟨1, 1, by decide⟩
-private def zero : Fraction := ⟨0, 1, by decide⟩
-private def eighth : Fraction := ⟨1, 8, by decide⟩
-private def quarter : Fraction := ⟨1, 4, by decide⟩
-private def sample : Point × Point := ((one, zero), (zero, one))
-
-theorem sample_small_time : SmallTime one eighth 1 := by
-  unfold SmallTime Fraction.le
-  decide
-
-theorem sample_radius :
-    Fraction.equiv (radius one eighth sample 1) ⟨19, 16, by decide⟩ := by decide
-
-theorem sample_square_area :
-    Fraction.equiv (squareArea (radius one eighth sample 1))
-      ⟨361, 64, by decide⟩ := by decide
-
-theorem sample_cover_budget :
-    Fraction.equiv (coverBudget one eighth sample 1)
-      ⟨361, 64, by decide⟩ := by decide
-
-theorem sample_all_corners :
-    let x := coarseStart one eighth sample 0
-    let R := radius one eighth sample 1
-    Fraction.le (pointNorm (pointSub x x)) R ∧
-    Fraction.le (pointNorm (pointSub (coarseMid one eighth sample 0) x)) R ∧
-    Fraction.le (pointNorm (pointSub (coarseEnd one eighth sample 0) x)) R ∧
-    Fraction.le (pointNorm (pointSub (fineStart one eighth sample 0) x)) R ∧
-    Fraction.le (pointNorm (pointSub (fineMid one eighth sample 0) x)) R ∧
-    Fraction.le (pointNorm (pointSub (fineEnd one eighth sample 0) x)) R :=
-  actual_corners_in_ball one eighth sample 0 1 (by decide) (by decide) sample_small_time
-
-theorem sample_first_patch_square (theta lambda : Fraction)
-    (ht : UnitInterval theta) (hl : UnitInterval lambda) :
-    SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)
-      (firstPatch one eighth sample 0 theta lambda) :=
-  firstPatch_square one eighth sample 0 1 (by decide) (by decide)
-    sample_small_time theta lambda ht hl
-
-theorem sample_second_patch_square (theta lambda : Fraction)
-    (ht : UnitInterval theta) (hl : UnitInterval lambda) :
-    SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)
-      (secondPatch one eighth sample 0 theta lambda) :=
-  secondPatch_square one eighth sample 0 1 (by decide) (by decide)
-    sample_small_time theta lambda ht hl
-
-theorem sample_zero_blocks_budget :
-    Fraction.equiv (coverBudget one eighth sample 0) zero := by decide
-
-theorem sample_zero_duration_budget :
-    Fraction.equiv (coverBudget one zero sample 1) zero := by decide
-
-theorem sample_quarter_ball_too_small :
-    ¬ Fraction.le
-      (pointNorm (pointSub (fineEnd one eighth sample 0)
-        (coarseStart one eighth sample 0))) quarter := by
-  unfold Fraction.le
-  decide
-
-/-- A separate coordinate-square control: the coarse endpoint's vertical
-offset is 1/4, so a square of radius 1/8 cannot cover it. The preceding
-L1-ball control does not assert failure of a square of radius 1/4. -/
-theorem sample_eighth_square_too_small :
-    ¬ SquareContains (coarseStart one eighth sample 0) eighth
-      (coarseEnd one eighth sample 0) := by
-  unfold SquareContains Fraction.le
-  decide
-
-end NewtonLimitDynamics.Polygon.HarmonicCover
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/HarmonicDyadic.lean}}{\small, 29 theorems, 307 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.GeometricTail
-import BarrowLib.Polygon.DyadicArithmetic
-import BarrowLib.Polygon.FinitePower
-import ModernLib.Foundation.Polygon.EndpointCauchyName
-import BarrowLib.Polygon.StateDistance
-import ModernLib.Polygon.HarmonicUniform
-
-/-!
-Actual dyadic harmonic endpoint data at one fixed represented rational time.
-The Cauchy estimates are derived from the finite end-kick cells. A Cauchy
-name is not a limit point, continuous trajectory, or geometric region between
-polygon and trajectory. Kepler swept area remains a separate quantity.
--/
-
-namespace NewtonLimitDynamics.Polygon.HarmonicDyadic
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open CentralSchedule
-open HarmonicStability
-open HarmonicRefinement
-open HarmonicComparison
-open HarmonicAccumulation
-open HarmonicUniform
-open PointBounds
-
-/-- `2^j` actual end-kick cells, each of duration `T/2^j`. -/
-def endpoint (w T : Fraction) (s : Point × Point) (j : Nat) : Point × Point :=
-  schedule (linearField w) (List.replicate (blocks j) (duration T j)) s
-
-theorem totalTime_dyadic (T : Fraction) (j : Nat) :
-    Fraction.equiv (totalTime (duration T (j + 1)) (blocks j)) T := by
-  simp only [totalTime, duration, blocks, Fraction.equiv, Fraction.mul,
-    Fraction.ofInt, Int.pow_succ, Int.natCast_pow]
-  ac_nf
-
-private theorem pointScale_congr {a b : Fraction} {p q : Point}
-    (ha : Fraction.equiv a b) (hp : pointEquiv p q) :
-    pointEquiv (pointScale a p) (pointScale b q) :=
-  ⟨Fraction.mul_equiv ha hp.1, Fraction.mul_equiv ha hp.2⟩
-
-private theorem cell_congr {d e : Fraction} {s t : Point × Point}
-    (hd : Fraction.equiv d e) (hs : stateEquiv s t) (w : Fraction) :
-    stateEquiv (cell (linearField w) d s) (cell (linearField w) e t) := by
-  have hpos := pointAdd_congr hs.1 (pointScale_congr hd hs.2)
-  have hfield : pointEquiv (linearField w (cell (linearField w) d s).1)
-      (linearField w (cell (linearField w) e t).1) :=
-    pointScale_congr (Fraction.equiv_refl _) hpos
-  exact ⟨hpos, pointAdd_congr hs.2 (pointScale_congr hd hfield)⟩
-
-theorem schedule_replicate_congr (w d e : Fraction)
-    (hd : Fraction.equiv d e) :
-    (n : Nat) → (s t : Point × Point) → stateEquiv s t →
-      stateEquiv (schedule (linearField w) (List.replicate n d) s)
-        (schedule (linearField w) (List.replicate n e) t)
-  | 0, _, _, hs => hs
-  | n + 1, _, _, hs =>
-      schedule_replicate_congr w d e hd n _ _ (cell_congr hd hs w)
-
-theorem fineDurations_replicate (h : Fraction) :
-    (n : Nat) → fineDurations h n = List.replicate (n + n) h
-  | 0 => rfl
-  | n + 1 => by
-      have ih := fineDurations_replicate h n
-      have hn : (n + 1) + (n + 1) = 2 + (n + n) := by omega
-      rw [hn]
-      have hc : 2 + (n + n) = (n + n) + 2 := by omega
-      rw [hc]
-      simp only [fineDurations, Nat.add_succ, List.replicate_succ]
-      rw [ih]
-
-/-- The coarser dyadic endpoint is value-equivalent to the actual coarse
-block schedule at half the next level's duration. -/
-theorem endpoint_coarse (w T : Fraction) (s : Point × Point) (j : Nat) :
-    stateEquiv (endpoint w T s j)
-      (coarseAt w (duration T (j + 1)) s (blocks j)) := by
-  have hc := schedule_replicate_congr w (duration T j)
-    (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
-    (duration_halving T j) (blocks j) s s
-    ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
-      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
-  simpa only [endpoint, coarseAt_schedule] using hc
-
-/-- The next dyadic endpoint is the actual two-half-cell schedule. -/
-theorem endpoint_fine (w T : Fraction) (s : Point × Point) (j : Nat) :
-    endpoint w T s (j + 1) =
-      fineAt w (duration T (j + 1)) s (blocks j) := by
-  unfold endpoint
-  rw [blocks_succ]
-  rw [← fineDurations_replicate]
-  exact fineAt_schedule w (duration T (j + 1)) s (blocks j)
-
-theorem elapsed_replicate_congr {d e : Fraction}
-    (hd : Fraction.equiv d e) :
-    (n : Nat) →
-      Fraction.equiv (elapsed (List.replicate n d)) (elapsed (List.replicate n e))
-  | 0 => Fraction.equiv_refl _
-  | n + 1 => Fraction.add_equiv hd (elapsed_replicate_congr hd n)
-
-theorem endpoint_elapsed (T : Fraction) (j : Nat) :
-    Fraction.equiv (elapsed (List.replicate (blocks j) (duration T j))) T :=
-  Fraction.equiv_trans
-    (elapsed_replicate_congr (duration_halving T j) (blocks j))
-    (Fraction.equiv_trans
-      (coarse_elapsed_totalTime (duration T (j + 1)) (blocks j))
-      (totalTime_dyadic T j))
-
-theorem endpoint_next_elapsed (T : Fraction) (j : Nat) :
-    Fraction.equiv
-      (elapsed (List.replicate (blocks (j + 1)) (duration T (j + 1)))) T := by
-  rw [blocks_succ, ← fineDurations_replicate]
-  exact Fraction.equiv_trans
-    (fine_elapsed_totalTime (duration T (j + 1)) (blocks j))
-    (totalTime_dyadic T j)
-
-def halfThreshold : Fraction := ⟨1, 2, by decide⟩
-
-def DyadicSmallTime (w T : Fraction) : Prop :=
-  Fraction.le
-    (Fraction.mul T (Fraction.add (Fraction.ofInt 1) w.abs)) halfThreshold
-
-theorem dyadic_smallTime (w T : Fraction) (j : Nat)
-    (hs : DyadicSmallTime w T) :
-    SmallTime w (duration T (j + 1)) (blocks j) := by
-  have ht := totalTime_dyadic T j
-  have he := Fraction.mul_equiv ht
-    (Fraction.equiv_refl (Fraction.add (Fraction.ofInt 1) w.abs))
-  exact Fraction.le_equiv_left he hs
-
-def adjacentCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
-  Fraction.mul (Fraction.ofInt 3)
-    (Fraction.mul T
-      (Fraction.mul (duration T (j + 1))
-        (Fraction.mul w.abs (stateNorm s))))
-
-theorem adjacent_error_le (w T : Fraction) (s : Point × Point) (j : Nat)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    Fraction.le
-      (stateNorm (stateSub (endpoint w T s (j + 1)) (endpoint w T s j)))
-      (adjacentCap w T s j) := by
-  let h := duration T (j + 1)
-  let n := blocks j
-  have hf := endpoint_fine w T s j
-  have hc := endpoint_coarse w T s j
-  have he : stateEquiv (stateSub (endpoint w T s (j + 1)) (endpoint w T s j))
-      (stateSub (fineAt w h s n) (coarseAt w h s n)) :=
-    stateSub_congr
-      (by rw [hf]; exact ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
-          ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩)
-      hc
-  have hbound := actual_uniform_error w h s n hT (dyadic_smallTime w T j hs)
-  have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hbound
-  apply Fraction.le_equiv_right hfirst
-  exact Fraction.mul_equiv (Fraction.equiv_refl _)
-    (Fraction.mul_equiv (totalTime_dyadic T j) (Fraction.equiv_refl _))
-
-/-- The finite tail coefficient `A=3*T²*|w|*M`. -/
-def coefficient (w T : Fraction) (s : Point × Point) : Fraction :=
-  Fraction.mul (Fraction.ofInt 3)
-    (Fraction.mul T (Fraction.mul T (Fraction.mul w.abs (stateNorm s))))
-
-def tailCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
-  let A := coefficient w T s
-  ⟨A.num, A.den * (2 : Int) ^ j,
-    Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
-
-def doubleTail (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
-  let A := coefficient w T s
-  ⟨2 * A.num, A.den * (2 : Int) ^ j,
-    Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
-
-theorem adjacentCap_tail (w T : Fraction) (s : Point × Point) (j : Nat) :
-    Fraction.equiv (adjacentCap w T s j) (tailCap w T s (j + 1)) := by
-  simp only [adjacentCap, tailCap, coefficient, duration, Fraction.equiv,
-    Fraction.mul, Fraction.ofInt, Int.pow_succ]
-  ac_nf
-
-theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
-    Fraction.equiv
-      (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))
-      (tailCap w T s j) := by
-  exact GeometricTail.tail_halving (coefficient w T s) j
-
-theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
-    Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))
-      (doubleTail w T s j) := by
-  exact GeometricTail.tail_double (coefficient w T s) j
-
-theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num :=
-  Int.mul_nonneg (by decide)
-    (Int.mul_nonneg hT (Int.mul_nonneg hT
-      (Int.mul_nonneg (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))))
-
-/-- Any finite separation of dyadic levels has error within the tail at its
-coarser endpoint. The proof uses actual neighboring schedules. -/
-theorem finite_gap_error (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    (k j : Nat) → Fraction.le
-      (stateNorm (stateSub (endpoint w T s (j + k))
-        (endpoint w T s j))) (tailCap w T s j) := by
-  intro k j
-  exact GeometricTail.finite_gap (endpoint w T s) (coefficient w T s)
-    (coefficient_nonnegative w T s hT)
-    (fun i => Fraction.le_equiv_right (adjacent_error_le w T s i hT hs)
-      (adjacentCap_tail w T s i)) k j
-
-/-- Both later endpoints are compared to the same earlier actual endpoint. -/
-theorem two_sided_error (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
-    (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
-    Fraction.le
-      (stateNorm (stateSub (endpoint w T s m) (endpoint w T s n)))
-      (doubleTail w T s N) := by
-  exact GeometricTail.two_sided (endpoint w T s) (coefficient w T s)
-    (coefficient_nonnegative w T s hT)
-    (fun i => Fraction.le_equiv_right (adjacent_error_le w T s i hT hs)
-      (adjacentCap_tail w T s i)) N m n hm hn
-
-/-- A deliberately simple, potentially large explicit precision modulus. -/
-def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
-  (2 * (coefficient w T s).num * eps.den).toNat
-
-theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
-    (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
-    Fraction.lt (doubleTail w T s (modulus w T s eps)) eps := by
-  exact GeometricTail.doubleTail_lt_tolerance (coefficient w T s) eps
-    (coefficient_nonnegative w T s hT) heps
-
-/-- A Cauchy name stores finite rational endpoint approximants and a proved
-positive-tolerance condition. It does not supply a limit point. -/
-theorem endpoint_cauchy (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    ∀ eps : Fraction, 0 < eps.num →
-      ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
-        Fraction.lt
-          (stateNorm (stateSub (endpoint w T s m) (endpoint w T s n))) eps := by
-  intro eps heps
-  refine ⟨modulus w T s eps, ?_⟩
-  intro m n hm hn
-  exact Fraction.magnitudes.lt_of_le_lt
-    (two_sided_error w T s hT hs _ m n hm hn)
-    (doubleTail_lt_tolerance w T s eps hT heps)
-
-def endpointName (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : EndpointCauchyName where
-  approx := endpoint w T s
-  cauchy := endpoint_cauchy w T s hT hs
-
-private theorem stateEquiv_refl (s : Point × Point) : stateEquiv s s :=
-  ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
-    ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
-
-private theorem stateEquiv_trans {a b c : Point × Point}
-    (hab : stateEquiv a b) (hbc : stateEquiv b c) : stateEquiv a c :=
-  ⟨⟨Fraction.equiv_trans hab.1.1 hbc.1.1,
-      Fraction.equiv_trans hab.1.2 hbc.1.2⟩,
-    ⟨Fraction.equiv_trans hab.2.1 hbc.2.1,
-      Fraction.equiv_trans hab.2.2 hbc.2.2⟩⟩
-
-private theorem zero_duration_cell (w d : Fraction) (s : Point × Point)
-    (hd : d.num = 0) : stateEquiv (cell (linearField w) d s) s := by
-  let z : Fraction := ⟨0, 1, by decide⟩
-  have he : Fraction.equiv d z := by
-    unfold Fraction.equiv z
-    simp [hd]
-  exact stateEquiv_trans (cell_congr he (stateEquiv_refl s) w)
-    (zero_step w s)
-
-theorem zero_duration_schedule (w d : Fraction) (hd : d.num = 0) :
-    (n : Nat) → (s : Point × Point) →
-      stateEquiv (schedule (linearField w) (List.replicate n d) s) s
-  | 0, s => stateEquiv_refl s
-  | n + 1, s =>
-      stateEquiv_trans
-        (zero_duration_schedule w d hd n (cell (linearField w) d s))
-        (zero_duration_cell w d s hd)
-
-theorem zero_time_endpoint (w T : Fraction) (s : Point × Point) (j : Nat)
-    (hT : T.num = 0) : stateEquiv (endpoint w T s j) s := by
-  exact zero_duration_schedule w (duration T j) (by exact hT) (blocks j) s
-
-private def sampleOne : Fraction := ⟨1, 1, by decide⟩
-private def sampleZero : Fraction := ⟨0, 1, by decide⟩
-private def sampleTime : Fraction := ⟨1, 4, by decide⟩
-private def sampleState : Point × Point :=
-  ((sampleOne, sampleZero), (sampleZero, sampleOne))
-
-theorem sample_dyadic_small_time : DyadicSmallTime sampleOne sampleTime := by
-  unfold DyadicSmallTime Fraction.le
-  decide
-
-theorem sample_adjacent_error :
-    Fraction.equiv
-      (stateNorm (stateSub (endpoint sampleOne sampleTime sampleState 1)
-        (endpoint sampleOne sampleTime sampleState 0)))
-      ⟨145, 4096, by decide⟩ := by decide
-
-theorem sample_adjacent_cap :
-    Fraction.equiv (adjacentCap sampleOne sampleTime sampleState 0)
-      ⟨3, 16, by decide⟩ := by decide
-
-theorem sample_tail_cap :
-    Fraction.equiv (tailCap sampleOne sampleTime sampleState 0)
-      ⟨3, 8, by decide⟩ := by decide
-
-end NewtonLimitDynamics.Polygon.HarmonicDyadic
-\end{Verbatim}
-
 \noindent{\small\texttt{ModernLib/Polygon/HarmonicRefinement.lean}}{\small, 15 theorems, 133 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -6790,2985 +2804,6 @@ theorem sample_closed_defect_nonzero :
 end NewtonLimitDynamics.Polygon.HarmonicRefinement
 \end{Verbatim}
 
-\noindent{\small\texttt{ModernLib/Polygon/HarmonicTimeComparison.lean}}{\small, 33 theorems, 635 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.DyadicArithmetic
-import BarrowLib.Polygon.FinitePower
-import ModernLib.Polygon.HarmonicDyadic
-
-/-!
-Finite comparisons of actual harmonic endpoint schedules at two rational times.
-The cell counts agree; their durations differ. These estimates concern Cauchy
-data only, without a limit point, trajectory, or intervening-area content.
--/
-
-namespace NewtonLimitDynamics.Polygon.HarmonicTimeComparison
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open CentralSchedule
-open HarmonicStability
-open HarmonicComparison
-open HarmonicAccumulation
-open HarmonicUniform
-open HarmonicDyadic
-open PointBounds
-
-theorem cell_parameter_difference (w sigma tau : Fraction) (s : Point × Point) :
-    stateEquiv
-      (stateSub (cell (linearField w) tau s) (cell (linearField w) sigma s))
-      (pointScale (durationDifference sigma tau) s.2,
-        pointScale (negF (Fraction.mul (durationDifference sigma tau) w))
-          (pointAdd s.1 (pointScale (Fraction.add sigma tau) s.2))) := by
-  constructor <;> constructor <;>
-    simp only [durationDifference, stateSub, pointEquiv, pointSub, pointNeg,
-      cell, linearField, negF, pointAdd, pointScale, Fraction.equiv,
-      Fraction.add, Fraction.mul,
-      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
-    ac_nf <;> omega
-
-theorem cell_parameter_norm_formula (w sigma tau : Fraction) (s : Point × Point) :
-    Fraction.equiv
-      (stateNorm (stateSub (cell (linearField w) tau s)
-        (cell (linearField w) sigma s)))
-      (Fraction.mul (durationDifference sigma tau).abs
-        (Fraction.add (pointNorm s.2)
-          (Fraction.mul w.abs
-            (pointNorm (pointAdd s.1
-              (pointScale (Fraction.add sigma tau) s.2)))))) := by
-  have hs := stateNorm_equiv (cell_parameter_difference w sigma tau s)
-  apply Fraction.equiv_trans hs
-  simp only [stateNorm, pointNorm, pointScale, negF, Fraction.equiv,
-    Fraction.add, Fraction.mul, Fraction.abs, Int.natAbs_mul,
-    Int.natAbs_neg, Int.ofNat_mul]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
-
-theorem short_sum_point_bound (sigma tau : Fraction) (x v : Point)
-    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
-    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
-    Fraction.le
-      (pointNorm (pointAdd x (pointScale (Fraction.add sigma tau) v)))
-      (Fraction.add (pointNorm x) (pointNorm v)) := by
-  let q := Fraction.add sigma tau
-  have hq : 0 ≤ q.num := Fraction.nonnegative_add sigma tau hσ hτ
-  have hs := pointNorm_scale q v
-  have hqabs := Fraction.abs_of_nonnegative q hq
-  have hscale : Fraction.le (pointNorm (pointScale q v)) (pointNorm v) := by
-    have hq' : Fraction.le q.abs (Fraction.ofInt 1) :=
-      Fraction.le_equiv_left hqabs hsum
-    have hm := Fraction.mul_le_mul_nonnegative hq' (pointNorm v)
-      (pointNorm_nonnegative v)
-    apply Fraction.le_equiv_left hs
-    apply Fraction.le_equiv_right hm
-    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-    simp
-  exact Fraction.magnitudes.le_trans (pointNorm_add_le x (pointScale q v))
-    (Fraction.add_le_add_left hscale (pointNorm x))
-
-private theorem scalar_local_bound (a b c : Fraction)
-    (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) (hc : 0 ≤ c.num) :
-    Fraction.le
-      (Fraction.add b (Fraction.mul c (Fraction.add a b)))
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1)
-        (Fraction.mul (Fraction.ofInt 2) c)) (Fraction.add a b)) := by
-  let M := Fraction.add a b
-  let cM := Fraction.mul c M
-  have hbM : Fraction.le b M := by
-    unfold Fraction.le M Fraction.add
-    dsimp
-    rw [Int.add_mul]
-    have hnon := Int.mul_nonneg
-      (Int.mul_nonneg ha (Int.le_of_lt b.den_pos)) (Int.le_of_lt b.den_pos)
-    have he : b.num * (a.den * b.den) = b.num * a.den * b.den := by ac_rfl
-    rw [he]
-    omega
-  have hfirst := Fraction.add_le_add_right hbM cM
-  have hcM : 0 ≤ cM.num := Int.mul_nonneg hc (Fraction.nonnegative_add a b ha hb)
-  have hz : Fraction.le (Fraction.ofInt 0) cM := by
-    unfold Fraction.le Fraction.ofInt
-    dsimp
-    simpa using hcM
-  have hzero : Fraction.equiv (Fraction.add M (Fraction.ofInt 0)) M := by
-    unfold Fraction.equiv Fraction.add Fraction.ofInt
-    simp only [Int.mul_one, Int.zero_mul, Int.add_zero, Int.mul_zero]
-  have hsecond : Fraction.le (Fraction.add M cM)
-      (Fraction.add (Fraction.add M cM) cM) := by
-    have hh := Fraction.add_le_add_left hz (Fraction.add M cM)
-    exact Fraction.le_equiv_left (by
-      simp only [Fraction.equiv, Fraction.add, Fraction.ofInt]
-      simp only [Int.zero_mul, Int.mul_zero, Int.add_zero,
-        Int.mul_one, Int.one_mul]) hh
-  have he : Fraction.equiv (Fraction.add (Fraction.add M cM) cM)
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1)
-        (Fraction.mul (Fraction.ofInt 2) c)) M) := by
-    simp only [Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-    simp only [show (2 : Int) = 1 + 1 by rfl]
-    simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-    simp only [cM, Fraction.mul]
-    ac_nf
-  exact Fraction.le_equiv_right (Fraction.magnitudes.le_trans hfirst hsecond) he
-
-/-- The exact duration mismatch of one actual end-kick cell, bounded under a
-short nonnegative combined duration. -/
-theorem cell_parameter_bound (w sigma tau : Fraction) (s : Point × Point)
-    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
-    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
-    Fraction.le
-      (stateNorm (stateSub (cell (linearField w) tau s)
-        (cell (linearField w) sigma s)))
-      (Fraction.mul (durationDifference sigma tau).abs
-        (Fraction.mul
-          (Fraction.add (Fraction.ofInt 1)
-            (Fraction.mul (Fraction.ofInt 2) w.abs)) (stateNorm s))) := by
-  let d := durationDifference sigma tau
-  have hp := short_sum_point_bound sigma tau s.1 s.2 hσ hτ hsum
-  have hw := Fraction.mul_le_mul_nonnegative_left hp w.abs
-    (Fraction.abs_num_nonnegative w)
-  have ha := Fraction.add_le_add_left hw (pointNorm s.2)
-  have hd := Fraction.mul_le_mul_nonnegative_left ha d.abs
-    (Fraction.abs_num_nonnegative d)
-  have hc := scalar_local_bound (pointNorm s.1) (pointNorm s.2) w.abs
-    (pointNorm_nonnegative s.1) (pointNorm_nonnegative s.2)
-    (Fraction.abs_num_nonnegative w)
-  have hdc := Fraction.mul_le_mul_nonnegative_left hc d.abs
-    (Fraction.abs_num_nonnegative d)
-  have hf := cell_parameter_norm_formula w sigma tau s
-  exact Fraction.le_equiv_right
-    (Fraction.magnitudes.le_trans (Fraction.le_equiv_left hf hd) hdc)
-    (by simp only [stateNorm]; exact Fraction.equiv_refl _)
-
-def parameterFactor (w : Fraction) : Fraction :=
-  Fraction.add (Fraction.ofInt 1)
-    (Fraction.mul (Fraction.ofInt 2) w.abs)
-
-def localParameterBudget (w sigma tau : Fraction) (s : Point × Point) : Fraction :=
-  Fraction.mul (durationDifference sigma tau).abs
-    (Fraction.mul (parameterFactor w)
-      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)))
-
-def parameterErrorBudget (w hσ hτ : Fraction) (s : Point × Point) : Nat → Fraction
-  | 0 => Fraction.ofInt 0
-  | i + 1 =>
-      Fraction.add
-        (Fraction.mul (coarseFactor w hτ) (parameterErrorBudget w hσ hτ s i))
-        (localParameterBudget w (Fraction.add hσ hσ) (Fraction.add hτ hτ) s)
-
-private theorem parameterFactor_nonnegative (w : Fraction) :
-    0 ≤ (parameterFactor w).num := by
-  unfold parameterFactor
-  exact Fraction.nonnegative_add _ _ (by decide)
-    (Int.mul_nonneg (by decide) (Fraction.abs_num_nonnegative w))
-
-private theorem localParameterBudget_nonnegative (w sigma tau : Fraction)
-    (s : Point × Point) :
-    0 ≤ (localParameterBudget w sigma tau s).num := by
-  unfold localParameterBudget
-  exact Int.mul_nonneg (Fraction.abs_num_nonnegative _)
-    (Int.mul_nonneg (parameterFactor_nonnegative w)
-      (Int.mul_nonneg (by decide) (stateNorm_nonnegative s)))
-
-private theorem parameterErrorBudget_nonnegative (w hσ hτ : Fraction)
-    (s : Point × Point) :
-    (i : Nat) → 0 ≤ (parameterErrorBudget w hσ hτ s i).num
-  | 0 => by simp [parameterErrorBudget, Fraction.ofInt]
-  | i + 1 =>
-      Fraction.nonnegative_add _ _
-        (Int.mul_nonneg (kappa_nonnegative w (Fraction.add hτ hτ))
-          (parameterErrorBudget_nonnegative w hσ hτ s i))
-        (localParameterBudget_nonnegative w _ _ s)
-
-theorem coarse_parameter_step (w sigma tau : Fraction) (a b : Point × Point)
-    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
-    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
-    Fraction.le
-      (stateNorm (stateSub (cell (linearField w) tau a)
-        (cell (linearField w) sigma b)))
-      (Fraction.add
-        (Fraction.mul (kappa w tau) (stateNorm (stateSub a b)))
-        (Fraction.mul (durationDifference sigma tau).abs
-          (Fraction.mul (parameterFactor w) (stateNorm b)))) := by
-  have htri := stateSub_triangle (cell (linearField w) tau a)
-    (cell (linearField w) tau b) (cell (linearField w) sigma b)
-  have h₁ := cell_perturbation w tau a b
-  have h₂ := cell_parameter_bound w sigma tau b hσ hτ hsum
-  exact Fraction.magnitudes.le_trans htri (Fraction.add_le_add h₁ h₂)
-
-theorem actual_coarse_parameter_error (w hσ hτ : Fraction) (s : Point × Point)
-    (n : Nat) (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)
-    (hsum : Fraction.le
-      (Fraction.add (Fraction.add hσ hσ) (Fraction.add hτ hτ))
-      (Fraction.ofInt 1)) (hsmall : SmallTime w hσ n) :
-    (i : Nat) → i ≤ n →
-      Fraction.le
-        (stateNorm (stateSub (coarseAt w hτ s i) (coarseAt w hσ s i)))
-        (parameterErrorBudget w hσ hτ s i)
-  | 0, _ => Fraction.le_of_equiv (stateSub_self_norm_zero s)
-  | i + 1, hi => by
-      let sigma := Fraction.add hσ hσ
-      let tau := Fraction.add hτ hτ
-      let a := coarseAt w hτ s i
-      let b := coarseAt w hσ s i
-      have hi' : i ≤ n := by omega
-      have hσnon := Fraction.nonnegative_add hσ hσ hhσ hhσ
-      have hτnon := Fraction.nonnegative_add hτ hτ hhτ hhτ
-      have hstep := coarse_parameter_step w sigma tau a b
-        hσnon hτnon hsum
-      have hprev := actual_coarse_parameter_error w hσ hτ s n hhσ hhτ
-        hsum hsmall i hi'
-      have hA := Fraction.mul_le_mul_nonnegative_left hprev
-        (coarseFactor w hτ) (kappa_nonnegative w tau)
-      have hprefix := coarse_state_le_two w hσ s i hhσ
-        (smallTime_prefix w hσ i n hhσ hi' hsmall)
-      have hB₁ := Fraction.mul_le_mul_nonnegative_left hprefix
-        (parameterFactor w) (parameterFactor_nonnegative w)
-      have hB₂ := Fraction.mul_le_mul_nonnegative_left hB₁
-        (durationDifference sigma tau).abs
-        (Fraction.abs_num_nonnegative _)
-      have hsum' := Fraction.add_le_add hA hB₂
-      have hchain := Fraction.magnitudes.le_trans hstep hsum'
-      simpa only [coarseAt, HarmonicRefinement.coarse,
-        parameterErrorBudget, localParameterBudget] using hchain
-
-def parameterPowerBudget (w hσ hτ : Fraction) (s : Point × Point)
-    (i : Nat) : Fraction :=
-  Fraction.mul (Fraction.ofInt (i : Int))
-    (Fraction.mul
-      (localParameterBudget w (Fraction.add hσ hσ) (Fraction.add hτ hτ) s)
-      (fpower (coarseFactor w hτ) i))
-
-theorem parameter_budget_power (w hσ hτ : Fraction) (s : Point × Point) :
-    (i : Nat) → Fraction.le (parameterErrorBudget w hσ hτ s i)
-      (parameterPowerBudget w hσ hτ s i)
-  | 0 => Fraction.le_of_equiv (by
-      simp only [parameterErrorBudget, parameterPowerBudget, fpower,
-        Fraction.equiv, Fraction.ofInt, Fraction.mul]
-      simp)
-  | i + 1 => by
-      let d := localParameterBudget w (Fraction.add hσ hσ) (Fraction.add hτ hτ) s
-      let b := coarseFactor w hτ
-      have hd := localParameterBudget_nonnegative w
-        (Fraction.add hσ hσ) (Fraction.add hτ hτ) s
-      have hb := kappa_nonnegative w (Fraction.add hτ hτ)
-      have h₁ := Fraction.mul_le_mul_nonnegative_left
-        (parameter_budget_power w hσ hτ s i) b hb
-      have hD : Fraction.le d (Fraction.mul d (fpower b (i + 1))) := by
-        have hpow := one_le_power b hb (one_le_kappa w (Fraction.add hτ hτ))
-          (i + 1)
-        have hm := Fraction.mul_le_mul_nonnegative_left hpow d hd
-        apply Fraction.le_equiv_left (by
-          simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-          simp) hm
-      have hsum := Fraction.add_le_add h₁ hD
-      apply Fraction.le_equiv_right hsum
-      simp only [d, b, parameterErrorBudget, parameterPowerBudget,
-        fpower, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-      simp only [Int.natCast_add, Int.natCast_one, Int.add_mul, Int.mul_add,
-        Int.one_mul, Int.mul_one]
-      ac_nf
-
-theorem actual_coarse_parameter_uniform (w hσ hτ : Fraction)
-    (s : Point × Point) (n : Nat)
-    (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)
-    (hsum : Fraction.le
-      (Fraction.add (Fraction.add hσ hσ) (Fraction.add hτ hτ))
-      (Fraction.ofInt 1))
-    (hsmallσ : SmallTime w hσ n) (hsmallτ : SmallTime w hτ n) :
-    Fraction.le
-      (stateNorm (stateSub (coarseAt w hτ s n) (coarseAt w hσ s n)))
-      (Fraction.mul (Fraction.ofInt (2 * (n : Int)))
-        (localParameterBudget w (Fraction.add hσ hσ)
-          (Fraction.add hτ hτ) s)) := by
-  let d := localParameterBudget w (Fraction.add hσ hσ)
-    (Fraction.add hτ hτ) s
-  have h₁ := actual_coarse_parameter_error w hσ hτ s n hhσ hhτ
-    hsum hsmallσ n (Nat.le_refl n)
-  have h₂ := parameter_budget_power w hσ hτ s n
-  have hp := coarse_power_le_two w hτ n hhτ hsmallτ
-  have hd := localParameterBudget_nonnegative w
-    (Fraction.add hσ hσ) (Fraction.add hτ hτ) s
-  have hm := Fraction.mul_le_mul_nonnegative_left hp d hd
-  have hn := Fraction.mul_le_mul_nonnegative_left hm
-    (Fraction.ofInt (n : Int)) (Int.ofNat_nonneg n)
-  have hchain := Fraction.magnitudes.le_trans
-    (Fraction.magnitudes.le_trans h₁ h₂) hn
-  apply Fraction.le_equiv_right hchain
-  simp only [parameterPowerBudget, d, Fraction.equiv, Fraction.mul,
-    Fraction.ofInt]
-  ac_nf
-
-private def half : Fraction := ⟨1, 2, by decide⟩
-
-theorem dyadic_time_le_half (w T : Fraction)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    Fraction.le T half := by
-  have hw : 0 ≤ (w.num.natAbs : Int) := Int.ofNat_nonneg _
-  have hnon : 0 ≤ 2 * T.num * (w.num.natAbs : Int) :=
-    Int.mul_nonneg (Int.mul_nonneg (by decide) hT) hw
-  have hraw :
-      2 * T.num * (w.den + (w.num.natAbs : Int)) ≤ T.den * w.den := by
-    unfold DyadicSmallTime Fraction.le Fraction.mul Fraction.add Fraction.ofInt
-      Fraction.abs at hs
-    dsimp [HarmonicDyadic.halfThreshold] at hs
-    simp only [Int.one_mul, Int.mul_one] at hs
-    calc
-      2 * T.num * (w.den + (w.num.natAbs : Int)) =
-          T.num * (w.den + (w.num.natAbs : Int)) * 2 := by ac_rfl
-      _ ≤ T.den * w.den := hs
-  have hmul : (2 * T.num) * w.den ≤ T.den * w.den := by
-    rw [Int.mul_add] at hraw
-    omega
-  have hbase := Int.le_of_mul_le_mul_right hmul w.den_pos
-  unfold Fraction.le half
-  dsimp
-  omega
-
-theorem duration_le_time (T : Fraction) (j : Nat) (hT : 0 ≤ T.num) :
-    Fraction.le (duration T j) T := by
-  have hpow : 1 ≤ (2 : Int) ^ j := by
-    have h := two_pow_ge_succ j
-    omega
-  have hd := Int.mul_nonneg hT (Int.le_of_lt T.den_pos)
-  have hm := Int.mul_le_mul_of_nonneg_left hpow hd
-  unfold Fraction.le duration
-  dsimp
-  have he : T.num * (T.den * (2 : Int) ^ j) =
-      (T.num * T.den) * (2 : Int) ^ j := by ac_rfl
-  rw [he]
-  omega
-
-theorem short_duration_pair (w T U : Fraction) (j : Nat)
-    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
-    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
-    Fraction.le
-      (Fraction.add
-        (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
-        (Fraction.add (duration U (j + 1)) (duration U (j + 1))))
-      (Fraction.ofInt 1) := by
-  have hT' := duration_le_time T j hT
-  have hU' := duration_le_time U j hU
-  have hT'' := Fraction.le_equiv_left
-    (Fraction.equiv_symm (duration_halving T j)) hT'
-  have hU'' := Fraction.le_equiv_left
-    (Fraction.equiv_symm (duration_halving U j)) hU'
-  have hhalf := Fraction.add_le_add (dyadic_time_le_half w T hT hsT)
-    (dyadic_time_le_half w U hU hsU)
-  have hsum := Fraction.magnitudes.le_trans
-    (Fraction.add_le_add hT'' hU'') hhalf
-  apply Fraction.le_equiv_right hsum
-  decide
-
-/-- The common count cancels the per-cell signed duration difference in
-rational value, even though the representatives differ. -/
-theorem count_duration_difference (T U : Fraction) (j : Nat) :
-    Fraction.equiv
-      (Fraction.mul (Fraction.ofInt (blocks j : Int))
-        (durationDifference
-          (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
-          (Fraction.add (duration U (j + 1)) (duration U (j + 1)))))
-      (durationDifference T U) := by
-  have hdur : Fraction.equiv
-      (durationDifference
-        (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
-        (Fraction.add (duration U (j + 1)) (duration U (j + 1))))
-      (durationDifference (duration T j) (duration U j)) :=
-    Fraction.add_equiv
-      (Fraction.equiv_symm (duration_halving U j))
-      (HarmonicDyadic.neg_equiv
-        (Fraction.equiv_symm (duration_halving T j)))
-  have hm := Fraction.mul_equiv
-    (Fraction.equiv_refl (Fraction.ofInt (blocks j : Int))) hdur
-  apply Fraction.equiv_trans hm
-  simp only [blocks, duration, durationDifference, negF, Fraction.equiv,
-    Fraction.ofInt, Fraction.add, Fraction.mul, Int.natCast_pow]
-  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg,
-    Int.one_mul, Int.mul_one]
-  ac_nf
-
-theorem count_abs_duration_difference (T U : Fraction) (j : Nat) :
-    Fraction.equiv
-      (Fraction.mul (Fraction.ofInt (blocks j : Int))
-        (durationDifference
-          (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
-          (Fraction.add (duration U (j + 1)) (duration U (j + 1)))).abs)
-      (durationDifference T U).abs := by
-  have hs := count_duration_difference T U j
-  have habs := Fraction.abs_equiv hs
-  have hm := Fraction.abs_mul (Fraction.ofInt (blocks j : Int))
-    (durationDifference
-      (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
-      (Fraction.add (duration U (j + 1)) (duration U (j + 1))))
-  have hcount : Fraction.equiv (Fraction.ofInt (blocks j : Int)).abs
-      (Fraction.ofInt (blocks j : Int)) :=
-    Fraction.abs_of_nonnegative _ (Int.ofNat_nonneg _)
-  have hmul := Fraction.mul_equiv hcount
-    (Fraction.equiv_refl
-      (durationDifference
-        (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
-        (Fraction.add (duration U (j + 1)) (duration U (j + 1)))).abs)
-  exact Fraction.equiv_trans (Fraction.equiv_symm hmul)
-    (Fraction.equiv_trans (Fraction.equiv_symm hm) habs)
-
-def timeLipschitz (w : Fraction) (s : Point × Point) : Fraction :=
-  Fraction.mul (Fraction.ofInt 4)
-    (Fraction.mul (parameterFactor w) (stateNorm s))
-
-/-- Uniform rational-time variation of the actual dyadic endpoint schedules.
-The same level has the same count and two different cell durations. -/
-theorem endpoint_time_bound (w T U : Fraction) (s : Point × Point) (j : Nat)
-    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
-    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
-    Fraction.le
-      (stateNorm (stateSub (endpoint w U s j) (endpoint w T s j)))
-      (Fraction.mul (timeLipschitz w s) (durationDifference T U).abs) := by
-  let hσ := duration T (j + 1)
-  let hτ := duration U (j + 1)
-  let n := blocks j
-  have hσnon : 0 ≤ hσ.num := hT
-  have hτnon : 0 ≤ hτ.num := hU
-  have hbound := actual_coarse_parameter_uniform w hσ hτ s n
-    hσnon hτnon (short_duration_pair w T U j hT hU hsT hsU)
-    (dyadic_smallTime w T j hsT) (dyadic_smallTime w U j hsU)
-  have he : stateEquiv
-      (stateSub (endpoint w U s j) (endpoint w T s j))
-      (stateSub (coarseAt w hτ s n) (coarseAt w hσ s n)) :=
-    stateSub_congr (endpoint_coarse w U s j) (endpoint_coarse w T s j)
-  have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hbound
-  let d := (durationDifference
-    (Fraction.add hσ hσ) (Fraction.add hτ hτ)).abs
-  have hrewrite : Fraction.equiv
-      (Fraction.mul (Fraction.ofInt (2 * (n : Int)))
-        (localParameterBudget w (Fraction.add hσ hσ)
-          (Fraction.add hτ hτ) s))
-      (Fraction.mul
-        (Fraction.mul (Fraction.ofInt 4)
-          (Fraction.mul (parameterFactor w) (stateNorm s)))
-        (Fraction.mul (Fraction.ofInt (n : Int)) d)) := by
-    simp only [localParameterBudget, d, Fraction.equiv, Fraction.mul,
-      Fraction.ofInt]
-    ac_nf
-  have hc := count_abs_duration_difference T U j
-  have hsecond := Fraction.mul_equiv
-    (Fraction.equiv_refl (timeLipschitz w s)) hc
-  exact Fraction.le_equiv_right hfirst
-    (Fraction.equiv_trans hrewrite hsecond)
-
-theorem timeLipschitz_nonnegative (w : Fraction) (s : Point × Point) :
-    0 ≤ (timeLipschitz w s).num :=
-  Int.mul_nonneg (by decide)
-    (Int.mul_nonneg (parameterFactor_nonnegative w) (stateNorm_nonnegative s))
-
-private def timeDenominator (w : Fraction) (s : Point × Point) : Fraction :=
-  Fraction.add (timeLipschitz w s) (Fraction.ofInt 1)
-
-private theorem timeDenominator_positive (w : Fraction) (s : Point × Point) :
-    0 < (timeDenominator w s).num := by
-  unfold timeDenominator Fraction.add Fraction.ofInt
-  dsimp
-  have hL := timeLipschitz_nonnegative w s
-  have hd := (timeLipschitz w s).den_pos
-  omega
-
-/-- Rational delta equal in value to `eps/(L+1)`. The added one makes the
-choice positive even when the initial state magnitude is zero. -/
-def timeDelta (w : Fraction) (s : Point × Point) (eps : Fraction) : Fraction :=
-  ⟨eps.num * (timeDenominator w s).den,
-    eps.den * (timeDenominator w s).num,
-    Int.mul_pos eps.den_pos (timeDenominator_positive w s)⟩
-
-theorem timeDelta_positive (w : Fraction) (s : Point × Point) (eps : Fraction)
-    (heps : 0 < eps.num) : 0 < (timeDelta w s eps).num :=
-  Int.mul_pos heps (timeDenominator w s).den_pos
-
-private theorem mul_lt_mul_positive_left {a b : Fraction}
-    (hab : Fraction.lt a b) (c : Fraction) (hc : 0 < c.num) :
-    Fraction.lt (Fraction.mul c a) (Fraction.mul c b) := by
-  have hm := Int.mul_lt_mul_of_pos_right hab
-    (Int.mul_pos hc c.den_pos)
-  unfold Fraction.lt Fraction.mul at *
-  dsimp at *
-  have h₁ : c.num * a.num * (c.den * b.den) =
-      (a.num * b.den) * (c.num * c.den) := by ac_rfl
-  have h₂ : c.num * b.num * (c.den * a.den) =
-      (b.num * a.den) * (c.num * c.den) := by ac_rfl
-  rw [h₁, h₂]
-  exact hm
-
-private theorem timeLipschitz_le_denominator (w : Fraction) (s : Point × Point) :
-    Fraction.le (timeLipschitz w s) (timeDenominator w s) := by
-  unfold timeDenominator Fraction.le Fraction.add Fraction.ofInt
-  dsimp
-  have hd := (timeLipschitz w s).den_pos
-  have hsq : 0 ≤ (timeLipschitz w s).den * (timeLipschitz w s).den :=
-    Int.mul_nonneg (Int.le_of_lt hd) (Int.le_of_lt hd)
-  simp only [Int.one_mul, Int.mul_one, Int.add_mul]
-  omega
-
-private theorem delta_product_equiv (w : Fraction) (s : Point × Point)
-    (eps : Fraction) :
-    Fraction.equiv
-      (Fraction.mul (timeDenominator w s) (timeDelta w s eps)) eps := by
-  unfold Fraction.equiv Fraction.mul timeDelta
-  dsimp
-  ac_nf
-
-theorem parameter_delta_control (w : Fraction) (s : Point × Point)
-    (eps d : Fraction) (_heps : 0 < eps.num)
-    (hd : 0 ≤ d.num) (hdelta : Fraction.lt d (timeDelta w s eps)) :
-    Fraction.lt (Fraction.mul (timeLipschitz w s) d) eps := by
-  have hweak := Fraction.mul_le_mul_nonnegative
-    (timeLipschitz_le_denominator w s) d hd
-  have hstrict := mul_lt_mul_positive_left hdelta
-    (timeDenominator w s) (timeDenominator_positive w s)
-  have htrans := Fraction.magnitudes.lt_of_le_lt hweak hstrict
-  have heq := delta_product_equiv w s eps
-  exact Fraction.magnitudes.lt_of_lt_le htrans
-    ((Fraction.equiv_iff_mutual_le _ _).mp heq).1
-
-def ShortRationalTime (w : Fraction) :=
-  {T : Fraction // 0 ≤ T.num ∧ DyadicSmallTime w T}
-
-/-- Each admissible rational time is mapped to its derived endpoint Cauchy
-name. This map does not realize a point of a completed state space. -/
-def timeName (w : Fraction) (s : Point × Point)
-    (T : ShortRationalTime w) : EndpointCauchyName :=
-  endpointName w T.val s T.property.1 T.property.2
-
-/-- One explicit delta controls every approximant level at once. -/
-theorem timeName_uniform_continuity (w : Fraction) (s : Point × Point)
-    (eps : Fraction) (heps : 0 < eps.num) :
-    ∃ delta : Fraction, 0 < delta.num ∧
-      ∀ T U : ShortRationalTime w,
-        Fraction.lt (durationDifference T.val U.val).abs delta →
-        ∀ j : Nat,
-          Fraction.lt
-            (stateNorm (stateSub ((timeName w s U).approx j)
-              ((timeName w s T).approx j))) eps := by
-  refine ⟨timeDelta w s eps, timeDelta_positive w s eps heps, ?_⟩
-  intro T U hdelta j
-  have hb := endpoint_time_bound w T.val U.val s j
-    T.property.1 U.property.1 T.property.2 U.property.2
-  have hd := Fraction.abs_num_nonnegative (durationDifference T.val U.val)
-  have hstrict := parameter_delta_control w s eps
-    (durationDifference T.val U.val).abs heps hd hdelta
-  exact Fraction.magnitudes.lt_of_le_lt hb hstrict
-
-theorem same_time_error_zero (w T : Fraction) (s : Point × Point) (j : Nat) :
-    Fraction.equiv
-      (stateNorm (stateSub (endpoint w T s j) (endpoint w T s j)))
-      (Fraction.ofInt 0) :=
-  stateSub_self_norm_zero _
-
-private def zeroFraction : Fraction := ⟨0, 1, by decide⟩
-private def zeroState : Point × Point :=
-  ((zeroFraction, zeroFraction), (zeroFraction, zeroFraction))
-
-theorem zero_state_error_zero (w T U : Fraction) (j : Nat)
-    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
-    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
-    Fraction.equiv
-      (stateNorm (stateSub (endpoint w U zeroState j)
-        (endpoint w T zeroState j))) (Fraction.ofInt 0) := by
-  have hb := endpoint_time_bound w T U zeroState j hT hU hsT hsU
-  have hz : Fraction.equiv
-      (Fraction.mul (timeLipschitz w zeroState)
-        (durationDifference T U).abs) (Fraction.ofInt 0) := by
-    simp only [timeLipschitz, parameterFactor, zeroState,
-      zeroFraction, stateNorm, pointNorm, Fraction.equiv,
-      Fraction.abs, Fraction.add, Fraction.mul, Fraction.ofInt]
-    simp
-  have hle := Fraction.le_equiv_right hb hz
-  have hother : Fraction.le (Fraction.ofInt 0)
-      (stateNorm (stateSub (endpoint w U zeroState j)
-        (endpoint w T zeroState j))) := by
-    unfold Fraction.le Fraction.ofInt
-    dsimp
-    simp only [Int.zero_mul, Int.mul_one]
-    exact stateNorm_nonnegative _
-  exact (Fraction.equiv_iff_mutual_le _ _).mpr ⟨hle, hother⟩
-
-private def sampleOne : Fraction := ⟨1, 1, by decide⟩
-private def sampleZero : Fraction := ⟨0, 1, by decide⟩
-private def sampleQuarter : Fraction := ⟨1, 4, by decide⟩
-private def sampleEighth : Fraction := ⟨1, 8, by decide⟩
-private def sampleState : Point × Point :=
-  ((sampleOne, sampleZero), (sampleZero, sampleOne))
-
-theorem sample_short_times :
-    DyadicSmallTime sampleOne sampleQuarter ∧
-      DyadicSmallTime sampleOne sampleEighth := by
-  constructor <;> unfold DyadicSmallTime Fraction.le <;> decide
-
-theorem sample_parameter_error :
-    Fraction.equiv
-      (stateNorm (stateSub
-        (endpoint sampleOne sampleEighth sampleState 0)
-        (endpoint sampleOne sampleQuarter sampleState 0)))
-      ⟨19, 64, by decide⟩ := by decide
-
-theorem sample_time_lipschitz :
-    Fraction.equiv (timeLipschitz sampleOne sampleState)
-      (Fraction.ofInt 24) := by decide
-
-theorem sample_time_budget :
-    Fraction.equiv
-      (Fraction.mul (timeLipschitz sampleOne sampleState)
-        (durationDifference sampleQuarter sampleEighth).abs)
-      (Fraction.ofInt 3) := by decide
-
-theorem sample_parameter_bound :
-    Fraction.le
-      (stateNorm (stateSub
-        (endpoint sampleOne sampleEighth sampleState 0)
-        (endpoint sampleOne sampleQuarter sampleState 0)))
-      (Fraction.mul (timeLipschitz sampleOne sampleState)
-        (durationDifference sampleQuarter sampleEighth).abs) :=
-  endpoint_time_bound sampleOne sampleQuarter sampleEighth sampleState 0
-    (by decide) (by decide) sample_short_times.1 sample_short_times.2
-
-end NewtonLimitDynamics.Polygon.HarmonicTimeComparison
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/HarmonicTimeRealization.lean}}{\small, 30 theorems, 502 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.CauchyValues
-import ModernLib.Foundation.Polygon.BinaryTime
-import ModernLib.Foundation.Polygon.ScaledTolerance
-import ModernLib.Foundation.Polygon.BinaryEndpoints
-import BarrowLib.Polygon.FiniteSequenceGap
-
-/-!
-Actual harmonic state values indexed by the constructed binary-time quotient.
-All comparisons use finite same-grid end-kick schedules. The quotient is not
-identified with an external real interval; force identification and actual
-intervening-region area remain separate.
--/
-
-namespace NewtonLimitDynamics.Polygon.HarmonicTimeRealization
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open CentralSchedule
-open HarmonicStability
-open HarmonicComparison
-open HarmonicAccumulation
-open HarmonicUniform
-open HarmonicDyadic
-open HarmonicBinaryPrefix
-open HarmonicTimeComparison
-open PointBounds
-open CauchyValues
-open BinaryTime
-
-def countState (w T : Fraction) (s : Point × Point)
-    (j n : Nat) : Point × Point :=
-  schedule (linearField w) (List.replicate n (duration T j)) s
-
-theorem countState_coarse (w T : Fraction) (s : Point × Point)
-    (j n : Nat) :
-    stateEquiv (countState w T s j n)
-      (coarseAt w (duration T (j + 1)) s n) := by
-  let h := duration T (j + 1)
-  have hc := schedule_replicate_congr w (duration T j) (Fraction.add h h)
-    (duration_halving T j) n s s
-    ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
-      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
-  simpa only [countState, coarseAt_schedule] using hc
-
-theorem countState_le_two (w T : Fraction) (s : Point × Point)
-    (j n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
-    (hn : n ≤ blocks j) :
-    Fraction.le (stateNorm (countState w T s j n))
-      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) := by
-  let h := duration T (j + 1)
-  have hprefix := smallTime_prefix w h n (blocks j) hT hn
-    (dyadic_smallTime w T j hs)
-  exact Fraction.le_equiv_left (stateNorm_equiv (countState_coarse w T s j n))
-    (coarse_state_le_two w h s n hT hprefix)
-
-def stateTimeFactor (w : Fraction) (s : Point × Point) : Fraction :=
-  Fraction.mul (Fraction.ofInt 2)
-    (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm s))
-
-theorem countState_step_bound (w T : Fraction) (s : Point × Point)
-    (j n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
-    (hn : n ≤ blocks j) :
-    Fraction.le (distance (countState w T s j (n + 1))
-      (countState w T s j n))
-      (Fraction.mul (duration T j) (stateTimeFactor w s)) := by
-  let h := duration T j
-  let q := countState w T s j n
-  have hle : Fraction.le h (Fraction.ofInt 1) := by
-    have h₁ := duration_le_time T j hT
-    have h₂ := dyadic_time_le_half w T hT hs
-    have h₃ : Fraction.le (⟨1, 2, by decide⟩ : Fraction)
-        (Fraction.ofInt 1) := by unfold Fraction.le; decide
-    exact Fraction.magnitudes.le_trans h₁
-      (Fraction.magnitudes.le_trans h₂ h₃)
-  have hb := cell_increment_bound w h q hT hle
-  have hq := countState_le_two w T s j n hT hs hn
-  have hfac : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
-    unfold Fraction.add Fraction.ofInt Fraction.abs
-    dsimp
-    have hw := Int.ofNat_nonneg w.num.natAbs
-    have hd := w.den_pos
-    omega
-  have hm₁ := Fraction.mul_le_mul_nonnegative_left hq
-    (Fraction.add (Fraction.ofInt 1) w.abs) hfac
-  have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁ h hT
-  have habs := Fraction.abs_of_nonnegative h hT
-  have he := Fraction.mul_equiv habs
-    (Fraction.equiv_refl
-      (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm q)))
-  have hchain := Fraction.magnitudes.le_trans
-    (Fraction.le_equiv_right hb he) hm₂
-  have hstep : countState w T s j (n + 1) = cell (linearField w) h q :=
-    schedule_replicate_step w h s n
-  rw [hstep]
-  change Fraction.le (stateNorm (stateSub (cell (linearField w) h q) q))
-    (Fraction.mul h (stateTimeFactor w s))
-  apply Fraction.le_equiv_right hchain
-  simp only [stateTimeFactor, Fraction.equiv, Fraction.mul, Fraction.ofInt]
-  ac_nf
-
-theorem countState_gap (w T : Fraction) (s : Point × Point)
-    (j : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    (n k : Nat) → n + k ≤ blocks j →
-      Fraction.le (distance (countState w T s j (n + k))
-        (countState w T s j n))
-        (Fraction.mul (Fraction.ofInt (k : Int))
-          (Fraction.mul (duration T j) (stateTimeFactor w s)))
-  | n, k, hnk => FiniteSequenceGap.finite_gap distance stateSub_self_norm_zero
-      stateSub_triangle (countState w T s j) (blocks j)
-      (Fraction.mul (duration T j) (stateTimeFactor w s))
-      (fun i hi => countState_step_bound w T s j i hT hs (Nat.le_of_lt hi)) n k hnk
-
-theorem stateTimeFactor_nonnegative (w : Fraction) (s : Point × Point) :
-    0 ≤ (stateTimeFactor w s).num := by
-  unfold stateTimeFactor Fraction.mul Fraction.add Fraction.ofInt Fraction.abs
-  dsimp
-  have hw := Int.ofNat_nonneg w.num.natAbs
-  have hd := w.den_pos
-  have hm := stateNorm_nonnegative s
-  exact Int.mul_nonneg (by decide)
-    (Int.mul_nonneg (by omega) hm)
-
-theorem countState_ordered_bound (w T : Fraction) (s : Point × Point)
-    (j n k : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
-    (hnk : n + k ≤ blocks j) :
-    Fraction.le (distance (countState w T s j (n + k))
-      (countState w T s j n))
-      (Fraction.mul
-        (durationDifference (countTime T j n) (countTime T j (n + k))).abs
-        (stateTimeFactor w s)) := by
-  have hb := countState_gap w T s j hT hs n k hnk
-  apply Fraction.le_equiv_right hb
-  have he := countTime_abs_difference T j n k hT
-  apply Fraction.equiv_symm
-  apply Fraction.equiv_trans
-    (Fraction.mul_equiv he (Fraction.equiv_refl _))
-  simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-  ac_nf
-
-theorem countState_same_grid_bound (w T : Fraction) (s : Point × Point)
-    (j m n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
-    (hm : m ≤ blocks j) (hn : n ≤ blocks j) :
-    Fraction.le (distance (countState w T s j m)
-      (countState w T s j n))
-      (Fraction.mul
-        (durationDifference (countTime T j n) (countTime T j m)).abs
-        (stateTimeFactor w s)) := by
-  rcases Nat.le_total n m with hnm | hmn
-  · have he : n + (m - n) = m := by omega
-    have hb := countState_ordered_bound w T s j n (m - n) hT hs
-      (by simpa only [he] using hm)
-    simpa only [he] using hb
-  · have he : m + (n - m) = n := by omega
-    have hb := countState_ordered_bound w T s j m (n - m) hT hs
-      (by simpa only [he] using hn)
-    rw [he] at hb
-    have hd := stateSub_norm_symm (countState w T s j m)
-      (countState w T s j n)
-    have ht := durationDifference_abs_symm (countTime T j m)
-      (countTime T j n)
-    exact Fraction.le_equiv_right
-      (Fraction.le_equiv_left hd hb)
-      (Fraction.mul_equiv ht (Fraction.equiv_refl _))
-
-theorem prefix_time_bound (b c : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)
-    (hs : DyadicSmallTime w T) :
-    Fraction.le (distance (prefixState b w T s j)
-      (prefixState c w T s j))
-      (Fraction.mul (distance (timeState b T j) (timeState c T j))
-        (stateTimeFactor w s)) := by
-  have hb := countState_same_grid_bound w T s j (ticks b j) (ticks c j)
-    hT hs (ticks_le_blocks b j) (ticks_le_blocks c j)
-  apply Fraction.le_equiv_right hb
-  exact Fraction.mul_equiv
-    (Fraction.equiv_symm (scalarState_distance
-      (timeApprox b T j) (timeApprox c T j)))
-    (Fraction.equiv_refl _)
-
-theorem address_state_equiv (b c : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (hT : 0 ≤ T.num)
-    (hs : DyadicSmallTime w T)
-    (hbc : AddressEquiv T hT b c) :
-    NameEquiv (prefixName b w T s hT hs)
-      (prefixName c w T s hT hs) := by
-  intro eps heps
-  let C := stateTimeFactor w s
-  have hC := stateTimeFactor_nonnegative w s
-  let delta := factorDelta C eps hC
-  obtain ⟨N, hN⟩ := hbc delta (factorDelta_positive C eps hC heps)
-  refine ⟨N, ?_⟩
-  intro j hj
-  have hb := prefix_time_bound b c w T s j hT hs
-  have hsmall := factor_control C eps
-    (distance (timeState b T j) (timeState c T j)) hC
-    (stateNorm_nonnegative _) (hN j hj)
-  exact Fraction.magnitudes.lt_of_le_lt hb hsmall
-
-def gammaValue (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    BinaryTime T hT → Value :=
-  Quotient.lift
-    (fun b => binaryValue b w T s hT hs)
-    (fun b c hbc => Quotient.sound
-      (address_state_equiv b c w T s hT hs hbc))
-
-theorem gammaValue_address (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (hT : 0 ≤ T.num)
-    (hs : DyadicSmallTime w T) :
-    gammaValue w T s hT hs (Quotient.mk _ b) =
-      binaryValue b w T s hT hs := rfl
-
-theorem gamma_within (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
-    (x y : BinaryTime T hT) (R : Fraction)
-    (_hR : 0 ≤ R.num) (hxy : TimeWithin T hT x y R) :
-    Within (gammaValue w T s hT hs x)
-      (gammaValue w T s hT hs y)
-      (Fraction.mul R (stateTimeFactor w s)) := by
-  induction x using Quotient.inductionOn with
-  | _ b =>
-    induction y using Quotient.inductionOn with
-    | _ c =>
-      change NameBound (BinaryTime.timeName b T hT)
-        (BinaryTime.timeName c T hT) R at hxy
-      change NameBound (prefixName b w T s hT hs)
-        (prefixName c w T s hT hs)
-        (Fraction.mul R (stateTimeFactor w s))
-      apply nameBound_scale (prefixName b w T s hT hs)
-        (prefixName c w T s hT hs)
-        (BinaryTime.timeName b T hT) (BinaryTime.timeName c T hT)
-        (stateTimeFactor w s) R (stateTimeFactor_nonnegative w s)
-      · intro j
-        exact prefix_time_bound b c w T s j hT hs
-      · exact hxy
-
-def timeTolerance (w : Fraction) (s : Point × Point)
-    (eps : Fraction) : Fraction :=
-  factorDelta (stateTimeFactor w s) eps.half
-    (stateTimeFactor_nonnegative w s)
-
-theorem timeTolerance_positive (w : Fraction) (s : Point × Point)
-    (eps : Fraction) (heps : 0 < eps.num) :
-    0 < (timeTolerance w s eps).num :=
-  factorDelta_positive _ _ _ heps
-
-theorem gamma_uniform_continuity (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
-    (eps : Fraction) (heps : 0 < eps.num)
-    (x y : BinaryTime T hT)
-    (hxy : TimeWithin T hT x y (timeTolerance w s eps)) :
-    Within (gammaValue w T s hT hs x)
-      (gammaValue w T s hT hs y) eps.half := by
-  have hb := gamma_within w T s hT hs x y
-    (timeTolerance w s eps)
-    (Int.le_of_lt (timeTolerance_positive w s eps heps)) hxy
-  exact within_mono _ _ _ _
-    (factor_delta_weak _ _ (stateTimeFactor_nonnegative w s)
-      (by simpa only [Fraction.half] using Int.le_of_lt heps)) hb
-
-theorem duration_factor_eventually_small (w T : Fraction)
-    (s : Point × Point) (hT : 0 ≤ T.num)
-    (eps : Fraction) (heps : 0 < eps.num) :
-    ∃ N : Nat, ∀ j : Nat, N ≤ j →
-      Fraction.lt (Fraction.mul (duration T j) (stateTimeFactor w s))
-        eps := by
-  let C := stateTimeFactor w s
-  let delta := factorDelta C eps (stateTimeFactor_nonnegative w s)
-  obtain ⟨N, hN⟩ := duration_eventually_small T delta hT
-    (factorDelta_positive C eps (stateTimeFactor_nonnegative w s) heps)
-  refine ⟨N, ?_⟩
-  intro j hj
-  exact factor_control C eps (duration T j)
-    (stateTimeFactor_nonnegative w s) hT (hN j hj)
-
-theorem left_endpoint_value (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    gammaValue w T s hT hs (leftTime T hT) = embed s := by
-  apply Quotient.sound
-  intro eps heps
-  refine ⟨0, ?_⟩
-  intro j _
-  change Fraction.lt (distance (prefixState leftAddress w T s j) s) eps
-  rw [show prefixState leftAddress w T s j = s from
-    all_zero_prefix w T s j]
-  exact distance_self_lt s eps heps
-
-theorem right_prefix_endpoint_bound (w T : Fraction)
-    (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)
-    (hs : DyadicSmallTime w T) :
-    Fraction.le (distance (endpoint w T s j)
-      (prefixState rightAddress w T s j))
-      (Fraction.mul (duration T j) (stateTimeFactor w s)) := by
-  have hcount : ticks rightAddress j + 1 ≤ blocks j :=
-    Nat.le_of_eq (right_ticks j)
-  have hb := countState_gap w T s j hT hs (ticks rightAddress j) 1 hcount
-  rw [right_ticks] at hb
-  change Fraction.le (distance (endpoint w T s j)
-    (prefixState rightAddress w T s j)) _ at hb
-  apply Fraction.le_equiv_right hb
-  simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt,
-    Int.natCast_one,
-    Int.one_mul, Int.mul_one]
-
-theorem right_endpoint_value (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    gammaValue w T s hT hs (rightTime T hT) =
-      endpointValue w T s hT hs := by
-  apply Quotient.sound
-  intro eps heps
-  obtain ⟨N, hN⟩ := duration_factor_eventually_small w T s hT eps heps
-  refine ⟨N, ?_⟩
-  intro j hj
-  have hb := right_prefix_endpoint_bound w T s j hT hs
-  have hs := stateSub_norm_symm
-    (prefixState rightAddress w T s j) (endpoint w T s j)
-  exact Fraction.magnitudes.lt_of_le_lt
-    (Fraction.le_equiv_left hs hb) (hN j hj)
-
-def firstAlias (j : Nat) : Bool := decide (j = 0)
-def secondAlias (j : Nat) : Bool := decide (j ≠ 0)
-
-theorem alias_ticks (j : Nat) :
-    ticks firstAlias (j + 1) = blocks j ∧
-      ticks secondAlias (j + 1) + 1 = blocks j := by
-  induction j with
-  | zero =>
-      constructor <;> decide
-  | succ j ih =>
-      rcases ih with ⟨hfirst, hsecond⟩
-      constructor
-      · change 2 * ticks firstAlias (j + 1) + bit firstAlias (j + 1) =
-          blocks (j + 1)
-        have hb : bit firstAlias (j + 1) = 0 := by
-          simp [bit, firstAlias]
-        rw [hb, blocks_succ]
-        omega
-      · change 2 * ticks secondAlias (j + 1) +
-          bit secondAlias (j + 1) + 1 = blocks (j + 1)
-        have hb : bit secondAlias (j + 1) = 1 := by
-          simp [bit, secondAlias]
-        rw [hb, blocks_succ]
-        omega
-
-theorem alias_time_distance (T : Fraction) (j : Nat)
-    (hT : 0 ≤ T.num) :
-    Fraction.equiv
-      (distance (timeState firstAlias T (j + 1))
-        (timeState secondAlias T (j + 1)))
-      (duration T (j + 1)) := by
-  have hcounts : ticks secondAlias (j + 1) + 1 =
-      ticks firstAlias (j + 1) := by
-    have ha := alias_ticks j
-    omega
-  have htime := countTime_abs_difference T (j + 1)
-    (ticks secondAlias (j + 1)) 1 hT
-  rw [hcounts] at htime
-  have hd := scalarState_distance
-    (timeApprox firstAlias T (j + 1))
-    (timeApprox secondAlias T (j + 1))
-  apply Fraction.equiv_trans hd
-  apply Fraction.equiv_trans htime
-  simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt,
-    Int.natCast_one, Int.one_mul, Int.mul_one]
-
-theorem alias_address_equiv (T : Fraction) (hT : 0 ≤ T.num) :
-    AddressEquiv T hT firstAlias secondAlias := by
-  intro eps heps
-  obtain ⟨N, hN⟩ := duration_eventually_small T eps hT heps
-  refine ⟨N + 1, ?_⟩
-  intro j hj
-  have hj' : j - 1 + 1 = j := by omega
-  have hbound := alias_time_distance T (j - 1) hT
-  rw [hj'] at hbound
-  exact Fraction.magnitudes.lt_of_le_lt
-    ((Fraction.equiv_iff_mutual_le _ _).mp hbound).1
-    (hN j (by omega))
-
-theorem alias_time_eq (T : Fraction) (hT : 0 ≤ T.num) :
-    (Quotient.mk (addressSetoid T hT) firstAlias : BinaryTime T hT) =
-      Quotient.mk (addressSetoid T hT) secondAlias :=
-  Quotient.sound (alias_address_equiv T hT)
-
-theorem alias_value_eq (w T : Fraction) (s : Point × Point)
-    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
-    binaryValue firstAlias w T s hT hs =
-      binaryValue secondAlias w T s hT hs := by
-  exact congrArg (gammaValue w T s hT hs) (alias_time_eq T hT)
-
-theorem zero_time_value (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (hT : 0 ≤ T.num)
-    (hs : DyadicSmallTime w T) (hzero : T.num = 0) :
-    gammaValue w T s hT hs (Quotient.mk _ b) = embed s := by
-  apply Quotient.sound
-  intro eps heps
-  refine ⟨0, ?_⟩
-  intro j _
-  have he := (distance_zero_iff_stateEquiv
-    (prefixState b w T s j) s).mpr
-      (zero_time_prefix b w T s j hzero)
-  have hself := stateSub_self_norm_zero s
-  have hle : Fraction.le (distance (prefixState b w T s j) s)
-      (distance s s) := Fraction.le_of_equiv
-    (Fraction.equiv_trans he (Fraction.equiv_symm hself))
-  exact Fraction.magnitudes.lt_of_le_lt hle
-    (distance_self_lt s eps heps)
-
-theorem zero_state_norm_value (b : Nat → Bool) (w T : Fraction)
-    (s : Point × Point) (hT : 0 ≤ T.num)
-    (hs : DyadicSmallTime w T) (hzero : (stateNorm s).num = 0) :
-    gammaValue w T s hT hs (Quotient.mk _ b) = embed s := by
-  have hC : (stateTimeFactor w s).num = 0 := by
-    unfold stateTimeFactor Fraction.mul
-    dsimp
-    simp only [hzero, Int.mul_zero, Int.zero_mul]
-  calc
-    gammaValue w T s hT hs (Quotient.mk _ b) =
-        gammaValue w T s hT hs (leftTime T hT) := by
-      apply Quotient.sound
-      intro eps heps
-      refine ⟨0, ?_⟩
-      intro j _
-      have hb := prefix_time_bound b leftAddress w T s j hT hs
-      have hz : (Fraction.mul
-          (distance (timeState b T j) (timeState leftAddress T j))
-          (stateTimeFactor w s)).num = 0 := by
-        unfold Fraction.mul
-        dsimp
-        simp [hC]
-      have hstrict : Fraction.lt
-          (Fraction.mul
-            (distance (timeState b T j) (timeState leftAddress T j))
-            (stateTimeFactor w s)) eps := by
-        unfold Fraction.lt
-        simp only [hz, Int.zero_mul]
-        exact Int.mul_pos heps
-          (Fraction.mul
-            (distance (timeState b T j) (timeState leftAddress T j))
-            (stateTimeFactor w s)).den_pos
-      exact Fraction.magnitudes.lt_of_le_lt hb hstrict
-    _ = embed s := left_endpoint_value w T s hT hs
-
-private def sampleOne : Fraction := ⟨1, 1, by decide⟩
-private def sampleZero : Fraction := ⟨0, 1, by decide⟩
-private def sampleQuarter : Fraction := ⟨1, 4, by decide⟩
-private def sampleState : Point × Point :=
-  ((sampleOne, sampleZero), (sampleZero, sampleOne))
-
-theorem sample_alias_counts :
-    ticks firstAlias 2 = 2 ∧ ticks secondAlias 2 = 1 := by decide
-
-theorem sample_alias_time_gap :
-    Fraction.equiv
-      (distance (timeState firstAlias sampleQuarter 2)
-        (timeState secondAlias sampleQuarter 2))
-      ⟨1, 16, by decide⟩ := by decide
-
-theorem sample_state_time_factor :
-    Fraction.equiv (stateTimeFactor sampleOne sampleState)
-      (Fraction.ofInt 8) := by decide
-
-theorem sample_alias_bound :
-    Fraction.equiv
-      (Fraction.mul (distance
-        (timeState firstAlias sampleQuarter 2)
-        (timeState secondAlias sampleQuarter 2))
-        (stateTimeFactor sampleOne sampleState))
-      ⟨1, 2, by decide⟩ := by decide
-
-theorem sample_alias_actual_error :
-    Fraction.equiv
-      (distance
-        (prefixState firstAlias sampleOne sampleQuarter sampleState 2)
-        (prefixState secondAlias sampleOne sampleQuarter sampleState 2))
-      ⟨8927, 65536, by decide⟩ := by decide
-
-theorem sample_right_ne_left :
-    gammaValue sampleOne sampleQuarter sampleState
-      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
-      (rightTime sampleQuarter (by decide)) ≠
-    gammaValue sampleOne sampleQuarter sampleState
-      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
-      (leftTime sampleQuarter (by decide)) := by
-  have hneq := CauchyValues.sample_endpoint_value_ne_initial
-  change endpointValue sampleOne sampleQuarter sampleState
-    (by decide) (by unfold DyadicSmallTime Fraction.le; decide) ≠
-    embed sampleState at hneq
-  intro h
-  apply hneq
-  calc
-    endpointValue sampleOne sampleQuarter sampleState
-        (by decide) (by unfold DyadicSmallTime Fraction.le; decide) =
-        gammaValue sampleOne sampleQuarter sampleState
-          (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
-          (rightTime sampleQuarter (by decide)) :=
-      (right_endpoint_value _ _ _ _ _).symm
-    _ = gammaValue sampleOne sampleQuarter sampleState
-          (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
-          (leftTime sampleQuarter (by decide)) := h
-    _ = embed sampleState := left_endpoint_value _ _ _ _ _
-
-end NewtonLimitDynamics.Polygon.HarmonicTimeRealization
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/HarmonicUniform.lean}}{\small, 50 theorems, 678 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.IntegerSchedule
-import ModernLib.Polygon.HarmonicAccumulation
-import BarrowLib.Common.FiniteGrowth
-
-/-!
-Mesh-uniform finite bounds for the actual harmonic coarse and fine schedules
-under a small total-time condition. These coordinate L1 estimates provide
-finite construction support only: no curve, completion, geometric region
-between paths, or historical limiting step is constructed here.
-The small-time threshold uses the chosen coordinate/unit calibration; it is
-not a universal physical time bound.
--/
-
-namespace NewtonLimitDynamics.Polygon.HarmonicUniform
-
-open NewtonLimitDynamics
-open NewtonLimitDynamics.FiniteGrowth
-open TimeSubdivision
-open CentralSchedule
-open HarmonicStability
-open HarmonicRefinement
-open HarmonicComparison
-open HarmonicAccumulation
-open PointBounds
-
-private def halfThreshold : Fraction := ⟨1, 2, by decide⟩
-private def denom (w h : Fraction) : Int := h.den * w.den
-private def driftIncrement (w h : Fraction) : Int := h.num * w.den
-private def kickIncrement (w h : Fraction) : Int := h.num * (w.num.natAbs : Int)
-
-private theorem denom_pos (w h : Fraction) : 0 < denom w h :=
-  Int.mul_pos h.den_pos w.den_pos
-
-private theorem driftIncrement_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
-    0 ≤ driftIncrement w h :=
-  Int.mul_nonneg hh (Int.le_of_lt w.den_pos)
-
-private theorem kickIncrement_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
-    0 ≤ kickIncrement w h :=
-  Int.mul_nonneg hh (Int.ofNat_nonneg _)
-
-/-- `n` full cells have factors `(D+2A)/D` and `(D+2B)/D`. -/
-def coarseWeights (w h : Fraction) : Nat → List Int
-  | 0 => []
-  | n + 1 => (2 * driftIncrement w h) :: (2 * kickIncrement w h) ::
-      coarseWeights w h n
-
-/-- `2n` half-cells have four factors per common block. -/
-def fineWeights (w h : Fraction) : Nat → List Int
-  | 0 => []
-  | n + 1 => driftIncrement w h :: kickIncrement w h ::
-      driftIncrement w h :: kickIncrement w h :: fineWeights w h n
-
-private theorem coarseWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
-    (n : Nat) → Nonnegative (coarseWeights w h n)
-  | 0 => by simp [coarseWeights, Nonnegative]
-  | n + 1 => by
-      simp only [coarseWeights, Nonnegative, List.mem_cons]
-      intro a ha
-      rcases ha with rfl | rfl | ht
-      · exact Int.mul_nonneg (by decide) (driftIncrement_nonnegative w h hh)
-      · exact Int.mul_nonneg (by decide) (kickIncrement_nonnegative w h hh)
-      · exact coarseWeights_nonnegative w h hh n a ht
-
-private theorem fineWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
-    (n : Nat) → Nonnegative (fineWeights w h n)
-  | 0 => by simp [fineWeights, Nonnegative]
-  | n + 1 => by
-      simp only [fineWeights, Nonnegative, List.mem_cons]
-      intro a ha
-      rcases ha with rfl | rfl | rfl | rfl | ht
-      · exact driftIncrement_nonnegative w h hh
-      · exact kickIncrement_nonnegative w h hh
-      · exact driftIncrement_nonnegative w h hh
-      · exact kickIncrement_nonnegative w h hh
-      · exact fineWeights_nonnegative w h hh n a ht
-
-private theorem common_weight_sum (w h : Fraction) :
-    (n : Nat) →
-      weightSum (coarseWeights w h n) =
-        weightSum (fineWeights w h n) ∧
-      weightSum (fineWeights w h n) =
-        2 * (n : Int) * (driftIncrement w h + kickIncrement w h)
-  | 0 => by simp [coarseWeights, fineWeights, weightSum]
-  | n + 1 => by
-      obtain ⟨hc, hf⟩ := common_weight_sum w h n
-      simp only [coarseWeights, fineWeights, weightSum, Int.natCast_add,
-        Int.natCast_one]
-      constructor
-      · rw [hc]
-        omega
-      · rw [hf]
-        simp only [Int.add_mul, Int.mul_add]
-        omega
-
-def SmallTime (w h : Fraction) (n : Nat) : Prop :=
-  Fraction.le
-    (Fraction.mul (totalTime h n) (Fraction.add (Fraction.ofInt 1) w.abs)) halfThreshold
-
-/-- The displayed total time is the elapsed time of the actual coarse list. -/
-theorem coarse_elapsed_totalTime (h : Fraction) (n : Nat) :
-    Fraction.equiv (elapsed (List.replicate n (Fraction.add h h)))
-      (totalTime h n) := by
-  induction n with
-  | zero =>
-      simp only [List.replicate_zero, elapsed, totalTime, Fraction.equiv,
-        Fraction.mul, Fraction.ofInt]
-      simp
-  | succ n ih =>
-      simp only [List.replicate_succ, elapsed]
-      have ht := Fraction.equiv_trans
-        (Fraction.add_comm (Fraction.add h h)
-          (elapsed (List.replicate n (Fraction.add h h))))
-        (Fraction.add_equiv_right (Fraction.add h h) ih)
-      apply Fraction.equiv_trans ht
-      simp only [totalTime, Fraction.equiv, Fraction.add, Fraction.mul,
-        Fraction.ofInt, Int.natCast_add, Int.natCast_one,
-        Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-      simp only [show (2 : Int) = 1 + 1 by rfl,
-        Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
-      ac_nf
-
-/-- The fine list reaches the same displayed total time. -/
-theorem fine_elapsed_totalTime (h : Fraction) (n : Nat) :
-    Fraction.equiv (elapsed (fineDurations h n)) (totalTime h n) :=
-  Fraction.equiv_trans
-    (Fraction.equiv_symm (schedules_common_time (Fraction.ofInt 0) h n))
-    (coarse_elapsed_totalTime h n)
-
-private theorem smallTime_integer (w h : Fraction) (n : Nat)
-    (hs : SmallTime w h n) :
-    2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤ denom w h := by
-  unfold SmallTime totalTime halfThreshold Fraction.le Fraction.mul Fraction.add
-    Fraction.ofInt Fraction.abs at hs
-  dsimp at hs
-  simp only [Int.mul_one, Int.one_mul, Int.add_zero] at hs
-  change 2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤
-    h.den * w.den
-  calc
-    2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) =
-        2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int)) * 2 := by ac_rfl
-    _ ≤ h.den * w.den := hs
-
-/-- The small-time condition is inherited by every earlier actual block. -/
-theorem smallTime_prefix (w h : Fraction) (i n : Nat)
-    (hh : 0 ≤ h.num) (hi : i ≤ n) (hs : SmallTime w h n) :
-    SmallTime w h i := by
-  have hn := smallTime_integer w h n hs
-  have hcoef : 0 ≤ 4 * h.num * (w.den + (w.num.natAbs : Int)) := by
-    exact Int.mul_nonneg
-      (Int.mul_nonneg (by decide) hh)
-      (Int.add_nonneg (Int.le_of_lt w.den_pos) (Int.ofNat_nonneg _))
-  have hcast : (i : Int) ≤ (n : Int) := Int.ofNat_le.mpr hi
-  have hm := Int.mul_le_mul_of_nonneg_right hcast hcoef
-  have hpref :
-      2 * (2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤
-        2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := by
-    calc
-      _ = (i : Int) * (4 * h.num * (w.den + (w.num.natAbs : Int))) := by
-        simp only [show (4 : Int) = 2 * 2 by rfl]
-        ac_rfl
-      _ ≤ (n : Int) * (4 * h.num * (w.den + (w.num.natAbs : Int))) := hm
-      _ = _ := by
-        simp only [show (4 : Int) = 2 * 2 by rfl]
-        ac_rfl
-  unfold SmallTime totalTime halfThreshold Fraction.le Fraction.mul Fraction.add
-    Fraction.ofInt Fraction.abs
-  dsimp
-  simp only [Int.mul_one, Int.one_mul, Int.add_zero]
-  calc
-    2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int)) * 2 =
-        2 * (2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int))) := by ac_rfl
-    _ ≤ 2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := hpref
-    _ ≤ denom w h := hn
-
-private theorem fineWeights_small (w h : Fraction) (n : Nat)
-    (hs : SmallTime w h n) :
-    2 * weightSum (fineWeights w h n) ≤ denom w h := by
-  have hi := smallTime_integer w h n hs
-  have hf := (common_weight_sum w h n).2
-  calc
-    2 * weightSum (fineWeights w h n) =
-        2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := by
-      rw [hf]
-      simp only [driftIncrement, kickIncrement, Int.mul_add]
-      ac_nf
-    _ ≤ denom w h := hi
-
-private theorem coarseWeights_small (w h : Fraction) (n : Nat)
-    (hs : SmallTime w h n) :
-    2 * weightSum (coarseWeights w h n) ≤ denom w h := by
-  rw [(common_weight_sum w h n).1]
-  exact fineWeights_small w h n hs
-
-theorem two_mul (x : Int) : 2 * x = x + x := by omega
-
-private theorem coarse_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.equiv
-      (amplification (denom w h) (denom_pos w h)
-        [2 * driftIncrement w h, 2 * kickIncrement w h])
-      (coarseFactor w h) := by
-  have hsum : 0 ≤ (Fraction.add h h).num := by
-    unfold Fraction.add
-    exact Int.add_nonneg
-      (Int.mul_nonneg hh (Int.le_of_lt h.den_pos))
-      (Int.mul_nonneg hh (Int.le_of_lt h.den_pos))
-  simp only [amplification, factorProduct, denom, driftIncrement,
-    kickIncrement, coarseFactor, kappa, Fraction.equiv, Fraction.abs,
-    Fraction.add, Fraction.mul, Fraction.ofInt,
-    List.length_cons, List.length_nil, Int.pow_succ,
-    Int.pow_zero, Int.mul_one, Int.one_mul]
-  change 0 ≤ h.num * h.den + h.num * h.den at hsum
-  rw [Int.natAbs_of_nonneg hsum]
-  simp only [two_mul, Int.add_mul, Int.mul_add]
-  ac_nf
-
-private theorem fine_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.equiv
-      (amplification (denom w h) (denom_pos w h)
-        [driftIncrement w h, kickIncrement w h,
-          driftIncrement w h, kickIncrement w h])
-      (fineFactor w h) := by
-  simp only [amplification, factorProduct, denom, driftIncrement,
-    kickIncrement, fineFactor, kappa, Fraction.equiv, Fraction.abs,
-    Fraction.add, Fraction.mul, Fraction.ofInt,
-    List.length_cons, List.length_nil, Int.pow_succ,
-    Int.pow_zero, Int.mul_one, Int.one_mul,
-    Int.natAbs_of_nonneg hh]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
-
-private theorem coarse_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
-    (n : Nat) →
-      Fraction.equiv
-        (amplification (denom w h) (denom_pos w h) (coarseWeights w h n))
-        (fpower (coarseFactor w h) n)
-  | 0 => amplification_empty _ _
-  | n + 1 => by
-      have ha := amplification_append (denom w h) (denom_pos w h)
-        [2 * driftIncrement w h, 2 * kickIncrement w h] (coarseWeights w h n)
-      have hb := coarse_block_equiv w h hh
-      have hi := coarse_power_amplification w h hh n
-      change Fraction.equiv
-        (amplification (denom w h) (denom_pos w h)
-          ([2 * driftIncrement w h, 2 * kickIncrement w h] ++ coarseWeights w h n))
-        (Fraction.mul (coarseFactor w h) (fpower (coarseFactor w h) n))
-      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
-
-private theorem fine_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
-    (n : Nat) →
-      Fraction.equiv
-        (amplification (denom w h) (denom_pos w h) (fineWeights w h n))
-        (fpower (fineFactor w h) n)
-  | 0 => amplification_empty _ _
-  | n + 1 => by
-      have ha := amplification_append (denom w h) (denom_pos w h)
-        [driftIncrement w h, kickIncrement w h,
-          driftIncrement w h, kickIncrement w h] (fineWeights w h n)
-      have hb := fine_block_equiv w h hh
-      have hi := fine_power_amplification w h hh n
-      change Fraction.equiv
-        (amplification (denom w h) (denom_pos w h)
-          ([driftIncrement w h, kickIncrement w h,
-            driftIncrement w h, kickIncrement w h] ++ fineWeights w h n))
-        (Fraction.mul (fineFactor w h) (fpower (fineFactor w h) n))
-      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
-
-/-- Uniform finite growth of the actual coarse amplification power. -/
-theorem coarse_power_le_two (w h : Fraction) (n : Nat)
-    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
-    Fraction.le (fpower (coarseFactor w h) n) (Fraction.ofInt 2) :=
-  Fraction.le_equiv_left (Fraction.equiv_symm (coarse_power_amplification w h hh n))
-    (uniform_amplification (denom w h) (denom_pos w h) (coarseWeights w h n)
-      (coarseWeights_nonnegative w h hh n) (coarseWeights_small w h n hs))
-
-/-- Uniform finite growth of the actual two-cell perturbation power. -/
-theorem fine_power_le_two (w h : Fraction) (n : Nat)
-    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
-    Fraction.le (fpower (fineFactor w h) n) (Fraction.ofInt 2) :=
-  Fraction.le_equiv_left (Fraction.equiv_symm (fine_power_amplification w h hh n))
-    (uniform_amplification (denom w h) (denom_pos w h) (fineWeights w h n)
-      (fineWeights_nonnegative w h hh n) (fineWeights_small w h n hs))
-
-/-- Actual coarse states stay inside twice the initial coordinate magnitude. -/
-theorem coarse_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
-    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
-    Fraction.le (stateNorm (coarseAt w h s n))
-      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) :=
-  Fraction.magnitudes.le_trans (coarse_norm_bound w h s n)
-    (Fraction.mul_le_mul_nonnegative (coarse_power_le_two w h n hh hs)
-      (stateNorm s) (stateNorm_nonnegative s))
-
-private theorem fine_cell_bound (w h : Fraction) (s : Point × Point) :
-    Fraction.le (stateNorm (HarmonicRefinement.fine w h s))
-      (Fraction.mul (fineFactor w h) (stateNorm s)) := by
-  have h₁ := cell_bound w h (cell (linearField w) h s)
-  have h₂ := cell_bound w h s
-  have hm := Fraction.mul_le_mul_nonnegative_left h₂ (kappa w h)
-    (kappa_nonnegative w h)
-  have hc := Fraction.magnitudes.le_trans h₁ hm
-  apply Fraction.le_equiv_right hc
-  simp only [fineFactor, Fraction.equiv, Fraction.mul]
-  ac_nf
-
-theorem fine_norm_bound (w h : Fraction) (s : Point × Point) :
-    (n : Nat) →
-      Fraction.le (stateNorm (fineAt w h s n))
-        (Fraction.mul (fpower (fineFactor w h) n) (stateNorm s))
-  | 0 => by
-      apply Fraction.le_of_equiv
-      simp only [fineAt, fpower, Fraction.equiv, Fraction.mul, Fraction.ofInt]
-      simp only [Int.one_mul, Int.mul_one]
-  | n + 1 => by
-      have hf := fine_cell_bound w h (fineAt w h s n)
-      have hi := fine_norm_bound w h s n
-      have hm := Fraction.mul_le_mul_nonnegative_left hi (fineFactor w h)
-        (fineFactor_nonnegative w h)
-      have hc := Fraction.magnitudes.le_trans hf hm
-      apply Fraction.le_equiv_right hc
-      simp only [fineAt, fpower, Fraction.equiv, Fraction.mul]
-      ac_nf
-
-theorem fine_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
-    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
-    Fraction.le (stateNorm (fineAt w h s n))
-      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) :=
-  Fraction.magnitudes.le_trans (fine_norm_bound w h s n)
-    (Fraction.mul_le_mul_nonnegative (fine_power_le_two w h n hh hs)
-      (stateNorm s) (stateNorm_nonnegative s))
-
-private theorem square_dominates_double (D a : Int) (ha : 0 ≤ a) :
-    D * (D + 2 * a) ≤ (D + a) * (D + a) := by
-  have hp := Int.mul_nonneg ha ha
-  have he : (D + a) * (D + a) = D * (D + 2 * a) + a * a := by
-    simp only [two_mul, Int.add_mul, Int.mul_add]
-    ac_nf
-  omega
-
-private theorem block_product_order (D A B : Int) (hD : 0 < D)
-    (hA : 0 ≤ A) (hB : 0 ≤ B) :
-    (D + 2 * A) * (D + 2 * B) * (D * D) ≤
-      ((D + A) * (D + A)) * ((D + B) * (D + B)) := by
-  have p := square_dominates_double D A hA
-  have q := square_dominates_double D B hB
-  have hp : 0 ≤ D * (D + 2 * A) :=
-    Int.mul_nonneg (Int.le_of_lt hD)
-      (Int.add_nonneg (Int.le_of_lt hD) (Int.mul_nonneg (by decide) hA))
-  have hq : 0 ≤ (D + B) * (D + B) := by
-    have hb : 0 ≤ D + B := Int.add_nonneg (Int.le_of_lt hD) hB
-    exact Int.mul_nonneg hb hb
-  have h₁ := Int.mul_le_mul_of_nonneg_right p hq
-  have h₂ := Int.mul_le_mul_of_nonneg_left q hp
-  calc
-    (D + 2 * A) * (D + 2 * B) * (D * D) =
-        (D * (D + 2 * A)) * (D * (D + 2 * B)) := by ac_rfl
-    _ ≤ (D * (D + 2 * A)) * ((D + B) * (D + B)) := h₂
-    _ ≤ ((D + A) * (D + A)) * ((D + B) * (D + B)) := h₁
-
-private theorem block_amplification_order (w h : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.le
-      (amplification (denom w h) (denom_pos w h)
-        [2 * driftIncrement w h, 2 * kickIncrement w h])
-      (amplification (denom w h) (denom_pos w h)
-        [driftIncrement w h, kickIncrement w h,
-          driftIncrement w h, kickIncrement w h]) := by
-  have ho := block_product_order (denom w h) (driftIncrement w h)
-    (kickIncrement w h) (denom_pos w h)
-    (driftIncrement_nonnegative w h hh) (kickIncrement_nonnegative w h hh)
-  unfold Fraction.le amplification
-  simp only [factorProduct, List.length_cons, List.length_nil,
-    Int.pow_succ, Int.pow_zero, Int.mul_one, Int.one_mul]
-  have hd : 0 ≤ denom w h * denom w h :=
-    Int.mul_nonneg (Int.le_of_lt (denom_pos w h)) (Int.le_of_lt (denom_pos w h))
-  have hm := Int.mul_le_mul_of_nonneg_right ho hd
-  calc
-    _ =
-        ((denom w h + 2 * driftIncrement w h) *
-          (denom w h + 2 * kickIncrement w h) *
-          (denom w h * denom w h)) * (denom w h * denom w h) := by ac_rfl
-    _ ≤ ((denom w h + driftIncrement w h) *
-          (denom w h + driftIncrement w h) *
-          ((denom w h + kickIncrement w h) *
-            (denom w h + kickIncrement w h))) *
-          (denom w h * denom w h) := hm
-    _ = _ := by ac_rfl
-
-theorem coarseFactor_le_fineFactor (w h : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.le (coarseFactor w h) (fineFactor w h) :=
-  Fraction.le_equiv_right
-    (Fraction.le_equiv_left (Fraction.equiv_symm (coarse_block_equiv w h hh))
-      (block_amplification_order w h hh))
-    (fine_block_equiv w h hh)
-
-private theorem one_le_one_add (a : Fraction) (ha : 0 ≤ a.num) :
-    Fraction.le (Fraction.ofInt 1) (Fraction.add (Fraction.ofInt 1) a) := by
-  unfold Fraction.le Fraction.add Fraction.ofInt
-  dsimp
-  have hp := Int.le_of_lt a.den_pos
-  omega
-
-theorem one_le_kappa (w h : Fraction) :
-    Fraction.le (Fraction.ofInt 1) (kappa w h) := by
-  let u := Fraction.add (Fraction.ofInt 1) h.abs
-  let v := Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs)
-  have hu := one_le_one_add h.abs (Fraction.abs_num_nonnegative h)
-  have hv := one_le_one_add (Fraction.mul h.abs w.abs)
-    (Int.mul_nonneg (Fraction.abs_num_nonnegative h) (Fraction.abs_num_nonnegative w))
-  have h₁ := Fraction.mul_le_mul_nonnegative hu (Fraction.ofInt 1) (by decide)
-  have h₂ := Fraction.mul_le_mul_nonnegative_left hv u (by
-    unfold u Fraction.add Fraction.ofInt
-    dsimp
-    have hp := h.abs.den_pos
-    have hn := Fraction.abs_num_nonnegative h
-    omega)
-  have hc := Fraction.magnitudes.le_trans h₁ h₂
-  apply Fraction.le_equiv_left (by
-    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-    decide) hc
-
-private theorem one_le_fineFactor (w h : Fraction) :
-    Fraction.le (Fraction.ofInt 1) (fineFactor w h) := by
-  have hk := one_le_kappa w h
-  have h₁ := Fraction.mul_le_mul_nonnegative hk (Fraction.ofInt 1) (by decide)
-  have h₂ := Fraction.mul_le_mul_nonnegative_left hk (kappa w h)
-    (kappa_nonnegative w h)
-  have hc := Fraction.magnitudes.le_trans h₁ h₂
-  apply Fraction.le_equiv_left (by
-    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-    decide) hc
-
-private theorem fpower_monotone (a b : Fraction) (ha : 0 ≤ a.num)
-    (hb : 0 ≤ b.num) (hab : Fraction.le a b) :
-    (n : Nat) → Fraction.le (fpower a n) (fpower b n)
-  | 0 => Fraction.magnitudes.le_refl _
-  | n + 1 => by
-      have h₁ := Fraction.mul_le_mul_nonnegative hab (fpower a n)
-        (fpower_nonnegative a ha n)
-      have h₂ := Fraction.mul_le_mul_nonnegative_left
-        (fpower_monotone a b ha hb hab n) b hb
-      exact Fraction.magnitudes.le_trans h₁ h₂
-
-private theorem coarse_power_le_fine_power (w h : Fraction) (n : Nat)
-    (hh : 0 ≤ h.num) :
-    Fraction.le (fpower (coarseFactor w h) n) (fpower (fineFactor w h) n) :=
-  fpower_monotone _ _ (kappa_nonnegative w (Fraction.add h h))
-    (fineFactor_nonnegative w h) (coarseFactor_le_fineFactor w h hh) n
-
-private def count (n : Nat) : Fraction := Fraction.ofInt (n : Int)
-
-private def budgetCap (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
-  Fraction.mul (count n)
-    (Fraction.mul (localFactor w h)
-      (Fraction.mul (fpower (fineFactor w h) n) (stateNorm s)))
-
-private theorem budget_power_bound (w h : Fraction) (s : Point × Point)
-    (hh : 0 ≤ h.num) :
-    (n : Nat) → Fraction.le (errorBudget w h s n) (budgetCap w h s n)
-  | 0 => by
-      apply Fraction.le_of_equiv
-      simp only [errorBudget, budgetCap, count, fpower, Fraction.equiv,
-        Fraction.ofInt, Fraction.mul]
-      simp
-  | n + 1 => by
-      let d := localFactor w h
-      let r := fineFactor w h
-      let M := stateNorm s
-      let X := Fraction.mul (Fraction.mul d (fpower r n)) M
-      have hi := budget_power_bound w h s hh n
-      have hr := fineFactor_nonnegative w h
-      have hd := localFactor_nonnegative w h
-      have hpow := fpower_nonnegative r hr n
-      have hX : 0 ≤ X.num :=
-        Int.mul_nonneg (Int.mul_nonneg hd hpow) (stateNorm_nonnegative s)
-      have h₁ := Fraction.mul_le_mul_nonnegative_left hi r hr
-      have hp := coarse_power_le_fine_power w h n hh
-      have h₂a := Fraction.mul_le_mul_nonnegative_left hp d hd
-      have h₂ := Fraction.mul_le_mul_nonnegative h₂a M (stateNorm_nonnegative s)
-      have h₂b : Fraction.le X
-          (Fraction.mul d (Fraction.mul (fpower r (n + 1)) M)) := by
-        have hk := Fraction.mul_le_mul_nonnegative (one_le_fineFactor w h) X hX
-        have he : Fraction.equiv X (Fraction.mul (Fraction.ofInt 1) X) := by
-          simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-          simp
-        have hk' := Fraction.le_equiv_left he hk
-        apply Fraction.le_equiv_right hk'
-        simp only [d, r, M, X, fpower, Fraction.equiv, Fraction.mul]
-        ac_nf
-      have h₂c := Fraction.magnitudes.le_trans h₂ h₂b
-      have hsum := Fraction.add_le_add h₁ h₂c
-      apply Fraction.le_equiv_right hsum
-      simp only [d, r, M, errorBudget, budgetCap, count, fpower,
-        Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-      simp only [Int.natCast_add, Int.natCast_one, Int.add_mul, Int.mul_add,
-        Int.one_mul, Int.mul_one]
-      ac_nf
-
-private theorem budget_two_bound (w h : Fraction) (s : Point × Point) (n : Nat)
-    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
-    Fraction.le (errorBudget w h s n)
-      (Fraction.mul (Fraction.ofInt 2)
-        (Fraction.mul (count n) (Fraction.mul (localFactor w h) (stateNorm s)))) := by
-  have h₀ := budget_power_bound w h s hh n
-  have hp := fine_power_le_two w h n hh hs
-  have h₁ := Fraction.mul_le_mul_nonnegative hp (stateNorm s) (stateNorm_nonnegative s)
-  have h₂ := Fraction.mul_le_mul_nonnegative_left h₁ (localFactor w h)
-    (localFactor_nonnegative w h)
-  have h₃ := Fraction.mul_le_mul_nonnegative_left h₂ (count n) (by
-    unfold count Fraction.ofInt
-    exact Int.ofNat_nonneg n)
-  have hc := Fraction.magnitudes.le_trans h₀ h₃
-  apply Fraction.le_equiv_right hc
-  simp only [budgetCap, count, Fraction.equiv, Fraction.mul, Fraction.ofInt]
-  ac_nf
-
-theorem one_le_power (a : Fraction) (ha : 0 ≤ a.num)
-    (h1 : Fraction.le (Fraction.ofInt 1) a) :
-    (n : Nat) → Fraction.le (Fraction.ofInt 1) (fpower a n)
-  | 0 => Fraction.magnitudes.le_refl _
-  | n + 1 => by
-      have hi := one_le_power a ha h1 n
-      have hm := Fraction.mul_le_mul_nonnegative h1 (fpower a n)
-        (fpower_nonnegative a ha n)
-      have he : Fraction.equiv (fpower a n)
-          (Fraction.mul (Fraction.ofInt 1) (fpower a n)) := by
-        simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-        simp
-      exact Fraction.magnitudes.le_trans hi (Fraction.le_equiv_left he hm)
-
-private theorem factor_le_power_succ (a : Fraction) (ha : 0 ≤ a.num)
-    (h1 : Fraction.le (Fraction.ofInt 1) a) (n : Nat) :
-    Fraction.le a (fpower a (n + 1)) := by
-  have hp := one_le_power a ha h1 n
-  have hm := Fraction.mul_le_mul_nonnegative_left hp a ha
-  exact Fraction.le_equiv_left (by
-    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-    simp) hm
-
-private theorem kappa_le_fineFactor (w h : Fraction) :
-    Fraction.le (kappa w h) (fineFactor w h) := by
-  have hk := one_le_kappa w h
-  have hm := Fraction.mul_le_mul_nonnegative_left hk (kappa w h)
-    (kappa_nonnegative w h)
-  exact Fraction.le_equiv_left (by
-    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-    simp) hm
-
-private theorem kappa_le_two_of_positive_blocks (w h : Fraction) (n : Nat)
-    (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :
-    Fraction.le (kappa w h) (Fraction.ofInt 2) := by
-  have h₁ := kappa_le_fineFactor w h
-  have h₂ := factor_le_power_succ (fineFactor w h)
-    (fineFactor_nonnegative w h) (one_le_fineFactor w h) n
-  have h₃ := fine_power_le_two w h (n + 1) hh hs
-  exact Fraction.magnitudes.le_trans (Fraction.magnitudes.le_trans h₁ h₂) h₃
-
-private def meshAmplitude (w h : Fraction) : Fraction :=
-  Fraction.mul (Fraction.mul h.abs h.abs) w.abs
-
-private theorem meshAmplitude_nonnegative (w h : Fraction) :
-    0 ≤ (meshAmplitude w h).num :=
-  Int.mul_nonneg
-    (Int.mul_nonneg (Fraction.abs_num_nonnegative h) (Fraction.abs_num_nonnegative h))
-    (Fraction.abs_num_nonnegative w)
-
-private theorem localFactor_le_three_amplitude (w h : Fraction) (n : Nat)
-    (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :
-    Fraction.le (localFactor w h)
-      (Fraction.mul (Fraction.ofInt 3) (meshAmplitude w h)) := by
-  have hk := kappa_le_two_of_positive_blocks w h n hh hs
-  have hplus := Fraction.add_le_add_right hk (Fraction.ofInt 1)
-  have hm := Fraction.mul_le_mul_nonnegative hplus (meshAmplitude w h)
-    (meshAmplitude_nonnegative w h)
-  have hleft : Fraction.equiv (localFactor w h)
-      (Fraction.mul (Fraction.add (kappa w h) (Fraction.ofInt 1))
-        (meshAmplitude w h)) := by
-    unfold localFactor meshAmplitude
-    exact Fraction.mul_comm _ _
-  have hright : Fraction.equiv
-      (Fraction.mul (Fraction.add (Fraction.ofInt 2) (Fraction.ofInt 1))
-        (meshAmplitude w h))
-      (Fraction.mul (Fraction.ofInt 3) (meshAmplitude w h)) := by
-    simp only [Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
-    simp only [Int.mul_one, Int.one_mul]
-    ac_nf
-  exact Fraction.le_equiv_right (Fraction.le_equiv_left hleft hm) hright
-
-/-- Uniform finite error at common total time `T=2nh`: actual fine and coarse
-endpoints differ in coordinate L1 magnitude by at most `3*T*h*|w|*M`.
-The hypothesis includes `h≥0` and `T*(1+|w|)≤1/2`. This is an endpoint
-estimate, with no limiting curve or intervening-area assertion. -/
-theorem actual_uniform_error (w h : Fraction) (s : Point × Point) (n : Nat)
-    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
-    Fraction.le
-      (stateNorm (stateSub (fineAt w h s n) (coarseAt w h s n)))
-      (Fraction.mul (Fraction.ofInt 3)
-        (Fraction.mul (totalTime h n)
-          (Fraction.mul h (Fraction.mul w.abs (stateNorm s))))) := by
-  cases n with
-  | zero =>
-      have h₀ := actual_error_bound w h s 0
-      apply Fraction.le_equiv_right h₀
-      simp only [errorBudget, totalTime, Fraction.equiv,
-        Fraction.mul, Fraction.ofInt]
-      simp
-  | succ m =>
-      have h₀ := actual_error_bound w h s (m + 1)
-      have h₁ := budget_two_bound w h s (m + 1) hh hs
-      have hδ := localFactor_le_three_amplitude w h m hh hs
-      have h₂ := Fraction.mul_le_mul_nonnegative hδ (stateNorm s)
-        (stateNorm_nonnegative s)
-      have h₃ := Fraction.mul_le_mul_nonnegative_left h₂ (count (m + 1)) (by
-        unfold count Fraction.ofInt
-        exact Int.ofNat_nonneg _)
-      have h₄ := Fraction.mul_le_mul_nonnegative_left h₃ (Fraction.ofInt 2) (by decide)
-      have hchain := Fraction.magnitudes.le_trans
-        (Fraction.magnitudes.le_trans h₀ h₁) h₄
-      apply Fraction.le_equiv_right hchain
-      simp only [meshAmplitude, count, totalTime, Fraction.equiv,
-        Fraction.mul, Fraction.abs, Fraction.ofInt,
-        Int.natAbs_of_nonneg hh]
-      ac_nf
-
-private def one : Fraction := ⟨1, 1, by decide⟩
-private def zero : Fraction := ⟨0, 1, by decide⟩
-private def eighth : Fraction := ⟨1, 8, by decide⟩
-private def sample : Point × Point := ((one, zero), (zero, one))
-
-theorem sample_small_time : SmallTime one eighth 1 := by
-  unfold SmallTime Fraction.le
-  decide
-
-theorem sample_total_time : Fraction.equiv (totalTime eighth 1) ⟨1, 4, by decide⟩ := by
-  decide
-
-theorem sample_power_bounds :
-    Fraction.le (fpower (coarseFactor one eighth) 1) (Fraction.ofInt 2) ∧
-      Fraction.le (fpower (fineFactor one eighth) 1) (Fraction.ofInt 2) :=
-  ⟨coarse_power_le_two one eighth 1 (by decide) sample_small_time,
-    fine_power_le_two one eighth 1 (by decide) sample_small_time⟩
-
-theorem sample_actual_error :
-    Fraction.equiv
-      (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))
-      ⟨145, 4096, by decide⟩ := by decide
-
-theorem sample_uniform_rhs :
-    Fraction.equiv
-      (Fraction.mul (Fraction.ofInt 3)
-        (Fraction.mul (totalTime eighth 1)
-          (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample)))))
-      ⟨3, 16, by decide⟩ := by decide
-
-theorem sample_uniform_error :
-    Fraction.le
-      (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))
-      (Fraction.mul (Fraction.ofInt 3)
-        (Fraction.mul (totalTime eighth 1)
-          (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample))))) :=
-  actual_uniform_error one eighth sample 1 (by decide) sample_small_time
-
-theorem sample_zero_blocks :
-    Fraction.equiv
-      (stateNorm (stateSub (fineAt one eighth sample 0) (coarseAt one eighth sample 0)))
-      zero := by decide
-
-theorem sample_zero_duration :
-    Fraction.equiv
-      (stateNorm (stateSub (fineAt one zero sample 1) (coarseAt one zero sample 1)))
-      zero := by decide
-
-/-- Without the total-time hypothesis, the claimed factor-two bound fails:
-`w=h=n=1` gives `fineFactor^1=16`. -/
-theorem false_unrestricted_power :
-    ¬ Fraction.le (fpower (fineFactor one one) 1) (Fraction.ofInt 2) := by
-  unfold Fraction.le
-  decide
-
-end NewtonLimitDynamics.Polygon.HarmonicUniform
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/PartialCell.lean}}{\small, 13 theorems, 134 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.ZeroForce
-
-namespace NewtonLimitDynamics.Polygon.PartialCell
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open PartitionControl
-open ZeroForce
-
-/-- The actual state after a finite prefix schedule followed by one partial
-    cell of duration `u/D`.  It is the end-kick recurrence applied to the
-    actual prefix state; no formula for the motion is assumed. -/
-def partialState (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) (u : Nat) :
-    Point × Point :=
-  endKick (duration D u hD) (partitionMotion D hD p v a weights) a
-
-/-- The drift position reached `u/D` into the next cell: the actual prefix
-    position moved by the actual prefix velocity. -/
-def actualPartialPosition (D : Nat) (hD : 0 < D) (p v a : Point)
-    (weights : List Nat) (u : Nat) : Point :=
-  pointAdd (partitionMotion D hD p v a weights).1
-    (pointScale (duration D u hD) (partitionMotion D hD p v a weights).2)
-
-/-- The partial position is the position component of the end-kick step. -/
-theorem partialState_position (D : Nat) (hD : 0 < D) (p v a : Point)
-    (weights : List Nat) (u : Nat) :
-    (partialState D hD p v a weights u).1 = actualPartialPosition D hD p v a weights u := rfl
-
-/-- The terminal kick does not alter the drift position: the position component
-    of an end-kick step is independent of the accelerative force applied at its end. -/
-theorem endKick_position_kick_free (d : Fraction) (state : Point × Point) (a b : Point) :
-    (endKick d state a).1 = (endKick d state b).1 := rfl
-
-/-- The partial state is literally the recurrence on the appended schedule. -/
-theorem partialState_append (D : Nat) (hD : 0 < D) (p v a : Point)
-    (weights : List Nat) (u : Nat) :
-    partialState D hD p v a weights u = partitionMotion D hD p v a (weights ++ [u]) := by
-  unfold partialState partitionMotion
-  rw [List.foldl_append]
-  rfl
-
-/-- Appending one weight applies the statistics recurrence once. -/
-theorem stats_append (weights : List Nat) (u : Nat) :
-    stats (weights ++ [u]) = next (stats weights) u := by
-  unfold stats
-  rw [List.foldl_append]
-  rfl
-
-theorem total_append (weights : List Nat) (u : Nat) :
-    total (weights ++ [u]) = total weights + u := by
-  unfold total
-  rw [stats_append]
-  rfl
-
-theorem squares_append (weights : List Nat) (u : Nat) :
-    squares (weights ++ [u]) = squares weights + u * u := by
-  unfold squares
-  rw [stats_append]
-  rfl
-
-/-- Exact residual at the sample time `(T+u)/D` inside the next cell: the
-    constructed candidate exceeds the actual partial position by
-    `((Q+u*u)/(2D²))*a`.  Derived from the appended schedule's statistics. -/
-theorem candidate_partial_residual (D : Nat) (hD : 0 < D) (p v a : Point)
-    (weights : List Nat) (u : Nat) :
-    pointEquiv (candidate p v a (duration D (total weights + u) hD))
-      (pointAdd (actualPartialPosition D hD p v a weights u)
-        (pointScale (residualCoefficient D (squares weights + u * u) hD) a)) := by
-  have h := candidate_partitionMotion_residual D hD p v a (weights ++ [u])
-  rw [total_append, squares_append, ← partialState_append, partialState_position] at h
-  exact h
-
-/-- Within-cell mesh bound on the square statistic: a partial duration inside a
-    designated next cell of weight `w` (`0 ≤ u` is automatic in `Nat`). -/
-theorem partial_squares_bound (M w u : Nat) (weights : List Nat)
-    (hM : ∀ x ∈ weights, x ≤ M) (hw : w ≤ M) (hu : u ≤ w) :
-    squares weights + u * u ≤ M * (total weights + u) := by
-  have hall : ∀ x ∈ weights ++ [u], x ≤ M := by
-    intro x hx
-    rcases List.mem_append.mp hx with h | h
-    · exact hM x h
-    · rw [List.mem_singleton.mp h]
-      exact Nat.le_trans hu hw
-  have hb := stats_bound M (weights ++ [u]) hall
-  rw [squares_append, total_append] at hb
-  exact hb
-
-/-- The corresponding Fraction coefficient bound:
-    `(Q+u*u)/(2D²) ≤ M*(T+u)/(2D²)`. -/
-theorem partial_residual_mesh_bound (D M w u : Nat) (hD : 0 < D) (weights : List Nat)
-    (hM : ∀ x ∈ weights, x ≤ M) (hw : w ≤ M) (hu : u ≤ w) :
-    Fraction.le (residualCoefficient D (squares weights + u * u) hD)
-      (meshCoefficient D M (total weights + u) hD) := by
-  have hq := partial_squares_bound M w u weights hM hw hu
-  have hi : ((squares weights + u * u : Nat) : Int) ≤ ((M * (total weights + u) : Nat) : Int) :=
-    Int.ofNat_le.mpr hq
-  unfold Fraction.le residualCoefficient meshCoefficient Fraction.half squareDuration
-  dsimp
-  have hp : 0 < (2 : Int) * ((D : Int) * (D : Int)) :=
-    Int.mul_pos (by decide) (Int.mul_pos (by omega) (by omega))
-  exact Int.mul_le_mul_of_nonneg_right hi (Int.le_of_lt hp)
-
-/-- Boundary `u = w`: the partial position is the actual next vertex. -/
-theorem partial_full_cell (D : Nat) (hD : 0 < D) (p v a : Point)
-    (weights : List Nat) (w : Nat) :
-    actualPartialPosition D hD p v a weights w =
-      (partitionMotion D hD p v a (weights ++ [w])).1 := by
-  rw [← partialState_append]
-  rfl
-
-private theorem zero_drift_scalar (D : Nat) (hD : 0 < D) (x y : Fraction) :
-    Fraction.equiv (Fraction.add x (Fraction.mul (duration D 0 hD) y)) x := by
-  unfold Fraction.equiv Fraction.add Fraction.mul duration
-  dsimp
-  simp only [Int.ofNat_zero, Int.zero_mul, Int.add_zero]
-  ac_rfl
-
-/-- Boundary `u = 0`: the partial position is the actual prefix vertex. -/
-theorem partial_zero (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
-    pointEquiv (actualPartialPosition D hD p v a weights 0)
-      (partitionMotion D hD p v a weights).1 :=
-  ⟨zero_drift_scalar D hD _ _, zero_drift_scalar D hD _ _⟩
-
-/-- Boundary `a = 0`: the actual partial position lies on the inertial map at
-    `(T+u)/D`. -/
-theorem partial_zero_force (D : Nat) (hD : 0 < D) (p v : Point)
-    (weights : List Nat) (u : Nat) :
-    pointEquiv (actualPartialPosition D hD p v zeroPoint weights u)
-      (inertialAt p v (duration D (total weights + u) hD)) := by
-  have h := (partitionMotion_zero_force D hD p v (weights ++ [u])).1
-  rw [total_append, ← partialState_append, partialState_position] at h
-  exact h
-
-end NewtonLimitDynamics.Polygon.PartialCell
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/PartitionComparison.lean}}{\small, 8 theorems, 99 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.PartialCell
-
-namespace NewtonLimitDynamics.Polygon.PartitionComparison
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open PartitionControl
-
-private theorem half_equiv {a b : Fraction} (h : Fraction.equiv a b) :
-    Fraction.equiv (Fraction.half a) (Fraction.half b) := by
-  unfold Fraction.equiv Fraction.half at *
-  dsimp
-  calc a.num * (2 * b.den) = 2 * (a.num * b.den) := by ac_rfl
-    _ = 2 * (b.num * a.den) := by rw [h]
-    _ = b.num * (2 * a.den) := by ac_rfl
-
-private theorem candidate_scalar_congr {s t : Fraction} (h : Fraction.equiv s t)
-    (p v a : Fraction) :
-    Fraction.equiv
-      (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul (Fraction.half (Fraction.mul s s)) a))
-      (Fraction.add (Fraction.add p (Fraction.mul t v)) (Fraction.mul (Fraction.half (Fraction.mul t t)) a)) :=
-  Fraction.equiv_trans
-    (Fraction.add_equiv_right _ (Fraction.add_equiv_left p (Fraction.mul_equiv_right v h)))
-    (Fraction.add_equiv_left _ (Fraction.mul_equiv_right a (half_equiv (Fraction.mul_equiv h h))))
-
-/-- The constructed candidate depends only on the represented rational time. -/
-theorem candidate_time_congr (p v a : Point) {s t : Fraction} (h : Fraction.equiv s t) :
-    pointEquiv (candidate p v a s) (candidate p v a t) :=
-  ⟨candidate_scalar_congr h p.1 v.1 a.1, candidate_scalar_congr h p.2 v.2 a.2⟩
-
-/-- Two arbitrary finite schedules, with possibly different common denominators
-    and cells, reaching the same rational time: their actual positions, each
-    corrected by its own exact residual `(Q/(2D²))*a`, agree.  The candidate
-    serves only as the common algebraic comparison term. -/
-theorem partition_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
-    (ws ws' : List Nat)
-    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
-    pointEquiv
-      (pointAdd (partitionMotion D hD p v a ws).1
-        (pointScale (residualCoefficient D (squares ws) hD) a))
-      (pointAdd (partitionMotion E hE p v a ws').1
-        (pointScale (residualCoefficient E (squares ws') hE) a)) :=
-  pointEquiv_trans (pointEquiv_symm (candidate_partitionMotion_residual D hD p v a ws))
-    (pointEquiv_trans (candidate_time_congr p v a ht)
-      (candidate_partitionMotion_residual E hE p v a ws'))
-
-private theorem velocity_scalar_congr {s t : Fraction} (h : Fraction.equiv s t) (v a : Fraction) :
-    Fraction.equiv (Fraction.add v (Fraction.mul s a)) (Fraction.add v (Fraction.mul t a)) :=
-  Fraction.add_equiv_left v (Fraction.mul_equiv_right a h)
-
-/-- Two arbitrary schedules reaching equivalent rational times have equivalent
-    actual velocities; no correction term is needed. -/
-theorem velocity_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
-    (ws ws' : List Nat)
-    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
-    pointEquiv (partitionMotion D hD p v a ws).2 (partitionMotion E hE p v a ws').2 :=
-  pointEquiv_trans (partitionMotion_formula D hD p v a ws).2
-    (pointEquiv_trans
-      (show pointEquiv (encodedVelocity D hD (stats ws) v a)
-          (encodedVelocity E hE (stats ws') v a) from
-        ⟨velocity_scalar_congr ht v.1 a.1, velocity_scalar_congr ht v.2 a.2⟩)
-      (pointEquiv_symm (partitionMotion_formula E hE p v a ws').2))
-
-/-- Sample times inside cells: two schedules, each followed by a partial final
-    drift (`u/D` and `u'/E`), reaching equivalent rational times.  Their actual
-    partial positions agree after each is corrected by its own residual
-    `((Q+u*u)/(2D²))*a`.  Derived through the appended schedules. -/
-theorem partial_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
-    (ws ws' : List Nat) (u u' : Nat)
-    (ht : Fraction.equiv (duration D (total ws + u) hD) (duration E (total ws' + u') hE)) :
-    pointEquiv
-      (pointAdd (PartialCell.actualPartialPosition D hD p v a ws u)
-        (pointScale (residualCoefficient D (squares ws + u * u) hD) a))
-      (pointAdd (PartialCell.actualPartialPosition E hE p v a ws' u')
-        (pointScale (residualCoefficient E (squares ws' + u' * u') hE) a)) := by
-  have h := partition_comparison D E hD hE p v a (ws ++ [u]) (ws' ++ [u'])
-    (by rw [PartialCell.total_append, PartialCell.total_append]; exact ht)
-  rw [PartialCell.squares_append, PartialCell.squares_append,
-    ← PartialCell.partialState_append, ← PartialCell.partialState_append,
-    PartialCell.partialState_position, PartialCell.partialState_position] at h
-  exact h
-
-/-- Packaged gap statement: two schedules reaching one rational time differ
-    only along `a`, through two nonnegative coefficients each bounded by its
-    own largest-cell coefficient `M*T/(2D²)` (largest cell times elapsed time,
-    halved). -/
-theorem partition_gap (D E M M' : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
-    (ws ws' : List Nat) (hw : ∀ w ∈ ws, w ≤ M) (hw' : ∀ w ∈ ws', w ≤ M')
-    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
-    ∃ c c' : Fraction,
-      Fraction.le (Fraction.ofInt 0) c ∧ Fraction.le c (meshCoefficient D M (total ws) hD) ∧
-      Fraction.le (Fraction.ofInt 0) c' ∧ Fraction.le c' (meshCoefficient E M' (total ws') hE) ∧
-      pointEquiv (pointAdd (partitionMotion D hD p v a ws).1 (pointScale c a))
-        (pointAdd (partitionMotion E hE p v a ws').1 (pointScale c' a)) :=
-  ⟨_, _, residual_nonnegative D _ hD, residual_mesh_bound D M hD ws hw,
-    residual_nonnegative E _ hE, residual_mesh_bound E M' hE ws' hw',
-    partition_comparison D E hD hE p v a ws ws' ht⟩
-
-end NewtonLimitDynamics.Polygon.PartitionComparison
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/PartitionControl.lean}}{\small, 20 theorems, 252 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.TimeSubdivision
-
-namespace NewtonLimitDynamics.Polygon.PartitionControl
-
-open NewtonLimitDynamics
-open TimeSubdivision
-
-/-- Integer bookkeeping for a finite common-denominator schedule.  `A` is the
-    ordered pair sum accumulated before each new weight is inserted. -/
-structure PartitionStats where
-  T : Nat
-  A : Nat
-  Q : Nat
-
-def initial : PartitionStats := ⟨0, 0, 0⟩
-
-/-- The recurrences `T' = T + w`, `A' = A + w*T`, and `Q' = Q + w*w`. -/
-def next (s : PartitionStats) (w : Nat) : PartitionStats :=
-  ⟨s.T + w, s.A + w * s.T, s.Q + w * w⟩
-
-def stats (weights : List Nat) : PartitionStats :=
-  weights.foldl next initial
-
-def total (weights : List Nat) : Nat := (stats weights).T
-def cross (weights : List Nat) : Nat := (stats weights).A
-def squares (weights : List Nat) : Nat := (stats weights).Q
-
-theorem next_identity (s : PartitionStats)
-    (h : 2 * s.A + s.Q = s.T * s.T) (w : Nat) :
-    2 * (next s w).A + (next s w).Q = (next s w).T * (next s w).T := by
-  simp only [next]
-  simp only [Nat.mul_add, Nat.add_mul]
-  have htw : s.T * w = w * s.T := Nat.mul_comm _ _
-  omega
-
-theorem stats_identity_from (s : PartitionStats)
-    (h : 2 * s.A + s.Q = s.T * s.T) : (weights : List Nat) ->
-    2 * (weights.foldl next s).A + (weights.foldl next s).Q =
-      (weights.foldl next s).T * (weights.foldl next s).T
-  | [] => h
-  | w :: ws => by
-      simp only [List.foldl]
-      exact stats_identity_from (next s w) (next_identity s h w) ws
-
-/-- The ordered-pair and square decomposition for every finite schedule. -/
-theorem stats_identity (weights : List Nat) :
-    2 * cross weights + squares weights = total weights * total weights := by
-  exact stats_identity_from initial (by decide) weights
-
-theorem next_bound (M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)
-    (w : Nat) (hw : w ≤ M) : (next s w).Q ≤ M * (next s w).T := by
-  have hww : w * w ≤ M * w := Nat.mul_le_mul_right w hw
-  simp only [next, Nat.mul_add]
-  omega
-
-theorem stats_bound_from (M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)
-    (weights : List Nat) (hw : ∀ w ∈ weights, w ≤ M) :
-    (weights.foldl next s).Q ≤ M * (weights.foldl next s).T := by
-  induction weights generalizing s with
-  | nil => exact h
-  | cons w ws ih =>
-      simp only [List.mem_cons] at hw
-      simp only [List.foldl]
-      exact ih (next s w) (next_bound M s h w (hw w (Or.inl rfl)))
-        (fun x hx => hw x (Or.inr hx))
-
-/-- A max-cell estimate for the finite square coefficient. -/
-theorem stats_bound (M : Nat) (weights : List Nat) (hw : ∀ w ∈ weights, w ≤ M) :
-    squares weights ≤ M * total weights := by
-  exact stats_bound_from M initial (by change 0 ≤ M * 0; omega) weights hw
-
-/-- Zero weights are admitted by the recurrence; strict positive mesh cells are
-    an additional hypothesis when a nondegenerate partition is required. -/
-def positiveWeights (weights : List Nat) : Prop := ∀ w ∈ weights, 0 < w
-
-private theorem natDen_pos (D : Nat) (hD : 0 < D) : (0 : Int) < D := by omega
-
-/-- The common-denominator duration `w/D`. -/
-def duration (D w : Nat) (hD : 0 < D) : Fraction := ⟨w, D, natDen_pos D hD⟩
-
-def squareDuration (D w : Nat) (hD : 0 < D) : Fraction := ⟨w, D * D, by
-  exact Int.mul_pos (natDen_pos D hD) (natDen_pos D hD)⟩
-
-theorem duration_positive (D w : Nat) (hD : 0 < D) (hw : 0 < w) :
-    Fraction.positive (duration D w hD) := by
-  change 0 < (w : Int)
-  omega
-
-private theorem scalar_step_position (D A T w : Nat) (hD : 0 < D) (p v a : Fraction) :
-    Fraction.equiv
-      (Fraction.add
-        (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))
-          (Fraction.mul (squareDuration D A hD) a))
-        (Fraction.mul (duration D w hD)
-          (Fraction.add v (Fraction.mul (duration D T hD) a))))
-      (Fraction.add
-        (Fraction.add p (Fraction.mul (duration D (T + w) hD) v))
-        (Fraction.mul (squareDuration D (A + w * T) hD) a)) := by
-  unfold Fraction.equiv Fraction.add Fraction.mul duration squareDuration
-  dsimp
-  simp only [Int.ofNat_add, Int.ofNat_mul, Int.add_mul, Int.mul_add]
-  ac_rfl
-
-private theorem scalar_step_velocity (D T w : Nat) (hD : 0 < D) (v a : Fraction) :
-    Fraction.equiv
-      (Fraction.add (Fraction.add v (Fraction.mul (duration D T hD) a))
-        (Fraction.mul (duration D w hD) a))
-      (Fraction.add v (Fraction.mul (duration D (T + w) hD) a)) := by
-  unfold Fraction.equiv Fraction.add Fraction.mul duration
-  dsimp
-  simp only [Int.ofNat_add, Int.add_mul]
-  ac_rfl
-
-private theorem endKick_congr (d : Fraction) {x y : Point × Point} (a : Point)
-    (h : pointEquiv x.1 y.1 ∧ pointEquiv x.2 y.2) :
-    pointEquiv (endKick d x a).1 (endKick d y a).1 ∧
-      pointEquiv (endKick d x a).2 (endKick d y a).2 := by
-  constructor
-  · exact pointAdd_congr h.1 (pointScale_congr d h.2)
-  · exact pointAdd_congr h.2 ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩
-
-def encodedPosition (D : Nat) (hD : 0 < D) (s : PartitionStats) (p v a : Point) : Point :=
-  pointAdd (pointAdd p (pointScale (duration D s.T hD) v))
-    (pointScale (squareDuration D s.A hD) a)
-
-def encodedVelocity (D : Nat) (hD : 0 < D) (s : PartitionStats) (v a : Point) : Point :=
-  pointAdd v (pointScale (duration D s.T hD) a)
-
-def encodedState (D : Nat) (hD : 0 < D) (s : PartitionStats) (p v a : Point) : Point × Point :=
-  (encodedPosition D hD s p v a, encodedVelocity D hD s v a)
-
-/-- The actual finite polygonal schedule, constructed only by repeated
-    `TimeSubdivision.endKick` cells of duration `w/D`. -/
-def partitionMotion (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) : Point × Point :=
-  weights.foldl (fun state w => endKick (duration D w hD) state a) (p, v)
-
-private theorem encoded_step (D : Nat) (hD : 0 < D) (s : PartitionStats) (w : Nat)
-    (p v a : Point) :
-    pointEquiv (endKick (duration D w hD) (encodedState D hD s p v a) a).1
-      (encodedState D hD (next s w) p v a).1 ∧
-    pointEquiv (endKick (duration D w hD) (encodedState D hD s p v a) a).2
-      (encodedState D hD (next s w) p v a).2 := by
-  constructor <;> constructor
-  · exact scalar_step_position D s.A s.T w hD p.1 v.1 a.1
-  · exact scalar_step_position D s.A s.T w hD p.2 v.2 a.2
-  · exact scalar_step_velocity D s.T w hD v.1 a.1
-  · exact scalar_step_velocity D s.T w hD v.2 a.2
-
-private theorem fold_encoded (D : Nat) (hD : 0 < D) (s : PartitionStats)
-    (state : Point × Point) (p v a : Point)
-    (hstate : pointEquiv state.1 (encodedState D hD s p v a).1 ∧
-      pointEquiv state.2 (encodedState D hD s p v a).2) : (weights : List Nat) ->
-    pointEquiv (weights.foldl (fun x w => endKick (duration D w hD) x a) state).1
-      (encodedState D hD (weights.foldl next s) p v a).1 ∧
-    pointEquiv (weights.foldl (fun x w => endKick (duration D w hD) x a) state).2
-      (encodedState D hD (weights.foldl next s) p v a).2
-  | [] => hstate
-  | w :: ws => by
-      simp only [List.foldl]
-      have hkick := endKick_congr (duration D w hD) a hstate
-      have hencoded := encoded_step D hD s w p v a
-      exact fold_encoded D hD (next s w) _ p v a
-        ⟨pointEquiv_trans hkick.1 hencoded.1, pointEquiv_trans hkick.2 hencoded.2⟩ ws
-
-private theorem initial_encoded (D : Nat) (hD : 0 < D) (p v a : Point) :
-    pointEquiv p (encodedState D hD initial p v a).1 ∧
-      pointEquiv v (encodedState D hD initial p v a).2 := by
-  constructor <;> constructor <;>
-    unfold encodedState encodedPosition encodedVelocity initial pointAdd pointScale duration squareDuration
-      Fraction.equiv Fraction.add Fraction.mul <;> dsimp <;> simp <;> ac_rfl
-
-/-- The finite end-kick schedule has velocity `v + (T/D)a` and position
-    `p + (T/D)v + (A/D²)a`, componentwise up to rational representation. -/
-theorem partitionMotion_formula (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
-    pointEquiv (partitionMotion D hD p v a weights).1
-      (encodedPosition D hD (stats weights) p v a) ∧
-    pointEquiv (partitionMotion D hD p v a weights).2
-      (encodedVelocity D hD (stats weights) v a) := by
-  exact fold_encoded D hD initial (p, v) p v a (initial_encoded D hD p v a) weights
-
-/-- A finite rational comparison map; this is a formula, not an assumed
-    limiting trajectory. -/
-def candidate (p v a : Point) (t : Fraction) : Point :=
-  pointAdd (pointAdd p (pointScale t v)) (pointScale (Fraction.half (Fraction.mul t t)) a)
-
-def residualCoefficient (D Q : Nat) (hD : 0 < D) : Fraction :=
-  Fraction.half (squareDuration D Q hD)
-
-def meshCoefficient (D M T : Nat) (hD : 0 < D) : Fraction :=
-  Fraction.half (squareDuration D (M * T) hD)
-
-private theorem candidate_residual_scalar (D A Q T : Nat) (hD : 0 < D)
-    (h : 2 * A + Q = T * T) (p v a : Fraction) :
-    Fraction.equiv
-      (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))
-        (Fraction.mul (Fraction.half (Fraction.mul (duration D T hD) (duration D T hD))) a))
-      (Fraction.add
-        (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))
-          (Fraction.mul (squareDuration D A hD) a))
-        (Fraction.mul (residualCoefficient D Q hD) a)) := by
-  have hi : (2 : Int) * (A : Int) + (Q : Int) = (T : Int) * (T : Int) := by omega
-  unfold Fraction.equiv Fraction.add Fraction.mul duration squareDuration residualCoefficient
-  simp only [Fraction.half, squareDuration]
-  simp only [Int.ofNat_mul, Int.add_mul, Int.mul_add]
-  rw [← hi]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_rfl
-
-/-- At the finite terminal time, the candidate differs from the constructed
-    polygon position by exactly `Q/(2D²)` times the common acceleration. -/
-theorem candidate_residual (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
-    pointEquiv (candidate p v a (duration D (total weights) hD))
-      (pointAdd (encodedPosition D hD (stats weights) p v a)
-        (pointScale (residualCoefficient D (squares weights) hD) a)) := by
-  constructor
-  · exact candidate_residual_scalar D (cross weights) (squares weights) (total weights) hD
-      (stats_identity weights) p.1 v.1 a.1
-  · exact candidate_residual_scalar D (cross weights) (squares weights) (total weights) hD
-      (stats_identity weights) p.2 v.2 a.2
-
-/-- The terminal residual stated against the actual recursively constructed
-    polygon endpoint. -/
-theorem candidate_partitionMotion_residual (D : Nat) (hD : 0 < D)
-    (p v a : Point) (weights : List Nat) :
-    pointEquiv (candidate p v a (duration D (total weights) hD))
-      (pointAdd (partitionMotion D hD p v a weights).1
-        (pointScale (residualCoefficient D (squares weights) hD) a)) := by
-  have hcandidate := candidate_residual D hD p v a weights
-  have hmotion := partitionMotion_formula D hD p v a weights
-  exact pointEquiv_trans hcandidate
-    (pointAdd_congr (pointEquiv_symm hmotion.1)
-      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩)
-
-theorem residual_nonnegative (D Q : Nat) (hD : 0 < D) :
-    Fraction.le (Fraction.ofInt 0) (residualCoefficient D Q hD) := by
-  unfold Fraction.le Fraction.ofInt residualCoefficient Fraction.half squareDuration
-  dsimp
-  omega
-
-theorem residual_mesh_bound (D M : Nat) (hD : 0 < D) (weights : List Nat)
-    (hw : ∀ w ∈ weights, w ≤ M) :
-    Fraction.le (residualCoefficient D (squares weights) hD)
-      (meshCoefficient D M (total weights) hD) := by
-  have hq := stats_bound M weights hw
-  have hi : (squares weights : Int) ≤ (M * total weights : Int) := by omega
-  unfold Fraction.le residualCoefficient meshCoefficient Fraction.half squareDuration
-  dsimp
-  have hp : 0 < (2 : Int) * ((D : Int) * (D : Int)) :=
-    Int.mul_pos (by decide) (Int.mul_pos (natDen_pos D hD) (natDen_pos D hD))
-  apply Int.mul_le_mul_of_nonneg_right hi (Int.le_of_lt hp)
-
-end NewtonLimitDynamics.Polygon.PartitionControl
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/PathDefect.lean}}{\small, 8 theorems, 163 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.RefinementStrip
-import ModernLib.Polygon.Enclosure
-
-/-!
-Area between paths, separated from Kepler area. The finite construction below
-compares coarse edges A_i A_(i+1) with fine pairs A_i B_i A_(i+1). Its signed
-closed-boundary area is the difference of the two signed Kepler sums; its
-nonnegative patch budget is the sum of absolute triangle areas and retains
-lobes of opposite orientation. These are finite paired polygons, not an actual
-trajectory. Common spatial endpoints of each patch are built into the data;
-matching mechanical data and time intervals are further obligations.
-
-For an actual trajectory gamma and polygon P_mesh over one common time
-interval, the main target is the nonnegative area D_mesh between gamma and
-P_mesh, including stated endpoint connectors when needed. A valid geometric
-patch decomposition/enclosure must identify D_mesh with or bound it by a
-nonnegative budget. `PolygonTrajectoryEnclosure` names that supplied premise
-explicitly. It is not a definition of D_mesh as a Kepler-sector difference and
-does not construct gamma. No integration or curve existence is imported.
--/
-
-namespace NewtonLimitDynamics.Polygon.PathDefect
-
-open NewtonLimitDynamics
-
-def signedGap (coarse inserted : Nat → LatticePoint) (n : Nat) : Int :=
-  isum (fun i => refinementStripTwice (coarse i) (inserted i) (coarse (i + 1))) n
-
-def absolutePatchBudget (coarse inserted : Nat → LatticePoint) (n : Nat) : Nat :=
-  nsum (fun i => refinementDefect (coarse i) (inserted i) (coarse (i + 1))) n
-
-/-- Signed doubled area swept about S by the coarse polygon; S is the origin. -/
-def coarseKeplerTwice (coarse : Nat → LatticePoint) (n : Nat) : Int :=
-  isum (fun i => det (coarse i) (coarse (i + 1))) n
-
-def fineKeplerTwice (coarse inserted : Nat → LatticePoint) (n : Nat) : Int :=
-  isum (fun i => det (coarse i) (inserted i) + det (inserted i) (coarse (i + 1))) n
-
-/-- Unsigned Kepler triangle sums, counted with multiplicity. -/
-def coarseKeplerUnsigned (coarse : Nat → LatticePoint) (n : Nat) : Nat :=
-  nsum (fun i => (det (coarse i) (coarse (i + 1))).natAbs) n
-
-def fineKeplerUnsigned (coarse inserted : Nat → LatticePoint) (n : Nat) : Nat :=
-  nsum (fun i => (det (coarse i) (inserted i)).natAbs +
-    (det (inserted i) (coarse (i + 1))).natAbs) n
-
-/-- Radial closures cancel in the signed difference. This identity says nothing
-    about the unsigned area of lobes between the two paths. -/
-theorem signed_gap_eq_Kepler_difference (coarse inserted : Nat → LatticePoint) (n : Nat) :
-    signedGap coarse inserted n = fineKeplerTwice coarse inserted n -
-      coarseKeplerTwice coarse n := by
-  induction n with
-  | zero => rfl
-  | succ n ih =>
-    simp only [signedGap, fineKeplerTwice, coarseKeplerTwice, isum,
-      refinementStripTwice] at *
-    omega
-
-/-- The absolute patch budget dominates the absolute signed difference. The
-    reverse inequality need not hold because opposite lobes cancel. -/
-theorem signed_gap_abs_le_budget (coarse inserted : Nat → LatticePoint) (n : Nat) :
-    (signedGap coarse inserted n).natAbs ≤ absolutePatchBudget coarse inserted n := by
-  induction n with
-  | zero => exact Nat.le_refl _
-  | succ n ih =>
-    change (signedGap coarse inserted n +
-      refinementStripTwice (coarse n) (inserted n) (coarse (n + 1))).natAbs ≤
-      absolutePatchBudget coarse inserted n +
-        (refinementStripTwice (coarse n) (inserted n) (coarse (n + 1))).natAbs
-    exact Nat.le_trans (Int.natAbs_add_le _ _) (Nat.add_le_add_right ih _)
-
-/-- A uniform local triangle bound controls the entire finite absolute budget. -/
-theorem absolute_budget_le_count_mul (coarse inserted : Nat → LatticePoint) (n b : Nat)
-    (h : ∀ i, i < n → refinementDefect (coarse i) (inserted i) (coarse (i + 1)) ≤ b) :
-    absolutePatchBudget coarse inserted n ≤ n * b := by
-  induction n with
-  | zero => simp [absolutePatchBudget, nsum]
-  | succ n ih =>
-    have hold := ih (fun i hi => h i (by omega))
-    have hlast := h n (by omega)
-    change absolutePatchBudget coarse inserted n +
-      refinementDefect (coarse n) (inserted n) (coarse (n + 1)) ≤ (n + 1) * b
-    rw [Nat.add_mul, Nat.one_mul]
-    exact Nat.add_le_add hold hlast
-
-/-- Moving the origin does not change the area budget between these paths. -/
-theorem absolute_budget_translation (origin : LatticePoint)
-    (coarse inserted : Nat → LatticePoint) (n : Nat) :
-    absolutePatchBudget (fun i => latticeAdd origin (coarse i))
-      (fun i => latticeAdd origin (inserted i)) n = absolutePatchBudget coarse inserted n := by
-  induction n with
-  | zero => rfl
-  | succ n ih =>
-    change absolutePatchBudget (fun i => latticeAdd origin (coarse i))
-      (fun i => latticeAdd origin (inserted i)) n +
-        (refinementStripTwice (latticeAdd origin (coarse n))
-          (latticeAdd origin (inserted n)) (latticeAdd origin (coarse (n + 1)))).natAbs =
-      absolutePatchBudget coarse inserted n +
-        (refinementStripTwice (coarse n) (inserted n) (coarse (n + 1))).natAbs
-    rw [ih, refinementStripTwice_translation]
-
-def exampleCoarse : Nat → LatticePoint := fun i => (i, 3)
-
-def exampleInserted : Nat → LatticePoint := fun i =>
-  if i = 0 then (1, 4) else (1, 2)
-
-/-- Both paths have the same signed AND unsigned Kepler sums, but a positive
-    area budget between them. Two adjacent, opposite-side triangle lobes have
-    doubled unsigned area 1 each; their signed contributions cancel. -/
-theorem equal_Kepler_areas_positive_path_defect :
-    coarseKeplerTwice exampleCoarse 2 = -6 ∧
-      fineKeplerTwice exampleCoarse exampleInserted 2 = -6 ∧
-      coarseKeplerUnsigned exampleCoarse 2 = 6 ∧
-      fineKeplerUnsigned exampleCoarse exampleInserted 2 = 6 ∧
-      signedGap exampleCoarse exampleInserted 2 = 0 ∧
-      absolutePatchBudget exampleCoarse exampleInserted 2 = 2 := by
-  decide
-
-/-- Explicit geometric premise about the nonnegative area BETWEEN an actual
-    trajectory and an impulse polygon over the same interval. The caller must
-    supply/construct the trajectory and justify this enclosure. A Kepler area
-    or a signed sector-area difference is not an admissible substitution. -/
-def PolygonTrajectoryEnclosure {A : Type} [RationalEnclosure.Magnitude A]
-    (polygonTrajectoryArea : Fraction → A) (budget : Fraction → Fraction) : Prop :=
-  Near Fraction.magnitudes (fun mesh =>
-    RationalEnclosure.Magnitude.nonnegative (polygonTrajectoryArea mesh) ∧
-      RationalEnclosure.Magnitude.bounded (polygonTrajectoryArea mesh) (budget mesh))
-
-/-- Conditional defect control: a vanishing geometric budget makes the actual
-    polygon–trajectory area small. No curve existence or geometric enclosure
-    is inferred from the finite Kepler area law. -/
-theorem polygon_trajectory_defect_vanishes {A : Type} [RationalEnclosure.Magnitude A]
-    (polygonTrajectoryArea : Fraction → A) (budget : Fraction → Fraction)
-    (hbudget : Vanishes budget)
-    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
-    Vanishes polygonTrajectoryArea := by
-  apply enclosed_gap_vanishes polygonTrajectoryArea budget hbudget
-  obtain ⟨d, hd, h⟩ := hgeometry
-  exact ⟨d, hd, fun mesh hm hmd => (h mesh hm hmd).2⟩
-
-/-- Reindex an actual dyadic geometric magnitude by a positive rational mesh.
-The selected family mesh is proved small; the area remains the given value,
-and is never defined to be its cover budget. -/
-theorem geometric_sequence_enclosure {A : Type} [RationalEnclosure.Magnitude A]
-    (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
-    (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))
-    (hbound : ∀ m, RationalEnclosure.Magnitude.bounded (area m) (HarmonicDyadic.duration C m)) :
-    PolygonTrajectoryEnclosure (fun mesh => area (RationalEnclosure.level mesh))
-      (fun mesh => Fraction.mul mesh C) := by
-  refine ⟨Fraction.ofInt 1,(by change (0 : Int) < 1; decide),?_⟩
-  intro mesh hm _
-  exact ⟨hnonnegative _,RationalEnclosure.Magnitude.bounded_mono _ _ _
-    (hbound _) (RationalEnclosure.selected_duration_bound C mesh hC hm)⟩
-
-theorem geometric_sequence_vanishes {A : Type} [RationalEnclosure.Magnitude A]
-    (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
-    (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))
-    (hbound : ∀ m, RationalEnclosure.Magnitude.bounded (area m) (HarmonicDyadic.duration C m)) :
-    Vanishes (fun mesh => area (RationalEnclosure.level mesh)) :=
-  polygon_trajectory_defect_vanishes _ _ (linear_budget_vanishes C hC)
-    (geometric_sequence_enclosure area C hC hnonnegative hbound)
-
-end NewtonLimitDynamics.Polygon.PathDefect
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/RefinementStrip.lean}}{\small, 8 theorems, 95 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.Contact
-
-namespace NewtonLimitDynamics.Polygon
-
-/-- Coordinate difference used only for the finite triangle calculation. -/
-def latticeSub (p q : LatticePoint) : LatticePoint :=
-  (p.1-q.1, p.2-q.2)
-
-/-- The signed doubled area between a coarse edge A-C and a one-cell refined
-    polygon A-B-C. It is a closed polygon difference, not a swept sector and
-    does not name an actual limiting curve. -/
-def refinementStripTwice (a b c : LatticePoint) : Int :=
-  det a b + det b c - det a c
-
-/-- Nonnegative size of the finite signed strip. Taking an absolute value does
-    not turn cancellation into an enclosure estimate. -/
-def refinementDefect (a b c : LatticePoint) : Nat :=
-  (refinementStripTwice a b c).natAbs
-
-/-- The closed polygon difference is exactly the doubled area of its triangle.
-    This is finite determinant algebra for Euclidean triangle decomposition;
-    it uses no integration, derivatives, or limiting curve theorem. -/
-theorem refinementStripTwice_eq_triangle (a b c : LatticePoint) :
-    refinementStripTwice a b c = det (latticeSub b a) (latticeSub c a) := by
-  simp [refinementStripTwice, det, latticeSub, Int.sub_mul, Int.mul_sub]
-  have hab₁ : a.1*b.2 = b.2*a.1 := Int.mul_comm _ _
-  have hab₂ : a.2*b.1 = b.1*a.2 := Int.mul_comm _ _
-  have haa : a.1*a.2 = a.2*a.1 := Int.mul_comm _ _
-  omega
-
-theorem det_translation (origin a b : LatticePoint) :
-    det (latticeAdd origin a) (latticeAdd origin b) =
-      det a b + det origin b - det origin a := by
-  simp [det, latticeAdd, Int.add_mul, Int.mul_add]
-  have hoo : origin.1*origin.2 = origin.2*origin.1 := Int.mul_comm _ _
-  have hao : a.1*origin.2 = origin.2*a.1 := Int.mul_comm _ _
-  have hao' : a.2*origin.1 = origin.1*a.2 := Int.mul_comm _ _
-  omega
-
-/-- Translating both finite polygons leaves their enclosed signed strip area
-    unchanged. -/
-theorem refinementStripTwice_translation (origin a b c : LatticePoint) :
-    refinementStripTwice (latticeAdd origin a) (latticeAdd origin b)
-      (latticeAdd origin c) = refinementStripTwice a b c := by
-  simp only [refinementStripTwice, det_translation]
-  omega
-
-theorem refinementDefect_eq_zero_iff (a b c : LatticePoint) :
-    refinementDefect a b c = 0 ↔ refinementStripTwice a b c = 0 := by
-  simp [refinementDefect]
-
-/-- Spatial compatibility for a single coarse cell and a two-cell fine polygon.
-    Both sides are finite `motion` data. This condition is deliberately only
-    endpoint matching; no common force or time-refinement law has been derived. -/
-def oneCellMotionRefinementCompatible
-    (coarseStart coarseEnd fineStart fineMiddle : LatticePoint)
-    (coarseImpulse fineImpulse : Nat → Int) : Prop :=
-  (motion lattice coarseStart coarseEnd coarseImpulse 0).1 =
-      (motion lattice fineStart fineMiddle fineImpulse 0).1 ∧
-  (motion lattice coarseStart coarseEnd coarseImpulse 0).2 =
-      (motion lattice fineStart fineMiddle fineImpulse 1).2
-
-theorem oneCellMotionRefinementCompatible_start
-    (coarseStart coarseEnd fineStart fineMiddle : LatticePoint)
-    (coarseImpulse fineImpulse : Nat → Int)
-    (h : oneCellMotionRefinementCompatible coarseStart coarseEnd fineStart fineMiddle
-      coarseImpulse fineImpulse) :
-    (motion lattice coarseStart coarseEnd coarseImpulse 0).1 =
-      (motion lattice fineStart fineMiddle fineImpulse 0).1 :=
-  h.1
-
-theorem oneCellMotionRefinementCompatible_end
-    (coarseStart coarseEnd fineStart fineMiddle : LatticePoint)
-    (coarseImpulse fineImpulse : Nat → Int)
-    (h : oneCellMotionRefinementCompatible coarseStart coarseEnd fineStart fineMiddle
-      coarseImpulse fineImpulse) :
-    (motion lattice coarseStart coarseEnd coarseImpulse 0).2 =
-      (motion lattice fineStart fineMiddle fineImpulse 1).2 :=
-  h.2
-
-/-- A nonzero local strip from an actual inward fine impulse and a spatially
-    compatible coarse cell. This is not nonuniqueness for one fixed force law. -/
-theorem inward_oneCell_refinement_compatible :
-    oneCellMotionRefinementCompatible (1, 0) (0, 1) (1, 0) (1, 1)
-      (fun _ => 0) inwardOneRadialImpulse := by
-  constructor
-  · rfl
-  · decide
-
-theorem inward_oneCell_refinement_defect :
-    refinementDefect (1, 0) (1, 1)
-      (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 = 1 := by
-  decide
-
-end NewtonLimitDynamics.Polygon
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/StripArea.lean}}{\small, 7 theorems, 129 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.TimeSubdivision
-
-/-!
-Order 3 remainder (TASKS.md): the strip-area sum of the constant-force polygon.
-For a uniform rational cell `h`, initial velocity `v` and constant accelerative
-force `a`, the end-kick recurrence gives velocity `v_n = v + (n·h)·a` and chord
-`c_n = h·v_n` (the drift of cell `n`).  The two-cell chord triangle
-`(p_n, p_{n+1}, p_{n+2})` has doubled area `det c_n c_{n+1}`.  Because
-`det (w + s·a) a = det w a`, every such triangle has the same doubled area
-`h³·det(v, a)`, and the signed total over `k` triangles is
-`k·h³·det(v, a)`.  The common value can be negative: equality of the triangles
-does not equate signed and absolute sums.  An absolute sum would instead be
-`k·|h³·det(v, a)|`; its formalization and a geometric strip decomposition remain
-open.  Pure finite Fraction arithmetic; no curve, limit or force law.
--/
-
-namespace NewtonLimitDynamics.Polygon.StripArea
-
-open NewtonLimitDynamics
-open TimeSubdivision
-
-/-- Velocity after `n` equal end-kick cells. -/
-def velAt (h : Fraction) (v a : Point) : Nat → Point
-  | 0 => v
-  | n + 1 => pointAdd (velAt h v a n) (pointScale h a)
-
-/-- Position at the start of cell `n`, drifting with the incoming velocity. -/
-def posAt (h : Fraction) (p v a : Point) : Nat → Point
-  | 0 => p
-  | n + 1 => pointAdd (posAt h p v a n) (pointScale h (velAt h v a n))
-
-/-- The chord of cell `n`: the drift `h·v_n` of that cell. -/
-def chord (h : Fraction) (v a : Point) (n : Nat) : Point := pointScale h (velAt h v a n)
-
-/-- Doubled area of the two-cell chord triangle at cell `n`. -/
-def twoCellTwice (h : Fraction) (v a : Point) (n : Nat) : Fraction :=
-  det (chord h v a n) (chord h v a (n + 1))
-
-theorem pointSub_add_self_left_equiv (x y : Point) :
-    pointEquiv (pointSub (pointAdd x y) x) y :=
-  TimeSubdivision.pointSub_add_self_left_equiv x y
-
-/-- The drift of a cell is exactly the position difference `p_{n+1} - p_n`. -/
-theorem chord_is_position_diff (h : Fraction) (p v a : Point) (n : Nat) :
-    pointEquiv (pointSub (posAt h p v a (n + 1)) (posAt h p v a n)) (chord h v a n) := by
-  simp only [posAt, chord]
-  exact pointSub_add_self_left_equiv (posAt h p v a n) (pointScale h (velAt h v a n))
-
-/-- The key lemma from the hand computation: `det (w + s·a) a = det w a`. -/
-theorem det_kick_direction_constant (s : Fraction) (w a : Point) :
-    Fraction.equiv (det (pointAdd w (pointScale s a)) a) (det w a) := by
-  have h1 := det_add_left a w (pointScale s a)
-  have h2 := det_scale_left s a a
-  have h3 := det_self a
-  have t1 : Fraction.equiv (det (pointAdd w (pointScale s a)) a)
-      (Fraction.add (det w a) (Fraction.mul s (det a a))) :=
-    Fraction.equiv_trans h1 (Fraction.add_equiv_left (det w a) h2)
-  have t2 : Fraction.equiv (Fraction.mul s (det a a)) (Fraction.mul s (Fraction.ofInt 0)) :=
-    Fraction.mul_equiv_left s h3
-  have t3 : Fraction.equiv (Fraction.mul s (Fraction.ofInt 0)) (Fraction.ofInt 0) :=
-    Fraction.mul_zero s
-  have t4 : Fraction.equiv (Fraction.add (det w a) (Fraction.ofInt 0)) (det w a) := by
-    simp only [Fraction.add, Fraction.ofInt, Fraction.equiv,
-      Int.add_mul, Int.mul_add] <;> ac_nf <;> omega
-  exact Fraction.equiv_trans t1
-    (Fraction.equiv_trans (Fraction.add_equiv_left (det w a) (Fraction.equiv_trans t2 t3)) t4)
-
-/-- Each velocity has the same determinant with `a` as the initial velocity. -/
-theorem vel_det_constant (h : Fraction) (v a : Point) (n : Nat) :
-    Fraction.equiv (det (velAt h v a n) a) (det v a) := by
-  induction n with
-  | zero => exact Fraction.equiv_refl _
-  | succ n ih =>
-    exact Fraction.equiv_trans (det_kick_direction_constant h (velAt h v a n) a) ih
-
-/-- Every two-cell chord triangle has doubled area `h³·det(v, a)`. -/
-theorem two_cell_triangle_constant (h : Fraction) (v a : Point) (n : Nat) :
-    Fraction.equiv (twoCellTwice h v a n)
-      (Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a)))) := by
-  have vn := velAt h v a n
-  have vn1 : velAt h v a (n + 1) = pointAdd (velAt h v a n) (pointScale h a) := by simp [velAt]
-  simp only [twoCellTwice, chord, vn1]
-  -- det (h·v_n) (h·v_{n+1}) = h·det v_n (h·v_{n+1})
-  have s1 := det_scale_left h (pointScale h (pointAdd (velAt h v a n) (pointScale h a))) (velAt h v a n)
-  -- = h·(h·det v_n v_{n+1})
-  have s2 := Fraction.mul_equiv_left h (det_scale_right h (velAt h v a n) (pointAdd (velAt h v a n) (pointScale h a)))
-  -- det v_n v_{n+1} = det v_n v_n + h·det v_n a
-  have s3 := det_add_right (velAt h v a n) (velAt h v a n) (pointScale h a)
-  have s4 := Fraction.add_equiv (det_self (velAt h v a n)) (det_scale_right h (velAt h v a n) a)
-  have s5 := Fraction.mul_equiv (Fraction.equiv_refl h) (vel_det_constant h v a n)
-  have inner : Fraction.equiv (det (velAt h v a n) (pointAdd (velAt h v a n) (pointScale h a)))
-      (Fraction.mul h (det v a)) :=
-    Fraction.equiv_trans (Fraction.equiv_trans s3 s4)
-      (Fraction.equiv_trans
-        (Fraction.add_equiv_left (Fraction.ofInt 0) s5)
-        (by simp only [Fraction.add, Fraction.ofInt, Fraction.mul, Fraction.equiv,
-            Int.add_mul, Int.mul_add] <;> ac_nf <;> omega))
-  have rhs := Fraction.mul_equiv_left h (Fraction.mul_equiv_left h inner)
-  exact Fraction.equiv_trans (Fraction.equiv_trans s1 s2) rhs
-
-/-- All two-cell triangles have the same signed doubled area.  No absolute-area
-    operation or unsigned sum is asserted. -/
-theorem all_triangles_equal (h : Fraction) (v a : Point) (m n : Nat) :
-    Fraction.equiv (twoCellTwice h v a m) (twoCellTwice h v a n) :=
-  Fraction.equiv_trans (two_cell_triangle_constant h v a m)
-    (Fraction.equiv_symm (two_cell_triangle_constant h v a n))
-
-/-- Running sum of the two-cell doubled areas over the first `k` cells. -/
-def stripSum (h : Fraction) (v a : Point) : Nat → Fraction
-  | 0 => Fraction.ofInt 0
-  | k + 1 => Fraction.add (stripSum h v a k) (twoCellTwice h v a k)
-
-/-- The signed strip sum over `k` triangles is `k·h³·det(v, a)`. -/
-theorem total_strip_area (h : Fraction) (v a : Point) (k : Nat) :
-    Fraction.equiv (stripSum h v a k)
-      (Fraction.mul (Fraction.ofInt k) (Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a))))) := by
-  induction k with
-  | zero =>
-    simp only [stripSum, Fraction.mul, Fraction.ofInt, Fraction.equiv] <;> omega
-  | succ k ih =>
-    let H := Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a)))
-    simp only [stripSum]
-    exact Fraction.equiv_trans
-      (Fraction.add_equiv ih (two_cell_triangle_constant h v a k))
-      (by simp only [Fraction.mul, Fraction.add, Fraction.ofInt, Fraction.equiv,
-          Int.add_mul, Int.mul_add, Int.ofNat_add, Int.mul_one, Int.one_mul] <;>
-        ac_nf <;> omega)
-
-end NewtonLimitDynamics.Polygon.StripArea
-\end{Verbatim}
-
-\noindent{\small\texttt{BarrowLib/Polygon/TimeSubdivision.lean}}{\small, 14 theorems, 139 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Polygon.PointAlgebra
-
-namespace NewtonLimitDynamics.Polygon.TimeSubdivision
-
-open NewtonLimitDynamics
-
-def positiveDuration (d : Fraction) : Prop := Fraction.positive d
-
-/-- One finite end-kick cell: drift using the incoming velocity, then change
-    velocity by the constant accelerative force times the cell duration. -/
-def endKick (d : Fraction) (state : Point × Point) (a : Point) : Point × Point :=
-  (pointAdd state.1 (pointScale d state.2), pointAdd state.2 (pointScale d a))
-
-def coarse (h k : Fraction) (p v a : Point) : Point × Point :=
-  endKick (Fraction.add h k) (p, v) a
-
-def fine (h k : Fraction) (p v a : Point) : Point × Point :=
-  endKick k (endKick h (p, v) a) a
-
-def totalDuration (h k : Fraction) : Fraction := Fraction.add h k
-
-theorem totalDuration_positive (h k : Fraction)
-    (hh : positiveDuration h) (hk : positiveDuration k) :
-    positiveDuration (totalDuration h k) := by
-  unfold positiveDuration totalDuration Fraction.positive Fraction.add
-  dsimp
-  exact Int.add_pos (Int.mul_pos hh k.den_pos) (Int.mul_pos hk h.den_pos)
-
-private theorem fine_position_scalar (h k p v a : Fraction) :
-    Fraction.equiv
-      (Fraction.add (Fraction.add p (Fraction.mul h v))
-        (Fraction.mul k (Fraction.add v (Fraction.mul h a))))
-      (Fraction.add (Fraction.add p (Fraction.mul (Fraction.add h k) v))
-        (Fraction.mul (Fraction.mul h k) a)) := by
-  have hdist : Fraction.equiv (Fraction.mul k (Fraction.add v (Fraction.mul h a)))
-      (Fraction.add (Fraction.mul k v) (Fraction.mul k (Fraction.mul h a))) :=
-    Fraction.mul_add k v (Fraction.mul h a)
-  have hkv : Fraction.equiv (Fraction.add (Fraction.mul h v) (Fraction.mul k v))
-      (Fraction.mul (Fraction.add h k) v) := by
-    exact Fraction.equiv_trans (Fraction.add_equiv (Fraction.mul_comm h v) (Fraction.mul_comm k v))
-      (Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_add v h k))
-        (Fraction.equiv_symm (Fraction.mul_comm (Fraction.add h k) v)))
-  have hka : Fraction.equiv (Fraction.mul k (Fraction.mul h a))
-      (Fraction.mul (Fraction.mul h k) a) := by
-    exact Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_assoc k h a))
-      (Fraction.mul_equiv_right a (Fraction.mul_comm k h))
-  exact Fraction.equiv_trans
-    (Fraction.equiv_trans (Fraction.add_assoc p (Fraction.mul h v)
-      (Fraction.mul k (Fraction.add v (Fraction.mul h a))))
-      (Fraction.add_equiv_left p (Fraction.add_equiv (Fraction.equiv_refl (Fraction.mul h v)) hdist)))
-    (Fraction.equiv_trans
-      (Fraction.add_equiv_left p (Fraction.equiv_symm (Fraction.add_assoc (Fraction.mul h v)
-        (Fraction.mul k v) (Fraction.mul k (Fraction.mul h a)))))
-      (Fraction.equiv_trans (Fraction.add_equiv_left p (Fraction.add_equiv hkv hka))
-        (Fraction.equiv_symm (Fraction.add_assoc p (Fraction.mul (Fraction.add h k) v)
-          (Fraction.mul (Fraction.mul h k) a)))))
-
-/-- For the stated end-kick scheduling convention, time subdivision changes
-    the final position by `h*k*a`.  This is finite Fraction arithmetic, not a
-    trajectory-existence theorem or a Newton central-force theorem. -/
-theorem fine_position_eq_coarse_plus (h k : Fraction) (p v a : Point) :
-    pointEquiv (fine h k p v a).1
-      (pointAdd (coarse h k p v a).1 (pointScale (Fraction.mul h k) a)) := by
-  constructor <;> apply fine_position_scalar
-
-private theorem fine_velocity_scalar (h k v a : Fraction) :
-    Fraction.equiv (Fraction.add (Fraction.add v (Fraction.mul h a)) (Fraction.mul k a))
-      (Fraction.add v (Fraction.mul (Fraction.add h k) a)) := by
-  exact Fraction.equiv_trans (Fraction.add_assoc v (Fraction.mul h a) (Fraction.mul k a))
-    (Fraction.equiv_trans
-      (Fraction.add_equiv_left v (Fraction.add_equiv (Fraction.mul_comm h a) (Fraction.mul_comm k a)))
-      (Fraction.equiv_trans
-        (Fraction.add_equiv_left v (Fraction.equiv_symm (Fraction.mul_add a h k)))
-        (Fraction.add_equiv_left v (Fraction.equiv_symm (Fraction.mul_comm (Fraction.add h k) a)))))
-
-theorem fine_velocity_eq_coarse (h k : Fraction) (p v a : Point) :
-    pointEquiv (fine h k p v a).2 (coarse h k p v a).2 := by
-  constructor <;>
-    dsimp [fine, coarse, endKick, pointAdd, pointScale] <;>
-    apply fine_velocity_scalar
-
-def half : Fraction := ⟨1, 2, by decide⟩
-def zero : Fraction := Fraction.ofInt 0
-def one : Fraction := Fraction.ofInt 1
-def quarter : Fraction := ⟨1, 4, by decide⟩
-def negQuarter : Fraction := ⟨-1, 4, by decide⟩
-
-def exampleP : Point := (zero, zero)
-def exampleV : Point := (one, zero)
-def exampleA : Point := (zero, one)
-def exampleB : Point := (half, zero)
-def exampleC : Point := (one, zero)
-def exampleD : Point := (one, quarter)
-
-theorem example_half_positive : positiveDuration half := by
-  unfold positiveDuration Fraction.positive half
-  decide
-
-theorem example_total_positive : positiveDuration (totalDuration half half) :=
-  totalDuration_positive half half example_half_positive example_half_positive
-
-theorem example_coarse_position : pointEquiv (coarse half half exampleP exampleV exampleA).1 exampleC := by
-  decide
-
-theorem example_fine_middle : pointEquiv (endKick half (exampleP, exampleV) exampleA).1 exampleB := by
-  decide
-
-theorem example_fine_position : pointEquiv (fine half half exampleP exampleV exampleA).1 exampleD := by
-  decide
-
-theorem example_endpoints_differ : ¬ pointEquiv exampleD exampleC := by
-  intro h
-  have := h.2
-  change (1 : Int) * 1 = 0 * 4 at this
-  omega
-
-theorem example_fine_coarse_endpoints_differ :
-    ¬ pointEquiv (fine half half exampleP exampleV exampleA).1
-      (coarse half half exampleP exampleV exampleA).1 := by
-  intro h
-  exact example_endpoints_differ
-    ⟨Fraction.equiv_trans (Fraction.equiv_symm example_fine_position.1)
-        (Fraction.equiv_trans h.1 example_coarse_position.1),
-      Fraction.equiv_trans (Fraction.equiv_symm example_fine_position.2)
-        (Fraction.equiv_trans h.2 example_coarse_position.2)⟩
-
-/-- The explicitly directed closing connector from the fine endpoint D to the
-    coarse endpoint C.  It is bookkeeping for a closed finite boundary. -/
-def directedConnector (d c : Point) : Point := pointSub c d
-
-theorem example_connector : pointEquiv (directedConnector exampleD exampleC) (zero, negQuarter) := by
-  decide
-
-
-theorem example_closedBoundaryTwice :
-    Fraction.equiv (closedBoundaryTwice exampleP exampleB exampleD exampleC) (⟨-1, 8, by decide⟩) := by
-  decide
-
-end NewtonLimitDynamics.Polygon.TimeSubdivision
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Polygon/UniformRefinement.lean}}{\small, 6 theorems, 98 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import ModernLib.Polygon.PartitionControl
-
-namespace NewtonLimitDynamics.Polygon.UniformRefinement
-
-open NewtonLimitDynamics
-open TimeSubdivision
-open PartitionControl
-
-/-- `n` equal unit cells over a common denominator. -/
-def unitCells (n : Nat) : List Nat := List.replicate n 1
-
-private theorem unitCells_T_from (s : PartitionStats) : (n : Nat) ->
-    ((unitCells n).foldl next s).T = s.T + n
-  | 0 => rfl
-  | n + 1 => by
-      show ((unitCells n).foldl next (next s 1)).T = s.T + (n + 1)
-      rw [unitCells_T_from (next s 1) n]
-      simp only [next]
-      omega
-
-theorem unitCells_total (n : Nat) : total (unitCells n) = n := by
-  unfold total stats
-  rw [unitCells_T_from]
-  exact Nat.zero_add n
-
-theorem unitCells_le_one (n : Nat) : ∀ w ∈ unitCells n, w ≤ 1 := by
-  intro w hw
-  rw [List.eq_of_mem_replicate hw]
-  exact Nat.le_refl 1
-
-/-- Refining the rational time `N/E` by a factor `K` keeps the same time. -/
-theorem refined_time (N E K : Nat) (hE : 0 < E) (hEK : 0 < E * K) :
-    Fraction.equiv (duration (E * K) (total (unitCells (N * K))) hEK) (duration E N hE) := by
-  rw [unitCells_total]
-  unfold Fraction.equiv duration
-  dsimp
-  simp only [Int.ofNat_mul]
-  ac_rfl
-
-/-- Nat core of the estimate: `N*K*d ≤ n*2*(E*K)*(E*K)` once `K > N*d`,
-    `n ≥ 1` and `E ≥ 1`. -/
-private theorem nat_bound (N E n d : Nat) (hE : 0 < E) (hn : 0 < n) :
-    N * (N * d + 1) * d ≤ n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) := by
-  have hK : N * d ≤ N * d + 1 := Nat.le_succ _
-  have h1 : N * (N * d + 1) * d ≤ (N * d + 1) * (N * d + 1) := by
-    calc N * (N * d + 1) * d = (N * d) * (N * d + 1) := by ac_rfl
-      _ ≤ (N * d + 1) * (N * d + 1) := Nat.mul_le_mul_right _ hK
-  have hE1 : 1 ≤ E * E := Nat.mul_le_mul hE hE
-  have h2 : (N * d + 1) * (N * d + 1) ≤ (E * E) * ((N * d + 1) * (N * d + 1)) := by
-    calc (N * d + 1) * (N * d + 1) = 1 * ((N * d + 1) * (N * d + 1)) := (Nat.one_mul _).symm
-      _ ≤ (E * E) * ((N * d + 1) * (N * d + 1)) := Nat.mul_le_mul_right _ hE1
-  have h3 : (E * E) * ((N * d + 1) * (N * d + 1)) ≤
-      n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) := by
-    calc (E * E) * ((N * d + 1) * (N * d + 1))
-        = 1 * (1 * ((E * (N * d + 1)) * (E * (N * d + 1)))) := by
-          simp only [Nat.one_mul]; ac_rfl
-      _ ≤ n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) :=
-          Nat.mul_le_mul hn (Nat.mul_le_mul_right _ (by decide))
-  exact Nat.le_trans h1 (Nat.le_trans h2 h3)
-
-/-- For every positive rational tolerance and rational time `N/E`, an explicit
-    uniform refinement (factor `K = N*den(ε)+1`, unit cells over `E*K`) makes
-    the exact constant-force residual coefficient `Q/(2D²)` at most the
-    tolerance.  Together with `candidate_partitionMotion_residual`, the actual
-    polygon position at `N/E` is within that coefficient (along `a`) of the
-    constructed candidate. -/
-theorem uniform_refinement_small (N E : Nat) (hE : 0 < E) (eps : Fraction)
-    (heps : Fraction.positive eps) :
-    ∃ K : Nat, ∃ hEK : 0 < E * K,
-      Fraction.equiv (duration (E * K) (total (unitCells (N * K))) hEK) (duration E N hE) ∧
-      Fraction.le (residualCoefficient (E * K) (squares (unitCells (N * K))) hEK) eps := by
-  have hdpos := eps.den_pos
-  have hnpos : 0 < eps.num := heps
-  let d := eps.den.toNat
-  let n := eps.num.toNat
-  have hd : (d : Int) = eps.den := Int.toNat_of_nonneg (Int.le_of_lt hdpos)
-  have hn : (n : Int) = eps.num := Int.toNat_of_nonneg (Int.le_of_lt hnpos)
-  have hn0 : 0 < n := by omega
-  have hEK : 0 < E * (N * d + 1) := Nat.mul_pos hE (Nat.succ_pos _)
-  refine ⟨N * d + 1, hEK, refined_time N E _ hE hEK, ?_⟩
-  have hq := stats_bound 1 (unitCells (N * (N * d + 1))) (unitCells_le_one _)
-  rw [Nat.one_mul] at hq
-  change squares (unitCells (N * (N * d + 1))) ≤ total (unitCells (N * (N * d + 1))) at hq
-  rw [unitCells_total] at hq
-  have hnat := nat_bound N E n d hE hn0
-  have hchain : squares (unitCells (N * (N * d + 1))) * d ≤
-      n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) :=
-    Nat.le_trans (Nat.mul_le_mul_right d hq) hnat
-  have hint := Int.ofNat_le.mpr hchain
-  unfold Fraction.le residualCoefficient Fraction.half squareDuration
-  dsimp
-  rw [← hd, ← hn]
-  simp only [Int.ofNat_mul] at hint ⊢
-  have h2 : ((2 : Nat) : Int) = 2 := rfl
-  rw [h2] at hint
-  simpa only [Int.ofNat_mul, Int.mul_assoc, Int.mul_comm, Int.mul_left_comm] using hint
-
-end NewtonLimitDynamics.Polygon.UniformRefinement
-\end{Verbatim}
-
 \noindent{\small\texttt{NewtonLimitDynamics/Historical/AreaLaw.lean}}{\small, 22 theorems, 343 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -9777,7 +2812,7 @@ import ModernLib.Polygon.PathDefect
 import ModernLib.Polygon.GeneralForceArea
 
 /-! Historical result: area_law.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
 /-! NATP00089. De Motu Theorem I; finite multiplicity area and derived block comparison; limit remains open. -/
@@ -10117,137 +3152,6 @@ theorem constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (
 end Principia1713.PropositionI
 \end{Verbatim}
 
-\noindent{\small\texttt{BarrowLib/Polygon/Finite.lean}}{\small, 10 theorems, 126 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import Std
-
-namespace NewtonLimitDynamics.Polygon
-
-/-- Synthetic construction interface. Its two supplied identities represent
-    Euclidean geometry: equal triangles on a common altitude (I.38) and same base between
-    parallels (I.37). They are not the polygon area-law conclusion. Centre S is
-    fixed in this interface; `area p q` measures twice the oriented area Spq.
-    `extend p q` continues pq by an equal segment; `kick q x j` translates x
-    parallel to Sq, by the central impulse j and the common time cell. -/
-structure EuclideanConstruction (Point Impulse : Type) where
-  area : Point → Point → Int
-  extend : Point → Point → Point
-  kick : Point → Point → Impulse → Point
-  equal_base_altitude : ∀ p q, area q (extend p q) = area p q
-  same_base_parallels : ∀ q x j, area q (kick q x j) = area q x
-
-variable {Point Impulse : Type}
-
-def step (g : EuclideanConstruction Point Impulse) (p q : Point) (j : Impulse) :=
-  g.kick q (g.extend p q) j
-
-theorem central_step_area (g : EuclideanConstruction Point Impulse)
-    (p q : Point) (j : Impulse) : g.area q (step g p q j) = g.area p q := by
-  rw [step, g.same_base_parallels, g.equal_base_altitude]
-
-/-- Successive pairs of vertices, produced by the construction, not supplied
-    with equal-area proofs. Each step has the same positive time cell dt. -/
-def motion (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) : Nat → Point × Point
-  | 0 => (p, q)
-  | n+1 => let old := motion g p q impulse n
-           (old.2, step g old.1 old.2 (impulse n))
-
-theorem all_cell_areas (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (n : Nat) :
-    g.area (motion g p q impulse n).1 (motion g p q impulse n).2 = g.area p q := by
-  induction n with
-  | zero => rfl
-  | succ n ih =>
-    simp only [motion]
-    rw [central_step_area]
-    exact ih
-
-def isum (f : Nat → Int) : Nat → Int
-  | 0 => 0
-  | n+1 => isum f n + f n
-
-theorem sum_constant (f : Nat → Int) (c : Int) (hf : ∀ i, f i = c) (n : Nat) :
-    isum f n = (n : Int) * c := by
-  induction n with
-  | zero => simp [isum]
-  | succ n ih => simp [isum, ih, hf, Int.add_mul]
-
-def swept (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (n : Nat) : Int :=
-  isum (fun i => g.area (motion g p q impulse i).1 (motion g p q impulse i).2) n
-
-theorem swept_eq (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (n : Nat) : swept g p q impulse n = (n : Int) * g.area p q :=
-  sum_constant _ _ (all_cell_areas g p q impulse) n
-
-/-- Cross-multiplied area/time ratio. Positive common dt is stated; division by
-    total times additionally requires positive counts. No curve is produced. -/
-theorem equal_time_area_reconstruction (g : EuclideanConstruction Point Impulse)
-    (p q : Point) (impulse : Nat → Impulse) (dt : Int) (_hdt : 0 < dt) (m n : Nat) :
-    swept g p q impulse m * ((n : Int) * dt) =
-    swept g p q impulse n * ((m : Int) * dt) := by
-  rw [swept_eq, swept_eq]
-  ac_rfl
-
-/-- Finite sum of natural-number magnitudes. -/
-def nsum (f : Nat → Nat) : Nat → Nat
-  | 0 => 0
-  | n + 1 => nsum f n + f n
-
-theorem nsum_constant (f : Nat → Nat) (c : Nat) (hf : ∀ i, f i = c) (n : Nat) :
-    nsum f n = n * c := by
-  induction n with
-  | zero => simp [nsum]
-  | succ n ih => simp [nsum, ih, hf, Nat.add_mul]
-
-/-- Magnitude of the supplied oriented doubled triangle-area datum. The
-    interpretation as Euclidean area is part of the construction's supplied
-    semantics; the two preservation identities alone do not certify it. -/
-def unsignedCellArea (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (n : Nat) : Nat :=
-  (g.area (motion g p q impulse n).1 (motion g p q impulse n).2).natAbs
-
-theorem all_unsigned_cell_areas (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (n : Nat) :
-    unsignedCellArea g p q impulse n = (g.area p q).natAbs :=
-  congrArg Int.natAbs (all_cell_areas g p q impulse n)
-
-/-- Sum over a consecutive block of cells, starting at `start`. Revisited
-    triangles count again: this is not the area of their geometric union. -/
-def unsignedBlock (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (start count : Nat) : Nat :=
-  nsum (fun i => unsignedCellArea g p q impulse (start + i)) count
-
-theorem unsigned_block_eq (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (start count : Nat) :
-    unsignedBlock g p q impulse start count = count * (g.area p q).natAbs :=
-  nsum_constant _ _ (fun i => all_unsigned_cell_areas g p q impulse (start + i)) count
-
-/-- Algebraic cross multiplication, valid also for zero counts. A time-ratio
-    interpretation additionally requires a positive cell and positive counts. -/
-theorem unsigned_block_time_cross (g : EuclideanConstruction Point Impulse) (p q : Point)
-    (impulse : Nat → Impulse) (dt start₁ start₂ m n : Nat) :
-    unsignedBlock g p q impulse start₁ m * (n * dt) =
-      unsignedBlock g p q impulse start₂ n * (m * dt) := by
-  rw [unsigned_block_eq, unsigned_block_eq]
-  ac_rfl
-
-/-- Positive total times and the finite unsigned-area/time comparison, with
-    geometric interpretation and force direction still supplied separately. -/
-theorem positive_unsigned_area_comparison (g : EuclideanConstruction Point Impulse)
-    (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt)
-    (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) :
-    0 < m * dt ∧ 0 < n * dt ∧
-      unsignedBlock g p q impulse start₁ m * (n * dt) =
-        unsignedBlock g p q impulse start₂ n * (m * dt) :=
-  ⟨Nat.mul_pos hm hdt, Nat.mul_pos hn hdt,
-    unsigned_block_time_cross g p q impulse dt start₁ start₂ m n⟩
-
-end NewtonLimitDynamics.Polygon
-\end{Verbatim}
-
 
 **Proposition II. Theorem II.** *Every body that moves in some curved line and,
 by a radius drawn to a point either immovable or moving uniformly in a
@@ -10285,7 +3189,7 @@ $S$.
 > radii meet toward the direction of motion.
 
 
-\noindent{\small\textit{Lean reconstruction: 12 theorems in 2 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 12 theorems in 2 modules placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{Also `CentralSchedule.unequal\_cells\_converse` (printed under Proposition I): the finite converse for unequal cells.}}
 
@@ -10441,7 +3345,7 @@ end NewtonLimitDynamics.Polygon.Converse
 import ModernLib.Polygon.Converse
 
 /-! Historical result: proposition_ii.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 Each edition retains its own premises and proof route.
 De Motu corresponding argument: source correspondence remains open; no manuscript section is assigned here.
 -/
@@ -10507,7 +3411,7 @@ the surface described, and so it may be neglected in the composition of
 forces.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded.}}
 
 
 **Proposition III. Theorem III.** *Every body that, by a radius drawn to the
@@ -10557,7 +3461,7 @@ body moves in any way, provided the centripetal force taken is what remains
 after subtracting the total force acting on that other body.
 
 
-\noindent{\small\textit{Lean reconstruction: 17 theorems in 2 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 17 theorems in 2 modules placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\texttt{ModernLib/Polygon/RelativeMotion.lean}}{\small, 17 theorems, 272 lines}
 
@@ -10842,7 +3746,7 @@ end NewtonLimitDynamics.Polygon.RelativeMotion
 import ModernLib.Polygon.RelativeMotion
 
 /-! Historical result: proposition_iii.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 Each edition retains its own premises and proof route.
 De Motu corresponding argument: source correspondence remains open; no manuscript section is assigned here.
 -/
@@ -10900,7 +3804,7 @@ uniform description of areas, in what follows, as the index of the centre
 about which every circular motion in free spaces is performed?
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded.}}
 
 
 **Proposition IV. Theorem IV.** *The centripetal forces of bodies describing
@@ -11022,165 +3926,9 @@ placed centres, by applying the preceding proof to those cases.
 > periodic times inversely.
 
 
-\noindent{\small\textit{Lean reconstruction: 15 theorems in 4 modules cite this item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
+\noindent{\small\textit{Lean reconstruction: 11 theorems in 2 modules placed at this source item; the modules follow in full, in the order of the library import lists (a module may import one printed under another item).}}
 
 \noindent{\small\textit{No Lean reconstructs the proposition's proof. `Comparison/CircleCompare` gives the finite sagitta core only, with the 1687 and 1713 limiting routes deliberately not derived; `HarmonicStability` is anchored here by its reference to Corollary 3 though its content serves Proposition I; `InverseCubeAreal` is a diagnostic.}}
-
-\noindent{\small\texttt{ModernLib/Comparison/CircleCompare.lean}}{\small, 1 theorem, 83 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Common.RationalMagnitudes
-
-/-!
-Proposition IV, finite circular comparison (TASKS.md order 7).  Both editions
-compare the centripetal forces of bodies describing circles in equal times by
-the squares of the simultaneous arcs divided by the radii, `F ∝ arc²/(r·t²)`.
-The exact finite circle fact behind every route is the sagitta-chord relation
-`s·(2r − s) = (c/2)²` for a chord `c` with sagitta `s` in a circle of radius
-`r`; the edition-local routes differ only in *which limiting lemma* turns that
-finite relation into `arc²/(r·t²)`:
-
-* 1687: Proposition II (force as sagitta over `t²`), Lemma V (similar figures,
-  duplicate ratio of sides) and Lemma XI (the contact subtense is ultimately
-  quadratic in the chord).
-* 1713: Proposition II, Proposition I Corollaries 2 and 4 (force by equal-time
-  sagittae and its ratio form) and Lemma VII (arc, chord and tangent ultimately
-  equal).
-
-The finite comparison below uses no limit: for two circle chords traversed in
-the same time, the cross-multiplied force ratio is the sagitta ratio, and the
-sagitta-chord relation rewrites a sagitta as `(c²/4)/(2r − s)` when the
-denominator is positive. The two routes are recorded separately below as
-limiting obligations; no conditional route theorem is implemented here.
-Modern rational reconstruction; no mass, no realized orbit.
--/
-
-namespace NewtonLimitDynamics.Comparison.CircleCompare
-
-open NewtonLimitDynamics
-open Fraction
-
-def negate (a : Fraction) : Fraction := ⟨-a.num, a.den, a.den_pos⟩
-def sub (a b : Fraction) : Fraction := add a (negate b)
-def twice (t : Fraction) : Fraction := mul (ofInt 2) t
-def sq (t : Fraction) : Fraction := mul t t
-def quarterOf (c : Fraction) : Fraction := (mul c c).half.half
-
-/-- Division of represented magnitudes by a positive divisor. -/
-def quotient (a b : Fraction) (hb : positive b) : Fraction :=
-  ⟨a.num * b.den, a.den * b.num, Int.mul_pos a.den_pos hb⟩
-
-/-- A chord `c` with positive sagitta `s` in a circle of radius `r`, exactly
-    `s·(2r − s) = (c/2)²` (intersecting chords / right triangle).  Finite. -/
-structure CircleChord (r : Fraction) where
-  c : Fraction
-  s : Fraction
-  sag_pos : positive s
-  sagitta_chord : equiv (mul s (sub (twice r) s)) (quarterOf c)
-
-/-- Centripetal force read off as sagitta over the square of the time
-    (Proposition II / Lemma X route, finite form). -/
-def forceBySagitta {r : Fraction} (w : CircleChord r) (t : Fraction) (ht : positive t) : Fraction :=
-  quotient w.s (mul t t) (positive_mul t t ht ht)
-
-/-- Equal-time forces, cross-multiplied, are proportional to the sagittae. -/
-theorem force_ratio_is_sagitta_ratio {r r' : Fraction} (w : CircleChord r) (w' : CircleChord r')
-    (t : Fraction) (ht : positive t) :
-    equiv (mul (forceBySagitta w t ht) w'.s) (mul (forceBySagitta w' t ht) w.s) := by
-  unfold forceBySagitta quotient mul equiv
-  dsimp
-  ac_nf
-  try omega
-
-/-! The edition routes are the *limiting* steps that turn the finite
-sagitta-chord relation into `arc²/(r·t²)`, and are deliberately not derived
-here (that would be the limit).  They are recorded separately so the two
-editions are never merged:
-
-* `route_1687`: Proposition II gives force as sagitta over `t²`
-  (`forceBySagitta`); Lemma V supplies the duplicate ratio of similar figures
-  to pass from chords to arcs; Lemma XI (1687 par31, contact subtense
-  ultimately quadratic) replaces the finite `s = (c²/4)/(2r − s)` by
-  `s ≍ c²/(8r)` for the full chord `c`, and with arcs ≍ chords the comparison
-  becomes `arc²/r` (the common factor cancels in the ratio).
-* `route_1713`: Proposition I Corollary 2 (par53) and 4 (par55) give force by
-  equal-time sagittae and its ratio form; Lemma VII (par18, arc-chord-tangent
-  ultimately equal) performs the same replacement.
-
-Both routes are `editorial_interpretation` at the limiting step; the finite
-comparison above — the exact sagitta-chord relation carried by `CircleChord`
-and `force_ratio_is_sagitta_ratio` — is the shared checked core. -/
-
-end NewtonLimitDynamics.Comparison.CircleCompare
-\end{Verbatim}
-
-\noindent{\small\texttt{ModernLib/Diagnostic/InverseCubeAreal.lean}}{\small, 3 theorems, 63 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-/-!
-Action diagnostic layer (research/action-arguments/Arg002).  Modern
-reconstruction over natural-number magnitudes of two uniform circles compared
-by Proposition IV Cor. 1 (force as squared velocity over radius, stated as a
-cross-multiplied proportion).  No historical proof uses these theorems.
--/
-
-namespace NewtonLimitDynamics.Diagnostic.InverseCubeAreal
-
-/-- Cor. 1 as a proportion between two circles: `F₁ : F₂ = v₁²/R₁ : v₂²/R₂`. -/
-def corOneProportion (F1 F2 R1 R2 v1 v2 : Nat) : Prop :=
-  F1 * (v2 * v2) * R1 = F2 * (v1 * v1) * R2
-
-/-- Inverse-cube comparison of the two forces: `F₁R₁³ = F₂R₂³`. -/
-def inverseCube (F1 F2 R1 R2 : Nat) : Prop :=
-  F1 * (R1 * R1 * R1) = F2 * (R2 * R2 * R2)
-
-/-- Equal squared areal-velocity numerators `(R v)²`. -/
-def equalAreal (R1 R2 v1 v2 : Nat) : Prop :=
-  (R1 * v1) * (R1 * v1) = (R2 * v2) * (R2 * v2)
-
-/-- Under an inverse-cube comparison, circles related by Cor. 1 have the same
-    areal velocity. -/
-theorem inverseCube_equalAreal (F1 F2 R1 R2 v1 v2 : Nat) (hF : 0 < F2) (hR : 0 < R2)
-    (h1 : corOneProportion F1 F2 R1 R2 v1 v2) (h3 : inverseCube F1 F2 R1 R2) :
-    equalAreal R1 R2 v1 v2 := by
-  unfold corOneProportion at h1
-  unfold inverseCube at h3
-  unfold equalAreal
-  apply Nat.eq_of_mul_eq_mul_left (Nat.mul_pos hF hR)
-  calc F2 * R2 * ((R1 * v1) * (R1 * v1))
-      = (F2 * (v1 * v1) * R2) * (R1 * R1) := by ac_rfl
-    _ = (F1 * (v2 * v2) * R1) * (R1 * R1) := by rw [h1]
-    _ = (F1 * (R1 * R1 * R1)) * (v2 * v2) := by ac_rfl
-    _ = (F2 * (R2 * R2 * R2)) * (v2 * v2) := by rw [h3]
-    _ = F2 * R2 * ((R2 * v2) * (R2 * v2)) := by ac_rfl
-
-/-- Conversely, a common areal velocity with Cor. 1 forces the inverse-cube
-    comparison. -/
-theorem equalAreal_inverseCube (F1 F2 R1 R2 v1 v2 : Nat) (hv : 0 < v2)
-    (h1 : corOneProportion F1 F2 R1 R2 v1 v2) (hA : equalAreal R1 R2 v1 v2) :
-    inverseCube F1 F2 R1 R2 := by
-  unfold corOneProportion at h1
-  unfold equalAreal at hA
-  unfold inverseCube
-  apply Nat.eq_of_mul_eq_mul_left (Nat.mul_pos hv hv)
-  calc v2 * v2 * (F1 * (R1 * R1 * R1))
-      = (F1 * (v2 * v2) * R1) * (R1 * R1) := by ac_rfl
-    _ = (F2 * (v1 * v1) * R2) * (R1 * R1) := by rw [h1]
-    _ = F2 * R2 * ((R1 * v1) * (R1 * v1)) := by ac_rfl
-    _ = F2 * R2 * ((R2 * v2) * (R2 * v2)) := by rw [hA]
-    _ = v2 * v2 * (F2 * (R2 * R2 * R2)) := by ac_rfl
-
-/-- Contrast: under an inverse-square comparison (`F₁R₁² = F₂R₂²`, 1713
-    Cor. 6), radii 1 and 4 with speeds 2 and 1 satisfy Cor. 1 but have
-    unequal areal velocities 2 and 4. -/
-theorem inverseSquare_areal_varies :
-    corOneProportion 16 1 1 4 2 1 ∧ 16 * (1 * 1) = 1 * (4 * 4) ∧
-      ¬ equalAreal 1 4 2 1 := by
-  unfold corOneProportion equalAreal
-  decide
-
-end NewtonLimitDynamics.Diagnostic.InverseCubeAreal
-\end{Verbatim}
 
 \noindent{\small\texttt{ModernLib/Polygon/HarmonicStability.lean}}{\small, 11 theorems, 136 lines}
 
@@ -11329,7 +4077,7 @@ end NewtonLimitDynamics.Polygon.HarmonicStability
 import ModernLib.Comparison.CircleCompare
 
 /-! Historical result: proposition_iv.
-Diplomatic source rendering uses scripts/catalogue_m1.py:render; whitespace is collapsed; TEI fw forme-work is omitted.
+Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 Each edition retains its own premises and proof route.
 De Motu corresponding argument: source correspondence remains open; no manuscript section is assigned here.
 -/
@@ -11435,74 +4183,18 @@ $v$, so this is as $(vt)^2/r$, Newton's square of the length applied to the
 radius.
 
 
-\noindent{\small\textit{No theorem of the Lean reconstruction cites this item. Not encoded; the polygon-reflection argument has no counterpart.}}
+\noindent{\small\textit{No Lean source module is anchored to this item. Not encoded; the polygon-reflection argument has no counterpart.}}
 
 
 # Appendix A. Modules anchored outside Sections I–II
 
-1 module with 4 theorems are anchored to passages outside the rendered range: Proposition VI and its later-edition counterparts, and the De Motu quadratic-deflection chain of the M1 milestone.
+0 modules with 0 theorems name source paragraphs outside the rendered range.
 
-\noindent{\small\texttt{ModernLib/Comparison/Routes.lean}}{\small, 4 theorems, 52 lines}
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-import BarrowLib.Common.RationalMagnitudes
-
-namespace NewtonLimitDynamics.Comparison
-open Fraction
-
-def negate (a : Fraction) : Fraction := ⟨-a.num, a.den, a.den_pos⟩
-def twice (t : Fraction) : Fraction := mul (ofInt 2) t
-
-theorem twice_positive (t : Fraction) (ht : positive t) : positive (twice t) :=
-  positive_mul (ofInt 2) t (by unfold positive ofInt; decide) ht
-
-/-- Constant accelerative force, zero initial normal velocity. The tangential
-    coordinate does not enter the normal sagitta. Its area interpretation is
-    a separate mechanical/geometric premise. -/
-def parabolaHeight (acc time : Fraction) : Fraction := half (mul acc (mul time time))
-def midpointHeight (y₁ y₂ : Fraction) : Fraction := half (add y₁ y₂)
-
-theorem symmetric_parabola_sagitta (acc time : Fraction) :
-    equiv (midpointHeight (parabolaHeight acc (negate time)) (parabolaHeight acc time))
-      (parabolaHeight acc time) := by
-  unfold equiv midpointHeight parabolaHeight negate half add mul
-  dsimp
-  simp only [Int.neg_mul_neg, Int.add_mul, Int.mul_add]
-  have htwo : ∀ x : Int, 2*x = x+x := by intro x; omega
-  simp only [htwo, Int.mul_add, Int.add_mul]
-  ac_rfl
-
-/-- Calibrated force comparison on matched spatial quantities: the generated
-    displacement uses one-sided duration t, the symmetric sagitta uses the
-    full arc duration 2t. Thus the calibration factors are 2 and 8 respectively.
-    For general curves, matching their limiting coefficients remains an input;
-    this theorem does not assert equality of arbitrary finite displacements. -/
-theorem generated_sagitta_commute (displacement time : Fraction) (ht : positive time) :
-    equiv
-      (mul (ofInt 8) (deflectionRatio displacement (twice time) (twice_positive time ht)))
-      (mul (ofInt 2) (deflectionRatio displacement time ht)) := by
-  simp only [equiv, deflectionRatio, twice, mul, ofInt]
-  simp only [Int.one_mul, Int.mul_one]
-  have eight : (8 : Int) = 2 * (2 * 2) := by decide
-  rw [eight]
-  ac_rfl
-
-/-- The finite constant-force model gives its acceleration by the generated
-    route, independently of the prior commutation identity. -/
-theorem constant_force_generated (acc time : Fraction) (ht : positive time) :
-    equiv (mul (ofInt 2) (deflectionRatio (parabolaHeight acc time) time ht)) acc := by
-  unfold equiv deflectionRatio parabolaHeight half mul ofInt
-  dsimp
-  simp only [Int.one_mul, Int.mul_one]
-  ac_rfl
-
-end NewtonLimitDynamics.Comparison
-\end{Verbatim}
 
 
 # Appendix B. The foundation: modules with no source anchor
 
-108 modules with 1121 theorems have no Newton anchor. They build the rational arithmetic, point algebra, finite estimates, Cauchy names and quotient values, binary time, square covers and the lifting of operations to completed values on which the anchored proofs stand. In full, in import order, followed by the available library root files.
+144 modules with 1608 theorems have no Newton anchor. They build the rational arithmetic, point algebra, finite estimates, Cauchy names and quotient values, binary time, square covers and the lifting of operations to completed values on which the anchored proofs stand. In full, in import order, followed by the available library root files.
 
 \noindent{\small\texttt{BarrowLib/Common/FiniteGrowth.lean}}{\small, 19 theorems, 173 lines}
 
@@ -17515,6 +10207,594 @@ theorem sample_unsigned_not_signed :
 end NewtonLimitDynamics.Polygon.TriangleBounds
 \end{Verbatim}
 
+\noindent{\small\texttt{BarrowLib/Polygon/ZeroForce.lean}}{\small, definitions only, 16 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.TimeSubdivision
+
+namespace NewtonLimitDynamics.Polygon.ZeroForce
+
+open NewtonLimitDynamics
+open TimeSubdivision
+
+/-- The zero impressed acceleration used in the finite end-kick recurrence. -/
+def zeroPoint : Point := (Fraction.ofInt 0, Fraction.ofInt 0)
+
+/-- The rational-time affine map for an inertial state. Agreement with the
+    actual finite recurrence is proved in `partitionMotion_zero_force`. -/
+def inertialAt (p v : Point) (t : Fraction) : Point :=
+  pointAdd p (pointScale t v)
+
+end NewtonLimitDynamics.Polygon.ZeroForce
+\end{Verbatim}
+
+\noindent{\small\texttt{ClassicsLib/Euclid/PropositionI37.lean}}{\small, 1 theorem, 18 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.LatticeGeometry
+
+/-! Euclid, Elements, Book I.
+Source: https://mathcs.clarku.edu/~djoyce/elements/bookI/propI37.html
+Triangles on the same base between the same parallels. The retained parallel_identity is the integer-coordinate special case with base from the origin to q and third vertex translated parallel to q. It proves determinant preservation, not the full synthetic Euclidean area semantics.
+Status: modern_reconstruction of this classical coordinate special case;
+not an assertion that Newton explicitly cites the proposition by number.
+The existing proof and qualified name are preserved. -/
+
+namespace NewtonLimitDynamics.Polygon
+
+theorem parallel_identity (q x : LatticePoint) (j : Int) : det q (kick q x j) = det q x := by
+  simp only [det, kick, Int.mul_add]
+  have h : q.1 * (j * q.2) = q.2 * (j * q.1) := by ac_rfl
+  omega
+
+
+end NewtonLimitDynamics.Polygon
+\end{Verbatim}
+
+\noindent{\small\texttt{ClassicsLib/Euclid/PropositionI38.lean}}{\small, 1 theorem, 20 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.LatticeGeometry
+
+/-! Euclid, Elements, Book I.
+Source: https://mathcs.clarku.edu/~djoyce/elements/bookI/propI38.html
+Triangles on equal bases between the same parallels. The retained extension_identity is the integer-coordinate special case of consecutive equal collinear bases and the fixed opposite vertex at the origin. It proves determinant preservation, not the full synthetic Euclidean theorem.
+Status: modern_reconstruction of this classical coordinate special case;
+not an assertion that Newton explicitly cites the proposition by number.
+The existing proof and qualified name are preserved. -/
+
+namespace NewtonLimitDynamics.Polygon
+
+theorem extension_identity (p q : LatticePoint) : det q (extend p q) = det p q := by
+  simp only [det, extend, Int.mul_sub, Int.mul_assoc]
+  have h : q.1 * (2 * q.2) = q.2 * (2 * q.1) := by ac_rfl
+  have h1 : q.1 * p.2 = p.2 * q.1 := Int.mul_comm _ _
+  have h2 : q.2 * p.1 = p.1 * q.2 := Int.mul_comm _ _
+  omega
+
+
+end NewtonLimitDynamics.Polygon
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Comparison/CircleCompare.lean}}{\small, 1 theorem, 83 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Common.RationalMagnitudes
+
+/-!
+Proposition IV, finite circular comparison (TASKS.md order 7).  Both editions
+compare the centripetal forces of bodies describing circles in equal times by
+the squares of the simultaneous arcs divided by the radii, `F ∝ arc²/(r·t²)`.
+The exact finite circle fact behind every route is the sagitta-chord relation
+`s·(2r − s) = (c/2)²` for a chord `c` with sagitta `s` in a circle of radius
+`r`; the edition-local routes differ only in *which limiting lemma* turns that
+finite relation into `arc²/(r·t²)`:
+
+* 1687: Proposition II (force as sagitta over `t²`), Lemma V (similar figures,
+  duplicate ratio of sides) and Lemma XI (the contact subtense is ultimately
+  quadratic in the chord).
+* 1713: Proposition II, Proposition I Corollaries 2 and 4 (force by equal-time
+  sagittae and its ratio form) and Lemma VII (arc, chord and tangent ultimately
+  equal).
+
+The finite comparison below uses no limit: for two circle chords traversed in
+the same time, the cross-multiplied force ratio is the sagitta ratio, and the
+sagitta-chord relation rewrites a sagitta as `(c²/4)/(2r − s)` when the
+denominator is positive. The two routes are recorded separately below as
+limiting obligations; no conditional route theorem is implemented here.
+Modern rational reconstruction; no mass, no realized orbit.
+-/
+
+namespace NewtonLimitDynamics.Comparison.CircleCompare
+
+open NewtonLimitDynamics
+open Fraction
+
+def negate (a : Fraction) : Fraction := ⟨-a.num, a.den, a.den_pos⟩
+def sub (a b : Fraction) : Fraction := add a (negate b)
+def twice (t : Fraction) : Fraction := mul (ofInt 2) t
+def sq (t : Fraction) : Fraction := mul t t
+def quarterOf (c : Fraction) : Fraction := (mul c c).half.half
+
+/-- Division of represented magnitudes by a positive divisor. -/
+def quotient (a b : Fraction) (hb : positive b) : Fraction :=
+  ⟨a.num * b.den, a.den * b.num, Int.mul_pos a.den_pos hb⟩
+
+/-- A chord `c` with positive sagitta `s` in a circle of radius `r`, exactly
+    `s·(2r − s) = (c/2)²` (intersecting chords / right triangle).  Finite. -/
+structure CircleChord (r : Fraction) where
+  c : Fraction
+  s : Fraction
+  sag_pos : positive s
+  sagitta_chord : equiv (mul s (sub (twice r) s)) (quarterOf c)
+
+/-- Centripetal force read off as sagitta over the square of the time
+    (Proposition II / Lemma X route, finite form). -/
+def forceBySagitta {r : Fraction} (w : CircleChord r) (t : Fraction) (ht : positive t) : Fraction :=
+  quotient w.s (mul t t) (positive_mul t t ht ht)
+
+/-- Equal-time forces, cross-multiplied, are proportional to the sagittae. -/
+theorem force_ratio_is_sagitta_ratio {r r' : Fraction} (w : CircleChord r) (w' : CircleChord r')
+    (t : Fraction) (ht : positive t) :
+    equiv (mul (forceBySagitta w t ht) w'.s) (mul (forceBySagitta w' t ht) w.s) := by
+  unfold forceBySagitta quotient mul equiv
+  dsimp
+  ac_nf
+  try omega
+
+/-! The edition routes are the *limiting* steps that turn the finite
+sagitta-chord relation into `arc²/(r·t²)`, and are deliberately not derived
+here (that would be the limit).  They are recorded separately so the two
+editions are never merged:
+
+* `route_1687`: Proposition II gives force as sagitta over `t²`
+  (`forceBySagitta`); Lemma V supplies the duplicate ratio of similar figures
+  to pass from chords to arcs; Lemma XI (1687 par31, contact subtense
+  ultimately quadratic) replaces the finite `s = (c²/4)/(2r − s)` by
+  `s ≍ c²/(8r)` for the full chord `c`, and with arcs ≍ chords the comparison
+  becomes `arc²/r` (the common factor cancels in the ratio).
+* `route_1713`: Proposition I Corollary 2 (par53) and 4 (par55) give force by
+  equal-time sagittae and its ratio form; Lemma VII (par18, arc-chord-tangent
+  ultimately equal) performs the same replacement.
+
+Both routes are `editorial_interpretation` at the limiting step; the finite
+comparison above — the exact sagitta-chord relation carried by `CircleChord`
+and `force_ratio_is_sagitta_ratio` — is the shared checked core. -/
+
+end NewtonLimitDynamics.Comparison.CircleCompare
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Comparison/Routes.lean}}{\small, 4 theorems, 52 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Common.RationalMagnitudes
+
+namespace NewtonLimitDynamics.Comparison
+open Fraction
+
+def negate (a : Fraction) : Fraction := ⟨-a.num, a.den, a.den_pos⟩
+def twice (t : Fraction) : Fraction := mul (ofInt 2) t
+
+theorem twice_positive (t : Fraction) (ht : positive t) : positive (twice t) :=
+  positive_mul (ofInt 2) t (by unfold positive ofInt; decide) ht
+
+/-- Constant accelerative force, zero initial normal velocity. The tangential
+    coordinate does not enter the normal sagitta. Its area interpretation is
+    a separate mechanical/geometric premise. -/
+def parabolaHeight (acc time : Fraction) : Fraction := half (mul acc (mul time time))
+def midpointHeight (y₁ y₂ : Fraction) : Fraction := half (add y₁ y₂)
+
+theorem symmetric_parabola_sagitta (acc time : Fraction) :
+    equiv (midpointHeight (parabolaHeight acc (negate time)) (parabolaHeight acc time))
+      (parabolaHeight acc time) := by
+  unfold equiv midpointHeight parabolaHeight negate half add mul
+  dsimp
+  simp only [Int.neg_mul_neg, Int.add_mul, Int.mul_add]
+  have htwo : ∀ x : Int, 2*x = x+x := by intro x; omega
+  simp only [htwo, Int.mul_add, Int.add_mul]
+  ac_rfl
+
+/-- Calibrated force comparison on matched spatial quantities: the generated
+    displacement uses one-sided duration t, the symmetric sagitta uses the
+    full arc duration 2t. Thus the calibration factors are 2 and 8 respectively.
+    For general curves, matching their limiting coefficients remains an input;
+    this theorem does not assert equality of arbitrary finite displacements. -/
+theorem generated_sagitta_commute (displacement time : Fraction) (ht : positive time) :
+    equiv
+      (mul (ofInt 8) (deflectionRatio displacement (twice time) (twice_positive time ht)))
+      (mul (ofInt 2) (deflectionRatio displacement time ht)) := by
+  simp only [equiv, deflectionRatio, twice, mul, ofInt]
+  simp only [Int.one_mul, Int.mul_one]
+  have eight : (8 : Int) = 2 * (2 * 2) := by decide
+  rw [eight]
+  ac_rfl
+
+/-- The finite constant-force model gives its acceleration by the generated
+    route, independently of the prior commutation identity. -/
+theorem constant_force_generated (acc time : Fraction) (ht : positive time) :
+    equiv (mul (ofInt 2) (deflectionRatio (parabolaHeight acc time) time ht)) acc := by
+  unfold equiv deflectionRatio parabolaHeight half mul ofInt
+  dsimp
+  simp only [Int.one_mul, Int.mul_one]
+  ac_rfl
+
+end NewtonLimitDynamics.Comparison
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Contact/AreaCoefficient.lean}}{\small, 4 theorems, 171 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Contact.FiniteSums
+
+namespace NewtonLimitDynamics.Contact
+
+private theorem zero_of_scaled_bounds (delta C : Int)
+    (h : ∀ n : Nat, 0 < n → (n : Int)*delta ≤ C ∧ (n : Int)*(-delta) ≤ C) : delta = 0 := by
+  let n := C.natAbs + 1
+  have hn : 0 < n := by omega
+  obtain ⟨hu, hl⟩ := h n hn
+  have habs : C ≤ (C.natAbs : Int) := Int.le_natAbs
+  have hnlarge : C < (n : Int) := by dsimp [n]; omega
+  have hnp : 0 ≤ (n : Int) := by omega
+  by_cases hp : 0 < delta
+  · have hd : 1 ≤ delta := by omega
+    have hm := Int.mul_le_mul_of_nonneg_left hd hnp
+    simp only [Int.mul_one] at hm
+    omega
+  · by_cases hm : delta < 0
+    · have hd : 1 ≤ -delta := by omega
+      have hb := Int.mul_le_mul_of_nonneg_left hd hnp
+      simp only [Int.mul_one] at hb
+      omega
+    · omega
+
+def lowerParabola (n : Nat) (hn : 0 < n) : Fraction :=
+  ⟨(nsum (fun i => i*i) n : Int), (n*n*n : Nat),
+    Int.ofNat_lt.mpr (Nat.mul_pos (Nat.mul_pos hn hn) hn)⟩
+def upperParabola (n : Nat) (hn : 0 < n) : Fraction :=
+  ⟨(nsum (fun i => i*i) n + n*n : Nat), (n*n*n : Nat),
+    Int.ofNat_lt.mpr (Nat.mul_pos (Nat.mul_pos hn hn) hn)⟩
+
+/-- Rectangle enclosure determines the normalized parabolic area as 1/3.
+    Only finite sums and rational order are used. The geometric assertion that
+    a selected curve's area obeys these rectangle enclosures is the premise. -/
+theorem parabolic_area_coefficient (area : Fraction)
+    (enclosed : ∀ n : Nat, (hn : 0 < n) →
+      Fraction.le (lowerParabola n hn) area ∧ Fraction.le area (upperParabola n hn)) :
+    Fraction.equiv area ⟨1, 3, by decide⟩ := by
+  have heq : 3*area.num-area.den = 0 := by
+    apply zero_of_scaled_bounds _ (2*area.den)
+    intro n hn
+    let N : Int := n
+    let S : Int := nsum (fun i => i*i) n
+    have hN : 0 < N := Int.ofNat_lt.mpr hn
+    have hNN := Int.mul_pos hN hN
+    obtain ⟨hl, hu⟩ := enclosed n hn
+    change S*area.den ≤ area.num*(N*N*N) at hl
+    change area.num*(N*N*N) ≤ (S+N*N)*area.den at hu
+    have hi := congrArg (fun x : Nat => (x : Int)) (quadratic_rectangles n)
+    simp only [Int.ofNat_add, Int.ofNat_mul] at hi
+    have hid := congrArg (fun x : Int => x*area.den) hi
+    have ident : 6*(S*area.den)+3*(N*N*area.den) =
+        2*(N*N*N*area.den)+N*area.den := by
+      simpa only [Int.add_mul, Int.mul_assoc] using hid
+    have hlo := Int.mul_le_mul_of_nonneg_left hl (by decide : (0 : Int) ≤ 6)
+    have hhi := Int.mul_le_mul_of_nonneg_left hu (by decide : (0 : Int) ≤ 6)
+    simp only [Int.add_mul, Int.mul_add] at hhi
+    have wpos := Int.mul_pos hN area.den_pos
+    have wle : N*area.den ≤ N*N*area.den := by
+      have hge : (1 : Int) ≤ N := by omega
+      have ht := Int.mul_le_mul_of_nonneg_right hge (Int.le_of_lt wpos)
+      simpa only [Int.one_mul, Int.mul_assoc] using ht
+    have hupper : 6*(area.num*(N*N*N))-2*(N*N*N*area.den) ≤ 4*(N*N*area.den) := by omega
+    have hlower : 2*(N*N*N*area.den)-6*(area.num*(N*N*N)) ≤ 4*(N*N*area.den) := by omega
+    have factor : 2*(N*(3*area.num-area.den))*(N*N) =
+        6*(area.num*(N*N*N))-2*(N*N*N*area.den) := by
+      simp only [Int.mul_sub, Int.sub_mul]
+      have six : (6 : Int) = 2*3 := by decide
+      rw [six]
+      congr 1 <;> ac_rfl
+    have factor' : 2*(N*(area.den-3*area.num))*(N*N) =
+        2*(N*N*N*area.den)-6*(area.num*(N*N*N)) := by
+      simp only [Int.mul_sub, Int.sub_mul]
+      have six : (6 : Int) = 2*3 := by decide
+      rw [six]
+      congr 1 <;> ac_rfl
+    have rhs : 4*(N*N*area.den) = (4*area.den)*(N*N) := by ac_rfl
+    rw [← factor, rhs] at hupper
+    rw [← factor', rhs] at hlower
+    have hu' := Int.le_of_mul_le_mul_right hupper hNN
+    have hl' := Int.le_of_mul_le_mul_right hlower hNN
+    have hnneg : N*(-(3*area.num-area.den)) = N*(area.den-3*area.num) := by
+      congr 1
+      omega
+    change N*(3*area.num-area.den) ≤ 2*area.den ∧ N*(-(3*area.num-area.den)) ≤ 2*area.den
+    rw [hnneg]
+    omega
+  unfold Fraction.equiv
+  dsimp
+  omega
+
+def lowerLinear (n : Nat) (hn : 0 < n) : Fraction :=
+  ⟨(nsum (fun i => i) n : Int), (n*n : Nat),
+    Int.ofNat_lt.mpr (Nat.mul_pos hn hn)⟩
+def upperLinear (n : Nat) (hn : 0 < n) : Fraction :=
+  ⟨(nsum (fun i => i) n + n : Nat), (n*n : Nat),
+    Int.ofNat_lt.mpr (Nat.mul_pos hn hn)⟩
+
+/-- Normalized linear velocity area is 1/2, from finite rectangles alone. -/
+theorem linear_area_coefficient (area : Fraction)
+    (enclosed : ∀ n : Nat, (hn : 0 < n) →
+      Fraction.le (lowerLinear n hn) area ∧ Fraction.le area (upperLinear n hn)) :
+    Fraction.equiv area ⟨1, 2, by decide⟩ := by
+  have heq : 2*area.num-area.den = 0 := by
+    apply zero_of_scaled_bounds _ area.den
+    intro n hn
+    let N : Int := n
+    let S : Int := nsum (fun i => i) n
+    have hN : 0 < N := Int.ofNat_lt.mpr hn
+    obtain ⟨hl, hu⟩ := enclosed n hn
+    change S*area.den ≤ area.num*(N*N) at hl
+    change area.num*(N*N) ≤ (S+N)*area.den at hu
+    have hi := congrArg (fun x : Nat => (x : Int)) (linear_rectangles n)
+    simp only [Int.ofNat_add, Int.ofNat_mul] at hi
+    have hid := congrArg (fun x : Int => x*area.den) hi
+    have ident : 2*(S*area.den)+N*area.den = N*N*area.den := by
+      simpa only [Int.add_mul, Int.mul_assoc] using hid
+    have hlo := Int.mul_le_mul_of_nonneg_left hl (by decide : (0 : Int) ≤ 2)
+    have hhi := Int.mul_le_mul_of_nonneg_left hu (by decide : (0 : Int) ≤ 2)
+    simp only [Int.add_mul, Int.mul_add] at hhi
+    have hupper : 2*(area.num*(N*N))-N*N*area.den ≤ N*area.den := by omega
+    have hlower : N*N*area.den-2*(area.num*(N*N)) ≤ N*area.den := by omega
+    have factor : (N*(2*area.num-area.den))*N = 2*(area.num*(N*N))-N*N*area.den := by
+      simp only [Int.mul_sub, Int.sub_mul]
+      congr 1 <;> ac_rfl
+    have factor' : (N*(area.den-2*area.num))*N = N*N*area.den-2*(area.num*(N*N)) := by
+      simp only [Int.mul_sub, Int.sub_mul]
+      congr 1 <;> ac_rfl
+    have rhs : N*area.den = area.den*N := by ac_rfl
+    rw [← factor, rhs] at hupper
+    rw [← factor', rhs] at hlower
+    have hu' := Int.le_of_mul_le_mul_right hupper hN
+    have hl' := Int.le_of_mul_le_mul_right hlower hN
+    have hnneg : N*(-(2*area.num-area.den)) = N*(area.den-2*area.num) := by
+      congr 1
+      omega
+    change N*(2*area.num-area.den) ≤ area.den ∧ N*(-(2*area.num-area.den)) ≤ area.den
+    rw [hnneg]
+    exact ⟨hu', hl'⟩
+  unfold Fraction.equiv
+  dsimp
+  omega
+
+/-- Constant-force example with unit tangential speed and zero initial normal
+    velocity. Similarity scales normalized rectangle areas. Mechanical
+    identification with displacement/defect is still separate from this
+    geometric coefficient theorem. -/
+theorem constant_force_area_coefficients (acc time linearArea parabolaArea : Fraction)
+    (hlinear : ∀ n : Nat, (hn : 0 < n) →
+      Fraction.le (lowerLinear n hn) linearArea ∧ Fraction.le linearArea (upperLinear n hn))
+    (hparabola : ∀ n : Nat, (hn : 0 < n) →
+      Fraction.le (lowerParabola n hn) parabolaArea ∧ Fraction.le parabolaArea (upperParabola n hn)) :
+    Fraction.equiv (Fraction.mul (Fraction.mul acc (Fraction.mul time time)) linearArea)
+      (Fraction.half (Fraction.mul acc (Fraction.mul time time))) ∧
+    Fraction.equiv (Fraction.mul (Fraction.half (Fraction.mul acc (Fraction.mul time (Fraction.mul time time)))) parabolaArea)
+      (Fraction.mul ⟨1, 6, by decide⟩ (Fraction.mul acc (Fraction.mul time (Fraction.mul time time)))) := by
+  constructor
+  · apply Fraction.equiv_trans (Fraction.mul_equiv_left _ (linear_area_coefficient linearArea hlinear))
+    unfold Fraction.equiv Fraction.mul Fraction.half
+    dsimp
+    simp only [Int.one_mul, Int.mul_one]
+    ac_rfl
+  · apply Fraction.equiv_trans (Fraction.mul_equiv_left _ (parabolic_area_coefficient parabolaArea hparabola))
+    unfold Fraction.equiv Fraction.mul Fraction.half
+    dsimp
+    simp only [Int.one_mul, Int.mul_one]
+    have six : (6 : Int) = 2*3 := by decide
+    rw [six]
+    ac_rfl
+
+end NewtonLimitDynamics.Contact
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Contact/Bounds.lean}}{\small, 4 theorems, 63 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Common.RationalMagnitudes
+
+namespace NewtonLimitDynamics.Contact
+open Fraction
+
+/-- The normal contact subtense, the tangent departure and the defect area
+    are separate quantities. Identifying any two is an additional configuration
+    hypothesis. For oblique contact subtenses an angle factor is required. -/
+structure Quantities where
+  tangentLength : Fraction
+  chordLength : Fraction
+  normalSubtense : Fraction
+  tangentDeparture : Fraction
+  defectArea : Fraction
+
+theorem le_quotient_iff (a b c : Fraction) (hc : positive c) :
+    le a (NewtonLimitDynamics.Fraction.quotient b c hc) ↔ le (mul a c) b := by
+  unfold le NewtonLimitDynamics.Fraction.quotient mul
+  dsimp
+  have e1 : a.num * (b.den * c.num) = a.num * c.num * b.den := by ac_rfl
+  have e2 : b.num * c.den * a.den = b.num * (a.den * c.den) := by ac_rfl
+  rw [e1, e2]
+
+/-- Circle identity AB²=AG*BD imported from Lemma XI case 1. A uniform
+    positive lower bound on AG is essential; the identity alone is insufficient.
+    This proves an inequality, not existence of the osculating configuration. -/
+theorem normal_subtense_bound (chord subtense diameter minDiameter : Fraction)
+    (hs : positive subtense) (hd : positive minDiameter)
+    (hmin : le minDiameter diameter)
+    (circle : equiv (mul diameter subtense) (mul chord chord)) :
+    le subtense (NewtonLimitDynamics.Fraction.quotient (mul chord chord) minDiameter hd) := by
+  apply (le_quotient_iff _ _ _ hd).mpr
+  have hc := (equiv_iff_mutual_le _ _).mp (mul_comm subtense minDiameter)
+  have hm := mul_le_mul_positive hmin subtense hs
+  have he := (equiv_iff_mutual_le _ _).mp circle
+  exact magnitudes.le_trans hc.1 (magnitudes.le_trans hm he.1)
+
+/-- Explicit finite cubic inequality from a rectangle enclosing the defect.
+    K is a proved/assumed quadratic bound valid on the SAME neighbourhood.
+    No assertion of contact or enclosure is hidden in power notation. -/
+theorem cubic_rectangle_bound (base departure defect K : Fraction)
+    (hb : positive base)
+    (hquad : le departure (mul K (mul base base)))
+    (henclose : le defect (mul departure base)) :
+    le defect (mul K (mul base (mul base base))) := by
+  have hm := mul_le_mul_positive hquad base hb
+  have he : equiv (mul (mul K (mul base base)) base) (mul K (mul base (mul base base))) := by
+    unfold equiv mul
+    dsimp
+    ac_rfl
+  exact magnitudes.le_trans henclose (magnitudes.le_trans hm ((equiv_iff_mutual_le _ _).mp he).1)
+
+/-- Coordinate construction for Lemma XI case 1: A=(0,0), B=(x,y),
+    G=(0,D), with AB perpendicular to BG. The corresponding right-triangle
+    relation yields AB²=AG*BD; existence of G and its limiting position is
+    deliberately not inferred. This is a reconstruction of circle geometry. -/
+theorem circle_identity_from_perpendicular (x y D : Int)
+    (perpendicular : x*x + y*(y-D) = 0) : x*x+y*y = D*y := by
+  rw [Int.mul_sub] at perpendicular
+  have h : y*D = D*y := Int.mul_comm _ _
+  omega
+
+end NewtonLimitDynamics.Contact
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Contact/FiniteSums.lean}}{\small, 9 theorems, 125 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.Enclosure
+
+namespace NewtonLimitDynamics.Contact
+
+def nsum (f : Nat → Nat) : Nat → Nat
+  | 0 => 0
+  | n+1 => nsum f n + f n
+
+/-- Lower rectangles for a linear velocity diagram. With n equal cells the
+    doubled lower sum differs from n² by n, yielding coefficient 1/2. -/
+theorem linear_rectangles (n : Nat) : 2 * nsum (fun i => i) n + n = n*n := by
+  induction n with
+  | zero => decide
+  | succ n ih =>
+    simp only [nsum, Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.one_mul]
+    omega
+
+/-- Lower rectangles for y=x². Division by 6n³ yields the area coefficient
+    1/3 with explicit corrections -1/(2n)+1/(6n²), not an integral theorem. -/
+theorem quadratic_rectangles (n : Nat) :
+    6 * nsum (fun i => i*i) n + 3*(n*n) = 2*(n*n*n)+n := by
+  induction n with
+  | zero => decide
+  | succ n ih =>
+    simp only [nsum, Nat.mul_add, Nat.add_mul, Nat.mul_one, Nat.one_mul]
+    omega
+
+theorem upper_lower_gap (n : Nat) :
+    nsum (fun i => (i+1)*(i+1)) n = nsum (fun i => i*i) n + n*n := by
+  induction n with
+  | zero => decide
+  | succ n ih => simp only [nsum, ih]
+
+/-- Error of the lower quadratic rectangle sum in units of 6n³ is ≤3n²;
+    after positive division this is ≤1/(2n). -/
+theorem quadratic_lower_error (n : Nat) :
+    2*(n*n*n) ≤ 6*nsum (fun i => i*i) n + 3*(n*n) := by
+  have := quadratic_rectangles n
+  omega
+
+theorem sum_bound (f : Nat → Nat) (C n : Nat) (hf : ∀ i, i < n → f i ≤ C) :
+    nsum f n ≤ n*C := by
+  induction n with
+  | zero => simp [nsum]
+  | succ n ih =>
+    have h := ih (fun i hi => hf i (by omega))
+    have hn := hf n (by omega)
+    simp only [nsum, Nat.add_mul, Nat.one_mul]
+    omega
+
+/-- Uniform partition error, expressed without division: n²*Σ error_i ≤ C.
+    All errors use a common unit; the local bound is n³*error_i ≤ C for EVERY
+    cell of the fixed interval. C must include the fixed interval's T³ factor.
+    Positivity of n permits cancellation; pointwise local scaling is not enough. -/
+theorem uniform_partition_error (error : Nat → Nat) (C n : Nat) (hn : 0 < n)
+    (hlocal : ∀ i, i < n → n*n*n*error i ≤ C) :
+    n*n*nsum error n ≤ C := by
+  have hs := sum_bound (fun i => n*n*n*error i) C n hlocal
+  have hmul : ∀ k, nsum (fun i => n*n*n*error i) k = n*n*n*nsum error k := by
+    intro k
+    induction k with
+    | zero => simp [nsum]
+    | succ k ih => simp [nsum, ih, Nat.mul_add]
+  rw [hmul] at hs
+  have he : n*n*n*nsum error n = n*(n*n*nsum error n) := by ac_rfl
+  rw [he] at hs
+  exact Nat.le_of_mul_le_mul_left hs hn
+
+theorem nsum_mul (f : Nat → Nat) (k n : Nat) :
+    nsum (fun i => f i*k) n = nsum f n*k := by
+  induction n with
+  | zero => simp [nsum]
+  | succ n ih => simp [nsum, ih, Nat.add_mul]
+
+/-- Rational version: errors have a common denominator D within this partition,
+    and the fixed uniform coefficient is Knum/Kden. D may vary with refinement.
+    Hence this is not restricted to integer errors eventually becoming zero. -/
+theorem rational_uniform_partition_error (error : Nat → Nat)
+    (Knum Kden D n : Nat) (hk : 0 < Kden) (hd : 0 < D) (hn : 0 < n)
+    (hlocal : ∀ i, i < n → n*n*n*(error i*Kden) ≤ Knum*D) :
+    Fraction.le
+      ⟨(nsum error n : Int), (D : Int), Int.ofNat_lt.mpr hd⟩
+      ⟨(Knum : Int), (Kden*(n*n) : Nat),
+        Int.ofNat_lt.mpr (Nat.mul_pos hk (Nat.mul_pos hn hn))⟩ := by
+  have h := uniform_partition_error (fun i => error i*Kden) (Knum*D) n hn hlocal
+  rw [nsum_mul] at h
+  have he : n*n*(nsum error n*Kden) = nsum error n*(Kden*(n*n)) := by ac_rfl
+  rw [he] at h
+  unfold Fraction.le
+  dsimp
+  simpa only [Int.ofNat_mul] using (Int.ofNat_le.mpr h)
+
+/-- The same error sum with a nonuniform coefficient cannot in general obey
+    the proposed uniform budget. This boundary is executable without analysis. -/
+example : ¬ (2*2*nsum (fun _ => 1) 2 ≤ 1) := by decide
+
+/-- Sequential vanishing appropriate to a finite-sum refinement index. -/
+def SeqVanishes (error : Nat → Fraction) : Prop :=
+  ∀ epsilon, Fraction.positive epsilon →
+    ∃ N : Nat, ∀ n, N ≤ n → Fraction.lt (error n) epsilon
+
+/-- An explicit Archimedean argument for rational error budgets C/n.
+    This imports no analytic convergence theorem. -/
+theorem reciprocal_budget_vanishes (error : Nat → Fraction) (C : Nat)
+    (hbound : ∀ n, (hn : 0 < n) → Fraction.le (error n)
+      ⟨(C : Int), (n : Int), Int.ofNat_lt.mpr hn⟩) : SeqVanishes error := by
+  intro e he
+  refine ⟨C * e.den.natAbs + 1, ?_⟩
+  intro n hn
+  have hnpos : 0 < n := by omega
+  have hd : (e.den.natAbs : Int) = e.den := Int.natAbs_of_nonneg (Int.le_of_lt e.den_pos)
+  have hlarge : (C : Int) * e.den < (n : Int) := by
+    have hnat : C * e.den.natAbs < n := by omega
+    have hi := Int.ofNat_lt.mpr hnat
+    simpa only [Int.ofNat_mul, hd] using hi
+  have hen : 1 ≤ e.num := by unfold Fraction.positive at he; omega
+  have hm := Int.mul_le_mul_of_nonneg_right hen (Int.le_of_lt (Int.ofNat_lt.mpr hnpos))
+  have hbracket : Fraction.lt ⟨(C : Int), (n : Int), Int.ofNat_lt.mpr hnpos⟩ e := by
+    unfold Fraction.lt
+    dsimp
+    simp only [Int.one_mul] at hm
+    omega
+  exact Fraction.magnitudes.lt_of_le_lt (hbound n hnpos) hbracket
+
+end NewtonLimitDynamics.Contact
+\end{Verbatim}
+
 \noindent{\small\texttt{ModernLib/Diagnostic/ConstructedHarmonicPotential.lean}}{\small, 9 theorems, 265 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -17895,6 +11175,74 @@ theorem harmonic_leading_term_not_exact :
   decide
 
 end NewtonLimitDynamics.Diagnostic.DeflectionPotential
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Diagnostic/InverseCubeAreal.lean}}{\small, 3 theorems, 63 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+/-!
+Action diagnostic layer (research/action-arguments/Arg002).  Modern
+reconstruction over natural-number magnitudes of two uniform circles compared
+by Proposition IV Cor. 1 (force as squared velocity over radius, stated as a
+cross-multiplied proportion).  No historical proof uses these theorems.
+-/
+
+namespace NewtonLimitDynamics.Diagnostic.InverseCubeAreal
+
+/-- Cor. 1 as a proportion between two circles: `F₁ : F₂ = v₁²/R₁ : v₂²/R₂`. -/
+def corOneProportion (F1 F2 R1 R2 v1 v2 : Nat) : Prop :=
+  F1 * (v2 * v2) * R1 = F2 * (v1 * v1) * R2
+
+/-- Inverse-cube comparison of the two forces: `F₁R₁³ = F₂R₂³`. -/
+def inverseCube (F1 F2 R1 R2 : Nat) : Prop :=
+  F1 * (R1 * R1 * R1) = F2 * (R2 * R2 * R2)
+
+/-- Equal squared areal-velocity numerators `(R v)²`. -/
+def equalAreal (R1 R2 v1 v2 : Nat) : Prop :=
+  (R1 * v1) * (R1 * v1) = (R2 * v2) * (R2 * v2)
+
+/-- Under an inverse-cube comparison, circles related by Cor. 1 have the same
+    areal velocity. -/
+theorem inverseCube_equalAreal (F1 F2 R1 R2 v1 v2 : Nat) (hF : 0 < F2) (hR : 0 < R2)
+    (h1 : corOneProportion F1 F2 R1 R2 v1 v2) (h3 : inverseCube F1 F2 R1 R2) :
+    equalAreal R1 R2 v1 v2 := by
+  unfold corOneProportion at h1
+  unfold inverseCube at h3
+  unfold equalAreal
+  apply Nat.eq_of_mul_eq_mul_left (Nat.mul_pos hF hR)
+  calc F2 * R2 * ((R1 * v1) * (R1 * v1))
+      = (F2 * (v1 * v1) * R2) * (R1 * R1) := by ac_rfl
+    _ = (F1 * (v2 * v2) * R1) * (R1 * R1) := by rw [h1]
+    _ = (F1 * (R1 * R1 * R1)) * (v2 * v2) := by ac_rfl
+    _ = (F2 * (R2 * R2 * R2)) * (v2 * v2) := by rw [h3]
+    _ = F2 * R2 * ((R2 * v2) * (R2 * v2)) := by ac_rfl
+
+/-- Conversely, a common areal velocity with Cor. 1 forces the inverse-cube
+    comparison. -/
+theorem equalAreal_inverseCube (F1 F2 R1 R2 v1 v2 : Nat) (hv : 0 < v2)
+    (h1 : corOneProportion F1 F2 R1 R2 v1 v2) (hA : equalAreal R1 R2 v1 v2) :
+    inverseCube F1 F2 R1 R2 := by
+  unfold corOneProportion at h1
+  unfold equalAreal at hA
+  unfold inverseCube
+  apply Nat.eq_of_mul_eq_mul_left (Nat.mul_pos hv hv)
+  calc v2 * v2 * (F1 * (R1 * R1 * R1))
+      = (F1 * (v2 * v2) * R1) * (R1 * R1) := by ac_rfl
+    _ = (F2 * (v1 * v1) * R2) * (R1 * R1) := by rw [h1]
+    _ = F2 * R2 * ((R1 * v1) * (R1 * v1)) := by ac_rfl
+    _ = F2 * R2 * ((R2 * v2) * (R2 * v2)) := by rw [hA]
+    _ = v2 * v2 * (F2 * (R2 * R2 * R2)) := by ac_rfl
+
+/-- Contrast: under an inverse-square comparison (`F₁R₁² = F₂R₂²`, 1713
+    Cor. 6), radii 1 and 4 with speeds 2 and 1 satisfy Cor. 1 but have
+    unequal areal velocities 2 and 4. -/
+theorem inverseSquare_areal_varies :
+    corOneProportion 16 1 1 4 2 1 ∧ 16 * (1 * 1) = 1 * (4 * 4) ∧
+      ¬ equalAreal 1 4 2 1 := by
+  unfold corOneProportion equalAreal
+  decide
+
+end NewtonLimitDynamics.Diagnostic.InverseCubeAreal
 \end{Verbatim}
 
 \noindent{\small\texttt{ModernLib/Diagnostic/QuadraticEndpointPotential.lean}}{\small, 4 theorems, 68 lines}
@@ -23942,6 +17290,386 @@ theorem prefix_force_uniform_convergence (o : CentralOracle)
 end NewtonLimitDynamics.Polygon.CompletedForce
 \end{Verbatim}
 
+\noindent{\small\texttt{ModernLib/Polygon/Contact.lean}}{\small, 21 theorems, 240 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ClassicsLib.Euclid.FiniteLattice
+
+namespace NewtonLimitDynamics.Polygon
+
+/-- Data for one finite motion cell. `departure` and `arrival` are kept
+    separate: sharing an endpoint in space does not itself say how motion
+    passes through that endpoint. This is a modern diagnostic reconstruction
+    of the finite polygon stage, not a continuous trajectory. -/
+structure FiniteSegment (Point Velocity : Type) where
+  first : Point
+  last : Point
+  departure : Velocity
+  arrival : Velocity
+
+variable {Point Velocity Impulse : Type}
+
+/-- The two pieces meet at the same spatial point. -/
+def positionContact (left right : FiniteSegment Point Velocity) : Prop :=
+  left.last = right.first
+
+/-- A join with no velocity jump. -/
+def velocityContact (left right : FiniteSegment Point Velocity) : Prop :=
+  positionContact left right ∧ left.arrival = right.departure
+
+/-- A join whose velocity jump is accounted for by the displayed impulse. -/
+def impulseContact (advance : Velocity → Impulse → Velocity)
+    (left right : FiniteSegment Point Velocity) (j : Impulse) : Prop :=
+  positionContact left right ∧ right.departure = advance left.arrival j
+
+theorem velocityContact_position (left right : FiniteSegment Point Velocity)
+    (h : velocityContact left right) : positionContact left right :=
+  h.1
+
+theorem impulseContact_position (advance : Velocity → Impulse → Velocity)
+    (left right : FiniteSegment Point Velocity) (j : Impulse)
+    (h : impulseContact advance left right j) : positionContact left right :=
+  h.1
+
+/-- Two finite cells with separately recorded incoming and outgoing data at
+    their shared instant. -/
+structure TwoCellPath (Point Velocity : Type) where
+  firstPoint : Point
+  middlePoint : Point
+  lastPoint : Point
+  initialDeparture : Velocity
+  middleArrival : Velocity
+  middleDeparture : Velocity
+  finalArrival : Velocity
+
+def TwoCellPath.left (path : TwoCellPath Point Velocity) : FiniteSegment Point Velocity :=
+  ⟨path.firstPoint, path.middlePoint, path.initialDeparture, path.middleArrival⟩
+
+def TwoCellPath.right (path : TwoCellPath Point Velocity) : FiniteSegment Point Velocity :=
+  ⟨path.middlePoint, path.lastPoint, path.middleDeparture, path.finalArrival⟩
+
+/-- Assemble two cells only after their spatial endpoints have been shown to
+    agree. The construction retains, rather than erases, the possible velocity
+    jump at the shared instant. -/
+def glue (left right : FiniteSegment Point Velocity)
+    (_h : positionContact left right) : TwoCellPath Point Velocity :=
+  ⟨left.first, right.first, right.last,
+    left.departure, left.arrival, right.departure, right.arrival⟩
+
+theorem glue_first (left right : FiniteSegment Point Velocity)
+    (h : positionContact left right) : (glue left right h).firstPoint = left.first :=
+  rfl
+
+theorem glue_last (left right : FiniteSegment Point Velocity)
+    (h : positionContact left right) : (glue left right h).lastPoint = right.last :=
+  rfl
+
+theorem glue_middle_from_left (left right : FiniteSegment Point Velocity)
+    (h : positionContact left right) : (glue left right h).middlePoint = left.last :=
+  h.symm
+
+theorem glue_middle_from_right (left right : FiniteSegment Point Velocity)
+    (h : positionContact left right) : (glue left right h).middlePoint = right.first :=
+  rfl
+
+theorem glued_position_contact (left right : FiniteSegment Point Velocity)
+    (h : positionContact left right) :
+    positionContact (glue left right h).left (glue left right h).right :=
+  rfl
+
+/-- A finite sample records point values at instants, but leaves arrival and
+    departure data independent. It therefore represents no claim that a
+    continuous trajectory exists. -/
+structure SampledPath (Point Velocity : Type) where
+  point : Nat → Point
+  arriving : Nat → Velocity
+  departing : Nat → Velocity
+
+def SampledPath.cell (path : SampledPath Point Velocity) (i : Nat) :
+    FiniteSegment Point Velocity :=
+  ⟨path.point i, path.point (i+1), path.departing i, path.arriving (i+1)⟩
+
+/-- Restriction is re-indexing of already supplied samples; it constructs no
+    new point at an intermediate time. -/
+def SampledPath.restrict (path : SampledPath Point Velocity) (offset : Nat) :
+    SampledPath Point Velocity :=
+  ⟨fun i => path.point (offset+i), fun i => path.arriving (offset+i),
+    fun i => path.departing (offset+i)⟩
+
+theorem restriction_cell (path : SampledPath Point Velocity) (offset i : Nat) :
+    (path.restrict offset).cell i = path.cell (offset+i) := by
+  simp [SampledPath.restrict, SampledPath.cell, Nat.add_assoc]
+
+theorem adjacent_position_contact (path : SampledPath Point Velocity) (i : Nat) :
+    positionContact (path.cell i) (path.cell (i+1)) :=
+  rfl
+
+theorem adjacent_velocityContact_iff (path : SampledPath Point Velocity) (i : Nat) :
+    velocityContact (path.cell i) (path.cell (i+1)) ↔
+      path.arriving (i+1) = path.departing (i+1) := by
+  simp [velocityContact, positionContact, SampledPath.cell]
+
+theorem adjacent_impulseContact_iff (advance : Velocity → Impulse → Velocity)
+    (path : SampledPath Point Velocity) (i : Nat) (j : Impulse) :
+    impulseContact advance (path.cell i) (path.cell (i+1)) j ↔
+      path.departing (i+1) = advance (path.arriving (i+1)) j := by
+  simp [impulseContact, positionContact, SampledPath.cell]
+
+/-- Restarting the finite construction from its kth constructed pair, with the
+    shifted impulse sequence, gives the original construction after k+n cells.
+    This is a theorem about the existing recursive polygonal motion only. -/
+theorem motion_restart (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (k n : Nat) :
+    motion g (motion g p q impulse k).1 (motion g p q impulse k).2
+      (fun i => impulse (k+i)) n = motion g p q impulse (k+n) := by
+  induction n with
+  | zero => simp [motion]
+  | succ n ih =>
+    rw [show k + (n+1) = (k+n)+1 by omega]
+    simp only [motion]
+    rw [ih]
+
+/-- Consecutive pairs created by `motion` share their middle vertex. -/
+theorem motion_adjacent_pair_position_contact
+    (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (n : Nat) :
+    (motion g p q impulse n).2 = (motion g p q impulse (n+1)).1 :=
+  rfl
+
+/-- Discrete velocity for unit-time lattice cells. -/
+def latticeVelocity (p q : LatticePoint) : LatticePoint :=
+  (q.1-p.1, q.2-p.2)
+
+def latticeAdd (p q : LatticePoint) : LatticePoint :=
+  (p.1+q.1, p.2+q.2)
+
+def latticeScale (j : Int) (q : LatticePoint) : LatticePoint :=
+  (j*q.1, j*q.2)
+
+/-- The actual lattice step changes discrete velocity by the radial impulse.
+    Unit time is built into the use of adjacent vertex differences. -/
+theorem lattice_step_velocity_jump (p q : LatticePoint) (j : Int) :
+    latticeVelocity q (step lattice p q j) =
+      latticeAdd (latticeVelocity p q) (latticeScale j q) := by
+  apply Prod.ext <;>
+    simp [latticeVelocity, latticeAdd, latticeScale, step, lattice, kick, extend] <;>
+    omega
+
+theorem motion_lattice_velocity_jump (p q : LatticePoint)
+    (impulse : Nat → Int) (n : Nat) :
+    latticeVelocity (motion lattice p q impulse n).2
+      (motion lattice p q impulse (n+1)).2 =
+      latticeAdd
+        (latticeVelocity (motion lattice p q impulse n).1
+          (motion lattice p q impulse n).2)
+        (latticeScale (impulse n) (motion lattice p q impulse n).2) := by
+  change latticeVelocity (motion lattice p q impulse n).2
+      (step lattice (motion lattice p q impulse n).1
+        (motion lattice p q impulse n).2 (impulse n)) = _
+  exact lattice_step_velocity_jump _ _ _
+
+/-- The nth actual lattice motion cell arrives and departs with its own
+    finite-difference velocity. The following cell may have a different one. -/
+def latticeMotionCell (p q : LatticePoint) (impulse : Nat → Int) (n : Nat) :
+    FiniteSegment LatticePoint LatticePoint :=
+  let cell := motion lattice p q impulse n
+  ⟨cell.1, cell.2, latticeVelocity cell.1 cell.2, latticeVelocity cell.1 cell.2⟩
+
+theorem latticeMotionCell_adjacent_position_contact (p q : LatticePoint)
+    (impulse : Nat → Int) (n : Nat) :
+    positionContact (latticeMotionCell p q impulse n)
+      (latticeMotionCell p q impulse (n+1)) :=
+  motion_adjacent_pair_position_contact lattice p q impulse n
+
+theorem latticeMotionCell_impulseContact (p q : LatticePoint)
+    (impulse : Nat → Int) (n : Nat) :
+    impulseContact latticeAdd (latticeMotionCell p q impulse n)
+      (latticeMotionCell p q impulse (n+1))
+      (latticeScale (impulse n) (motion lattice p q impulse n).2) := by
+  constructor
+  · exact latticeMotionCell_adjacent_position_contact p q impulse n
+  · change latticeVelocity (motion lattice p q impulse (n+1)).1
+      (motion lattice p q impulse (n+1)).2 = _
+    rw [← motion_adjacent_pair_position_contact lattice p q impulse n]
+    exact motion_lattice_velocity_jump p q impulse n
+
+theorem latticeMotionCell_zero_impulse_velocityContact (p q : LatticePoint)
+    (impulse : Nat → Int) (n : Nat) (hzero : impulse n = 0) :
+    velocityContact (latticeMotionCell p q impulse n)
+      (latticeMotionCell p q impulse (n+1)) := by
+  constructor
+  · exact latticeMotionCell_adjacent_position_contact p q impulse n
+  · change latticeVelocity (motion lattice p q impulse n).1
+      (motion lattice p q impulse n).2 =
+        latticeVelocity (motion lattice p q impulse (n+1)).1
+          (motion lattice p q impulse (n+1)).2
+    rw [← motion_adjacent_pair_position_contact lattice p q impulse n]
+    rw [motion_lattice_velocity_jump, hzero]
+    simp [latticeAdd, latticeScale]
+
+/-- The two displayed inward central-impulse (discrete-force) histories start
+    with the same vertices. Every polygonal swept-area sum agrees, although
+    their first constructed next vertex differs. Thus equal areas do not
+    identify a polygonal path. The histories are different, so this is not
+    nonuniqueness for a fixed specified force law. -/
+def inwardOneRadialImpulse : Nat → Int := fun _ => -1
+def inwardTwoRadialImpulse : Nat → Int := fun _ => -2
+
+theorem inward_impulses_same_swept (n : Nat) :
+    swept lattice (1, 0) (1, 1) inwardOneRadialImpulse n =
+      swept lattice (1, 0) (1, 1) inwardTwoRadialImpulse n := by
+  rw [swept_eq, swept_eq]
+
+theorem inward_impulses_distinct_next_vertex :
+    (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 ≠
+      (motion lattice (1, 0) (1, 1) inwardTwoRadialImpulse 1).2 := by
+  decide
+
+theorem equal_swept_area_does_not_identify_next_vertex :
+    (∀ n, swept lattice (1, 0) (1, 1) inwardOneRadialImpulse n =
+      swept lattice (1, 0) (1, 1) inwardTwoRadialImpulse n) ∧
+    (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 ≠
+      (motion lattice (1, 0) (1, 1) inwardTwoRadialImpulse 1).2 :=
+  ⟨inward_impulses_same_swept, inward_impulses_distinct_next_vertex⟩
+
+end NewtonLimitDynamics.Polygon
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/Enclosure.lean}}{\small, 7 theorems, 82 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ClassicsLib.Euclid.FiniteLattice
+import BarrowLib.Common.RationalMagnitudes
+import ModernLib.Foundation.Polygon.RationalEnclosure
+
+namespace NewtonLimitDynamics.Polygon
+
+theorem isum_mono (f g : Nat → Int) (n : Nat) (h : ∀ i, i < n → f i ≤ g i) :
+    isum f n ≤ isum g n := by
+  induction n with
+  | zero => exact Int.le_refl _
+  | succ n ih =>
+    simp only [isum]
+    exact Int.add_le_add (ih (fun i hi => h i (by omega))) (h n (by omega))
+
+theorem isum_mul (f : Nat → Int) (c : Int) (n : Nat) :
+    isum (fun i => c * f i) n = c * isum f n := by
+  induction n with
+  | zero => simp [isum]
+  | succ n ih => simp [isum, ih, Int.mul_add]
+
+theorem telescoping (height : Nat → Int) (n : Nat) :
+    isum (fun i => height (i+1) - height i) n = height n - height 0 := by
+  induction n with
+  | zero => simp [isum]
+  | succ n ih => simp only [isum, ih]; omega
+
+/-- Lemmas II/III's finite rectangle estimate, for a monotone patch. Widths
+    may be unequal; every width must obey the SAME maximum. Multiplication
+    measures rectangle area. A curve enclosed by these rectangles is an
+    additional geometric hypothesis, not supplied by this arithmetic result. -/
+theorem rectangle_gap_bound (width height : Nat → Int) (maxWidth : Int) (n : Nat)
+    (hw : ∀ i, i < n → width i ≤ maxWidth)
+    (hh : ∀ i, i < n → height i ≤ height (i+1)) :
+    isum (fun i => width i * (height (i+1)-height i)) n ≤
+      maxWidth * (height n - height 0) := by
+  have h := isum_mono (fun i => width i * (height (i+1)-height i))
+    (fun i => maxWidth * (height (i+1)-height i)) n (by
+      intro i hi
+      exact Int.mul_le_mul_of_nonneg_right (hw i hi) (by have := hh i hi; omega))
+  rw [isum_mul, telescoping] at h
+  exact h
+
+/-- Refinement indexed by positive rational mesh. The budget represents the
+    maximum-width times total-height estimate. Making that budget small must
+    be justified for the selected curve; it does not assert a trajectory. -/
+def Vanishes {A : Type} [RationalEnclosure.Magnitude A] (gap : Fraction → A) : Prop :=
+  ∀ epsilon, Fraction.positive epsilon →
+    Near Fraction.magnitudes (fun mesh => RationalEnclosure.Magnitude.small (gap mesh) epsilon)
+
+theorem enclosed_gap_vanishes {A : Type} [RationalEnclosure.Magnitude A]
+    (gap : Fraction → A) (budget : Fraction → Fraction)
+    (hbudget : Vanishes budget)
+    (henclose : Near Fraction.magnitudes (fun mesh =>
+      RationalEnclosure.Magnitude.bounded (gap mesh) (budget mesh))) :
+    Vanishes gap := by
+  intro epsilon hepsilon
+  obtain ⟨d, hd, h⟩ := near_and Fraction.magnitudes _ _ henclose (hbudget epsilon hepsilon)
+  exact ⟨d, hd, fun mesh hm hmd =>
+    RationalEnclosure.Magnitude.small_of_bound _ _ _ (h mesh hm hmd).1 (h mesh hm hmd).2⟩
+
+/-- An explicit unconditional rational budget instance, including zero
+coefficient. This is the squeeze used by constructed geometric content. -/
+theorem linear_budget_vanishes (A : Fraction) (hA : 0 ≤ A.num) :
+    Vanishes (fun mesh => Fraction.mul mesh A) := by
+  intro eps heps
+  refine ⟨Polygon.HarmonicTimeRealization.factorDelta A eps hA,
+    Polygon.HarmonicTimeRealization.factorDelta_positive A eps hA heps,?_⟩
+  intro mesh hm hmd
+  exact Polygon.HarmonicTimeRealization.factor_control A eps mesh hA (Int.le_of_lt hm) hmd
+
+/-- Conditional transfer of polygon area ratios to enclosed sector area ratios.
+    Lower and upper limits are geometric premises. No trajectory existence or
+    identification with continuous force follows from this type. -/
+theorem sector_ratio_reconstruction (sector inner outer : Fraction → Fraction)
+    (c : Fraction) (hin : Ultimate Fraction.magnitudes inner c)
+    (hout : Ultimate Fraction.magnitudes outer c)
+    (henclose : Near Fraction.magnitudes (fun mesh =>
+      Fraction.le (inner mesh) (sector mesh) ∧ Fraction.le (sector mesh) (outer mesh))) :
+    Ultimate Fraction.magnitudes sector c :=
+  enclosure_reconstruction Fraction.magnitudes sector inner outer c hin hout henclose
+
+end NewtonLimitDynamics.Polygon
+\end{Verbatim}
+
+\noindent{\small\texttt{ClassicsLib/Euclid/FiniteLattice.lean}}{\small, 4 theorems, 43 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.Finite
+import ClassicsLib.Euclid.PropositionI37
+import ClassicsLib.Euclid.PropositionI38
+
+namespace NewtonLimitDynamics.Polygon
+
+def lattice : EuclideanConstruction LatticePoint Int :=
+  ⟨det, extend, kick, extension_identity, parallel_identity⟩
+
+/-- Checked orientation control: signed and unsigned sums agree here. -/
+theorem positive_orientation_unsigned_example :
+    swept lattice (1, 0) (1, 1) (fun _ => 0) 3 = 3 ∧
+      unsignedBlock lattice (1, 0) (1, 1) (fun _ => 0) 0 3 = 3 := by
+  decide
+
+/-- Reversing orientation preserves unsigned magnitude, not the signed sum. -/
+theorem negative_orientation_unsigned_example :
+    swept lattice (1, 0) (1, -1) (fun _ => 0) 3 = -3 ∧
+      unsignedBlock lattice (1, 0) (1, -1) (fun _ => 0) 0 3 = 3 ∧
+      swept lattice (1, 0) (1, -1) (fun _ => 0) 3 ≠
+        (unsignedBlock lattice (1, 0) (1, -1) (fun _ => 0) 0 3 : Int) := by
+  decide
+
+/-- Radial degeneracy, rest, and empty blocks need no area division. -/
+theorem degenerate_unsigned_examples :
+    unsignedBlock lattice (1, 0) (2, 0) (fun _ => -1) 2 3 = 0 ∧
+      unsignedBlock lattice (1, 0) (1, 0) (fun _ => 0) 2 3 = 0 ∧
+      unsignedBlock lattice (1, 0) (1, 1) (fun _ => 0) 4 0 = 0 := by
+  decide
+
+/-- Even inward radial impulses can revisit triangles. The unsigned cell sum
+    counts repeated coverage and therefore cannot identify a sector union. -/
+theorem repeated_triangle_coverage_example :
+    motion lattice (1, 0) (0, 1) (fun _ => -2) 4 = ((1, 0), (0, 1)) ∧
+      unsignedBlock lattice (1, 0) (0, 1) (fun _ => -2) 0 4 = 4 ∧
+      unsignedBlock lattice (1, 0) (0, 1) (fun _ => -2) 0 8 = 8 := by
+  decide
+
+/-- Zero force is permitted; radial/zero-area configurations need no division. -/
+example : swept lattice (1,0) (1,1) (fun _ => 0) 3 = 3 := by decide
+example : swept lattice (1,0) (2,0) (fun _ => -1) 3 = 0 := by decide
+
+end NewtonLimitDynamics.Polygon
+\end{Verbatim}
+
 \noindent{\small\texttt{ModernLib/Polygon/ForceClasses.lean}}{\small, 23 theorems, 397 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -24505,6 +18233,664 @@ theorem dyadic_acceleration_uniform_identification (o : CentralOracle)
     (bracketing_acceleration_secant_bound b o E0 T tau L B s hE d hT m)
 
 end NewtonLimitDynamics.Polygon.GeneralForceAccelerationSecants
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/GeneralForceArea.lean}}{\small, 30 theorems, 653 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.GeneralForceSecants
+import ModernLib.Polygon.GeneralForcePathContent
+import ModernLib.Foundation.Polygon.PairingValues
+import ModernLib.Foundation.Polygon.FanValues
+import ModernLib.Foundation.Polygon.GeometricApproximation
+import ModernLib.Foundation.Polygon.SweptArea
+
+/-! Swept area of the actual constructed local central-force curve.
+The model is planar by definition. All regularity, finite-force and calibrated
+window assumptions remain explicit modern reconstruction premises. -/
+
+namespace NewtonLimitDynamics.Polygon.GeneralForceArea
+open NewtonLimitDynamics
+open TimeSubdivision PointBounds ForceClasses HarmonicDyadic HarmonicBinaryPrefix
+open CauchyValues BinaryTime PositionValues SecantValues PairingValues DyadicNodes HarmonicTimeRealization SweptArea
+open GeneralForceEndpoint GeneralForcePrefix GeneralForceTime GeneralForceSecants
+
+theorem count_areal_product (o : CentralOracle) (E0 T : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num) (j n : Nat) :
+    Fraction.equiv (CentralSchedule.momentum (countState o E0 T s hE j n))
+      (CentralSchedule.momentum s) := by
+  rw [GeneralForcePrefix.countState,run_eq_schedule]
+  exact CentralSchedule.schedule_momentum _ (sample_central o _) _ s
+
+/-- Supporting differential content. This is not the swept-area theorem:
+the determinant of the constructed position and its identified velocity is
+constant because every actual finite prefix has that determinant. -/
+theorem areal_product_value (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime T d.time_nonnegative) :
+    pairingValue detForm (gammaValue o E0 T tau L B s hE d t)
+      (velocityValue (gammaValue o E0 T tau L B s hE d t)) =
+      embed (scalarState (CentralSchedule.momentum s)) := by
+  induction t using Quotient.inductionOn with
+  | _ b =>
+    apply Quotient.sound
+    apply nameEquiv_of_levelwise_stateEquiv
+    intro j
+    change stateEquiv (scalarState (CentralSchedule.momentum (prefixState b o E0 T s hE j)))
+      (scalarState (CentralSchedule.momentum s))
+    exact ⟨⟨count_areal_product o E0 T s hE j (ticks b j),Fraction.equiv_refl _⟩,
+      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
+
+/-- A determinant triangle uses two actual curve-node approximants. The
+restarted finite drift remainder gives its quadratic error, uniformly in the
+approximant index. It is not a triangle of an assumed trajectory. -/
+theorem node_triangle_bound (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (m k j : Nat) (hk : k+1≤blocks m) :
+    Fraction.le
+      (HarmonicTimeComparison.durationDifference
+        (Fraction.mul (duration T m) (CentralSchedule.momentum s))
+        (TimeSubdivision.det ((nodeName o E0 T tau L B s hE d m k).approx j).1
+          ((nodeName o E0 T tau L B s hE d m (k+1)).approx j).1)).abs
+      (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)) := by
+  rw [node_approx o E0 T tau L B s hE d m k (by omega) j,
+    node_approx o E0 T tau L B s hE d m (k+1) hk j]
+  let a := field o E0 hE (m+j)
+  let h := duration T (m+j)
+  let n := k*blocks j
+  let q := GeneralForcePrefix.countState o E0 T s hE (m+j) n
+  let u := BoundedIteration.time h (blocks j)
+  have hn : n+blocks j ≤ blocks (m+j) := by
+    rw [blocks_add]
+    have hm := Nat.mul_le_mul_right (blocks j) hk
+    simpa only [n,Nat.add_mul,Nat.one_mul] using hm
+  have hb := BoundedIteration.boundedSamples_restart a h s B (blocks (m+j)) n (blocks j)
+    hn (d.actual_samples (m+j))
+  have hr := KinematicEstimates.position_remainder a h q B d.time_nonnegative d.bound_nonnegative (blocks j) hb
+  have hp : Fraction.le (pointNorm q.1) d.outer_radius :=
+    (d.toConditions.run_band (m+j) h d.time_nonnegative n
+      (count_time_le T d.time_nonnegative (m+j) n (by omega))).2
+  have he : Fraction.equiv u (duration T m) := grid_time T m j
+  have hm := count_areal_product o E0 T s hE (m+j) n
+  have ha := PolygonFanArea.det_inertial_remainder_bound q.1 q.2
+    (BoundedIteration.run a h q (blocks j)).1 u d.outer_radius
+    (Fraction.mul (Fraction.mul u u) B) hp hr
+  have hleft := HarmonicTimeComparison.difference_congr
+    (Fraction.mul_equiv (Fraction.equiv_symm he) (Fraction.equiv_symm hm))
+    (Fraction.equiv_refl (TimeSubdivision.det q.1 (BoundedIteration.run a h q (blocks j)).1))
+  have hright := Fraction.mul_equiv (Fraction.equiv_refl d.outer_radius)
+    (Fraction.mul_equiv (Fraction.mul_equiv he he) (Fraction.equiv_refl B))
+  have hbound := Fraction.le_equiv_right
+    (Fraction.le_equiv_left (Fraction.abs_equiv hleft) ha) hright
+  change Fraction.le (HarmonicTimeComparison.durationDifference _
+    (TimeSubdivision.det (BoundedIteration.run a h s n).1
+      (BoundedIteration.run a h (BoundedIteration.run a h s n) (blocks j)).1)).abs _ at hbound
+  rw [← BoundedIteration.run_add] at hbound
+  have hecount : n+blocks j=(k+1)*blocks j := by simp only [n,Nat.add_mul,Nat.one_mul]
+  rw [hecount] at hbound
+  exact hbound
+
+def areaMomentum (unsigned : Bool) (s : Point × Point) : Fraction :=
+  if unsigned then (CentralSchedule.momentum s).abs else CentralSchedule.momentum s
+
+noncomputable def curveFanName (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) : EndpointCauchyName :=
+  FanValues.fanName unsigned (nodeName o E0 T tau L B s hE d m) n
+
+/-- A doubled triangle fan built from actual points of the constructed curve.
+The right boundary is included when n=2^m. -/
+noncomputable def curveFanValue (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) : Value :=
+  FanValues.fanValue unsigned
+    (fun k => gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)) n
+
+theorem curveFanValue_realize (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) :
+    curveFanValue unsigned o E0 T tau L B s hE d m n =
+      realize (curveFanName unsigned o E0 T tau L B s hE d m n) := by
+  unfold curveFanValue
+  rw [← funext (node_value o E0 T tau L B s hE d m)]
+  exact FanValues.fanValue_realize unsigned _ n
+
+/-- Unsigned and oriented fans share the same cell-error proof. Absolute
+values are taken cell by cell, so opposite lobes cannot cancel in the former. -/
+theorem fan_approximant_bound (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n j : Nat) (hn : n≤blocks m) :
+    Fraction.le
+      (distance ((curveFanName unsigned o E0 T tau L B s hE d m n).approx j)
+        (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s))))
+      (Fraction.mul (Fraction.ofInt (n : Int))
+        (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B))) := by
+  rw [curveFanName,FanValues.fanName_approx]
+  apply Fraction.le_equiv_left (scalarState_distance _ _)
+  let c := Fraction.mul (duration T m) (areaMomentum unsigned s)
+  let p := fun i => ((nodeName o E0 T tau L B s hE d m i).approx j).1
+  let terms := fun i => if unsigned then (TimeSubdivision.det (p i) (p (i+1))).abs
+    else TimeSubdivision.det (p i) (p (i+1))
+  have hterms : ∀ i, i<n → Fraction.le (PolygonFanArea.sub (terms i) c).abs
+      (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)) := by
+    intro i hi
+    have hb := node_triangle_bound o E0 T tau L B s hE d m i j (by omega)
+    cases unsigned with
+    | false => exact hb
+    | true =>
+      have he : Fraction.equiv
+          (Fraction.mul (duration T m) (CentralSchedule.momentum s)).abs c :=
+        Fraction.equiv_trans (Fraction.abs_mul _ _)
+          (Fraction.mul_equiv (Fraction.abs_of_nonnegative _ d.time_nonnegative) (Fraction.equiv_refl _))
+      exact Fraction.le_equiv_left
+        (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr (Fraction.equiv_symm he) (Fraction.equiv_refl _)))
+        (Fraction.magnitudes.le_trans (PolygonFanArea.duration_abs_reverse _ _) hb)
+  have hs := PolygonFanArea.sum_error terms (fun _ => c) _ n hterms
+  have hc : Fraction.equiv (PolygonFanArea.sum (fun _ => c) n)
+      (Fraction.mul (countTime T m n) (areaMomentum unsigned s)) :=
+    Fraction.equiv_trans (PolygonFanArea.sum_constant c n)
+      (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+  have hf : FanValues.finiteFan unsigned p n = PolygonFanArea.sum terms n := by
+    cases unsigned <;> rfl
+  rw [hf]
+  exact Fraction.le_equiv_left
+    (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr (Fraction.equiv_symm hc) (Fraction.equiv_refl _))) hs
+
+noncomputable def curveIntervalName (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m : Nat) : EndpointCauchyName :=
+  FanValues.intervalName true (nodeName o E0 T tau L B s hE d m)
+    (intervalStart b c m) (intervalCount b c m)
+
+noncomputable def curveIntervalValue (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m : Nat) : Value :=
+  FanValues.intervalValue true
+    (fun k => gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
+    (intervalStart b c m) (intervalCount b c m)
+
+theorem curveIntervalValue_realize (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m : Nat) :
+    curveIntervalValue o E0 T tau L B s hE d b c m =
+      realize (curveIntervalName o E0 T tau L B s hE d b c m) := by
+  unfold curveIntervalValue curveIntervalName
+  rw [← funext (node_value o E0 T tau L B s hE d m)]
+  exact FanValues.intervalValue_realize true _ _ _
+
+theorem interval_fan_approximant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m j : Nat) :
+    Fraction.le
+      (distance ((curveIntervalName o E0 T tau L B s hE d b c m).approx j)
+        (scalarState (Fraction.mul (countTime T m (intervalCount b c m))
+          (areaMomentum true s))))
+      (Fraction.mul (Fraction.ofInt (intervalCount b c m : Int))
+        (Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B))) := by
+  rw [curveIntervalName,FanValues.intervalName_approx]
+  apply Fraction.le_equiv_left (scalarState_distance _ _)
+  let lo := intervalStart b c m
+  let n := intervalCount b c m
+  let e := Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)
+  let c₀ := Fraction.mul (duration T m) (areaMomentum true s)
+  let p := fun i => ((nodeName o E0 T tau L B s hE d m i).approx j).1
+  let terms := fun i => (TimeSubdivision.det (p i) (p (i+1))).abs
+  have hterms : ∀ i, i<n → Fraction.le (PolygonFanArea.sub (terms (lo+i)) c₀).abs e := by
+    intro i hi
+    have hb := node_triangle_bound o E0 T tau L B s hE d m (lo+i) j
+      (by have he := interval_end_le_blocks b c m; dsimp [lo,n] at *; omega)
+    have he : Fraction.equiv
+        (Fraction.mul (duration T m) (CentralSchedule.momentum s)).abs c₀ :=
+      Fraction.equiv_trans (Fraction.abs_mul _ _)
+        (Fraction.mul_equiv (Fraction.abs_of_nonnegative _ d.time_nonnegative) (Fraction.equiv_refl _))
+    exact Fraction.le_equiv_left
+      (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr (Fraction.equiv_symm he) (Fraction.equiv_refl _)))
+      (Fraction.magnitudes.le_trans (PolygonFanArea.duration_abs_reverse _ _) hb)
+  have hs := PolygonFanArea.intervalSum_error terms (fun _ => c₀) lo n e hterms
+  have hc : Fraction.equiv (PolygonFanArea.intervalSum (fun _ => c₀) lo n)
+      (Fraction.mul (countTime T m n) (areaMomentum true s)) :=
+    Fraction.equiv_trans (PolygonFanArea.sum_constant c₀ n)
+      (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+  change Fraction.le (HarmonicTimeComparison.durationDifference _ _).abs _
+  exact Fraction.le_equiv_left
+    (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
+      (Fraction.equiv_symm hc) (Fraction.equiv_refl _))) hs
+
+def intervalReferenceName (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
+    (s : Point × Point) : EndpointCauchyName :=
+  secantName (areaMomentum true s).half (intervalElapsedName b c T hT)
+    (constantName FanValues.zeroState)
+
+theorem interval_reference_approx (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
+    (s : Point × Point) (m : Nat) :
+    stateEquiv ((intervalReferenceName b c T hT s).approx m)
+      (FanValues.halfState (scalarState
+        (Fraction.mul (countTime T m (intervalCount b c m)) (areaMomentum true s)))) := by
+  have he := interval_elapsed_approx b c T hT m
+  have hs : stateEquiv ((intervalReferenceName b c T hT s).approx m)
+      (secantState (areaMomentum true s).half
+        (scalarState (countTime T m (intervalCount b c m))) FanValues.zeroState) := by
+    exact ⟨pointScale_congr _
+      (pointSub_congr he.1 ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩),
+      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
+  have hp := FanValues.half_scalar_product (areaMomentum true s)
+    (countTime T m (intervalCount b c m))
+  exact ⟨pointEquiv_trans hs.1 (pointEquiv_symm hp.1),
+    pointEquiv_trans hs.2 (pointEquiv_symm hp.2)⟩
+
+theorem outer_radius_nonnegative (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : 0 ≤ d.outer_radius.num :=
+  Fraction.nonnegative_of_le (Fraction.nonnegative_add _ _ (pointNorm_nonnegative _)
+    (Fraction.nonnegative_mul _ _ d.time_nonnegative
+      (velocityCap_nonnegative T B s d.time_nonnegative d.bound_nonnegative))) d.frame.outer_bound
+
+def fanErrorCoefficient (T B R : Fraction) : Fraction :=
+  Fraction.mul R (Fraction.mul (Fraction.mul T T) B)
+
+theorem fanErrorCoefficient_nonnegative (T B R : Fraction)
+    (hT : 0 ≤ T.num) (hB : 0 ≤ B.num) (hR : 0 ≤ R.num) :
+    0 ≤ (fanErrorCoefficient T B R).num :=
+  Fraction.nonnegative_mul _ _ hR
+    (Fraction.nonnegative_mul _ _ (Fraction.nonnegative_mul _ _ hT hT) hB)
+
+/-- Uniform geometric decay for a fan on actual curve nodes. No curve-area
+law or convergence premise is supplied. The sum has at most 2^m cells. -/
+theorem fan_approximant_geometric (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n j : Nat) (hn : n≤blocks m) :
+    Fraction.le
+      (distance ((curveFanName unsigned o E0 T tau L B s hE d m n).approx j)
+        (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s))))
+      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
+  have hr := outer_radius_nonnegative o E0 T tau L B s hE d
+  let e := Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)
+  have he : 0 ≤ e.num := fanErrorCoefficient_nonnegative (duration T m) B d.outer_radius
+    d.time_nonnegative d.bound_nonnegative hr
+  have hcount : Fraction.le (Fraction.ofInt (n : Int)) (Fraction.ofInt (blocks m : Int)) := by
+    simpa only [Fraction.le,Fraction.ofInt,Int.mul_one] using Int.ofNat_le.mpr hn
+  have hb := Fraction.magnitudes.le_trans
+    (fan_approximant_bound unsigned o E0 T tau L B s hE d m n j hn)
+    (Fraction.mul_le_mul_nonnegative hcount e he)
+  apply Fraction.le_equiv_right hb
+  simp only [e,fanErrorCoefficient,duration,blocks,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
+  ac_nf
+
+theorem curve_fan_polygon_bound (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) (hn : n≤blocks m) :
+    Within (curveFanValue unsigned o E0 T tau L B s hE d m n)
+      (embed (scalarState (Fraction.mul (countTime T m n) (areaMomentum unsigned s))))
+      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
+  rw [curveFanValue_realize]
+  exact nameBound_of_eventual_le _ _ _ 0
+    (fun j _ => fan_approximant_geometric unsigned o E0 T tau L B s hE d m n j hn)
+
+def areaReferenceName (unsigned : Bool) (b : Nat → Bool) (T : Fraction)
+    (hT : 0 ≤ T.num) (s : Point × Point) : EndpointCauchyName :=
+  secantName (areaMomentum unsigned s).half (BinaryTime.timeName b T hT)
+    (constantName FanValues.zeroState)
+
+/-- The fan's completed half-area is close to its level-m polygon area.
+This estimate uses genuine curve-node fan approximants for every j. -/
+theorem area_fan_reference_bound (unsigned : Bool) (b : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m j : Nat) :
+    Fraction.le
+      (distance (FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx j))
+        ((areaReferenceName unsigned b T d.time_nonnegative s).approx m))
+      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
+  have hb := Fraction.magnitudes.le_trans (FanValues.half_nonexpansive _ _)
+    (fan_approximant_geometric unsigned o E0 T tau L B s hE d m (ticks b m) j (ticks_le_blocks b m))
+  have hp := FanValues.half_scalar_product (areaMomentum unsigned s) (timeApprox b T m)
+  have hd := stateNorm_equiv (stateSub_congr
+    (show stateEquiv
+      (FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx j))
+      (FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx j))
+      from ⟨⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩,⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
+    ⟨pointEquiv_symm hp.1,pointEquiv_symm hp.2⟩)
+  exact Fraction.le_equiv_left hd hb
+
+theorem interval_fan_approximant_geometric (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (b c : Nat → Bool) (m j : Nat) :
+    Fraction.le
+      (distance ((curveIntervalName o E0 T tau L B s hE d b c m).approx j)
+        (scalarState (Fraction.mul (countTime T m (intervalCount b c m))
+          (areaMomentum true s))))
+      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
+  have hr := outer_radius_nonnegative o E0 T tau L B s hE d
+  let e := Fraction.mul d.outer_radius (Fraction.mul (Fraction.mul (duration T m) (duration T m)) B)
+  have he : 0 ≤ e.num := fanErrorCoefficient_nonnegative (duration T m) B d.outer_radius
+    d.time_nonnegative d.bound_nonnegative hr
+  have hn : intervalCount b c m ≤ blocks m := by
+    have h := interval_end_le_blocks b c m
+    omega
+  have hcount : Fraction.le (Fraction.ofInt (intervalCount b c m : Int))
+      (Fraction.ofInt (blocks m : Int)) := by
+    simpa only [Fraction.le,Fraction.ofInt,Int.mul_one] using Int.ofNat_le.mpr hn
+  have hb := Fraction.magnitudes.le_trans
+    (interval_fan_approximant_bound o E0 T tau L B s hE d b c m j)
+    (Fraction.mul_le_mul_nonnegative hcount e he)
+  apply Fraction.le_equiv_right hb
+  simp only [e,fanErrorCoefficient,duration,blocks,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
+  ac_nf
+
+theorem interval_fan_reference_bound (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m j : Nat) :
+    Fraction.le
+      (distance (FanValues.halfState
+        ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
+        ((intervalReferenceName b c T d.time_nonnegative s).approx m))
+      (duration (fanErrorCoefficient T B d.outer_radius) m) := by
+  have hb := Fraction.magnitudes.le_trans (FanValues.half_nonexpansive _ _)
+    (interval_fan_approximant_geometric o E0 T tau L B s hE d b c m j)
+  have hp := interval_reference_approx b c T d.time_nonnegative s m
+  have hd := stateNorm_equiv (stateSub_congr
+    (show stateEquiv
+      (FanValues.halfState ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
+      (FanValues.halfState ((curveIntervalName o E0 T tau L B s hE d b c m).approx j))
+      from ⟨⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩,⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
+    ⟨pointEquiv_symm hp.1,pointEquiv_symm hp.2⟩)
+  exact Fraction.le_equiv_left (Fraction.equiv_symm hd) hb
+
+/-- The diagonal approximants are the half-fans of actual curve nodes. -/
+noncomputable def intervalName (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : EndpointCauchyName :=
+  GeometricApproximation.name (intervalReferenceName b c T d.time_nonnegative s)
+    (fun m => FanValues.halfState
+      ((curveIntervalName o E0 T tau L B s hE d b c m).approx m))
+    (fanErrorCoefficient T B d.outer_radius)
+    (fanErrorCoefficient_nonnegative T B d.outer_radius d.time_nonnegative d.bound_nonnegative
+      (outer_radius_nonnegative o E0 T tau L B s hE d))
+    (fun m => interval_fan_reference_bound b c o E0 T tau L B s hE d m m)
+
+theorem intervalName_equiv_reference (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    NameEquiv (intervalName b c o E0 T tau L B s hE d)
+      (intervalReferenceName b c T d.time_nonnegative s) :=
+  GeometricApproximation.name_equiv _ _ _ _ _
+
+theorem intervalName_address_equiv (b c b' c' : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (hb : AddressEquiv T d.time_nonnegative b b')
+    (hc : AddressEquiv T d.time_nonnegative c c') :
+    NameEquiv (intervalName b c o E0 T tau L B s hE d)
+      (intervalName b' c' o E0 T tau L B s hE d) := by
+  have he : NameEquiv (intervalElapsedName b c T d.time_nonnegative)
+      (intervalElapsedName b' c' T d.time_nonnegative) :=
+    mapName_equiv FanValues.absoluteState FanValues.absolute_nonexpansive
+      (secantName_equiv (Fraction.ofInt 1) _ _ _ _ hb hc)
+  have hr := secantName_equiv (areaMomentum true s).half _ _ _ _ he
+    (nameEquiv_refl (constantName FanValues.zeroState))
+  exact nameEquiv_trans (intervalName_equiv_reference b c o E0 T tau L B s hE d)
+    (nameEquiv_trans hr
+      (nameEquiv_symm (intervalName_equiv_reference b' c' o E0 T tau L B s hE d)))
+
+/-- Actual interval-fan approximants construct the area. Their address
+independence is established before this two-endpoint quotient lift. -/
+noncomputable def intervalAreaValue (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) : Value :=
+  Quotient.liftOn₂ t₀ t₁
+    (fun b c => realize (intervalName b c o E0 T tau L B s hE d))
+    (fun b c b' c' hb hc => Quotient.sound
+      (intervalName_address_equiv b c b' c' o E0 T tau L B s hE d hb hc))
+
+theorem intervalAreaValue_reference (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    intervalAreaValue o E0 T tau L B s hE d (Quotient.mk _ b) (Quotient.mk _ c) =
+      realize (intervalReferenceName b c T d.time_nonnegative s) :=
+  Quotient.sound (intervalName_equiv_reference b c o E0 T tau L B s hE d)
+
+/-- The elapsed-time formula is a consequence of the actual fan construction. -/
+theorem interval_area_time_formula (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
+    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      secantValue (CentralSchedule.momentum s).abs.half
+        (intervalElapsedValue T d.time_nonnegative t₀ t₁)
+        (embed FanValues.zeroState) := by
+  induction t₀ using Quotient.inductionOn with
+  | _ b =>
+    induction t₁ using Quotient.inductionOn with
+    | _ c => exact intervalAreaValue_reference b c o E0 T tau L B s hE d
+
+/-- The unsigned fan on the actual curve-node interval converges to the
+absolute elapsed-time area. Both addresses are quantified in `AreaBetween`. -/
+theorem interval_area_is_swept (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaBetween T d.time_nonnegative
+      (gammaPosition o E0 T tau L B s hE d) t₀ t₁
+      (intervalAreaValue o E0 T tau L B s hE d t₀ t₁) := by
+  intro b c hb hc eps heps
+  subst t₀
+  subst t₁
+  rw [intervalAreaValue_reference]
+  let C := fanErrorCoefficient T B d.outer_radius
+  have hC := fanErrorCoefficient_nonnegative T B d.outer_radius
+    d.time_nonnegative d.bound_nonnegative
+    (outer_radius_nonnegative o E0 T tau L B s hE d)
+  obtain ⟨N,hN⟩ := duration_eventually_small C eps.half hC heps
+  obtain ⟨M,hM⟩ := constant_approximants_converge
+    (intervalReferenceName b c T d.time_nonnegative s) eps.half heps
+  refine ⟨max N M,fun m hm => ?_⟩
+  have hf : Within (FanValues.halfValue
+      (curveIntervalValue o E0 T tau L B s hE d b c m))
+      (embed ((intervalReferenceName b c T d.time_nonnegative s).approx m))
+      (duration C m) := by
+    rw [curveIntervalValue_realize,FanValues.halfValue_realize]
+    exact nameBound_of_eventual_le _ _ _ 0
+      (fun j _ => interval_fan_reference_bound b c o E0 T tau L B s hE d m j)
+  have hs := within_mono _ _ _ _ (Fraction.magnitudes.lt_implies_le (hN m (by omega))) hf
+  have ht := within_mono _ _ _ _ (Fraction.le_of_equiv (Fraction.half_add_self eps))
+    (within_triangle _ _ _ _ _ hs (hM m (by omega)))
+  change Within (FanValues.halfValue (FanValues.intervalValue true
+    (fun k => positionValue (gammaValue o E0 T tau L B s hE d
+      (nodeTime T d.time_nonnegative m k)))
+    (intervalStart b c m) (intervalCount b c m))) _ eps
+  rw [FanValues.intervalValue_positions]
+  exact ht
+
+theorem interval_area_reverse (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
+    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      intervalAreaValue o E0 T tau L B s hE d t₁ t₀ :=
+  SweptArea.areaBetween_unique T d.time_nonnegative _ _ _ _ _
+    (interval_area_is_swept o E0 T tau L B s hE d t₀ t₁)
+    (SweptArea.areaBetween_reverse T d.time_nonnegative _ _ _ _
+      (interval_area_is_swept o E0 T tau L B s hE d t₁ t₀))
+
+theorem interval_areas_equal_of_equal_elapsed (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ u₀ u₁ : BinaryTime T d.time_nonnegative)
+    (h : intervalElapsedValue T d.time_nonnegative t₀ t₁ =
+      intervalElapsedValue T d.time_nonnegative u₀ u₁) :
+    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      intervalAreaValue o E0 T tau L B s hE d u₀ u₁ := by
+  rw [interval_area_time_formula o E0 T tau L B s hE d t₀ t₁,
+    interval_area_time_formula o E0 T tau L B s hE d u₀ u₁,h]
+
+/-- A zero-length interval is empty even when the time has several addresses. -/
+theorem interval_area_zero (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime T d.time_nonnegative) :
+    intervalAreaValue o E0 T tau L B s hE d t t = embed FanValues.zeroState := by
+  induction t using Quotient.inductionOn with
+  | _ b =>
+    apply Quotient.sound
+    apply nameEquiv_of_levelwise_stateEquiv
+    intro m
+    change stateEquiv
+      (FanValues.halfState
+        ((FanValues.intervalName true (nodeName o E0 T tau L B s hE d m)
+          (intervalStart b b m) (intervalCount b b m)).approx m)) FanValues.zeroState
+    simp only [intervalCount,intervalStart,Nat.max_self,Nat.min_self,Nat.sub_self,
+      FanValues.intervalName,FanValues.fanName,FanValues.sumNames,constantName]
+    change stateEquiv (FanValues.halfState FanValues.zeroState) FanValues.zeroState
+    decide
+
+/-- Actual inscribed triangle fan approximants, on progressively finer grids.
+The reference proves their Cauchy property; it is not their definition. -/
+noncomputable def sectorName (unsigned : Bool) (b : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) : EndpointCauchyName :=
+  GeometricApproximation.name (areaReferenceName unsigned b T d.time_nonnegative s)
+    (fun m => FanValues.halfState ((curveFanName unsigned o E0 T tau L B s hE d m (ticks b m)).approx m))
+    (fanErrorCoefficient T B d.outer_radius)
+    (fanErrorCoefficient_nonnegative T B d.outer_radius d.time_nonnegative d.bound_nonnegative
+      (outer_radius_nonnegative o E0 T tau L B s hE d))
+    (fun m => area_fan_reference_bound unsigned b o E0 T tau L B s hE d m m)
+
+theorem sectorName_equiv_reference (unsigned : Bool) (b : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    NameEquiv (sectorName unsigned b o E0 T tau L B s hE d)
+      (areaReferenceName unsigned b T d.time_nonnegative s) :=
+  GeometricApproximation.name_equiv _ _ _ _ _
+
+theorem sectorName_address_equiv (unsigned : Bool) (b c : Nat → Bool) (o : CentralOracle)
+    (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (hbc : AddressEquiv T d.time_nonnegative b c) :
+    NameEquiv (sectorName unsigned b o E0 T tau L B s hE d)
+      (sectorName unsigned c o E0 T tau L B s hE d) :=
+  nameEquiv_trans (sectorName_equiv_reference unsigned b o E0 T tau L B s hE d)
+    (nameEquiv_trans (secantName_equiv _ _ _ _ _ hbc (nameEquiv_refl _))
+      (nameEquiv_symm (sectorName_equiv_reference unsigned c o E0 T tau L B s hE d)))
+
+/-- Swept sector area constructed from triangle fans of the actual curve.
+Unsigned fans count swept triangles with multiplicity, including repeated
+revolutions. Oriented fans retain the orientation. This is not union content. -/
+noncomputable def sectorAreaValue (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime T d.time_nonnegative) : Value :=
+  Quotient.liftOn t (fun b => realize (sectorName unsigned b o E0 T tau L B s hE d))
+    (fun b c hbc => Quotient.sound (sectorName_address_equiv unsigned b c o E0 T tau L B s hE d hbc))
+
+/-- The area law, in the constructed time/value spaces: area = ell*t/2 for
+oriented area and |ell|*t/2 for unsigned swept area. No area limit premise. -/
+theorem sector_area_time_formula (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime T d.time_nonnegative) :
+    sectorAreaValue unsigned o E0 T tau L B s hE d t =
+      secantValue (areaMomentum unsigned s).half
+        (timeCoordinate T d.time_nonnegative t) (embed FanValues.zeroState) := by
+  induction t using Quotient.inductionOn with
+  | _ b => exact Quotient.sound (sectorName_equiv_reference unsigned b o E0 T tau L B s hE d)
+
+/-- This is the geometric identification: the constructed area is the limit
+of triangle fans whose vertices lie on the actual constructed position map.
+No polygon-sector enclosure or assumed area-convergence premise occurs. -/
+theorem sector_area_is_swept (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaAt unsigned T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d) t
+      (sectorAreaValue unsigned o E0 T tau L B s hE d t) := by
+  intro b hbt eps heps
+  subst t
+  have harea : sectorAreaValue unsigned o E0 T tau L B s hE d (Quotient.mk _ b) =
+      realize (areaReferenceName unsigned b T d.time_nonnegative s) :=
+    Quotient.sound (sectorName_equiv_reference unsigned b o E0 T tau L B s hE d)
+  rw [harea]
+  let C := fanErrorCoefficient T B d.outer_radius
+  have hC := fanErrorCoefficient_nonnegative T B d.outer_radius d.time_nonnegative d.bound_nonnegative
+    (outer_radius_nonnegative o E0 T tau L B s hE d)
+  obtain ⟨N,hN⟩ := duration_eventually_small C eps.half hC heps
+  obtain ⟨M,hM⟩ := constant_approximants_converge
+    (areaReferenceName unsigned b T d.time_nonnegative s) eps.half heps
+  refine ⟨max N M,fun m hm => ?_⟩
+  have hf : Within (FanValues.halfValue (curveFanValue unsigned o E0 T tau L B s hE d m (ticks b m)))
+      (embed ((areaReferenceName unsigned b T d.time_nonnegative s).approx m)) (duration C m) := by
+    rw [curveFanValue_realize,FanValues.halfValue_realize]
+    exact nameBound_of_eventual_le _ _ _ 0
+      (fun j _ => area_fan_reference_bound unsigned b o E0 T tau L B s hE d m j)
+  have hs := within_mono _ _ _ _ (Fraction.magnitudes.lt_implies_le (hN m (by omega))) hf
+  have ht := within_mono _ _ _ _ (Fraction.le_of_equiv (Fraction.half_add_self eps))
+    (within_triangle _ _ _ _ _ hs (hM m (by omega)))
+  change Within (FanValues.halfValue (FanValues.fanValue unsigned
+    (fun k => positionValue (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
+    (ticks b m))) _ eps
+  rw [FanValues.fanValue_positions]
+  exact ht
+
+/-- General local Proposition I reconstruction: the actual position curve
+has unsigned swept area proportional to time, and its actual intervening
+polygon-region content vanishes. The area coefficient and enclosure are
+derived, not premises. Regularity/window data remain modern premises. -/
+theorem constructed_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t : BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaAt true T d.time_nonnegative (gammaPosition o E0 T tau L B s hE d) t
+      (sectorAreaValue true o E0 T tau L B s hE d t) ∧
+    sectorAreaValue true o E0 T tau L B s hE d t =
+      secantValue (CentralSchedule.momentum s).abs.half
+        (timeCoordinate T d.time_nonnegative t) (embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  ⟨sector_area_is_swept true o E0 T tau L B s hE d t,
+    sector_area_time_formula true o E0 T tau L B s hE d t,
+    GeneralForcePathContent.polygon_trajectory_defect_vanishes o E0 T tau L B s hE d⟩
+
+/-- Unsigned swept area on any interval of the actual local curve, with its
+derived elapsed-time formula and the existing intervening-content exhaustion.
+This is a modern regional reconstruction; the historical invoked corollaries
+remain separate proof obligations. -/
+theorem constructed_interval_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
+    (t₀ t₁ : BinaryTime T d.time_nonnegative) :
+    SweptArea.AreaBetween T d.time_nonnegative
+      (gammaPosition o E0 T tau L B s hE d) t₀ t₁
+      (intervalAreaValue o E0 T tau L B s hE d t₀ t₁) ∧
+    intervalAreaValue o E0 T tau L B s hE d t₀ t₁ =
+      secantValue (CentralSchedule.momentum s).abs.half
+        (intervalElapsedValue T d.time_nonnegative t₀ t₁)
+        (embed FanValues.zeroState) ∧
+    Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
+      (RationalEnclosure.level mesh)) :=
+  ⟨interval_area_is_swept o E0 T tau L B s hE d t₀ t₁,
+    interval_area_time_formula o E0 T tau L B s hE d t₀ t₁,
+    GeneralForcePathContent.polygon_trajectory_defect_vanishes o E0 T tau L B s hE d⟩
+
+/-- The retained constructive development supplies one proved instance of
+the given-trajectory swept-area target. Construction is supporting work;
+`SweptArea.Proportional` itself requires only an existing curve as data.
+The between-path content theorem is separate and is not a field of this law. -/
+theorem proportional_swept_area (o : CentralOracle) (E0 T tau L B : Fraction)
+    (s : Point × Point) (hE : 0 < E0.num)
+    (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
+    SweptArea.Proportional T d.time_nonnegative
+      (gammaPosition o E0 T tau L B s hE d) (CentralSchedule.momentum s) := by
+  intro t₀ t₁
+  have h := interval_area_is_swept o E0 T tau L B s hE d t₀ t₁
+  rwa [interval_area_time_formula o E0 T tau L B s hE d t₀ t₁] at h
+
+end NewtonLimitDynamics.Polygon.GeneralForceArea
 \end{Verbatim}
 
 \noindent{\small\texttt{ModernLib/Polygon/GeneralForceEndpoint.lean}}{\small, 23 theorems, 429 lines}
@@ -26806,6 +21192,1136 @@ theorem acceleration_secants_converge (w E0 T : Fraction) (s : Point × Point)
 end NewtonLimitDynamics.Polygon.HarmonicAccelerationSecants
 \end{Verbatim}
 
+\noindent{\small\texttt{ModernLib/Polygon/HarmonicAccumulation.lean}}{\small, 31 theorems, 371 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
+import BarrowLib.Polygon.StateDistance
+import ModernLib.Polygon.HarmonicRefinement
+import ModernLib.Polygon.HarmonicComparison
+
+/-!
+Finite global comparison of actual harmonic end-kick schedules with common
+elapsed time. This is a coordinate L1 state budget only. It constructs no
+limiting trajectory and makes no claim about the nonnegative region between
+polygonal paths or the separate Kepler swept areas. The De Motu, 1687, and
+1713 historical stages remain distinct from this modern rational estimate.
+-/
+
+namespace NewtonLimitDynamics.Polygon.HarmonicAccumulation
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open CentralSchedule
+open HarmonicStability
+open HarmonicRefinement
+open HarmonicComparison
+open PointBounds
+
+def localFactor (w h : Fraction) : Fraction :=
+  Fraction.mul (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)
+    (Fraction.add (kappa w h) (Fraction.ofInt 1))
+
+def coarseFactor (w h : Fraction) : Fraction := kappa w (Fraction.add h h)
+def fineFactor (w h : Fraction) : Fraction := Fraction.mul (kappa w h) (kappa w h)
+
+private def localA (w h : Fraction) : Fraction :=
+  Fraction.mul (Fraction.mul h h) w
+private def localC (w h : Fraction) : Fraction :=
+  Fraction.mul (Fraction.mul (Fraction.mul h h) h) (Fraction.mul w w)
+
+/-- The actual fine-minus-coarse state displacement, as represented rational
+values. The first component is the position error, the second the velocity
+error. -/
+theorem local_error_identity (w h : Fraction) (s : Point × Point) :
+    stateEquiv (stateSub (HarmonicRefinement.fine w h s) (HarmonicRefinement.coarse w h s))
+      (pointScale (negF (localA w h)) (middle w h s),
+        pointAdd (pointScale (localA w h) s.2)
+          (pointScale (localC w h) (middle w h s))) := by
+  constructor <;> constructor <;>
+    simp only [stateSub, localA, localC, HarmonicRefinement.fine,
+      HarmonicRefinement.coarse, middle,
+      pointEquiv, pointSub, pointNeg, cell, linearField, negF,
+      pointAdd, pointScale, Fraction.equiv, Fraction.add, Fraction.mul,
+      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
+    ac_nf <;> omega
+
+private theorem localA_abs (w h : Fraction) :
+    Fraction.equiv (localA w h).abs
+      (Fraction.mul (Fraction.mul h.abs h.abs) w.abs) := by
+  simp only [localA, Fraction.equiv, Fraction.abs, Fraction.mul,
+    Int.natAbs_mul, Int.ofNat_mul]
+
+private theorem neg_localA_abs (w h : Fraction) :
+    Fraction.equiv (negF (localA w h)).abs
+      (Fraction.mul (Fraction.mul h.abs h.abs) w.abs) :=
+  Fraction.equiv_trans (Fraction.abs_neg (localA w h)) (localA_abs w h)
+
+private theorem localC_abs (w h : Fraction) :
+    Fraction.equiv (localC w h).abs
+      (Fraction.mul (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)
+        (Fraction.mul h.abs w.abs)) := by
+  simp only [localC, Fraction.equiv, Fraction.abs, Fraction.mul,
+    Int.natAbs_mul, Int.ofNat_mul]
+  ac_nf
+
+private theorem middle_norm_bound (w h : Fraction) (s : Point × Point) :
+    Fraction.le (pointNorm (middle w h s))
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs) (stateNorm s)) :=
+  Fraction.magnitudes.le_trans (point_le_state (drift h s)) (drift_bound h s)
+
+private def amplitude (w h : Fraction) : Fraction :=
+  Fraction.mul (Fraction.mul h.abs h.abs) w.abs
+
+private def kickMagnitude (w h : Fraction) : Fraction := Fraction.mul h.abs w.abs
+
+private theorem amplitude_nonnegative (w h : Fraction) :
+    0 ≤ (amplitude w h).num :=
+  Fraction.nonnegative_mul _ _
+    (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _))
+    (Fraction.abs_num_nonnegative _)
+
+private theorem kickMagnitude_nonnegative (w h : Fraction) :
+    0 ≤ (kickMagnitude w h).num :=
+  Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _)
+
+/-- Triangle and scaling estimate for the explicit local mismatch. -/
+theorem local_error_expanded_bound (w h : Fraction) (s : Point × Point) :
+    Fraction.le
+      (stateNorm (stateSub (HarmonicRefinement.fine w h s)
+        (HarmonicRefinement.coarse w h s)))
+      (Fraction.add
+        (Fraction.mul (amplitude w h) (pointNorm (middle w h s)))
+        (Fraction.add
+          (Fraction.mul (amplitude w h) (pointNorm s.2))
+          (Fraction.mul (Fraction.mul (amplitude w h) (kickMagnitude w h))
+            (pointNorm (middle w h s))))) := by
+  let y := middle w h s
+  let a := pointScale (negF (localA w h)) y
+  let b := pointScale (localA w h) s.2
+  let c := pointScale (localC w h) y
+  have he := stateNorm_equiv (local_error_identity w h s)
+  have ht := Fraction.add_le_add_left (pointNorm_add_le b c) (pointNorm a)
+  have hp : Fraction.equiv (pointNorm a)
+      (Fraction.mul (amplitude w h) (pointNorm y)) :=
+    Fraction.equiv_trans (pointNorm_scale _ _)
+      (Fraction.mul_equiv (neg_localA_abs w h) (Fraction.equiv_refl _))
+  have hv : Fraction.equiv (pointNorm b)
+      (Fraction.mul (amplitude w h) (pointNorm s.2)) :=
+    Fraction.equiv_trans (pointNorm_scale _ _)
+      (Fraction.mul_equiv (localA_abs w h) (Fraction.equiv_refl _))
+  have hc : Fraction.equiv (pointNorm c)
+      (Fraction.mul (Fraction.mul (amplitude w h) (kickMagnitude w h))
+        (pointNorm y)) :=
+    Fraction.equiv_trans (pointNorm_scale _ _)
+      (Fraction.mul_equiv (localC_abs w h) (Fraction.equiv_refl _))
+  exact Fraction.le_equiv_left he
+    (Fraction.le_equiv_right ht (Fraction.add_equiv hp (Fraction.add_equiv hv hc)))
+
+/-- The local defect of two actual half-cells against one full cell is bounded
+by `|h|²|w|(kappa+1)` times the current state magnitude. -/
+theorem local_error_bound (w h : Fraction) (s : Point × Point) :
+    Fraction.le
+      (stateNorm (stateSub (HarmonicRefinement.fine w h s)
+        (HarmonicRefinement.coarse w h s)))
+      (Fraction.mul (localFactor w h) (stateNorm s)) := by
+  have h₀ := local_error_expanded_bound w h s
+  have hy := middle_norm_bound w h s
+  have hv := velocity_le_state s
+  have ha := amplitude_nonnegative w h
+  have hat := Fraction.nonnegative_mul (amplitude w h) (kickMagnitude w h) ha
+    (kickMagnitude_nonnegative w h)
+  have h₁ := Fraction.mul_le_mul_nonnegative_left hy (amplitude w h) ha
+  have h₂ := Fraction.mul_le_mul_nonnegative_left hv (amplitude w h) ha
+  have h₃ := Fraction.mul_le_mul_nonnegative_left hy
+    (Fraction.mul (amplitude w h) (kickMagnitude w h)) hat
+  have hs := Fraction.add_le_add h₁ (Fraction.add_le_add h₂ h₃)
+  have hchain := Fraction.magnitudes.le_trans h₀ hs
+  apply Fraction.le_equiv_right hchain
+  simp only [localFactor, amplitude, kickMagnitude, kappa, Fraction.equiv,
+    Fraction.add, Fraction.mul, Fraction.ofInt]
+  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+  ac_nf
+
+
+/-- The two actual endpoint recurrences, each block of duration `h+h`. -/
+def coarseAt (w h : Fraction) (s : Point × Point) : Nat → Point × Point
+  | 0 => s
+  | n + 1 => HarmonicRefinement.coarse w h (coarseAt w h s n)
+
+def fineAt (w h : Fraction) (s : Point × Point) : Nat → Point × Point
+  | 0 => s
+  | n + 1 => HarmonicRefinement.fine w h (fineAt w h s n)
+
+def fineDurations (h : Fraction) : Nat → List Fraction
+  | 0 => []
+  | n + 1 => h :: h :: fineDurations h n
+
+private theorem coarseAt_comm (w h : Fraction) (s : Point × Point) :
+    (n : Nat) →
+      coarseAt w h (HarmonicRefinement.coarse w h s) n =
+        HarmonicRefinement.coarse w h (coarseAt w h s n)
+  | 0 => rfl
+  | n + 1 => by
+      simp only [coarseAt]
+      rw [coarseAt_comm w h s n]
+
+private theorem fineAt_comm (w h : Fraction) (s : Point × Point) :
+    (n : Nat) →
+      fineAt w h (HarmonicRefinement.fine w h s) n =
+        HarmonicRefinement.fine w h (fineAt w h s n)
+  | 0 => rfl
+  | n + 1 => by
+      simp only [fineAt]
+      rw [fineAt_comm w h s n]
+
+/-- The coarse recurrence is the actual list schedule of `n` full cells. -/
+theorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :
+    (n : Nat) →
+      schedule (linearField w) (List.replicate n (Fraction.add h h)) s =
+        coarseAt w h s n
+  | 0 => rfl
+  | n + 1 => by
+      simp only [List.replicate_succ, schedule]
+      change schedule (linearField w) (List.replicate n (Fraction.add h h))
+        (HarmonicRefinement.coarse w h s) = coarseAt w h s (n + 1)
+      rw [coarseAt_schedule w h (HarmonicRefinement.coarse w h s) n]
+      exact coarseAt_comm w h s n
+
+/-- The fine recurrence is the actual schedule of `2n` half-cells. -/
+theorem fineAt_schedule (w h : Fraction) (s : Point × Point) :
+    (n : Nat) →
+      schedule (linearField w) (fineDurations h n) s = fineAt w h s n
+  | 0 => rfl
+  | n + 1 => by
+      simp only [fineDurations, schedule]
+      change schedule (linearField w) (fineDurations h n)
+        (HarmonicRefinement.fine w h s) = fineAt w h s (n + 1)
+      rw [fineAt_schedule w h (HarmonicRefinement.fine w h s) n]
+      exact fineAt_comm w h s n
+
+/-- Both actual lists have the same represented elapsed duration. -/
+theorem schedules_common_time (w h : Fraction) :
+    (n : Nat) →
+      Fraction.equiv
+        (elapsed (List.replicate n (Fraction.add h h)))
+        (elapsed (fineDurations h n))
+  | 0 => Fraction.equiv_refl _
+  | n + 1 => by
+      simp only [List.replicate_succ, fineDurations, elapsed]
+      exact Fraction.equiv_trans
+        (Fraction.add_assoc h h (elapsed (List.replicate n (Fraction.add h h))))
+        (Fraction.add_equiv (Fraction.equiv_refl h)
+          (Fraction.add_equiv (Fraction.equiv_refl h) (schedules_common_time w h n)))
+
+def errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction
+  | 0 => Fraction.ofInt 0
+  | n + 1 =>
+      Fraction.add (Fraction.mul (fineFactor w h) (errorBudget w h s n))
+        (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))
+          (stateNorm s))
+
+theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num := by
+  unfold kappa
+  apply Fraction.nonnegative_mul
+  · exact Fraction.nonnegative_add _ _ (by decide) (Fraction.abs_num_nonnegative _)
+  · exact Fraction.nonnegative_add _ _ (by decide) (kickMagnitude_nonnegative w h)
+
+theorem localFactor_nonnegative (w h : Fraction) :
+    0 ≤ (localFactor w h).num :=
+  Fraction.nonnegative_mul _ _ (amplitude_nonnegative w h)
+    (Fraction.nonnegative_add _ _ (kappa_nonnegative w h) (by decide))
+
+theorem fineFactor_nonnegative (w h : Fraction) :
+    0 ≤ (fineFactor w h).num :=
+  Fraction.nonnegative_mul _ _ (kappa_nonnegative w h) (kappa_nonnegative w h)
+
+private theorem coarseFactor_nonnegative (w h : Fraction) :
+    0 ≤ (coarseFactor w h).num := kappa_nonnegative w (Fraction.add h h)
+
+theorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :
+    (n : Nat) → 0 ≤ (errorBudget w h s n).num
+  | 0 => by simp [errorBudget, Fraction.ofInt]
+  | n + 1 =>
+      Fraction.nonnegative_add _ _
+        (Fraction.nonnegative_mul _ _ (fineFactor_nonnegative w h)
+          (errorBudget_nonnegative w h s n))
+        (Fraction.nonnegative_mul _ _
+          (Fraction.nonnegative_mul _ _ (localFactor_nonnegative w h)
+            (fpower_nonnegative _ (coarseFactor_nonnegative w h) n))
+          (stateNorm_nonnegative s))
+
+/-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/
+theorem fine_perturbation (w h : Fraction) (s t : Point × Point) :
+    Fraction.le
+      (stateNorm (stateSub (HarmonicRefinement.fine w h s)
+        (HarmonicRefinement.fine w h t)))
+      (Fraction.mul (fineFactor w h) (stateNorm (stateSub s t))) := by
+  have h₁ := cell_perturbation w h (cell (linearField w) h s)
+    (cell (linearField w) h t)
+  have h₂ := cell_perturbation w h s t
+  have hm := Fraction.mul_le_mul_nonnegative_left h₂ (kappa w h)
+    (kappa_nonnegative w h)
+  have hc := Fraction.magnitudes.le_trans h₁ hm
+  apply Fraction.le_equiv_right hc
+  simp only [fineFactor, Fraction.equiv, Fraction.mul]
+  ac_nf
+
+/-- Every actual coarse state is bounded by `b^n` times the initial state
+magnitude, with `b = kappa(w,h+h)`. -/
+theorem coarse_norm_bound (w h : Fraction) (s : Point × Point) :
+    (n : Nat) →
+      Fraction.le (stateNorm (coarseAt w h s n))
+        (Fraction.mul (fpower (coarseFactor w h) n) (stateNorm s))
+  | 0 => by
+      apply Fraction.le_of_equiv
+      simp only [coarseAt, fpower, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+      simp only [Int.one_mul, Int.mul_one]
+  | n + 1 => by
+      have hc := cell_bound w (Fraction.add h h) (coarseAt w h s n)
+      have hi := coarse_norm_bound w h s n
+      have hm := Fraction.mul_le_mul_nonnegative_left hi (coarseFactor w h)
+        (coarseFactor_nonnegative w h)
+      have hchain := Fraction.magnitudes.le_trans hc hm
+      apply Fraction.le_equiv_right hchain
+      simp only [coarseAt, fpower, coarseFactor, Fraction.equiv, Fraction.mul]
+      ac_nf
+
+/-- The actual endpoints after `n` common blocks obey the recursively
+constructed finite error budget. The recurrence uses the coarse state at each
+block for the local defect and propagates the previous actual endpoint error
+through two actual fine cells. -/
+theorem actual_error_bound (w h : Fraction) (s : Point × Point) :
+    (n : Nat) →
+      Fraction.le (stateNorm (stateSub (fineAt w h s n) (coarseAt w h s n)))
+        (errorBudget w h s n)
+  | 0 => Fraction.le_of_equiv (stateSub_self_norm_zero s)
+  | n + 1 => by
+      let F := fineAt w h s n
+      let C := coarseAt w h s n
+      have ht := stateSub_triangle
+        (HarmonicRefinement.fine w h F)
+        (HarmonicRefinement.fine w h C)
+        (HarmonicRefinement.coarse w h C)
+      have hp := fine_perturbation w h F C
+      have hl := local_error_bound w h C
+      have hraw := Fraction.magnitudes.le_trans ht (Fraction.add_le_add hp hl)
+      have hi := actual_error_bound w h s n
+      have hc := coarse_norm_bound w h s n
+      have hbi := Fraction.mul_le_mul_nonnegative_left hi (fineFactor w h)
+        (fineFactor_nonnegative w h)
+      have hbc := Fraction.mul_le_mul_nonnegative_left hc (localFactor w h)
+        (localFactor_nonnegative w h)
+      have hbudget := Fraction.add_le_add hbi hbc
+      have hchain := Fraction.magnitudes.le_trans hraw hbudget
+      apply Fraction.le_equiv_right hchain
+      simp only [errorBudget, Fraction.equiv, Fraction.add, Fraction.mul]
+      simp only [Int.add_mul, Int.mul_add]
+      ac_nf
+
+private def one : Fraction := ⟨1, 1, by decide⟩
+private def zero : Fraction := ⟨0, 1, by decide⟩
+private def half : Fraction := ⟨1, 2, by decide⟩
+private def sample : Point × Point := ((one, zero), (zero, one))
+
+private instance (s t : Point × Point) : Decidable (stateEquiv s t) :=
+  inferInstanceAs (Decidable (pointEquiv s.1 t.1 ∧ pointEquiv s.2 t.2))
+
+theorem sample_zero_blocks :
+    stateEquiv (fineAt one zero sample 1) (coarseAt one zero sample 1) := by decide
+
+theorem sample_zero_error :
+    Fraction.equiv
+      (stateNorm (stateSub (fineAt one zero sample 1) (coarseAt one zero sample 1)))
+      zero := by decide
+
+theorem sample_zero_budget :
+    Fraction.equiv (errorBudget one zero sample 1) zero := by decide
+
+theorem sample_initial_error :
+    Fraction.equiv
+      (stateNorm (stateSub (fineAt one half sample 0) (coarseAt one half sample 0)))
+      zero := by decide
+
+theorem sample_local_factor :
+    Fraction.equiv (localFactor one half) ⟨13, 16, by decide⟩ := by decide
+
+/-- Exact one-block state error. Its four component magnitudes are `1/4`,
+`1/8`, `1/8`, and `5/16`; their sum is `13/16`. -/
+theorem sample_one_block_error :
+    Fraction.equiv
+      (stateNorm (stateSub (fineAt one half sample 1) (coarseAt one half sample 1)))
+      ⟨13, 16, by decide⟩ := by decide
+
+theorem sample_one_block_budget :
+    Fraction.equiv (errorBudget one half sample 1) ⟨13, 8, by decide⟩ := by decide
+
+theorem sample_two_block_error :
+    Fraction.equiv
+      (stateNorm (stateSub (fineAt one half sample 2) (coarseAt one half sample 2)))
+      ⟨173, 256, by decide⟩ := by decide
+
+theorem sample_one_block_distinct :
+    ¬ stateEquiv (fineAt one half sample 1) (coarseAt one half sample 1) := by decide
+
+end NewtonLimitDynamics.Polygon.HarmonicAccumulation
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/HarmonicBinaryPrefix.lean}}{\small, 32 theorems, 530 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.GeometricTail
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
+import ModernLib.Polygon.HarmonicTimeComparison
+
+/-!
+Actual intermediate prefixes of one dyadic harmonic polygon family, indexed
+by binary addresses. The approximants are finite schedules only. No completed
+point, continuum trajectory, or region between polygon and trajectory is
+assumed; Kepler swept area remains a distinct quantity.
+-/
+
+namespace NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open CentralSchedule
+open HarmonicStability
+open HarmonicComparison
+open HarmonicAccumulation
+open HarmonicUniform
+open HarmonicDyadic
+open HarmonicTimeComparison
+open PointBounds
+
+def prefixState (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
+    (j : Nat) : Point × Point :=
+  schedule (linearField w) (List.replicate (ticks b j) (duration T j)) s
+
+theorem prefix_coarse (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat) :
+    stateEquiv (prefixState b w T s j)
+      (coarseAt w (duration T (j + 1)) s (ticks b j)) := by
+  let h := duration T (j + 1)
+  have hc := schedule_replicate_congr w (duration T j) (Fraction.add h h)
+    (duration_halving T j) (ticks b j) s s
+    ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
+      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
+  simpa only [prefixState, coarseAt_schedule] using hc
+
+theorem prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le (stateNorm (prefixState b w T s j))
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) := by
+  let h := duration T (j + 1)
+  have hprefix := smallTime_prefix w h (ticks b j) (blocks j) hT
+    (ticks_le_blocks b j) (dyadic_smallTime w T j hs)
+  have hc := coarse_state_le_two w h s (ticks b j) hT hprefix
+  exact Fraction.le_equiv_left
+    (stateNorm_equiv (prefix_coarse b w T s j)) hc
+
+theorem elapsed_replicate (d : Fraction) :
+    (n : Nat) → Fraction.equiv (elapsed (List.replicate n d))
+      (Fraction.mul (Fraction.ofInt (n : Int)) d)
+  | 0 => by
+      simp only [elapsed, List.replicate_zero, Fraction.equiv,
+        Fraction.ofInt, Fraction.mul]
+      simp
+  | n + 1 => by
+      have ih := elapsed_replicate d n
+      have he := Fraction.add_equiv (Fraction.equiv_refl d) ih
+      apply Fraction.equiv_trans he
+      simp only [elapsed, List.replicate_succ, Fraction.equiv,
+        Fraction.add, Fraction.mul, Fraction.ofInt, Int.natCast_add]
+      simp only [Int.add_mul, Int.mul_add, Int.one_mul, Int.mul_one]
+      ac_nf
+
+theorem prefix_elapsed (b : Nat → Bool) (T : Fraction) (j : Nat) :
+    Fraction.equiv
+      (elapsed (List.replicate (ticks b j) (duration T j)))
+      (Fraction.mul (Fraction.ofInt (ticks b j : Int)) (duration T j)) :=
+  elapsed_replicate (duration T j) (ticks b j)
+
+theorem prefix_elapsed_le_time (b : Nat → Bool) (T : Fraction) (j : Nat)
+    (hT : 0 ≤ T.num) :
+    Fraction.le (elapsed (List.replicate (ticks b j) (duration T j))) T := by
+  let d := duration T j
+  have hcount : Fraction.le (Fraction.ofInt (ticks b j : Int))
+      (Fraction.ofInt (blocks j : Int)) := by
+    unfold Fraction.le Fraction.ofInt
+    dsimp
+    simp only [Int.mul_one]
+    exact Int.ofNat_le.mpr (ticks_le_blocks b j)
+  have hm := Fraction.mul_le_mul_nonnegative hcount d hT
+  have hfull := endpoint_elapsed T j
+  have he := elapsed_replicate d (blocks j)
+  have hbound := Fraction.le_equiv_left
+    (prefix_elapsed b T j) hm
+  exact Fraction.le_equiv_right hbound
+    (Fraction.equiv_trans (Fraction.equiv_symm he) hfull)
+
+theorem schedule_replicate_step (w h : Fraction) (s : Point × Point) :
+    (n : Nat) →
+      schedule (linearField w) (List.replicate (n + 1) h) s =
+        cell (linearField w) h
+          (schedule (linearField w) (List.replicate n h) s)
+  | 0 => rfl
+  | n + 1 => by
+      simp only [List.replicate_succ, schedule]
+      change schedule (linearField w) (List.replicate (n + 1) h)
+        (cell (linearField w) h s) =
+          cell (linearField w) h
+            (schedule (linearField w) (List.replicate n h)
+              (cell (linearField w) h s))
+      rw [schedule_replicate_step w h (cell (linearField w) h s) n]
+
+theorem prefix_next (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat) :
+    prefixState b w T s (j + 1) =
+      if b j then
+        cell (linearField w) (duration T (j + 1))
+          (fineAt w (duration T (j + 1)) s (ticks b j))
+      else fineAt w (duration T (j + 1)) s (ticks b j) := by
+  let h := duration T (j + 1)
+  by_cases hb : b j
+  · simp only [prefixState, ticks_next]
+    simp only [bit, hb, ↓reduceIte]
+    change schedule (linearField w)
+      (List.replicate ((ticks b j + ticks b j) + 1) h) s = _
+    rw [schedule_replicate_step]
+    rw [← fineDurations_replicate]
+    exact congrArg (cell (linearField w) h)
+      (fineAt_schedule w h s (ticks b j))
+  · simp only [prefixState, ticks_next]
+    simp [bit, hb] at *
+    rw [← fineDurations_replicate]
+    exact fineAt_schedule w h s (ticks b j)
+
+private theorem scalar_one_bound (a b c : Fraction)
+    (ha : 0 ≤ a.num) :
+    Fraction.le
+      (Fraction.add b (Fraction.mul c (Fraction.add a b)))
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c)
+        (Fraction.add a b)) := by
+  let M := Fraction.add a b
+  have hbM : Fraction.le b M := by
+    unfold Fraction.le M Fraction.add
+    dsimp
+    rw [Int.add_mul]
+    have hnon := Int.mul_nonneg
+      (Int.mul_nonneg ha (Int.le_of_lt b.den_pos)) (Int.le_of_lt b.den_pos)
+    have he : b.num * (a.den * b.den) = b.num * a.den * b.den := by ac_rfl
+    rw [he]
+    omega
+  have hfirst := Fraction.add_le_add_right hbM (Fraction.mul c M)
+  apply Fraction.le_equiv_right hfirst
+  simp only [Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+  simp only [M, Fraction.add]
+  simp only [Int.add_mul, Int.mul_add]
+  ac_nf
+
+theorem cell_parameter_bound_one (w sigma tau : Fraction) (s : Point × Point)
+    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
+    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
+    Fraction.le
+      (stateNorm (stateSub (cell (linearField w) tau s)
+        (cell (linearField w) sigma s)))
+      (Fraction.mul (durationDifference sigma tau).abs
+        (Fraction.mul
+          (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm s))) := by
+  let d := durationDifference sigma tau
+  have hp := short_sum_point_bound sigma tau s.1 s.2 hσ hτ hsum
+  have hw := Fraction.mul_le_mul_nonnegative_left hp w.abs
+    (Fraction.abs_num_nonnegative w)
+  have ha := Fraction.add_le_add_left hw (pointNorm s.2)
+  have hd := Fraction.mul_le_mul_nonnegative_left ha d.abs
+    (Fraction.abs_num_nonnegative d)
+  have hc := scalar_one_bound (pointNorm s.1) (pointNorm s.2) w.abs
+    (pointNorm_nonnegative s.1)
+  have hdc := Fraction.mul_le_mul_nonnegative_left hc d.abs
+    (Fraction.abs_num_nonnegative d)
+  have hf := cell_parameter_norm_formula w sigma tau s
+  exact Fraction.le_equiv_right
+    (Fraction.magnitudes.le_trans (Fraction.le_equiv_left hf hd) hdc)
+    (by simp only [stateNorm]; exact Fraction.equiv_refl _)
+
+private def zero : Fraction := ⟨0, 1, by decide⟩
+
+theorem cell_increment_bound (w h : Fraction) (s : Point × Point)
+    (hh : 0 ≤ h.num) (hsmall : Fraction.le h (Fraction.ofInt 1)) :
+    Fraction.le (stateNorm (stateSub (cell (linearField w) h s) s))
+      (Fraction.mul h.abs
+        (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm s))) := by
+  have hsum : Fraction.le (Fraction.add zero h) (Fraction.ofInt 1) :=
+    Fraction.le_equiv_left (by
+      simp only [zero, Fraction.equiv, Fraction.add]
+      simp) hsmall
+  have hb := cell_parameter_bound_one w zero h s (by decide) hh hsum
+  have he : stateEquiv
+      (stateSub (cell (linearField w) h s) s)
+      (stateSub (cell (linearField w) h s) (cell (linearField w) zero s)) :=
+    stateSub_congr
+      ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
+        ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
+      ⟨⟨Fraction.equiv_symm (zero_step w s).1.1,
+          Fraction.equiv_symm (zero_step w s).1.2⟩,
+        ⟨Fraction.equiv_symm (zero_step w s).2.1,
+          Fraction.equiv_symm (zero_step w s).2.2⟩⟩
+  have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hb
+  apply Fraction.le_equiv_right hfirst
+  simp only [durationDifference, zero, negF, Fraction.equiv,
+    Fraction.abs, Fraction.add, Fraction.mul]
+  simp only [Int.zero_mul, Int.mul_zero, Int.add_zero,
+    Int.natAbs_zero, Int.ofNat_zero, Int.mul_one, Int.one_mul,
+    Int.neg_zero]
+
+theorem fine_prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le
+      (stateNorm (fineAt w (duration T (j + 1)) s (ticks b j)))
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) := by
+  let h := duration T (j + 1)
+  have hprefix := smallTime_prefix w h (ticks b j) (blocks j) hT
+    (ticks_le_blocks b j) (dyadic_smallTime w T j hs)
+  exact fine_state_le_two w h s (ticks b j) hT hprefix
+
+theorem prefix_totalTime_le (b : Nat → Bool) (T : Fraction) (j : Nat)
+    (hT : 0 ≤ T.num) :
+    Fraction.le (totalTime (duration T (j + 1)) (ticks b j)) T := by
+  let h := duration T (j + 1)
+  have he : Fraction.equiv (totalTime h (ticks b j))
+      (elapsed (List.replicate (ticks b j) (duration T j))) :=
+    Fraction.equiv_trans
+      (Fraction.equiv_symm (coarse_elapsed_totalTime h (ticks b j)))
+      (elapsed_replicate_congr
+        (Fraction.equiv_symm (duration_halving T j)) (ticks b j))
+  exact Fraction.le_equiv_left he (prefix_elapsed_le_time b T j hT)
+
+theorem fine_optional_increment (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le
+      (stateNorm (stateSub
+        (cell (linearField w) (duration T (j + 1))
+          (fineAt w (duration T (j + 1)) s (ticks b j)))
+        (fineAt w (duration T (j + 1)) s (ticks b j))))
+      (Fraction.mul (Fraction.ofInt 2)
+        (Fraction.mul (duration T (j + 1))
+          (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs)
+            (stateNorm s)))) := by
+  let h := duration T (j + 1)
+  let q := fineAt w h s (ticks b j)
+  have hle : Fraction.le h (Fraction.ofInt 1) := by
+    have h₁ := duration_le_time T (j + 1) hT
+    have h₂ := dyadic_time_le_half w T hT hs
+    have h₃ : Fraction.le (⟨1, 2, by decide⟩ : Fraction)
+        (Fraction.ofInt 1) := by unfold Fraction.le; decide
+    exact Fraction.magnitudes.le_trans h₁
+      (Fraction.magnitudes.le_trans h₂ h₃)
+  have hb := cell_increment_bound w h q hT hle
+  have hq := fine_prefix_state_le_two b w T s j hT hs
+  have hm₁ := Fraction.mul_le_mul_nonnegative_left hq
+    (Fraction.add (Fraction.ofInt 1) w.abs) (by
+      unfold Fraction.add Fraction.ofInt Fraction.abs
+      dsimp
+      have hw := Int.ofNat_nonneg w.num.natAbs
+      have hd := w.den_pos
+      omega)
+  have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁ h hT
+  have habs := Fraction.abs_of_nonnegative h hT
+  have he := Fraction.mul_equiv habs
+    (Fraction.equiv_refl
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm q)))
+  have hchain := Fraction.magnitudes.le_trans
+    (Fraction.le_equiv_right hb he) hm₂
+  apply Fraction.le_equiv_right hchain
+  simp only [h]
+  simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+  ac_nf
+
+def refinementCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
+  Fraction.mul (Fraction.ofInt 3)
+    (Fraction.mul T
+      (Fraction.mul (duration T (j + 1))
+        (Fraction.mul w.abs (stateNorm s))))
+
+def optionalCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
+  Fraction.mul (Fraction.ofInt 2)
+    (Fraction.mul (duration T (j + 1))
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs)
+        (stateNorm s)))
+
+theorem prefix_refinement_error (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le
+      (stateNorm (stateSub
+        (fineAt w (duration T (j + 1)) s (ticks b j))
+        (prefixState b w T s j)))
+      (refinementCap w T s j) := by
+  let h := duration T (j + 1)
+  let n := ticks b j
+  have hs' := smallTime_prefix w h n (blocks j) hT
+    (ticks_le_blocks b j) (dyadic_smallTime w T j hs)
+  have hb := actual_uniform_error w h s n hT hs'
+  have he : stateEquiv
+      (stateSub (fineAt w h s n) (prefixState b w T s j))
+      (stateSub (fineAt w h s n) (coarseAt w h s n)) :=
+    stateSub_congr
+      ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
+        ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
+      (prefix_coarse b w T s j)
+  have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hb
+  have htime := prefix_totalTime_le b T j hT
+  have hnon : 0 ≤ (Fraction.mul h (Fraction.mul w.abs (stateNorm s))).num :=
+    Int.mul_nonneg hT
+      (Int.mul_nonneg (Fraction.abs_num_nonnegative w)
+        (stateNorm_nonnegative s))
+  have hm₁ := Fraction.mul_le_mul_nonnegative htime
+    (Fraction.mul h (Fraction.mul w.abs (stateNorm s))) hnon
+  have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁
+    (Fraction.ofInt 3) (by decide)
+  exact Fraction.magnitudes.le_trans hfirst hm₂
+
+def adjacentCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
+  Fraction.add (optionalCap w T s j) (refinementCap w T s j)
+
+private theorem optionalCap_nonnegative (w T : Fraction) (s : Point × Point)
+    (j : Nat) (hT : 0 ≤ T.num) :
+    0 ≤ (optionalCap w T s j).num := by
+  unfold optionalCap
+  have hfactor : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
+    unfold Fraction.add Fraction.ofInt Fraction.abs
+    dsimp
+    have hw := Int.ofNat_nonneg w.num.natAbs
+    have hd := w.den_pos
+    omega
+  exact Int.mul_nonneg (by decide)
+    (Int.mul_nonneg hT
+      (Int.mul_nonneg hfactor (stateNorm_nonnegative s)))
+
+private theorem le_add_optional (a c : Fraction) (hc : 0 ≤ c.num) :
+    Fraction.le a (Fraction.add c a) := by
+  have hz : Fraction.le (Fraction.ofInt 0) c := by
+    unfold Fraction.le Fraction.ofInt
+    dsimp
+    simp only [Int.zero_mul, Int.mul_one]
+    exact hc
+  have h := Fraction.add_le_add_left hz a
+  have he : Fraction.equiv (Fraction.add a (Fraction.ofInt 0)) a := by
+    simp only [Fraction.equiv, Fraction.add, Fraction.ofInt]
+    simp only [Int.zero_mul, Int.mul_zero, Int.add_zero,
+      Int.mul_one, Int.one_mul]
+  exact Fraction.le_equiv_right
+    (Fraction.le_equiv_left (Fraction.equiv_symm he) h)
+    (Fraction.add_comm a c)
+
+theorem adjacent_error_le_add (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le
+      (stateNorm (stateSub (prefixState b w T s (j + 1))
+        (prefixState b w T s j)))
+      (adjacentCap w T s j) := by
+  have hnext := prefix_next b w T s j
+  have href := prefix_refinement_error b w T s j hT hs
+  by_cases hb : b j
+  · rw [hnext, if_pos hb]
+    have htri := stateSub_triangle
+      (cell (linearField w) (duration T (j + 1))
+        (fineAt w (duration T (j + 1)) s (ticks b j)))
+      (fineAt w (duration T (j + 1)) s (ticks b j))
+      (prefixState b w T s j)
+    exact Fraction.magnitudes.le_trans htri
+      (Fraction.add_le_add (fine_optional_increment b w T s j hT hs) href)
+  · rw [hnext, if_neg hb]
+    exact Fraction.magnitudes.le_trans href
+      (le_add_optional _ _ (optionalCap_nonnegative w T s j hT))
+
+/-- `A=T*M*(2*(1+|w|)+3*T*|w|)` for intermediate prefixes. -/
+def coefficient (w T : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.mul T
+    (Fraction.mul (stateNorm s)
+      (Fraction.add
+        (Fraction.mul (Fraction.ofInt 2)
+          (Fraction.add (Fraction.ofInt 1) w.abs))
+        (Fraction.mul (Fraction.ofInt 3) (Fraction.mul T w.abs))))
+
+def tailCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
+  let A := coefficient w T s
+  ⟨A.num, A.den * (2 : Int) ^ j,
+    Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
+
+def doubleTail (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
+  let A := coefficient w T s
+  ⟨2 * A.num, A.den * (2 : Int) ^ j,
+    Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
+
+theorem adjacentCap_tail (w T : Fraction) (s : Point × Point) (j : Nat) :
+    Fraction.equiv (adjacentCap w T s j) (tailCap w T s (j + 1)) := by
+  simp only [adjacentCap, optionalCap, refinementCap, tailCap,
+    coefficient, duration, Fraction.equiv, Fraction.add,
+    Fraction.mul, Fraction.ofInt, Fraction.abs,
+    Int.pow_succ]
+  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+  ac_nf
+
+theorem adjacent_error_le (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le
+      (stateNorm (stateSub (prefixState b w T s (j + 1))
+        (prefixState b w T s j)))
+      (tailCap w T s (j + 1)) :=
+  Fraction.le_equiv_right (adjacent_error_le_add b w T s j hT hs)
+    (adjacentCap_tail w T s j)
+
+theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num := by
+  have hOneW : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
+    unfold Fraction.add Fraction.ofInt Fraction.abs
+    dsimp
+    have hw := Int.ofNat_nonneg w.num.natAbs
+    have hd := w.den_pos
+    omega
+  have h₁ : 0 ≤ (Fraction.mul (Fraction.ofInt 2)
+      (Fraction.add (Fraction.ofInt 1) w.abs)).num :=
+    Int.mul_nonneg (by decide) hOneW
+  have h₂ : 0 ≤ (Fraction.mul (Fraction.ofInt 3)
+      (Fraction.mul T w.abs)).num :=
+    Int.mul_nonneg (by decide)
+      (Int.mul_nonneg hT (Fraction.abs_num_nonnegative w))
+  unfold coefficient
+  exact Int.mul_nonneg hT
+    (Int.mul_nonneg (stateNorm_nonnegative s)
+      (Fraction.nonnegative_add _ _ h₁ h₂))
+
+theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
+    Fraction.equiv
+      (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))
+      (tailCap w T s j) := by
+  exact GeometricTail.tail_halving (coefficient w T s) j
+
+theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
+    Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))
+      (doubleTail w T s j) := by
+  exact GeometricTail.tail_double (coefficient w T s) j
+
+theorem finite_gap_error (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    (k j : Nat) → Fraction.le
+      (stateNorm (stateSub (prefixState b w T s (j + k))
+        (prefixState b w T s j))) (tailCap w T s j) := by
+  intro k j
+  exact GeometricTail.finite_gap (prefixState b w T s) (coefficient w T s)
+    (coefficient_nonnegative w T s hT)
+    (fun i => adjacent_error_le b w T s i hT hs) k j
+
+theorem two_sided_error (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
+    (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
+    Fraction.le
+      (stateNorm (stateSub (prefixState b w T s m) (prefixState b w T s n)))
+      (doubleTail w T s N) := by
+  exact GeometricTail.two_sided (prefixState b w T s) (coefficient w T s)
+    (coefficient_nonnegative w T s hT)
+    (fun i => adjacent_error_le b w T s i hT hs) N m n hm hn
+
+def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
+  (2 * (coefficient w T s).num * eps.den).toNat
+
+theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
+    (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
+    Fraction.lt (doubleTail w T s (modulus w T s eps)) eps := by
+  exact GeometricTail.doubleTail_lt_tolerance (coefficient w T s) eps
+    (coefficient_nonnegative w T s hT) heps
+
+theorem prefix_cauchy (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    ∀ eps : Fraction, 0 < eps.num →
+      ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
+        Fraction.lt
+          (stateNorm (stateSub (prefixState b w T s m)
+            (prefixState b w T s n))) eps := by
+  intro eps heps
+  refine ⟨modulus w T s eps, ?_⟩
+  intro m n hm hn
+  exact Fraction.magnitudes.lt_of_le_lt
+    (two_sided_error b w T s hT hs _ m n hm hn)
+    (doubleTail_lt_tolerance w T s eps hT heps)
+
+def prefixName (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : EndpointCauchyName where
+  approx := prefixState b w T s
+  cauchy := prefix_cauchy b w T s hT hs
+
+theorem all_zero_prefix (w T : Fraction) (s : Point × Point) (j : Nat) :
+    prefixState (fun _ => false) w T s j = s := by
+  simp [prefixState, all_zero_ticks, schedule]
+
+theorem zero_time_prefix (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat) (hT : T.num = 0) :
+    stateEquiv (prefixState b w T s j) s := by
+  exact zero_duration_schedule w (duration T j) (by exact hT) (ticks b j) s
+
+private def sampleOne : Fraction := ⟨1, 1, by decide⟩
+private def sampleZero : Fraction := ⟨0, 1, by decide⟩
+private def sampleQuarter : Fraction := ⟨1, 4, by decide⟩
+private def sampleState : Point × Point :=
+  ((sampleOne, sampleZero), (sampleZero, sampleOne))
+private def firstBit (j : Nat) : Bool := j == 0
+
+theorem sample_ticks : ticks firstBit 1 = 1 ∧ ticks firstBit 2 = 2 := by decide
+
+theorem sample_first_error :
+    Fraction.equiv
+      (stateNorm (stateSub
+        (prefixState firstBit sampleOne sampleQuarter sampleState 1)
+        (prefixState firstBit sampleOne sampleQuarter sampleState 0)))
+      ⟨17, 64, by decide⟩ := by decide
+
+theorem sample_coefficient :
+    Fraction.equiv (coefficient sampleOne sampleQuarter sampleState)
+      ⟨19, 8, by decide⟩ := by decide
+
+theorem sample_second_error :
+    Fraction.equiv
+      (stateNorm (stateSub
+        (prefixState firstBit sampleOne sampleQuarter sampleState 2)
+        (prefixState firstBit sampleOne sampleQuarter sampleState 1)))
+      ⟨545, 65536, by decide⟩ := by decide
+
+def sample_prefix_cauchy_name : EndpointCauchyName :=
+  prefixName firstBit sampleOne sampleQuarter sampleState
+    (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
+
+end NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/HarmonicComparison.lean}}{\small, 18 theorems, 214 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.StateDistance
+import BarrowLib.Polygon.PointBounds
+import BarrowLib.Polygon.FiniteEstimates
+import ModernLib.Polygon.HarmonicStability
+
+/-!
+Finite perturbation comparisons for the actual harmonic end-kick cell. The L1
+state magnitude is a chosen coordinate diagnostic and requires a unit
+calibration before interpreting position and velocity together physically.
+-/
+
+namespace NewtonLimitDynamics.Polygon.HarmonicComparison
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open CentralSchedule
+open HarmonicStability
+open PointBounds
+
+def kappa (w h : Fraction) : Fraction :=
+  Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs)
+    (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs))
+
+private theorem zero_le_product (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
+    Fraction.le (Fraction.ofInt 0) (Fraction.mul a b) := by
+  unfold Fraction.le Fraction.ofInt Fraction.mul
+  dsimp
+  simpa using Int.mul_nonneg ha hb
+
+private theorem one_plus_bound_right (a b c : Fraction)
+    (ha : 0 ≤ a.num) (hc : 0 ≤ c.num) :
+    Fraction.le (Fraction.add (Fraction.add a b) (Fraction.mul c b))
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c) (Fraction.add a b)) := by
+  let lhs := Fraction.add (Fraction.add a b) (Fraction.mul c b)
+  have h := Fraction.add_le_add_left (zero_le_product c a hc ha) lhs
+  have h' : Fraction.le lhs (Fraction.add lhs (Fraction.mul c a)) :=
+    Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.add_zero lhs)) h
+  apply Fraction.le_equiv_right h'
+  simp only [lhs, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+  ac_nf
+
+private theorem one_plus_bound_left (a b c : Fraction)
+    (hb : 0 ≤ b.num) (hc : 0 ≤ c.num) :
+    Fraction.le (Fraction.add (Fraction.add a b) (Fraction.mul c a))
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) c) (Fraction.add a b)) := by
+  let lhs := Fraction.add (Fraction.add a b) (Fraction.mul c a)
+  have h := Fraction.add_le_add_left (zero_le_product c b hc hb) lhs
+  have h' : Fraction.le lhs (Fraction.add lhs (Fraction.mul c b)) :=
+    Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.add_zero lhs)) h
+  apply Fraction.le_equiv_right h'
+  simp only [lhs, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+  ac_nf
+
+def drift (h : Fraction) (s : Point × Point) : Point × Point :=
+  (pointAdd s.1 (pointScale h s.2), s.2)
+
+def kick (w h : Fraction) (s : Point × Point) : Point × Point :=
+  (s.1, pointAdd s.2 (pointScale h (linearField w s.1)))
+
+theorem cell_eq_kick_drift (w h : Fraction) (s : Point × Point) :
+    cell (linearField w) h s = kick w h (drift h s) := rfl
+
+theorem drift_bound (h : Fraction) (s : Point × Point) :
+    Fraction.le (stateNorm (drift h s))
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs) (stateNorm s)) := by
+  have h₁ := Fraction.add_le_add_right (pointNorm_add_le s.1 (pointScale h s.2))
+    (pointNorm s.2)
+  have h₂ : Fraction.equiv
+      (Fraction.add (Fraction.add (pointNorm s.1) (pointNorm (pointScale h s.2)))
+        (pointNorm s.2))
+      (Fraction.add (Fraction.add (pointNorm s.1) (pointNorm s.2))
+        (Fraction.mul h.abs (pointNorm s.2))) := by
+    have hs := pointNorm_scale h s.2
+    have hh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.1)) hs
+    have hhh := Fraction.add_equiv hh (Fraction.equiv_refl (pointNorm s.2))
+    exact Fraction.equiv_trans hhh (by
+      simp only [Fraction.equiv, Fraction.add, Fraction.mul]
+      simp only [Int.add_mul, Int.mul_add]
+      ac_nf)
+  have h₃ := Fraction.le_equiv_right h₁ h₂
+  exact Fraction.magnitudes.le_trans h₃
+    (one_plus_bound_right (pointNorm s.1) (pointNorm s.2) h.abs
+      (pointNorm_nonnegative _) (Fraction.abs_num_nonnegative _))
+
+private theorem kick_scale_norm (w h : Fraction) (p : Point) :
+    Fraction.equiv (pointNorm (pointScale h (linearField w p)))
+      (Fraction.mul (Fraction.mul h.abs w.abs) (pointNorm p)) := by
+  simp only [Fraction.equiv, pointNorm, pointScale, linearField, negF,
+    Fraction.abs, Fraction.add, Fraction.mul, Int.natAbs_mul,
+    Int.natAbs_neg, Int.ofNat_mul]
+  simp only [Int.add_mul, Int.mul_add]
+  ac_nf
+
+theorem kick_bound (w h : Fraction) (s : Point × Point) :
+    Fraction.le (stateNorm (kick w h s))
+      (Fraction.mul
+        (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs))
+        (stateNorm s)) := by
+  have h₁ := Fraction.add_le_add_left
+    (pointNorm_add_le s.2 (pointScale h (linearField w s.1))) (pointNorm s.1)
+  have h₂ : Fraction.equiv
+      (Fraction.add (pointNorm s.1)
+        (Fraction.add (pointNorm s.2)
+          (pointNorm (pointScale h (linearField w s.1)))))
+      (Fraction.add (Fraction.add (pointNorm s.1) (pointNorm s.2))
+        (Fraction.mul (Fraction.mul h.abs w.abs) (pointNorm s.1))) := by
+    have hf := kick_scale_norm w h s.1
+    have hh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.2)) hf
+    have hhh := Fraction.add_equiv (Fraction.equiv_refl (pointNorm s.1)) hh
+    exact Fraction.equiv_trans hhh (by
+      simp only [Fraction.equiv, Fraction.add, Fraction.mul]
+      simp only [Int.add_mul, Int.mul_add]
+      ac_nf)
+  have h₃ := Fraction.le_equiv_right h₁ h₂
+  exact Fraction.magnitudes.le_trans h₃
+    (one_plus_bound_left (pointNorm s.1) (pointNorm s.2)
+      (Fraction.mul h.abs w.abs) (pointNorm_nonnegative _)
+      (Int.mul_nonneg (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _)))
+
+/-- One actual harmonic end-kick cell amplifies the coordinate L1 state
+magnitude by at most `(1+|h|)(1+|h||w|)`, including signed and zero data. -/
+theorem cell_bound (w h : Fraction) (s : Point × Point) :
+    Fraction.le (stateNorm (cell (linearField w) h s))
+      (Fraction.mul (kappa w h) (stateNorm s)) := by
+  rw [cell_eq_kick_drift]
+  have hk := kick_bound w h (drift h s)
+  have hd := drift_bound h s
+  have hc : 0 ≤ (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs)).num := by
+    have hp := Int.mul_pos h.abs.den_pos w.abs.den_pos
+    have hn := Int.mul_nonneg (Fraction.abs_num_nonnegative h)
+      (Fraction.abs_num_nonnegative w)
+    unfold Fraction.add Fraction.ofInt Fraction.mul
+    dsimp
+    omega
+  have hm := Fraction.mul_le_mul_nonnegative_left hd
+    (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs)) hc
+  have hchain := Fraction.magnitudes.le_trans hk hm
+  apply Fraction.le_equiv_right hchain
+  simp only [kappa, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+  simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+  ac_nf
+
+/-- Subtracting the outputs of two actual cells equals applying the same
+linear harmonic cell to their input difference, as rational values. -/
+theorem cell_difference (w h : Fraction) (s t : Point × Point) :
+    stateEquiv (stateSub (cell (linearField w) h s) (cell (linearField w) h t))
+      (cell (linearField w) h (stateSub s t)) := by
+  constructor <;> constructor <;>
+    simp only [zero, stateSub, pointEquiv, pointSub, pointNeg, cell, linearField,
+      negF, pointAdd, pointScale, Fraction.equiv, Fraction.add, Fraction.mul,
+      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
+    ac_nf <;> omega
+
+/-- A one-step perturbation estimate for two actual cells under the same
+linear field and duration. The input difference is a represented state. -/
+theorem linearField_comparison_contract (w : Fraction) :
+    FiniteEstimates.comparisonContract (linearField w) (linearField w)
+      w.abs (Fraction.ofInt 0) := by
+  intro p q
+  have hs := FiniteEstimates.difference_scale (negF w) p q
+  have he := Fraction.equiv_trans hs
+    (Fraction.mul_equiv (Fraction.abs_neg w) (Fraction.equiv_refl _))
+  exact Fraction.le_of_equiv (Fraction.equiv_trans he
+    (Fraction.equiv_symm (Fraction.add_zero _)))
+
+theorem cell_perturbation (w h : Fraction) (s t : Point × Point) :
+    Fraction.le
+      (stateNorm (stateSub (cell (linearField w) h s) (cell (linearField w) h t)))
+      (Fraction.mul (kappa w h) (stateNorm (stateSub s t))) := by
+  have hg := FiniteEstimates.cell_amplification (linearField w) (linearField w)
+    h w.abs (Fraction.ofInt 0) s t (Fraction.abs_num_nonnegative w)
+    (linearField_comparison_contract w)
+  apply Fraction.le_equiv_right hg
+  exact Fraction.equiv_trans (Fraction.add_equiv (Fraction.equiv_refl _)
+    (Fraction.mul_zero h.abs)) (Fraction.add_zero _)
+
+private def one : Fraction := ⟨1, 1, by decide⟩
+private def zero : Fraction := ⟨0, 1, by decide⟩
+private def half : Fraction := ⟨1, 2, by decide⟩
+private def sample : Point × Point := ((one, zero), (zero, one))
+
+/-- Zero duration leaves the represented state unchanged in rational value. -/
+theorem zero_step (w : Fraction) (s : Point × Point) :
+    stateEquiv (cell (linearField w) zero s) s := by
+  constructor <;> constructor <;>
+    simp only [zero, stateSub, pointEquiv, pointSub, pointNeg, cell, linearField,
+      negF, pointAdd, pointScale, Fraction.equiv, Fraction.add, Fraction.mul,
+      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg,
+      Int.zero_mul, Int.mul_zero, Int.add_zero] <;>
+    ac_nf <;> omega
+
+theorem zero_step_norm (w : Fraction) (s : Point × Point) :
+    Fraction.equiv (stateNorm (cell (linearField w) zero s)) (stateNorm s) :=
+  stateNorm_equiv (zero_step w s)
+
+theorem zero_kappa (w : Fraction) : Fraction.equiv (kappa w zero) one := by
+  simp only [kappa, zero, one, Fraction.equiv, Fraction.abs, Fraction.ofInt,
+    Fraction.add, Fraction.mul]
+  dsimp
+  simp only [Int.zero_mul, Int.mul_zero, Int.add_zero, Int.mul_one, Int.one_mul]
+
+theorem sample_kappa : Fraction.equiv (kappa one half) ⟨9, 4, by decide⟩ := by decide
+theorem sample_initial_norm : Fraction.equiv (stateNorm sample) (Fraction.ofInt 2) := by decide
+theorem sample_cell_norm :
+    Fraction.equiv (stateNorm (cell (linearField one) half sample)) ⟨11, 4, by decide⟩ := by decide
+theorem sample_cell_bound :
+    Fraction.le (stateNorm (cell (linearField one) half sample))
+      (Fraction.mul (kappa one half) (stateNorm sample)) := by
+  unfold Fraction.le
+  decide
+
+end NewtonLimitDynamics.Polygon.HarmonicComparison
+\end{Verbatim}
+
 \noindent{\small\texttt{ModernLib/Polygon/HarmonicCompletedForce.lean}}{\small, 2 theorems, 47 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -26974,6 +22490,757 @@ theorem three_tick_finite_identity_false :
       (prefixState threeQuarterAddress one quarter testState 2) := by decide
 
 end NewtonLimitDynamics.Polygon.HarmonicConstructionAgreement
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/HarmonicCover.lean}}{\small, 36 theorems, 434 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.ConvexCover
+import ModernLib.Foundation.Polygon.SquareOuterContent
+import ModernLib.Polygon.HarmonicUniform
+
+/-!
+Explicit finite square covers for matched pieces of the actual harmonic
+coarse and fine polygonal paths. The square area is counted with multiplicity
+over blocks. This is a geometric covering budget, not the area of the union
+or the area between a polygon and a realized continuum trajectory. It is
+separate from Kepler's centre-swept area.
+-/
+
+namespace NewtonLimitDynamics.Polygon.HarmonicCover
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open CentralSchedule
+open HarmonicStability
+open HarmonicRefinement
+open HarmonicComparison
+open HarmonicAccumulation
+open HarmonicUniform
+open PointBounds
+open ConvexCover
+
+private def two : Fraction := Fraction.ofInt 2
+private def four : Fraction := Fraction.ofInt 4
+
+def maxError (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
+  Fraction.mul (Fraction.ofInt 3)
+    (Fraction.mul (totalTime h n)
+      (Fraction.mul h (Fraction.mul w.abs (stateNorm s))))
+
+def halfDriftBudget (h : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.mul two (Fraction.mul h (stateNorm s))
+
+def fullDriftBudget (h : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.mul four (Fraction.mul h (stateNorm s))
+
+/-- The radius is `4hM + Emax`; this additive form makes the corner estimates
+direct. `radius_formula` gives the equivalent compact expression. -/
+def radius (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
+  Fraction.add (fullDriftBudget h s) (maxError w h s n)
+
+def squareArea (R : Fraction) : Fraction := SquareOuterContent.squareArea R
+
+/-- Sum of `n` square areas, counted with multiplicity. -/
+def coverBudget (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
+  Fraction.mul (Fraction.ofInt (n : Int)) (squareArea (radius w h s n))
+
+private theorem totalTime_nonnegative (h : Fraction) (n : Nat) (hh : 0 ≤ h.num) :
+    0 ≤ (totalTime h n).num := by
+  unfold totalTime Fraction.mul Fraction.ofInt
+  exact Int.mul_nonneg (Int.mul_nonneg (by decide) (Int.ofNat_nonneg _)) hh
+
+private theorem maxError_nonnegative (w h : Fraction) (s : Point × Point)
+    (n : Nat) (hh : 0 ≤ h.num) : 0 ≤ (maxError w h s n).num :=
+  Fraction.nonnegative_mul _ _ (by decide)
+    (Fraction.nonnegative_mul _ _ (totalTime_nonnegative h n hh)
+      (Fraction.nonnegative_mul _ _ hh
+        (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))))
+
+private theorem halfDriftBudget_nonnegative (h : Fraction) (s : Point × Point)
+    (hh : 0 ≤ h.num) : 0 ≤ (halfDriftBudget h s).num :=
+  Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
+
+private theorem fullDriftBudget_nonnegative (h : Fraction) (s : Point × Point)
+    (hh : 0 ≤ h.num) : 0 ≤ (fullDriftBudget h s).num :=
+  Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
+
+theorem radius_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
+    (hh : 0 ≤ h.num) : 0 ≤ (radius w h s n).num :=
+  Fraction.nonnegative_add _ _ (fullDriftBudget_nonnegative h s hh)
+    (maxError_nonnegative w h s n hh)
+
+theorem squareArea_nonnegative (R : Fraction) (hR : 0 ≤ R.num) :
+    0 ≤ (squareArea R).num := SquareOuterContent.squareArea_nonnegative R hR
+
+theorem coverBudget_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
+    (hh : 0 ≤ h.num) : 0 ≤ (coverBudget w h s n).num :=
+  Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _)
+    (squareArea_nonnegative _ (radius_nonnegative w h s n hh))
+
+private theorem totalTime_le (h : Fraction) (i n : Nat)
+    (hh : 0 ≤ h.num) (hin : i ≤ n) :
+    Fraction.le (totalTime h i) (totalTime h n) := by
+  have hi : (i : Int) ≤ (n : Int) := Int.ofNat_le.mpr hin
+  have hcoef : 0 ≤ 2 * h.num * h.den :=
+    Int.mul_nonneg (Int.mul_nonneg (by decide) hh) (Int.le_of_lt h.den_pos)
+  have hm := Int.mul_le_mul_of_nonneg_right hi hcoef
+  unfold Fraction.le totalTime Fraction.mul Fraction.ofInt
+  dsimp
+  simp only [Int.one_mul]
+  calc
+    2 * (i : Int) * h.num * h.den ≤
+        2 * (n : Int) * h.num * h.den := by
+      calc
+        _ = (i : Int) * (2 * h.num * h.den) := by ac_rfl
+        _ ≤ (n : Int) * (2 * h.num * h.den) := hm
+        _ = _ := by ac_rfl
+
+/-- Every earlier actual endpoint error is bounded by the final-count cap. -/
+private theorem prefix_error_le_max (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
+    (hs : SmallTime w h n) :
+    Fraction.le
+      (stateNorm (stateSub (fineAt w h s i) (coarseAt w h s i)))
+      (maxError w h s n) := by
+  have hsmall := smallTime_prefix w h i n hh hin hs
+  have he := actual_uniform_error w h s i hh hsmall
+  have ht := totalTime_le h i n hh hin
+  have hfactor : 0 ≤ (Fraction.mul h (Fraction.mul w.abs (stateNorm s))).num :=
+    Fraction.nonnegative_mul _ _ hh
+      (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))
+  have hm := Fraction.mul_le_mul_nonnegative ht
+    (Fraction.mul h (Fraction.mul w.abs (stateNorm s))) hfactor
+  have hm' := Fraction.mul_le_mul_nonnegative_left hm (Fraction.ofInt 3) (by decide)
+  exact Fraction.magnitudes.le_trans he hm'
+
+private theorem drift_offset_le_state (d : Fraction) (hd : 0 ≤ d.num)
+    (t : Point × Point) :
+    Fraction.le
+      (pointNorm (pointSub (pointAdd t.1 (pointScale d t.2)) t.1))
+      (Fraction.mul d (stateNorm t)) := by
+  have he := pointNorm_equiv (drift_offset d t.1 t.2)
+  have hs := pointNorm_scale d t.2
+  have hdabs := Fraction.abs_of_nonnegative d hd
+  have hmul := Fraction.mul_equiv hdabs (Fraction.equiv_refl (pointNorm t.2))
+  have hstart := Fraction.equiv_trans he (Fraction.equiv_trans hs hmul)
+  have hv := velocity_le_state t
+  have hm := Fraction.mul_le_mul_nonnegative_left hv d hd
+  exact Fraction.le_equiv_left hstart hm
+
+private theorem two_le_four (h : Fraction) (s : Point × Point)
+    (hh : 0 ≤ h.num) :
+    Fraction.le (halfDriftBudget h s) (fullDriftBudget h s) := by
+  have ht : Fraction.le two four := by
+    unfold Fraction.le two four Fraction.ofInt
+    decide
+  exact Fraction.mul_le_mul_nonnegative ht (Fraction.mul h (stateNorm s))
+    (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
+
+private theorem half_drift_le (h : Fraction) (s t : Point × Point)
+    (hh : 0 ≤ h.num)
+    (ht : Fraction.le (stateNorm t) (Fraction.mul two (stateNorm s))) :
+    Fraction.le
+      (pointNorm (pointSub (pointAdd t.1 (pointScale h t.2)) t.1))
+      (halfDriftBudget h s) := by
+  have h₀ := drift_offset_le_state h hh t
+  have h₁ := Fraction.mul_le_mul_nonnegative_left ht h hh
+  have hc := Fraction.magnitudes.le_trans h₀ h₁
+  apply Fraction.le_equiv_right hc
+  simp only [halfDriftBudget, two, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+  ac_nf
+
+private theorem full_drift_le (h : Fraction) (s t : Point × Point)
+    (hh : 0 ≤ h.num)
+    (ht : Fraction.le (stateNorm t) (Fraction.mul two (stateNorm s))) :
+    Fraction.le
+      (pointNorm (pointSub (pointAdd t.1 (pointScale (Fraction.add h h) t.2)) t.1))
+      (fullDriftBudget h s) := by
+  have hsum : 0 ≤ (Fraction.add h h).num :=
+    Fraction.nonnegative_add h h hh hh
+  have h₀ := drift_offset_le_state (Fraction.add h h) hsum t
+  have h₁ := Fraction.mul_le_mul_nonnegative_left ht (Fraction.add h h) hsum
+  have hc := Fraction.magnitudes.le_trans h₀ h₁
+  apply Fraction.le_equiv_right hc
+  simp only [fullDriftBudget, two, four, Fraction.equiv, Fraction.add,
+    Fraction.mul, Fraction.ofInt]
+  simp only [show (4 : Int) = 2 + 2 by rfl,
+    Int.add_mul, Int.mul_add]
+  ac_nf
+
+def coarseStart (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
+  (coarseAt w h s i).1
+
+def fineStart (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
+  (fineAt w h s i).1
+
+/-- Position halfway along the actual coarse cell's inertial drift. This
+vertex is a comparison subdivision; the coarse schedule has no impulse here. -/
+def coarseMid (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
+  (cell (linearField w) h (coarseAt w h s i)).1
+
+def fineMid (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
+  (cell (linearField w) h (fineAt w h s i)).1
+
+def coarseEnd (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
+  (coarseAt w h s (i + 1)).1
+
+def fineEnd (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
+  (fineAt w h s (i + 1)).1
+
+private theorem coarse_mid_le_half (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
+    (hs : SmallTime w h n) :
+    Fraction.le (pointNorm (pointSub (coarseMid w h s i) (coarseStart w h s i)))
+      (halfDriftBudget h s) :=
+  half_drift_le h s (coarseAt w h s i) hh
+    (coarse_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
+
+private theorem fine_mid_own_le_half (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
+    (hs : SmallTime w h n) :
+    Fraction.le (pointNorm (pointSub (fineMid w h s i) (fineStart w h s i)))
+      (halfDriftBudget h s) :=
+  half_drift_le h s (fineAt w h s i) hh
+    (fine_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
+
+private theorem coarse_end_le_full (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
+    (hs : SmallTime w h n) :
+    Fraction.le (pointNorm (pointSub (coarseEnd w h s i) (coarseStart w h s i)))
+      (fullDriftBudget h s) :=
+  full_drift_le h s (coarseAt w h s i) hh
+    (coarse_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
+
+private theorem fine_start_error_le (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
+    (hs : SmallTime w h n) :
+    Fraction.le (pointNorm (pointSub (fineStart w h s i) (coarseStart w h s i)))
+      (maxError w h s n) :=
+  Fraction.magnitudes.le_trans
+    (point_le_state (stateSub (fineAt w h s i) (coarseAt w h s i)))
+    (prefix_error_le_max w h s i n hh hin hs)
+
+private theorem fine_mid_le (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
+    (hs : SmallTime w h n) :
+    Fraction.le (pointNorm (pointSub (fineMid w h s i) (coarseStart w h s i)))
+      (Fraction.add (maxError w h s n) (halfDriftBudget h s)) := by
+  have ht := pointSub_triangle (fineMid w h s i) (fineStart w h s i)
+    (coarseStart w h s i)
+  have h₁ := fine_mid_own_le_half w h s i n hh hin hs
+  have h₂ := fine_start_error_le w h s i n hh hin hs
+  have hc := Fraction.magnitudes.le_trans ht (Fraction.add_le_add h₁ h₂)
+  exact Fraction.le_equiv_right hc
+    (Fraction.add_comm (halfDriftBudget h s) (maxError w h s n))
+
+private theorem fine_end_le (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
+    (hs : SmallTime w h n) :
+    Fraction.le (pointNorm (pointSub (fineEnd w h s i) (coarseStart w h s i)))
+      (Fraction.add (maxError w h s n) (fullDriftBudget h s)) := by
+  have hnext : i + 1 ≤ n := Nat.succ_le_of_lt hin
+  have ht := pointSub_triangle (fineEnd w h s i) (coarseEnd w h s i)
+    (coarseStart w h s i)
+  have h₁ := fine_start_error_le w h s (i + 1) n hh hnext hs
+  have h₂ := coarse_end_le_full w h s i n hh (Nat.le_of_lt hin) hs
+  exact Fraction.magnitudes.le_trans ht (Fraction.add_le_add h₁ h₂)
+
+private theorem zero_le (R : Fraction) (hR : 0 ≤ R.num) :
+    Fraction.le (Fraction.ofInt 0) R := by
+  unfold Fraction.le Fraction.ofInt
+  simpa using hR
+
+/-- Six actual vertices, each measured from the coarse block start, fit in
+the same coordinate L1 ball of radius `4hM + Emax`. The midpoint is only a
+subdivision of the coarse drift; it receives no impulse. -/
+theorem actual_corners_in_ball (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
+    (hs : SmallTime w h n) :
+    let x := coarseStart w h s i
+    let R := radius w h s n
+    Fraction.le (pointNorm (pointSub x x)) R ∧
+    Fraction.le (pointNorm (pointSub (coarseMid w h s i) x)) R ∧
+    Fraction.le (pointNorm (pointSub (coarseEnd w h s i) x)) R ∧
+    Fraction.le (pointNorm (pointSub (fineStart w h s i) x)) R ∧
+    Fraction.le (pointNorm (pointSub (fineMid w h s i) x)) R ∧
+    Fraction.le (pointNorm (pointSub (fineEnd w h s i) x)) R := by
+  dsimp
+  have hi : i ≤ n := Nat.le_of_lt hin
+  have hE := maxError_nonnegative w h s n hh
+  have hH := fullDriftBudget_nonnegative h s hh
+  have hH2 := two_le_four h s hh
+  have hHR : Fraction.le (fullDriftBudget h s) (radius w h s n) :=
+    Fraction.le_add_nonnegative _ _ hE
+  have hER : Fraction.le (maxError w h s n) (radius w h s n) :=
+    Fraction.le_equiv_right (Fraction.le_add_nonnegative _ _ hH)
+      (Fraction.add_comm (maxError w h s n) (fullDriftBudget h s))
+  have hsum : Fraction.le
+      (Fraction.add (maxError w h s n) (halfDriftBudget h s))
+      (radius w h s n) :=
+    Fraction.le_equiv_right
+      (Fraction.add_le_add_left hH2 (maxError w h s n))
+      (Fraction.add_comm (maxError w h s n) (fullDriftBudget h s))
+  have hlast : Fraction.equiv
+      (Fraction.add (maxError w h s n) (fullDriftBudget h s))
+      (radius w h s n) :=
+    Fraction.add_comm _ _
+  refine ⟨?_, ?_, ?_, ?_, ?_, ?_⟩
+  · exact Fraction.le_equiv_left (pointSub_self_zero _)
+      (zero_le _ (radius_nonnegative w h s n hh))
+  · exact Fraction.magnitudes.le_trans (coarse_mid_le_half w h s i n hh hi hs)
+      (Fraction.magnitudes.le_trans hH2 hHR)
+  · exact Fraction.magnitudes.le_trans (coarse_end_le_full w h s i n hh hi hs) hHR
+  · exact Fraction.magnitudes.le_trans (fine_start_error_le w h s i n hh hi hs) hER
+  · exact Fraction.magnitudes.le_trans (fine_mid_le w h s i n hh hi hs) hsum
+  · exact Fraction.le_equiv_right (fine_end_le w h s i n hh hin hs) hlast
+
+/-- The first matched patch compares the two paths over the first half-cell. -/
+def firstPatch (w h : Fraction) (s : Point × Point) (i : Nat)
+    (theta lambda : Fraction) : Point :=
+  matchedPatch theta lambda (coarseStart w h s i) (coarseMid w h s i)
+    (fineStart w h s i) (fineMid w h s i)
+
+/-- The second matched patch compares the same second-half physical times. -/
+def secondPatch (w h : Fraction) (s : Point × Point) (i : Nat)
+    (theta lambda : Fraction) : Point :=
+  matchedPatch theta lambda (coarseMid w h s i) (coarseEnd w h s i)
+    (fineMid w h s i) (fineEnd w h s i)
+
+theorem firstPatch_square (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
+    (hs : SmallTime w h n) (theta lambda : Fraction)
+    (ht : UnitInterval theta) (hl : UnitInterval lambda) :
+    SquareContains (coarseStart w h s i) (radius w h s n)
+      (firstPatch w h s i theta lambda) := by
+  obtain ⟨hc0, hc1, _, hf0, hf1, _⟩ := actual_corners_in_ball w h s i n hh hin hs
+  exact matchedPatch_square theta lambda ht hl _ _ _ _ _ _ hc0 hc1 hf0 hf1
+
+theorem secondPatch_square (w h : Fraction) (s : Point × Point)
+    (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
+    (hs : SmallTime w h n) (theta lambda : Fraction)
+    (ht : UnitInterval theta) (hl : UnitInterval lambda) :
+    SquareContains (coarseStart w h s i) (radius w h s n)
+      (secondPatch w h s i theta lambda) := by
+  obtain ⟨_, hc0, hc1, _, hf0, hf1⟩ := actual_corners_in_ball w h s i n hh hin hs
+  exact matchedPatch_square theta lambda ht hl _ _ _ _ _ _ hc0 hc1 hf0 hf1
+
+def shapeFactor (w h : Fraction) (n : Nat) : Fraction :=
+  Fraction.add (Fraction.ofInt 4)
+    (Fraction.mul (Fraction.ofInt 3) (Fraction.mul (totalTime h n) w.abs))
+
+/-- Compact radius formula: `R=h*M*(4+3*T*|w|)`. -/
+theorem radius_formula (w h : Fraction) (s : Point × Point) (n : Nat) :
+    Fraction.equiv (radius w h s n)
+      (Fraction.mul (Fraction.mul h (stateNorm s)) (shapeFactor w h n)) := by
+  simp only [radius, fullDriftBudget, maxError, shapeFactor, four,
+    Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+  simp only [Int.add_mul, Int.mul_add]
+  ac_nf
+
+/-- The summed square budget is `2*T*h*M²*(4+3*T*|w|)²`. It counts one
+square per coarse block; no union-area or disjointness assertion is used. -/
+theorem coverBudget_formula (w h : Fraction) (s : Point × Point) (n : Nat) :
+    Fraction.equiv (coverBudget w h s n)
+      (Fraction.mul (Fraction.ofInt 2)
+        (Fraction.mul (totalTime h n)
+          (Fraction.mul h
+            (Fraction.mul (Fraction.mul (stateNorm s) (stateNorm s))
+              (Fraction.mul (shapeFactor w h n) (shapeFactor w h n)))))) := by
+  let R := radius w h s n
+  let Q := shapeFactor w h n
+  let M := stateNorm s
+  have hr := radius_formula w h s n
+  have hsq := Fraction.mul_equiv hr hr
+  have harea := Fraction.mul_equiv (Fraction.equiv_refl (Fraction.ofInt 4)) hsq
+  have hbudget := Fraction.mul_equiv (Fraction.equiv_refl (Fraction.ofInt (n : Int))) harea
+  apply Fraction.equiv_trans hbudget
+  simp only [coverBudget, squareArea, R, Q, M, totalTime,
+    Fraction.equiv, Fraction.mul, Fraction.ofInt]
+  simp only [show (4 : Int) = 2 * 2 by rfl]
+  ac_nf
+
+private def one : Fraction := ⟨1, 1, by decide⟩
+private def zero : Fraction := ⟨0, 1, by decide⟩
+private def eighth : Fraction := ⟨1, 8, by decide⟩
+private def quarter : Fraction := ⟨1, 4, by decide⟩
+private def sample : Point × Point := ((one, zero), (zero, one))
+
+theorem sample_small_time : SmallTime one eighth 1 := by
+  unfold SmallTime Fraction.le
+  decide
+
+theorem sample_radius :
+    Fraction.equiv (radius one eighth sample 1) ⟨19, 16, by decide⟩ := by decide
+
+theorem sample_square_area :
+    Fraction.equiv (squareArea (radius one eighth sample 1))
+      ⟨361, 64, by decide⟩ := by decide
+
+theorem sample_cover_budget :
+    Fraction.equiv (coverBudget one eighth sample 1)
+      ⟨361, 64, by decide⟩ := by decide
+
+theorem sample_all_corners :
+    let x := coarseStart one eighth sample 0
+    let R := radius one eighth sample 1
+    Fraction.le (pointNorm (pointSub x x)) R ∧
+    Fraction.le (pointNorm (pointSub (coarseMid one eighth sample 0) x)) R ∧
+    Fraction.le (pointNorm (pointSub (coarseEnd one eighth sample 0) x)) R ∧
+    Fraction.le (pointNorm (pointSub (fineStart one eighth sample 0) x)) R ∧
+    Fraction.le (pointNorm (pointSub (fineMid one eighth sample 0) x)) R ∧
+    Fraction.le (pointNorm (pointSub (fineEnd one eighth sample 0) x)) R :=
+  actual_corners_in_ball one eighth sample 0 1 (by decide) (by decide) sample_small_time
+
+theorem sample_first_patch_square (theta lambda : Fraction)
+    (ht : UnitInterval theta) (hl : UnitInterval lambda) :
+    SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)
+      (firstPatch one eighth sample 0 theta lambda) :=
+  firstPatch_square one eighth sample 0 1 (by decide) (by decide)
+    sample_small_time theta lambda ht hl
+
+theorem sample_second_patch_square (theta lambda : Fraction)
+    (ht : UnitInterval theta) (hl : UnitInterval lambda) :
+    SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)
+      (secondPatch one eighth sample 0 theta lambda) :=
+  secondPatch_square one eighth sample 0 1 (by decide) (by decide)
+    sample_small_time theta lambda ht hl
+
+theorem sample_zero_blocks_budget :
+    Fraction.equiv (coverBudget one eighth sample 0) zero := by decide
+
+theorem sample_zero_duration_budget :
+    Fraction.equiv (coverBudget one zero sample 1) zero := by decide
+
+theorem sample_quarter_ball_too_small :
+    ¬ Fraction.le
+      (pointNorm (pointSub (fineEnd one eighth sample 0)
+        (coarseStart one eighth sample 0))) quarter := by
+  unfold Fraction.le
+  decide
+
+/-- A separate coordinate-square control: the coarse endpoint's vertical
+offset is 1/4, so a square of radius 1/8 cannot cover it. The preceding
+L1-ball control does not assert failure of a square of radius 1/4. -/
+theorem sample_eighth_square_too_small :
+    ¬ SquareContains (coarseStart one eighth sample 0) eighth
+      (coarseEnd one eighth sample 0) := by
+  unfold SquareContains Fraction.le
+  decide
+
+end NewtonLimitDynamics.Polygon.HarmonicCover
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/HarmonicDyadic.lean}}{\small, 29 theorems, 307 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.GeometricTail
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
+import ModernLib.Foundation.Polygon.EndpointCauchyName
+import BarrowLib.Polygon.StateDistance
+import ModernLib.Polygon.HarmonicUniform
+
+/-!
+Actual dyadic harmonic endpoint data at one fixed represented rational time.
+The Cauchy estimates are derived from the finite end-kick cells. A Cauchy
+name is not a limit point, continuous trajectory, or geometric region between
+polygon and trajectory. Kepler swept area remains a separate quantity.
+-/
+
+namespace NewtonLimitDynamics.Polygon.HarmonicDyadic
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open CentralSchedule
+open HarmonicStability
+open HarmonicRefinement
+open HarmonicComparison
+open HarmonicAccumulation
+open HarmonicUniform
+open PointBounds
+
+/-- `2^j` actual end-kick cells, each of duration `T/2^j`. -/
+def endpoint (w T : Fraction) (s : Point × Point) (j : Nat) : Point × Point :=
+  schedule (linearField w) (List.replicate (blocks j) (duration T j)) s
+
+theorem totalTime_dyadic (T : Fraction) (j : Nat) :
+    Fraction.equiv (totalTime (duration T (j + 1)) (blocks j)) T := by
+  simp only [totalTime, duration, blocks, Fraction.equiv, Fraction.mul,
+    Fraction.ofInt, Int.pow_succ, Int.natCast_pow]
+  ac_nf
+
+private theorem pointScale_congr {a b : Fraction} {p q : Point}
+    (ha : Fraction.equiv a b) (hp : pointEquiv p q) :
+    pointEquiv (pointScale a p) (pointScale b q) :=
+  ⟨Fraction.mul_equiv ha hp.1, Fraction.mul_equiv ha hp.2⟩
+
+private theorem cell_congr {d e : Fraction} {s t : Point × Point}
+    (hd : Fraction.equiv d e) (hs : stateEquiv s t) (w : Fraction) :
+    stateEquiv (cell (linearField w) d s) (cell (linearField w) e t) := by
+  have hpos := pointAdd_congr hs.1 (pointScale_congr hd hs.2)
+  have hfield : pointEquiv (linearField w (cell (linearField w) d s).1)
+      (linearField w (cell (linearField w) e t).1) :=
+    pointScale_congr (Fraction.equiv_refl _) hpos
+  exact ⟨hpos, pointAdd_congr hs.2 (pointScale_congr hd hfield)⟩
+
+theorem schedule_replicate_congr (w d e : Fraction)
+    (hd : Fraction.equiv d e) :
+    (n : Nat) → (s t : Point × Point) → stateEquiv s t →
+      stateEquiv (schedule (linearField w) (List.replicate n d) s)
+        (schedule (linearField w) (List.replicate n e) t)
+  | 0, _, _, hs => hs
+  | n + 1, _, _, hs =>
+      schedule_replicate_congr w d e hd n _ _ (cell_congr hd hs w)
+
+theorem fineDurations_replicate (h : Fraction) :
+    (n : Nat) → fineDurations h n = List.replicate (n + n) h
+  | 0 => rfl
+  | n + 1 => by
+      have ih := fineDurations_replicate h n
+      have hn : (n + 1) + (n + 1) = 2 + (n + n) := by omega
+      rw [hn]
+      have hc : 2 + (n + n) = (n + n) + 2 := by omega
+      rw [hc]
+      simp only [fineDurations, Nat.add_succ, List.replicate_succ]
+      rw [ih]
+
+/-- The coarser dyadic endpoint is value-equivalent to the actual coarse
+block schedule at half the next level's duration. -/
+theorem endpoint_coarse (w T : Fraction) (s : Point × Point) (j : Nat) :
+    stateEquiv (endpoint w T s j)
+      (coarseAt w (duration T (j + 1)) s (blocks j)) := by
+  have hc := schedule_replicate_congr w (duration T j)
+    (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
+    (duration_halving T j) (blocks j) s s
+    ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
+      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
+  simpa only [endpoint, coarseAt_schedule] using hc
+
+/-- The next dyadic endpoint is the actual two-half-cell schedule. -/
+theorem endpoint_fine (w T : Fraction) (s : Point × Point) (j : Nat) :
+    endpoint w T s (j + 1) =
+      fineAt w (duration T (j + 1)) s (blocks j) := by
+  unfold endpoint
+  rw [blocks_succ]
+  rw [← fineDurations_replicate]
+  exact fineAt_schedule w (duration T (j + 1)) s (blocks j)
+
+theorem elapsed_replicate_congr {d e : Fraction}
+    (hd : Fraction.equiv d e) :
+    (n : Nat) →
+      Fraction.equiv (elapsed (List.replicate n d)) (elapsed (List.replicate n e))
+  | 0 => Fraction.equiv_refl _
+  | n + 1 => Fraction.add_equiv hd (elapsed_replicate_congr hd n)
+
+theorem endpoint_elapsed (T : Fraction) (j : Nat) :
+    Fraction.equiv (elapsed (List.replicate (blocks j) (duration T j))) T :=
+  Fraction.equiv_trans
+    (elapsed_replicate_congr (duration_halving T j) (blocks j))
+    (Fraction.equiv_trans
+      (coarse_elapsed_totalTime (duration T (j + 1)) (blocks j))
+      (totalTime_dyadic T j))
+
+theorem endpoint_next_elapsed (T : Fraction) (j : Nat) :
+    Fraction.equiv
+      (elapsed (List.replicate (blocks (j + 1)) (duration T (j + 1)))) T := by
+  rw [blocks_succ, ← fineDurations_replicate]
+  exact Fraction.equiv_trans
+    (fine_elapsed_totalTime (duration T (j + 1)) (blocks j))
+    (totalTime_dyadic T j)
+
+def halfThreshold : Fraction := ⟨1, 2, by decide⟩
+
+def DyadicSmallTime (w T : Fraction) : Prop :=
+  Fraction.le
+    (Fraction.mul T (Fraction.add (Fraction.ofInt 1) w.abs)) halfThreshold
+
+theorem dyadic_smallTime (w T : Fraction) (j : Nat)
+    (hs : DyadicSmallTime w T) :
+    SmallTime w (duration T (j + 1)) (blocks j) := by
+  have ht := totalTime_dyadic T j
+  have he := Fraction.mul_equiv ht
+    (Fraction.equiv_refl (Fraction.add (Fraction.ofInt 1) w.abs))
+  exact Fraction.le_equiv_left he hs
+
+def adjacentCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
+  Fraction.mul (Fraction.ofInt 3)
+    (Fraction.mul T
+      (Fraction.mul (duration T (j + 1))
+        (Fraction.mul w.abs (stateNorm s))))
+
+theorem adjacent_error_le (w T : Fraction) (s : Point × Point) (j : Nat)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le
+      (stateNorm (stateSub (endpoint w T s (j + 1)) (endpoint w T s j)))
+      (adjacentCap w T s j) := by
+  let h := duration T (j + 1)
+  let n := blocks j
+  have hf := endpoint_fine w T s j
+  have hc := endpoint_coarse w T s j
+  have he : stateEquiv (stateSub (endpoint w T s (j + 1)) (endpoint w T s j))
+      (stateSub (fineAt w h s n) (coarseAt w h s n)) :=
+    stateSub_congr
+      (by rw [hf]; exact ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
+          ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩)
+      hc
+  have hbound := actual_uniform_error w h s n hT (dyadic_smallTime w T j hs)
+  have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hbound
+  apply Fraction.le_equiv_right hfirst
+  exact Fraction.mul_equiv (Fraction.equiv_refl _)
+    (Fraction.mul_equiv (totalTime_dyadic T j) (Fraction.equiv_refl _))
+
+/-- The finite tail coefficient `A=3*T²*|w|*M`. -/
+def coefficient (w T : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.mul (Fraction.ofInt 3)
+    (Fraction.mul T (Fraction.mul T (Fraction.mul w.abs (stateNorm s))))
+
+def tailCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
+  let A := coefficient w T s
+  ⟨A.num, A.den * (2 : Int) ^ j,
+    Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
+
+def doubleTail (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
+  let A := coefficient w T s
+  ⟨2 * A.num, A.den * (2 : Int) ^ j,
+    Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
+
+theorem adjacentCap_tail (w T : Fraction) (s : Point × Point) (j : Nat) :
+    Fraction.equiv (adjacentCap w T s j) (tailCap w T s (j + 1)) := by
+  simp only [adjacentCap, tailCap, coefficient, duration, Fraction.equiv,
+    Fraction.mul, Fraction.ofInt, Int.pow_succ]
+  ac_nf
+
+theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
+    Fraction.equiv
+      (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))
+      (tailCap w T s j) := by
+  exact GeometricTail.tail_halving (coefficient w T s) j
+
+theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
+    Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))
+      (doubleTail w T s j) := by
+  exact GeometricTail.tail_double (coefficient w T s) j
+
+theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num :=
+  Int.mul_nonneg (by decide)
+    (Int.mul_nonneg hT (Int.mul_nonneg hT
+      (Int.mul_nonneg (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))))
+
+/-- Any finite separation of dyadic levels has error within the tail at its
+coarser endpoint. The proof uses actual neighboring schedules. -/
+theorem finite_gap_error (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    (k j : Nat) → Fraction.le
+      (stateNorm (stateSub (endpoint w T s (j + k))
+        (endpoint w T s j))) (tailCap w T s j) := by
+  intro k j
+  exact GeometricTail.finite_gap (endpoint w T s) (coefficient w T s)
+    (coefficient_nonnegative w T s hT)
+    (fun i => Fraction.le_equiv_right (adjacent_error_le w T s i hT hs)
+      (adjacentCap_tail w T s i)) k j
+
+/-- Both later endpoints are compared to the same earlier actual endpoint. -/
+theorem two_sided_error (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
+    (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
+    Fraction.le
+      (stateNorm (stateSub (endpoint w T s m) (endpoint w T s n)))
+      (doubleTail w T s N) := by
+  exact GeometricTail.two_sided (endpoint w T s) (coefficient w T s)
+    (coefficient_nonnegative w T s hT)
+    (fun i => Fraction.le_equiv_right (adjacent_error_le w T s i hT hs)
+      (adjacentCap_tail w T s i)) N m n hm hn
+
+/-- A deliberately simple, potentially large explicit precision modulus. -/
+def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
+  (2 * (coefficient w T s).num * eps.den).toNat
+
+theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
+    (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
+    Fraction.lt (doubleTail w T s (modulus w T s eps)) eps := by
+  exact GeometricTail.doubleTail_lt_tolerance (coefficient w T s) eps
+    (coefficient_nonnegative w T s hT) heps
+
+/-- A Cauchy name stores finite rational endpoint approximants and a proved
+positive-tolerance condition. It does not supply a limit point. -/
+theorem endpoint_cauchy (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    ∀ eps : Fraction, 0 < eps.num →
+      ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
+        Fraction.lt
+          (stateNorm (stateSub (endpoint w T s m) (endpoint w T s n))) eps := by
+  intro eps heps
+  refine ⟨modulus w T s eps, ?_⟩
+  intro m n hm hn
+  exact Fraction.magnitudes.lt_of_le_lt
+    (two_sided_error w T s hT hs _ m n hm hn)
+    (doubleTail_lt_tolerance w T s eps hT heps)
+
+def endpointName (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : EndpointCauchyName where
+  approx := endpoint w T s
+  cauchy := endpoint_cauchy w T s hT hs
+
+private theorem stateEquiv_refl (s : Point × Point) : stateEquiv s s :=
+  ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
+    ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
+
+private theorem stateEquiv_trans {a b c : Point × Point}
+    (hab : stateEquiv a b) (hbc : stateEquiv b c) : stateEquiv a c :=
+  ⟨⟨Fraction.equiv_trans hab.1.1 hbc.1.1,
+      Fraction.equiv_trans hab.1.2 hbc.1.2⟩,
+    ⟨Fraction.equiv_trans hab.2.1 hbc.2.1,
+      Fraction.equiv_trans hab.2.2 hbc.2.2⟩⟩
+
+private theorem zero_duration_cell (w d : Fraction) (s : Point × Point)
+    (hd : d.num = 0) : stateEquiv (cell (linearField w) d s) s := by
+  let z : Fraction := ⟨0, 1, by decide⟩
+  have he : Fraction.equiv d z := by
+    unfold Fraction.equiv z
+    simp [hd]
+  exact stateEquiv_trans (cell_congr he (stateEquiv_refl s) w)
+    (zero_step w s)
+
+theorem zero_duration_schedule (w d : Fraction) (hd : d.num = 0) :
+    (n : Nat) → (s : Point × Point) →
+      stateEquiv (schedule (linearField w) (List.replicate n d) s) s
+  | 0, s => stateEquiv_refl s
+  | n + 1, s =>
+      stateEquiv_trans
+        (zero_duration_schedule w d hd n (cell (linearField w) d s))
+        (zero_duration_cell w d s hd)
+
+theorem zero_time_endpoint (w T : Fraction) (s : Point × Point) (j : Nat)
+    (hT : T.num = 0) : stateEquiv (endpoint w T s j) s := by
+  exact zero_duration_schedule w (duration T j) (by exact hT) (blocks j) s
+
+private def sampleOne : Fraction := ⟨1, 1, by decide⟩
+private def sampleZero : Fraction := ⟨0, 1, by decide⟩
+private def sampleTime : Fraction := ⟨1, 4, by decide⟩
+private def sampleState : Point × Point :=
+  ((sampleOne, sampleZero), (sampleZero, sampleOne))
+
+theorem sample_dyadic_small_time : DyadicSmallTime sampleOne sampleTime := by
+  unfold DyadicSmallTime Fraction.le
+  decide
+
+theorem sample_adjacent_error :
+    Fraction.equiv
+      (stateNorm (stateSub (endpoint sampleOne sampleTime sampleState 1)
+        (endpoint sampleOne sampleTime sampleState 0)))
+      ⟨145, 4096, by decide⟩ := by decide
+
+theorem sample_adjacent_cap :
+    Fraction.equiv (adjacentCap sampleOne sampleTime sampleState 0)
+      ⟨3, 16, by decide⟩ := by decide
+
+theorem sample_tail_cap :
+    Fraction.equiv (tailCap sampleOne sampleTime sampleState 0)
+      ⟨3, 8, by decide⟩ := by decide
+
+end NewtonLimitDynamics.Polygon.HarmonicDyadic
 \end{Verbatim}
 
 \noindent{\small\texttt{ModernLib/Polygon/HarmonicDyadicAgreement.lean}}{\small, 16 theorems, 224 lines}
@@ -28941,6 +25208,2132 @@ theorem velocity_secants_converge (w E0 T : Fraction) (s : Point × Point) (hw :
 end NewtonLimitDynamics.Polygon.HarmonicSecants
 \end{Verbatim}
 
+\noindent{\small\texttt{ModernLib/Polygon/HarmonicTimeComparison.lean}}{\small, 33 theorems, 635 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.DyadicArithmetic
+import BarrowLib.Polygon.FinitePower
+import ModernLib.Polygon.HarmonicDyadic
+
+/-!
+Finite comparisons of actual harmonic endpoint schedules at two rational times.
+The cell counts agree; their durations differ. These estimates concern Cauchy
+data only, without a limit point, trajectory, or intervening-area content.
+-/
+
+namespace NewtonLimitDynamics.Polygon.HarmonicTimeComparison
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open CentralSchedule
+open HarmonicStability
+open HarmonicComparison
+open HarmonicAccumulation
+open HarmonicUniform
+open HarmonicDyadic
+open PointBounds
+
+theorem cell_parameter_difference (w sigma tau : Fraction) (s : Point × Point) :
+    stateEquiv
+      (stateSub (cell (linearField w) tau s) (cell (linearField w) sigma s))
+      (pointScale (durationDifference sigma tau) s.2,
+        pointScale (negF (Fraction.mul (durationDifference sigma tau) w))
+          (pointAdd s.1 (pointScale (Fraction.add sigma tau) s.2))) := by
+  constructor <;> constructor <;>
+    simp only [durationDifference, stateSub, pointEquiv, pointSub, pointNeg,
+      cell, linearField, negF, pointAdd, pointScale, Fraction.equiv,
+      Fraction.add, Fraction.mul,
+      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
+    ac_nf <;> omega
+
+theorem cell_parameter_norm_formula (w sigma tau : Fraction) (s : Point × Point) :
+    Fraction.equiv
+      (stateNorm (stateSub (cell (linearField w) tau s)
+        (cell (linearField w) sigma s)))
+      (Fraction.mul (durationDifference sigma tau).abs
+        (Fraction.add (pointNorm s.2)
+          (Fraction.mul w.abs
+            (pointNorm (pointAdd s.1
+              (pointScale (Fraction.add sigma tau) s.2)))))) := by
+  have hs := stateNorm_equiv (cell_parameter_difference w sigma tau s)
+  apply Fraction.equiv_trans hs
+  simp only [stateNorm, pointNorm, pointScale, negF, Fraction.equiv,
+    Fraction.add, Fraction.mul, Fraction.abs, Int.natAbs_mul,
+    Int.natAbs_neg, Int.ofNat_mul]
+  simp only [Int.add_mul, Int.mul_add]
+  ac_nf
+
+theorem short_sum_point_bound (sigma tau : Fraction) (x v : Point)
+    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
+    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
+    Fraction.le
+      (pointNorm (pointAdd x (pointScale (Fraction.add sigma tau) v)))
+      (Fraction.add (pointNorm x) (pointNorm v)) := by
+  let q := Fraction.add sigma tau
+  have hq : 0 ≤ q.num := Fraction.nonnegative_add sigma tau hσ hτ
+  have hs := pointNorm_scale q v
+  have hqabs := Fraction.abs_of_nonnegative q hq
+  have hscale : Fraction.le (pointNorm (pointScale q v)) (pointNorm v) := by
+    have hq' : Fraction.le q.abs (Fraction.ofInt 1) :=
+      Fraction.le_equiv_left hqabs hsum
+    have hm := Fraction.mul_le_mul_nonnegative hq' (pointNorm v)
+      (pointNorm_nonnegative v)
+    apply Fraction.le_equiv_left hs
+    apply Fraction.le_equiv_right hm
+    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+    simp
+  exact Fraction.magnitudes.le_trans (pointNorm_add_le x (pointScale q v))
+    (Fraction.add_le_add_left hscale (pointNorm x))
+
+private theorem scalar_local_bound (a b c : Fraction)
+    (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) (hc : 0 ≤ c.num) :
+    Fraction.le
+      (Fraction.add b (Fraction.mul c (Fraction.add a b)))
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1)
+        (Fraction.mul (Fraction.ofInt 2) c)) (Fraction.add a b)) := by
+  let M := Fraction.add a b
+  let cM := Fraction.mul c M
+  have hbM : Fraction.le b M := by
+    unfold Fraction.le M Fraction.add
+    dsimp
+    rw [Int.add_mul]
+    have hnon := Int.mul_nonneg
+      (Int.mul_nonneg ha (Int.le_of_lt b.den_pos)) (Int.le_of_lt b.den_pos)
+    have he : b.num * (a.den * b.den) = b.num * a.den * b.den := by ac_rfl
+    rw [he]
+    omega
+  have hfirst := Fraction.add_le_add_right hbM cM
+  have hcM : 0 ≤ cM.num := Int.mul_nonneg hc (Fraction.nonnegative_add a b ha hb)
+  have hz : Fraction.le (Fraction.ofInt 0) cM := by
+    unfold Fraction.le Fraction.ofInt
+    dsimp
+    simpa using hcM
+  have hzero : Fraction.equiv (Fraction.add M (Fraction.ofInt 0)) M := by
+    unfold Fraction.equiv Fraction.add Fraction.ofInt
+    simp only [Int.mul_one, Int.zero_mul, Int.add_zero, Int.mul_zero]
+  have hsecond : Fraction.le (Fraction.add M cM)
+      (Fraction.add (Fraction.add M cM) cM) := by
+    have hh := Fraction.add_le_add_left hz (Fraction.add M cM)
+    exact Fraction.le_equiv_left (by
+      simp only [Fraction.equiv, Fraction.add, Fraction.ofInt]
+      simp only [Int.zero_mul, Int.mul_zero, Int.add_zero,
+        Int.mul_one, Int.one_mul]) hh
+  have he : Fraction.equiv (Fraction.add (Fraction.add M cM) cM)
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1)
+        (Fraction.mul (Fraction.ofInt 2) c)) M) := by
+    simp only [Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+    simp only [show (2 : Int) = 1 + 1 by rfl]
+    simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+    simp only [cM, Fraction.mul]
+    ac_nf
+  exact Fraction.le_equiv_right (Fraction.magnitudes.le_trans hfirst hsecond) he
+
+/-- The exact duration mismatch of one actual end-kick cell, bounded under a
+short nonnegative combined duration. -/
+theorem cell_parameter_bound (w sigma tau : Fraction) (s : Point × Point)
+    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
+    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
+    Fraction.le
+      (stateNorm (stateSub (cell (linearField w) tau s)
+        (cell (linearField w) sigma s)))
+      (Fraction.mul (durationDifference sigma tau).abs
+        (Fraction.mul
+          (Fraction.add (Fraction.ofInt 1)
+            (Fraction.mul (Fraction.ofInt 2) w.abs)) (stateNorm s))) := by
+  let d := durationDifference sigma tau
+  have hp := short_sum_point_bound sigma tau s.1 s.2 hσ hτ hsum
+  have hw := Fraction.mul_le_mul_nonnegative_left hp w.abs
+    (Fraction.abs_num_nonnegative w)
+  have ha := Fraction.add_le_add_left hw (pointNorm s.2)
+  have hd := Fraction.mul_le_mul_nonnegative_left ha d.abs
+    (Fraction.abs_num_nonnegative d)
+  have hc := scalar_local_bound (pointNorm s.1) (pointNorm s.2) w.abs
+    (pointNorm_nonnegative s.1) (pointNorm_nonnegative s.2)
+    (Fraction.abs_num_nonnegative w)
+  have hdc := Fraction.mul_le_mul_nonnegative_left hc d.abs
+    (Fraction.abs_num_nonnegative d)
+  have hf := cell_parameter_norm_formula w sigma tau s
+  exact Fraction.le_equiv_right
+    (Fraction.magnitudes.le_trans (Fraction.le_equiv_left hf hd) hdc)
+    (by simp only [stateNorm]; exact Fraction.equiv_refl _)
+
+def parameterFactor (w : Fraction) : Fraction :=
+  Fraction.add (Fraction.ofInt 1)
+    (Fraction.mul (Fraction.ofInt 2) w.abs)
+
+def localParameterBudget (w sigma tau : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.mul (durationDifference sigma tau).abs
+    (Fraction.mul (parameterFactor w)
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)))
+
+def parameterErrorBudget (w hσ hτ : Fraction) (s : Point × Point) : Nat → Fraction
+  | 0 => Fraction.ofInt 0
+  | i + 1 =>
+      Fraction.add
+        (Fraction.mul (coarseFactor w hτ) (parameterErrorBudget w hσ hτ s i))
+        (localParameterBudget w (Fraction.add hσ hσ) (Fraction.add hτ hτ) s)
+
+private theorem parameterFactor_nonnegative (w : Fraction) :
+    0 ≤ (parameterFactor w).num := by
+  unfold parameterFactor
+  exact Fraction.nonnegative_add _ _ (by decide)
+    (Int.mul_nonneg (by decide) (Fraction.abs_num_nonnegative w))
+
+private theorem localParameterBudget_nonnegative (w sigma tau : Fraction)
+    (s : Point × Point) :
+    0 ≤ (localParameterBudget w sigma tau s).num := by
+  unfold localParameterBudget
+  exact Int.mul_nonneg (Fraction.abs_num_nonnegative _)
+    (Int.mul_nonneg (parameterFactor_nonnegative w)
+      (Int.mul_nonneg (by decide) (stateNorm_nonnegative s)))
+
+private theorem parameterErrorBudget_nonnegative (w hσ hτ : Fraction)
+    (s : Point × Point) :
+    (i : Nat) → 0 ≤ (parameterErrorBudget w hσ hτ s i).num
+  | 0 => by simp [parameterErrorBudget, Fraction.ofInt]
+  | i + 1 =>
+      Fraction.nonnegative_add _ _
+        (Int.mul_nonneg (kappa_nonnegative w (Fraction.add hτ hτ))
+          (parameterErrorBudget_nonnegative w hσ hτ s i))
+        (localParameterBudget_nonnegative w _ _ s)
+
+theorem coarse_parameter_step (w sigma tau : Fraction) (a b : Point × Point)
+    (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
+    (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
+    Fraction.le
+      (stateNorm (stateSub (cell (linearField w) tau a)
+        (cell (linearField w) sigma b)))
+      (Fraction.add
+        (Fraction.mul (kappa w tau) (stateNorm (stateSub a b)))
+        (Fraction.mul (durationDifference sigma tau).abs
+          (Fraction.mul (parameterFactor w) (stateNorm b)))) := by
+  have htri := stateSub_triangle (cell (linearField w) tau a)
+    (cell (linearField w) tau b) (cell (linearField w) sigma b)
+  have h₁ := cell_perturbation w tau a b
+  have h₂ := cell_parameter_bound w sigma tau b hσ hτ hsum
+  exact Fraction.magnitudes.le_trans htri (Fraction.add_le_add h₁ h₂)
+
+theorem actual_coarse_parameter_error (w hσ hτ : Fraction) (s : Point × Point)
+    (n : Nat) (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)
+    (hsum : Fraction.le
+      (Fraction.add (Fraction.add hσ hσ) (Fraction.add hτ hτ))
+      (Fraction.ofInt 1)) (hsmall : SmallTime w hσ n) :
+    (i : Nat) → i ≤ n →
+      Fraction.le
+        (stateNorm (stateSub (coarseAt w hτ s i) (coarseAt w hσ s i)))
+        (parameterErrorBudget w hσ hτ s i)
+  | 0, _ => Fraction.le_of_equiv (stateSub_self_norm_zero s)
+  | i + 1, hi => by
+      let sigma := Fraction.add hσ hσ
+      let tau := Fraction.add hτ hτ
+      let a := coarseAt w hτ s i
+      let b := coarseAt w hσ s i
+      have hi' : i ≤ n := by omega
+      have hσnon := Fraction.nonnegative_add hσ hσ hhσ hhσ
+      have hτnon := Fraction.nonnegative_add hτ hτ hhτ hhτ
+      have hstep := coarse_parameter_step w sigma tau a b
+        hσnon hτnon hsum
+      have hprev := actual_coarse_parameter_error w hσ hτ s n hhσ hhτ
+        hsum hsmall i hi'
+      have hA := Fraction.mul_le_mul_nonnegative_left hprev
+        (coarseFactor w hτ) (kappa_nonnegative w tau)
+      have hprefix := coarse_state_le_two w hσ s i hhσ
+        (smallTime_prefix w hσ i n hhσ hi' hsmall)
+      have hB₁ := Fraction.mul_le_mul_nonnegative_left hprefix
+        (parameterFactor w) (parameterFactor_nonnegative w)
+      have hB₂ := Fraction.mul_le_mul_nonnegative_left hB₁
+        (durationDifference sigma tau).abs
+        (Fraction.abs_num_nonnegative _)
+      have hsum' := Fraction.add_le_add hA hB₂
+      have hchain := Fraction.magnitudes.le_trans hstep hsum'
+      simpa only [coarseAt, HarmonicRefinement.coarse,
+        parameterErrorBudget, localParameterBudget] using hchain
+
+def parameterPowerBudget (w hσ hτ : Fraction) (s : Point × Point)
+    (i : Nat) : Fraction :=
+  Fraction.mul (Fraction.ofInt (i : Int))
+    (Fraction.mul
+      (localParameterBudget w (Fraction.add hσ hσ) (Fraction.add hτ hτ) s)
+      (fpower (coarseFactor w hτ) i))
+
+theorem parameter_budget_power (w hσ hτ : Fraction) (s : Point × Point) :
+    (i : Nat) → Fraction.le (parameterErrorBudget w hσ hτ s i)
+      (parameterPowerBudget w hσ hτ s i)
+  | 0 => Fraction.le_of_equiv (by
+      simp only [parameterErrorBudget, parameterPowerBudget, fpower,
+        Fraction.equiv, Fraction.ofInt, Fraction.mul]
+      simp)
+  | i + 1 => by
+      let d := localParameterBudget w (Fraction.add hσ hσ) (Fraction.add hτ hτ) s
+      let b := coarseFactor w hτ
+      have hd := localParameterBudget_nonnegative w
+        (Fraction.add hσ hσ) (Fraction.add hτ hτ) s
+      have hb := kappa_nonnegative w (Fraction.add hτ hτ)
+      have h₁ := Fraction.mul_le_mul_nonnegative_left
+        (parameter_budget_power w hσ hτ s i) b hb
+      have hD : Fraction.le d (Fraction.mul d (fpower b (i + 1))) := by
+        have hpow := one_le_power b hb (one_le_kappa w (Fraction.add hτ hτ))
+          (i + 1)
+        have hm := Fraction.mul_le_mul_nonnegative_left hpow d hd
+        apply Fraction.le_equiv_left (by
+          simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+          simp) hm
+      have hsum := Fraction.add_le_add h₁ hD
+      apply Fraction.le_equiv_right hsum
+      simp only [d, b, parameterErrorBudget, parameterPowerBudget,
+        fpower, Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+      simp only [Int.natCast_add, Int.natCast_one, Int.add_mul, Int.mul_add,
+        Int.one_mul, Int.mul_one]
+      ac_nf
+
+theorem actual_coarse_parameter_uniform (w hσ hτ : Fraction)
+    (s : Point × Point) (n : Nat)
+    (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)
+    (hsum : Fraction.le
+      (Fraction.add (Fraction.add hσ hσ) (Fraction.add hτ hτ))
+      (Fraction.ofInt 1))
+    (hsmallσ : SmallTime w hσ n) (hsmallτ : SmallTime w hτ n) :
+    Fraction.le
+      (stateNorm (stateSub (coarseAt w hτ s n) (coarseAt w hσ s n)))
+      (Fraction.mul (Fraction.ofInt (2 * (n : Int)))
+        (localParameterBudget w (Fraction.add hσ hσ)
+          (Fraction.add hτ hτ) s)) := by
+  let d := localParameterBudget w (Fraction.add hσ hσ)
+    (Fraction.add hτ hτ) s
+  have h₁ := actual_coarse_parameter_error w hσ hτ s n hhσ hhτ
+    hsum hsmallσ n (Nat.le_refl n)
+  have h₂ := parameter_budget_power w hσ hτ s n
+  have hp := coarse_power_le_two w hτ n hhτ hsmallτ
+  have hd := localParameterBudget_nonnegative w
+    (Fraction.add hσ hσ) (Fraction.add hτ hτ) s
+  have hm := Fraction.mul_le_mul_nonnegative_left hp d hd
+  have hn := Fraction.mul_le_mul_nonnegative_left hm
+    (Fraction.ofInt (n : Int)) (Int.ofNat_nonneg n)
+  have hchain := Fraction.magnitudes.le_trans
+    (Fraction.magnitudes.le_trans h₁ h₂) hn
+  apply Fraction.le_equiv_right hchain
+  simp only [parameterPowerBudget, d, Fraction.equiv, Fraction.mul,
+    Fraction.ofInt]
+  ac_nf
+
+private def half : Fraction := ⟨1, 2, by decide⟩
+
+theorem dyadic_time_le_half (w T : Fraction)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    Fraction.le T half := by
+  have hw : 0 ≤ (w.num.natAbs : Int) := Int.ofNat_nonneg _
+  have hnon : 0 ≤ 2 * T.num * (w.num.natAbs : Int) :=
+    Int.mul_nonneg (Int.mul_nonneg (by decide) hT) hw
+  have hraw :
+      2 * T.num * (w.den + (w.num.natAbs : Int)) ≤ T.den * w.den := by
+    unfold DyadicSmallTime Fraction.le Fraction.mul Fraction.add Fraction.ofInt
+      Fraction.abs at hs
+    dsimp [HarmonicDyadic.halfThreshold] at hs
+    simp only [Int.one_mul, Int.mul_one] at hs
+    calc
+      2 * T.num * (w.den + (w.num.natAbs : Int)) =
+          T.num * (w.den + (w.num.natAbs : Int)) * 2 := by ac_rfl
+      _ ≤ T.den * w.den := hs
+  have hmul : (2 * T.num) * w.den ≤ T.den * w.den := by
+    rw [Int.mul_add] at hraw
+    omega
+  have hbase := Int.le_of_mul_le_mul_right hmul w.den_pos
+  unfold Fraction.le half
+  dsimp
+  omega
+
+theorem duration_le_time (T : Fraction) (j : Nat) (hT : 0 ≤ T.num) :
+    Fraction.le (duration T j) T := by
+  have hpow : 1 ≤ (2 : Int) ^ j := by
+    have h := two_pow_ge_succ j
+    omega
+  have hd := Int.mul_nonneg hT (Int.le_of_lt T.den_pos)
+  have hm := Int.mul_le_mul_of_nonneg_left hpow hd
+  unfold Fraction.le duration
+  dsimp
+  have he : T.num * (T.den * (2 : Int) ^ j) =
+      (T.num * T.den) * (2 : Int) ^ j := by ac_rfl
+  rw [he]
+  omega
+
+theorem short_duration_pair (w T U : Fraction) (j : Nat)
+    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
+    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
+    Fraction.le
+      (Fraction.add
+        (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
+        (Fraction.add (duration U (j + 1)) (duration U (j + 1))))
+      (Fraction.ofInt 1) := by
+  have hT' := duration_le_time T j hT
+  have hU' := duration_le_time U j hU
+  have hT'' := Fraction.le_equiv_left
+    (Fraction.equiv_symm (duration_halving T j)) hT'
+  have hU'' := Fraction.le_equiv_left
+    (Fraction.equiv_symm (duration_halving U j)) hU'
+  have hhalf := Fraction.add_le_add (dyadic_time_le_half w T hT hsT)
+    (dyadic_time_le_half w U hU hsU)
+  have hsum := Fraction.magnitudes.le_trans
+    (Fraction.add_le_add hT'' hU'') hhalf
+  apply Fraction.le_equiv_right hsum
+  decide
+
+/-- The common count cancels the per-cell signed duration difference in
+rational value, even though the representatives differ. -/
+theorem count_duration_difference (T U : Fraction) (j : Nat) :
+    Fraction.equiv
+      (Fraction.mul (Fraction.ofInt (blocks j : Int))
+        (durationDifference
+          (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
+          (Fraction.add (duration U (j + 1)) (duration U (j + 1)))))
+      (durationDifference T U) := by
+  have hdur : Fraction.equiv
+      (durationDifference
+        (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
+        (Fraction.add (duration U (j + 1)) (duration U (j + 1))))
+      (durationDifference (duration T j) (duration U j)) :=
+    Fraction.add_equiv
+      (Fraction.equiv_symm (duration_halving U j))
+      (HarmonicDyadic.neg_equiv
+        (Fraction.equiv_symm (duration_halving T j)))
+  have hm := Fraction.mul_equiv
+    (Fraction.equiv_refl (Fraction.ofInt (blocks j : Int))) hdur
+  apply Fraction.equiv_trans hm
+  simp only [blocks, duration, durationDifference, negF, Fraction.equiv,
+    Fraction.ofInt, Fraction.add, Fraction.mul, Int.natCast_pow]
+  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg,
+    Int.one_mul, Int.mul_one]
+  ac_nf
+
+theorem count_abs_duration_difference (T U : Fraction) (j : Nat) :
+    Fraction.equiv
+      (Fraction.mul (Fraction.ofInt (blocks j : Int))
+        (durationDifference
+          (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
+          (Fraction.add (duration U (j + 1)) (duration U (j + 1)))).abs)
+      (durationDifference T U).abs := by
+  have hs := count_duration_difference T U j
+  have habs := Fraction.abs_equiv hs
+  have hm := Fraction.abs_mul (Fraction.ofInt (blocks j : Int))
+    (durationDifference
+      (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
+      (Fraction.add (duration U (j + 1)) (duration U (j + 1))))
+  have hcount : Fraction.equiv (Fraction.ofInt (blocks j : Int)).abs
+      (Fraction.ofInt (blocks j : Int)) :=
+    Fraction.abs_of_nonnegative _ (Int.ofNat_nonneg _)
+  have hmul := Fraction.mul_equiv hcount
+    (Fraction.equiv_refl
+      (durationDifference
+        (Fraction.add (duration T (j + 1)) (duration T (j + 1)))
+        (Fraction.add (duration U (j + 1)) (duration U (j + 1)))).abs)
+  exact Fraction.equiv_trans (Fraction.equiv_symm hmul)
+    (Fraction.equiv_trans (Fraction.equiv_symm hm) habs)
+
+def timeLipschitz (w : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.mul (Fraction.ofInt 4)
+    (Fraction.mul (parameterFactor w) (stateNorm s))
+
+/-- Uniform rational-time variation of the actual dyadic endpoint schedules.
+The same level has the same count and two different cell durations. -/
+theorem endpoint_time_bound (w T U : Fraction) (s : Point × Point) (j : Nat)
+    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
+    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
+    Fraction.le
+      (stateNorm (stateSub (endpoint w U s j) (endpoint w T s j)))
+      (Fraction.mul (timeLipschitz w s) (durationDifference T U).abs) := by
+  let hσ := duration T (j + 1)
+  let hτ := duration U (j + 1)
+  let n := blocks j
+  have hσnon : 0 ≤ hσ.num := hT
+  have hτnon : 0 ≤ hτ.num := hU
+  have hbound := actual_coarse_parameter_uniform w hσ hτ s n
+    hσnon hτnon (short_duration_pair w T U j hT hU hsT hsU)
+    (dyadic_smallTime w T j hsT) (dyadic_smallTime w U j hsU)
+  have he : stateEquiv
+      (stateSub (endpoint w U s j) (endpoint w T s j))
+      (stateSub (coarseAt w hτ s n) (coarseAt w hσ s n)) :=
+    stateSub_congr (endpoint_coarse w U s j) (endpoint_coarse w T s j)
+  have hfirst := Fraction.le_equiv_left (stateNorm_equiv he) hbound
+  let d := (durationDifference
+    (Fraction.add hσ hσ) (Fraction.add hτ hτ)).abs
+  have hrewrite : Fraction.equiv
+      (Fraction.mul (Fraction.ofInt (2 * (n : Int)))
+        (localParameterBudget w (Fraction.add hσ hσ)
+          (Fraction.add hτ hτ) s))
+      (Fraction.mul
+        (Fraction.mul (Fraction.ofInt 4)
+          (Fraction.mul (parameterFactor w) (stateNorm s)))
+        (Fraction.mul (Fraction.ofInt (n : Int)) d)) := by
+    simp only [localParameterBudget, d, Fraction.equiv, Fraction.mul,
+      Fraction.ofInt]
+    ac_nf
+  have hc := count_abs_duration_difference T U j
+  have hsecond := Fraction.mul_equiv
+    (Fraction.equiv_refl (timeLipschitz w s)) hc
+  exact Fraction.le_equiv_right hfirst
+    (Fraction.equiv_trans hrewrite hsecond)
+
+theorem timeLipschitz_nonnegative (w : Fraction) (s : Point × Point) :
+    0 ≤ (timeLipschitz w s).num :=
+  Int.mul_nonneg (by decide)
+    (Int.mul_nonneg (parameterFactor_nonnegative w) (stateNorm_nonnegative s))
+
+private def timeDenominator (w : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.add (timeLipschitz w s) (Fraction.ofInt 1)
+
+private theorem timeDenominator_positive (w : Fraction) (s : Point × Point) :
+    0 < (timeDenominator w s).num := by
+  unfold timeDenominator Fraction.add Fraction.ofInt
+  dsimp
+  have hL := timeLipschitz_nonnegative w s
+  have hd := (timeLipschitz w s).den_pos
+  omega
+
+/-- Rational delta equal in value to `eps/(L+1)`. The added one makes the
+choice positive even when the initial state magnitude is zero. -/
+def timeDelta (w : Fraction) (s : Point × Point) (eps : Fraction) : Fraction :=
+  ⟨eps.num * (timeDenominator w s).den,
+    eps.den * (timeDenominator w s).num,
+    Int.mul_pos eps.den_pos (timeDenominator_positive w s)⟩
+
+theorem timeDelta_positive (w : Fraction) (s : Point × Point) (eps : Fraction)
+    (heps : 0 < eps.num) : 0 < (timeDelta w s eps).num :=
+  Int.mul_pos heps (timeDenominator w s).den_pos
+
+private theorem mul_lt_mul_positive_left {a b : Fraction}
+    (hab : Fraction.lt a b) (c : Fraction) (hc : 0 < c.num) :
+    Fraction.lt (Fraction.mul c a) (Fraction.mul c b) := by
+  have hm := Int.mul_lt_mul_of_pos_right hab
+    (Int.mul_pos hc c.den_pos)
+  unfold Fraction.lt Fraction.mul at *
+  dsimp at *
+  have h₁ : c.num * a.num * (c.den * b.den) =
+      (a.num * b.den) * (c.num * c.den) := by ac_rfl
+  have h₂ : c.num * b.num * (c.den * a.den) =
+      (b.num * a.den) * (c.num * c.den) := by ac_rfl
+  rw [h₁, h₂]
+  exact hm
+
+private theorem timeLipschitz_le_denominator (w : Fraction) (s : Point × Point) :
+    Fraction.le (timeLipschitz w s) (timeDenominator w s) := by
+  unfold timeDenominator Fraction.le Fraction.add Fraction.ofInt
+  dsimp
+  have hd := (timeLipschitz w s).den_pos
+  have hsq : 0 ≤ (timeLipschitz w s).den * (timeLipschitz w s).den :=
+    Int.mul_nonneg (Int.le_of_lt hd) (Int.le_of_lt hd)
+  simp only [Int.one_mul, Int.mul_one, Int.add_mul]
+  omega
+
+private theorem delta_product_equiv (w : Fraction) (s : Point × Point)
+    (eps : Fraction) :
+    Fraction.equiv
+      (Fraction.mul (timeDenominator w s) (timeDelta w s eps)) eps := by
+  unfold Fraction.equiv Fraction.mul timeDelta
+  dsimp
+  ac_nf
+
+theorem parameter_delta_control (w : Fraction) (s : Point × Point)
+    (eps d : Fraction) (_heps : 0 < eps.num)
+    (hd : 0 ≤ d.num) (hdelta : Fraction.lt d (timeDelta w s eps)) :
+    Fraction.lt (Fraction.mul (timeLipschitz w s) d) eps := by
+  have hweak := Fraction.mul_le_mul_nonnegative
+    (timeLipschitz_le_denominator w s) d hd
+  have hstrict := mul_lt_mul_positive_left hdelta
+    (timeDenominator w s) (timeDenominator_positive w s)
+  have htrans := Fraction.magnitudes.lt_of_le_lt hweak hstrict
+  have heq := delta_product_equiv w s eps
+  exact Fraction.magnitudes.lt_of_lt_le htrans
+    ((Fraction.equiv_iff_mutual_le _ _).mp heq).1
+
+def ShortRationalTime (w : Fraction) :=
+  {T : Fraction // 0 ≤ T.num ∧ DyadicSmallTime w T}
+
+/-- Each admissible rational time is mapped to its derived endpoint Cauchy
+name. This map does not realize a point of a completed state space. -/
+def timeName (w : Fraction) (s : Point × Point)
+    (T : ShortRationalTime w) : EndpointCauchyName :=
+  endpointName w T.val s T.property.1 T.property.2
+
+/-- One explicit delta controls every approximant level at once. -/
+theorem timeName_uniform_continuity (w : Fraction) (s : Point × Point)
+    (eps : Fraction) (heps : 0 < eps.num) :
+    ∃ delta : Fraction, 0 < delta.num ∧
+      ∀ T U : ShortRationalTime w,
+        Fraction.lt (durationDifference T.val U.val).abs delta →
+        ∀ j : Nat,
+          Fraction.lt
+            (stateNorm (stateSub ((timeName w s U).approx j)
+              ((timeName w s T).approx j))) eps := by
+  refine ⟨timeDelta w s eps, timeDelta_positive w s eps heps, ?_⟩
+  intro T U hdelta j
+  have hb := endpoint_time_bound w T.val U.val s j
+    T.property.1 U.property.1 T.property.2 U.property.2
+  have hd := Fraction.abs_num_nonnegative (durationDifference T.val U.val)
+  have hstrict := parameter_delta_control w s eps
+    (durationDifference T.val U.val).abs heps hd hdelta
+  exact Fraction.magnitudes.lt_of_le_lt hb hstrict
+
+theorem same_time_error_zero (w T : Fraction) (s : Point × Point) (j : Nat) :
+    Fraction.equiv
+      (stateNorm (stateSub (endpoint w T s j) (endpoint w T s j)))
+      (Fraction.ofInt 0) :=
+  stateSub_self_norm_zero _
+
+private def zeroFraction : Fraction := ⟨0, 1, by decide⟩
+private def zeroState : Point × Point :=
+  ((zeroFraction, zeroFraction), (zeroFraction, zeroFraction))
+
+theorem zero_state_error_zero (w T U : Fraction) (j : Nat)
+    (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
+    (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
+    Fraction.equiv
+      (stateNorm (stateSub (endpoint w U zeroState j)
+        (endpoint w T zeroState j))) (Fraction.ofInt 0) := by
+  have hb := endpoint_time_bound w T U zeroState j hT hU hsT hsU
+  have hz : Fraction.equiv
+      (Fraction.mul (timeLipschitz w zeroState)
+        (durationDifference T U).abs) (Fraction.ofInt 0) := by
+    simp only [timeLipschitz, parameterFactor, zeroState,
+      zeroFraction, stateNorm, pointNorm, Fraction.equiv,
+      Fraction.abs, Fraction.add, Fraction.mul, Fraction.ofInt]
+    simp
+  have hle := Fraction.le_equiv_right hb hz
+  have hother : Fraction.le (Fraction.ofInt 0)
+      (stateNorm (stateSub (endpoint w U zeroState j)
+        (endpoint w T zeroState j))) := by
+    unfold Fraction.le Fraction.ofInt
+    dsimp
+    simp only [Int.zero_mul, Int.mul_one]
+    exact stateNorm_nonnegative _
+  exact (Fraction.equiv_iff_mutual_le _ _).mpr ⟨hle, hother⟩
+
+private def sampleOne : Fraction := ⟨1, 1, by decide⟩
+private def sampleZero : Fraction := ⟨0, 1, by decide⟩
+private def sampleQuarter : Fraction := ⟨1, 4, by decide⟩
+private def sampleEighth : Fraction := ⟨1, 8, by decide⟩
+private def sampleState : Point × Point :=
+  ((sampleOne, sampleZero), (sampleZero, sampleOne))
+
+theorem sample_short_times :
+    DyadicSmallTime sampleOne sampleQuarter ∧
+      DyadicSmallTime sampleOne sampleEighth := by
+  constructor <;> unfold DyadicSmallTime Fraction.le <;> decide
+
+theorem sample_parameter_error :
+    Fraction.equiv
+      (stateNorm (stateSub
+        (endpoint sampleOne sampleEighth sampleState 0)
+        (endpoint sampleOne sampleQuarter sampleState 0)))
+      ⟨19, 64, by decide⟩ := by decide
+
+theorem sample_time_lipschitz :
+    Fraction.equiv (timeLipschitz sampleOne sampleState)
+      (Fraction.ofInt 24) := by decide
+
+theorem sample_time_budget :
+    Fraction.equiv
+      (Fraction.mul (timeLipschitz sampleOne sampleState)
+        (durationDifference sampleQuarter sampleEighth).abs)
+      (Fraction.ofInt 3) := by decide
+
+theorem sample_parameter_bound :
+    Fraction.le
+      (stateNorm (stateSub
+        (endpoint sampleOne sampleEighth sampleState 0)
+        (endpoint sampleOne sampleQuarter sampleState 0)))
+      (Fraction.mul (timeLipschitz sampleOne sampleState)
+        (durationDifference sampleQuarter sampleEighth).abs) :=
+  endpoint_time_bound sampleOne sampleQuarter sampleEighth sampleState 0
+    (by decide) (by decide) sample_short_times.1 sample_short_times.2
+
+end NewtonLimitDynamics.Polygon.HarmonicTimeComparison
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/HarmonicTimeRealization.lean}}{\small, 30 theorems, 502 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.CauchyValues
+import ModernLib.Foundation.Polygon.BinaryTime
+import ModernLib.Foundation.Polygon.ScaledTolerance
+import ModernLib.Foundation.Polygon.BinaryEndpoints
+import BarrowLib.Polygon.FiniteSequenceGap
+
+/-!
+Actual harmonic state values indexed by the constructed binary-time quotient.
+All comparisons use finite same-grid end-kick schedules. The quotient is not
+identified with an external real interval; force identification and actual
+intervening-region area remain separate.
+-/
+
+namespace NewtonLimitDynamics.Polygon.HarmonicTimeRealization
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open CentralSchedule
+open HarmonicStability
+open HarmonicComparison
+open HarmonicAccumulation
+open HarmonicUniform
+open HarmonicDyadic
+open HarmonicBinaryPrefix
+open HarmonicTimeComparison
+open PointBounds
+open CauchyValues
+open BinaryTime
+
+def countState (w T : Fraction) (s : Point × Point)
+    (j n : Nat) : Point × Point :=
+  schedule (linearField w) (List.replicate n (duration T j)) s
+
+theorem countState_coarse (w T : Fraction) (s : Point × Point)
+    (j n : Nat) :
+    stateEquiv (countState w T s j n)
+      (coarseAt w (duration T (j + 1)) s n) := by
+  let h := duration T (j + 1)
+  have hc := schedule_replicate_congr w (duration T j) (Fraction.add h h)
+    (duration_halving T j) n s s
+    ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
+      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
+  simpa only [countState, coarseAt_schedule] using hc
+
+theorem countState_le_two (w T : Fraction) (s : Point × Point)
+    (j n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
+    (hn : n ≤ blocks j) :
+    Fraction.le (stateNorm (countState w T s j n))
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) := by
+  let h := duration T (j + 1)
+  have hprefix := smallTime_prefix w h n (blocks j) hT hn
+    (dyadic_smallTime w T j hs)
+  exact Fraction.le_equiv_left (stateNorm_equiv (countState_coarse w T s j n))
+    (coarse_state_le_two w h s n hT hprefix)
+
+def stateTimeFactor (w : Fraction) (s : Point × Point) : Fraction :=
+  Fraction.mul (Fraction.ofInt 2)
+    (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm s))
+
+theorem countState_step_bound (w T : Fraction) (s : Point × Point)
+    (j n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
+    (hn : n ≤ blocks j) :
+    Fraction.le (distance (countState w T s j (n + 1))
+      (countState w T s j n))
+      (Fraction.mul (duration T j) (stateTimeFactor w s)) := by
+  let h := duration T j
+  let q := countState w T s j n
+  have hle : Fraction.le h (Fraction.ofInt 1) := by
+    have h₁ := duration_le_time T j hT
+    have h₂ := dyadic_time_le_half w T hT hs
+    have h₃ : Fraction.le (⟨1, 2, by decide⟩ : Fraction)
+        (Fraction.ofInt 1) := by unfold Fraction.le; decide
+    exact Fraction.magnitudes.le_trans h₁
+      (Fraction.magnitudes.le_trans h₂ h₃)
+  have hb := cell_increment_bound w h q hT hle
+  have hq := countState_le_two w T s j n hT hs hn
+  have hfac : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
+    unfold Fraction.add Fraction.ofInt Fraction.abs
+    dsimp
+    have hw := Int.ofNat_nonneg w.num.natAbs
+    have hd := w.den_pos
+    omega
+  have hm₁ := Fraction.mul_le_mul_nonnegative_left hq
+    (Fraction.add (Fraction.ofInt 1) w.abs) hfac
+  have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁ h hT
+  have habs := Fraction.abs_of_nonnegative h hT
+  have he := Fraction.mul_equiv habs
+    (Fraction.equiv_refl
+      (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs) (stateNorm q)))
+  have hchain := Fraction.magnitudes.le_trans
+    (Fraction.le_equiv_right hb he) hm₂
+  have hstep : countState w T s j (n + 1) = cell (linearField w) h q :=
+    schedule_replicate_step w h s n
+  rw [hstep]
+  change Fraction.le (stateNorm (stateSub (cell (linearField w) h q) q))
+    (Fraction.mul h (stateTimeFactor w s))
+  apply Fraction.le_equiv_right hchain
+  simp only [stateTimeFactor, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+  ac_nf
+
+theorem countState_gap (w T : Fraction) (s : Point × Point)
+    (j : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    (n k : Nat) → n + k ≤ blocks j →
+      Fraction.le (distance (countState w T s j (n + k))
+        (countState w T s j n))
+        (Fraction.mul (Fraction.ofInt (k : Int))
+          (Fraction.mul (duration T j) (stateTimeFactor w s)))
+  | n, k, hnk => FiniteSequenceGap.finite_gap distance stateSub_self_norm_zero
+      stateSub_triangle (countState w T s j) (blocks j)
+      (Fraction.mul (duration T j) (stateTimeFactor w s))
+      (fun i hi => countState_step_bound w T s j i hT hs (Nat.le_of_lt hi)) n k hnk
+
+theorem stateTimeFactor_nonnegative (w : Fraction) (s : Point × Point) :
+    0 ≤ (stateTimeFactor w s).num := by
+  unfold stateTimeFactor Fraction.mul Fraction.add Fraction.ofInt Fraction.abs
+  dsimp
+  have hw := Int.ofNat_nonneg w.num.natAbs
+  have hd := w.den_pos
+  have hm := stateNorm_nonnegative s
+  exact Int.mul_nonneg (by decide)
+    (Int.mul_nonneg (by omega) hm)
+
+theorem countState_ordered_bound (w T : Fraction) (s : Point × Point)
+    (j n k : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
+    (hnk : n + k ≤ blocks j) :
+    Fraction.le (distance (countState w T s j (n + k))
+      (countState w T s j n))
+      (Fraction.mul
+        (durationDifference (countTime T j n) (countTime T j (n + k))).abs
+        (stateTimeFactor w s)) := by
+  have hb := countState_gap w T s j hT hs n k hnk
+  apply Fraction.le_equiv_right hb
+  have he := countTime_abs_difference T j n k hT
+  apply Fraction.equiv_symm
+  apply Fraction.equiv_trans
+    (Fraction.mul_equiv he (Fraction.equiv_refl _))
+  simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+  ac_nf
+
+theorem countState_same_grid_bound (w T : Fraction) (s : Point × Point)
+    (j m n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
+    (hm : m ≤ blocks j) (hn : n ≤ blocks j) :
+    Fraction.le (distance (countState w T s j m)
+      (countState w T s j n))
+      (Fraction.mul
+        (durationDifference (countTime T j n) (countTime T j m)).abs
+        (stateTimeFactor w s)) := by
+  rcases Nat.le_total n m with hnm | hmn
+  · have he : n + (m - n) = m := by omega
+    have hb := countState_ordered_bound w T s j n (m - n) hT hs
+      (by simpa only [he] using hm)
+    simpa only [he] using hb
+  · have he : m + (n - m) = n := by omega
+    have hb := countState_ordered_bound w T s j m (n - m) hT hs
+      (by simpa only [he] using hn)
+    rw [he] at hb
+    have hd := stateSub_norm_symm (countState w T s j m)
+      (countState w T s j n)
+    have ht := durationDifference_abs_symm (countTime T j m)
+      (countTime T j n)
+    exact Fraction.le_equiv_right
+      (Fraction.le_equiv_left hd hb)
+      (Fraction.mul_equiv ht (Fraction.equiv_refl _))
+
+theorem prefix_time_bound (b c : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)
+    (hs : DyadicSmallTime w T) :
+    Fraction.le (distance (prefixState b w T s j)
+      (prefixState c w T s j))
+      (Fraction.mul (distance (timeState b T j) (timeState c T j))
+        (stateTimeFactor w s)) := by
+  have hb := countState_same_grid_bound w T s j (ticks b j) (ticks c j)
+    hT hs (ticks_le_blocks b j) (ticks_le_blocks c j)
+  apply Fraction.le_equiv_right hb
+  exact Fraction.mul_equiv
+    (Fraction.equiv_symm (scalarState_distance
+      (timeApprox b T j) (timeApprox c T j)))
+    (Fraction.equiv_refl _)
+
+theorem address_state_equiv (b c : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (hT : 0 ≤ T.num)
+    (hs : DyadicSmallTime w T)
+    (hbc : AddressEquiv T hT b c) :
+    NameEquiv (prefixName b w T s hT hs)
+      (prefixName c w T s hT hs) := by
+  intro eps heps
+  let C := stateTimeFactor w s
+  have hC := stateTimeFactor_nonnegative w s
+  let delta := factorDelta C eps hC
+  obtain ⟨N, hN⟩ := hbc delta (factorDelta_positive C eps hC heps)
+  refine ⟨N, ?_⟩
+  intro j hj
+  have hb := prefix_time_bound b c w T s j hT hs
+  have hsmall := factor_control C eps
+    (distance (timeState b T j) (timeState c T j)) hC
+    (stateNorm_nonnegative _) (hN j hj)
+  exact Fraction.magnitudes.lt_of_le_lt hb hsmall
+
+def gammaValue (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    BinaryTime T hT → Value :=
+  Quotient.lift
+    (fun b => binaryValue b w T s hT hs)
+    (fun b c hbc => Quotient.sound
+      (address_state_equiv b c w T s hT hs hbc))
+
+theorem gammaValue_address (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (hT : 0 ≤ T.num)
+    (hs : DyadicSmallTime w T) :
+    gammaValue w T s hT hs (Quotient.mk _ b) =
+      binaryValue b w T s hT hs := rfl
+
+theorem gamma_within (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
+    (x y : BinaryTime T hT) (R : Fraction)
+    (_hR : 0 ≤ R.num) (hxy : TimeWithin T hT x y R) :
+    Within (gammaValue w T s hT hs x)
+      (gammaValue w T s hT hs y)
+      (Fraction.mul R (stateTimeFactor w s)) := by
+  induction x using Quotient.inductionOn with
+  | _ b =>
+    induction y using Quotient.inductionOn with
+    | _ c =>
+      change NameBound (BinaryTime.timeName b T hT)
+        (BinaryTime.timeName c T hT) R at hxy
+      change NameBound (prefixName b w T s hT hs)
+        (prefixName c w T s hT hs)
+        (Fraction.mul R (stateTimeFactor w s))
+      apply nameBound_scale (prefixName b w T s hT hs)
+        (prefixName c w T s hT hs)
+        (BinaryTime.timeName b T hT) (BinaryTime.timeName c T hT)
+        (stateTimeFactor w s) R (stateTimeFactor_nonnegative w s)
+      · intro j
+        exact prefix_time_bound b c w T s j hT hs
+      · exact hxy
+
+def timeTolerance (w : Fraction) (s : Point × Point)
+    (eps : Fraction) : Fraction :=
+  factorDelta (stateTimeFactor w s) eps.half
+    (stateTimeFactor_nonnegative w s)
+
+theorem timeTolerance_positive (w : Fraction) (s : Point × Point)
+    (eps : Fraction) (heps : 0 < eps.num) :
+    0 < (timeTolerance w s eps).num :=
+  factorDelta_positive _ _ _ heps
+
+theorem gamma_uniform_continuity (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
+    (eps : Fraction) (heps : 0 < eps.num)
+    (x y : BinaryTime T hT)
+    (hxy : TimeWithin T hT x y (timeTolerance w s eps)) :
+    Within (gammaValue w T s hT hs x)
+      (gammaValue w T s hT hs y) eps.half := by
+  have hb := gamma_within w T s hT hs x y
+    (timeTolerance w s eps)
+    (Int.le_of_lt (timeTolerance_positive w s eps heps)) hxy
+  exact within_mono _ _ _ _
+    (factor_delta_weak _ _ (stateTimeFactor_nonnegative w s)
+      (by simpa only [Fraction.half] using Int.le_of_lt heps)) hb
+
+theorem duration_factor_eventually_small (w T : Fraction)
+    (s : Point × Point) (hT : 0 ≤ T.num)
+    (eps : Fraction) (heps : 0 < eps.num) :
+    ∃ N : Nat, ∀ j : Nat, N ≤ j →
+      Fraction.lt (Fraction.mul (duration T j) (stateTimeFactor w s))
+        eps := by
+  let C := stateTimeFactor w s
+  let delta := factorDelta C eps (stateTimeFactor_nonnegative w s)
+  obtain ⟨N, hN⟩ := duration_eventually_small T delta hT
+    (factorDelta_positive C eps (stateTimeFactor_nonnegative w s) heps)
+  refine ⟨N, ?_⟩
+  intro j hj
+  exact factor_control C eps (duration T j)
+    (stateTimeFactor_nonnegative w s) hT (hN j hj)
+
+theorem left_endpoint_value (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    gammaValue w T s hT hs (leftTime T hT) = embed s := by
+  apply Quotient.sound
+  intro eps heps
+  refine ⟨0, ?_⟩
+  intro j _
+  change Fraction.lt (distance (prefixState leftAddress w T s j) s) eps
+  rw [show prefixState leftAddress w T s j = s from
+    all_zero_prefix w T s j]
+  exact distance_self_lt s eps heps
+
+theorem right_prefix_endpoint_bound (w T : Fraction)
+    (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)
+    (hs : DyadicSmallTime w T) :
+    Fraction.le (distance (endpoint w T s j)
+      (prefixState rightAddress w T s j))
+      (Fraction.mul (duration T j) (stateTimeFactor w s)) := by
+  have hcount : ticks rightAddress j + 1 ≤ blocks j :=
+    Nat.le_of_eq (right_ticks j)
+  have hb := countState_gap w T s j hT hs (ticks rightAddress j) 1 hcount
+  rw [right_ticks] at hb
+  change Fraction.le (distance (endpoint w T s j)
+    (prefixState rightAddress w T s j)) _ at hb
+  apply Fraction.le_equiv_right hb
+  simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt,
+    Int.natCast_one,
+    Int.one_mul, Int.mul_one]
+
+theorem right_endpoint_value (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    gammaValue w T s hT hs (rightTime T hT) =
+      endpointValue w T s hT hs := by
+  apply Quotient.sound
+  intro eps heps
+  obtain ⟨N, hN⟩ := duration_factor_eventually_small w T s hT eps heps
+  refine ⟨N, ?_⟩
+  intro j hj
+  have hb := right_prefix_endpoint_bound w T s j hT hs
+  have hs := stateSub_norm_symm
+    (prefixState rightAddress w T s j) (endpoint w T s j)
+  exact Fraction.magnitudes.lt_of_le_lt
+    (Fraction.le_equiv_left hs hb) (hN j hj)
+
+def firstAlias (j : Nat) : Bool := decide (j = 0)
+def secondAlias (j : Nat) : Bool := decide (j ≠ 0)
+
+theorem alias_ticks (j : Nat) :
+    ticks firstAlias (j + 1) = blocks j ∧
+      ticks secondAlias (j + 1) + 1 = blocks j := by
+  induction j with
+  | zero =>
+      constructor <;> decide
+  | succ j ih =>
+      rcases ih with ⟨hfirst, hsecond⟩
+      constructor
+      · change 2 * ticks firstAlias (j + 1) + bit firstAlias (j + 1) =
+          blocks (j + 1)
+        have hb : bit firstAlias (j + 1) = 0 := by
+          simp [bit, firstAlias]
+        rw [hb, blocks_succ]
+        omega
+      · change 2 * ticks secondAlias (j + 1) +
+          bit secondAlias (j + 1) + 1 = blocks (j + 1)
+        have hb : bit secondAlias (j + 1) = 1 := by
+          simp [bit, secondAlias]
+        rw [hb, blocks_succ]
+        omega
+
+theorem alias_time_distance (T : Fraction) (j : Nat)
+    (hT : 0 ≤ T.num) :
+    Fraction.equiv
+      (distance (timeState firstAlias T (j + 1))
+        (timeState secondAlias T (j + 1)))
+      (duration T (j + 1)) := by
+  have hcounts : ticks secondAlias (j + 1) + 1 =
+      ticks firstAlias (j + 1) := by
+    have ha := alias_ticks j
+    omega
+  have htime := countTime_abs_difference T (j + 1)
+    (ticks secondAlias (j + 1)) 1 hT
+  rw [hcounts] at htime
+  have hd := scalarState_distance
+    (timeApprox firstAlias T (j + 1))
+    (timeApprox secondAlias T (j + 1))
+  apply Fraction.equiv_trans hd
+  apply Fraction.equiv_trans htime
+  simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt,
+    Int.natCast_one, Int.one_mul, Int.mul_one]
+
+theorem alias_address_equiv (T : Fraction) (hT : 0 ≤ T.num) :
+    AddressEquiv T hT firstAlias secondAlias := by
+  intro eps heps
+  obtain ⟨N, hN⟩ := duration_eventually_small T eps hT heps
+  refine ⟨N + 1, ?_⟩
+  intro j hj
+  have hj' : j - 1 + 1 = j := by omega
+  have hbound := alias_time_distance T (j - 1) hT
+  rw [hj'] at hbound
+  exact Fraction.magnitudes.lt_of_le_lt
+    ((Fraction.equiv_iff_mutual_le _ _).mp hbound).1
+    (hN j (by omega))
+
+theorem alias_time_eq (T : Fraction) (hT : 0 ≤ T.num) :
+    (Quotient.mk (addressSetoid T hT) firstAlias : BinaryTime T hT) =
+      Quotient.mk (addressSetoid T hT) secondAlias :=
+  Quotient.sound (alias_address_equiv T hT)
+
+theorem alias_value_eq (w T : Fraction) (s : Point × Point)
+    (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
+    binaryValue firstAlias w T s hT hs =
+      binaryValue secondAlias w T s hT hs := by
+  exact congrArg (gammaValue w T s hT hs) (alias_time_eq T hT)
+
+theorem zero_time_value (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (hT : 0 ≤ T.num)
+    (hs : DyadicSmallTime w T) (hzero : T.num = 0) :
+    gammaValue w T s hT hs (Quotient.mk _ b) = embed s := by
+  apply Quotient.sound
+  intro eps heps
+  refine ⟨0, ?_⟩
+  intro j _
+  have he := (distance_zero_iff_stateEquiv
+    (prefixState b w T s j) s).mpr
+      (zero_time_prefix b w T s j hzero)
+  have hself := stateSub_self_norm_zero s
+  have hle : Fraction.le (distance (prefixState b w T s j) s)
+      (distance s s) := Fraction.le_of_equiv
+    (Fraction.equiv_trans he (Fraction.equiv_symm hself))
+  exact Fraction.magnitudes.lt_of_le_lt hle
+    (distance_self_lt s eps heps)
+
+theorem zero_state_norm_value (b : Nat → Bool) (w T : Fraction)
+    (s : Point × Point) (hT : 0 ≤ T.num)
+    (hs : DyadicSmallTime w T) (hzero : (stateNorm s).num = 0) :
+    gammaValue w T s hT hs (Quotient.mk _ b) = embed s := by
+  have hC : (stateTimeFactor w s).num = 0 := by
+    unfold stateTimeFactor Fraction.mul
+    dsimp
+    simp only [hzero, Int.mul_zero, Int.zero_mul]
+  calc
+    gammaValue w T s hT hs (Quotient.mk _ b) =
+        gammaValue w T s hT hs (leftTime T hT) := by
+      apply Quotient.sound
+      intro eps heps
+      refine ⟨0, ?_⟩
+      intro j _
+      have hb := prefix_time_bound b leftAddress w T s j hT hs
+      have hz : (Fraction.mul
+          (distance (timeState b T j) (timeState leftAddress T j))
+          (stateTimeFactor w s)).num = 0 := by
+        unfold Fraction.mul
+        dsimp
+        simp [hC]
+      have hstrict : Fraction.lt
+          (Fraction.mul
+            (distance (timeState b T j) (timeState leftAddress T j))
+            (stateTimeFactor w s)) eps := by
+        unfold Fraction.lt
+        simp only [hz, Int.zero_mul]
+        exact Int.mul_pos heps
+          (Fraction.mul
+            (distance (timeState b T j) (timeState leftAddress T j))
+            (stateTimeFactor w s)).den_pos
+      exact Fraction.magnitudes.lt_of_le_lt hb hstrict
+    _ = embed s := left_endpoint_value w T s hT hs
+
+private def sampleOne : Fraction := ⟨1, 1, by decide⟩
+private def sampleZero : Fraction := ⟨0, 1, by decide⟩
+private def sampleQuarter : Fraction := ⟨1, 4, by decide⟩
+private def sampleState : Point × Point :=
+  ((sampleOne, sampleZero), (sampleZero, sampleOne))
+
+theorem sample_alias_counts :
+    ticks firstAlias 2 = 2 ∧ ticks secondAlias 2 = 1 := by decide
+
+theorem sample_alias_time_gap :
+    Fraction.equiv
+      (distance (timeState firstAlias sampleQuarter 2)
+        (timeState secondAlias sampleQuarter 2))
+      ⟨1, 16, by decide⟩ := by decide
+
+theorem sample_state_time_factor :
+    Fraction.equiv (stateTimeFactor sampleOne sampleState)
+      (Fraction.ofInt 8) := by decide
+
+theorem sample_alias_bound :
+    Fraction.equiv
+      (Fraction.mul (distance
+        (timeState firstAlias sampleQuarter 2)
+        (timeState secondAlias sampleQuarter 2))
+        (stateTimeFactor sampleOne sampleState))
+      ⟨1, 2, by decide⟩ := by decide
+
+theorem sample_alias_actual_error :
+    Fraction.equiv
+      (distance
+        (prefixState firstAlias sampleOne sampleQuarter sampleState 2)
+        (prefixState secondAlias sampleOne sampleQuarter sampleState 2))
+      ⟨8927, 65536, by decide⟩ := by decide
+
+theorem sample_right_ne_left :
+    gammaValue sampleOne sampleQuarter sampleState
+      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
+      (rightTime sampleQuarter (by decide)) ≠
+    gammaValue sampleOne sampleQuarter sampleState
+      (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
+      (leftTime sampleQuarter (by decide)) := by
+  have hneq := CauchyValues.sample_endpoint_value_ne_initial
+  change endpointValue sampleOne sampleQuarter sampleState
+    (by decide) (by unfold DyadicSmallTime Fraction.le; decide) ≠
+    embed sampleState at hneq
+  intro h
+  apply hneq
+  calc
+    endpointValue sampleOne sampleQuarter sampleState
+        (by decide) (by unfold DyadicSmallTime Fraction.le; decide) =
+        gammaValue sampleOne sampleQuarter sampleState
+          (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
+          (rightTime sampleQuarter (by decide)) :=
+      (right_endpoint_value _ _ _ _ _).symm
+    _ = gammaValue sampleOne sampleQuarter sampleState
+          (by decide) (by unfold DyadicSmallTime Fraction.le; decide)
+          (leftTime sampleQuarter (by decide)) := h
+    _ = embed sampleState := left_endpoint_value _ _ _ _ _
+
+end NewtonLimitDynamics.Polygon.HarmonicTimeRealization
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/HarmonicUniform.lean}}{\small, 50 theorems, 678 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.IntegerSchedule
+import ModernLib.Polygon.HarmonicAccumulation
+import BarrowLib.Common.FiniteGrowth
+
+/-!
+Mesh-uniform finite bounds for the actual harmonic coarse and fine schedules
+under a small total-time condition. These coordinate L1 estimates provide
+finite construction support only: no curve, completion, geometric region
+between paths, or historical limiting step is constructed here.
+The small-time threshold uses the chosen coordinate/unit calibration; it is
+not a universal physical time bound.
+-/
+
+namespace NewtonLimitDynamics.Polygon.HarmonicUniform
+
+open NewtonLimitDynamics
+open NewtonLimitDynamics.FiniteGrowth
+open TimeSubdivision
+open CentralSchedule
+open HarmonicStability
+open HarmonicRefinement
+open HarmonicComparison
+open HarmonicAccumulation
+open PointBounds
+
+private def halfThreshold : Fraction := ⟨1, 2, by decide⟩
+private def denom (w h : Fraction) : Int := h.den * w.den
+private def driftIncrement (w h : Fraction) : Int := h.num * w.den
+private def kickIncrement (w h : Fraction) : Int := h.num * (w.num.natAbs : Int)
+
+private theorem denom_pos (w h : Fraction) : 0 < denom w h :=
+  Int.mul_pos h.den_pos w.den_pos
+
+private theorem driftIncrement_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
+    0 ≤ driftIncrement w h :=
+  Int.mul_nonneg hh (Int.le_of_lt w.den_pos)
+
+private theorem kickIncrement_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
+    0 ≤ kickIncrement w h :=
+  Int.mul_nonneg hh (Int.ofNat_nonneg _)
+
+/-- `n` full cells have factors `(D+2A)/D` and `(D+2B)/D`. -/
+def coarseWeights (w h : Fraction) : Nat → List Int
+  | 0 => []
+  | n + 1 => (2 * driftIncrement w h) :: (2 * kickIncrement w h) ::
+      coarseWeights w h n
+
+/-- `2n` half-cells have four factors per common block. -/
+def fineWeights (w h : Fraction) : Nat → List Int
+  | 0 => []
+  | n + 1 => driftIncrement w h :: kickIncrement w h ::
+      driftIncrement w h :: kickIncrement w h :: fineWeights w h n
+
+private theorem coarseWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
+    (n : Nat) → Nonnegative (coarseWeights w h n)
+  | 0 => by simp [coarseWeights, Nonnegative]
+  | n + 1 => by
+      simp only [coarseWeights, Nonnegative, List.mem_cons]
+      intro a ha
+      rcases ha with rfl | rfl | ht
+      · exact Int.mul_nonneg (by decide) (driftIncrement_nonnegative w h hh)
+      · exact Int.mul_nonneg (by decide) (kickIncrement_nonnegative w h hh)
+      · exact coarseWeights_nonnegative w h hh n a ht
+
+private theorem fineWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
+    (n : Nat) → Nonnegative (fineWeights w h n)
+  | 0 => by simp [fineWeights, Nonnegative]
+  | n + 1 => by
+      simp only [fineWeights, Nonnegative, List.mem_cons]
+      intro a ha
+      rcases ha with rfl | rfl | rfl | rfl | ht
+      · exact driftIncrement_nonnegative w h hh
+      · exact kickIncrement_nonnegative w h hh
+      · exact driftIncrement_nonnegative w h hh
+      · exact kickIncrement_nonnegative w h hh
+      · exact fineWeights_nonnegative w h hh n a ht
+
+private theorem common_weight_sum (w h : Fraction) :
+    (n : Nat) →
+      weightSum (coarseWeights w h n) =
+        weightSum (fineWeights w h n) ∧
+      weightSum (fineWeights w h n) =
+        2 * (n : Int) * (driftIncrement w h + kickIncrement w h)
+  | 0 => by simp [coarseWeights, fineWeights, weightSum]
+  | n + 1 => by
+      obtain ⟨hc, hf⟩ := common_weight_sum w h n
+      simp only [coarseWeights, fineWeights, weightSum, Int.natCast_add,
+        Int.natCast_one]
+      constructor
+      · rw [hc]
+        omega
+      · rw [hf]
+        simp only [Int.add_mul, Int.mul_add]
+        omega
+
+def SmallTime (w h : Fraction) (n : Nat) : Prop :=
+  Fraction.le
+    (Fraction.mul (totalTime h n) (Fraction.add (Fraction.ofInt 1) w.abs)) halfThreshold
+
+/-- The displayed total time is the elapsed time of the actual coarse list. -/
+theorem coarse_elapsed_totalTime (h : Fraction) (n : Nat) :
+    Fraction.equiv (elapsed (List.replicate n (Fraction.add h h)))
+      (totalTime h n) := by
+  induction n with
+  | zero =>
+      simp only [List.replicate_zero, elapsed, totalTime, Fraction.equiv,
+        Fraction.mul, Fraction.ofInt]
+      simp
+  | succ n ih =>
+      simp only [List.replicate_succ, elapsed]
+      have ht := Fraction.equiv_trans
+        (Fraction.add_comm (Fraction.add h h)
+          (elapsed (List.replicate n (Fraction.add h h))))
+        (Fraction.add_equiv_right (Fraction.add h h) ih)
+      apply Fraction.equiv_trans ht
+      simp only [totalTime, Fraction.equiv, Fraction.add, Fraction.mul,
+        Fraction.ofInt, Int.natCast_add, Int.natCast_one,
+        Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+      simp only [show (2 : Int) = 1 + 1 by rfl,
+        Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
+      ac_nf
+
+/-- The fine list reaches the same displayed total time. -/
+theorem fine_elapsed_totalTime (h : Fraction) (n : Nat) :
+    Fraction.equiv (elapsed (fineDurations h n)) (totalTime h n) :=
+  Fraction.equiv_trans
+    (Fraction.equiv_symm (schedules_common_time (Fraction.ofInt 0) h n))
+    (coarse_elapsed_totalTime h n)
+
+private theorem smallTime_integer (w h : Fraction) (n : Nat)
+    (hs : SmallTime w h n) :
+    2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤ denom w h := by
+  unfold SmallTime totalTime halfThreshold Fraction.le Fraction.mul Fraction.add
+    Fraction.ofInt Fraction.abs at hs
+  dsimp at hs
+  simp only [Int.mul_one, Int.one_mul, Int.add_zero] at hs
+  change 2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤
+    h.den * w.den
+  calc
+    2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) =
+        2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int)) * 2 := by ac_rfl
+    _ ≤ h.den * w.den := hs
+
+/-- The small-time condition is inherited by every earlier actual block. -/
+theorem smallTime_prefix (w h : Fraction) (i n : Nat)
+    (hh : 0 ≤ h.num) (hi : i ≤ n) (hs : SmallTime w h n) :
+    SmallTime w h i := by
+  have hn := smallTime_integer w h n hs
+  have hcoef : 0 ≤ 4 * h.num * (w.den + (w.num.natAbs : Int)) := by
+    exact Int.mul_nonneg
+      (Int.mul_nonneg (by decide) hh)
+      (Int.add_nonneg (Int.le_of_lt w.den_pos) (Int.ofNat_nonneg _))
+  have hcast : (i : Int) ≤ (n : Int) := Int.ofNat_le.mpr hi
+  have hm := Int.mul_le_mul_of_nonneg_right hcast hcoef
+  have hpref :
+      2 * (2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤
+        2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := by
+    calc
+      _ = (i : Int) * (4 * h.num * (w.den + (w.num.natAbs : Int))) := by
+        simp only [show (4 : Int) = 2 * 2 by rfl]
+        ac_rfl
+      _ ≤ (n : Int) * (4 * h.num * (w.den + (w.num.natAbs : Int))) := hm
+      _ = _ := by
+        simp only [show (4 : Int) = 2 * 2 by rfl]
+        ac_rfl
+  unfold SmallTime totalTime halfThreshold Fraction.le Fraction.mul Fraction.add
+    Fraction.ofInt Fraction.abs
+  dsimp
+  simp only [Int.mul_one, Int.one_mul, Int.add_zero]
+  calc
+    2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int)) * 2 =
+        2 * (2 * (i : Int) * h.num * (w.den + (w.num.natAbs : Int))) := by ac_rfl
+    _ ≤ 2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := hpref
+    _ ≤ denom w h := hn
+
+private theorem fineWeights_small (w h : Fraction) (n : Nat)
+    (hs : SmallTime w h n) :
+    2 * weightSum (fineWeights w h n) ≤ denom w h := by
+  have hi := smallTime_integer w h n hs
+  have hf := (common_weight_sum w h n).2
+  calc
+    2 * weightSum (fineWeights w h n) =
+        2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := by
+      rw [hf]
+      simp only [driftIncrement, kickIncrement, Int.mul_add]
+      ac_nf
+    _ ≤ denom w h := hi
+
+private theorem coarseWeights_small (w h : Fraction) (n : Nat)
+    (hs : SmallTime w h n) :
+    2 * weightSum (coarseWeights w h n) ≤ denom w h := by
+  rw [(common_weight_sum w h n).1]
+  exact fineWeights_small w h n hs
+
+theorem two_mul (x : Int) : 2 * x = x + x := by omega
+
+private theorem coarse_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
+    Fraction.equiv
+      (amplification (denom w h) (denom_pos w h)
+        [2 * driftIncrement w h, 2 * kickIncrement w h])
+      (coarseFactor w h) := by
+  have hsum : 0 ≤ (Fraction.add h h).num := by
+    unfold Fraction.add
+    exact Int.add_nonneg
+      (Int.mul_nonneg hh (Int.le_of_lt h.den_pos))
+      (Int.mul_nonneg hh (Int.le_of_lt h.den_pos))
+  simp only [amplification, factorProduct, denom, driftIncrement,
+    kickIncrement, coarseFactor, kappa, Fraction.equiv, Fraction.abs,
+    Fraction.add, Fraction.mul, Fraction.ofInt,
+    List.length_cons, List.length_nil, Int.pow_succ,
+    Int.pow_zero, Int.mul_one, Int.one_mul]
+  change 0 ≤ h.num * h.den + h.num * h.den at hsum
+  rw [Int.natAbs_of_nonneg hsum]
+  simp only [two_mul, Int.add_mul, Int.mul_add]
+  ac_nf
+
+private theorem fine_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
+    Fraction.equiv
+      (amplification (denom w h) (denom_pos w h)
+        [driftIncrement w h, kickIncrement w h,
+          driftIncrement w h, kickIncrement w h])
+      (fineFactor w h) := by
+  simp only [amplification, factorProduct, denom, driftIncrement,
+    kickIncrement, fineFactor, kappa, Fraction.equiv, Fraction.abs,
+    Fraction.add, Fraction.mul, Fraction.ofInt,
+    List.length_cons, List.length_nil, Int.pow_succ,
+    Int.pow_zero, Int.mul_one, Int.one_mul,
+    Int.natAbs_of_nonneg hh]
+  simp only [Int.add_mul, Int.mul_add]
+  ac_nf
+
+private theorem coarse_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
+    (n : Nat) →
+      Fraction.equiv
+        (amplification (denom w h) (denom_pos w h) (coarseWeights w h n))
+        (fpower (coarseFactor w h) n)
+  | 0 => amplification_empty _ _
+  | n + 1 => by
+      have ha := amplification_append (denom w h) (denom_pos w h)
+        [2 * driftIncrement w h, 2 * kickIncrement w h] (coarseWeights w h n)
+      have hb := coarse_block_equiv w h hh
+      have hi := coarse_power_amplification w h hh n
+      change Fraction.equiv
+        (amplification (denom w h) (denom_pos w h)
+          ([2 * driftIncrement w h, 2 * kickIncrement w h] ++ coarseWeights w h n))
+        (Fraction.mul (coarseFactor w h) (fpower (coarseFactor w h) n))
+      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
+
+private theorem fine_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
+    (n : Nat) →
+      Fraction.equiv
+        (amplification (denom w h) (denom_pos w h) (fineWeights w h n))
+        (fpower (fineFactor w h) n)
+  | 0 => amplification_empty _ _
+  | n + 1 => by
+      have ha := amplification_append (denom w h) (denom_pos w h)
+        [driftIncrement w h, kickIncrement w h,
+          driftIncrement w h, kickIncrement w h] (fineWeights w h n)
+      have hb := fine_block_equiv w h hh
+      have hi := fine_power_amplification w h hh n
+      change Fraction.equiv
+        (amplification (denom w h) (denom_pos w h)
+          ([driftIncrement w h, kickIncrement w h,
+            driftIncrement w h, kickIncrement w h] ++ fineWeights w h n))
+        (Fraction.mul (fineFactor w h) (fpower (fineFactor w h) n))
+      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
+
+/-- Uniform finite growth of the actual coarse amplification power. -/
+theorem coarse_power_le_two (w h : Fraction) (n : Nat)
+    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
+    Fraction.le (fpower (coarseFactor w h) n) (Fraction.ofInt 2) :=
+  Fraction.le_equiv_left (Fraction.equiv_symm (coarse_power_amplification w h hh n))
+    (uniform_amplification (denom w h) (denom_pos w h) (coarseWeights w h n)
+      (coarseWeights_nonnegative w h hh n) (coarseWeights_small w h n hs))
+
+/-- Uniform finite growth of the actual two-cell perturbation power. -/
+theorem fine_power_le_two (w h : Fraction) (n : Nat)
+    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
+    Fraction.le (fpower (fineFactor w h) n) (Fraction.ofInt 2) :=
+  Fraction.le_equiv_left (Fraction.equiv_symm (fine_power_amplification w h hh n))
+    (uniform_amplification (denom w h) (denom_pos w h) (fineWeights w h n)
+      (fineWeights_nonnegative w h hh n) (fineWeights_small w h n hs))
+
+/-- Actual coarse states stay inside twice the initial coordinate magnitude. -/
+theorem coarse_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
+    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
+    Fraction.le (stateNorm (coarseAt w h s n))
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) :=
+  Fraction.magnitudes.le_trans (coarse_norm_bound w h s n)
+    (Fraction.mul_le_mul_nonnegative (coarse_power_le_two w h n hh hs)
+      (stateNorm s) (stateNorm_nonnegative s))
+
+private theorem fine_cell_bound (w h : Fraction) (s : Point × Point) :
+    Fraction.le (stateNorm (HarmonicRefinement.fine w h s))
+      (Fraction.mul (fineFactor w h) (stateNorm s)) := by
+  have h₁ := cell_bound w h (cell (linearField w) h s)
+  have h₂ := cell_bound w h s
+  have hm := Fraction.mul_le_mul_nonnegative_left h₂ (kappa w h)
+    (kappa_nonnegative w h)
+  have hc := Fraction.magnitudes.le_trans h₁ hm
+  apply Fraction.le_equiv_right hc
+  simp only [fineFactor, Fraction.equiv, Fraction.mul]
+  ac_nf
+
+theorem fine_norm_bound (w h : Fraction) (s : Point × Point) :
+    (n : Nat) →
+      Fraction.le (stateNorm (fineAt w h s n))
+        (Fraction.mul (fpower (fineFactor w h) n) (stateNorm s))
+  | 0 => by
+      apply Fraction.le_of_equiv
+      simp only [fineAt, fpower, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+      simp only [Int.one_mul, Int.mul_one]
+  | n + 1 => by
+      have hf := fine_cell_bound w h (fineAt w h s n)
+      have hi := fine_norm_bound w h s n
+      have hm := Fraction.mul_le_mul_nonnegative_left hi (fineFactor w h)
+        (fineFactor_nonnegative w h)
+      have hc := Fraction.magnitudes.le_trans hf hm
+      apply Fraction.le_equiv_right hc
+      simp only [fineAt, fpower, Fraction.equiv, Fraction.mul]
+      ac_nf
+
+theorem fine_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
+    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
+    Fraction.le (stateNorm (fineAt w h s n))
+      (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) :=
+  Fraction.magnitudes.le_trans (fine_norm_bound w h s n)
+    (Fraction.mul_le_mul_nonnegative (fine_power_le_two w h n hh hs)
+      (stateNorm s) (stateNorm_nonnegative s))
+
+private theorem square_dominates_double (D a : Int) (ha : 0 ≤ a) :
+    D * (D + 2 * a) ≤ (D + a) * (D + a) := by
+  have hp := Int.mul_nonneg ha ha
+  have he : (D + a) * (D + a) = D * (D + 2 * a) + a * a := by
+    simp only [two_mul, Int.add_mul, Int.mul_add]
+    ac_nf
+  omega
+
+private theorem block_product_order (D A B : Int) (hD : 0 < D)
+    (hA : 0 ≤ A) (hB : 0 ≤ B) :
+    (D + 2 * A) * (D + 2 * B) * (D * D) ≤
+      ((D + A) * (D + A)) * ((D + B) * (D + B)) := by
+  have p := square_dominates_double D A hA
+  have q := square_dominates_double D B hB
+  have hp : 0 ≤ D * (D + 2 * A) :=
+    Int.mul_nonneg (Int.le_of_lt hD)
+      (Int.add_nonneg (Int.le_of_lt hD) (Int.mul_nonneg (by decide) hA))
+  have hq : 0 ≤ (D + B) * (D + B) := by
+    have hb : 0 ≤ D + B := Int.add_nonneg (Int.le_of_lt hD) hB
+    exact Int.mul_nonneg hb hb
+  have h₁ := Int.mul_le_mul_of_nonneg_right p hq
+  have h₂ := Int.mul_le_mul_of_nonneg_left q hp
+  calc
+    (D + 2 * A) * (D + 2 * B) * (D * D) =
+        (D * (D + 2 * A)) * (D * (D + 2 * B)) := by ac_rfl
+    _ ≤ (D * (D + 2 * A)) * ((D + B) * (D + B)) := h₂
+    _ ≤ ((D + A) * (D + A)) * ((D + B) * (D + B)) := h₁
+
+private theorem block_amplification_order (w h : Fraction) (hh : 0 ≤ h.num) :
+    Fraction.le
+      (amplification (denom w h) (denom_pos w h)
+        [2 * driftIncrement w h, 2 * kickIncrement w h])
+      (amplification (denom w h) (denom_pos w h)
+        [driftIncrement w h, kickIncrement w h,
+          driftIncrement w h, kickIncrement w h]) := by
+  have ho := block_product_order (denom w h) (driftIncrement w h)
+    (kickIncrement w h) (denom_pos w h)
+    (driftIncrement_nonnegative w h hh) (kickIncrement_nonnegative w h hh)
+  unfold Fraction.le amplification
+  simp only [factorProduct, List.length_cons, List.length_nil,
+    Int.pow_succ, Int.pow_zero, Int.mul_one, Int.one_mul]
+  have hd : 0 ≤ denom w h * denom w h :=
+    Int.mul_nonneg (Int.le_of_lt (denom_pos w h)) (Int.le_of_lt (denom_pos w h))
+  have hm := Int.mul_le_mul_of_nonneg_right ho hd
+  calc
+    _ =
+        ((denom w h + 2 * driftIncrement w h) *
+          (denom w h + 2 * kickIncrement w h) *
+          (denom w h * denom w h)) * (denom w h * denom w h) := by ac_rfl
+    _ ≤ ((denom w h + driftIncrement w h) *
+          (denom w h + driftIncrement w h) *
+          ((denom w h + kickIncrement w h) *
+            (denom w h + kickIncrement w h))) *
+          (denom w h * denom w h) := hm
+    _ = _ := by ac_rfl
+
+theorem coarseFactor_le_fineFactor (w h : Fraction) (hh : 0 ≤ h.num) :
+    Fraction.le (coarseFactor w h) (fineFactor w h) :=
+  Fraction.le_equiv_right
+    (Fraction.le_equiv_left (Fraction.equiv_symm (coarse_block_equiv w h hh))
+      (block_amplification_order w h hh))
+    (fine_block_equiv w h hh)
+
+private theorem one_le_one_add (a : Fraction) (ha : 0 ≤ a.num) :
+    Fraction.le (Fraction.ofInt 1) (Fraction.add (Fraction.ofInt 1) a) := by
+  unfold Fraction.le Fraction.add Fraction.ofInt
+  dsimp
+  have hp := Int.le_of_lt a.den_pos
+  omega
+
+theorem one_le_kappa (w h : Fraction) :
+    Fraction.le (Fraction.ofInt 1) (kappa w h) := by
+  let u := Fraction.add (Fraction.ofInt 1) h.abs
+  let v := Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs)
+  have hu := one_le_one_add h.abs (Fraction.abs_num_nonnegative h)
+  have hv := one_le_one_add (Fraction.mul h.abs w.abs)
+    (Int.mul_nonneg (Fraction.abs_num_nonnegative h) (Fraction.abs_num_nonnegative w))
+  have h₁ := Fraction.mul_le_mul_nonnegative hu (Fraction.ofInt 1) (by decide)
+  have h₂ := Fraction.mul_le_mul_nonnegative_left hv u (by
+    unfold u Fraction.add Fraction.ofInt
+    dsimp
+    have hp := h.abs.den_pos
+    have hn := Fraction.abs_num_nonnegative h
+    omega)
+  have hc := Fraction.magnitudes.le_trans h₁ h₂
+  apply Fraction.le_equiv_left (by
+    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+    decide) hc
+
+private theorem one_le_fineFactor (w h : Fraction) :
+    Fraction.le (Fraction.ofInt 1) (fineFactor w h) := by
+  have hk := one_le_kappa w h
+  have h₁ := Fraction.mul_le_mul_nonnegative hk (Fraction.ofInt 1) (by decide)
+  have h₂ := Fraction.mul_le_mul_nonnegative_left hk (kappa w h)
+    (kappa_nonnegative w h)
+  have hc := Fraction.magnitudes.le_trans h₁ h₂
+  apply Fraction.le_equiv_left (by
+    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+    decide) hc
+
+private theorem fpower_monotone (a b : Fraction) (ha : 0 ≤ a.num)
+    (hb : 0 ≤ b.num) (hab : Fraction.le a b) :
+    (n : Nat) → Fraction.le (fpower a n) (fpower b n)
+  | 0 => Fraction.magnitudes.le_refl _
+  | n + 1 => by
+      have h₁ := Fraction.mul_le_mul_nonnegative hab (fpower a n)
+        (fpower_nonnegative a ha n)
+      have h₂ := Fraction.mul_le_mul_nonnegative_left
+        (fpower_monotone a b ha hb hab n) b hb
+      exact Fraction.magnitudes.le_trans h₁ h₂
+
+private theorem coarse_power_le_fine_power (w h : Fraction) (n : Nat)
+    (hh : 0 ≤ h.num) :
+    Fraction.le (fpower (coarseFactor w h) n) (fpower (fineFactor w h) n) :=
+  fpower_monotone _ _ (kappa_nonnegative w (Fraction.add h h))
+    (fineFactor_nonnegative w h) (coarseFactor_le_fineFactor w h hh) n
+
+private def count (n : Nat) : Fraction := Fraction.ofInt (n : Int)
+
+private def budgetCap (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
+  Fraction.mul (count n)
+    (Fraction.mul (localFactor w h)
+      (Fraction.mul (fpower (fineFactor w h) n) (stateNorm s)))
+
+private theorem budget_power_bound (w h : Fraction) (s : Point × Point)
+    (hh : 0 ≤ h.num) :
+    (n : Nat) → Fraction.le (errorBudget w h s n) (budgetCap w h s n)
+  | 0 => by
+      apply Fraction.le_of_equiv
+      simp only [errorBudget, budgetCap, count, fpower, Fraction.equiv,
+        Fraction.ofInt, Fraction.mul]
+      simp
+  | n + 1 => by
+      let d := localFactor w h
+      let r := fineFactor w h
+      let M := stateNorm s
+      let X := Fraction.mul (Fraction.mul d (fpower r n)) M
+      have hi := budget_power_bound w h s hh n
+      have hr := fineFactor_nonnegative w h
+      have hd := localFactor_nonnegative w h
+      have hpow := fpower_nonnegative r hr n
+      have hX : 0 ≤ X.num :=
+        Int.mul_nonneg (Int.mul_nonneg hd hpow) (stateNorm_nonnegative s)
+      have h₁ := Fraction.mul_le_mul_nonnegative_left hi r hr
+      have hp := coarse_power_le_fine_power w h n hh
+      have h₂a := Fraction.mul_le_mul_nonnegative_left hp d hd
+      have h₂ := Fraction.mul_le_mul_nonnegative h₂a M (stateNorm_nonnegative s)
+      have h₂b : Fraction.le X
+          (Fraction.mul d (Fraction.mul (fpower r (n + 1)) M)) := by
+        have hk := Fraction.mul_le_mul_nonnegative (one_le_fineFactor w h) X hX
+        have he : Fraction.equiv X (Fraction.mul (Fraction.ofInt 1) X) := by
+          simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+          simp
+        have hk' := Fraction.le_equiv_left he hk
+        apply Fraction.le_equiv_right hk'
+        simp only [d, r, M, X, fpower, Fraction.equiv, Fraction.mul]
+        ac_nf
+      have h₂c := Fraction.magnitudes.le_trans h₂ h₂b
+      have hsum := Fraction.add_le_add h₁ h₂c
+      apply Fraction.le_equiv_right hsum
+      simp only [d, r, M, errorBudget, budgetCap, count, fpower,
+        Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+      simp only [Int.natCast_add, Int.natCast_one, Int.add_mul, Int.mul_add,
+        Int.one_mul, Int.mul_one]
+      ac_nf
+
+private theorem budget_two_bound (w h : Fraction) (s : Point × Point) (n : Nat)
+    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
+    Fraction.le (errorBudget w h s n)
+      (Fraction.mul (Fraction.ofInt 2)
+        (Fraction.mul (count n) (Fraction.mul (localFactor w h) (stateNorm s)))) := by
+  have h₀ := budget_power_bound w h s hh n
+  have hp := fine_power_le_two w h n hh hs
+  have h₁ := Fraction.mul_le_mul_nonnegative hp (stateNorm s) (stateNorm_nonnegative s)
+  have h₂ := Fraction.mul_le_mul_nonnegative_left h₁ (localFactor w h)
+    (localFactor_nonnegative w h)
+  have h₃ := Fraction.mul_le_mul_nonnegative_left h₂ (count n) (by
+    unfold count Fraction.ofInt
+    exact Int.ofNat_nonneg n)
+  have hc := Fraction.magnitudes.le_trans h₀ h₃
+  apply Fraction.le_equiv_right hc
+  simp only [budgetCap, count, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+  ac_nf
+
+theorem one_le_power (a : Fraction) (ha : 0 ≤ a.num)
+    (h1 : Fraction.le (Fraction.ofInt 1) a) :
+    (n : Nat) → Fraction.le (Fraction.ofInt 1) (fpower a n)
+  | 0 => Fraction.magnitudes.le_refl _
+  | n + 1 => by
+      have hi := one_le_power a ha h1 n
+      have hm := Fraction.mul_le_mul_nonnegative h1 (fpower a n)
+        (fpower_nonnegative a ha n)
+      have he : Fraction.equiv (fpower a n)
+          (Fraction.mul (Fraction.ofInt 1) (fpower a n)) := by
+        simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+        simp
+      exact Fraction.magnitudes.le_trans hi (Fraction.le_equiv_left he hm)
+
+private theorem factor_le_power_succ (a : Fraction) (ha : 0 ≤ a.num)
+    (h1 : Fraction.le (Fraction.ofInt 1) a) (n : Nat) :
+    Fraction.le a (fpower a (n + 1)) := by
+  have hp := one_le_power a ha h1 n
+  have hm := Fraction.mul_le_mul_nonnegative_left hp a ha
+  exact Fraction.le_equiv_left (by
+    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+    simp) hm
+
+private theorem kappa_le_fineFactor (w h : Fraction) :
+    Fraction.le (kappa w h) (fineFactor w h) := by
+  have hk := one_le_kappa w h
+  have hm := Fraction.mul_le_mul_nonnegative_left hk (kappa w h)
+    (kappa_nonnegative w h)
+  exact Fraction.le_equiv_left (by
+    simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
+    simp) hm
+
+private theorem kappa_le_two_of_positive_blocks (w h : Fraction) (n : Nat)
+    (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :
+    Fraction.le (kappa w h) (Fraction.ofInt 2) := by
+  have h₁ := kappa_le_fineFactor w h
+  have h₂ := factor_le_power_succ (fineFactor w h)
+    (fineFactor_nonnegative w h) (one_le_fineFactor w h) n
+  have h₃ := fine_power_le_two w h (n + 1) hh hs
+  exact Fraction.magnitudes.le_trans (Fraction.magnitudes.le_trans h₁ h₂) h₃
+
+private def meshAmplitude (w h : Fraction) : Fraction :=
+  Fraction.mul (Fraction.mul h.abs h.abs) w.abs
+
+private theorem meshAmplitude_nonnegative (w h : Fraction) :
+    0 ≤ (meshAmplitude w h).num :=
+  Int.mul_nonneg
+    (Int.mul_nonneg (Fraction.abs_num_nonnegative h) (Fraction.abs_num_nonnegative h))
+    (Fraction.abs_num_nonnegative w)
+
+private theorem localFactor_le_three_amplitude (w h : Fraction) (n : Nat)
+    (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :
+    Fraction.le (localFactor w h)
+      (Fraction.mul (Fraction.ofInt 3) (meshAmplitude w h)) := by
+  have hk := kappa_le_two_of_positive_blocks w h n hh hs
+  have hplus := Fraction.add_le_add_right hk (Fraction.ofInt 1)
+  have hm := Fraction.mul_le_mul_nonnegative hplus (meshAmplitude w h)
+    (meshAmplitude_nonnegative w h)
+  have hleft : Fraction.equiv (localFactor w h)
+      (Fraction.mul (Fraction.add (kappa w h) (Fraction.ofInt 1))
+        (meshAmplitude w h)) := by
+    unfold localFactor meshAmplitude
+    exact Fraction.mul_comm _ _
+  have hright : Fraction.equiv
+      (Fraction.mul (Fraction.add (Fraction.ofInt 2) (Fraction.ofInt 1))
+        (meshAmplitude w h))
+      (Fraction.mul (Fraction.ofInt 3) (meshAmplitude w h)) := by
+    simp only [Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt]
+    simp only [Int.mul_one, Int.one_mul]
+    ac_nf
+  exact Fraction.le_equiv_right (Fraction.le_equiv_left hleft hm) hright
+
+/-- Uniform finite error at common total time `T=2nh`: actual fine and coarse
+endpoints differ in coordinate L1 magnitude by at most `3*T*h*|w|*M`.
+The hypothesis includes `h≥0` and `T*(1+|w|)≤1/2`. This is an endpoint
+estimate, with no limiting curve or intervening-area assertion. -/
+theorem actual_uniform_error (w h : Fraction) (s : Point × Point) (n : Nat)
+    (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
+    Fraction.le
+      (stateNorm (stateSub (fineAt w h s n) (coarseAt w h s n)))
+      (Fraction.mul (Fraction.ofInt 3)
+        (Fraction.mul (totalTime h n)
+          (Fraction.mul h (Fraction.mul w.abs (stateNorm s))))) := by
+  cases n with
+  | zero =>
+      have h₀ := actual_error_bound w h s 0
+      apply Fraction.le_equiv_right h₀
+      simp only [errorBudget, totalTime, Fraction.equiv,
+        Fraction.mul, Fraction.ofInt]
+      simp
+  | succ m =>
+      have h₀ := actual_error_bound w h s (m + 1)
+      have h₁ := budget_two_bound w h s (m + 1) hh hs
+      have hδ := localFactor_le_three_amplitude w h m hh hs
+      have h₂ := Fraction.mul_le_mul_nonnegative hδ (stateNorm s)
+        (stateNorm_nonnegative s)
+      have h₃ := Fraction.mul_le_mul_nonnegative_left h₂ (count (m + 1)) (by
+        unfold count Fraction.ofInt
+        exact Int.ofNat_nonneg _)
+      have h₄ := Fraction.mul_le_mul_nonnegative_left h₃ (Fraction.ofInt 2) (by decide)
+      have hchain := Fraction.magnitudes.le_trans
+        (Fraction.magnitudes.le_trans h₀ h₁) h₄
+      apply Fraction.le_equiv_right hchain
+      simp only [meshAmplitude, count, totalTime, Fraction.equiv,
+        Fraction.mul, Fraction.abs, Fraction.ofInt,
+        Int.natAbs_of_nonneg hh]
+      ac_nf
+
+private def one : Fraction := ⟨1, 1, by decide⟩
+private def zero : Fraction := ⟨0, 1, by decide⟩
+private def eighth : Fraction := ⟨1, 8, by decide⟩
+private def sample : Point × Point := ((one, zero), (zero, one))
+
+theorem sample_small_time : SmallTime one eighth 1 := by
+  unfold SmallTime Fraction.le
+  decide
+
+theorem sample_total_time : Fraction.equiv (totalTime eighth 1) ⟨1, 4, by decide⟩ := by
+  decide
+
+theorem sample_power_bounds :
+    Fraction.le (fpower (coarseFactor one eighth) 1) (Fraction.ofInt 2) ∧
+      Fraction.le (fpower (fineFactor one eighth) 1) (Fraction.ofInt 2) :=
+  ⟨coarse_power_le_two one eighth 1 (by decide) sample_small_time,
+    fine_power_le_two one eighth 1 (by decide) sample_small_time⟩
+
+theorem sample_actual_error :
+    Fraction.equiv
+      (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))
+      ⟨145, 4096, by decide⟩ := by decide
+
+theorem sample_uniform_rhs :
+    Fraction.equiv
+      (Fraction.mul (Fraction.ofInt 3)
+        (Fraction.mul (totalTime eighth 1)
+          (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample)))))
+      ⟨3, 16, by decide⟩ := by decide
+
+theorem sample_uniform_error :
+    Fraction.le
+      (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))
+      (Fraction.mul (Fraction.ofInt 3)
+        (Fraction.mul (totalTime eighth 1)
+          (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample))))) :=
+  actual_uniform_error one eighth sample 1 (by decide) sample_small_time
+
+theorem sample_zero_blocks :
+    Fraction.equiv
+      (stateNorm (stateSub (fineAt one eighth sample 0) (coarseAt one eighth sample 0)))
+      zero := by decide
+
+theorem sample_zero_duration :
+    Fraction.equiv
+      (stateNorm (stateSub (fineAt one zero sample 1) (coarseAt one zero sample 1)))
+      zero := by decide
+
+/-- Without the total-time hypothesis, the claimed factor-two bound fails:
+`w=h=n=1` gives `fineFactor^1=16`. -/
+theorem false_unrestricted_power :
+    ¬ Fraction.le (fpower (fineFactor one one) 1) (Fraction.ofInt 2) := by
+  unfold Fraction.le
+  decide
+
+end NewtonLimitDynamics.Polygon.HarmonicUniform
+\end{Verbatim}
+
+\noindent{\small\texttt{BarrowLib/Polygon/ImpulseComposition.lean}}{\small, 5 theorems, 65 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.Parallelogram
+import BarrowLib.Polygon.ZeroForce
+import BarrowLib.Polygon.CentralSchedule
+
+/-! Finite rational reconstruction of Newton's Laws Corollary 1 proof.
+The mechanical model takes the change of velocity from an impulse to be an
+added vector (Law II and its explanation), and subsequent motion to be the
+existing uniform affine map (Law I). These are mechanical premises, not laws
+proved from geometry. Transverse invariance, unique intersection for independent
+directions, diagonal uniform motion, and the actual central cell's use of that
+composition are proved. No force continuity or limit is assumed. -/
+
+namespace NewtonLimitDynamics.Polygon.ImpulseComposition
+open NewtonLimitDynamics TimeSubdivision Parallelogram
+
+/-- Law II's directed additive velocity change preserves the transverse
+component. The proportionality constant is the explicit scalar `k`. -/
+theorem impulse_transverse_unchanged (velocity direction : Point) (k : Fraction) :
+    ParallelThrough (pointAdd velocity (pointScale k direction)) velocity direction :=
+  parallel_translation velocity direction k
+
+/-- Impulses at the initial point followed by uniform motion give the
+parallelogram diagonal at every rational elapsed time. Parallel, opposite
+and zero impulse vectors require no division and are included. -/
+theorem uniform_impulse_diagonal (p u v : Point) (t : Fraction) :
+    pointEquiv (ZeroForce.inertialAt p (pointAdd u v) t)
+      (diagonal p (pointScale t u) (pointScale t v)) :=
+  pointEquiv_trans
+    (pointAdd_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (pointScale_add t u v))
+    (pointEquiv_symm (pointAdd_assoc p (pointScale t u) (pointScale t v)))
+
+/-- The simultaneous endpoint is on both lines reached by the separate
+motions. This establishes Newton's two line constraints from the mechanical
+model, rather than assuming the parallelogram conclusion. -/
+theorem uniform_endpoint_lines (p u v : Point) (t : Fraction) :
+    ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t)
+      (ZeroForce.inertialAt p u t) (pointScale t v) ∧
+    ParallelThrough (ZeroForce.inertialAt p (pointAdd u v) t)
+      (ZeroForce.inertialAt p v t) (pointScale t u) := by
+  constructor <;>
+    simp only [ParallelThrough,ZeroForce.inertialAt,pointAdd,pointScale,det,
+      Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add,
+      Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+
+/-- Newton's independent endpoint-line argument: any endpoint with the two
+unchanged transverse coordinates is the opposite corner. Uniform motion or
+an impulse-at-A clause is not required for this finite inference. -/
+theorem endpoint_from_components (p u v x : Point) (h : (det u v).num ≠ 0)
+    (hM : ParallelThrough x (pointAdd p u) v)
+    (hN : ParallelThrough x (pointAdd p v) u) :
+    pointEquiv x (diagonal p u v) :=
+  intersection_unique p u v x h hM hN
+
+/-- The actual central-force recurrence uses this same composition. After
+the first arrival's impulse, the next drift is its inertial continuation plus
+the impulse-generated displacement. This is proved for any sampled field. -/
+theorem next_arrival_diagonal (a : CentralSchedule.Field) (h k : Fraction)
+    (s : Point × Point) :
+    pointEquiv (CentralSchedule.cell a k (CentralSchedule.cell a h s)).1
+      (diagonal (CentralSchedule.cell a h s).1 (pointScale k s.2)
+        (pointScale k (pointScale h (a (CentralSchedule.cell a h s).1)))) :=
+  uniform_impulse_diagonal (CentralSchedule.cell a h s).1 s.2
+    (pointScale h (a (CentralSchedule.cell a h s).1)) k
+
+end NewtonLimitDynamics.Polygon.ImpulseComposition
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/InertialControl.lean}}{\small, 6 theorems, 114 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.ZeroForce
+
+namespace NewtonLimitDynamics.Polygon.InertialControl
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open ZeroForce
+
+/-- Strict comparison of the absolute value of a represented rational with a
+    positive rational. It is cross multiplication, so it tolerates unnormalised
+    representatives. -/
+def absLt (a bound : Fraction) : Prop :=
+  (a.num.natAbs : Int) * bound.den < bound.num * a.den
+
+/-- A common positive integer bound for both velocity numerators. -/
+def velocityBound (v : Point) : Nat :=
+  v.1.num.natAbs + v.2.num.natAbs + 1
+
+/-- An explicit time radius, for an arbitrary fixed rational velocity. -/
+def radius (eps : Fraction) (v : Point) : Fraction :=
+  ⟨eps.num, eps.den * (velocityBound v : Int),
+    Int.mul_pos eps.den_pos (by
+      unfold velocityBound
+      exact Int.ofNat_pos.mpr (by omega))⟩
+
+theorem radius_positive (eps : Fraction) (v : Point)
+    (heps : Fraction.positive eps) : Fraction.positive (radius eps v) := heps
+
+private theorem scalar_bound (eps h x : Fraction) (K : Nat)
+    (heps : Fraction.positive eps) (hK : x.num.natAbs < K)
+    (hh : absLt h ⟨eps.num, eps.den * (K : Int),
+      Int.mul_pos eps.den_pos (Int.ofNat_pos.mpr (by omega))⟩) :
+    absLt (Fraction.mul h x) eps := by
+  have hK' : (x.num.natAbs : Int) ≤ K := Int.ofNat_le.mpr (Nat.le_of_lt hK)
+  have hden : 1 ≤ x.den := by
+    have := x.den_pos
+    omega
+  have hleft : 0 ≤ (h.num.natAbs : Int) * eps.den :=
+    Int.mul_nonneg (Int.ofNat_zero_le _) (Int.le_of_lt eps.den_pos)
+  have hmul := Int.mul_le_mul_of_nonneg_left hK' hleft
+  have hright : 0 ≤ eps.num * h.den :=
+    Int.mul_nonneg (Int.le_of_lt heps) (Int.le_of_lt h.den_pos)
+  have hdenmul := Int.mul_le_mul_of_nonneg_left hden hright
+  have hsmall : (h.num.natAbs : Int) * eps.den * (K : Int) < eps.num * h.den := by
+    unfold absLt at hh
+    dsimp at hh
+    simpa only [Int.mul_assoc] using hh
+  have hchain : (h.num.natAbs : Int) * (x.num.natAbs : Int) * eps.den <
+      eps.num * (h.den * x.den) := by
+    calc
+      (h.num.natAbs : Int) * (x.num.natAbs : Int) * eps.den
+          = ((h.num.natAbs : Int) * eps.den) * (x.num.natAbs : Int) := by ac_rfl
+      _ ≤ ((h.num.natAbs : Int) * eps.den) * (K : Int) := hmul
+      _ < eps.num * h.den := hsmall
+      _ ≤ (eps.num * h.den) * x.den := by simpa using hdenmul
+      _ = eps.num * (h.den * x.den) := by ac_rfl
+  unfold absLt Fraction.mul
+  dsimp
+  rw [Int.natAbs_mul]
+  exact hchain
+
+/-- For each positive rational tolerance, one explicit radius controls both
+    coordinates of every rational drift at fixed velocity. -/
+theorem drift_small (eps : Fraction) (v : Point)
+    (heps : Fraction.positive eps) (h : Fraction)
+    (hh : absLt h (radius eps v)) :
+    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps := by
+  have hK1 : v.1.num.natAbs < velocityBound v := by
+    unfold velocityBound
+    omega
+  have hK2 : v.2.num.natAbs < velocityBound v := by
+    unfold velocityBound
+    omega
+  constructor
+  · exact scalar_bound eps h v.1 (velocityBound v) heps hK1 hh
+  · exact scalar_bound eps h v.2 (velocityBound v) heps hK2 hh
+
+/-- The controlled drift is the increment in the rational inertial map at
+    every rational base time. This is an equivalence of represented positions,
+    not an assumed curve or a limit theorem. -/
+theorem inertialAt_small_increment (eps : Fraction) (p v : Point)
+    (heps : Fraction.positive eps) (t h : Fraction)
+    (hh : absLt h (radius eps v)) :
+    pointEquiv (inertialAt (inertialAt p v t) v h)
+      (inertialAt p v (Fraction.add t h)) ∧
+    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps := by
+  exact ⟨inertialAt_add p v t h, drift_small eps v heps h hh⟩
+
+/-- The same estimate applies to an actual zero-force end-kick cell begun at
+    any rational inertial time. -/
+theorem endKick_zero_small_increment (eps : Fraction) (p v : Point)
+    (heps : Fraction.positive eps) (t h : Fraction)
+    (hh : absLt h (radius eps v)) :
+    pointEquiv (endKick h (inertialAt p v t, v) zeroPoint).1
+      (inertialAt p v (Fraction.add t h)) ∧
+    absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps := by
+  have hcell := (endKick_zero h (inertialAt p v t, v)).1
+  have hmap := inertialAt_add p v t h
+  exact ⟨⟨Fraction.equiv_trans hcell.1 hmap.1,
+    Fraction.equiv_trans hcell.2 hmap.2⟩, drift_small eps v heps h hh⟩
+
+/-- Quantified small-time form. The witness is `radius eps v`, independent of
+    the base time and initial position. -/
+theorem exists_uniform_inertial_radius (eps : Fraction) (v : Point)
+    (heps : Fraction.positive eps) :
+    ∃ delta : Fraction, Fraction.positive delta ∧
+      ∀ (p : Point) (t h : Fraction), absLt h delta →
+        pointEquiv (inertialAt (inertialAt p v t) v h)
+          (inertialAt p v (Fraction.add t h)) ∧
+        absLt (pointScale h v).1 eps ∧ absLt (pointScale h v).2 eps := by
+  exact ⟨radius eps v, radius_positive eps v heps,
+    fun p t h hh => inertialAt_small_increment eps p v heps t h hh⟩
+
+end NewtonLimitDynamics.Polygon.InertialControl
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/InertialDefect.lean}}{\small, 8 theorems, 102 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.ZeroForce
+
+namespace NewtonLimitDynamics.Polygon.InertialDefect
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open ZeroForce
+open PartitionControl
+
+/-- The directed determinant of two rational-time inertial samples. -/
+def inertialEdge (p v : Point) (s t : Fraction) : Fraction :=
+  det (inertialAt p v s) (inertialAt p v t)
+
+/-- Three samples of the same finite zero-force comparison map have an
+    additive directed determinant.  The identity is finite Fraction arithmetic. -/
+theorem inertialEdge_compose (p v : Point) (s t u : Fraction) :
+    Fraction.equiv
+      (Fraction.add (inertialEdge p v s t) (inertialEdge p v t u))
+      (inertialEdge p v s u) := by
+  unfold Fraction.equiv Fraction.add inertialEdge det inertialAt pointAdd pointScale
+    Fraction.mul Fraction.add
+  dsimp
+  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
+  ac_nf
+  omega
+
+/-- Determinant of a degenerate connector. -/
+theorem inertialEdge_self (p v : Point) (s : Fraction) :
+    Fraction.equiv (inertialEdge p v s s) (Fraction.ofInt 0) := by
+  unfold Fraction.equiv inertialEdge det Fraction.add Fraction.mul Fraction.ofInt
+  dsimp
+  simp only [Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
+  ac_nf
+  omega
+
+/-- Directed determinant along a finite list, including its final connector. -/
+def inertialWalk (p v : Point) (a b : Fraction) : List Fraction → Fraction
+  | [] => inertialEdge p v a b
+  | t :: ts => Fraction.add (inertialEdge p v a t) (inertialWalk p v t b ts)
+
+/-- Every finite collinear walk telescopes to its end connector. -/
+theorem inertialWalk_eq_edge (p v : Point) (a b : Fraction) (times : List Fraction) :
+    Fraction.equiv (inertialWalk p v a b times) (inertialEdge p v a b) := by
+  induction times generalizing a with
+  | nil => exact Fraction.equiv_refl _
+  | cons t ts ih =>
+      exact Fraction.equiv_trans (Fraction.add_equiv_left _ (ih t))
+        (inertialEdge_compose p v a t b)
+
+/-- Any finite closed polygon sampled from an inertial recurrence has zero
+    signed doubled determinant sum, for any start, times, and velocity. -/
+theorem inertialWalk_closed (p v : Point) (a : Fraction) (times : List Fraction) :
+    Fraction.equiv (inertialWalk p v a a times) (Fraction.ofInt 0) := by
+  exact Fraction.equiv_trans (inertialWalk_eq_edge p v a a times)
+    (inertialEdge_self p v a)
+
+/-- The four-vertex boundary used by the finite scheduling diagnostic is a
+    special case of the arbitrary closed walk. -/
+theorem inertial_closedBoundaryTwice (p v : Point) (a b c d : Fraction) :
+    Fraction.equiv
+      (closedBoundaryTwice (inertialAt p v a) (inertialAt p v b)
+        (inertialAt p v c) (inertialAt p v d)) (Fraction.ofInt 0) := by
+  exact Fraction.equiv_trans
+    (Fraction.add_assoc (inertialEdge p v a b) (inertialEdge p v b c)
+      (Fraction.add (inertialEdge p v c d) (inertialEdge p v d a)))
+    (inertialWalk_closed p v a [b, c, d])
+
+/-- The represented directed determinant respects point equivalence. -/
+theorem det_congr {a a' b b' : Point} (ha : pointEquiv a a')
+    (hb : pointEquiv b b') : Fraction.equiv (det a b) (det a' b') :=
+  TimeSubdivision.det_congr ha hb
+
+theorem closedBoundaryTwice_congr {a a' b b' c c' d d' : Point}
+    (ha : pointEquiv a a') (hb : pointEquiv b b')
+    (hc : pointEquiv c c') (hd : pointEquiv d d') :
+    Fraction.equiv (closedBoundaryTwice a b c d) (closedBoundaryTwice a' b' c' d') := by
+  unfold closedBoundaryTwice
+  exact Fraction.add_equiv (Fraction.add_equiv (det_congr ha hb) (det_congr hb hc))
+    (Fraction.add_equiv (det_congr hc hd) (det_congr hd ha))
+
+/-- Four arbitrary actual zero-force schedules (possibly with different
+    partitions) have a vanishing signed determinant boundary. -/
+theorem partitionMotion_closedBoundaryTwice (D : Nat) (hD : 0 < D)
+    (p v : Point) (w₀ w₁ w₂ w₃ : List Nat) :
+    Fraction.equiv
+      (closedBoundaryTwice
+        (partitionMotion D hD p v zeroPoint w₀).1
+        (partitionMotion D hD p v zeroPoint w₁).1
+        (partitionMotion D hD p v zeroPoint w₂).1
+        (partitionMotion D hD p v zeroPoint w₃).1)
+      (Fraction.ofInt 0) := by
+  exact Fraction.equiv_trans
+    (closedBoundaryTwice_congr
+      (partitionMotion_zero_force D hD p v w₀).1
+      (partitionMotion_zero_force D hD p v w₁).1
+      (partitionMotion_zero_force D hD p v w₂).1
+      (partitionMotion_zero_force D hD p v w₃).1)
+    (inertial_closedBoundaryTwice p v
+      (duration D (total w₀) hD) (duration D (total w₁) hD)
+      (duration D (total w₂) hD) (duration D (total w₃) hD))
+
+end NewtonLimitDynamics.Polygon.InertialDefect
+\end{Verbatim}
+
 \noindent{\small\texttt{ModernLib/Polygon/ParallelQuadraticEndpoint.lean}}{\small, 4 theorems, 83 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -29027,6 +27420,674 @@ theorem endpointValue_eq (a : Point) (T : Fraction) (s : Point × Point) (hT : 0
     (Fraction.le_of_equiv (endpoint_error a T s hT n)) (hN n hn)⟩
 
 end NewtonLimitDynamics.Polygon.ParallelQuadraticEndpoint
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/PartialCell.lean}}{\small, 13 theorems, 134 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.ZeroForce
+
+namespace NewtonLimitDynamics.Polygon.PartialCell
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open PartitionControl
+open ZeroForce
+
+/-- The actual state after a finite prefix schedule followed by one partial
+    cell of duration `u/D`.  It is the end-kick recurrence applied to the
+    actual prefix state; no formula for the motion is assumed. -/
+def partialState (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) (u : Nat) :
+    Point × Point :=
+  endKick (duration D u hD) (partitionMotion D hD p v a weights) a
+
+/-- The drift position reached `u/D` into the next cell: the actual prefix
+    position moved by the actual prefix velocity. -/
+def actualPartialPosition (D : Nat) (hD : 0 < D) (p v a : Point)
+    (weights : List Nat) (u : Nat) : Point :=
+  pointAdd (partitionMotion D hD p v a weights).1
+    (pointScale (duration D u hD) (partitionMotion D hD p v a weights).2)
+
+/-- The partial position is the position component of the end-kick step. -/
+theorem partialState_position (D : Nat) (hD : 0 < D) (p v a : Point)
+    (weights : List Nat) (u : Nat) :
+    (partialState D hD p v a weights u).1 = actualPartialPosition D hD p v a weights u := rfl
+
+/-- The terminal kick does not alter the drift position: the position component
+    of an end-kick step is independent of the accelerative force applied at its end. -/
+theorem endKick_position_kick_free (d : Fraction) (state : Point × Point) (a b : Point) :
+    (endKick d state a).1 = (endKick d state b).1 := rfl
+
+/-- The partial state is literally the recurrence on the appended schedule. -/
+theorem partialState_append (D : Nat) (hD : 0 < D) (p v a : Point)
+    (weights : List Nat) (u : Nat) :
+    partialState D hD p v a weights u = partitionMotion D hD p v a (weights ++ [u]) := by
+  unfold partialState partitionMotion
+  rw [List.foldl_append]
+  rfl
+
+/-- Appending one weight applies the statistics recurrence once. -/
+theorem stats_append (weights : List Nat) (u : Nat) :
+    stats (weights ++ [u]) = next (stats weights) u := by
+  unfold stats
+  rw [List.foldl_append]
+  rfl
+
+theorem total_append (weights : List Nat) (u : Nat) :
+    total (weights ++ [u]) = total weights + u := by
+  unfold total
+  rw [stats_append]
+  rfl
+
+theorem squares_append (weights : List Nat) (u : Nat) :
+    squares (weights ++ [u]) = squares weights + u * u := by
+  unfold squares
+  rw [stats_append]
+  rfl
+
+/-- Exact residual at the sample time `(T+u)/D` inside the next cell: the
+    constructed candidate exceeds the actual partial position by
+    `((Q+u*u)/(2D²))*a`.  Derived from the appended schedule's statistics. -/
+theorem candidate_partial_residual (D : Nat) (hD : 0 < D) (p v a : Point)
+    (weights : List Nat) (u : Nat) :
+    pointEquiv (candidate p v a (duration D (total weights + u) hD))
+      (pointAdd (actualPartialPosition D hD p v a weights u)
+        (pointScale (residualCoefficient D (squares weights + u * u) hD) a)) := by
+  have h := candidate_partitionMotion_residual D hD p v a (weights ++ [u])
+  rw [total_append, squares_append, ← partialState_append, partialState_position] at h
+  exact h
+
+/-- Within-cell mesh bound on the square statistic: a partial duration inside a
+    designated next cell of weight `w` (`0 ≤ u` is automatic in `Nat`). -/
+theorem partial_squares_bound (M w u : Nat) (weights : List Nat)
+    (hM : ∀ x ∈ weights, x ≤ M) (hw : w ≤ M) (hu : u ≤ w) :
+    squares weights + u * u ≤ M * (total weights + u) := by
+  have hall : ∀ x ∈ weights ++ [u], x ≤ M := by
+    intro x hx
+    rcases List.mem_append.mp hx with h | h
+    · exact hM x h
+    · rw [List.mem_singleton.mp h]
+      exact Nat.le_trans hu hw
+  have hb := stats_bound M (weights ++ [u]) hall
+  rw [squares_append, total_append] at hb
+  exact hb
+
+/-- The corresponding Fraction coefficient bound:
+    `(Q+u*u)/(2D²) ≤ M*(T+u)/(2D²)`. -/
+theorem partial_residual_mesh_bound (D M w u : Nat) (hD : 0 < D) (weights : List Nat)
+    (hM : ∀ x ∈ weights, x ≤ M) (hw : w ≤ M) (hu : u ≤ w) :
+    Fraction.le (residualCoefficient D (squares weights + u * u) hD)
+      (meshCoefficient D M (total weights + u) hD) := by
+  have hq := partial_squares_bound M w u weights hM hw hu
+  have hi : ((squares weights + u * u : Nat) : Int) ≤ ((M * (total weights + u) : Nat) : Int) :=
+    Int.ofNat_le.mpr hq
+  unfold Fraction.le residualCoefficient meshCoefficient Fraction.half squareDuration
+  dsimp
+  have hp : 0 < (2 : Int) * ((D : Int) * (D : Int)) :=
+    Int.mul_pos (by decide) (Int.mul_pos (by omega) (by omega))
+  exact Int.mul_le_mul_of_nonneg_right hi (Int.le_of_lt hp)
+
+/-- Boundary `u = w`: the partial position is the actual next vertex. -/
+theorem partial_full_cell (D : Nat) (hD : 0 < D) (p v a : Point)
+    (weights : List Nat) (w : Nat) :
+    actualPartialPosition D hD p v a weights w =
+      (partitionMotion D hD p v a (weights ++ [w])).1 := by
+  rw [← partialState_append]
+  rfl
+
+private theorem zero_drift_scalar (D : Nat) (hD : 0 < D) (x y : Fraction) :
+    Fraction.equiv (Fraction.add x (Fraction.mul (duration D 0 hD) y)) x := by
+  unfold Fraction.equiv Fraction.add Fraction.mul duration
+  dsimp
+  simp only [Int.ofNat_zero, Int.zero_mul, Int.add_zero]
+  ac_rfl
+
+/-- Boundary `u = 0`: the partial position is the actual prefix vertex. -/
+theorem partial_zero (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
+    pointEquiv (actualPartialPosition D hD p v a weights 0)
+      (partitionMotion D hD p v a weights).1 :=
+  ⟨zero_drift_scalar D hD _ _, zero_drift_scalar D hD _ _⟩
+
+/-- Boundary `a = 0`: the actual partial position lies on the inertial map at
+    `(T+u)/D`. -/
+theorem partial_zero_force (D : Nat) (hD : 0 < D) (p v : Point)
+    (weights : List Nat) (u : Nat) :
+    pointEquiv (actualPartialPosition D hD p v zeroPoint weights u)
+      (inertialAt p v (duration D (total weights + u) hD)) := by
+  have h := (partitionMotion_zero_force D hD p v (weights ++ [u])).1
+  rw [total_append, ← partialState_append, partialState_position] at h
+  exact h
+
+end NewtonLimitDynamics.Polygon.PartialCell
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/PartitionComparison.lean}}{\small, 8 theorems, 99 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.PartialCell
+
+namespace NewtonLimitDynamics.Polygon.PartitionComparison
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open PartitionControl
+
+private theorem half_equiv {a b : Fraction} (h : Fraction.equiv a b) :
+    Fraction.equiv (Fraction.half a) (Fraction.half b) := by
+  unfold Fraction.equiv Fraction.half at *
+  dsimp
+  calc a.num * (2 * b.den) = 2 * (a.num * b.den) := by ac_rfl
+    _ = 2 * (b.num * a.den) := by rw [h]
+    _ = b.num * (2 * a.den) := by ac_rfl
+
+private theorem candidate_scalar_congr {s t : Fraction} (h : Fraction.equiv s t)
+    (p v a : Fraction) :
+    Fraction.equiv
+      (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul (Fraction.half (Fraction.mul s s)) a))
+      (Fraction.add (Fraction.add p (Fraction.mul t v)) (Fraction.mul (Fraction.half (Fraction.mul t t)) a)) :=
+  Fraction.equiv_trans
+    (Fraction.add_equiv_right _ (Fraction.add_equiv_left p (Fraction.mul_equiv_right v h)))
+    (Fraction.add_equiv_left _ (Fraction.mul_equiv_right a (half_equiv (Fraction.mul_equiv h h))))
+
+/-- The constructed candidate depends only on the represented rational time. -/
+theorem candidate_time_congr (p v a : Point) {s t : Fraction} (h : Fraction.equiv s t) :
+    pointEquiv (candidate p v a s) (candidate p v a t) :=
+  ⟨candidate_scalar_congr h p.1 v.1 a.1, candidate_scalar_congr h p.2 v.2 a.2⟩
+
+/-- Two arbitrary finite schedules, with possibly different common denominators
+    and cells, reaching the same rational time: their actual positions, each
+    corrected by its own exact residual `(Q/(2D²))*a`, agree.  The candidate
+    serves only as the common algebraic comparison term. -/
+theorem partition_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
+    (ws ws' : List Nat)
+    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
+    pointEquiv
+      (pointAdd (partitionMotion D hD p v a ws).1
+        (pointScale (residualCoefficient D (squares ws) hD) a))
+      (pointAdd (partitionMotion E hE p v a ws').1
+        (pointScale (residualCoefficient E (squares ws') hE) a)) :=
+  pointEquiv_trans (pointEquiv_symm (candidate_partitionMotion_residual D hD p v a ws))
+    (pointEquiv_trans (candidate_time_congr p v a ht)
+      (candidate_partitionMotion_residual E hE p v a ws'))
+
+private theorem velocity_scalar_congr {s t : Fraction} (h : Fraction.equiv s t) (v a : Fraction) :
+    Fraction.equiv (Fraction.add v (Fraction.mul s a)) (Fraction.add v (Fraction.mul t a)) :=
+  Fraction.add_equiv_left v (Fraction.mul_equiv_right a h)
+
+/-- Two arbitrary schedules reaching equivalent rational times have equivalent
+    actual velocities; no correction term is needed. -/
+theorem velocity_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
+    (ws ws' : List Nat)
+    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
+    pointEquiv (partitionMotion D hD p v a ws).2 (partitionMotion E hE p v a ws').2 :=
+  pointEquiv_trans (partitionMotion_formula D hD p v a ws).2
+    (pointEquiv_trans
+      (show pointEquiv (encodedVelocity D hD (stats ws) v a)
+          (encodedVelocity E hE (stats ws') v a) from
+        ⟨velocity_scalar_congr ht v.1 a.1, velocity_scalar_congr ht v.2 a.2⟩)
+      (pointEquiv_symm (partitionMotion_formula E hE p v a ws').2))
+
+/-- Sample times inside cells: two schedules, each followed by a partial final
+    drift (`u/D` and `u'/E`), reaching equivalent rational times.  Their actual
+    partial positions agree after each is corrected by its own residual
+    `((Q+u*u)/(2D²))*a`.  Derived through the appended schedules. -/
+theorem partial_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
+    (ws ws' : List Nat) (u u' : Nat)
+    (ht : Fraction.equiv (duration D (total ws + u) hD) (duration E (total ws' + u') hE)) :
+    pointEquiv
+      (pointAdd (PartialCell.actualPartialPosition D hD p v a ws u)
+        (pointScale (residualCoefficient D (squares ws + u * u) hD) a))
+      (pointAdd (PartialCell.actualPartialPosition E hE p v a ws' u')
+        (pointScale (residualCoefficient E (squares ws' + u' * u') hE) a)) := by
+  have h := partition_comparison D E hD hE p v a (ws ++ [u]) (ws' ++ [u'])
+    (by rw [PartialCell.total_append, PartialCell.total_append]; exact ht)
+  rw [PartialCell.squares_append, PartialCell.squares_append,
+    ← PartialCell.partialState_append, ← PartialCell.partialState_append,
+    PartialCell.partialState_position, PartialCell.partialState_position] at h
+  exact h
+
+/-- Packaged gap statement: two schedules reaching one rational time differ
+    only along `a`, through two nonnegative coefficients each bounded by its
+    own largest-cell coefficient `M*T/(2D²)` (largest cell times elapsed time,
+    halved). -/
+theorem partition_gap (D E M M' : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
+    (ws ws' : List Nat) (hw : ∀ w ∈ ws, w ≤ M) (hw' : ∀ w ∈ ws', w ≤ M')
+    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
+    ∃ c c' : Fraction,
+      Fraction.le (Fraction.ofInt 0) c ∧ Fraction.le c (meshCoefficient D M (total ws) hD) ∧
+      Fraction.le (Fraction.ofInt 0) c' ∧ Fraction.le c' (meshCoefficient E M' (total ws') hE) ∧
+      pointEquiv (pointAdd (partitionMotion D hD p v a ws).1 (pointScale c a))
+        (pointAdd (partitionMotion E hE p v a ws').1 (pointScale c' a)) :=
+  ⟨_, _, residual_nonnegative D _ hD, residual_mesh_bound D M hD ws hw,
+    residual_nonnegative E _ hE, residual_mesh_bound E M' hE ws' hw',
+    partition_comparison D E hD hE p v a ws ws' ht⟩
+
+end NewtonLimitDynamics.Polygon.PartitionComparison
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/PartitionControl.lean}}{\small, 20 theorems, 252 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.TimeSubdivision
+
+namespace NewtonLimitDynamics.Polygon.PartitionControl
+
+open NewtonLimitDynamics
+open TimeSubdivision
+
+/-- Integer bookkeeping for a finite common-denominator schedule.  `A` is the
+    ordered pair sum accumulated before each new weight is inserted. -/
+structure PartitionStats where
+  T : Nat
+  A : Nat
+  Q : Nat
+
+def initial : PartitionStats := ⟨0, 0, 0⟩
+
+/-- The recurrences `T' = T + w`, `A' = A + w*T`, and `Q' = Q + w*w`. -/
+def next (s : PartitionStats) (w : Nat) : PartitionStats :=
+  ⟨s.T + w, s.A + w * s.T, s.Q + w * w⟩
+
+def stats (weights : List Nat) : PartitionStats :=
+  weights.foldl next initial
+
+def total (weights : List Nat) : Nat := (stats weights).T
+def cross (weights : List Nat) : Nat := (stats weights).A
+def squares (weights : List Nat) : Nat := (stats weights).Q
+
+theorem next_identity (s : PartitionStats)
+    (h : 2 * s.A + s.Q = s.T * s.T) (w : Nat) :
+    2 * (next s w).A + (next s w).Q = (next s w).T * (next s w).T := by
+  simp only [next]
+  simp only [Nat.mul_add, Nat.add_mul]
+  have htw : s.T * w = w * s.T := Nat.mul_comm _ _
+  omega
+
+theorem stats_identity_from (s : PartitionStats)
+    (h : 2 * s.A + s.Q = s.T * s.T) : (weights : List Nat) ->
+    2 * (weights.foldl next s).A + (weights.foldl next s).Q =
+      (weights.foldl next s).T * (weights.foldl next s).T
+  | [] => h
+  | w :: ws => by
+      simp only [List.foldl]
+      exact stats_identity_from (next s w) (next_identity s h w) ws
+
+/-- The ordered-pair and square decomposition for every finite schedule. -/
+theorem stats_identity (weights : List Nat) :
+    2 * cross weights + squares weights = total weights * total weights := by
+  exact stats_identity_from initial (by decide) weights
+
+theorem next_bound (M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)
+    (w : Nat) (hw : w ≤ M) : (next s w).Q ≤ M * (next s w).T := by
+  have hww : w * w ≤ M * w := Nat.mul_le_mul_right w hw
+  simp only [next, Nat.mul_add]
+  omega
+
+theorem stats_bound_from (M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)
+    (weights : List Nat) (hw : ∀ w ∈ weights, w ≤ M) :
+    (weights.foldl next s).Q ≤ M * (weights.foldl next s).T := by
+  induction weights generalizing s with
+  | nil => exact h
+  | cons w ws ih =>
+      simp only [List.mem_cons] at hw
+      simp only [List.foldl]
+      exact ih (next s w) (next_bound M s h w (hw w (Or.inl rfl)))
+        (fun x hx => hw x (Or.inr hx))
+
+/-- A max-cell estimate for the finite square coefficient. -/
+theorem stats_bound (M : Nat) (weights : List Nat) (hw : ∀ w ∈ weights, w ≤ M) :
+    squares weights ≤ M * total weights := by
+  exact stats_bound_from M initial (by change 0 ≤ M * 0; omega) weights hw
+
+/-- Zero weights are admitted by the recurrence; strict positive mesh cells are
+    an additional hypothesis when a nondegenerate partition is required. -/
+def positiveWeights (weights : List Nat) : Prop := ∀ w ∈ weights, 0 < w
+
+private theorem natDen_pos (D : Nat) (hD : 0 < D) : (0 : Int) < D := by omega
+
+/-- The common-denominator duration `w/D`. -/
+def duration (D w : Nat) (hD : 0 < D) : Fraction := ⟨w, D, natDen_pos D hD⟩
+
+def squareDuration (D w : Nat) (hD : 0 < D) : Fraction := ⟨w, D * D, by
+  exact Int.mul_pos (natDen_pos D hD) (natDen_pos D hD)⟩
+
+theorem duration_positive (D w : Nat) (hD : 0 < D) (hw : 0 < w) :
+    Fraction.positive (duration D w hD) := by
+  change 0 < (w : Int)
+  omega
+
+private theorem scalar_step_position (D A T w : Nat) (hD : 0 < D) (p v a : Fraction) :
+    Fraction.equiv
+      (Fraction.add
+        (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))
+          (Fraction.mul (squareDuration D A hD) a))
+        (Fraction.mul (duration D w hD)
+          (Fraction.add v (Fraction.mul (duration D T hD) a))))
+      (Fraction.add
+        (Fraction.add p (Fraction.mul (duration D (T + w) hD) v))
+        (Fraction.mul (squareDuration D (A + w * T) hD) a)) := by
+  unfold Fraction.equiv Fraction.add Fraction.mul duration squareDuration
+  dsimp
+  simp only [Int.ofNat_add, Int.ofNat_mul, Int.add_mul, Int.mul_add]
+  ac_rfl
+
+private theorem scalar_step_velocity (D T w : Nat) (hD : 0 < D) (v a : Fraction) :
+    Fraction.equiv
+      (Fraction.add (Fraction.add v (Fraction.mul (duration D T hD) a))
+        (Fraction.mul (duration D w hD) a))
+      (Fraction.add v (Fraction.mul (duration D (T + w) hD) a)) := by
+  unfold Fraction.equiv Fraction.add Fraction.mul duration
+  dsimp
+  simp only [Int.ofNat_add, Int.add_mul]
+  ac_rfl
+
+private theorem endKick_congr (d : Fraction) {x y : Point × Point} (a : Point)
+    (h : pointEquiv x.1 y.1 ∧ pointEquiv x.2 y.2) :
+    pointEquiv (endKick d x a).1 (endKick d y a).1 ∧
+      pointEquiv (endKick d x a).2 (endKick d y a).2 := by
+  constructor
+  · exact pointAdd_congr h.1 (pointScale_congr d h.2)
+  · exact pointAdd_congr h.2 ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩
+
+def encodedPosition (D : Nat) (hD : 0 < D) (s : PartitionStats) (p v a : Point) : Point :=
+  pointAdd (pointAdd p (pointScale (duration D s.T hD) v))
+    (pointScale (squareDuration D s.A hD) a)
+
+def encodedVelocity (D : Nat) (hD : 0 < D) (s : PartitionStats) (v a : Point) : Point :=
+  pointAdd v (pointScale (duration D s.T hD) a)
+
+def encodedState (D : Nat) (hD : 0 < D) (s : PartitionStats) (p v a : Point) : Point × Point :=
+  (encodedPosition D hD s p v a, encodedVelocity D hD s v a)
+
+/-- The actual finite polygonal schedule, constructed only by repeated
+    `TimeSubdivision.endKick` cells of duration `w/D`. -/
+def partitionMotion (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) : Point × Point :=
+  weights.foldl (fun state w => endKick (duration D w hD) state a) (p, v)
+
+private theorem encoded_step (D : Nat) (hD : 0 < D) (s : PartitionStats) (w : Nat)
+    (p v a : Point) :
+    pointEquiv (endKick (duration D w hD) (encodedState D hD s p v a) a).1
+      (encodedState D hD (next s w) p v a).1 ∧
+    pointEquiv (endKick (duration D w hD) (encodedState D hD s p v a) a).2
+      (encodedState D hD (next s w) p v a).2 := by
+  constructor <;> constructor
+  · exact scalar_step_position D s.A s.T w hD p.1 v.1 a.1
+  · exact scalar_step_position D s.A s.T w hD p.2 v.2 a.2
+  · exact scalar_step_velocity D s.T w hD v.1 a.1
+  · exact scalar_step_velocity D s.T w hD v.2 a.2
+
+private theorem fold_encoded (D : Nat) (hD : 0 < D) (s : PartitionStats)
+    (state : Point × Point) (p v a : Point)
+    (hstate : pointEquiv state.1 (encodedState D hD s p v a).1 ∧
+      pointEquiv state.2 (encodedState D hD s p v a).2) : (weights : List Nat) ->
+    pointEquiv (weights.foldl (fun x w => endKick (duration D w hD) x a) state).1
+      (encodedState D hD (weights.foldl next s) p v a).1 ∧
+    pointEquiv (weights.foldl (fun x w => endKick (duration D w hD) x a) state).2
+      (encodedState D hD (weights.foldl next s) p v a).2
+  | [] => hstate
+  | w :: ws => by
+      simp only [List.foldl]
+      have hkick := endKick_congr (duration D w hD) a hstate
+      have hencoded := encoded_step D hD s w p v a
+      exact fold_encoded D hD (next s w) _ p v a
+        ⟨pointEquiv_trans hkick.1 hencoded.1, pointEquiv_trans hkick.2 hencoded.2⟩ ws
+
+private theorem initial_encoded (D : Nat) (hD : 0 < D) (p v a : Point) :
+    pointEquiv p (encodedState D hD initial p v a).1 ∧
+      pointEquiv v (encodedState D hD initial p v a).2 := by
+  constructor <;> constructor <;>
+    unfold encodedState encodedPosition encodedVelocity initial pointAdd pointScale duration squareDuration
+      Fraction.equiv Fraction.add Fraction.mul <;> dsimp <;> simp <;> ac_rfl
+
+/-- The finite end-kick schedule has velocity `v + (T/D)a` and position
+    `p + (T/D)v + (A/D²)a`, componentwise up to rational representation. -/
+theorem partitionMotion_formula (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
+    pointEquiv (partitionMotion D hD p v a weights).1
+      (encodedPosition D hD (stats weights) p v a) ∧
+    pointEquiv (partitionMotion D hD p v a weights).2
+      (encodedVelocity D hD (stats weights) v a) := by
+  exact fold_encoded D hD initial (p, v) p v a (initial_encoded D hD p v a) weights
+
+/-- A finite rational comparison map; this is a formula, not an assumed
+    limiting trajectory. -/
+def candidate (p v a : Point) (t : Fraction) : Point :=
+  pointAdd (pointAdd p (pointScale t v)) (pointScale (Fraction.half (Fraction.mul t t)) a)
+
+def residualCoefficient (D Q : Nat) (hD : 0 < D) : Fraction :=
+  Fraction.half (squareDuration D Q hD)
+
+def meshCoefficient (D M T : Nat) (hD : 0 < D) : Fraction :=
+  Fraction.half (squareDuration D (M * T) hD)
+
+private theorem candidate_residual_scalar (D A Q T : Nat) (hD : 0 < D)
+    (h : 2 * A + Q = T * T) (p v a : Fraction) :
+    Fraction.equiv
+      (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))
+        (Fraction.mul (Fraction.half (Fraction.mul (duration D T hD) (duration D T hD))) a))
+      (Fraction.add
+        (Fraction.add (Fraction.add p (Fraction.mul (duration D T hD) v))
+          (Fraction.mul (squareDuration D A hD) a))
+        (Fraction.mul (residualCoefficient D Q hD) a)) := by
+  have hi : (2 : Int) * (A : Int) + (Q : Int) = (T : Int) * (T : Int) := by omega
+  unfold Fraction.equiv Fraction.add Fraction.mul duration squareDuration residualCoefficient
+  simp only [Fraction.half, squareDuration]
+  simp only [Int.ofNat_mul, Int.add_mul, Int.mul_add]
+  rw [← hi]
+  simp only [Int.add_mul, Int.mul_add]
+  ac_rfl
+
+/-- At the finite terminal time, the candidate differs from the constructed
+    polygon position by exactly `Q/(2D²)` times the common acceleration. -/
+theorem candidate_residual (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
+    pointEquiv (candidate p v a (duration D (total weights) hD))
+      (pointAdd (encodedPosition D hD (stats weights) p v a)
+        (pointScale (residualCoefficient D (squares weights) hD) a)) := by
+  constructor
+  · exact candidate_residual_scalar D (cross weights) (squares weights) (total weights) hD
+      (stats_identity weights) p.1 v.1 a.1
+  · exact candidate_residual_scalar D (cross weights) (squares weights) (total weights) hD
+      (stats_identity weights) p.2 v.2 a.2
+
+/-- The terminal residual stated against the actual recursively constructed
+    polygon endpoint. -/
+theorem candidate_partitionMotion_residual (D : Nat) (hD : 0 < D)
+    (p v a : Point) (weights : List Nat) :
+    pointEquiv (candidate p v a (duration D (total weights) hD))
+      (pointAdd (partitionMotion D hD p v a weights).1
+        (pointScale (residualCoefficient D (squares weights) hD) a)) := by
+  have hcandidate := candidate_residual D hD p v a weights
+  have hmotion := partitionMotion_formula D hD p v a weights
+  exact pointEquiv_trans hcandidate
+    (pointAdd_congr (pointEquiv_symm hmotion.1)
+      ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩)
+
+theorem residual_nonnegative (D Q : Nat) (hD : 0 < D) :
+    Fraction.le (Fraction.ofInt 0) (residualCoefficient D Q hD) := by
+  unfold Fraction.le Fraction.ofInt residualCoefficient Fraction.half squareDuration
+  dsimp
+  omega
+
+theorem residual_mesh_bound (D M : Nat) (hD : 0 < D) (weights : List Nat)
+    (hw : ∀ w ∈ weights, w ≤ M) :
+    Fraction.le (residualCoefficient D (squares weights) hD)
+      (meshCoefficient D M (total weights) hD) := by
+  have hq := stats_bound M weights hw
+  have hi : (squares weights : Int) ≤ (M * total weights : Int) := by omega
+  unfold Fraction.le residualCoefficient meshCoefficient Fraction.half squareDuration
+  dsimp
+  have hp : 0 < (2 : Int) * ((D : Int) * (D : Int)) :=
+    Int.mul_pos (by decide) (Int.mul_pos (natDen_pos D hD) (natDen_pos D hD))
+  apply Int.mul_le_mul_of_nonneg_right hi (Int.le_of_lt hp)
+
+end NewtonLimitDynamics.Polygon.PartitionControl
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/PathDefect.lean}}{\small, 8 theorems, 163 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.RefinementStrip
+import ModernLib.Polygon.Enclosure
+
+/-!
+Area between paths, separated from Kepler area. The finite construction below
+compares coarse edges A_i A_(i+1) with fine pairs A_i B_i A_(i+1). Its signed
+closed-boundary area is the difference of the two signed Kepler sums; its
+nonnegative patch budget is the sum of absolute triangle areas and retains
+lobes of opposite orientation. These are finite paired polygons, not an actual
+trajectory. Common spatial endpoints of each patch are built into the data;
+matching mechanical data and time intervals are further obligations.
+
+For an actual trajectory gamma and polygon P_mesh over one common time
+interval, the main target is the nonnegative area D_mesh between gamma and
+P_mesh, including stated endpoint connectors when needed. A valid geometric
+patch decomposition/enclosure must identify D_mesh with or bound it by a
+nonnegative budget. `PolygonTrajectoryEnclosure` names that supplied premise
+explicitly. It is not a definition of D_mesh as a Kepler-sector difference and
+does not construct gamma. No integration or curve existence is imported.
+-/
+
+namespace NewtonLimitDynamics.Polygon.PathDefect
+
+open NewtonLimitDynamics
+
+def signedGap (coarse inserted : Nat → LatticePoint) (n : Nat) : Int :=
+  isum (fun i => refinementStripTwice (coarse i) (inserted i) (coarse (i + 1))) n
+
+def absolutePatchBudget (coarse inserted : Nat → LatticePoint) (n : Nat) : Nat :=
+  nsum (fun i => refinementDefect (coarse i) (inserted i) (coarse (i + 1))) n
+
+/-- Signed doubled area swept about S by the coarse polygon; S is the origin. -/
+def coarseKeplerTwice (coarse : Nat → LatticePoint) (n : Nat) : Int :=
+  isum (fun i => det (coarse i) (coarse (i + 1))) n
+
+def fineKeplerTwice (coarse inserted : Nat → LatticePoint) (n : Nat) : Int :=
+  isum (fun i => det (coarse i) (inserted i) + det (inserted i) (coarse (i + 1))) n
+
+/-- Unsigned Kepler triangle sums, counted with multiplicity. -/
+def coarseKeplerUnsigned (coarse : Nat → LatticePoint) (n : Nat) : Nat :=
+  nsum (fun i => (det (coarse i) (coarse (i + 1))).natAbs) n
+
+def fineKeplerUnsigned (coarse inserted : Nat → LatticePoint) (n : Nat) : Nat :=
+  nsum (fun i => (det (coarse i) (inserted i)).natAbs +
+    (det (inserted i) (coarse (i + 1))).natAbs) n
+
+/-- Radial closures cancel in the signed difference. This identity says nothing
+    about the unsigned area of lobes between the two paths. -/
+theorem signed_gap_eq_Kepler_difference (coarse inserted : Nat → LatticePoint) (n : Nat) :
+    signedGap coarse inserted n = fineKeplerTwice coarse inserted n -
+      coarseKeplerTwice coarse n := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+    simp only [signedGap, fineKeplerTwice, coarseKeplerTwice, isum,
+      refinementStripTwice] at *
+    omega
+
+/-- The absolute patch budget dominates the absolute signed difference. The
+    reverse inequality need not hold because opposite lobes cancel. -/
+theorem signed_gap_abs_le_budget (coarse inserted : Nat → LatticePoint) (n : Nat) :
+    (signedGap coarse inserted n).natAbs ≤ absolutePatchBudget coarse inserted n := by
+  induction n with
+  | zero => exact Nat.le_refl _
+  | succ n ih =>
+    change (signedGap coarse inserted n +
+      refinementStripTwice (coarse n) (inserted n) (coarse (n + 1))).natAbs ≤
+      absolutePatchBudget coarse inserted n +
+        (refinementStripTwice (coarse n) (inserted n) (coarse (n + 1))).natAbs
+    exact Nat.le_trans (Int.natAbs_add_le _ _) (Nat.add_le_add_right ih _)
+
+/-- A uniform local triangle bound controls the entire finite absolute budget. -/
+theorem absolute_budget_le_count_mul (coarse inserted : Nat → LatticePoint) (n b : Nat)
+    (h : ∀ i, i < n → refinementDefect (coarse i) (inserted i) (coarse (i + 1)) ≤ b) :
+    absolutePatchBudget coarse inserted n ≤ n * b := by
+  induction n with
+  | zero => simp [absolutePatchBudget, nsum]
+  | succ n ih =>
+    have hold := ih (fun i hi => h i (by omega))
+    have hlast := h n (by omega)
+    change absolutePatchBudget coarse inserted n +
+      refinementDefect (coarse n) (inserted n) (coarse (n + 1)) ≤ (n + 1) * b
+    rw [Nat.add_mul, Nat.one_mul]
+    exact Nat.add_le_add hold hlast
+
+/-- Moving the origin does not change the area budget between these paths. -/
+theorem absolute_budget_translation (origin : LatticePoint)
+    (coarse inserted : Nat → LatticePoint) (n : Nat) :
+    absolutePatchBudget (fun i => latticeAdd origin (coarse i))
+      (fun i => latticeAdd origin (inserted i)) n = absolutePatchBudget coarse inserted n := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+    change absolutePatchBudget (fun i => latticeAdd origin (coarse i))
+      (fun i => latticeAdd origin (inserted i)) n +
+        (refinementStripTwice (latticeAdd origin (coarse n))
+          (latticeAdd origin (inserted n)) (latticeAdd origin (coarse (n + 1)))).natAbs =
+      absolutePatchBudget coarse inserted n +
+        (refinementStripTwice (coarse n) (inserted n) (coarse (n + 1))).natAbs
+    rw [ih, refinementStripTwice_translation]
+
+def exampleCoarse : Nat → LatticePoint := fun i => (i, 3)
+
+def exampleInserted : Nat → LatticePoint := fun i =>
+  if i = 0 then (1, 4) else (1, 2)
+
+/-- Both paths have the same signed AND unsigned Kepler sums, but a positive
+    area budget between them. Two adjacent, opposite-side triangle lobes have
+    doubled unsigned area 1 each; their signed contributions cancel. -/
+theorem equal_Kepler_areas_positive_path_defect :
+    coarseKeplerTwice exampleCoarse 2 = -6 ∧
+      fineKeplerTwice exampleCoarse exampleInserted 2 = -6 ∧
+      coarseKeplerUnsigned exampleCoarse 2 = 6 ∧
+      fineKeplerUnsigned exampleCoarse exampleInserted 2 = 6 ∧
+      signedGap exampleCoarse exampleInserted 2 = 0 ∧
+      absolutePatchBudget exampleCoarse exampleInserted 2 = 2 := by
+  decide
+
+/-- Explicit geometric premise about the nonnegative area BETWEEN an actual
+    trajectory and an impulse polygon over the same interval. The caller must
+    supply/construct the trajectory and justify this enclosure. A Kepler area
+    or a signed sector-area difference is not an admissible substitution. -/
+def PolygonTrajectoryEnclosure {A : Type} [RationalEnclosure.Magnitude A]
+    (polygonTrajectoryArea : Fraction → A) (budget : Fraction → Fraction) : Prop :=
+  Near Fraction.magnitudes (fun mesh =>
+    RationalEnclosure.Magnitude.nonnegative (polygonTrajectoryArea mesh) ∧
+      RationalEnclosure.Magnitude.bounded (polygonTrajectoryArea mesh) (budget mesh))
+
+/-- Conditional defect control: a vanishing geometric budget makes the actual
+    polygon–trajectory area small. No curve existence or geometric enclosure
+    is inferred from the finite Kepler area law. -/
+theorem polygon_trajectory_defect_vanishes {A : Type} [RationalEnclosure.Magnitude A]
+    (polygonTrajectoryArea : Fraction → A) (budget : Fraction → Fraction)
+    (hbudget : Vanishes budget)
+    (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
+    Vanishes polygonTrajectoryArea := by
+  apply enclosed_gap_vanishes polygonTrajectoryArea budget hbudget
+  obtain ⟨d, hd, h⟩ := hgeometry
+  exact ⟨d, hd, fun mesh hm hmd => (h mesh hm hmd).2⟩
+
+/-- Reindex an actual dyadic geometric magnitude by a positive rational mesh.
+The selected family mesh is proved small; the area remains the given value,
+and is never defined to be its cover budget. -/
+theorem geometric_sequence_enclosure {A : Type} [RationalEnclosure.Magnitude A]
+    (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
+    (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))
+    (hbound : ∀ m, RationalEnclosure.Magnitude.bounded (area m) (HarmonicDyadic.duration C m)) :
+    PolygonTrajectoryEnclosure (fun mesh => area (RationalEnclosure.level mesh))
+      (fun mesh => Fraction.mul mesh C) := by
+  refine ⟨Fraction.ofInt 1,(by change (0 : Int) < 1; decide),?_⟩
+  intro mesh hm _
+  exact ⟨hnonnegative _,RationalEnclosure.Magnitude.bounded_mono _ _ _
+    (hbound _) (RationalEnclosure.selected_duration_bound C mesh hC hm)⟩
+
+theorem geometric_sequence_vanishes {A : Type} [RationalEnclosure.Magnitude A]
+    (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
+    (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))
+    (hbound : ∀ m, RationalEnclosure.Magnitude.bounded (area m) (HarmonicDyadic.duration C m)) :
+    Vanishes (fun mesh => area (RationalEnclosure.level mesh)) :=
+  polygon_trajectory_defect_vanishes _ _ (linear_budget_vanishes C hC)
+    (geometric_sequence_enclosure area C hC hnonnegative hbound)
+
+end NewtonLimitDynamics.Polygon.PathDefect
 \end{Verbatim}
 
 \noindent{\small\texttt{ModernLib/Polygon/PositionValues.lean}}{\small, 14 theorems, 208 lines}
@@ -29240,6 +28301,106 @@ theorem sample_gammaPosition_right_ne_left :
   exact hsub
 
 end NewtonLimitDynamics.Polygon.PositionValues
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/RefinementStrip.lean}}{\small, 8 theorems, 95 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.Contact
+
+namespace NewtonLimitDynamics.Polygon
+
+/-- Coordinate difference used only for the finite triangle calculation. -/
+def latticeSub (p q : LatticePoint) : LatticePoint :=
+  (p.1-q.1, p.2-q.2)
+
+/-- The signed doubled area between a coarse edge A-C and a one-cell refined
+    polygon A-B-C. It is a closed polygon difference, not a swept sector and
+    does not name an actual limiting curve. -/
+def refinementStripTwice (a b c : LatticePoint) : Int :=
+  det a b + det b c - det a c
+
+/-- Nonnegative size of the finite signed strip. Taking an absolute value does
+    not turn cancellation into an enclosure estimate. -/
+def refinementDefect (a b c : LatticePoint) : Nat :=
+  (refinementStripTwice a b c).natAbs
+
+/-- The closed polygon difference is exactly the doubled area of its triangle.
+    This is finite determinant algebra for Euclidean triangle decomposition;
+    it uses no integration, derivatives, or limiting curve theorem. -/
+theorem refinementStripTwice_eq_triangle (a b c : LatticePoint) :
+    refinementStripTwice a b c = det (latticeSub b a) (latticeSub c a) := by
+  simp [refinementStripTwice, det, latticeSub, Int.sub_mul, Int.mul_sub]
+  have hab₁ : a.1*b.2 = b.2*a.1 := Int.mul_comm _ _
+  have hab₂ : a.2*b.1 = b.1*a.2 := Int.mul_comm _ _
+  have haa : a.1*a.2 = a.2*a.1 := Int.mul_comm _ _
+  omega
+
+theorem det_translation (origin a b : LatticePoint) :
+    det (latticeAdd origin a) (latticeAdd origin b) =
+      det a b + det origin b - det origin a := by
+  simp [det, latticeAdd, Int.add_mul, Int.mul_add]
+  have hoo : origin.1*origin.2 = origin.2*origin.1 := Int.mul_comm _ _
+  have hao : a.1*origin.2 = origin.2*a.1 := Int.mul_comm _ _
+  have hao' : a.2*origin.1 = origin.1*a.2 := Int.mul_comm _ _
+  omega
+
+/-- Translating both finite polygons leaves their enclosed signed strip area
+    unchanged. -/
+theorem refinementStripTwice_translation (origin a b c : LatticePoint) :
+    refinementStripTwice (latticeAdd origin a) (latticeAdd origin b)
+      (latticeAdd origin c) = refinementStripTwice a b c := by
+  simp only [refinementStripTwice, det_translation]
+  omega
+
+theorem refinementDefect_eq_zero_iff (a b c : LatticePoint) :
+    refinementDefect a b c = 0 ↔ refinementStripTwice a b c = 0 := by
+  simp [refinementDefect]
+
+/-- Spatial compatibility for a single coarse cell and a two-cell fine polygon.
+    Both sides are finite `motion` data. This condition is deliberately only
+    endpoint matching; no common force or time-refinement law has been derived. -/
+def oneCellMotionRefinementCompatible
+    (coarseStart coarseEnd fineStart fineMiddle : LatticePoint)
+    (coarseImpulse fineImpulse : Nat → Int) : Prop :=
+  (motion lattice coarseStart coarseEnd coarseImpulse 0).1 =
+      (motion lattice fineStart fineMiddle fineImpulse 0).1 ∧
+  (motion lattice coarseStart coarseEnd coarseImpulse 0).2 =
+      (motion lattice fineStart fineMiddle fineImpulse 1).2
+
+theorem oneCellMotionRefinementCompatible_start
+    (coarseStart coarseEnd fineStart fineMiddle : LatticePoint)
+    (coarseImpulse fineImpulse : Nat → Int)
+    (h : oneCellMotionRefinementCompatible coarseStart coarseEnd fineStart fineMiddle
+      coarseImpulse fineImpulse) :
+    (motion lattice coarseStart coarseEnd coarseImpulse 0).1 =
+      (motion lattice fineStart fineMiddle fineImpulse 0).1 :=
+  h.1
+
+theorem oneCellMotionRefinementCompatible_end
+    (coarseStart coarseEnd fineStart fineMiddle : LatticePoint)
+    (coarseImpulse fineImpulse : Nat → Int)
+    (h : oneCellMotionRefinementCompatible coarseStart coarseEnd fineStart fineMiddle
+      coarseImpulse fineImpulse) :
+    (motion lattice coarseStart coarseEnd coarseImpulse 0).2 =
+      (motion lattice fineStart fineMiddle fineImpulse 1).2 :=
+  h.2
+
+/-- A nonzero local strip from an actual inward fine impulse and a spatially
+    compatible coarse cell. This is not nonuniqueness for one fixed force law. -/
+theorem inward_oneCell_refinement_compatible :
+    oneCellMotionRefinementCompatible (1, 0) (0, 1) (1, 0) (1, 1)
+      (fun _ => 0) inwardOneRadialImpulse := by
+  constructor
+  · rfl
+  · decide
+
+theorem inward_oneCell_refinement_defect :
+    refinementDefect (1, 0) (1, 1)
+      (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 = 1 := by
+  decide
+
+end NewtonLimitDynamics.Polygon
 \end{Verbatim}
 
 \noindent{\small\texttt{ModernLib/Polygon/RegionConfinement.lean}}{\small, 16 theorems, 419 lines}
@@ -29666,6 +28827,837 @@ theorem sampled_equivalent_duration_bound (o : CentralOracle) (T B r R : Fractio
 end NewtonLimitDynamics.Polygon.RegionConfinement
 \end{Verbatim}
 
+\noindent{\small\texttt{ModernLib/Polygon/StripArea.lean}}{\small, 7 theorems, 129 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.TimeSubdivision
+
+/-!
+Order 3 remainder (TASKS.md): the strip-area sum of the constant-force polygon.
+For a uniform rational cell `h`, initial velocity `v` and constant accelerative
+force `a`, the end-kick recurrence gives velocity `v_n = v + (n·h)·a` and chord
+`c_n = h·v_n` (the drift of cell `n`).  The two-cell chord triangle
+`(p_n, p_{n+1}, p_{n+2})` has doubled area `det c_n c_{n+1}`.  Because
+`det (w + s·a) a = det w a`, every such triangle has the same doubled area
+`h³·det(v, a)`, and the signed total over `k` triangles is
+`k·h³·det(v, a)`.  The common value can be negative: equality of the triangles
+does not equate signed and absolute sums.  An absolute sum would instead be
+`k·|h³·det(v, a)|`; its formalization and a geometric strip decomposition remain
+open.  Pure finite Fraction arithmetic; no curve, limit or force law.
+-/
+
+namespace NewtonLimitDynamics.Polygon.StripArea
+
+open NewtonLimitDynamics
+open TimeSubdivision
+
+/-- Velocity after `n` equal end-kick cells. -/
+def velAt (h : Fraction) (v a : Point) : Nat → Point
+  | 0 => v
+  | n + 1 => pointAdd (velAt h v a n) (pointScale h a)
+
+/-- Position at the start of cell `n`, drifting with the incoming velocity. -/
+def posAt (h : Fraction) (p v a : Point) : Nat → Point
+  | 0 => p
+  | n + 1 => pointAdd (posAt h p v a n) (pointScale h (velAt h v a n))
+
+/-- The chord of cell `n`: the drift `h·v_n` of that cell. -/
+def chord (h : Fraction) (v a : Point) (n : Nat) : Point := pointScale h (velAt h v a n)
+
+/-- Doubled area of the two-cell chord triangle at cell `n`. -/
+def twoCellTwice (h : Fraction) (v a : Point) (n : Nat) : Fraction :=
+  det (chord h v a n) (chord h v a (n + 1))
+
+theorem pointSub_add_self_left_equiv (x y : Point) :
+    pointEquiv (pointSub (pointAdd x y) x) y :=
+  TimeSubdivision.pointSub_add_self_left_equiv x y
+
+/-- The drift of a cell is exactly the position difference `p_{n+1} - p_n`. -/
+theorem chord_is_position_diff (h : Fraction) (p v a : Point) (n : Nat) :
+    pointEquiv (pointSub (posAt h p v a (n + 1)) (posAt h p v a n)) (chord h v a n) := by
+  simp only [posAt, chord]
+  exact pointSub_add_self_left_equiv (posAt h p v a n) (pointScale h (velAt h v a n))
+
+/-- The key lemma from the hand computation: `det (w + s·a) a = det w a`. -/
+theorem det_kick_direction_constant (s : Fraction) (w a : Point) :
+    Fraction.equiv (det (pointAdd w (pointScale s a)) a) (det w a) := by
+  have h1 := det_add_left a w (pointScale s a)
+  have h2 := det_scale_left s a a
+  have h3 := det_self a
+  have t1 : Fraction.equiv (det (pointAdd w (pointScale s a)) a)
+      (Fraction.add (det w a) (Fraction.mul s (det a a))) :=
+    Fraction.equiv_trans h1 (Fraction.add_equiv_left (det w a) h2)
+  have t2 : Fraction.equiv (Fraction.mul s (det a a)) (Fraction.mul s (Fraction.ofInt 0)) :=
+    Fraction.mul_equiv_left s h3
+  have t3 : Fraction.equiv (Fraction.mul s (Fraction.ofInt 0)) (Fraction.ofInt 0) :=
+    Fraction.mul_zero s
+  have t4 : Fraction.equiv (Fraction.add (det w a) (Fraction.ofInt 0)) (det w a) := by
+    simp only [Fraction.add, Fraction.ofInt, Fraction.equiv,
+      Int.add_mul, Int.mul_add] <;> ac_nf <;> omega
+  exact Fraction.equiv_trans t1
+    (Fraction.equiv_trans (Fraction.add_equiv_left (det w a) (Fraction.equiv_trans t2 t3)) t4)
+
+/-- Each velocity has the same determinant with `a` as the initial velocity. -/
+theorem vel_det_constant (h : Fraction) (v a : Point) (n : Nat) :
+    Fraction.equiv (det (velAt h v a n) a) (det v a) := by
+  induction n with
+  | zero => exact Fraction.equiv_refl _
+  | succ n ih =>
+    exact Fraction.equiv_trans (det_kick_direction_constant h (velAt h v a n) a) ih
+
+/-- Every two-cell chord triangle has doubled area `h³·det(v, a)`. -/
+theorem two_cell_triangle_constant (h : Fraction) (v a : Point) (n : Nat) :
+    Fraction.equiv (twoCellTwice h v a n)
+      (Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a)))) := by
+  have vn := velAt h v a n
+  have vn1 : velAt h v a (n + 1) = pointAdd (velAt h v a n) (pointScale h a) := by simp [velAt]
+  simp only [twoCellTwice, chord, vn1]
+  -- det (h·v_n) (h·v_{n+1}) = h·det v_n (h·v_{n+1})
+  have s1 := det_scale_left h (pointScale h (pointAdd (velAt h v a n) (pointScale h a))) (velAt h v a n)
+  -- = h·(h·det v_n v_{n+1})
+  have s2 := Fraction.mul_equiv_left h (det_scale_right h (velAt h v a n) (pointAdd (velAt h v a n) (pointScale h a)))
+  -- det v_n v_{n+1} = det v_n v_n + h·det v_n a
+  have s3 := det_add_right (velAt h v a n) (velAt h v a n) (pointScale h a)
+  have s4 := Fraction.add_equiv (det_self (velAt h v a n)) (det_scale_right h (velAt h v a n) a)
+  have s5 := Fraction.mul_equiv (Fraction.equiv_refl h) (vel_det_constant h v a n)
+  have inner : Fraction.equiv (det (velAt h v a n) (pointAdd (velAt h v a n) (pointScale h a)))
+      (Fraction.mul h (det v a)) :=
+    Fraction.equiv_trans (Fraction.equiv_trans s3 s4)
+      (Fraction.equiv_trans
+        (Fraction.add_equiv_left (Fraction.ofInt 0) s5)
+        (by simp only [Fraction.add, Fraction.ofInt, Fraction.mul, Fraction.equiv,
+            Int.add_mul, Int.mul_add] <;> ac_nf <;> omega))
+  have rhs := Fraction.mul_equiv_left h (Fraction.mul_equiv_left h inner)
+  exact Fraction.equiv_trans (Fraction.equiv_trans s1 s2) rhs
+
+/-- All two-cell triangles have the same signed doubled area.  No absolute-area
+    operation or unsigned sum is asserted. -/
+theorem all_triangles_equal (h : Fraction) (v a : Point) (m n : Nat) :
+    Fraction.equiv (twoCellTwice h v a m) (twoCellTwice h v a n) :=
+  Fraction.equiv_trans (two_cell_triangle_constant h v a m)
+    (Fraction.equiv_symm (two_cell_triangle_constant h v a n))
+
+/-- Running sum of the two-cell doubled areas over the first `k` cells. -/
+def stripSum (h : Fraction) (v a : Point) : Nat → Fraction
+  | 0 => Fraction.ofInt 0
+  | k + 1 => Fraction.add (stripSum h v a k) (twoCellTwice h v a k)
+
+/-- The signed strip sum over `k` triangles is `k·h³·det(v, a)`. -/
+theorem total_strip_area (h : Fraction) (v a : Point) (k : Nat) :
+    Fraction.equiv (stripSum h v a k)
+      (Fraction.mul (Fraction.ofInt k) (Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a))))) := by
+  induction k with
+  | zero =>
+    simp only [stripSum, Fraction.mul, Fraction.ofInt, Fraction.equiv] <;> omega
+  | succ k ih =>
+    let H := Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a)))
+    simp only [stripSum]
+    exact Fraction.equiv_trans
+      (Fraction.add_equiv ih (two_cell_triangle_constant h v a k))
+      (by simp only [Fraction.mul, Fraction.add, Fraction.ofInt, Fraction.equiv,
+          Int.add_mul, Int.mul_add, Int.ofNat_add, Int.mul_one, Int.one_mul] <;>
+        ac_nf <;> omega)
+
+end NewtonLimitDynamics.Polygon.StripArea
+\end{Verbatim}
+
+\noindent{\small\texttt{BarrowLib/Polygon/TimeSubdivision.lean}}{\small, 14 theorems, 139 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.PointAlgebra
+
+namespace NewtonLimitDynamics.Polygon.TimeSubdivision
+
+open NewtonLimitDynamics
+
+def positiveDuration (d : Fraction) : Prop := Fraction.positive d
+
+/-- One finite end-kick cell: drift using the incoming velocity, then change
+    velocity by the constant accelerative force times the cell duration. -/
+def endKick (d : Fraction) (state : Point × Point) (a : Point) : Point × Point :=
+  (pointAdd state.1 (pointScale d state.2), pointAdd state.2 (pointScale d a))
+
+def coarse (h k : Fraction) (p v a : Point) : Point × Point :=
+  endKick (Fraction.add h k) (p, v) a
+
+def fine (h k : Fraction) (p v a : Point) : Point × Point :=
+  endKick k (endKick h (p, v) a) a
+
+def totalDuration (h k : Fraction) : Fraction := Fraction.add h k
+
+theorem totalDuration_positive (h k : Fraction)
+    (hh : positiveDuration h) (hk : positiveDuration k) :
+    positiveDuration (totalDuration h k) := by
+  unfold positiveDuration totalDuration Fraction.positive Fraction.add
+  dsimp
+  exact Int.add_pos (Int.mul_pos hh k.den_pos) (Int.mul_pos hk h.den_pos)
+
+private theorem fine_position_scalar (h k p v a : Fraction) :
+    Fraction.equiv
+      (Fraction.add (Fraction.add p (Fraction.mul h v))
+        (Fraction.mul k (Fraction.add v (Fraction.mul h a))))
+      (Fraction.add (Fraction.add p (Fraction.mul (Fraction.add h k) v))
+        (Fraction.mul (Fraction.mul h k) a)) := by
+  have hdist : Fraction.equiv (Fraction.mul k (Fraction.add v (Fraction.mul h a)))
+      (Fraction.add (Fraction.mul k v) (Fraction.mul k (Fraction.mul h a))) :=
+    Fraction.mul_add k v (Fraction.mul h a)
+  have hkv : Fraction.equiv (Fraction.add (Fraction.mul h v) (Fraction.mul k v))
+      (Fraction.mul (Fraction.add h k) v) := by
+    exact Fraction.equiv_trans (Fraction.add_equiv (Fraction.mul_comm h v) (Fraction.mul_comm k v))
+      (Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_add v h k))
+        (Fraction.equiv_symm (Fraction.mul_comm (Fraction.add h k) v)))
+  have hka : Fraction.equiv (Fraction.mul k (Fraction.mul h a))
+      (Fraction.mul (Fraction.mul h k) a) := by
+    exact Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_assoc k h a))
+      (Fraction.mul_equiv_right a (Fraction.mul_comm k h))
+  exact Fraction.equiv_trans
+    (Fraction.equiv_trans (Fraction.add_assoc p (Fraction.mul h v)
+      (Fraction.mul k (Fraction.add v (Fraction.mul h a))))
+      (Fraction.add_equiv_left p (Fraction.add_equiv (Fraction.equiv_refl (Fraction.mul h v)) hdist)))
+    (Fraction.equiv_trans
+      (Fraction.add_equiv_left p (Fraction.equiv_symm (Fraction.add_assoc (Fraction.mul h v)
+        (Fraction.mul k v) (Fraction.mul k (Fraction.mul h a)))))
+      (Fraction.equiv_trans (Fraction.add_equiv_left p (Fraction.add_equiv hkv hka))
+        (Fraction.equiv_symm (Fraction.add_assoc p (Fraction.mul (Fraction.add h k) v)
+          (Fraction.mul (Fraction.mul h k) a)))))
+
+/-- For the stated end-kick scheduling convention, time subdivision changes
+    the final position by `h*k*a`.  This is finite Fraction arithmetic, not a
+    trajectory-existence theorem or a Newton central-force theorem. -/
+theorem fine_position_eq_coarse_plus (h k : Fraction) (p v a : Point) :
+    pointEquiv (fine h k p v a).1
+      (pointAdd (coarse h k p v a).1 (pointScale (Fraction.mul h k) a)) := by
+  constructor <;> apply fine_position_scalar
+
+private theorem fine_velocity_scalar (h k v a : Fraction) :
+    Fraction.equiv (Fraction.add (Fraction.add v (Fraction.mul h a)) (Fraction.mul k a))
+      (Fraction.add v (Fraction.mul (Fraction.add h k) a)) := by
+  exact Fraction.equiv_trans (Fraction.add_assoc v (Fraction.mul h a) (Fraction.mul k a))
+    (Fraction.equiv_trans
+      (Fraction.add_equiv_left v (Fraction.add_equiv (Fraction.mul_comm h a) (Fraction.mul_comm k a)))
+      (Fraction.equiv_trans
+        (Fraction.add_equiv_left v (Fraction.equiv_symm (Fraction.mul_add a h k)))
+        (Fraction.add_equiv_left v (Fraction.equiv_symm (Fraction.mul_comm (Fraction.add h k) a)))))
+
+theorem fine_velocity_eq_coarse (h k : Fraction) (p v a : Point) :
+    pointEquiv (fine h k p v a).2 (coarse h k p v a).2 := by
+  constructor <;>
+    dsimp [fine, coarse, endKick, pointAdd, pointScale] <;>
+    apply fine_velocity_scalar
+
+def half : Fraction := ⟨1, 2, by decide⟩
+def zero : Fraction := Fraction.ofInt 0
+def one : Fraction := Fraction.ofInt 1
+def quarter : Fraction := ⟨1, 4, by decide⟩
+def negQuarter : Fraction := ⟨-1, 4, by decide⟩
+
+def exampleP : Point := (zero, zero)
+def exampleV : Point := (one, zero)
+def exampleA : Point := (zero, one)
+def exampleB : Point := (half, zero)
+def exampleC : Point := (one, zero)
+def exampleD : Point := (one, quarter)
+
+theorem example_half_positive : positiveDuration half := by
+  unfold positiveDuration Fraction.positive half
+  decide
+
+theorem example_total_positive : positiveDuration (totalDuration half half) :=
+  totalDuration_positive half half example_half_positive example_half_positive
+
+theorem example_coarse_position : pointEquiv (coarse half half exampleP exampleV exampleA).1 exampleC := by
+  decide
+
+theorem example_fine_middle : pointEquiv (endKick half (exampleP, exampleV) exampleA).1 exampleB := by
+  decide
+
+theorem example_fine_position : pointEquiv (fine half half exampleP exampleV exampleA).1 exampleD := by
+  decide
+
+theorem example_endpoints_differ : ¬ pointEquiv exampleD exampleC := by
+  intro h
+  have := h.2
+  change (1 : Int) * 1 = 0 * 4 at this
+  omega
+
+theorem example_fine_coarse_endpoints_differ :
+    ¬ pointEquiv (fine half half exampleP exampleV exampleA).1
+      (coarse half half exampleP exampleV exampleA).1 := by
+  intro h
+  exact example_endpoints_differ
+    ⟨Fraction.equiv_trans (Fraction.equiv_symm example_fine_position.1)
+        (Fraction.equiv_trans h.1 example_coarse_position.1),
+      Fraction.equiv_trans (Fraction.equiv_symm example_fine_position.2)
+        (Fraction.equiv_trans h.2 example_coarse_position.2)⟩
+
+/-- The explicitly directed closing connector from the fine endpoint D to the
+    coarse endpoint C.  It is bookkeeping for a closed finite boundary. -/
+def directedConnector (d c : Point) : Point := pointSub c d
+
+theorem example_connector : pointEquiv (directedConnector exampleD exampleC) (zero, negQuarter) := by
+  decide
+
+
+theorem example_closedBoundaryTwice :
+    Fraction.equiv (closedBoundaryTwice exampleP exampleB exampleD exampleC) (⟨-1, 8, by decide⟩) := by
+  decide
+
+end NewtonLimitDynamics.Polygon.TimeSubdivision
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/UniformRefinement.lean}}{\small, 6 theorems, 98 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Polygon.PartitionControl
+
+namespace NewtonLimitDynamics.Polygon.UniformRefinement
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open PartitionControl
+
+/-- `n` equal unit cells over a common denominator. -/
+def unitCells (n : Nat) : List Nat := List.replicate n 1
+
+private theorem unitCells_T_from (s : PartitionStats) : (n : Nat) ->
+    ((unitCells n).foldl next s).T = s.T + n
+  | 0 => rfl
+  | n + 1 => by
+      show ((unitCells n).foldl next (next s 1)).T = s.T + (n + 1)
+      rw [unitCells_T_from (next s 1) n]
+      simp only [next]
+      omega
+
+theorem unitCells_total (n : Nat) : total (unitCells n) = n := by
+  unfold total stats
+  rw [unitCells_T_from]
+  exact Nat.zero_add n
+
+theorem unitCells_le_one (n : Nat) : ∀ w ∈ unitCells n, w ≤ 1 := by
+  intro w hw
+  rw [List.eq_of_mem_replicate hw]
+  exact Nat.le_refl 1
+
+/-- Refining the rational time `N/E` by a factor `K` keeps the same time. -/
+theorem refined_time (N E K : Nat) (hE : 0 < E) (hEK : 0 < E * K) :
+    Fraction.equiv (duration (E * K) (total (unitCells (N * K))) hEK) (duration E N hE) := by
+  rw [unitCells_total]
+  unfold Fraction.equiv duration
+  dsimp
+  simp only [Int.ofNat_mul]
+  ac_rfl
+
+/-- Nat core of the estimate: `N*K*d ≤ n*2*(E*K)*(E*K)` once `K > N*d`,
+    `n ≥ 1` and `E ≥ 1`. -/
+private theorem nat_bound (N E n d : Nat) (hE : 0 < E) (hn : 0 < n) :
+    N * (N * d + 1) * d ≤ n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) := by
+  have hK : N * d ≤ N * d + 1 := Nat.le_succ _
+  have h1 : N * (N * d + 1) * d ≤ (N * d + 1) * (N * d + 1) := by
+    calc N * (N * d + 1) * d = (N * d) * (N * d + 1) := by ac_rfl
+      _ ≤ (N * d + 1) * (N * d + 1) := Nat.mul_le_mul_right _ hK
+  have hE1 : 1 ≤ E * E := Nat.mul_le_mul hE hE
+  have h2 : (N * d + 1) * (N * d + 1) ≤ (E * E) * ((N * d + 1) * (N * d + 1)) := by
+    calc (N * d + 1) * (N * d + 1) = 1 * ((N * d + 1) * (N * d + 1)) := (Nat.one_mul _).symm
+      _ ≤ (E * E) * ((N * d + 1) * (N * d + 1)) := Nat.mul_le_mul_right _ hE1
+  have h3 : (E * E) * ((N * d + 1) * (N * d + 1)) ≤
+      n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) := by
+    calc (E * E) * ((N * d + 1) * (N * d + 1))
+        = 1 * (1 * ((E * (N * d + 1)) * (E * (N * d + 1)))) := by
+          simp only [Nat.one_mul]; ac_rfl
+      _ ≤ n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) :=
+          Nat.mul_le_mul hn (Nat.mul_le_mul_right _ (by decide))
+  exact Nat.le_trans h1 (Nat.le_trans h2 h3)
+
+/-- For every positive rational tolerance and rational time `N/E`, an explicit
+    uniform refinement (factor `K = N*den(ε)+1`, unit cells over `E*K`) makes
+    the exact constant-force residual coefficient `Q/(2D²)` at most the
+    tolerance.  Together with `candidate_partitionMotion_residual`, the actual
+    polygon position at `N/E` is within that coefficient (along `a`) of the
+    constructed candidate. -/
+theorem uniform_refinement_small (N E : Nat) (hE : 0 < E) (eps : Fraction)
+    (heps : Fraction.positive eps) :
+    ∃ K : Nat, ∃ hEK : 0 < E * K,
+      Fraction.equiv (duration (E * K) (total (unitCells (N * K))) hEK) (duration E N hE) ∧
+      Fraction.le (residualCoefficient (E * K) (squares (unitCells (N * K))) hEK) eps := by
+  have hdpos := eps.den_pos
+  have hnpos : 0 < eps.num := heps
+  let d := eps.den.toNat
+  let n := eps.num.toNat
+  have hd : (d : Int) = eps.den := Int.toNat_of_nonneg (Int.le_of_lt hdpos)
+  have hn : (n : Int) = eps.num := Int.toNat_of_nonneg (Int.le_of_lt hnpos)
+  have hn0 : 0 < n := by omega
+  have hEK : 0 < E * (N * d + 1) := Nat.mul_pos hE (Nat.succ_pos _)
+  refine ⟨N * d + 1, hEK, refined_time N E _ hE hEK, ?_⟩
+  have hq := stats_bound 1 (unitCells (N * (N * d + 1))) (unitCells_le_one _)
+  rw [Nat.one_mul] at hq
+  change squares (unitCells (N * (N * d + 1))) ≤ total (unitCells (N * (N * d + 1))) at hq
+  rw [unitCells_total] at hq
+  have hnat := nat_bound N E n d hE hn0
+  have hchain : squares (unitCells (N * (N * d + 1))) * d ≤
+      n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) :=
+    Nat.le_trans (Nat.mul_le_mul_right d hq) hnat
+  have hint := Int.ofNat_le.mpr hchain
+  unfold Fraction.le residualCoefficient Fraction.half squareDuration
+  dsimp
+  rw [← hd, ← hn]
+  simp only [Int.ofNat_mul] at hint ⊢
+  have h2 : ((2 : Nat) : Int) = 2 := rfl
+  rw [h2] at hint
+  simpa only [Int.ofNat_mul, Int.mul_assoc, Int.mul_comm, Int.mul_left_comm] using hint
+
+end NewtonLimitDynamics.Polygon.UniformRefinement
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Polygon/ZeroForce.lean}}{\small, 22 theorems, 208 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import BarrowLib.Polygon.ZeroForce
+import ModernLib.Polygon.PartitionControl
+
+namespace NewtonLimitDynamics.Polygon.ZeroForce
+
+open NewtonLimitDynamics
+open TimeSubdivision
+open PartitionControl
+
+private theorem pointEquiv_refl (p : Point) : pointEquiv p p :=
+  ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩
+
+private theorem inertial_add_scalar (p v s t : Fraction) :
+    Fraction.equiv
+      (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul t v))
+      (Fraction.add p (Fraction.mul (Fraction.add s t) v)) := by
+  have hsum : Fraction.equiv (Fraction.add (Fraction.mul s v) (Fraction.mul t v))
+      (Fraction.mul (Fraction.add s t) v) := by
+    exact Fraction.equiv_trans
+      (Fraction.equiv_trans
+        (Fraction.add_equiv_right (Fraction.mul t v) (Fraction.mul_comm s v))
+        (Fraction.add_equiv_left (Fraction.mul v s) (Fraction.mul_comm t v)))
+      (Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_add v s t))
+        (Fraction.equiv_symm (Fraction.mul_comm (Fraction.add s t) v)))
+  exact Fraction.equiv_trans (Fraction.add_assoc p (Fraction.mul s v) (Fraction.mul t v))
+    (Fraction.add_equiv_left p hsum)
+
+/-- Inertial rational-time evolution joins by addition of elapsed times. -/
+theorem inertialAt_add (p v : Point) (s t : Fraction) :
+    pointEquiv (inertialAt (inertialAt p v s) v t) (inertialAt p v (Fraction.add s t)) := by
+  constructor <;> apply inertial_add_scalar
+
+private theorem zero_scale (d : Fraction) : pointEquiv (pointScale d zeroPoint) zeroPoint := by
+  constructor <;> unfold pointScale zeroPoint Fraction.equiv Fraction.mul Fraction.ofInt <;> dsimp <;> simp
+
+private theorem pointAdd_zero (p : Point) : pointEquiv (pointAdd p zeroPoint) p := by
+  constructor <;> unfold pointAdd zeroPoint Fraction.equiv Fraction.add Fraction.ofInt <;> dsimp <;> simp
+
+/-- One actual zero-force cell is exactly a drift at its stated Fraction time,
+    and leaves velocity unchanged. -/
+theorem endKick_zero (d : Fraction) (state : Point × Point) :
+    pointEquiv (endKick d state zeroPoint).1 (inertialAt state.1 state.2 d) ∧
+      pointEquiv (endKick d state zeroPoint).2 state.2 := by
+  constructor
+  · exact pointEquiv_refl _
+  · change pointEquiv (pointAdd state.2 (pointScale d zeroPoint)) state.2
+    exact pointEquiv_trans (pointAdd_congr (pointEquiv_refl _) (zero_scale d)) (pointAdd_zero state.2)
+
+/-- Replacing a rational time by an equivalent fraction leaves its inertial
+    position unchanged. -/
+theorem inertialAt_time_congr (p v : Point) {s t : Fraction} (h : Fraction.equiv s t) :
+    pointEquiv (inertialAt p v s) (inertialAt p v t) := by
+  apply pointAdd_congr (pointEquiv_refl _)
+  constructor
+  · exact Fraction.equiv_trans (Fraction.mul_comm s v.1)
+      (Fraction.equiv_trans (Fraction.mul_equiv_left v.1 h) (Fraction.equiv_symm (Fraction.mul_comm t v.1)))
+  · exact Fraction.equiv_trans (Fraction.mul_comm s v.2)
+      (Fraction.equiv_trans (Fraction.mul_equiv_left v.2 h) (Fraction.equiv_symm (Fraction.mul_comm t v.2)))
+
+private theorem encodedPosition_zero (D : Nat) (hD : 0 < D) (s : PartitionStats) (p v : Point) :
+    pointEquiv (encodedPosition D hD s p v zeroPoint)
+      (inertialAt p v (duration D s.T hD)) := by
+  unfold encodedPosition inertialAt
+  exact pointEquiv_trans
+    (pointAdd_congr (pointEquiv_refl _)
+      (zero_scale (squareDuration D s.A hD)))
+    (pointAdd_zero _)
+
+private theorem encodedVelocity_zero (D : Nat) (hD : 0 < D) (s : PartitionStats) (v : Point) :
+    pointEquiv (encodedVelocity D hD s v zeroPoint) v := by
+  unfold encodedVelocity
+  exact pointEquiv_trans
+    (pointAdd_congr (pointEquiv_refl _)
+      (zero_scale (duration D s.T hD)))
+    (pointAdd_zero _)
+
+/-- Every actual finite zero-force schedule reaches the inertial map at its
+    elapsed rational time and retains its incoming velocity. -/
+theorem partitionMotion_zero_force (D : Nat) (hD : 0 < D) (p v : Point) (weights : List Nat) :
+    pointEquiv (partitionMotion D hD p v zeroPoint weights).1
+      (inertialAt p v (duration D (total weights) hD)) ∧
+    pointEquiv (partitionMotion D hD p v zeroPoint weights).2 v := by
+  have hformula := partitionMotion_formula D hD p v zeroPoint weights
+  constructor
+  · exact pointEquiv_trans hformula.1
+      (encodedPosition_zero D hD (stats weights) p v)
+  · exact pointEquiv_trans hformula.2
+      (encodedVelocity_zero D hD (stats weights) v)
+
+/-- Addition of two common-denominator elapsed times represents their summed
+    numerator. -/
+theorem duration_add (D a b : Nat) (hD : 0 < D) :
+    Fraction.equiv (Fraction.add (duration D a hD) (duration D b hD))
+      (duration D (a + b) hD) := by
+  unfold Fraction.equiv Fraction.add duration
+  dsimp
+  simp only [Int.ofNat_add, Int.mul_add, Int.add_mul]
+  ac_rfl
+
+/-- The finite recurrence itself restarts exactly: this is `foldl_append`, not
+    an assumption about a background curve. -/
+theorem partitionMotion_append (D : Nat) (hD : 0 < D) (p v : Point)
+    (ws xs : List Nat) :
+    partitionMotion D hD p v zeroPoint (ws ++ xs) =
+      partitionMotion D hD (partitionMotion D hD p v zeroPoint ws).1
+        (partitionMotion D hD p v zeroPoint ws).2 zeroPoint xs := by
+  unfold partitionMotion
+  rw [List.foldl_append]
+
+private theorem inertialAt_state_congr {p p' v v' : Point} (hp : pointEquiv p p')
+    (hv : pointEquiv v v') (t : Fraction) :
+    pointEquiv (inertialAt p v t) (inertialAt p' v' t) :=
+  pointAdd_congr hp (pointScale_congr t hv)
+
+/-- Drifting for a rational amount `r` from the actual prefix state agrees
+    with the inertial map at elapsed prefix time plus `r`. -/
+theorem withinCell_position (D : Nat) (hD : 0 < D) (p v : Point)
+    (pre : List Nat) (r : Fraction) :
+    pointEquiv (endKick r (partitionMotion D hD p v zeroPoint pre) zeroPoint).1
+      (inertialAt p v (Fraction.add (duration D (total pre) hD) r)) := by
+  have hp := partitionMotion_zero_force D hD p v pre
+  have hkick := endKick_zero r (partitionMotion D hD p v zeroPoint pre)
+  exact pointEquiv_trans hkick.1
+    (pointEquiv_trans (inertialAt_state_congr hp.1 hp.2 r)
+      (inertialAt_add p v (duration D (total pre) hD) r))
+
+/-- The same algebra applies to an in-cell physical drift; the displayed
+    inequalities express that `r` lies between the prefix vertex and the next
+    cell endpoint and are not used as algebraic premises. -/
+theorem withinCell_position_bounded (D w : Nat) (hD : 0 < D) (p v : Point)
+    (pre : List Nat) (r : Fraction)
+    (_hr0 : Fraction.le (Fraction.ofInt 0) r)
+    (_hrcell : Fraction.le r (duration D w hD)) :
+    pointEquiv (endKick r (partitionMotion D hD p v zeroPoint pre) zeroPoint).1
+      (inertialAt p v (Fraction.add (duration D (total pre) hD) r)) :=
+  withinCell_position D hD p v pre r
+
+/-- Rest is the zero-velocity specialization of the actual finite recurrence. -/
+theorem partitionMotion_rest (D : Nat) (hD : 0 < D) (p : Point) (weights : List Nat) :
+    pointEquiv (partitionMotion D hD p zeroPoint zeroPoint weights).1 p ∧
+      pointEquiv (partitionMotion D hD p zeroPoint zeroPoint weights).2 zeroPoint := by
+  have h := partitionMotion_zero_force D hD p zeroPoint weights
+  constructor
+  · exact pointEquiv_trans h.1 (by
+      unfold inertialAt
+      exact pointEquiv_trans
+        (pointAdd_congr (pointEquiv_refl _) (zero_scale (duration D (total weights) hD)))
+        (pointAdd_zero _))
+  · exact h.2
+
+/-- Equal rational elapsed times give equal positions even for schedules with
+    different positive common denominators and different partitions. -/
+theorem partitionMotion_cross_partition (D E : Nat) (hD : 0 < D) (hE : 0 < E)
+    (p v : Point) (ws xs : List Nat)
+    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total xs) hE)) :
+    pointEquiv (partitionMotion D hD p v zeroPoint ws).1
+      (partitionMotion E hE p v zeroPoint xs).1 := by
+  have hleft := partitionMotion_zero_force D hD p v ws
+  have hright := partitionMotion_zero_force E hE p v xs
+  exact pointEquiv_trans hleft.1
+    (pointEquiv_trans (inertialAt_time_congr p v ht)
+      ⟨Fraction.equiv_symm hright.1.1, Fraction.equiv_symm hright.1.2⟩)
+
+/-- Cross-partition agreement includes the unchanged terminal velocity. -/
+theorem partitionMotion_cross_partition_state (D E : Nat) (hD : 0 < D) (hE : 0 < E)
+    (p v : Point) (ws xs : List Nat)
+    (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total xs) hE)) :
+    pointEquiv (partitionMotion D hD p v zeroPoint ws).1
+      (partitionMotion E hE p v zeroPoint xs).1 ∧
+    pointEquiv (partitionMotion D hD p v zeroPoint ws).2
+      (partitionMotion E hE p v zeroPoint xs).2 := by
+  constructor
+  · exact partitionMotion_cross_partition D E hD hE p v ws xs ht
+  · have hleft := partitionMotion_zero_force D hD p v ws
+    have hright := partitionMotion_zero_force E hE p v xs
+    exact pointEquiv_trans hleft.2
+      ⟨Fraction.equiv_symm hright.2.1, Fraction.equiv_symm hright.2.2⟩
+
+def scalarZero : Fraction := Fraction.ofInt 0
+def scalarOne : Fraction := Fraction.ofInt 1
+def scalarTwo : Fraction := Fraction.ofInt 2
+def scalarHalf : Fraction := ⟨1, 2, by decide⟩
+
+def slow (t : Fraction) : Point := (t, scalarZero)
+def fast (t : Fraction) : Point := (Fraction.mul scalarTwo t, scalarZero)
+
+/-- Same endpoint with different elapsed times: `slow(1) = fast(1/2)`. -/
+theorem slow_fast_equal_endpoint : pointEquiv (slow scalarOne) (fast scalarHalf) := by
+  decide
+
+/-- At a common half-time the two velocity choices give different positions. -/
+theorem slow_fast_different_half_time : ¬ pointEquiv (slow scalarHalf) (fast scalarHalf) := by
+  decide
+
+/-- Collinear samples of these distinct motions close with zero directed area.
+    This is a geometric diagnostic only, not fixed-data nonuniqueness. -/
+theorem slow_fast_collinear_closedBoundary :
+    Fraction.equiv (closedBoundaryTwice zeroPoint (slow scalarHalf) (slow scalarOne)
+      (fast scalarHalf)) scalarZero := by
+  decide
+
+/-- A concrete two-cell actual schedule has the expected inertial endpoint. -/
+theorem slow_two_cell_schedule :
+    pointEquiv (partitionMotion 2 (by decide) zeroPoint (slow scalarOne) zeroPoint [1, 1]).1
+      (slow scalarOne) := by
+  decide
+
+end NewtonLimitDynamics.Polygon.ZeroForce
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Reconstruction/MonotoneRectangles.lean}}{\small, 2 theorems, 59 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Foundation.Polygon.MonotoneRectangles
+
+/-! Cross-result monotone rectangle reconstruction; the two witness models remain distinct. -/
+
+namespace ModernLib.Reconstruction.Principia1687.LemmaIIIII
+open NewtonLimitDynamics NewtonLimitDynamics.Polygon
+
+theorem lemmas2_3_monotone_rectangle_reconstruction (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m →
+      Fraction.lt (MonotoneRectangles.maxWidth (parts m)) delta) :
+    (∀ m, (∀ x, MonotoneRectangles.completed (MonotoneRectangles.lowerFigure g (parts m)) x →
+        MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x) ∧
+      (∀ x, MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x →
+        MonotoneRectangles.completed (MonotoneRectangles.upperFigure g (parts m)) x)) ∧
+    (∀ m, (0≤(MonotoneRectangles.lowerSum g (parts m)).num ∧
+        0≤(MonotoneRectangles.upperSum g (parts m)).num) ∧
+      (0≤(MonotoneRectangles.gap g (parts m)).num ∧
+        Fraction.le (MonotoneRectangles.gap g (parts m))
+          (Fraction.mul (MonotoneRectangles.maxWidth (parts m))
+            (HarmonicTimeComparison.durationDifference (g a) (g b))))) ∧
+    (∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
+      Fraction.lt (MonotoneRectangles.gap g (parts m)) eps) :=
+  ⟨fun m => MonotoneRectangles.completed_enclosure g (parts m) hg,
+    fun m => ⟨MonotoneRectangles.sums_nonnegative g (parts m) hg hbase,
+      MonotoneRectangles.gap_bound g (parts m) hg (MonotoneRectangles.maxWidth (parts m))
+        (MonotoneRectangles.maxWidth_bounds (parts m)).1⟩,
+    MonotoneRectangles.gaps_vanish g parts hg hmesh⟩
+
+end ModernLib.Reconstruction.Principia1687.LemmaIIIII
+
+namespace ModernLib.Reconstruction.Principia1713.LemmaIIIII
+open NewtonLimitDynamics NewtonLimitDynamics.Polygon
+
+theorem lemmas2_3_monotone_rectangle_reconstruction (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hmesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat, ∀ m, N≤m →
+      Fraction.lt (MonotoneRectangles.maxWidth (parts m)) delta) :
+    (∀ m, (∀ x, MonotoneRectangles.completed (MonotoneRectangles.lowerFigure g (parts m)) x →
+        MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x) ∧
+      (∀ x, MonotoneRectangles.completed (MonotoneRectangles.figure g a b) x →
+        MonotoneRectangles.completed (MonotoneRectangles.upperFigure g (parts m)) x)) ∧
+    (∀ m, (0≤(MonotoneRectangles.lowerSum g (parts m)).num ∧
+        0≤(MonotoneRectangles.upperSum g (parts m)).num) ∧
+      (0≤(MonotoneRectangles.gap g (parts m)).num ∧
+        Fraction.le (MonotoneRectangles.gap g (parts m))
+          (Fraction.mul (MonotoneRectangles.maxWidth (parts m))
+            (HarmonicTimeComparison.durationDifference (g a) (g b))))) ∧
+    (∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
+      Fraction.lt (MonotoneRectangles.gap g (parts m)) eps) :=
+  ⟨fun m => MonotoneRectangles.completed_enclosure g (parts m) hg,
+    fun m => ⟨MonotoneRectangles.sums_nonnegative g (parts m) hg hbase,
+      MonotoneRectangles.gap_bound g (parts m) hg (MonotoneRectangles.maxWidth (parts m))
+        (MonotoneRectangles.maxWidth_bounds (parts m)).1⟩,
+    MonotoneRectangles.gaps_vanish g parts hg hmesh⟩
+
+end ModernLib.Reconstruction.Principia1713.LemmaIIIII
+\end{Verbatim}
+
+\noindent{\small\texttt{ModernLib/Reconstruction/SupportingBoundary.lean}}{\small, 2 theorems, 37 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import ModernLib.Foundation.Polygon.SupportingBoundary
+
+/-! Cross-result Corollaries III-IV boundary reconstruction; witness models remain distinct. -/
+
+namespace ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries
+open NewtonLimitDynamics NewtonLimitDynamics.Polygon
+open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveTrace
+
+theorem corollary3_4_supporting_boundary_reconstruction (T : Fraction) (hT : 0≤T.num)
+    (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
+    (points : Nat → Nat → Point)
+    (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1)))
+    (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
+      ∀ k, k≤blocks m → CauchyValues.Within (embedPosition (points m k)).val
+        (f (nodeTime T hT m k)).val eps) :
+    BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m))
+      (ImageTrace f) :=
+  SupportingBoundary.dyadic_supportingTrace_limit T hT f hf points cells hpoints
+
+end ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries
+
+namespace ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries
+open NewtonLimitDynamics NewtonLimitDynamics.Polygon
+open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveTrace
+
+theorem corollary3_4_supporting_boundary_reconstruction (T : Fraction) (hT : 0≤T.num)
+    (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
+    (points : Nat → Nat → Point)
+    (cells : ∀ m k, SupportingTangents.Cell (points m k) (points m (k+1)))
+    (hpoints : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
+      ∀ k, k≤blocks m → CauchyValues.Within (embedPosition (points m k)).val
+        (f (nodeTime T hT m k)).val eps) :
+    BoundaryLimit (fun m => SupportingBoundary.supportingTrace (points m) (cells m) (blocks m))
+      (ImageTrace f) :=
+  SupportingBoundary.dyadic_supportingTrace_limit T hT f hf points cells hpoints
+
+end ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries
+\end{Verbatim}
+
+\noindent{\small\texttt{BarrowLib/Polygon/Finite.lean}}{\small, 10 theorems, 126 lines}
+
+\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
+import Std
+
+namespace NewtonLimitDynamics.Polygon
+
+/-- Synthetic construction interface. Its two supplied identities represent
+    Euclidean geometry: equal triangles on a common altitude (I.38) and same base between
+    parallels (I.37). They are not the polygon area-law conclusion. Centre S is
+    fixed in this interface; `area p q` measures twice the oriented area Spq.
+    `extend p q` continues pq by an equal segment; `kick q x j` translates x
+    parallel to Sq, by the central impulse j and the common time cell. -/
+structure EuclideanConstruction (Point Impulse : Type) where
+  area : Point → Point → Int
+  extend : Point → Point → Point
+  kick : Point → Point → Impulse → Point
+  equal_base_altitude : ∀ p q, area q (extend p q) = area p q
+  same_base_parallels : ∀ q x j, area q (kick q x j) = area q x
+
+variable {Point Impulse : Type}
+
+def step (g : EuclideanConstruction Point Impulse) (p q : Point) (j : Impulse) :=
+  g.kick q (g.extend p q) j
+
+theorem central_step_area (g : EuclideanConstruction Point Impulse)
+    (p q : Point) (j : Impulse) : g.area q (step g p q j) = g.area p q := by
+  rw [step, g.same_base_parallels, g.equal_base_altitude]
+
+/-- Successive pairs of vertices, produced by the construction, not supplied
+    with equal-area proofs. Each step has the same positive time cell dt. -/
+def motion (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) : Nat → Point × Point
+  | 0 => (p, q)
+  | n+1 => let old := motion g p q impulse n
+           (old.2, step g old.1 old.2 (impulse n))
+
+theorem all_cell_areas (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (n : Nat) :
+    g.area (motion g p q impulse n).1 (motion g p q impulse n).2 = g.area p q := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+    simp only [motion]
+    rw [central_step_area]
+    exact ih
+
+def isum (f : Nat → Int) : Nat → Int
+  | 0 => 0
+  | n+1 => isum f n + f n
+
+theorem sum_constant (f : Nat → Int) (c : Int) (hf : ∀ i, f i = c) (n : Nat) :
+    isum f n = (n : Int) * c := by
+  induction n with
+  | zero => simp [isum]
+  | succ n ih => simp [isum, ih, hf, Int.add_mul]
+
+def swept (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (n : Nat) : Int :=
+  isum (fun i => g.area (motion g p q impulse i).1 (motion g p q impulse i).2) n
+
+theorem swept_eq (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (n : Nat) : swept g p q impulse n = (n : Int) * g.area p q :=
+  sum_constant _ _ (all_cell_areas g p q impulse) n
+
+/-- Cross-multiplied area/time ratio. Positive common dt is stated; division by
+    total times additionally requires positive counts. No curve is produced. -/
+theorem equal_time_area_reconstruction (g : EuclideanConstruction Point Impulse)
+    (p q : Point) (impulse : Nat → Impulse) (dt : Int) (_hdt : 0 < dt) (m n : Nat) :
+    swept g p q impulse m * ((n : Int) * dt) =
+    swept g p q impulse n * ((m : Int) * dt) := by
+  rw [swept_eq, swept_eq]
+  ac_rfl
+
+/-- Finite sum of natural-number magnitudes. -/
+def nsum (f : Nat → Nat) : Nat → Nat
+  | 0 => 0
+  | n + 1 => nsum f n + f n
+
+theorem nsum_constant (f : Nat → Nat) (c : Nat) (hf : ∀ i, f i = c) (n : Nat) :
+    nsum f n = n * c := by
+  induction n with
+  | zero => simp [nsum]
+  | succ n ih => simp [nsum, ih, hf, Nat.add_mul]
+
+/-- Magnitude of the supplied oriented doubled triangle-area datum. The
+    interpretation as Euclidean area is part of the construction's supplied
+    semantics; the two preservation identities alone do not certify it. -/
+def unsignedCellArea (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (n : Nat) : Nat :=
+  (g.area (motion g p q impulse n).1 (motion g p q impulse n).2).natAbs
+
+theorem all_unsigned_cell_areas (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (n : Nat) :
+    unsignedCellArea g p q impulse n = (g.area p q).natAbs :=
+  congrArg Int.natAbs (all_cell_areas g p q impulse n)
+
+/-- Sum over a consecutive block of cells, starting at `start`. Revisited
+    triangles count again: this is not the area of their geometric union. -/
+def unsignedBlock (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (start count : Nat) : Nat :=
+  nsum (fun i => unsignedCellArea g p q impulse (start + i)) count
+
+theorem unsigned_block_eq (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (start count : Nat) :
+    unsignedBlock g p q impulse start count = count * (g.area p q).natAbs :=
+  nsum_constant _ _ (fun i => all_unsigned_cell_areas g p q impulse (start + i)) count
+
+/-- Algebraic cross multiplication, valid also for zero counts. A time-ratio
+    interpretation additionally requires a positive cell and positive counts. -/
+theorem unsigned_block_time_cross (g : EuclideanConstruction Point Impulse) (p q : Point)
+    (impulse : Nat → Impulse) (dt start₁ start₂ m n : Nat) :
+    unsignedBlock g p q impulse start₁ m * (n * dt) =
+      unsignedBlock g p q impulse start₂ n * (m * dt) := by
+  rw [unsigned_block_eq, unsigned_block_eq]
+  ac_rfl
+
+/-- Positive total times and the finite unsigned-area/time comparison, with
+    geometric interpretation and force direction still supplied separately. -/
+theorem positive_unsigned_area_comparison (g : EuclideanConstruction Point Impulse)
+    (p q : Point) (impulse : Nat → Impulse) (dt : Nat) (hdt : 0 < dt)
+    (start₁ start₂ m n : Nat) (hm : 0 < m) (hn : 0 < n) :
+    0 < m * dt ∧ 0 < n * dt ∧
+      unsignedBlock g p q impulse start₁ m * (n * dt) =
+        unsignedBlock g p q impulse start₂ n * (m * dt) :=
+  ⟨Nat.mul_pos hm hdt, Nat.mul_pos hn hdt,
+    unsigned_block_time_cross g p q impulse dt start₁ start₂ m n⟩
+
+end NewtonLimitDynamics.Polygon
+\end{Verbatim}
+
 \noindent{\small\texttt{BarrowLib.lean}}{\small, definitions only, 38 lines}
 
 \begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
@@ -29868,7 +29860,3 @@ import NewtonLimitDynamics.Historical.PropositionIV
 ## Compatibility import stubs
 
 0 library files consist only of imports and keep old module names valid after library migration. They are not counted as modules above.
-
-\begin{Verbatim}[breaklines,breakanywhere,fontsize=\scriptsize]
-
-\end{Verbatim}

@@ -42,6 +42,10 @@ def Ultimate (g : Magnitudes Q) (ratio : Q → Q) (c : Q) : Prop :=
   ∀ a b, g.lt a c → g.lt c b →
     Near g (fun h => g.lt a (ratio h) ∧ g.lt (ratio h) b)
 
+def QuadraticInitialDeflection {Q : Type} (g : Magnitudes Q)
+    (ratio : Q → Q) (coefficient : Q) : Prop :=
+  g.positive coefficient ∧ Ultimate g ratio coefficient
+
 /-- Logical squeeze justified by order and unlimited common refinement.
     Lower and upper geometric limits must be supplied, not assumed proved. -/
 theorem enclosure_reconstruction (g : Magnitudes Q)

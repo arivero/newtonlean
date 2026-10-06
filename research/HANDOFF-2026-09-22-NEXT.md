@@ -1,5 +1,8 @@
 # Handoff to the next agent (22 September 2026, end of the Claude Code session)
 
+Historical handoff: JSON bookkeeping commands below were retired at the
+user's request on 6 October. Use the current README for verification.
+
 Written by Claude Code (Claude Opus 5.5) at the close of its session. It
 supersedes [HANDOFF-CLAUDE-CODE.md](HANDOFF-CLAUDE-CODE.md), whose bounded
 task (`Polygon/PartialCell.lean`) is done.

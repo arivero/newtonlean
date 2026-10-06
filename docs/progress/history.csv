@@ -120,3 +120,9 @@ index,commit,date,subject,theorems,added,deleted,statement_changed,proof_changed
 119,85a76ec,2026-10-06T13:26:05+02:00,Derive given-motion area laws from explicit local consistency,1735,6,0,0,0,0,789,26698,25,1305,208,174,48,0,331,153,30,1184,37
 120,9f3ec58,2026-10-06T13:31:59+02:00,Plan historical result files with separate edition sections,1735,0,0,0,0,0,789,26698,25,1305,208,174,48,0,331,153,30,1184,37
 121,45b953f,2026-10-06T14:54:30+02:00,Document historical proof sections and refactor review boundaries,1735,0,0,0,0,0,789,26698,25,1305,208,174,48,0,331,153,30,1184,37
+122,5e5ed3f,2026-10-06T14:58:58+02:00,Remove obsolete Lean paths from historical refactor,465,0,1270,0,0,0,171,6577,25,303,129,28,5,0,121,20,0,324,0
+123,38972b3,2026-10-06T15:08:13+02:00,Relocate unchanged modules into BarrowLib and ModernLib,1630,1165,0,0,0,0,748,25138,25,1238,206,167,19,0,267,131,30,1165,37
+124,2e14030,2026-10-06T15:08:13+02:00,Follow relocated module imports in verification harnesses,1630,0,0,0,0,0,748,25138,25,1238,206,167,19,0,267,131,30,1165,37
+125,899f040,2026-10-06T15:08:13+02:00,"Regenerate progress, catalogue and reference artefacts",1630,0,0,0,0,0,748,25138,25,1238,206,167,19,0,267,131,30,1165,37
+126,a5f090e,2026-10-06T18:42:58+02:00,Archive the full Planck-gap conversation export,1630,0,0,0,0,0,748,25138,25,1238,206,167,19,0,267,131,30,1165,37
+127,9a58d0e,2026-10-06T18:43:46+02:00,Move Newton's time discussion into the time-subdivision note,1630,0,0,0,0,0,748,25138,25,1238,206,167,19,0,267,131,30,1165,37

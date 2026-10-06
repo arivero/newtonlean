@@ -1,5 +1,15 @@
 # Handoff, 4 October 2026: general central forces and the polygon–curve defect
 
+Retired as an active work order at the user's request on 6 October. Follow
+[the replacement handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md), which uses
+the reworked historical files and carries forward the open obligations.
+The text below is the earlier work record; its task order and commit instructions
+are not the active execution plan. No completed result is discarded.
+
+Current tooling update, 6 October: the user removed JSON bookkeeping and its
+Python management tools. The current README verification list supersedes old
+catalog/graph commands; mathematical task order and proof boundaries remain.
+
 Written by Claude Code at the user's request, after commits `507d041` and
 `39b0c0d`. The user authorizes the current working agent to attempt the tasks
 below. Read [AGENTS.md](../AGENTS.md) and [GOALS.md](GOALS.md) first: stage
@@ -335,12 +345,11 @@ primitives.
    `CauchyValues`, `BinaryTime`, and the generic part of the harmonic tail
    arithmetic. Record the boundary rule in a short note.
 2. Migrate in one verified commit: a separate `lean_lib` in `lakefile.lean`
-   that `NewtonLimitDynamics` imports. Regenerate `formal-results.json`,
-   `CheckReferences.lean` and the `formal_refs` in `dependencies.json`, and add
-   `lake build BarrowLib` to the AGENTS.md and README verification commands in
-   the same commit. `scripts/catalogue_formal.py` and
-   `scripts/progress_stats.py` scan only `NewtonLimitDynamics/`; extend both
-   so the moved theorems stay catalogued and counted. Keep declaration names
+   that `NewtonLimitDynamics` imports. Update actual imports and the source
+   correspondence in the owning Lean files and maintained Markdown notes.
+   Run all four library targets and the direct Lean verification command in
+   README. The progress script reads all four libraries from Git. The user
+   removed the JSON catalogs and their Python tools on 6 October. Keep declaration names
    stable where possible; if namespaces change, update every reference.
 3. Generic estimates produced by Task A (Lipschitz-field bounds, geometric
    tails with the coefficient as a parameter) belong in the foundation library
@@ -485,13 +494,14 @@ No force instance or completion-score increase is added.
 
 - The README verification list, at least: `lake build`;
   `lake build NewtonLimitDynamics`;
-  `python3 scripts/catalogue_formal.py`; `python3 scripts/check_graph.py`;
+  `lake build BarrowLib`; `lake build ClassicsLib`; `lake build ModernLib`;
   `lake env lean research/CheckReferences.lean` (standard axioms only, no
-  `sorryAx`); `python3 scripts/test_evidence_validation.py`; `git diff --check`.
+  `sorryAx`); `lake env lean scripts/inspect_graphs.lean`;
+  source/Latin and dependency review; `git diff HEAD --check`.
 - `python3 scripts/progress_stats.py`, then commit `docs/progress`. Judge
   progress by the substantive count; plumbing, number checks and duplicates
-  are overhead. Change `docs/progress/completion-estimate.json` scores only
-  with stated evidence.
+  are overhead. Change the completion estimates in README only with stated
+  evidence; the plot reads that Markdown directly.
 - Update STATE.md, TASKS.md (order 4), PROP_I_REALIZATION.md,
   PROP_I_PATH_DEFECT.md, CAUCHY_REALIZATION.md and VERIFICATION.md. Correct
   outdated claims in place instead of appending qualifiers.
@@ -596,7 +606,7 @@ The one-result/multiple-witness migration is now executed in the uncommitted
 working tree, awaiting the user's ultracorrection tool before any commit.
 All implementation libraries and module ownership were migrated; see
 [the executed migration](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october)
-and [result index](HISTORICAL_INDEX.md). Preserve this review hold. The former
+and the source sections in each historical Lean file. Preserve this review hold. The former
 routine instruction to commit verified increments does not authorize a commit
 of this refactor: the user's later instruction expressly forbids it for now.
 Proof status, the general-first order and the separate area obligations remain.

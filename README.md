@@ -11,7 +11,8 @@ I–III each have a source-linked note: [Proposition I](research/PROP_I_REALIZAT
 [Proposition II](research/TASKS.md) and [Proposition III](research/PROP_III.md).
 
 Current priority is Proposition I, then II, III and IV, retaining all three
-stages. The [historical-file refactor](research/HISTORICAL_FILE_REFACTOR.md)
+stages. Follow the [current handoff](research/HANDOFF-2026-10-06-REWORKED-SOURCES.md);
+the 4 October construction work order is retired. The [historical-file refactor](research/HISTORICAL_FILE_REFACTOR.md)
 organizes each result around its Latin text and proof, with separate
 elementary, classical and modern support libraries. Following the user's 6 October clarification, the primary proof takes
 an existing trajectory as an explicit postulate and proves its radius-swept
@@ -36,33 +37,34 @@ and manuscript gaps remain explicit in
 [M3](research/M3.md), and [M4](research/M4.md). Historical results are distinct
 from conditional reconstructions and coordinate consistency examples.
 
-Evidence: [passages](research/passages.md), [graphs](research/graphs.md),
-[edition comparison](research/edition-comparison.md), and
-[formal result ledger](research/formal-results.json).
+Evidence lives in the archived TEI/XML, [source maps](research/SECTION_II.md),
+[edition observations](research/M4.md) and the Latin/proof correspondence in
+each historical Lean file. Git records
+changes; there are no parallel JSON catalogs or ledgers.
 
 ## Library layout
 
 `NewtonLimitDynamics/Historical/` has one file per Newton result, with separate
-Latin and formalization sections for its witnesses. The [result index](research/HISTORICAL_INDEX.md)
-records their source anchors and proof status. BarrowLib contains elementary
+Latin and formalization sections for its witnesses. Each file records its
+source anchors and proof status. BarrowLib contains elementary
 support, ClassicsLib the source-identified Euclidean coordinate special cases,
 and ModernLib the completions, modern motion constructions and diagnostics.
 Primary proofs use elementary/classical support. Anachronical proofs in the
 same historical file appear below a five-line `=` header and may use ModernLib.
 Using an anachronical result taints a downstream proof transitively; compiled
 types and proof bodies determine this, rather than file imports alone.
-The [dependency ledger](research/proof-dependencies.json) also records missing
-formal uses of Newton's source-evidenced dependencies. Those gaps remain open.
-All 2,252 public declarations are retained through nine
-[explicit renames](research/declaration-renames.json); old module paths are
-listed in the [migration map](research/module-migration.json).
+The current partial proofs still do not derive Newton's cited historical
+dependency chain; those gaps remain open. All 2,252 public declarations are
+retained through nine ownership renames recorded in the
+[refactor note](research/HISTORICAL_FILE_REFACTOR.md). The Lean roots and imports
+show current module ownership; Git records the old paths.
 The Lean refactor is currently uncommitted for the user's ultracorrection review.
 Markdown documentation is authorized for a separate commit.
 
 ## Progress
 
-The checked declaration counts across the four libraries are
-recorded in the [formal result ledger](research/formal-results.json) and
+The declaration counts across the four libraries are obtained from the Lean
+sources and Git history; the plots' values are in
 [progress history](docs/progress/history.csv). The default build and all four explicit library targets pass.
 The [theorem-growth study](research/THEOREM_PROLIFERATION.md) explains the
 foundation work, compatibility overhead and biases in those heuristic counts;
@@ -217,12 +219,13 @@ This figure is an editorial judgement and certifies nothing. Each proposition
 is scored on four milestones weighted by expected difficulty: source map (10%),
 finite step in Lean (20%), limiting passage or realization (45%), and area and
 force identification (25%). Propositions I–IV carry 22.5% each and the
-action-hypothesis assessment 10%. Scores and the evidence for each are in
-[completion-estimate.json](docs/progress/completion-estimate.json).
+action-hypothesis assessment 10%. The table and discussion below retain the
+scores and their evidence. Update this Markdown when reassessing them;
+the plot reads these estimates directly.
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/progress/completion-dark.svg">
-  <img alt="Estimated completion per proposition and milestone" src="docs/progress/completion.svg">
+  <img alt="Editorial completion estimate per target" src="docs/progress/completion.svg">
 </picture>
 
 | Target | Source map | Finite step | Limit / realization | Identification | Estimate |
@@ -283,7 +286,7 @@ reconstruction; it adds no historical proof-dependency edge.
    earlier argument. Proposition VI is supporting comparison material, outside
    the primary I–IV target.
    Sources: [1713, NATP00082 par89–90](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par89),
-   [edition-local comparison](research/edition-comparison.md),
+   [edition-local comparison](research/M4.md#verified-actual-edition-changes),
    [checked special case](research/M4.md#checked-route-comparison).
 
 3. **Approximating a given curve and constructing a motion are different
@@ -349,64 +352,41 @@ arguments and their verdicts are kept in [action-arguments](research/action-argu
 
 ## Verification
 
+The JSON catalog, graph and migration-check pipelines were removed at the
+user's request on 6 October. Source evidence and proof obligations are
+maintained in Markdown and historical Lean comments, with Git for history.
+Lake's dependency lockfile is build metadata and remains.
+
 ```sh
 lake build
 lake build BarrowLib
-lake build NewtonLimitDynamics
-python3 scripts/catalogue_m1.py
-python3 scripts/catalogue_formal.py
-python3 scripts/collate_sources.py
-python3 scripts/check_graph.py
-python3 scripts/compare_editions.py
-python3 scripts/plot_graphs.py
-python3 scripts/progress_stats.py
-lake env lean research/CheckReferences.lean
-python3 scripts/test_lean_declarations.py
-python3 scripts/test_evidence_validation.py
-python3 scripts/test_graph_rendering.py
-sha256sum -c docs/SHA256SUMS
-git diff --check
-```
-
-After that list, verify the refactored libraries and historical source ownership:
-
-```sh
 lake build ClassicsLib
 lake build ModernLib
-python3 scripts/check_architecture.py
-python3 scripts/test_architecture.py
-python3 scripts/check_migration_api.py
-python3 scripts/check_proof_layers.py --report research/proof-dependencies.json
-python3 scripts/test_proof_layers.py
-```
-
-The historical checker rejects source-text drift, mixed-result ownership and
-backward library imports. The compiled dependency checker rejects transitive
-anachronical use in primary sections, including through private helpers or
-types. Its success does not derive supplied premises or complete a historical
-proof. The API audit applies the explicit rename map; `--kernel` also compares
-Lean-printed types against the isolated baseline. See the
-[refactor verification](research/verification/historical-file-refactor-2026-10-06.md).
-
-
-The historical extraction command name is retained; selections.json now covers
-all milestones. `collate_sources.py` checks selected TEI anchors, page/facsimile
-metadata, revision tags, and local normalized/diplomatic anchor presence. It is
-not a facsimile or palaeographic audit. Graph validation checks local TEI
-anchors, source identity, edge metadata and acyclicity. Generated Lean
-reference checks inspect actual types and axioms. These checks do not establish
-an unproved historical premise.
-`plot_graphs.py` re-renders the dependency figures in `docs/graphs/`
-(documented in [research/figures.md](research/figures.md)); the validated graph
-data is still `research/dependencies.json`.
-No post-Newtonian theorem supplies a missing historical construction.
-
-Additional integrity checks:
-
-```sh
-python3 scripts/test_evidence_validation.py
-python3 scripts/test_graph_rendering.py
+lake build NewtonLimitDynamics
+lake env lean research/CheckReferences.lean
+lake env lean scripts/inspect_graphs.lean
+python3 scripts/test_lean_declarations.py
+python3 scripts/progress_stats.py
 sha256sum -c docs/SHA256SUMS
+git diff HEAD --check
 ```
 
-See [verification record](research/VERIFICATION.md) for observed results and limits.
+`CheckReferences.lean` inspects the compiled project constants directly. It
+rejects project axioms and `sorryAx`, and propagates anachronical dependency
+through types and stored proof/definition bodies. Historical section ownership
+comes from the source positions and five-line header, without a manifest.
+Only Lean's standard `propext`, `Classical.choice` and `Quot.sound` are permitted.
+This establishes neither a supplied premise nor Newton's unproved limit step.
+
+For changed historical results, read the corresponding archived TEI and check
+Latin, witness, source hash/URL and the stated dependencies in that result's
+Lean documentation. Run the relevant Lean scope harnesses under
+`research/verification/`. Keep stages and explicit premises separate.
+
+The progress generator reads Git and this README. The reading-document generator
+reads Markdown and Lean source comments directly:
+`python3 scripts/principia_lean_interleave.py WORKTREE`. Its placement is
+editorial, not evidence of a proof dependency. Graph inspection reads the
+current historical source comments and compiled Lean modules, separating
+textual evidence, module imports and formal uses. See [figures](research/figures.md) and the
+[verification record](research/VERIFICATION.md) for scope and limitations.

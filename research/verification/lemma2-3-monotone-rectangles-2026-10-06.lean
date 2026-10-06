@@ -94,7 +94,7 @@ example : aliases.nodes 0 ≠ Fraction.ofInt 0 := by
   change (2 : Int)=1 at he
   omega
 example : Fraction.equiv (gap squareGraph aliases) (Fraction.ofInt 1).half := by
-  have he := Principia1687.LemmaIII.lemma2_equal_width_gap squareGraph _ _ (Fraction.ofInt 1).half aliases (square_monotone _)
+  have he := Principia1687.LemmaII.lemma2_equal_width_gap squareGraph _ _ (Fraction.ofInt 1).half aliases (square_monotone _)
     (fun i hi => by
       simp only [aliases,width,durationDifference,HarmonicStability.negF,Fraction.equiv,Fraction.add,
         Fraction.half,Fraction.ofInt,Int.natCast_add,Int.natCast_one,Int.neg_mul]
@@ -158,7 +158,7 @@ example : (∀ m, (∀ x, completed (lowerFigure squareGraph (dyadic m)) x →
       completed (figure squareGraph (Fraction.ofInt 0) (Fraction.ofInt 1)) x) ∧
     (∀ x, completed (figure squareGraph (Fraction.ofInt 0) (Fraction.ofInt 1)) x →
       completed (upperFigure squareGraph (dyadic m)) x)) :=
-  (Principia1713.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction squareGraph _ _ dyadic
+  (ModernLib.Reconstruction.Principia1713.LemmaIIIII.lemmas2_3_monotone_rectangle_reconstruction squareGraph _ _ dyadic
     (square_monotone _) (by decide) dyadic_mesh).1
 
 -- Zero horizontal span and positive constant height still have zero rectangle-sum gap.
@@ -172,6 +172,6 @@ example : rectangle (Fraction.ofInt 0) (Fraction.ofInt 0) (Fraction.ofInt 5) (p 
 #print axioms MonotoneRectangles.gap_equal_width
 #print axioms MonotoneRectangles.gap_bound
 #print axioms MonotoneRectangles.gaps_vanish
-#print axioms Principia1687.LemmaIII.lemmas2_3_monotone_rectangle_reconstruction
-#print axioms Principia1713.LemmaIII.lemma2_equal_width_gap
+#print axioms ModernLib.Reconstruction.Principia1687.LemmaIIIII.lemmas2_3_monotone_rectangle_reconstruction
+#print axioms Principia1713.LemmaII.lemma2_equal_width_gap
 end NewtonLimitDynamics.Polygon.MonotoneRectangleControls

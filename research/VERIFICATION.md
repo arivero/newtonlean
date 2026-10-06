@@ -1,5 +1,12 @@
 # Verification record
 
+Current tooling, 6 October: JSON bookkeeping and its management tools have
+been removed. Older dated entries below describe the commands/artifacts that
+existed at those checkpoints; they are not the current verification checklist.
+The obsolete generated figures, indexes, source companions and conversation
+audit were also removed. Use README and the direct Lean verification and graph
+inspection entry points.
+
 ## Historical-file migration, 6 October
 
 The uncommitted refactor places one Newton result in each historical file,
@@ -10,11 +17,14 @@ Compiled types and proof bodies propagate anachronical taint across files
 and private helpers. All 2,252 public declarations are retained through nine
 explicit ownership renames, with unchanged statements/bodies after applying
 that map. Module paths intentionally change. See the
-[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october),
-[verification](verification/historical-file-refactor-2026-10-06.md) and
-[compiled dependency ledger](proof-dependencies.json).
+[migration record](HISTORICAL_FILE_REFACTOR.md#executed-migration-6-october)
+and [verification](verification/historical-file-refactor-2026-10-06.md).
+JSON bookkeeping and its management scripts were removed at the user's
+request. Source evidence stays in Markdown and historical Lean documentation;
+Git records moves and renames. Direct Lean inspection checks compiled axioms
+and anachronical dependencies without a saved catalog.
 
-The ledger exposes the remaining gap: the current partial proofs do not use
+The preceding compiled inspection exposed the remaining gap: the current partial proofs do not use
 the source-evidenced historical dependency chain. Deriving those interfaces
 from the appropriate witness-specific lemmas remains proof work; adding
 unused imports would not discharge it. This refactor changes organization,

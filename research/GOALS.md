@@ -5,6 +5,11 @@ and 1713. The printed-edition targets are Book I, Section II, Propositions
 I–IV; De Motu requires an explicit correspondence search, not retrospective
 proposition numbering. Proposed 1694 and 1726 remain comparison witnesses.
 
+The active execution order is in
+[the reworked-source handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md).
+The user retired the 4 October general-force work order on 6 October;
+its retained constructions do not replace the historical proof obligations.
+
 Latest user direction, 6 October: prioritize Proposition I, then II, III and IV
 in all three stages, taking the trajectory's existence as an explicit
 postulate. In Lean, provide the trajectory as a curve parameter; its physical
@@ -96,7 +101,7 @@ do not imply an internal contradiction in its mathematical models.
 
 Use Lean 4.19 core/Std only, empty external dependencies, no `sorry`, and no
 post-Newtonian theorem filling a historical gap. Run both build targets,
-reference/axiom inspection and evidence-graph checks. Compilation is not
+reference/axiom inspection and source/dependency review. Compilation is not
 certification that supplied premises have been derived. Preserve unrelated
 conversation archives. Work and verification agents run sequentially according
 to AGENTS.md; no bulk downloads are needed for the first finite obligations.
@@ -116,7 +121,7 @@ using ModernLib. Its header has five full lines of `=` characters followed
 by `ANACHRONICAL PROOFS`. Anachronical dependencies taint a proof transitively
 through types and proof bodies, including across files and private helpers.
 An import alone does not taint every declaration in its file. Compiled-term
-provenance is checked separately from the source-evidence dependency ledger;
+provenance is checked separately from the source evidence in Markdown/Lean;
 neither an untainted partial theorem nor a dependency comment completes
 Newton's proof.
 
@@ -125,3 +130,8 @@ Historical witness sections, elementary/classical/modern library ownership and
 API/source checks are recorded in the migration report. The user requires an
 ultracorrection review before committing the Lean refactor; preserve that hold.
 The user separately authorized committing the Markdown documentation only.
+
+The user subsequently authorized removal of the JSON bookkeeping and its
+Python management tools. Maintain source evidence, obligations and editorial
+estimates in the existing Markdown and Lean files, and use Git for history.
+Do not introduce replacement manifests or catalogs in another format.
