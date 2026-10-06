@@ -97,6 +97,14 @@ the law and the region. The retained harmonic bounds use τ₀=1. The new
 calibrated finite estimates use `|x|+τ₀|v|` and the dimensionless window
 `n|h|(1/τ₀+τ₀L) ≤ 1/2`, with proved positive time-unit invariance; see [scales and units](GENERAL_FORCE_DESIGN.md#scales-and-units).
 
+Cauchy and Peano later turned the passage from polygon to curve into
+theorems; see [existence of the curve](EXISTENCE_OF_THE_CURVE.md). Cauchy's
+proof, published by Moigno in 1844, assumes a right-hand side and its
+derivative finite and continuous, and then gives one curve independent of
+the subdivision. Peano showed in 1890 that continuity alone guarantees a
+curve but not a unique one. Neither text discusses Newton, and neither
+supplies a premise to the historical proof.
+
 ## Converse side
 
 `CentralSchedule.unequal_cells_converse` extends the finite Proposition II step

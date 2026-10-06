@@ -37,6 +37,12 @@ and action-rescaling freedom.
 | [261004gpt6.1solv1Arg007.md](261004gpt6.1solv1Arg007.md) | Sol 6.1 | supports action dimension; system-dependent scale | Exact finite Galilean area/potential proportionality and harmonic correction terms; polygon–curve identification remains separate |
 | [261005opus5.5v1Arg008.md](261005opus5.5v1Arg008.md) | Claude Opus 5.5 | supports the location and kind; value external | In Newton's cell `Δt·ΔV` (actual point against inertial continuation) is impulse × sagitta, `F²Δt³/m`; `ħ` meets it at Arg005's `t_* = (mħ/F²)^{1/3}`, matching the neutron gravitational quantum scale; classical scales stay free |
 
+## Background reading
+
+- [background-berry-singular-limits.md](background-berry-singular-limits.md):
+  Berry on singular limits between theories (1994, 2002), with their bearing
+  on the action question. Background only; it states no verdict.
+
 Direction (user, 22 September 2026): develop arguments *for* a nonzero
 constant, grounded in the Latin and in the differences between Newton's
 versions. Arguments against are not being extended; Arg001 stays as recorded.

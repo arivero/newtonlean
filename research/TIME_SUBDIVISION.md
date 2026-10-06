@@ -55,6 +55,9 @@ tracking non-nested endpoints and connectors explicitly. Keep finite sums of
 absolute defects separate from signed cancellation. A general justified limiting
 time-to-position map, partition independence and continuous-force
 identification remain later obligations. No action constant is selected here.
+Cauchy's 1844 existence proof settles the analogous partition question for
+Euler's polygon by comparing two divisions through a common refinement; see
+[existence of the curve](EXISTENCE_OF_THE_CURVE.md).
 
 ## Newton's time: parts and boundaries
 
@@ -85,6 +88,8 @@ infinita et infinitè parva" (NATP00089.par9; NATP00090.par17). The 1687 and
 indivisibles. Reading the change as a deliberate move away from indivisible
 moments is an `editorial_interpretation` with medium confidence: it agrees
 with the new Section I scholium, but no passage states Newton's motive.
+[Argument 4](action-arguments/260922opus5.5v1Arg004.md) of the action layer
+already records this shift and draws its own conclusions there.
 
 The Definitions scholium supplies the remaining structure. Absolute time
 "æquabiliter fluit, alioq; nomine dicitur Duratio", and "partium Temporis ordo
@@ -101,21 +106,46 @@ measured from the start of the motion.
 
 The originating conversation needs two corrections. Its quotation "singulis
 temporis particulis æqualibus" from the scholium to the Laws is absent from
-the archived 1687 and 1713 texts of that scholium (NATP00076.par24;
-NATP00081.par24); it may belong to a later edition and remains unverified.
+the 1687 and 1713 texts of that scholium (NATP00076.par24; NATP00081.par24).
+It first appears in the archived 1726 text: "Corpore cadente gravitas
+uniformis, singulis temporis particulis æqualibus æqualiter agendo imprimit
+vires æquales in corpus illud, & velocitates æquales generat"
+(NATP00086.par25). In 1726 it gives the impulse scaling `d*a` a textual
+warrant for uniform gravity; the 1687 and 1713 constructions lack that
+sentence.
 Its manuscript definition of moments as generating principles, "ut tempus
 præsens præteriti et futuri … punctum lineæ" (NATP00091.par24), is struck
 through in full, so it records a discarded draft.
 
-Leads outside the archive, quoted in that conversation and still unverified:
-the student notebook Quæstiones quædam Philosophiæ, with "a least degree of
-time"; the General Scholium, with "durationis indivisibile momentum"; Newton's
-draft additions to the scholium on Leibniz; and Book II Lemma II on moments.
-Together they would trace a path from temporal atomism in the notebook to
-divisible durations in the Principia. That genealogy lies outside the
-approved programme of Propositions I–IV.
+The student notebook supplies the rival view, now checked against its
+archived TEI. Under the heading "Of Motion" Newton argues "That there is a
+least distance, a least progression in motion & a least degree of time", that
+"there are soe many least parts of time in an hower as there can be Τὸ νὺν᾽ς",
+and that "These leasts have no parts" (THEM00092.par27, folio 92v of MS Add.
+3996). He proves it "as I proved a least part in Matter". The same paragraph
+makes each least motion cover one least distance in one least moment of time,
+and a later addition counts the degrees of motion along a line by the "stops
+& stays" that can be interposed. Read together, these fix a single elementary
+speed, least distance over least time, with slower motions built from rests.
+That reading is an `editorial_interpretation` with medium confidence. On it,
+the young Newton's minimum scales are a length and a time in fixed ratio:
+their ratio is a speed, and neither is an action. The Principia scholium
+likewise speaks of quantities taken singly, each to be read as divisible
+without limit. A minimum of a product, time times energy or position times
+momentum, is a different hypothesis that neither text considers. The
+[action layer](action-arguments/README.md) and its
+[background on singular limits](action-arguments/background-berry-singular-limits.md)
+take that question up.
 
-Source: the conversation export archived in commit `a5f090e`, with each Latin
-quotation above checked against the archived TEI. The same commit keeps the
+Leads still unverified, quoted in the originating conversation: the General
+Scholium, with "durationis indivisibile momentum"; Newton's draft additions
+to the scholium on Leibniz; and Book II Lemma II on moments. With the
+notebook they would trace a path from temporal atomism to divisible
+durations in the Principia. That genealogy lies outside the approved
+programme of Propositions I–IV.
+
+Sources: the conversation export archived in commit `a5f090e`, with each
+quotation above checked against the archived TEI. The notebook is archived in
+`docs/time/`; see [sources](sources.md). The same commit keeps the
 rest of that conversation, including its survey of earlier Lean work on
 Newtonian kinematics.

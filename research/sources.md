@@ -59,3 +59,16 @@ is independent of NATP00089; direct manuscript collation and earliest-state
 chronology remain open. The historical text is public domain; scan markings
 remain, without a claim about a separate license for the scan. The PDF is a
 three-page extraction, not the complete book. Its hash is in docs/SHA256SUMS.
+
+## Time thread: the student notebook
+
+[*Quæstiones quædam Philosophiæ*](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/THEM00092),
+Newton Project THEM00092, Cambridge University Library MS Add. 3996, dated by
+its TEI header to the early-mid 1660s. The TEI and both HTML views were
+retrieved on 6 October 2026 into `docs/time/`; their hashes are in
+docs/SHA256SUMS. The transcription is CC BY-NC-ND 3.0 per its TEI availability
+statement. The passage used is the heading "Of Motion" (hd12) and its paragraph
+par27 on folio 92v, which argues for "a least distance, a least progression in
+motion & a least degree of time". [TIME_SUBDIVISION.md](TIME_SUBDIVISION.md)
+quotes and classifies it. This witness lies outside the approved Proposition
+I–IV programme and supplies no premise to a historical proof.
