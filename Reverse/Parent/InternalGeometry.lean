@@ -10,7 +10,12 @@ PHYSICAL STAGE:
 MATHEMATICAL CONTENT:
   One named candidate datum. Its volume function is left as a parameter of
   the candidate because the normalisation of CP² and the circle radius are
-  separate choices.
+  separate choices. Fermions on K₅: CP² has no spin structure (its signature
+  is 1, which Rokhlin's theorem excludes for a spin 4-manifold) and admits
+  spin^c structures, so Dirac fermions on CP² × S¹ exist as fields charged
+  under the u(1). When fermions are placed on the residual geometry, that
+  is a stated hypothesis tying their existence to the electromagnetic
+  factor.
 INPUT PARAMETERS:
   Compactification radius.
 OUTPUT PARAMETERS:
@@ -19,7 +24,8 @@ PROVED HERE:
   Nothing.
 ASSUMED HERE:
   Nothing. Recording a candidate claims neither dynamical selection of it
-  nor that it is the parent's full internal geometry.
+  nor that it is the parent's full internal geometry. No fermion content is
+  placed on K₅ yet; see the spin^c remark above.
 OPEN PROBLEMS USED:
   None.
 NEXT REDUCTION:
@@ -34,7 +40,8 @@ namespace Reverse.Parent
 dimension 5 and isometry algebra su(3) ⊕ u(1). It is what the weak
 decoupling is expected to leave of the full internal space; whether the
 global gauge group is SU(3) × U(1), a quotient, or something else is
-undecided by this datum. -/
+undecided by this datum. Fermions on it need a spin^c structure, hence a
+u(1) charge. -/
 def candidateCP2xS1 (volume : Scalar → Scalar) : InternalGeometry where
   dimension := 5
   isometryAlgebra := [.su 3, .u1]

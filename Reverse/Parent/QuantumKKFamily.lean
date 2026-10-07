@@ -5,8 +5,10 @@ PHYSICAL STAGE:
   The modern parent: a quantum family whose classical geometric action is
   D-dimensional Einstein gravity,
     S_D[g] = (c³ / 16π G_D) ∫ R_D(g) √|g| d^D X,
-  with gauge structure to arise from the internal geometry. The quantum
-  theory is denoted 𝒬_ℏ(S_D). A path-integral expression Z = ∫ 𝒟g e^{iS_D/ℏ}
+  with gauge structure to arise from the internal geometry. The family is
+  taken below the cutoff M_D, the D-dimensional Planck scale fixed by G_D, ℏ
+  and c; what completes it above M_D, a string or matrix root, is left open
+  and never invoked. The quantum theory is denoted 𝒬_ℏ(S_D). A path-integral expression Z = ∫ 𝒟g e^{iS_D/ℏ}
   is orientation only; nothing below depends on its existence.
 MATHEMATICAL CONTENT:
   Opaque carriers: a quantum theory as a pair of types, internal geometry as
@@ -22,7 +24,9 @@ ASSUMED HERE:
   That a quantum theory exists at each parameter point, as an opaque carrier.
   No Hilbert space, operator algebra, dynamics or renormalization is modelled.
 OPEN PROBLEMS USED:
-  Quantum gravity, in the weak sense that the carrier is assumed to exist.
+  Completion of gravity above the cutoff M_D, in the weak sense that the
+  carrier below M_D is assumed to exist; no property of the completion is
+  used.
 NEXT REDUCTION:
   `Reverse/KK/DimensionalReduction.lean`.
 

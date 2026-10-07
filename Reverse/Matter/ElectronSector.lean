@@ -17,9 +17,11 @@ PROVED HERE:
   Nothing.
 ASSUMED HERE:
   Existence and stability of the state. Equality of the charge magnitudes
-  |q_e| = q_p is a separate statement and is not imposed. The electron mass
-  originates in Yukawa data that must survive long enough before the weak
-  interaction is removed; which data survive is a question for a later pass.
+  |q_e| = q_p is a separate statement and is not imposed. Within the
+  residual su(3) ⊕ u(1) theory the electron is a Dirac fermion and its mass
+  is a parameter of that theory; whether that mass descends from Yukawa data
+  of the full theory is a question about the unspecified collapse
+  K_full → K₅, outside this pass.
 OPEN PROBLEMS USED:
   None.
 NEXT REDUCTION:

@@ -3,10 +3,13 @@
 The historical libraries read Newton's proofs forward from his own premises.
 This directory runs the opposite direction. It starts from a compact modern
 parent, a quantum family whose classical geometric action is
-higher-dimensional Einstein gravity, and reduces it stage by stage until the
-premises consumed by the historical Proposition I–IV files reappear. The
+higher-dimensional Einstein gravity taken below the cutoff M_D, the
+D-dimensional Planck scale fixed by G_D, ℏ and c, and reduces it stage by
+stage until the premises consumed by the historical Proposition I–IV files
+reappear. What completes the parent above M_D, a string or matrix root, is
+left open and never invoked. The
 scientific output is the reduction's dependency graph: which modern structures
-disappear, which survive, which combine into effective constants, and which
+disappear, which survive, which combine into inherited constants, and which
 steps remain physical hypotheses or open problems.
 
 `Reverse/` is modern. It may use modern mathematics within the repository's
@@ -108,7 +111,7 @@ NEXT REDUCTION:
 Matter forms before the classical limit. Hadrons, nuclei, atoms and molecules
 are quantum bound states, so microscopic ℏ stays nonzero through
 `Reverse/Strong` and `Reverse/Matter`. The classical limit acts on the
-effective centre-of-mass theory of already-formed composites, through the
+centre-of-mass theory of already-formed composites, through the
 centre-of-mass parameter ε = ℏ / S_CM, while internal quantum structure persists.
 
 Colour leaves the observable sector through confinement and singlet
@@ -183,11 +186,11 @@ Status by stage:
 
 | Stage | Proved now | Assumed now | Open | Future derivation |
 | --- | --- | --- | --- | --- |
-| Parent | — | existence of the quantum family as an opaque theory per parameter point; Einstein–Hilbert action as a label | quantum gravity (never invoked as a theorem) | — |
+| Parent | — | existence of the quantum family as an opaque theory per parameter point, taken below the cutoff M_D; Einstein–Hilbert action as a label | completion of gravity above M_D (never invoked as a theorem) | pluggable roots above the cutoff: string or matrix theory |
 | KK | residual factors descend from the internal isometries | reduced gauge algebra = isometry algebra; `G · Vol(K) = G_D`; positive massive-tower scale; zero modes untouched | — | the two identities from the action |
 | Weak | — | residual su(3), u(1) inside the reduced algebra with nonzero couplings; suppressed parameters recorded, choice open | — | electroweak compactification |
 | Strong | hadrons are singlets (from the singlet asymptotic spectrum), above the gap and positive (from the gap); nucleons likewise | positive colour scale; gap above a massless vacuum; singlet asymptotic spectrum carried by the confinement placeholder; nucleon states with mass ratios and charges | Yang–Mills mass gap; confinement proper (placeholder) | — |
-| Electron | — | a stable negatively charged massive state | — | which Yukawa data survive weak decoupling |
+| Electron | — | a stable negatively charged massive Dirac state, its mass a parameter of the residual theory | — | origin of the Dirac mass in the collapse K_full → K₅ |
 | Matter | `Q₁Q₂ = 0` for neutral bodies; a neutral body with a proton has an electron; constituents are singlets and massive | neutral composites with positive mass; neutrality as a condition on constituent counts | nuclear and atomic many-body theory | mass of the composite from constituents and binding |
 | RelativisticQM | — | dispersion relation and collinear composition of each body at the sector's kappa | positive-mass sectors of interacting QFT | both laws from a boost law |
 | NonRelativistic | on the fibre: `K = p²/(2m)`, `v ⊕ w = v + w`; standalone: `gamma = 1`, `x' = x − frameV t`, `t' = t`; defect identities and bounds for every kappa | the fibre sector with ℏ, G unchanged | — | convergence as `invC → 0`; frames attached to the sector; non-collinear composition |
@@ -231,7 +234,7 @@ table:
 | cosmological constant | should become invisible before Section II | undecided |
 | `g₃` | confined, traded for Λ_colour by transmutation | `Strong` |
 | electromagnetic coupling | remains finite; unobservable at leading order between neutral bodies | `Matter` |
-| weak couplings, Yukawas, breaking scale | decoupled; which parameter is suppressed is a reduction problem; the electron mass must survive | `KK/WeakSector`, `Matter/ElectronSector` |
+| weak couplings, Yukawas, breaking scale | decoupled; which parameter is suppressed is a reduction problem; whether the electron's Dirac mass descends from Yukawa data is a question about the collapse K_full → K₅ | `KK/WeakSector`, `Matter/ElectronSector` |
 | particle masses | inherited constants: nucleon masses as ratios times Λ_colour, body masses from binding | `Strong`, `Matter` |
 
 ## Questions the architecture is built to answer
@@ -287,6 +290,14 @@ Galilean on the fibre by theorem; the chain's interface satisfies the
 historical law predicates. `modern_to_newton` depends on the standard axioms
 only (`propext`, `Classical.choice`, `Quot.sound`); there is no `sorry` in
 the library.
+
+Wording pass, 7 October 2026: low-energy statements are now assumptions
+below the cutoff, body masses are masses of composites and the nucleon
+mass ratios are inherited constants; the parent is stated below the cutoff
+M_D; the electron's Dirac mass
+is a parameter of the residual theory, with its Yukawa origin a question
+about the collapse K_full → K₅; the spin^c requirement for fermions on
+CP² is recorded in `Parent/InternalGeometry.lean`.
 
 Next blockers, in order: derive the momentum–velocity relation (3) from the
 fibre kinetic energy, which needs a finite-difference or derivative notion
