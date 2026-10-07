@@ -19,8 +19,10 @@ OUTPUT PARAMETERS:
   fibre sector.
 PROVED HERE:
   `modern_to_newton` (composition), `modern_to_newton_kinetic` (each body's
-  Newtonian kinetic energy on the fibre with its effective mass) and
-  `modern_to_newton_velocity_consistent` (K = ½ p · v on the fibre).
+  Newtonian kinetic energy on the fibre with its effective mass),
+  `modern_to_newton_velocity_addition` (collinear velocity composition is
+  v + w on the fibre) and `modern_to_newton_velocity_consistent`
+  (K = ½ p · v on the fibre).
 ASSUMED HERE:
   Everything listed in the argument list; see each stage's header.
 OPEN PROBLEMS USED:
@@ -82,6 +84,25 @@ theorem modern_to_newton_kinetic
       (Fraction.quotient (normSq p) (twice (hBound.body b).mass)
         (twice_positive (hBound.body b).mass_positive)) :=
   kinetic_energy_on_fibre hZ b p
+
+/-- On the zero-invC fibre the sector's collinear velocity composition is
+Galilean: v ⊕ w = v + w. -/
+theorem modern_to_newton_velocity_addition
+    (F : QuantumKKFamily) (a : F.Params)
+    (hKK : HasKKReduction F)
+    (hWeak : HasWeakDecoupling (hKK.reduce a))
+    (hΛ : HasColourScale hWeak.colour)
+    (hGap : HasMassGap hWeak.colour)
+    (hConf : HasConfinement hWeak.colour)
+    (hNuc : HasStableNucleons hWeak.colour hΛ)
+    (hElectron : HasStableElectronLikeState hWeak.electromagnetic)
+    (hBound : HasStableNeutralMatter
+      (MatterInputs.ofWeakDecoupling hWeak hΛ hGap hConf hNuc hElectron))
+    (S : StableParticleSector hBound)
+    (_hparams : S.params = F.fundamental a)
+    (hZ : HasZeroInvCFibre S) (v w : Fraction) :
+    Fraction.equiv (hZ.fibre.composeCollinear v w) (Fraction.add v w) :=
+  collinear_velocity_additive_on_fibre hZ v w
 
 /-- The classical velocity relation used for the Law shapes agrees with the
 fibre kinetic energy: K = ½ p · v. This is the formal link between the

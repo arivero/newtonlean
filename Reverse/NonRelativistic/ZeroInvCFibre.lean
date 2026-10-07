@@ -9,9 +9,10 @@ MATHEMATICAL CONTENT:
   The fibre interface and the theorems that hold on it. Evaluation on the
   fibre is distinguished from a limiting process: nothing here says that a
   family of finite-c sectors converges to the fibre as invC → 0. The defect
-  identities in `KineticEnergy.lean` bound how far a finite-kappa relation
-  is from its fibre value; turning them into a convergence statement is
-  future work, and until then this file is a fibre, under that name.
+  identities in `KineticEnergy.lean` and `VelocityComposition.lean` bound
+  how far a finite-kappa relation is from its fibre value; turning them into
+  a convergence statement is future work, and until then this file is a
+  fibre, under that name.
 INPUT PARAMETERS:
   invC, ℏ, G, body masses.
 OUTPUT PARAMETERS:
@@ -19,6 +20,8 @@ OUTPUT PARAMETERS:
 PROVED HERE:
   `kinetic_energy_on_fibre`: on the fibre every body's kinetic energy is
   p²/(2m), with m the effective composite mass.
+  `collinear_velocity_additive_on_fibre`: on the fibre the sector's
+  collinear velocity composition is v + w.
 ASSUMED HERE:
   Existence of the fibre sector with ℏ and G unchanged. Galilean kinematics
   is no longer part of this interface; the remaining kinematic and
@@ -63,5 +66,11 @@ theorem kinetic_energy_on_fibre {S : StableParticleSector M}
         (twice_positive (M.body b).mass_positive)) :=
   kinetic_energy_at_zero_invC (M.body b).mass_positive Z.on_fibre.kappa_zero
     (Z.fibre.dispersion b p)
+
+/-- On the fibre the sector's collinear velocity composition is Galilean. -/
+theorem collinear_velocity_additive_on_fibre {S : StableParticleSector M}
+    (Z : HasZeroInvCFibre S) (v w : Fraction) :
+    Fraction.equiv (Z.fibre.composeCollinear v w) (Fraction.add v w) :=
+  Composition.galilean_fibre Z.on_fibre.kappa_zero (Z.fibre.compose_law v w)
 
 end Reverse.NonRelativistic
