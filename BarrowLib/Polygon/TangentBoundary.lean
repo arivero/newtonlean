@@ -93,6 +93,36 @@ private theorem joined_upper {g d : Fraction → Fraction} {a b : Fraction}
       Fraction.le_of_equiv (segment_on_tangent g d y r (graph g y) z ht.2 hq hz),
       Or.inr (segment_on_tangent g d y r (graph g y) z ht.2 hq hz)⟩
 
+/-- Each contact-line pair has the indicated lower envelope on the two
+sides of any constructed meeting. No distinct-slope or distinct-node
+condition is needed; the order follows from finite segment interpolation. -/
+theorem lines_order_at_meeting {g d : Fraction → Fraction} {a b : Fraction}
+    (C : Patch g d a b) (x y : Fraction) (hax : Fraction.le a x)
+    (hxy : Fraction.le x y) (hyb : Fraction.le y b) (r : Point)
+    (hr : Meeting (graph g x) (graph g y) (cell C x y hax hxy hyb) r)
+    (t : Fraction) (hxt : Fraction.le x t) (hty : Fraction.le t y) :
+    (Fraction.le t r.1 → Fraction.le (line g d x t) (line g d y t)) ∧
+    (Fraction.le r.1 t → Fraction.le (line g d y t) (line g d x t)) := by
+  have ht := meeting_on_tangents C x y hax hxy hyb r hr
+  constructor
+  · intro htr
+    have hz := tangent_segment_at g d x (graph g x) r
+      (Fraction.equiv_symm (line_self g d x)) ht.1 t hxt htr
+    exact (joined_upper C x y hax hxy hyb (t,line g d x t) ⟨r,hr,Or.inl hz⟩).2.2.2.1
+  · intro hrt
+    have hz := tangent_segment_at g d y r (graph g y) ht.2
+      (Fraction.equiv_symm (line_self g d y)) t hrt hty
+    exact (joined_upper C x y hax hxy hyb (t,line g d y t) ⟨r,hr,Or.inr hz⟩).2.2.1
+
+theorem meeting_bounds {g d : Fraction → Fraction} {a b : Fraction}
+    (C : Patch g d a b) (x y : Fraction) (hax : Fraction.le a x)
+    (hxy : Fraction.le x y) (hyb : Fraction.le y b) (r : Point)
+    (hr : Meeting (graph g x) (graph g y) (cell C x y hax hxy hyb) r) :
+    (Fraction.le x r.1 ∧ Fraction.le r.1 y) ∧
+    (Fraction.le (g x) r.2 ∧ Fraction.le r.2 (g y)) := by
+  have hb := meeting_rectangle (graph g x) (graph g y) (cell C x y hax hxy hyb) r hr
+  exact ⟨between_ordered hxy hb.1, between_ordered (monotone C x y hax hxy hyb) hb.2⟩
+
 private theorem cell_top_at {g d : Fraction → Fraction} {a b : Fraction}
     (C : Patch g d a b) (x y : Fraction) (hax : Fraction.le a x)
     (hxy : Fraction.le x y) (hyb : Fraction.le y b)

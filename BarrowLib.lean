@@ -50,6 +50,8 @@ import BarrowLib.Polygon.StateDistance
 import BarrowLib.Polygon.SupportingTangents
 import BarrowLib.Polygon.TangentContact
 import BarrowLib.Polygon.TangentBoundary
+import BarrowLib.Polygon.TriangleContent
+import BarrowLib.Polygon.TangentPolygonArea
 import BarrowLib.Polygon.TimeCalibration
 import BarrowLib.Polygon.TriangleBounds
 import BarrowLib.Polygon.TimeSubdivision
