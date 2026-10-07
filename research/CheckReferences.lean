@@ -35,9 +35,17 @@ private def propagate (rows : Array (Name × Array Name)) (seeds : NameSet) :
             break
   return paths
 
+/- Compiler-generated auxiliaries (matchers, lazily realized equation lemmas,
+their private realizations) carry the parent declaration's name as a prefix
+and depend only on that declaration and Lean core, so they are classified by
+the parent's source position. A realized lemma is private-mangled even when
+its parent is public, so both spellings are tried at every prefix. -/
 private partial def sourceLine? (name : Name) : TermElabM (Option Nat) := do
   if let some ranges ← findDeclarationRanges? name then
     return some ranges.range.pos.line
+  if let some userName := privateToUserName? name then
+    if let some ranges ← findDeclarationRanges? userName then
+      return some ranges.range.pos.line
   if name.isAnonymous then return none
   sourceLine? name.getPrefix
 
@@ -109,6 +117,13 @@ run_elab do
     throwError "proof-score controls failed: transitive modern use, duplicate use or empty proof"
 
   let env ← getEnv
+  -- Known control: a private-mangled matcher equation lemma, as `simp`
+  -- realizes it, classifies at its parent definition's source line.
+  let parent := `Principia1687.PropositionI.polygonState
+  let realized := mkPrivateName env (parent ++ `match_1 ++ `eq_2)
+  let parentLine ← Verification.sourceLine? parent
+  unless parentLine.isSome && (← Verification.sourceLine? realized) == parentLine do
+    throwError "auxiliary-declaration classification control failed"
   let mut rows : Array (Name × Array Name) := #[]
   let mut seeds : NameSet := {}
   let mut primary : Array Name := #[]

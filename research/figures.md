@@ -180,7 +180,7 @@ flowchart LR
   NewtonLimitDynamics["NewtonLimitDynamics"] --> ClassicsLib["ClassicsLib"]
 ```
 
-The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 189 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
+The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 199 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
 
 ### Direct cross-file formal uses
 

@@ -22,9 +22,9 @@ bodies and private helpers, classifies historical sections by source position
 relative to the five-line `ANACHRONICAL PROOFS` header, and verifies the
 opening `Modern dependency score` comments against compiled transitive
 dependencies. Passing does not discharge geometric or mechanical premises.
-Unfold recursive definitions in historical files with definitional steps such
-as `congrArg`; a `simp` unfolding can generate private match-equation lemmas
-without source positions, which the checker rejects as unclassifiable.
+Compiler-generated auxiliaries, including the equation lemmas that `simp`,
+`rw` and `unfold` realize on demand, are classified at their parent
+declaration's source position; they depend only on that declaration.
 
 After changing a proof, build, refresh the score comments, rebuild (inserted
 comments shift source positions) and check:

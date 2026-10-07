@@ -135,10 +135,11 @@ complete-turn counterexample in `sector-unions-2026-10-07.lean`, where the fan
 sum grows while the union stays fixed: consecutive positive determinants alone
 cannot justify unrestricted union identification.
 
-Last full verification: 7 October 2026 at `4141f01`. All five builds, the 20
-positive controls, the harmonic reference/comparator, source hashes and
+Last full verification: 7 October 2026, after the checker learned to place
+compiler-generated auxiliaries at their parent declaration. All five builds,
+the 20 positive controls, the harmonic reference/comparator, source hashes and
 whitespace passed. The compiled checker verified 1,181 score comments and
-6,700 project constants with no project axioms, sorry or primary modern
+6,710 project constants with no project axioms, sorry or primary modern
 dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 62 source edges and 15 formal cross-file uses across 19
 historical files. Archived Newton sources and exact Latin are unchanged.

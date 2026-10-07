@@ -307,7 +307,7 @@ theorem canonical_polygon_eq_run (a : CentralSchedule.Field) (h : Fraction)
     polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n = BoundedIteration.run a h s n := by
   induction n with
   | zero => rfl
-  | succ n ih => exact congrArg (mechanicalCell ZeroForce.inertialAt TimeSubdivision.pointAdd a h) ih
+  | succ n ih => simp only [polygonState,BoundedIteration.run,ih]; rfl
 
 /-- This edition's own Laws' Corollary I/equal-triangle chain supplies the
 finite fan law used in the curve comparison. -/
@@ -633,7 +633,7 @@ theorem canonical_polygon_eq_run (a : CentralSchedule.Field) (h : Fraction)
     polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n = BoundedIteration.run a h s n := by
   induction n with
   | zero => rfl
-  | succ n ih => exact congrArg (mechanicalCell ZeroForce.inertialAt TimeSubdivision.pointAdd a h) ih
+  | succ n ih => simp only [polygonState,BoundedIteration.run,ih]; rfl
 
 /-- This edition's own Laws' Corollary I/equal-triangle chain supplies the
 finite fan law used in the curve comparison. -/
