@@ -100,16 +100,50 @@ layer. Positivity, finiteness, partition stability, system independence and
 action rescaling are distinct tests. No universal constant or quantum premise
 closes a historical proof.
 
-The given-curve local law now derives finite force-polygon/sample agreement
-and the curve's slope mesh from `MotionSampling.Conditions`, rather than
-supplying either conclusion. These conditions contain only finite force
-comparison, a quadratic cell residual, a short window and force/curve bounds.
-The separately supplied `RadialChart` represents the full curve image in both
-directions and its own equal-time samples. `sweptSector` is defined from every
+## Current increment and next work
+
+The motion-sampling increment derives finite force-polygon/sample agreement
+from an independent quadratic local mechanical remainder, and the sampled
+curve's slope mesh from displacement and a positive ray-scale lower bound.
+Each printed edition's conditional local area law then uses its own Laws'
+Corollary I/equal-triangle chain and Lemmas III/I. Its conclusion is the
+assigned actual swept-sector area `T * det(initial position, initial
+velocity) / 2`; a further theorem compares two windows sharing their initial
+time as their elapsed times.
+
+`MotionSampling.Conditions` contains only finite force comparison, a quadratic
+cell residual, a short window and force/curve bounds. The separately supplied
+`RadialChart` represents the full curve image in both directions and its own
+equal-time samples; the chart is `(x,y)=(g(t),g(t)*t)`, with `t=y/x` the slope
+and `g(t)` the positive x-coordinate. `sweptSector` is defined from every
 rational-time point of the given curve in the window, including times between
-samples. No area law or vanishing area belongs to either condition structure.
-The force comparison is a whole-plane premise; forces singular at the centre
-need a regional version available to the primary chain.
+samples. Neither structure supplies polygon agreement, shrinking mesh or an
+area law. The partial area convention and any assigned rational curved area
+remain explicit; general area existence is not constructed. The force
+comparison is a whole-plane premise; forces singular at the centre need a
+regional version available to the primary chain.
+
+Controls: `motion-sampling-2026-10-07.lean` prescribes a quadratic curve under
+a constant, explicitly noncentral acceleration and proves its nonzero quadratic
+cell remainder, finite bounds and derived sample agreement without claiming
+Newton's area law. `historical-motion-area-2026-10-07.lean` gives a
+positive-time inertial curve, a full chart, satisfiable mechanical premises and
+an actual swept-sector area from the triangle convention, then exercises both
+printed editions. Earlier controls retain a nonlinear curve point outside its
+chord, a shrinking collar of the actual symmetric difference, and the
+complete-turn counterexample in `sector-unions-2026-10-07.lean`, where the fan
+sum grows while the union stays fixed: consecutive positive determinants alone
+cannot justify unrestricted union identification.
+
+Last full verification: 7 October 2026 at `4141f01`. All five builds, the 20
+positive controls, the harmonic reference/comparator, source hashes and
+whitespace passed. The compiled checker verified 1,181 score comments and
+6,700 project constants with no project axioms, sorry or primary modern
+dependency. The corrupted comparator failed at its intended false equality.
+The diagrams recover 62 source edges and 15 formal cross-file uses across 19
+historical files. Archived Newton sources and exact Latin are unchanged.
+Astra's review covers the preceding radial-sector increment (`3a2f5e3`,
+`b827902`) only.
 
 Next extend the conditional rational local result to the remaining stage and
 geometric scope. De Motu needs its own finite construction/exhaustion passage;
