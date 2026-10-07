@@ -48,6 +48,7 @@ import BarrowLib.Polygon.QuadraticEstimates
 import BarrowLib.Polygon.RationalIntervals
 import BarrowLib.Polygon.StateDistance
 import BarrowLib.Polygon.SupportingTangents
+import BarrowLib.Polygon.TangentContact
 import BarrowLib.Polygon.TimeCalibration
 import BarrowLib.Polygon.TriangleBounds
 import BarrowLib.Polygon.TimeSubdivision
