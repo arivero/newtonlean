@@ -8,6 +8,7 @@ import Reverse.Parent.InternalGeometry
 import Reverse.KK.DimensionalReduction
 import Reverse.KK.WeakSector
 import Reverse.Strong.Confinement
+import Reverse.Matter.ElectronSector
 import Reverse.Matter.NeutralMatter
 import Reverse.RelativisticQM.StableParticleSector
 import Reverse.NonRelativistic.KineticEnergy

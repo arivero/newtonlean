@@ -10,19 +10,23 @@ MATHEMATICAL CONTENT:
   Separate hypotheses on a gauge sector, kept as distinct structures: colour
   scale, mass gap, Gauss-law gauge invariance, colour-singlet asymptotic
   spectrum, confinement (placeholder carrying the previous property), stable
-  nucleons; and the hadron carrier inside the asymptotic spectrum.
+  nucleons. The hadron spectrum is defined as the asymptotic non-vacuum part
+  of the physical spectrum, so hadron properties are theorems about the
+  hypotheses rather than fields of an assumed carrier.
 INPUT PARAMETERS:
   Colour coupling g₃ (nonzero), colour spectrum.
 OUTPUT PARAMETERS:
-  Λ_colour, the gap, hadron states; hadronic masses are to be referred to
-  Λ_colour in a later pass.
+  Λ_colour, the gap, nucleon states with masses written as ratio · Λ_colour
+  and with electromagnetic charges.
 PROVED HERE:
-  Formal consequences of the hypotheses: hadron states are singlets, hadron
-  masses sit above the gap.
+  Formal consequences of the hypotheses: hadrons are singlets given
+  confinement, hadron masses lie above the gap and are positive given the
+  gap; the same for the nucleons.
 ASSUMED HERE:
   Existence of a positive colour scale; a positive mass gap above a massless
   vacuum; a colour-singlet asymptotic spectrum, as the consequence of
-  confinement; stable proton- and neutron-like states.
+  confinement; stable proton- and neutron-like states with their mass
+  ratios and charges.
 OPEN PROBLEMS USED:
   3+1-dimensional Yang–Mills mass gap; rigorous QCD confinement.
 NEXT REDUCTION:
@@ -72,39 +76,60 @@ its consumers. OPEN PROBLEM: rigorous QCD confinement. -/
 structure HasConfinement (C : GaugeSector) where
   singlet_asymptotics : HasColourSingletAsymptoticSpectrum C
 
-/-- Low-energy hadron sector read inside the physical spectrum, excluding the
-vacuum. Its type depends on confinement and on the colour scale so that any
-use of hadrons carries both hypotheses visibly. -/
-structure HadronSector (C : GaugeSector) (_hConf : HasConfinement C)
-    (_hΛ : HasColourScale C) where
-  Hadron : Type
-  state : Hadron → C.Spectrum
-  asymptotic : ∀ h, C.asymptotic (state h)
-  nonvacuum : ∀ h, state h ≠ C.vacuum
+/-- The hadron spectrum: asymptotic, non-vacuum states of the colour sector.
+A definition rather than an assumed carrier. -/
+def hadronSpectrum (C : GaugeSector) : Type :=
+  { s : C.Spectrum // C.asymptotic s ∧ s ≠ C.vacuum }
 
-/-- Hadron states are colour singlets: a formal consequence of the singlet
+/-- Hadrons are colour singlets: a formal consequence of the singlet
 asymptotic spectrum carried by confinement. -/
-theorem HadronSector.singlet {C : GaugeSector} {hConf : HasConfinement C}
-    {hΛ : HasColourScale C} (H : HadronSector C hConf hΛ) (h : H.Hadron) :
-    C.singlet (H.state h) :=
-  hConf.singlet_asymptotics.singlet_of_asymptotic (H.state h) (H.asymptotic h)
+theorem hadron_singlet {C : GaugeSector} (hConf : HasConfinement C)
+    (h : hadronSpectrum C) : C.singlet h.val :=
+  hConf.singlet_asymptotics.singlet_of_asymptotic h.val h.property.1
 
-/-- Hadron masses lie above the gap: a formal consequence of the gap for
-non-vacuum states. -/
-theorem HadronSector.mass_above_gap {C : GaugeSector} {hConf : HasConfinement C}
-    {hΛ : HasColourScale C} (H : HadronSector C hConf hΛ) (hGap : HasMassGap C)
-    (h : H.Hadron) : Fraction.le hGap.gap (C.mass (H.state h)) :=
-  hGap.above_gap (H.state h) (H.nonvacuum h)
+/-- Hadron masses lie above the gap. -/
+theorem hadron_mass_above_gap {C : GaugeSector} (hGap : HasMassGap C)
+    (h : hadronSpectrum C) : Fraction.le hGap.gap (C.mass h.val) :=
+  hGap.above_gap h.val h.property.2
 
-/-- Stable proton- and neutron-like states. Their existence is a hypothesis
-separate from gap and confinement. Neutron stability presupposes the weak
-decoupling recorded upstream; that link is physical interpretation. -/
-structure HasStableNucleons {C : GaugeSector} {hConf : HasConfinement C}
-    {hΛ : HasColourScale C} (H : HadronSector C hConf hΛ) where
-  proton : H.Hadron
-  neutron : H.Hadron
+/-- Hadron masses are positive, since the gap is. -/
+theorem hadron_mass_positive {C : GaugeSector} (hGap : HasMassGap C)
+    (h : hadronSpectrum C) : Fraction.positive (C.mass h.val) :=
+  (Fraction.positive_iff_zero_lt _).mpr
+    (Fraction.magnitudes.lt_of_lt_le
+      ((Fraction.positive_iff_zero_lt _).mp hGap.gap_positive)
+      (hadron_mass_above_gap hGap h))
+
+/-- Stable proton- and neutron-like hadrons, with masses referred to the
+colour scale and with electromagnetic charges. The mass ratios are the
+dimensionless effective constants the Newtonian sector inherits; writing
+m = ratio · Λ is bookkeeping of dimensional transmutation, never a
+derivation of the ratios. The proton charge is positive and the neutron
+charge zero by convention. Neutron stability presupposes the weak
+decoupling upstream; that link is physical interpretation. -/
+structure HasStableNucleons (C : GaugeSector) (hΛ : HasColourScale C) where
+  proton : hadronSpectrum C
+  neutron : hadronSpectrum C
   distinct : proton ≠ neutron
-  proton_mass_positive : Fraction.positive (C.mass (H.state proton))
-  neutron_mass_positive : Fraction.positive (C.mass (H.state neutron))
+  protonMassRatio : Scalar
+  neutronMassRatio : Scalar
+  proton_mass : Fraction.equiv (C.mass proton.val) (Fraction.mul protonMassRatio hΛ.scale)
+  neutron_mass : Fraction.equiv (C.mass neutron.val) (Fraction.mul neutronMassRatio hΛ.scale)
+  protonCharge : Scalar
+  neutronCharge : Scalar
+  protonCharge_positive : Fraction.positive protonCharge
+  neutronCharge_zero : neutronCharge.num = 0
+
+/-- Nucleons are colour singlets, given confinement. -/
+theorem HasStableNucleons.singlet {C : GaugeSector} {hΛ : HasColourScale C}
+    (hConf : HasConfinement C) (N : HasStableNucleons C hΛ) :
+    C.singlet N.proton.val ∧ C.singlet N.neutron.val :=
+  ⟨hadron_singlet hConf N.proton, hadron_singlet hConf N.neutron⟩
+
+/-- Nucleon masses are positive, given the gap. -/
+theorem HasStableNucleons.masses_positive {C : GaugeSector} {hΛ : HasColourScale C}
+    (hGap : HasMassGap C) (N : HasStableNucleons C hΛ) :
+    Fraction.positive (C.mass N.proton.val) ∧ Fraction.positive (C.mass N.neutron.val) :=
+  ⟨hadron_mass_positive hGap N.proton, hadron_mass_positive hGap N.neutron⟩
 
 end Reverse.Strong

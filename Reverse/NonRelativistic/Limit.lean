@@ -44,10 +44,7 @@ structure GalileanStructure where
   composeVelocity : Point → Point → Point
   compose_additive : ∀ u v, pointEquiv (composeVelocity u v) (pointAdd u v)
 
-variable {C : GaugeSector} {hConf : HasConfinement C} {hΛ : HasColourScale C}
-  {H : HadronSector C hConf hΛ} {hGap : HasMassGap C} {hNuc : HasStableNucleons H}
-  {em : GaugeSector} {hem : em.factor = .u1} {hactive : em.coupling.num ≠ 0}
-  {M : HasStableNeutralMatter hGap hNuc em hem hactive}
+variable {I : MatterInputs} {M : HasStableNeutralMatter I}
 
 /-- Nonrelativistic limit of a stable-particle sector: a sector on the fibre
 with ℏ and G unchanged, together with Galilean kinematics. -/
@@ -66,9 +63,9 @@ theorem kinetic_energy_newtonian {S : StableParticleSector M}
       (Fraction.quotient (normSq p) (twice (M.body b).mass)
         (twice_positive (M.body b).mass_positive)) := by
   have h0 : L.limit.params.invC.num = 0 := L.on_fibre
-  have hu : (Fraction.mul L.limit.params.invC L.limit.params.invC).num = 0 := by
+  have hkappa : L.limit.params.kappa.num = 0 := by
     show L.limit.params.invC.num * L.limit.params.invC.num = 0
     rw [h0, Int.zero_mul]
-  exact kinetic_energy_at_zero_invC (M.body b).mass_positive hu (L.limit.dispersion b p)
+  exact kinetic_energy_at_zero_invC (M.body b).mass_positive hkappa (L.limit.dispersion b p)
 
 end Reverse.NonRelativistic

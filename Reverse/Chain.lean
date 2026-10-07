@@ -20,7 +20,8 @@ PROVED HERE:
 ASSUMED HERE:
   Everything listed in the argument list; see each stage's header.
 OPEN PROBLEMS USED:
-  Mass gap, confinement, through `hGap` and `hConf`.
+  Mass gap, confinement, through `hGap` and `hConf` inside the matter
+  inputs.
 NEXT REDUCTION:
   `Reverse/Principia`: apply the edition-local historical theorems to the
   output, once the law files are committed.
@@ -42,10 +43,10 @@ def modern_to_newton
     (hΛ : HasColourScale hWeak.colour)
     (hGap : HasMassGap hWeak.colour)
     (hConf : HasConfinement hWeak.colour)
-    (H : HadronSector hWeak.colour hConf hΛ)
-    (hNuc : HasStableNucleons H)
-    (hBound : HasStableNeutralMatter hGap hNuc hWeak.electromagnetic
-      hWeak.electromagnetic_factor hWeak.electromagnetic_active)
+    (hNuc : HasStableNucleons hWeak.colour hΛ)
+    (hElectron : HasStableElectronLikeState hWeak.electromagnetic)
+    (hBound : HasStableNeutralMatter
+      (MatterInputs.ofWeakDecoupling hWeak hΛ hGap hConf hNuc hElectron))
     (S : StableParticleSector hBound)
     (_hparams : S.params = F.fundamental a)
     (hNR : HasNonrelativisticLimit S)
@@ -62,10 +63,10 @@ theorem modern_to_newton_kinetic
     (hΛ : HasColourScale hWeak.colour)
     (hGap : HasMassGap hWeak.colour)
     (hConf : HasConfinement hWeak.colour)
-    (H : HadronSector hWeak.colour hConf hΛ)
-    (hNuc : HasStableNucleons H)
-    (hBound : HasStableNeutralMatter hGap hNuc hWeak.electromagnetic
-      hWeak.electromagnetic_factor hWeak.electromagnetic_active)
+    (hNuc : HasStableNucleons hWeak.colour hΛ)
+    (hElectron : HasStableElectronLikeState hWeak.electromagnetic)
+    (hBound : HasStableNeutralMatter
+      (MatterInputs.ofWeakDecoupling hWeak hΛ hGap hConf hNuc hElectron))
     (S : StableParticleSector hBound)
     (_hparams : S.params = F.fundamental a)
     (hNR : HasNonrelativisticLimit S) (b : hBound.Body) (p : Point) :

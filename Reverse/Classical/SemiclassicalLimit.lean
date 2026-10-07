@@ -37,10 +37,7 @@ open Reverse.Parent Reverse.KK Reverse.Strong Reverse.Matter Reverse.Relativisti
 open Reverse.NonRelativistic Reverse.Newton
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon NewtonLimitDynamics.Polygon.TimeSubdivision
 
-variable {C : GaugeSector} {hConf : HasConfinement C} {hΛ : HasColourScale C}
-  {H : HadronSector C hConf hΛ} {hGap : HasMassGap C} {hNuc : HasStableNucleons H}
-  {em : GaugeSector} {hem : em.factor = .u1} {hactive : em.coupling.num ≠ 0}
-  {M : HasStableNeutralMatter hGap hNuc em hem hactive}
+variable {I : MatterInputs} {M : HasStableNeutralMatter I}
 
 /-- Semiclassical centre-of-mass limit: classical drift and impulse update,
 with the update additive in the Galilean composition of velocities. -/
