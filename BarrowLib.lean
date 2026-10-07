@@ -15,6 +15,7 @@ import BarrowLib.Common.Quadratic
 import BarrowLib.Common.RationalExhaustion
 import BarrowLib.Common.RationalMagnitudes
 import BarrowLib.Common.RationalTolerance
+import BarrowLib.Common.UltimateScaling
 import BarrowLib.Polygon.AccelerationEstimates
 import BarrowLib.Polygon.BoundedIteration
 import BarrowLib.Polygon.CalibratedGrowth
@@ -53,3 +54,4 @@ import BarrowLib.Polygon.TimeSubdivision
 import BarrowLib.Polygon.CentralSchedule
 import BarrowLib.Polygon.ZeroForce
 import BarrowLib.Polygon.ImpulseComposition
+import BarrowLib.Polygon.CommonMotion
