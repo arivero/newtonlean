@@ -46,6 +46,7 @@ def fineKeplerUnsigned (coarse inserted : Nat → LatticePoint) (n : Nat) : Nat 
 
 /-- Radial closures cancel in the signed difference. This identity says nothing
     about the unsigned area of lobes between the two paths. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem signed_gap_eq_Kepler_difference (coarse inserted : Nat → LatticePoint) (n : Nat) :
     signedGap coarse inserted n = fineKeplerTwice coarse inserted n -
       coarseKeplerTwice coarse n := by
@@ -58,6 +59,7 @@ theorem signed_gap_eq_Kepler_difference (coarse inserted : Nat → LatticePoint)
 
 /-- The absolute patch budget dominates the absolute signed difference. The
     reverse inequality need not hold because opposite lobes cancel. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem signed_gap_abs_le_budget (coarse inserted : Nat → LatticePoint) (n : Nat) :
     (signedGap coarse inserted n).natAbs ≤ absolutePatchBudget coarse inserted n := by
   induction n with
@@ -70,6 +72,7 @@ theorem signed_gap_abs_le_budget (coarse inserted : Nat → LatticePoint) (n : N
     exact Nat.le_trans (Int.natAbs_add_le _ _) (Nat.add_le_add_right ih _)
 
 /-- A uniform local triangle bound controls the entire finite absolute budget. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem absolute_budget_le_count_mul (coarse inserted : Nat → LatticePoint) (n b : Nat)
     (h : ∀ i, i < n → refinementDefect (coarse i) (inserted i) (coarse (i + 1)) ≤ b) :
     absolutePatchBudget coarse inserted n ≤ n * b := by
@@ -84,6 +87,7 @@ theorem absolute_budget_le_count_mul (coarse inserted : Nat → LatticePoint) (n
     exact Nat.add_le_add hold hlast
 
 /-- Moving the origin does not change the area budget between these paths. -/
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 theorem absolute_budget_translation (origin : LatticePoint)
     (coarse inserted : Nat → LatticePoint) (n : Nat) :
     absolutePatchBudget (fun i => latticeAdd origin (coarse i))
@@ -107,6 +111,7 @@ def exampleInserted : Nat → LatticePoint := fun i =>
 /-- Both paths have the same signed AND unsigned Kepler sums, but a positive
     area budget between them. Two adjacent, opposite-side triangle lobes have
     doubled unsigned area 1 each; their signed contributions cancel. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem equal_Kepler_areas_positive_path_defect :
     coarseKeplerTwice exampleCoarse 2 = -6 ∧
       fineKeplerTwice exampleCoarse exampleInserted 2 = -6 ∧
@@ -129,6 +134,7 @@ def PolygonTrajectoryEnclosure {A : Type} [RationalEnclosure.Magnitude A]
 /-- Conditional defect control: a vanishing geometric budget makes the actual
     polygon–trajectory area small. No curve existence or geometric enclosure
     is inferred from the finite Kepler area law. -/
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem polygon_trajectory_defect_vanishes {A : Type} [RationalEnclosure.Magnitude A]
     (polygonTrajectoryArea : Fraction → A) (budget : Fraction → Fraction)
     (hbudget : Vanishes budget)
@@ -141,6 +147,7 @@ theorem polygon_trajectory_defect_vanishes {A : Type} [RationalEnclosure.Magnitu
 /-- Reindex an actual dyadic geometric magnitude by a positive rational mesh.
 The selected family mesh is proved small; the area remains the given value,
 and is never defined to be its cover budget. -/
+-- Modern dependency score: 1/11 (M=1, H=10; transitive project theorems/axioms).
 theorem geometric_sequence_enclosure {A : Type} [RationalEnclosure.Magnitude A]
     (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
     (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))
@@ -152,6 +159,7 @@ theorem geometric_sequence_enclosure {A : Type} [RationalEnclosure.Magnitude A]
   exact ⟨hnonnegative _,RationalEnclosure.Magnitude.bounded_mono _ _ _
     (hbound _) (RationalEnclosure.selected_duration_bound C mesh hC hm)⟩
 
+-- Modern dependency score: 5/22 (M=5, H=17; transitive project theorems/axioms).
 theorem geometric_sequence_vanishes {A : Type} [RationalEnclosure.Magnitude A]
     (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
     (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))

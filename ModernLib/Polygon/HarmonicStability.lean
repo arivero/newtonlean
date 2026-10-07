@@ -27,6 +27,7 @@ def invariant (w d : Fraction) (s : Point × Point) : Fraction :=
   Fraction.add (Fraction.add (Fraction.mul w (dot s.1 s.1))
     (Fraction.mul (Fraction.mul w d) (dot s.1 s.2))) (dot s.2 s.2)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem linearField_central (w : Fraction) : central (linearField w) := by
   intro p
   unfold linearField negF pointScale det Fraction.equiv Fraction.add Fraction.mul Fraction.ofInt
@@ -36,6 +37,7 @@ theorem linearField_central (w : Fraction) : central (linearField w) := by
   omega
 
 /-- One cell of duration `d` conserves the invariant built with the same `d`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem cell_invariant (w d : Fraction) (s : Point × Point) :
     Fraction.equiv (invariant w d (cell (linearField w) d s)) (invariant w d s) := by
   unfold invariant dot cell linearField negF pointAdd pointScale Fraction.equiv Fraction.add
@@ -46,6 +48,7 @@ theorem cell_invariant (w d : Fraction) (s : Point × Point) :
   omega
 
 /-- Every equal-cell schedule conserves it. -/
+-- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 theorem schedule_invariant (w d : Fraction) :
     (n : Nat) → (s : Point × Point) →
     Fraction.equiv (invariant w d (schedule (linearField w) (List.replicate n d) s))
@@ -64,6 +67,7 @@ def margin (w c : Fraction) : Fraction :=
     `w*d² < 4`) both coefficients are nonnegative, so every equal-cell orbit
     keeps `|v|²` and `w|x + c*v|²` bounded by its initial invariant
     (`schedule_speed_bound`, `schedule_position_bound`). -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem invariant_square (w c : Fraction) (s : Point × Point) :
     Fraction.equiv (invariant w (Fraction.add c c) s)
       (Fraction.add
@@ -76,6 +80,7 @@ theorem invariant_square (w c : Fraction) (s : Point × Point) :
   ac_nf
   omega
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem self_mul_nonneg (a : Int) : 0 ≤ a * a := by
   rcases Int.le_total 0 a with h | h
   · exact Int.mul_nonneg h h
@@ -83,11 +88,13 @@ private theorem self_mul_nonneg (a : Int) : 0 ≤ a * a := by
     have k := Int.mul_nonneg h' h'
     rwa [Int.neg_mul_neg] at k
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem dot_self_num_nonneg (p : Point) : 0 ≤ (dot p p).num := by
   unfold dot Fraction.add Fraction.mul
   exact Int.add_nonneg (Int.mul_nonneg (self_mul_nonneg _) (self_mul_nonneg _))
     (Int.mul_nonneg (self_mul_nonneg _) (self_mul_nonneg _))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem le_add_of_num_nonneg (A B : Fraction) (hA : 0 ≤ A.num) :
     Fraction.le B (Fraction.add A B) := by
   unfold Fraction.le Fraction.add
@@ -98,6 +105,7 @@ private theorem le_add_of_num_nonneg (A B : Fraction) (hA : 0 ≤ A.num) :
   omega
 
 /-- For `w ≥ 0`: `(1 - w*c²)|v|²` never exceeds the invariant. -/
+-- Modern dependency score: 4/9 (M=4, H=5; transitive project theorems/axioms).
 theorem speed_bound (w c : Fraction) (hw : 0 ≤ w.num) (s : Point × Point) :
     Fraction.le (Fraction.mul (margin w c) (dot s.2 s.2)) (invariant w (Fraction.add c c) s) :=
   Fraction.le_equiv_right
@@ -105,6 +113,7 @@ theorem speed_bound (w c : Fraction) (hw : 0 ≤ w.num) (s : Point × Point) :
     (Fraction.equiv_symm (invariant_square w c s))
 
 /-- For a nonnegative margin: `w|x + c*v|²` never exceeds the invariant. -/
+-- Modern dependency score: 3/9 (M=3, H=6; transitive project theorems/axioms).
 theorem position_bound (w c : Fraction) (hm : 0 ≤ (margin w c).num) (s : Point × Point) :
     Fraction.le (Fraction.mul w (dot (pointAdd s.1 (pointScale c s.2)) (pointAdd s.1 (pointScale c s.2))))
       (invariant w (Fraction.add c c) s) :=
@@ -114,6 +123,7 @@ theorem position_bound (w c : Fraction) (hm : 0 ≤ (margin w c).num) (s : Point
 
 /-- Mesh-uniform discrete stability: along every equal-cell schedule of cell
     duration `2c`, `(1 - w*c²)|v_n|²` stays below the **initial** invariant. -/
+-- Modern dependency score: 7/14 (M=7, H=7; transitive project theorems/axioms).
 theorem schedule_speed_bound (w c : Fraction) (hw : 0 ≤ w.num) (n : Nat) (s : Point × Point) :
     Fraction.le
       (Fraction.mul (margin w c)
@@ -122,6 +132,7 @@ theorem schedule_speed_bound (w c : Fraction) (hw : 0 ≤ w.num) (n : Nat) (s : 
       (invariant w (Fraction.add c c) s) :=
   Fraction.le_equiv_right (speed_bound w c hw _) (schedule_invariant w (Fraction.add c c) n s)
 
+-- Modern dependency score: 6/14 (M=6, H=8; transitive project theorems/axioms).
 theorem schedule_position_bound (w c : Fraction) (hm : 0 ≤ (margin w c).num) (n : Nat)
     (s : Point × Point) :
     Fraction.le

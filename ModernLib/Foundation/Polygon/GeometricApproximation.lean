@@ -11,6 +11,7 @@ open HarmonicDyadic CauchyValues HarmonicTimeRealization
 
 abbrev State := Point × Point
 
+-- Modern dependency score: 0/6 (M=0, H=6; transitive project theorems/axioms).
 theorem eventually_close (reference : EndpointCauchyName) (approx : Nat → State)
     (C : Fraction) (hC : 0 ≤ C.num)
     (hbound : ∀ j, Fraction.le (distance (approx j) (reference.approx j))
@@ -59,6 +60,7 @@ def name (reference : EndpointCauchyName) (approx : Nat → State)
           ac_nf <;> omega)) htotal'
     exact Fraction.magnitudes.lt_of_le_lt ht hsum
 
+-- Modern dependency score: 2/37 (M=2, H=35; transitive project theorems/axioms).
 theorem name_equiv (reference : EndpointCauchyName) (approx : Nat → State)
     (C : Fraction) (hC : 0 ≤ C.num)
     (hbound : ∀ j, Fraction.le (distance (approx j) (reference.approx j))

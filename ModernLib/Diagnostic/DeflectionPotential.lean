@@ -27,6 +27,7 @@ def quadraticPotential (m w : Fraction) (p : Point) : Fraction :=
   (Fraction.mul (Fraction.mul m w) (dot p p)).half
 
 /-- Signed doubled area; the unsigned triangle uses its absolute value. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem deflection_triangle (h : Fraction) (B v a : Point) :
     Fraction.equiv (triangleTwice B (inertial h B v) (deflected h B v a))
       (Fraction.mul (Fraction.mul (Fraction.mul h h) h) (det v a)) := by
@@ -35,6 +36,7 @@ theorem deflection_triangle (h : Fraction) (B v a : Point) :
     Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg]
   ac_nf <;> omega
 
+-- Modern dependency score: 1/2 (M=1, H=1; transitive project theorems/axioms).
 theorem unsigned_deflection_triangle (h : Fraction) (B v a : Point) :
     Fraction.equiv (triangleMagnitude B (inertial h B v) (deflected h B v a))
       (Fraction.mul (Fraction.mul (Fraction.mul h h) h) (det v a)).abs :=
@@ -43,6 +45,7 @@ theorem unsigned_deflection_triangle (h : Fraction) (B v a : Point) :
 def fallAcceleration (g : Fraction) : Point := (Fraction.ofInt 0, negF g)
 
 /-- The potential at C minus its value at c, exactly for Galilean fall. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem galilean_potential_step (m g h : Fraction) (B v : Point) :
     Fraction.equiv
       (potentialStep (linearPotential m g) (inertial h B v)
@@ -56,6 +59,7 @@ theorem galilean_potential_step (m g h : Fraction) (B v : Point) :
 
 /-- A division-free exact proportionality. For m,g,h,v_x ≥ 0 and g>0,
 halving absolute doubled area gives tau=v_x/(2g). -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem galilean_area_potential_cross_relation (m g h : Fraction) (B v : Point) :
     Fraction.equiv
       (Fraction.mul (Fraction.mul m g)
@@ -72,6 +76,7 @@ theorem galilean_area_potential_cross_relation (m g h : Fraction) (B v : Point) 
 
 /-- Exact harmonic correction terms: the leading potential drop is
 -m h² |a(B)|², followed by a cubic tangent term and a quartic term. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem harmonic_potential_step (m w h : Fraction) (B v : Point) :
     Fraction.equiv
       (potentialStep (quadraticPotential m w) (inertial h B v)
@@ -92,6 +97,7 @@ theorem harmonic_potential_step (m w h : Fraction) (B v : Point) :
   ac_nf <;> omega
 
 /-- Dropping the correction terms is false at a finite nonzero step. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem harmonic_leading_term_not_exact :
     let one := Fraction.ofInt 1
     let zero := Fraction.ofInt 0

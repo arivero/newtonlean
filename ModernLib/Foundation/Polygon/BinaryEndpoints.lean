@@ -13,6 +13,7 @@ def timeCoordinate (T : Fraction) (hT : 0 ≤ T.num) :
   Quotient.lift (fun b => BinaryTime.timeValue b T hT)
     (fun _ _ h => Quotient.sound h)
 
+-- Modern dependency score: 16/64 (M=16, H=48; transitive project theorems/axioms).
 theorem timeCoordinate_injective (T : Fraction) (hT : 0 ≤ T.num) :
     ∀ x y : BinaryTime T hT,
       timeCoordinate T hT x = timeCoordinate T hT y → x = y := by
@@ -31,6 +32,7 @@ def TimeWithin (T : Fraction) (hT : 0 ≤ T.num)
     (x y : BinaryTime T hT) (R : Fraction) : Prop :=
   Within (timeCoordinate T hT x) (timeCoordinate T hT y) R
 
+-- Modern dependency score: 24/75 (M=24, H=51; transitive project theorems/axioms).
 theorem timeWithin_address (b c : Nat → Bool) (T : Fraction)
     (hT : 0 ≤ T.num) (R : Fraction) :
     TimeWithin T hT (Quotient.mk _ b) (Quotient.mk _ c) R ↔
@@ -45,6 +47,7 @@ def leftTime (T : Fraction) (hT : 0 ≤ T.num) : BinaryTime T hT :=
 def rightTime (T : Fraction) (hT : 0 ≤ T.num) : BinaryTime T hT :=
   Quotient.mk _ rightAddress
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem left_time_state_equiv (T : Fraction) (j : Nat) :
     stateEquiv (timeState leftAddress T j)
       (scalarState (Fraction.ofInt 0)) := by
@@ -58,6 +61,7 @@ theorem left_time_state_equiv (T : Fraction) (j : Nat) :
   exact ⟨⟨ht, Fraction.equiv_refl _⟩,
     ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
 
+-- Modern dependency score: 21/80 (M=21, H=59; transitive project theorems/axioms).
 theorem left_time_coordinate (T : Fraction) (hT : 0 ≤ T.num) :
     timeCoordinate T hT (leftTime T hT) =
       embed (scalarState (Fraction.ofInt 0)) := by
@@ -80,6 +84,7 @@ theorem left_time_coordinate (T : Fraction) (hT : 0 ≤ T.num) :
   exact Fraction.magnitudes.lt_of_le_lt hle
     (distance_self_lt _ eps heps)
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem right_ticks (j : Nat) : ticks rightAddress j + 1 = blocks j := by
   induction j with
   | zero => simp [ticks, rightAddress, bit, blocks]
@@ -88,6 +93,7 @@ theorem right_ticks (j : Nat) : ticks rightAddress j + 1 = blocks j := by
       simp only [rightAddress, bit, ite_true]
       omega
 
+-- Modern dependency score: 1/2 (M=1, H=1; transitive project theorems/axioms).
 theorem right_time_difference (T : Fraction) (j : Nat) :
     Fraction.equiv (durationDifference (timeApprox rightAddress T j) T)
       (duration T j) := by
@@ -105,6 +111,7 @@ theorem right_time_difference (T : Fraction) (j : Nat) :
   simp only [Int.add_mul, Int.mul_add, Int.one_mul, Int.mul_one]
   ac_nf <;> omega
 
+-- Modern dependency score: 3/11 (M=3, H=8; transitive project theorems/axioms).
 theorem right_time_distance (T : Fraction) (j : Nat)
     (hT : 0 ≤ T.num) :
     Fraction.equiv (distance (timeState rightAddress T j)
@@ -116,6 +123,7 @@ theorem right_time_distance (T : Fraction) (j : Nat)
   exact Fraction.equiv_trans h₁
     (Fraction.equiv_trans h₂ (Fraction.equiv_trans h₃ h₄))
 
+-- Modern dependency score: 19/70 (M=19, H=51; transitive project theorems/axioms).
 theorem right_time_coordinate (T : Fraction) (hT : 0 ≤ T.num) :
     timeCoordinate T hT (rightTime T hT) = embed (scalarState T) := by
   apply Quotient.sound

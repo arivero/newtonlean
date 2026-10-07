@@ -16,18 +16,21 @@ noncomputable def D_meshValue (o : ForceClasses.CentralOracle) (E0 T tau L B : F
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : ScalarValue :=
   contentValue (Region o E0 T tau L B s hE d m) (actualCover o E0 T tau L B s hE d m)
 
+-- Modern dependency score: 166/360 (M=166, H=194; transitive project theorems/axioms).
 theorem D_meshValue_lower_cut (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (q : Fraction) :
     Below q (D_meshValue o E0 T tau L B s hE d m).val ↔ D_mesh o E0 T tau L B s hE d m q :=
   contentValue_lower_cut _ _ q
 
+-- Modern dependency score: 167/361 (M=167, H=194; transitive project theorems/axioms).
 theorem D_meshValue_nonnegative (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
     Below (Fraction.ofInt 0) (D_meshValue o E0 T tau L B s hE d m).val :=
   contentValue_nonnegative _ _
 
+-- Modern dependency score: 167/363 (M=167, H=196; transitive project theorems/axioms).
 theorem D_meshValue_budget_bound (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -36,6 +39,7 @@ theorem D_meshValue_budget_bound (o : ForceClasses.CentralOracle) (E0 T tau L B 
   within_mono _ _ _ _ (Fraction.le_of_equiv (actual_budget_geometric o E0 T tau L B s hE d m))
     (contentValue_within_zero _ _)
 
+-- Modern dependency score: 169/366 (M=169, H=197; transitive project theorems/axioms).
 theorem D_meshValue_tends_zero (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) :
@@ -50,6 +54,7 @@ theorem D_meshValue_tends_zero (o : ForceClasses.CentralOracle) (E0 T tau L B : 
 
 /-- The old limiting enclosure is grounded by the constructed curve's actual
 nonnegative between-path content. No geometric enclosure is a hypothesis. -/
+-- Modern dependency score: 179/376 (M=179, H=197; transitive project theorems/axioms).
 theorem polygon_trajectory_enclosure (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -64,6 +69,7 @@ theorem polygon_trajectory_enclosure (o : ForceClasses.CentralOracle) (E0 T tau 
 
 /-- Strict rational-neighborhood vanishing of the actual completed content,
 using its derived enclosure and an explicit vanishing rational budget. -/
+-- Modern dependency score: 183/381 (M=183, H=198; transitive project theorems/axioms).
 theorem polygon_trajectory_defect_vanishes (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -73,6 +79,7 @@ theorem polygon_trajectory_defect_vanishes (o : ForceClasses.CentralOracle) (E0 
       d.calibration_positive d.lipschitz.1 d.bound_nonnegative))
     (polygon_trajectory_enclosure o E0 T tau L B s hE d)
 
+-- Modern dependency score: 165/359 (M=165, H=194; transitive project theorems/axioms).
 theorem D_meshValue_independent_cover (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat)
@@ -80,6 +87,7 @@ theorem D_meshValue_independent_cover (o : ForceClasses.CentralOracle) (E0 T tau
     D_meshValue o E0 T tau L B s hE d m = contentValue (Region o E0 T tau L B s hE d m) c :=
   contentValue_independent_cover _ _ c
 
+-- Modern dependency score: 171/367 (M=171, H=196; transitive project theorems/axioms).
 theorem D_meshValue_zero_window (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (hz : T.num=0) :

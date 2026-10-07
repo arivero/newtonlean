@@ -14,6 +14,7 @@ open HarmonicStability ForceClasses CauchyValues SecantValues PositionValues
 def linearValue (w : Fraction) (x : Value) : Value :=
   secantValue (negF w) x (embed (zeroPoint,zeroPoint))
 
+-- Modern dependency score: 32/106 (M=32, H=74; transitive project theorems/axioms).
 theorem completed_linear_force (w E0 : Fraction) (hw : 0 ≤ w.num) (hE : 0 < E0.num)
     (hL : LipschitzOn (harmonicOracle w hw).toOracle w.abs)
     (x : Value) (hx : SampledValues.Admissible (fun q => (harmonicOracle w hw).region q.1) x) :
@@ -28,6 +29,7 @@ theorem completed_linear_force (w E0 : Fraction) (hw : 0 ≤ w.num) (hE : 0 < E0
     exact ⟨pointScale_congr (negF w) (pointEquiv_symm (pointSub_zero (a.approx j).1)),
       ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
 
+-- Modern dependency score: 233/422 (M=233, H=189; transitive project theorems/axioms).
 theorem retained_curve_force_samples_converge (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (eps : Fraction) (heps : 0 < eps.num) :

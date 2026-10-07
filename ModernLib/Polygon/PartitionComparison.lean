@@ -6,6 +6,7 @@ open NewtonLimitDynamics
 open TimeSubdivision
 open PartitionControl
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem half_equiv {a b : Fraction} (h : Fraction.equiv a b) :
     Fraction.equiv (Fraction.half a) (Fraction.half b) := by
   unfold Fraction.equiv Fraction.half at *
@@ -14,6 +15,7 @@ private theorem half_equiv {a b : Fraction} (h : Fraction.equiv a b) :
     _ = 2 * (b.num * a.den) := by rw [h]
     _ = b.num * (2 * a.den) := by ac_rfl
 
+-- Modern dependency score: 1/12 (M=1, H=11; transitive project theorems/axioms).
 private theorem candidate_scalar_congr {s t : Fraction} (h : Fraction.equiv s t)
     (p v a : Fraction) :
     Fraction.equiv
@@ -24,6 +26,7 @@ private theorem candidate_scalar_congr {s t : Fraction} (h : Fraction.equiv s t)
     (Fraction.add_equiv_left _ (Fraction.mul_equiv_right a (half_equiv (Fraction.mul_equiv h h))))
 
 /-- The constructed candidate depends only on the represented rational time. -/
+-- Modern dependency score: 2/13 (M=2, H=11; transitive project theorems/axioms).
 theorem candidate_time_congr (p v a : Point) {s t : Fraction} (h : Fraction.equiv s t) :
     pointEquiv (candidate p v a s) (candidate p v a t) :=
   ⟨candidate_scalar_congr h p.1 v.1 a.1, candidate_scalar_congr h p.2 v.2 a.2⟩
@@ -32,6 +35,7 @@ theorem candidate_time_congr (p v a : Point) {s t : Fraction} (h : Fraction.equi
     and cells, reaching the same rational time: their actual positions, each
     corrected by its own exact residual `(Q/(2D²))*a`, agree.  The candidate
     serves only as the common algebraic comparison term. -/
+-- Modern dependency score: 17/34 (M=17, H=17; transitive project theorems/axioms).
 theorem partition_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
     (ws ws' : List Nat)
     (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
@@ -44,12 +48,14 @@ theorem partition_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Poin
     (pointEquiv_trans (candidate_time_congr p v a ht)
       (candidate_partitionMotion_residual E hE p v a ws'))
 
+-- Modern dependency score: 0/10 (M=0, H=10; transitive project theorems/axioms).
 private theorem velocity_scalar_congr {s t : Fraction} (h : Fraction.equiv s t) (v a : Fraction) :
     Fraction.equiv (Fraction.add v (Fraction.mul s a)) (Fraction.add v (Fraction.mul t a)) :=
   Fraction.add_equiv_left v (Fraction.mul_equiv_right a h)
 
 /-- Two arbitrary schedules reaching equivalent rational times have equivalent
     actual velocities; no correction term is needed. -/
+-- Modern dependency score: 9/25 (M=9, H=16; transitive project theorems/axioms).
 theorem velocity_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
     (ws ws' : List Nat)
     (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :
@@ -65,6 +71,7 @@ theorem velocity_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point
     drift (`u/D` and `u'/E`), reaching equivalent rational times.  Their actual
     partial positions agree after each is corrected by its own residual
     `((Q+u*u)/(2D²))*a`.  Derived through the appended schedules. -/
+-- Modern dependency score: 23/40 (M=23, H=17; transitive project theorems/axioms).
 theorem partial_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
     (ws ws' : List Nat) (u u' : Nat)
     (ht : Fraction.equiv (duration D (total ws + u) hD) (duration E (total ws' + u') hE)) :
@@ -84,6 +91,7 @@ theorem partial_comparison (D E : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
     only along `a`, through two nonnegative coefficients each bounded by its
     own largest-cell coefficient `M*T/(2D²)` (largest cell times elapsed time,
     halved). -/
+-- Modern dependency score: 23/40 (M=23, H=17; transitive project theorems/axioms).
 theorem partition_gap (D E M M' : Nat) (hD : 0 < D) (hE : 0 < E) (p v a : Point)
     (ws ws' : List Nat) (hw : ∀ w ∈ ws, w ≤ M) (hw' : ∀ w ∈ ws', w ≤ M')
     (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total ws') hE)) :

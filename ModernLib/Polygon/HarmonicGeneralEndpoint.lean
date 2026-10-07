@@ -10,28 +10,33 @@ open TimeSubdivision PointBounds ForceClasses HarmonicStability HarmonicDyadic
 
 
 /-- Precision selection has no effect on a zero-error exact law. -/
+-- Modern dependency score: 1/15 (M=1, H=14; transitive project theorems/axioms).
 theorem harmonic_field (w E0 : Fraction) (hw : 0 ≤ w.num) (hE : 0 < E0.num) (j : Nat) :
     GeneralForceEndpoint.field (harmonicOracle w hw) E0 hE j = linearField w := rfl
 
 def harmonicBound (w : Fraction) (s : Point × Point) : Fraction :=
   Fraction.mul w.abs (Fraction.mul (Fraction.ofInt 4) (stateNorm s))
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 theorem harmonicBound_nonnegative (w : Fraction) (s : Point × Point) :
     0 ≤ (harmonicBound w s).num := Fraction.nonnegative_mul _ _
   (Fraction.abs_num_nonnegative w)
   (Fraction.nonnegative_mul _ _ (by decide) (stateNorm_nonnegative s))
 
+-- Modern dependency score: 0/9 (M=0, H=9; transitive project theorems/axioms).
 theorem linear_sample_norm (w : Fraction) (p : Point) :
     Fraction.equiv (pointNorm (linearField w p)) (Fraction.mul w.abs (pointNorm p)) :=
   Fraction.equiv_trans (pointNorm_scale (negF w) p)
     (Fraction.mul_equiv (Fraction.abs_neg w) (Fraction.equiv_refl _))
 
+-- Modern dependency score: 1/16 (M=1, H=15; transitive project theorems/axioms).
 theorem linear_sample_bound (w : Fraction) (s : Point × Point) (p : Point)
     (hp : Fraction.le (pointNorm p) (Fraction.mul (Fraction.ofInt 4) (stateNorm s))) :
     Fraction.le (pointNorm (linearField w p)) (harmonicBound w s) :=
   Fraction.le_equiv_left (linear_sample_norm w p)
     (Fraction.mul_le_mul_nonnegative_left hp w.abs (Fraction.abs_num_nonnegative w))
 
+-- Modern dependency score: 31/73 (M=31, H=42; transitive project theorems/axioms).
 theorem full_run_state_bound (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (j k : Nat) (hk : k ≤ blocks j) :
     Fraction.le
@@ -43,11 +48,13 @@ theorem full_run_state_bound (w T : Fraction) (s : Point × Point)
     (HarmonicUniform.smallTime_prefix w (duration T (j+1)) k (blocks j) hT hk
       (dyadic_smallTime w T j hs))
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 theorem two_to_four (s : Point × Point) :
     Fraction.le (Fraction.mul (Fraction.ofInt 2) (stateNorm s))
       (Fraction.mul (Fraction.ofInt 4) (stateNorm s)) :=
   Fraction.mul_le_mul_nonnegative (by unfold Fraction.le Fraction.ofInt; decide) (stateNorm s) (stateNorm_nonnegative s)
 
+-- Modern dependency score: 0/14 (M=0, H=14; transitive project theorems/axioms).
 theorem time_le_one (w T : Fraction) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     Fraction.le T (Fraction.ofInt 1) := by
   have hone := Fraction.le_add_nonnegative (Fraction.ofInt 1) w.abs
@@ -62,6 +69,7 @@ theorem time_le_one (w T : Fraction) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w 
     unfold Fraction.le Fraction.ofInt
     decide)
 
+-- Modern dependency score: 34/83 (M=34, H=49; transitive project theorems/axioms).
 theorem shadow_position_bound (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (j k : Nat) (hk : k < blocks j) :
     Fraction.le
@@ -90,6 +98,7 @@ theorem shadow_position_bound (w T : Fraction) (s : Point × Point)
   ac_nf
 
 /-- The retained harmonic window supplies a finite regional ball budget. -/
+-- Modern dependency score: 1/25 (M=1, H=24; transitive project theorems/axioms).
 theorem harmonic_band_budget (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     Fraction.le (Fraction.add (pointNorm s.1)
@@ -145,12 +154,14 @@ def conditions (w E0 T : Fraction) (s : Point × Point)
     intro j p hp
     exact linear_sample_bound w s p hp.2
 
+-- Modern dependency score: 3/18 (M=3, H=15; transitive project theorems/axioms).
 theorem harmonic_endpoint_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (j : Nat) :
     GeneralForceEndpoint.endpoint (harmonicOracle w hw) E0 T hE s j = HarmonicDyadic.endpoint w T s j := by
   rw [GeneralForceEndpoint.endpoint,harmonic_field,run_eq_schedule]
   rfl
 
+-- Modern dependency score: 119/275 (M=119, H=156; transitive project theorems/axioms).
 theorem harmonic_name_equiv (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     CauchyValues.NameEquiv
@@ -166,6 +177,7 @@ theorem harmonic_name_equiv (w E0 T : Fraction) (s : Point × Point)
     (Fraction.le_of_equiv (FiniteEstimates.stateDistance_self_zero _))
     ((Fraction.positive_iff_zero_lt eps).mp heps)
 
+-- Modern dependency score: 127/285 (M=127, H=158; transitive project theorems/axioms).
 theorem harmonic_value_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     GeneralForceEndpoint.endpointValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs

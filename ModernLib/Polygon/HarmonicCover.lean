@@ -48,11 +48,13 @@ def squareArea (R : Fraction) : Fraction := SquareOuterContent.squareArea R
 def coverBudget (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
   Fraction.mul (Fraction.ofInt (n : Int)) (squareArea (radius w h s n))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem totalTime_nonnegative (h : Fraction) (n : Nat) (hh : 0 ≤ h.num) :
     0 ≤ (totalTime h n).num := by
   unfold totalTime Fraction.mul Fraction.ofInt
   exact Int.mul_nonneg (Int.mul_nonneg (by decide) (Int.ofNat_nonneg _)) hh
 
+-- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 private theorem maxError_nonnegative (w h : Fraction) (s : Point × Point)
     (n : Nat) (hh : 0 ≤ h.num) : 0 ≤ (maxError w h s n).num :=
   Fraction.nonnegative_mul _ _ (by decide)
@@ -60,27 +62,33 @@ private theorem maxError_nonnegative (w h : Fraction) (s : Point × Point)
       (Fraction.nonnegative_mul _ _ hh
         (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative w) (stateNorm_nonnegative s))))
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 private theorem halfDriftBudget_nonnegative (h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) : 0 ≤ (halfDriftBudget h s).num :=
   Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 private theorem fullDriftBudget_nonnegative (h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) : 0 ≤ (fullDriftBudget h s).num :=
   Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
 
+-- Modern dependency score: 3/8 (M=3, H=5; transitive project theorems/axioms).
 theorem radius_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) : 0 ≤ (radius w h s n).num :=
   Fraction.nonnegative_add _ _ (fullDriftBudget_nonnegative h s hh)
     (maxError_nonnegative w h s n hh)
 
+-- Modern dependency score: 1/2 (M=1, H=1; transitive project theorems/axioms).
 theorem squareArea_nonnegative (R : Fraction) (hR : 0 ≤ R.num) :
     0 ≤ (squareArea R).num := SquareOuterContent.squareArea_nonnegative R hR
 
+-- Modern dependency score: 6/11 (M=6, H=5; transitive project theorems/axioms).
 theorem coverBudget_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) : 0 ≤ (coverBudget w h s n).num :=
   Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _)
     (squareArea_nonnegative _ (radius_nonnegative w h s n hh))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem totalTime_le (h : Fraction) (i n : Nat)
     (hh : 0 ≤ h.num) (hin : i ≤ n) :
     Fraction.le (totalTime h i) (totalTime h n) := by
@@ -100,6 +108,7 @@ private theorem totalTime_le (h : Fraction) (i n : Nat)
         _ = _ := by ac_rfl
 
 /-- Every earlier actual endpoint error is bounded by the final-count cap. -/
+-- Modern dependency score: 58/128 (M=58, H=70; transitive project theorems/axioms).
 private theorem prefix_error_le_max (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -117,6 +126,7 @@ private theorem prefix_error_le_max (w h : Fraction) (s : Point × Point)
   have hm' := Fraction.mul_le_mul_nonnegative_left hm (Fraction.ofInt 3) (by decide)
   exact Fraction.magnitudes.le_trans he hm'
 
+-- Modern dependency score: 0/25 (M=0, H=25; transitive project theorems/axioms).
 private theorem drift_offset_le_state (d : Fraction) (hd : 0 ≤ d.num)
     (t : Point × Point) :
     Fraction.le
@@ -131,6 +141,7 @@ private theorem drift_offset_le_state (d : Fraction) (hd : 0 ≤ d.num)
   have hm := Fraction.mul_le_mul_nonnegative_left hv d hd
   exact Fraction.le_equiv_left hstart hm
 
+-- Modern dependency score: 0/5 (M=0, H=5; transitive project theorems/axioms).
 private theorem two_le_four (h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) :
     Fraction.le (halfDriftBudget h s) (fullDriftBudget h s) := by
@@ -140,6 +151,7 @@ private theorem two_le_four (h : Fraction) (s : Point × Point)
   exact Fraction.mul_le_mul_nonnegative ht (Fraction.mul h (stateNorm s))
     (Fraction.nonnegative_mul _ _ hh (stateNorm_nonnegative s))
 
+-- Modern dependency score: 1/29 (M=1, H=28; transitive project theorems/axioms).
 private theorem half_drift_le (h : Fraction) (s t : Point × Point)
     (hh : 0 ≤ h.num)
     (ht : Fraction.le (stateNorm t) (Fraction.mul two (stateNorm s))) :
@@ -153,6 +165,7 @@ private theorem half_drift_le (h : Fraction) (s t : Point × Point)
   simp only [halfDriftBudget, two, Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
+-- Modern dependency score: 1/30 (M=1, H=29; transitive project theorems/axioms).
 private theorem full_drift_le (h : Fraction) (s t : Point × Point)
     (hh : 0 ≤ h.num)
     (ht : Fraction.le (stateNorm t) (Fraction.mul two (stateNorm s))) :
@@ -191,6 +204,7 @@ def coarseEnd (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
 def fineEnd (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
   (fineAt w h s (i + 1)).1
 
+-- Modern dependency score: 28/75 (M=28, H=47; transitive project theorems/axioms).
 private theorem coarse_mid_le_half (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -199,6 +213,7 @@ private theorem coarse_mid_le_half (w h : Fraction) (s : Point × Point)
   half_drift_le h s (coarseAt w h s i) hh
     (coarse_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
 
+-- Modern dependency score: 27/74 (M=27, H=47; transitive project theorems/axioms).
 private theorem fine_mid_own_le_half (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -207,6 +222,7 @@ private theorem fine_mid_own_le_half (w h : Fraction) (s : Point × Point)
   half_drift_le h s (fineAt w h s i) hh
     (fine_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
 
+-- Modern dependency score: 28/75 (M=28, H=47; transitive project theorems/axioms).
 private theorem coarse_end_le_full (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -215,6 +231,7 @@ private theorem coarse_end_le_full (w h : Fraction) (s : Point × Point)
   full_drift_le h s (coarseAt w h s i) hh
     (coarse_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
 
+-- Modern dependency score: 59/129 (M=59, H=70; transitive project theorems/axioms).
 private theorem fine_start_error_le (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -224,6 +241,7 @@ private theorem fine_start_error_le (w h : Fraction) (s : Point × Point)
     (point_le_state (stateSub (fineAt w h s i) (coarseAt w h s i)))
     (prefix_error_le_max w h s i n hh hin hs)
 
+-- Modern dependency score: 66/138 (M=66, H=72; transitive project theorems/axioms).
 private theorem fine_mid_le (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -237,6 +255,7 @@ private theorem fine_mid_le (w h : Fraction) (s : Point × Point)
   exact Fraction.le_equiv_right hc
     (Fraction.add_comm (halfDriftBudget h s) (maxError w h s n))
 
+-- Modern dependency score: 68/140 (M=68, H=72; transitive project theorems/axioms).
 private theorem fine_end_le (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
     (hs : SmallTime w h n) :
@@ -249,6 +268,7 @@ private theorem fine_end_le (w h : Fraction) (s : Point × Point)
   have h₂ := coarse_end_le_full w h s i n hh (Nat.le_of_lt hin) hs
   exact Fraction.magnitudes.le_trans ht (Fraction.add_le_add h₁ h₂)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem zero_le (R : Fraction) (hR : 0 ≤ R.num) :
     Fraction.le (Fraction.ofInt 0) R := by
   unfold Fraction.le Fraction.ofInt
@@ -257,6 +277,7 @@ private theorem zero_le (R : Fraction) (hR : 0 ≤ R.num) :
 /-- Six actual vertices, each measured from the coarse block start, fit in
 the same coordinate L1 ball of radius `4hM + Emax`. The midpoint is only a
 subdivision of the coarse drift; it receives no impulse. -/
+-- Modern dependency score: 82/154 (M=82, H=72; transitive project theorems/axioms).
 theorem actual_corners_in_ball (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
     (hs : SmallTime w h n) :
@@ -310,6 +331,7 @@ def secondPatch (w h : Fraction) (s : Point × Point) (i : Nat)
   matchedPatch theta lambda (coarseMid w h s i) (coarseEnd w h s i)
     (fineMid w h s i) (fineEnd w h s i)
 
+-- Modern dependency score: 83/164 (M=83, H=81; transitive project theorems/axioms).
 theorem firstPatch_square (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
     (hs : SmallTime w h n) (theta lambda : Fraction)
@@ -319,6 +341,7 @@ theorem firstPatch_square (w h : Fraction) (s : Point × Point)
   obtain ⟨hc0, hc1, _, hf0, hf1, _⟩ := actual_corners_in_ball w h s i n hh hin hs
   exact matchedPatch_square theta lambda ht hl _ _ _ _ _ _ hc0 hc1 hf0 hf1
 
+-- Modern dependency score: 83/164 (M=83, H=81; transitive project theorems/axioms).
 theorem secondPatch_square (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
     (hs : SmallTime w h n) (theta lambda : Fraction)
@@ -333,6 +356,7 @@ def shapeFactor (w h : Fraction) (n : Nat) : Fraction :=
     (Fraction.mul (Fraction.ofInt 3) (Fraction.mul (totalTime h n) w.abs))
 
 /-- Compact radius formula: `R=h*M*(4+3*T*|w|)`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem radius_formula (w h : Fraction) (s : Point × Point) (n : Nat) :
     Fraction.equiv (radius w h s n)
       (Fraction.mul (Fraction.mul h (stateNorm s)) (shapeFactor w h n)) := by
@@ -343,6 +367,7 @@ theorem radius_formula (w h : Fraction) (s : Point × Point) (n : Nat) :
 
 /-- The summed square budget is `2*T*h*M²*(4+3*T*|w|)²`. It counts one
 square per coarse block; no union-area or disjointness assertion is used. -/
+-- Modern dependency score: 1/8 (M=1, H=7; transitive project theorems/axioms).
 theorem coverBudget_formula (w h : Fraction) (s : Point × Point) (n : Nat) :
     Fraction.equiv (coverBudget w h s n)
       (Fraction.mul (Fraction.ofInt 2)
@@ -369,21 +394,26 @@ private def eighth : Fraction := ⟨1, 8, by decide⟩
 private def quarter : Fraction := ⟨1, 4, by decide⟩
 private def sample : Point × Point := ((one, zero), (zero, one))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_small_time : SmallTime one eighth 1 := by
   unfold SmallTime Fraction.le
   decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_radius :
     Fraction.equiv (radius one eighth sample 1) ⟨19, 16, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_square_area :
     Fraction.equiv (squareArea (radius one eighth sample 1))
       ⟨361, 64, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_cover_budget :
     Fraction.equiv (coverBudget one eighth sample 1)
       ⟨361, 64, by decide⟩ := by decide
 
+-- Modern dependency score: 84/156 (M=84, H=72; transitive project theorems/axioms).
 theorem sample_all_corners :
     let x := coarseStart one eighth sample 0
     let R := radius one eighth sample 1
@@ -395,6 +425,7 @@ theorem sample_all_corners :
     Fraction.le (pointNorm (pointSub (fineEnd one eighth sample 0) x)) R :=
   actual_corners_in_ball one eighth sample 0 1 (by decide) (by decide) sample_small_time
 
+-- Modern dependency score: 85/166 (M=85, H=81; transitive project theorems/axioms).
 theorem sample_first_patch_square (theta lambda : Fraction)
     (ht : UnitInterval theta) (hl : UnitInterval lambda) :
     SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)
@@ -402,6 +433,7 @@ theorem sample_first_patch_square (theta lambda : Fraction)
   firstPatch_square one eighth sample 0 1 (by decide) (by decide)
     sample_small_time theta lambda ht hl
 
+-- Modern dependency score: 85/166 (M=85, H=81; transitive project theorems/axioms).
 theorem sample_second_patch_square (theta lambda : Fraction)
     (ht : UnitInterval theta) (hl : UnitInterval lambda) :
     SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)
@@ -409,12 +441,15 @@ theorem sample_second_patch_square (theta lambda : Fraction)
   secondPatch_square one eighth sample 0 1 (by decide) (by decide)
     sample_small_time theta lambda ht hl
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_zero_blocks_budget :
     Fraction.equiv (coverBudget one eighth sample 0) zero := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_zero_duration_budget :
     Fraction.equiv (coverBudget one zero sample 1) zero := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_quarter_ball_too_small :
     ¬ Fraction.le
       (pointNorm (pointSub (fineEnd one eighth sample 0)
@@ -425,6 +460,7 @@ theorem sample_quarter_ball_too_small :
 /-- A separate coordinate-square control: the coarse endpoint's vertical
 offset is 1/4, so a square of radius 1/8 cannot cover it. The preceding
 L1-ball control does not assert failure of a square of radius 1/4. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_eighth_square_too_small :
     ¬ SquareContains (coarseStart one eighth sample 0) eighth
       (coarseEnd one eighth sample 0) := by

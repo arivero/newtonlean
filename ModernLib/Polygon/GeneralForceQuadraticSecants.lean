@@ -22,6 +22,7 @@ noncomputable def cellSecondSecant (o : CentralOracle) (E0 T tau L B : Fraction)
 /-- The actual finite node approximants retain their sample and half-mesh
 errors. Both the completed second-order bridge and potential calculations use
 this estimate, rather than repeating the restarted-run proof. -/
+-- Modern dependency score: 63/229 (M=63, H=166; transitive project theorems/axioms).
 theorem node_second_sample_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
@@ -78,6 +79,7 @@ theorem node_second_sample_bound (o : CentralOracle) (E0 T tau L B : Fraction)
   simp only [AccelerationEstimates.source,Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 127/317 (M=127, H=190; transitive project theorems/axioms).
 theorem cell_second_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
@@ -131,6 +133,7 @@ noncomputable def secondCoefficient (T tau L B : Fraction) (s : Point × Point)
   Fraction.mul L (Fraction.add (Fraction.mul (Fraction.ofInt 2) (velocityCap T B s))
     (stateTimeFactor T tau B s ht))
 
+-- Modern dependency score: 3/7 (M=3, H=4; transitive project theorems/axioms).
 theorem secondCoefficient_nonnegative (T tau L B : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) :
     0 ≤ (secondCoefficient T tau L B s ht).num :=
@@ -138,6 +141,7 @@ theorem secondCoefficient_nonnegative (T tau L B : Fraction) (s : Point × Point
     (Fraction.nonnegative_mul _ _ (by decide) (velocityCap_nonnegative T B s hT hB))
     (stateTimeFactor_nonnegative T tau B s hT ht hB))
 
+-- Modern dependency score: 149/345 (M=149, H=196; transitive project theorems/axioms).
 theorem bracketing_second_secant_bound (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) :
@@ -161,6 +165,7 @@ theorem bracketing_second_secant_bound (b : Nat → Bool) (o : CentralOracle)
 
 /-- The half-coefficient position departure is derived on the actual
 completed curve at every bracketing dyadic cell, including the final boundary. -/
+-- Modern dependency score: 151/347 (M=151, H=196; transitive project theorems/axioms).
 theorem dyadic_second_uniform_identification (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)

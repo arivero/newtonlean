@@ -21,6 +21,7 @@ def equalAreal (R1 R2 v1 v2 : Nat) : Prop :=
 
 /-- Under an inverse-cube comparison, circles related by Cor. 1 have the same
     areal velocity. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem inverseCube_equalAreal (F1 F2 R1 R2 v1 v2 : Nat) (hF : 0 < F2) (hR : 0 < R2)
     (h1 : corOneProportion F1 F2 R1 R2 v1 v2) (h3 : inverseCube F1 F2 R1 R2) :
     equalAreal R1 R2 v1 v2 := by
@@ -37,6 +38,7 @@ theorem inverseCube_equalAreal (F1 F2 R1 R2 v1 v2 : Nat) (hF : 0 < F2) (hR : 0 <
 
 /-- Conversely, a common areal velocity with Cor. 1 forces the inverse-cube
     comparison. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem equalAreal_inverseCube (F1 F2 R1 R2 v1 v2 : Nat) (hv : 0 < v2)
     (h1 : corOneProportion F1 F2 R1 R2 v1 v2) (hA : equalAreal R1 R2 v1 v2) :
     inverseCube F1 F2 R1 R2 := by
@@ -54,6 +56,7 @@ theorem equalAreal_inverseCube (F1 F2 R1 R2 v1 v2 : Nat) (hv : 0 < v2)
 /-- Contrast: under an inverse-square comparison (`F₁R₁² = F₂R₂²`, 1713
     Cor. 6), radii 1 and 4 with speeds 2 and 1 satisfy Cor. 1 but have
     unequal areal velocities 2 and 4. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem inverseSquare_areal_varies :
     corOneProportion 16 1 1 4 2 1 ∧ 16 * (1 * 1) = 1 * (4 * 4) ∧
       ¬ equalAreal 1 4 2 1 := by

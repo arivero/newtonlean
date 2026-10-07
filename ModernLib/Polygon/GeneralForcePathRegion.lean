@@ -39,6 +39,7 @@ noncomputable def coverRadius (o : ForceClasses.CentralOracle) (E0 T tau L B : F
     edgeCoefficient_nonnegative E0 T tau L B s hE d.time_nonnegative d.calibration_positive
       d.lipschitz.1 d.bound_nonnegative⟩
 
+-- Modern dependency score: 128/309 (M=128, H=181; transitive project theorems/axioms).
 theorem simultaneous_endpoints_square (b : Nat → Bool) (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -73,6 +74,7 @@ noncomputable def actualCover (o : ForceClasses.CentralOracle) (E0 T tau L B : F
     (coverRadius o E0 T tau L B s hE d m)
     (fun b => simultaneous_endpoints_square b o E0 T tau L B s hE d m)
 
+-- Modern dependency score: 114/301 (M=114, H=187; transitive project theorems/axioms).
 theorem connector_in_region (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat)
@@ -83,6 +85,7 @@ theorem connector_in_region (o : ForceClasses.CentralOracle) (E0 T tau L B : Fra
 
 /-- The final endpoint may differ from its coarse vertex, so its connector is
 retained explicitly rather than assumed to vanish. -/
+-- Modern dependency score: 120/308 (M=120, H=188; transitive project theorems/axioms).
 theorem final_connector_in_region (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat)
@@ -98,11 +101,13 @@ theorem final_connector_in_region (o : ForceClasses.CentralOracle) (E0 T tau L B
 noncomputable def budgetCoefficient (E0 T tau L B : Fraction) (s : Point × Point)
     (ht : 0 < tau.num) : Fraction := squareArea (edgeCoefficient E0 T tau L B s ht)
 
+-- Modern dependency score: 7/11 (M=7, H=4; transitive project theorems/axioms).
 theorem budgetCoefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) :
     0 ≤ (budgetCoefficient E0 T tau L B s ht).num :=
   squareArea_nonnegative _ (edgeCoefficient_nonnegative E0 T tau L B s hE hT ht hL hB)
 
+-- Modern dependency score: 151/340 (M=151, H=189; transitive project theorems/axioms).
 theorem actual_budget_geometric (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -117,11 +122,13 @@ def D_mesh (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) : Fraction → Prop :=
   LowerContent (Region o E0 T tau L B s hE d m)
 
+-- Modern dependency score: 112/298 (M=112, H=186; transitive project theorems/axioms).
 theorem D_mesh_nonnegative (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
     D_mesh o E0 T tau L B s hE d m (Fraction.ofInt 0) := content_zero_lower _
 
+-- Modern dependency score: 152/341 (M=152, H=189; transitive project theorems/axioms).
 theorem D_mesh_bound (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat)
@@ -130,6 +137,7 @@ theorem D_mesh_bound (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
   Fraction.le_equiv_right (hq (actualCover o E0 T tau L B s hE d m))
     (actual_budget_geometric o E0 T tau L B s hE d m)
 
+-- Modern dependency score: 155/345 (M=155, H=190; transitive project theorems/axioms).
 theorem D_mesh_tends_zero (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) :
@@ -141,6 +149,7 @@ theorem D_mesh_tends_zero (o : ForceClasses.CentralOracle) (E0 T tau L B : Fract
   exact ⟨N,fun m hm q hq => Fraction.magnitudes.lt_of_le_lt
     (D_mesh_bound o E0 T tau L B s hE d m q hq) (hN m hm)⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem budget_zero_window (E0 T tau L B : Fraction) (s : Point × Point)
     (ht : 0 < tau.num) (m : Nat) (hz : T.num=0) :
     Fraction.equiv (duration (budgetCoefficient E0 T tau L B s ht) m) (Fraction.ofInt 0) := by
@@ -148,6 +157,7 @@ theorem budget_zero_window (E0 T tau L B : Fraction) (s : Point × Point)
     GeneralForcePrefix.weightedCoefficient,GeneralForceEndpoint.weightedCoefficient,
     duration,Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,hz]
 
+-- Modern dependency score: 159/348 (M=159, H=189; transitive project theorems/axioms).
 theorem D_mesh_zero_window (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat)

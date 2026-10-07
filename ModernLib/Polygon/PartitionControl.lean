@@ -25,6 +25,7 @@ def total (weights : List Nat) : Nat := (stats weights).T
 def cross (weights : List Nat) : Nat := (stats weights).A
 def squares (weights : List Nat) : Nat := (stats weights).Q
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem next_identity (s : PartitionStats)
     (h : 2 * s.A + s.Q = s.T * s.T) (w : Nat) :
     2 * (next s w).A + (next s w).Q = (next s w).T * (next s w).T := by
@@ -33,6 +34,7 @@ theorem next_identity (s : PartitionStats)
   have htw : s.T * w = w * s.T := Nat.mul_comm _ _
   omega
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem stats_identity_from (s : PartitionStats)
     (h : 2 * s.A + s.Q = s.T * s.T) : (weights : List Nat) ->
     2 * (weights.foldl next s).A + (weights.foldl next s).Q =
@@ -43,16 +45,19 @@ theorem stats_identity_from (s : PartitionStats)
       exact stats_identity_from (next s w) (next_identity s h w) ws
 
 /-- The ordered-pair and square decomposition for every finite schedule. -/
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 theorem stats_identity (weights : List Nat) :
     2 * cross weights + squares weights = total weights * total weights := by
   exact stats_identity_from initial (by decide) weights
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem next_bound (M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)
     (w : Nat) (hw : w ≤ M) : (next s w).Q ≤ M * (next s w).T := by
   have hww : w * w ≤ M * w := Nat.mul_le_mul_right w hw
   simp only [next, Nat.mul_add]
   omega
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem stats_bound_from (M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)
     (weights : List Nat) (hw : ∀ w ∈ weights, w ≤ M) :
     (weights.foldl next s).Q ≤ M * (weights.foldl next s).T := by
@@ -65,6 +70,7 @@ theorem stats_bound_from (M : Nat) (s : PartitionStats) (h : s.Q ≤ M * s.T)
         (fun x hx => hw x (Or.inr hx))
 
 /-- A max-cell estimate for the finite square coefficient. -/
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 theorem stats_bound (M : Nat) (weights : List Nat) (hw : ∀ w ∈ weights, w ≤ M) :
     squares weights ≤ M * total weights := by
   exact stats_bound_from M initial (by change 0 ≤ M * 0; omega) weights hw
@@ -73,6 +79,7 @@ theorem stats_bound (M : Nat) (weights : List Nat) (hw : ∀ w ∈ weights, w �
     an additional hypothesis when a nondegenerate partition is required. -/
 def positiveWeights (weights : List Nat) : Prop := ∀ w ∈ weights, 0 < w
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem natDen_pos (D : Nat) (hD : 0 < D) : (0 : Int) < D := by omega
 
 /-- The common-denominator duration `w/D`. -/
@@ -81,11 +88,13 @@ def duration (D w : Nat) (hD : 0 < D) : Fraction := ⟨w, D, natDen_pos D hD⟩
 def squareDuration (D w : Nat) (hD : 0 < D) : Fraction := ⟨w, D * D, by
   exact Int.mul_pos (natDen_pos D hD) (natDen_pos D hD)⟩
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem duration_positive (D w : Nat) (hD : 0 < D) (hw : 0 < w) :
     Fraction.positive (duration D w hD) := by
   change 0 < (w : Int)
   omega
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem scalar_step_position (D A T w : Nat) (hD : 0 < D) (p v a : Fraction) :
     Fraction.equiv
       (Fraction.add
@@ -101,6 +110,7 @@ private theorem scalar_step_position (D A T w : Nat) (hD : 0 < D) (p v a : Fract
   simp only [Int.ofNat_add, Int.ofNat_mul, Int.add_mul, Int.mul_add]
   ac_rfl
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem scalar_step_velocity (D T w : Nat) (hD : 0 < D) (v a : Fraction) :
     Fraction.equiv
       (Fraction.add (Fraction.add v (Fraction.mul (duration D T hD) a))
@@ -111,6 +121,7 @@ private theorem scalar_step_velocity (D T w : Nat) (hD : 0 < D) (v a : Fraction)
   simp only [Int.ofNat_add, Int.add_mul]
   ac_rfl
 
+-- Modern dependency score: 0/10 (M=0, H=10; transitive project theorems/axioms).
 private theorem endKick_congr (d : Fraction) {x y : Point × Point} (a : Point)
     (h : pointEquiv x.1 y.1 ∧ pointEquiv x.2 y.2) :
     pointEquiv (endKick d x a).1 (endKick d y a).1 ∧
@@ -134,6 +145,7 @@ def encodedState (D : Nat) (hD : 0 < D) (s : PartitionStats) (p v a : Point) : P
 def partitionMotion (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) : Point × Point :=
   weights.foldl (fun state w => endKick (duration D w hD) state a) (p, v)
 
+-- Modern dependency score: 3/3 (M=3, H=0; transitive project theorems/axioms).
 private theorem encoded_step (D : Nat) (hD : 0 < D) (s : PartitionStats) (w : Nat)
     (p v a : Point) :
     pointEquiv (endKick (duration D w hD) (encodedState D hD s p v a) a).1
@@ -146,6 +158,7 @@ private theorem encoded_step (D : Nat) (hD : 0 < D) (s : PartitionStats) (w : Na
   · exact scalar_step_velocity D s.T w hD v.1 a.1
   · exact scalar_step_velocity D s.T w hD v.2 a.2
 
+-- Modern dependency score: 5/16 (M=5, H=11; transitive project theorems/axioms).
 private theorem fold_encoded (D : Nat) (hD : 0 < D) (s : PartitionStats)
     (state : Point × Point) (p v a : Point)
     (hstate : pointEquiv state.1 (encodedState D hD s p v a).1 ∧
@@ -162,6 +175,7 @@ private theorem fold_encoded (D : Nat) (hD : 0 < D) (s : PartitionStats)
       exact fold_encoded D hD (next s w) _ p v a
         ⟨pointEquiv_trans hkick.1 hencoded.1, pointEquiv_trans hkick.2 hencoded.2⟩ ws
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem initial_encoded (D : Nat) (hD : 0 < D) (p v a : Point) :
     pointEquiv p (encodedState D hD initial p v a).1 ∧
       pointEquiv v (encodedState D hD initial p v a).2 := by
@@ -171,6 +185,7 @@ private theorem initial_encoded (D : Nat) (hD : 0 < D) (p v a : Point) :
 
 /-- The finite end-kick schedule has velocity `v + (T/D)a` and position
     `p + (T/D)v + (A/D²)a`, componentwise up to rational representation. -/
+-- Modern dependency score: 7/18 (M=7, H=11; transitive project theorems/axioms).
 theorem partitionMotion_formula (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
     pointEquiv (partitionMotion D hD p v a weights).1
       (encodedPosition D hD (stats weights) p v a) ∧
@@ -189,6 +204,7 @@ def residualCoefficient (D Q : Nat) (hD : 0 < D) : Fraction :=
 def meshCoefficient (D M T : Nat) (hD : 0 < D) : Fraction :=
   Fraction.half (squareDuration D (M * T) hD)
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem candidate_residual_scalar (D A Q T : Nat) (hD : 0 < D)
     (h : 2 * A + Q = T * T) (p v a : Fraction) :
     Fraction.equiv
@@ -208,6 +224,7 @@ private theorem candidate_residual_scalar (D A Q T : Nat) (hD : 0 < D)
 
 /-- At the finite terminal time, the candidate differs from the constructed
     polygon position by exactly `Q/(2D²)` times the common acceleration. -/
+-- Modern dependency score: 5/5 (M=5, H=0; transitive project theorems/axioms).
 theorem candidate_residual (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
     pointEquiv (candidate p v a (duration D (total weights) hD))
       (pointAdd (encodedPosition D hD (stats weights) p v a)
@@ -220,6 +237,7 @@ theorem candidate_residual (D : Nat) (hD : 0 < D) (p v a : Point) (weights : Lis
 
 /-- The terminal residual stated against the actual recursively constructed
     polygon endpoint. -/
+-- Modern dependency score: 13/26 (M=13, H=13; transitive project theorems/axioms).
 theorem candidate_partitionMotion_residual (D : Nat) (hD : 0 < D)
     (p v a : Point) (weights : List Nat) :
     pointEquiv (candidate p v a (duration D (total weights) hD))
@@ -231,12 +249,14 @@ theorem candidate_partitionMotion_residual (D : Nat) (hD : 0 < D)
     (pointAdd_congr (pointEquiv_symm hmotion.1)
       ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩)
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem residual_nonnegative (D Q : Nat) (hD : 0 < D) :
     Fraction.le (Fraction.ofInt 0) (residualCoefficient D Q hD) := by
   unfold Fraction.le Fraction.ofInt residualCoefficient Fraction.half squareDuration
   dsimp
   omega
 
+-- Modern dependency score: 4/4 (M=4, H=0; transitive project theorems/axioms).
 theorem residual_mesh_bound (D M : Nat) (hD : 0 < D) (weights : List Nat)
     (hw : ∀ w ∈ weights, w ≤ M) :
     Fraction.le (residualCoefficient D (squares weights) hD)

@@ -23,6 +23,35 @@ bodies and private helpers, using source positions to classify the five-line
 placeholders cannot enter safe mathematical proofs; their dependencies remain
 in the graph. Passing does not discharge geometric or mechanical premises.
 
+`CheckReferences.lean` also verifies the opening `Modern dependency score`
+comments against compiled transitive project theorem/axiom dependencies.
+After changing a proof, build first so the refresh reads its current compiled
+body and source positions. Then refresh comments, rebuild to update positions
+shifted by inserted comments, and check:
+
+```sh
+lake build
+lake build BarrowLib
+lake build ClassicsLib
+lake build ModernLib
+lake build NewtonLimitDynamics
+NEWTON_WRITE_PROOF_SCORES=1 lake env lean research/CheckReferences.lean
+lake build
+lake build BarrowLib
+lake build ClassicsLib
+lake build ModernLib
+lake build NewtonLimitDynamics
+lake env lean research/CheckReferences.lean
+```
+
+The refresh edits proof comments in place, without a catalog or ledger.
+Counts distinguish modern and historical support by current compiled
+classification. Types and private helpers are traversed; standard Lean
+infrastructure, generated auxiliaries and the proof itself are excluded.
+Known-answer controls check duplicate dependencies and a transitive modern
+dependency behind an uncounted definition. Source verification remains
+separate: a score cannot establish the original attribution of a result.
+
 The graph inspector distinguishes witness-specific source evidence, editorial
 comparisons, library imports and direct formal uses. A missing source-comment
 edge does not establish historical absence. Compare historical Latin with its

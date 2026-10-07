@@ -20,6 +20,7 @@ structure Operation where
       Fraction.le (distance (apply s t) (apply u v))
         (Fraction.mul (Fraction.add (distance s u) (distance t v)) (coefficient R))
 
+-- Modern dependency score: 1/23 (M=1, H=22; transitive project theorems/axioms).
 private theorem two_small (op : Operation) (R eps : Fraction) (hR : 0 ≤ R.num)
     (s t u v : Point × Point)
     (hu : Fraction.le (pointNorm u.1) R)
@@ -61,6 +62,7 @@ def name (op : Operation) (a b : EndpointCauchyName) : EndpointCauchyName where
     · exact hN i j (by omega) (by omega)
     · exact hM i j (by omega) (by omega)
 
+-- Modern dependency score: 3/40 (M=3, H=37; transitive project theorems/axioms).
 theorem name_equiv (op : Operation) (a b a' b' : EndpointCauchyName)
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
     NameEquiv (name op a b) (name op a' b') := by
@@ -86,9 +88,11 @@ def value (op : Operation) (x y : Value) : Value :=
   Quotient.liftOn₂ x y (fun a b => realize (name op a b))
     (fun a b a' b' ha hb => Quotient.sound (name_equiv op a b a' b' ha hb))
 
+-- Modern dependency score: 11/62 (M=11, H=51; transitive project theorems/axioms).
 theorem value_realize (op : Operation) (a b : EndpointCauchyName) :
     value op (realize a) (realize b) = realize (name op a b) := rfl
 
+-- Modern dependency score: 11/62 (M=11, H=51; transitive project theorems/axioms).
 theorem value_embed (op : Operation) (s t : Point × Point) :
     value op (embed s) (embed t) = embed (op.apply s t) := rfl
 

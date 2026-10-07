@@ -17,6 +17,7 @@ def errorBudget (tau : Fraction) (ht : 0 < tau.num)
     (Fraction.mul (Fraction.ofInt (2 * (n : Int)))
       (TimeCalibration.sampleSource tau h E D))
 
+-- Modern dependency score: 21/122 (M=21, H=101; transitive project theorems/axioms).
 theorem count_sample_stateDistance_le_budget (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

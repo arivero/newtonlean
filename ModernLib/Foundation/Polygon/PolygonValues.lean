@@ -25,6 +25,7 @@ def polygonName (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat)
 def polygonPosition (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat)
     (v : VertexChain T m) : PositionValue := asPosition (realize (polygonName b T hT m v))
 
+-- Modern dependency score: 23/83 (M=23, H=60; transitive project theorems/axioms).
 theorem polygon_same_cell (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m : Nat) (v : VertexChain T m) (hcell : ticks b m=ticks c m)
     (htime : AddressEquiv T hT b c) :
@@ -35,6 +36,7 @@ theorem polygon_same_cell (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
   exact congrArg asPosition (Quotient.sound
     (AffineValues.edgeName_same_start b c T hT _ _ m hb htime))
 
+-- Modern dependency score: 31/109 (M=31, H=78; transitive project theorems/axioms).
 theorem polygon_adjacent_cells (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m : Nat) (v : VertexChain T m) (hcell : ticks b m+1=ticks c m)
     (htime : AddressEquiv T hT b c) :
@@ -51,6 +53,7 @@ theorem polygon_adjacent_cells (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T
   exact congrArg asPosition (Quotient.sound (AffineValues.edge_boundary_names
     b c T hT _ _ _ _ m hb hx htime))
 
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem zero_window_vertices (T : Fraction) (m : Nat) (v : VertexChain T m)
     (hz : T.num=0) : ∀ k, pointEquiv (v.state k).1 (v.state 0).1 := by
   intro k
@@ -62,6 +65,7 @@ theorem zero_window_vertices (T : Fraction) (m : Nat) (v : VertexChain T m)
       (duration T m) hz
     exact pointEquiv_trans (pointEquiv_trans hj hp.1) ih
 
+-- Modern dependency score: 24/90 (M=24, H=66; transitive project theorems/axioms).
 theorem polygon_zero_window (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m : Nat) (v : VertexChain T m) (hz : T.num=0) :
     polygonPosition b T hT m v = asPosition (embed ((v.state 0).1,AffineValues.zeroPoint)) := by
@@ -75,6 +79,7 @@ theorem polygon_zero_window (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
   have hp := AffineValues.affine_zero_phase (v.state (ticks b m)).1 (v.state (ticks b m)).2 _ ht
   exact ⟨pointEquiv_trans hp.1 (zero_window_vertices T m v hz _),hp.2⟩
 
+-- Modern dependency score: 43/124 (M=43, H=81; transitive project theorems/axioms).
 theorem polygon_address_independent (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m : Nat) (v : VertexChain T m) (htime : AddressEquiv T hT b c) :
     polygonPosition b T hT m v = polygonPosition c T hT m v := by
@@ -91,6 +96,7 @@ def polygonMap (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) (v : VertexChain T m)
   Quotient.lift (fun b => polygonPosition b T hT m v)
     (fun b c h => polygon_address_independent b c T hT m v h)
 
+-- Modern dependency score: 41/104 (M=41, H=63; transitive project theorems/axioms).
 theorem polygon_vertex_bound (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m : Nat) (v : VertexChain T m) (V : Fraction)
     (hv : Fraction.le (pointNorm (v.state (ticks b m)).2) V) :
@@ -100,6 +106,7 @@ theorem polygon_vertex_bound (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num
   apply within_mono _ _ _ _ hr
   exact positionValue_within _ _ _ (AffineValues.edge_vertex_bound b T hT _ _ m)
 
+-- Modern dependency score: 46/128 (M=46, H=82; transitive project theorems/axioms).
 theorem polygonMap_left (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) (v : VertexChain T m) :
     polygonMap T hT m v (leftTime T hT) = embedPosition (v.state 0).1 := by
   apply Subtype.ext

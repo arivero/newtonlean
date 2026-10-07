@@ -22,6 +22,7 @@ def squareArea (R : Fraction) : Fraction :=
 
 def Square.area (q : Square) : Fraction := squareArea q.radius.val
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem squareArea_nonnegative (R : Fraction) (hR : 0 ≤ R.num) :
     0 ≤ (squareArea R).num :=
   Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hR hR)
@@ -30,6 +31,7 @@ def sumBudget (squares : Nat → Square) : Nat → Fraction
   | 0 => Fraction.ofInt 0
   | n+1 => Fraction.add (sumBudget squares n) (squares n).area
 
+-- Modern dependency score: 1/3 (M=1, H=2; transitive project theorems/axioms).
 theorem sumBudget_nonnegative (squares : Nat → Square) :
     ∀ n, 0 ≤ (sumBudget squares n).num
   | 0 => by simp [sumBudget,Fraction.ofInt]
@@ -44,6 +46,7 @@ structure Cover (A : PositionValue → Prop) where
 def Cover.budget {A : PositionValue → Prop} (c : Cover A) : Fraction :=
   sumBudget c.squares c.count
 
+-- Modern dependency score: 13/51 (M=13, H=38; transitive project theorems/axioms).
 theorem Cover.budget_nonnegative {A : PositionValue → Prop} (c : Cover A) :
     0 ≤ c.budget.num := sumBudget_nonnegative c.squares c.count
 
@@ -51,6 +54,7 @@ def Cover.restrict {A B : PositionValue → Prop} (c : Cover B)
     (h : ∀ x, A x → B x) : Cover A :=
   ⟨c.count,c.squares,fun x hx => c.covers x (h x hx)⟩
 
+-- Modern dependency score: 0/8 (M=0, H=8; transitive project theorems/axioms).
 theorem uniform_budget (centres : Nat → Point) (R : NonnegativeRadius) :
     ∀ n, Fraction.equiv (sumBudget (fun k => ⟨centres k,R⟩) n)
       (Fraction.mul (Fraction.ofInt (n : Int)) (squareArea R.val))
@@ -69,17 +73,20 @@ constructed cover and therefore a finite upper bound. -/
 def LowerContent (A : PositionValue → Prop) (q : Fraction) : Prop :=
   ∀ c : Cover A, Fraction.le q c.budget
 
+-- Modern dependency score: 14/52 (M=14, H=38; transitive project theorems/axioms).
 theorem content_zero_lower (A : PositionValue → Prop) :
     LowerContent A (Fraction.ofInt 0) := by
   intro c
   simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using c.budget_nonnegative
 
+-- Modern dependency score: 11/47 (M=11, H=36; transitive project theorems/axioms).
 theorem content_downward (A : PositionValue → Prop) (p q : Fraction)
     (hpq : Fraction.le p q) (hq : LowerContent A q) : LowerContent A p := by
   intro c
   exact Fraction.magnitudes.le_trans hpq (hq c)
 
 /-- The infimum cut is closed under exhaustion from its lower bounds. -/
+-- Modern dependency score: 11/48 (M=11, H=37; transitive project theorems/axioms).
 theorem content_closed (A : PositionValue → Prop) (q : Fraction)
     (h : ∀ eps : Fraction, 0 < eps.num →
       ∃ p, LowerContent A p ∧ Fraction.le q (Fraction.add p eps)) :
@@ -90,15 +97,18 @@ theorem content_closed (A : PositionValue → Prop) (q : Fraction)
   obtain ⟨p,hp,hqp⟩ := h eps heps
   exact Fraction.magnitudes.le_trans hqp (Fraction.add_le_add_right (hp c) eps)
 
+-- Modern dependency score: 11/47 (M=11, H=36; transitive project theorems/axioms).
 theorem content_cover_bound (A : PositionValue → Prop) (c : Cover A)
     (q : Fraction) (hq : LowerContent A q) : Fraction.le q c.budget := hq c
 
+-- Modern dependency score: 23/62 (M=23, H=39; transitive project theorems/axioms).
 theorem content_mono (A B : PositionValue → Prop)
     (hAB : ∀ x, A x → B x) (q : Fraction) (hq : LowerContent A q) :
     LowerContent B q := by
   intro c
   exact hq (c.restrict hAB)
 
+-- Modern dependency score: 24/63 (M=24, H=39; transitive project theorems/axioms).
 theorem content_union_includes (A B : PositionValue → Prop) (q : Fraction)
     (h : LowerContent A q ∨ LowerContent B q) :
     LowerContent (fun x => A x ∨ B x) q := by
@@ -112,6 +122,7 @@ def emptyCover : Cover (fun _ => False) where
   squares := fun _ => ⟨zeroPoint,⟨Fraction.ofInt 0,by decide⟩⟩
   covers := fun _ h => False.elim h
 
+-- Modern dependency score: 28/69 (M=28, H=41; transitive project theorems/axioms).
 theorem empty_content (q : Fraction) :
     LowerContent (fun _ => False) q ↔ Fraction.le q (Fraction.ofInt 0) := by
   constructor
@@ -130,6 +141,7 @@ def singletonCover (p : Point) : Cover (fun x => x = embedPosition p) where
     refine ⟨0,by decide,?_⟩
     constructor <;> exact (within_zero_iff _ _).mpr rfl
 
+-- Modern dependency score: 31/72 (M=31, H=41; transitive project theorems/axioms).
 theorem singleton_content (p : Point) (q : Fraction) :
     LowerContent (fun x => x = embedPosition p) q ↔ Fraction.le q (Fraction.ofInt 0) := by
   constructor

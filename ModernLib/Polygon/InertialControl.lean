@@ -23,9 +23,11 @@ def radius (eps : Fraction) (v : Point) : Fraction :=
       unfold velocityBound
       exact Int.ofNat_pos.mpr (by omega))⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem radius_positive (eps : Fraction) (v : Point)
     (heps : Fraction.positive eps) : Fraction.positive (radius eps v) := heps
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem scalar_bound (eps h x : Fraction) (K : Nat)
     (heps : Fraction.positive eps) (hK : x.num.natAbs < K)
     (hh : absLt h ⟨eps.num, eps.den * (K : Int),
@@ -61,6 +63,7 @@ private theorem scalar_bound (eps h x : Fraction) (K : Nat)
 
 /-- For each positive rational tolerance, one explicit radius controls both
     coordinates of every rational drift at fixed velocity. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem drift_small (eps : Fraction) (v : Point)
     (heps : Fraction.positive eps) (h : Fraction)
     (hh : absLt h (radius eps v)) :
@@ -78,6 +81,7 @@ theorem drift_small (eps : Fraction) (v : Point)
 /-- The controlled drift is the increment in the rational inertial map at
     every rational base time. This is an equivalence of represented positions,
     not an assumed curve or a limit theorem. -/
+-- Modern dependency score: 4/15 (M=4, H=11; transitive project theorems/axioms).
 theorem inertialAt_small_increment (eps : Fraction) (p v : Point)
     (heps : Fraction.positive eps) (t h : Fraction)
     (hh : absLt h (radius eps v)) :
@@ -88,6 +92,7 @@ theorem inertialAt_small_increment (eps : Fraction) (p v : Point)
 
 /-- The same estimate applies to an actual zero-force end-kick cell begun at
     any rational inertial time. -/
+-- Modern dependency score: 8/22 (M=8, H=14; transitive project theorems/axioms).
 theorem endKick_zero_small_increment (eps : Fraction) (p v : Point)
     (heps : Fraction.positive eps) (t h : Fraction)
     (hh : absLt h (radius eps v)) :
@@ -101,6 +106,7 @@ theorem endKick_zero_small_increment (eps : Fraction) (p v : Point)
 
 /-- Quantified small-time form. The witness is `radius eps v`, independent of
     the base time and initial position. -/
+-- Modern dependency score: 6/17 (M=6, H=11; transitive project theorems/axioms).
 theorem exists_uniform_inertial_radius (eps : Fraction) (v : Point)
     (heps : Fraction.positive eps) :
     ∃ delta : Fraction, Fraction.positive delta ∧

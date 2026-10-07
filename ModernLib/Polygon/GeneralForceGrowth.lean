@@ -27,6 +27,7 @@ structure Data (o : CentralOracle) (E0 T tau L : Fraction) (s : Point × Point) 
   ball_contained : ∀ p, Fraction.le (pointNorm p) (shadowCap E0 T tau s calibration_positive) →
     o.region p
 
+-- Modern dependency score: 0/6 (M=0, H=6; transitive project theorems/axioms).
 theorem shadowCap_nonnegative (E0 T tau : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num) :
     0 ≤ (shadowCap E0 T tau s ht).num := by
@@ -37,6 +38,7 @@ theorem shadowCap_nonnegative (E0 T tau : Fraction) (s : Point × Point)
       (Fraction.nonnegative_mul _ _ hM (Int.le_of_lt tau.den_pos)))
 
 /-- Chosen force precision gives a growth estimate only at regional points. -/
+-- Modern dependency score: 8/40 (M=8, H=32; transitive project theorems/axioms).
 theorem field_growth (o : CentralOracle) (E0 T tau L : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Data o E0 T tau L s)
     (j : Nat) (p : Point) (hp : o.region p) :
@@ -58,6 +60,7 @@ theorem field_growth (o : CentralOracle) (E0 T tau L : Fraction)
     (sample_linear_growth o L d.lipschitz hzero _ p hp)
     (Fraction.add_le_add_left (Fraction.le_equiv_right herr htwo) _)
 
+-- Modern dependency score: 1/7 (M=1, H=6; transitive project theorems/axioms).
 theorem forceCap_nonnegative (o : CentralOracle) (E0 T tau L : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Data o E0 T tau L s) :
     0 ≤ (forceCap E0 T tau L s d.calibration_positive).num :=
@@ -79,6 +82,7 @@ def region_frame (o : CentralOracle) (E0 T tau L : Fraction)
       (Fraction.nonnegative_mul _ _ (by decide) (Int.le_of_lt hE)) d.window)
     d.ball_contained
 
+-- Modern dependency score: 9/44 (M=9, H=35; transitive project theorems/axioms).
 theorem field_bound_on_ball (o : CentralOracle) (E0 T tau L : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Data o E0 T tau L s)
     (j : Nat) (p : Point)
@@ -90,6 +94,7 @@ theorem field_bound_on_ball (o : CentralOracle) (E0 T tau L : Fraction)
     (Fraction.add_le_add_right (Fraction.mul_le_mul_nonnegative_left hp.2 L d.lipschitz.1) _)
 
 /-- Actual iterates are bounded independently of mesh or level precision. -/
+-- Modern dependency score: 22/116 (M=22, H=94; transitive project theorems/axioms).
 theorem run_state_bound (o : CentralOracle) (E0 T tau L : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Data o E0 T tau L s)
     (j : Nat) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat)
@@ -109,6 +114,7 @@ theorem run_state_bound (o : CentralOracle) (E0 T tau L : Fraction)
   exact field_growth o E0 T tau L s hE d j _ (d.ball_contained _ hb.2)
 
 /-- One finite argument covers actual and doubled-half meshes. -/
+-- Modern dependency score: 23/82 (M=23, H=59; transitive project theorems/axioms).
 theorem bounded_samples (o : CentralOracle) (E0 T tau L : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Data o E0 T tau L s)
     (j : Nat) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat)

@@ -22,16 +22,19 @@ def actualPartialPosition (D : Nat) (hD : 0 < D) (p v a : Point)
     (pointScale (duration D u hD) (partitionMotion D hD p v a weights).2)
 
 /-- The partial position is the position component of the end-kick step. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem partialState_position (D : Nat) (hD : 0 < D) (p v a : Point)
     (weights : List Nat) (u : Nat) :
     (partialState D hD p v a weights u).1 = actualPartialPosition D hD p v a weights u := rfl
 
 /-- The terminal kick does not alter the drift position: the position component
     of an end-kick step is independent of the accelerative force applied at its end. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem endKick_position_kick_free (d : Fraction) (state : Point × Point) (a b : Point) :
     (endKick d state a).1 = (endKick d state b).1 := rfl
 
 /-- The partial state is literally the recurrence on the appended schedule. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem partialState_append (D : Nat) (hD : 0 < D) (p v a : Point)
     (weights : List Nat) (u : Nat) :
     partialState D hD p v a weights u = partitionMotion D hD p v a (weights ++ [u]) := by
@@ -40,18 +43,21 @@ theorem partialState_append (D : Nat) (hD : 0 < D) (p v a : Point)
   rfl
 
 /-- Appending one weight applies the statistics recurrence once. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem stats_append (weights : List Nat) (u : Nat) :
     stats (weights ++ [u]) = next (stats weights) u := by
   unfold stats
   rw [List.foldl_append]
   rfl
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem total_append (weights : List Nat) (u : Nat) :
     total (weights ++ [u]) = total weights + u := by
   unfold total
   rw [stats_append]
   rfl
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem squares_append (weights : List Nat) (u : Nat) :
     squares (weights ++ [u]) = squares weights + u * u := by
   unfold squares
@@ -61,6 +67,7 @@ theorem squares_append (weights : List Nat) (u : Nat) :
 /-- Exact residual at the sample time `(T+u)/D` inside the next cell: the
     constructed candidate exceeds the actual partial position by
     `((Q+u*u)/(2D²))*a`.  Derived from the appended schedule's statistics. -/
+-- Modern dependency score: 19/32 (M=19, H=13; transitive project theorems/axioms).
 theorem candidate_partial_residual (D : Nat) (hD : 0 < D) (p v a : Point)
     (weights : List Nat) (u : Nat) :
     pointEquiv (candidate p v a (duration D (total weights + u) hD))
@@ -72,6 +79,7 @@ theorem candidate_partial_residual (D : Nat) (hD : 0 < D) (p v a : Point)
 
 /-- Within-cell mesh bound on the square statistic: a partial duration inside a
     designated next cell of weight `w` (`0 ≤ u` is automatic in `Nat`). -/
+-- Modern dependency score: 6/6 (M=6, H=0; transitive project theorems/axioms).
 theorem partial_squares_bound (M w u : Nat) (weights : List Nat)
     (hM : ∀ x ∈ weights, x ≤ M) (hw : w ≤ M) (hu : u ≤ w) :
     squares weights + u * u ≤ M * (total weights + u) := by
@@ -87,6 +95,7 @@ theorem partial_squares_bound (M w u : Nat) (weights : List Nat)
 
 /-- The corresponding Fraction coefficient bound:
     `(Q+u*u)/(2D²) ≤ M*(T+u)/(2D²)`. -/
+-- Modern dependency score: 8/8 (M=8, H=0; transitive project theorems/axioms).
 theorem partial_residual_mesh_bound (D M w u : Nat) (hD : 0 < D) (weights : List Nat)
     (hM : ∀ x ∈ weights, x ≤ M) (hw : w ≤ M) (hu : u ≤ w) :
     Fraction.le (residualCoefficient D (squares weights + u * u) hD)
@@ -101,6 +110,7 @@ theorem partial_residual_mesh_bound (D M w u : Nat) (hD : 0 < D) (weights : List
   exact Int.mul_le_mul_of_nonneg_right hi (Int.le_of_lt hp)
 
 /-- Boundary `u = w`: the partial position is the actual next vertex. -/
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 theorem partial_full_cell (D : Nat) (hD : 0 < D) (p v a : Point)
     (weights : List Nat) (w : Nat) :
     actualPartialPosition D hD p v a weights w =
@@ -108,6 +118,7 @@ theorem partial_full_cell (D : Nat) (hD : 0 < D) (p v a : Point)
   rw [← partialState_append]
   rfl
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem zero_drift_scalar (D : Nat) (hD : 0 < D) (x y : Fraction) :
     Fraction.equiv (Fraction.add x (Fraction.mul (duration D 0 hD) y)) x := by
   unfold Fraction.equiv Fraction.add Fraction.mul duration
@@ -116,6 +127,7 @@ private theorem zero_drift_scalar (D : Nat) (hD : 0 < D) (x y : Fraction) :
   ac_rfl
 
 /-- Boundary `u = 0`: the partial position is the actual prefix vertex. -/
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 theorem partial_zero (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat) :
     pointEquiv (actualPartialPosition D hD p v a weights 0)
       (partitionMotion D hD p v a weights).1 :=
@@ -123,6 +135,7 @@ theorem partial_zero (D : Nat) (hD : 0 < D) (p v a : Point) (weights : List Nat)
 
 /-- Boundary `a = 0`: the actual partial position lies on the inertial map at
     `(T+u)/D`. -/
+-- Modern dependency score: 18/29 (M=18, H=11; transitive project theorems/axioms).
 theorem partial_zero_force (D : Nat) (hD : 0 < D) (p v : Point)
     (weights : List Nat) (u : Nat) :
     pointEquiv (actualPartialPosition D hD p v zeroPoint weights u)

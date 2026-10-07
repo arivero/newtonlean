@@ -41,6 +41,7 @@ structure CentralOracle extends Oracle where
     pointEquiv (sample n p) (linearField k p)
 
 /-- Inward samples vanish at the centre, even when their magnitude is rounded. -/
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 theorem sample_origin_zero (o : CentralOracle) (n : Nat) :
     pointEquiv (o.sample n (Fraction.ofInt 0,Fraction.ofInt 0))
       (Fraction.ofInt 0,Fraction.ofInt 0) := by
@@ -50,6 +51,7 @@ theorem sample_origin_zero (o : CentralOracle) (n : Nat) :
     Fraction.ofInt,Int.mul_zero,Int.zero_mul]
 
 /-- Every approximating finite polygon is central, even outside confinement. -/
+-- Modern dependency score: 2/14 (M=2, H=12; transitive project theorems/axioms).
 theorem sample_central (o : CentralOracle) (n : Nat) : central (o.sample n) := by
   intro p
   obtain ⟨k, _, hk⟩ := o.inward n p
@@ -57,6 +59,7 @@ theorem sample_central (o : CentralOracle) (n : Nat) : central (o.sample n) := b
     (InertialDefect.det_congr ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩ hk)
     (linearField_central k p)
 
+-- Modern dependency score: 3/26 (M=3, H=23; transitive project theorems/axioms).
 theorem sampled_finite_area_law (o : CentralOracle) (n : Nat)
     (ds : List Fraction) (s : Point × Point) :
     Fraction.equiv (swept (o.sample n) ds s)
@@ -83,6 +86,7 @@ def accelerationName (o : Oracle) (p : Point) (hp : o.region p) :
 def accelerationValue (o : Oracle) (p : Point) (hp : o.region p) : Value :=
   realize (accelerationName o p hp)
 
+-- Modern dependency score: 18/56 (M=18, H=38; transitive project theorems/axioms).
 theorem acceleration_approximants_converge (o : Oracle) (p : Point)
     (hp : o.region p) (eps : Fraction) (heps : 0 < eps.num) :
     ∃ N : Nat, ∀ n, N ≤ n →
@@ -99,6 +103,7 @@ def LipschitzOn (o : Oracle) (L : Fraction) : Prop :=
 
 /-- Centrality at the origin turns comparison into linear growth on the region.
 This does not assert a globally bounded force. -/
+-- Modern dependency score: 1/21 (M=1, H=20; transitive project theorems/axioms).
 theorem sample_linear_growth (o : CentralOracle) (L : Fraction)
     (hL : LipschitzOn o.toOracle L)
     (hzero : o.region (Fraction.ofInt 0,Fraction.ofInt 0))
@@ -125,6 +130,7 @@ def ContinuousOn (o : Oracle) : Prop :=
 def BoundedOn (o : Oracle) (B : Fraction) : Prop :=
   0 ≤ B.num ∧ ∀ n p, o.region p → Fraction.le (pointNorm (o.sample n p)) B
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem acceleration_distance (p q : Point) :
     Fraction.equiv (distance (accelerationState p) (accelerationState q))
       (FiniteEstimates.pointDistance p q) := by
@@ -135,6 +141,7 @@ theorem acceleration_distance (p q : Point) :
 
 /-- Uniform force coherence also controls successive precisions at the same
 rational point. No exact force value is presumed rational. -/
+-- Modern dependency score: 1/7 (M=1, H=6; transitive project theorems/axioms).
 theorem sample_point_error (o : Oracle) (i j : Nat) (hij : i ≤ j)
     (p : Point) (hp : o.region p) :
     Fraction.le (FiniteEstimates.pointDistance (o.sample i p) (o.sample j p))
@@ -144,6 +151,7 @@ theorem sample_point_error (o : Oracle) (i j : Nat) (hij : i ≤ j)
 
 /-- Compare only the two supplied regional points. No whole-plane premise
 is needed, and coherence is used at the second certified point. -/
+-- Modern dependency score: 2/26 (M=2, H=24; transitive project theorems/axioms).
 theorem samples_comparison_contract (o : Oracle) (L : Fraction)
     (hL : LipschitzOn o L) (i j : Nat) (hij : i ≤ j)
     (p q : Point) (hp : o.region p) (hq : o.region q) :
@@ -191,6 +199,7 @@ def exactOracle (a : Field) : Oracle where
     intro _ _ _ _p _
     exact Fraction.le_of_equiv (HarmonicAccumulation.stateSub_self_norm_zero _)
 
+-- Modern dependency score: 7/42 (M=7, H=35; transitive project theorems/axioms).
 theorem exact_accelerationValue (a : Field) (p : Point) :
     accelerationValue (exactOracle a) p True.intro =
       embed (accelerationState (a p)) := rfl
@@ -199,16 +208,19 @@ def harmonicOracle (w : Fraction) (hw : 0 ≤ w.num) : CentralOracle where
   toOracle := exactOracle (linearField w)
   inward := fun _ _p => ⟨w, hw, ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
 
+-- Modern dependency score: 0/14 (M=0, H=14; transitive project theorems/axioms).
 theorem harmonic_distance_only (w : Fraction) (hw : 0 ≤ w.num) :
     DistanceOnly (harmonicOracle w hw) := by
   intro _ p q _
   exact ⟨w, hw, ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
     ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
 
+-- Modern dependency score: 1/21 (M=1, H=20; transitive project theorems/axioms).
 theorem harmonic_comparison_contract (w : Fraction) :
     FiniteEstimates.comparisonContract (linearField w) (linearField w)
       w.abs (Fraction.ofInt 0) := linearField_comparison_contract w
 
+-- Modern dependency score: 2/29 (M=2, H=27; transitive project theorems/axioms).
 theorem harmonic_lipschitz_on (w : Fraction) (hw : 0 ≤ w.num) :
     LipschitzOn (harmonicOracle w hw).toOracle w.abs := by
   refine ⟨Fraction.abs_num_nonnegative w, ?_⟩
@@ -218,6 +230,7 @@ theorem harmonic_lipschitz_on (w : Fraction) (hw : 0 ≤ w.num) :
   exact Fraction.add_equiv (Fraction.equiv_refl _)
     (Fraction.equiv_symm (Fraction.add_zero (Fraction.ofInt 0)))
 
+-- Modern dependency score: 4/31 (M=4, H=27; transitive project theorems/axioms).
 theorem harmonic_class_a_force (w : Fraction) (hw : 0 ≤ w.num) :
     ClassAForce (harmonicOracle w hw) :=
   ⟨harmonic_distance_only w hw,w.abs,harmonic_lipschitz_on w hw⟩
@@ -225,15 +238,18 @@ theorem harmonic_class_a_force (w : Fraction) (hw : 0 ≤ w.num) :
 /-- The permitted centre-at-infinity instance is a uniform parallel field. -/
 def parallelOracle (a : Point) : Oracle := exactOracle (fun _ => a)
 
+-- Modern dependency score: 0/13 (M=0, H=13; transitive project theorems/axioms).
 theorem parallel_cell (a : Point) (h : Fraction) (s : Point × Point) :
     cell ((parallelOracle a).sample 0) h s = endKick h s a := rfl
 
 /-- Multiplication by the fixed force magnitude converts this determinant
 into the velocity component perpendicular to the parallel force. -/
+-- Modern dependency score: 1/13 (M=1, H=12; transitive project theorems/axioms).
 theorem parallel_transverse_cell (a : Point) (h : Fraction) (s : Point × Point) :
     Fraction.equiv (det (cell (fun _ => a) h s).2 a) (det s.2 a) :=
   StripArea.det_kick_direction_constant h s.2 a
 
+-- Modern dependency score: 2/15 (M=2, H=13; transitive project theorems/axioms).
 theorem parallel_transverse_schedule (a : Point) (ds : List Fraction)
     (s : Point × Point) :
     Fraction.equiv (det (schedule (fun _ => a) ds s).2 a) (det s.2 a) := by
@@ -244,6 +260,7 @@ theorem parallel_transverse_schedule (a : Point) (ds : List Fraction)
         (parallel_transverse_cell a h s)
 
 /-- Identify the generic forward iterates with the actual finite schedule. -/
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem run_eq_schedule (a : Field) (h : Fraction) (s : Point × Point) (n : Nat) :
     BoundedIteration.run a h s n = schedule a (List.replicate n h) s := by
   induction n generalizing s with
@@ -253,6 +270,7 @@ theorem run_eq_schedule (a : Field) (h : Fraction) (s : Point × Point) (n : Nat
       rw [← ih]
       exact (BoundedIteration.run_commute a h s n).symm
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem bounded_samples_of_confined (o : Oracle) (j : Nat) (h : Fraction)
     (s : Point × Point) (B : Fraction) (n : Nat) (hB : BoundedOn o B)
     (hR : ∀ i : Nat, i < n → o.region (BoundedIteration.run (o.sample j) h s (i+1)).1) :
@@ -261,6 +279,7 @@ theorem bounded_samples_of_confined (o : Oracle) (j : Nat) (h : Fraction)
 
 /-- These actual polygon bounds apply also to continuous, non-Lipschitz laws;
 confinement is an explicit premise, not a conclusion of continuity. -/
+-- Modern dependency score: 2/31 (M=2, H=29; transitive project theorems/axioms).
 theorem sampled_polygon_velocity_bound (o : Oracle) (j : Nat) (h : Fraction)
     (s : Point × Point) (B : Fraction) (n : Nat) (hh : 0 ≤ h.num)
     (hB : BoundedOn o B)
@@ -271,6 +290,7 @@ theorem sampled_polygon_velocity_bound (o : Oracle) (j : Nat) (h : Fraction)
   exact BoundedIteration.velocity_bound (o.sample j) h s B hh n
     (bounded_samples_of_confined o j h s B n hB hR)
 
+-- Modern dependency score: 2/37 (M=2, H=35; transitive project theorems/axioms).
 theorem sampled_polygon_position_bound (o : Oracle) (j : Nat) (h : Fraction)
     (s : Point × Point) (B : Fraction) (n : Nat) (hh : 0 ≤ h.num)
     (hB : BoundedOn o B)
@@ -281,6 +301,7 @@ theorem sampled_polygon_position_bound (o : Oracle) (j : Nat) (h : Fraction)
   exact BoundedIteration.position_bound (o.sample j) h s B hh hB.1 n
     (bounded_samples_of_confined o j h s B n hB hR)
 
+-- Modern dependency score: 2/41 (M=2, H=39; transitive project theorems/axioms).
 theorem sampled_polygon_state_bound (o : Oracle) (j : Nat) (h : Fraction)
     (s : Point × Point) (B T : Fraction) (n : Nat) (hh : 0 ≤ h.num)
     (hT : 0 ≤ T.num) (hB : BoundedOn o B)
@@ -296,6 +317,7 @@ theorem sampled_polygon_state_bound (o : Oracle) (j : Nat) (h : Fraction)
 /-- Merely continuous laws give a vanishing local refinement source.
 The modulus controls all three actual arrival points. This is a consistency
 estimate, distinct from stability, full-family convergence or uniqueness. -/
+-- Modern dependency score: 0/33 (M=0, H=33; transitive project theorems/axioms).
 theorem continuous_local_refinement (o : Oracle) (hC : ContinuousOn o)
     (eps : Fraction) (heps : 0 < eps.num) :
     ∃ delta : Fraction, 0 < delta.num ∧ ∃ N : Nat,
@@ -329,6 +351,7 @@ theorem continuous_local_refinement (o : Oracle) (hC : ContinuousOn o)
 /-- Successive oracle precisions instantiate the actual mesh comparison.
 Only the five actual and shadow arrivals need regional certificates. The
 central construction derives those certificates from its finite invariant. -/
+-- Modern dependency score: 3/98 (M=3, H=95; transitive project theorems/axioms).
 theorem sampled_uniform_refinement (o : Oracle) (j : Nat)
     (h L B V : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hL : LipschitzOn o L)

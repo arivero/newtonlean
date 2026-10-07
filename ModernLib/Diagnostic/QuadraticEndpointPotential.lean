@@ -12,6 +12,7 @@ open Polygon.TimeSubdivision Polygon.HarmonicStability Polygon.TriangleBounds
 open Polygon.QuadraticEstimates Polygon.PositionValues Polygon.ParallelQuadraticEndpoint
 open DeflectionPotential
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem quadratic_deflection_triangle (h : Fraction) (B v a : Point) :
     Fraction.equiv (triangleTwice B (inertial h B v) (quadraticPosition h (B,v) a))
       (Fraction.mul (Fraction.mul (Fraction.mul h h) h) (det v a)).half := by
@@ -20,6 +21,7 @@ theorem quadratic_deflection_triangle (h : Fraction) (B v a : Point) :
     Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg]
   ac_nf <;> omega
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem galilean_quadratic_potential_step (m g h : Fraction) (B v : Point) :
     Fraction.equiv
       (potentialStep (linearPotential m g) (inertial h B v)
@@ -33,6 +35,7 @@ theorem galilean_quadratic_potential_step (m g h : Fraction) (B v : Point) :
 
 /-- Both triangle and potential drop acquire the same half, so the motion-
 dependent time ratio is unchanged from the finite kick comparison. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem galilean_quadratic_cross_relation (m g h : Fraction) (B v : Point) :
     Fraction.equiv
       (Fraction.mul (Fraction.mul m g)
@@ -49,6 +52,7 @@ theorem galilean_quadratic_cross_relation (m g h : Fraction) (B v : Point) :
 
 /-- The point in the potential/triangle formulas is the actual completed
 endpoint, rather than a supplied quadratic curve point. -/
+-- Modern dependency score: 19/88 (M=19, H=69; transitive project theorems/axioms).
 theorem galilean_constructed_endpoint_relation (m g h : Fraction) (B v : Point)
     (hh : 0 ≤ h.num) :
     ∃ C : Point,

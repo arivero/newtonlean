@@ -21,12 +21,14 @@ def kappa (w h : Fraction) : Fraction :=
   Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs)
     (Fraction.add (Fraction.ofInt 1) (Fraction.mul h.abs w.abs))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem zero_le_product (a b : Fraction) (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) :
     Fraction.le (Fraction.ofInt 0) (Fraction.mul a b) := by
   unfold Fraction.le Fraction.ofInt Fraction.mul
   dsimp
   simpa using Int.mul_nonneg ha hb
 
+-- Modern dependency score: 1/11 (M=1, H=10; transitive project theorems/axioms).
 private theorem one_plus_bound_right (a b c : Fraction)
     (ha : 0 ≤ a.num) (hc : 0 ≤ c.num) :
     Fraction.le (Fraction.add (Fraction.add a b) (Fraction.mul c b))
@@ -40,6 +42,7 @@ private theorem one_plus_bound_right (a b c : Fraction)
   simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
   ac_nf
 
+-- Modern dependency score: 1/11 (M=1, H=10; transitive project theorems/axioms).
 private theorem one_plus_bound_left (a b c : Fraction)
     (hb : 0 ≤ b.num) (hc : 0 ≤ c.num) :
     Fraction.le (Fraction.add (Fraction.add a b) (Fraction.mul c a))
@@ -59,9 +62,11 @@ def drift (h : Fraction) (s : Point × Point) : Point × Point :=
 def kick (w h : Fraction) (s : Point × Point) : Point × Point :=
   (s.1, pointAdd s.2 (pointScale h (linearField w s.1)))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem cell_eq_kick_drift (w h : Fraction) (s : Point × Point) :
     cell (linearField w) h s = kick w h (drift h s) := rfl
 
+-- Modern dependency score: 2/25 (M=2, H=23; transitive project theorems/axioms).
 theorem drift_bound (h : Fraction) (s : Point × Point) :
     Fraction.le (stateNorm (drift h s))
       (Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs) (stateNorm s)) := by
@@ -84,6 +89,7 @@ theorem drift_bound (h : Fraction) (s : Point × Point) :
     (one_plus_bound_right (pointNorm s.1) (pointNorm s.2) h.abs
       (pointNorm_nonnegative _) (Fraction.abs_num_nonnegative _))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem kick_scale_norm (w h : Fraction) (p : Point) :
     Fraction.equiv (pointNorm (pointScale h (linearField w p)))
       (Fraction.mul (Fraction.mul h.abs w.abs) (pointNorm p)) := by
@@ -93,6 +99,7 @@ private theorem kick_scale_norm (w h : Fraction) (p : Point) :
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 3/25 (M=3, H=22; transitive project theorems/axioms).
 theorem kick_bound (w h : Fraction) (s : Point × Point) :
     Fraction.le (stateNorm (kick w h s))
       (Fraction.mul
@@ -121,6 +128,7 @@ theorem kick_bound (w h : Fraction) (s : Point × Point) :
 
 /-- One actual harmonic end-kick cell amplifies the coordinate L1 state
 magnitude by at most `(1+|h|)(1+|h||w|)`, including signed and zero data. -/
+-- Modern dependency score: 7/33 (M=7, H=26; transitive project theorems/axioms).
 theorem cell_bound (w h : Fraction) (s : Point × Point) :
     Fraction.le (stateNorm (cell (linearField w) h s))
       (Fraction.mul (kappa w h) (stateNorm s)) := by
@@ -144,6 +152,7 @@ theorem cell_bound (w h : Fraction) (s : Point × Point) :
 
 /-- Subtracting the outputs of two actual cells equals applying the same
 linear harmonic cell to their input difference, as rational values. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem cell_difference (w h : Fraction) (s t : Point × Point) :
     stateEquiv (stateSub (cell (linearField w) h s) (cell (linearField w) h t))
       (cell (linearField w) h (stateSub s t)) := by
@@ -155,6 +164,7 @@ theorem cell_difference (w h : Fraction) (s t : Point × Point) :
 
 /-- A one-step perturbation estimate for two actual cells under the same
 linear field and duration. The input difference is a represented state. -/
+-- Modern dependency score: 0/20 (M=0, H=20; transitive project theorems/axioms).
 theorem linearField_comparison_contract (w : Fraction) :
     FiniteEstimates.comparisonContract (linearField w) (linearField w)
       w.abs (Fraction.ofInt 0) := by
@@ -165,6 +175,7 @@ theorem linearField_comparison_contract (w : Fraction) :
   exact Fraction.le_of_equiv (Fraction.equiv_trans he
     (Fraction.equiv_symm (Fraction.add_zero _)))
 
+-- Modern dependency score: 1/47 (M=1, H=46; transitive project theorems/axioms).
 theorem cell_perturbation (w h : Fraction) (s t : Point × Point) :
     Fraction.le
       (stateNorm (stateSub (cell (linearField w) h s) (cell (linearField w) h t)))
@@ -182,6 +193,7 @@ private def half : Fraction := ⟨1, 2, by decide⟩
 private def sample : Point × Point := ((one, zero), (zero, one))
 
 /-- Zero duration leaves the represented state unchanged in rational value. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem zero_step (w : Fraction) (s : Point × Point) :
     stateEquiv (cell (linearField w) zero s) s := by
   constructor <;> constructor <;>
@@ -191,20 +203,26 @@ theorem zero_step (w : Fraction) (s : Point × Point) :
       Int.zero_mul, Int.mul_zero, Int.add_zero] <;>
     ac_nf <;> omega
 
+-- Modern dependency score: 1/11 (M=1, H=10; transitive project theorems/axioms).
 theorem zero_step_norm (w : Fraction) (s : Point × Point) :
     Fraction.equiv (stateNorm (cell (linearField w) zero s)) (stateNorm s) :=
   stateNorm_equiv (zero_step w s)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem zero_kappa (w : Fraction) : Fraction.equiv (kappa w zero) one := by
   simp only [kappa, zero, one, Fraction.equiv, Fraction.abs, Fraction.ofInt,
     Fraction.add, Fraction.mul]
   dsimp
   simp only [Int.zero_mul, Int.mul_zero, Int.add_zero, Int.mul_one, Int.one_mul]
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_kappa : Fraction.equiv (kappa one half) ⟨9, 4, by decide⟩ := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_initial_norm : Fraction.equiv (stateNorm sample) (Fraction.ofInt 2) := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_cell_norm :
     Fraction.equiv (stateNorm (cell (linearField one) half sample)) ⟨11, 4, by decide⟩ := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_cell_bound :
     Fraction.le (stateNorm (cell (linearField one) half sample))
       (Fraction.mul (kappa one half) (stateNorm sample)) := by

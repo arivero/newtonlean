@@ -8,6 +8,7 @@ namespace NewtonLimitDynamics.Polygon.TailValues
 open NewtonLimitDynamics
 open HarmonicDyadic CauchyValues FiniteEstimates
 
+-- Modern dependency score: 18/58 (M=18, H=40; transitive project theorems/axioms).
 theorem approximant_bound (a : EndpointCauchyName) (A : Fraction) (hA : 0 ≤ A.num)
     (hadj : ∀ j, Fraction.le (distance (a.approx (j+1)) (a.approx j))
       (GeometricTail.tailCap A (j+1))) (m : Nat) :

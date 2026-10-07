@@ -13,6 +13,7 @@ def zeroPoint : Point := (Fraction.ofInt 0, Fraction.ofInt 0)
 def affineState (x v : Point) (t : Fraction) : Point × Point :=
   (pointAdd x (pointScale t v), zeroPoint)
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem affine_zero_phase (x v : Point) (t : Fraction) (ht : t.num = 0) :
     stateEquiv (affineState x v t) (x,zeroPoint) := by
   constructor
@@ -21,6 +22,7 @@ theorem affine_zero_phase (x v : Point) (t : Fraction) (ht : t.num = 0) :
       Int.zero_add] <;> ac_nf
   · exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem affine_difference (x v : Point) (t u : Fraction) :
     stateEquiv (stateSub (affineState x v t) (affineState x v u))
       (pointScale (durationDifference u t) v, zeroPoint) := by
@@ -31,6 +33,7 @@ theorem affine_difference (x v : Point) (t u : Fraction) :
       Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
     ac_nf <;> omega
 
+-- Modern dependency score: 1/13 (M=1, H=12; transitive project theorems/axioms).
 theorem affine_distance (x v : Point) (t u : Fraction) :
     Fraction.equiv (distance (affineState x v t) (affineState x v u))
       (Fraction.mul (durationDifference u t).abs (pointNorm v)) := by
@@ -42,6 +45,7 @@ theorem affine_distance (x v : Point) (t u : Fraction) :
   rw [hz]
   exact Fraction.equiv_trans (Fraction.add_zero _) (pointNorm_scale _ _)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem shift_difference (c t u : Fraction) :
     Fraction.equiv
       (durationDifference (durationDifference c u) (durationDifference c t))
@@ -78,6 +82,7 @@ def edgeName (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
         (Fraction.equiv_refl (pointNorm v)))
     exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv ha) hc
 
+-- Modern dependency score: 0/13 (M=0, H=13; transitive project theorems/axioms).
 theorem affine_vertex_distance (x v : Point) (t : Fraction) :
     Fraction.equiv (distance (affineState x v t) (x, zeroPoint))
       (Fraction.mul t.abs (pointNorm v)) := by
@@ -89,6 +94,7 @@ theorem affine_vertex_distance (x v : Point) (t : Fraction) :
 
 /-- Every later binary-time approximant remains within one coarse duration
 of its level-m starting time. -/
+-- Modern dependency score: 4/41 (M=4, H=37; transitive project theorems/axioms).
 theorem phase_abs_bound (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m j : Nat) :
     Fraction.le (durationDifference (timeApprox b T m) (timeApprox b T (m+j))).abs
@@ -97,6 +103,7 @@ theorem phase_abs_bound (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (Fraction.equiv_symm (scalarState_distance _ _))
     (finite_gap_time b T hT j m)
 
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem phase_nonnegative (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m : Nat) : (j : Nat) →
     0 ≤ (durationDifference (timeApprox b T m) (timeApprox b T (m+j))).num
@@ -114,6 +121,7 @@ theorem phase_nonnegative (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
         (by simpa only [Nat.add_assoc] using hs))
 
 /-- The time phase is between the two boundaries of the actual coarse cell. -/
+-- Modern dependency score: 6/47 (M=6, H=41; transitive project theorems/axioms).
 theorem phase_interval (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m j : Nat) :
     0 ≤ (durationDifference (timeApprox b T m) (timeApprox b T (m+j))).num ∧
@@ -124,6 +132,7 @@ theorem phase_interval (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ hn))
     (phase_abs_bound b T hT m j)⟩
 
+-- Modern dependency score: 30/92 (M=30, H=62; transitive project theorems/axioms).
 theorem edge_vertex_bound (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (x v : Point) (m : Nat) :
     Within (realize (edgeName b T hT x v m)) (embed (x, zeroPoint))
@@ -134,6 +143,7 @@ theorem edge_vertex_bound (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (Fraction.mul_le_mul_nonnegative (phase_abs_bound b T hT m j)
       (pointNorm v) (pointNorm_nonnegative v))
 
+-- Modern dependency score: 10/65 (M=10, H=55; transitive project theorems/axioms).
 theorem edgeName_same_start (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (x v : Point) (m : Nat)
     (hbase : timeApprox b T m = timeApprox c T m)

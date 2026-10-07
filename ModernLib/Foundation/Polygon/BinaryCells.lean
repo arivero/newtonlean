@@ -7,6 +7,7 @@ namespace NewtonLimitDynamics.Polygon.BinaryTime
 open NewtonLimitDynamics
 open HarmonicBinaryPrefix HarmonicDyadic HarmonicTimeComparison
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem count_duration_monotone (T : Fraction) (m : Nat)
     (hT : 0 ≤ T.num) (i k : Nat) (hik : i ≤ k) :
     Fraction.le (Fraction.mul (Fraction.ofInt (i:Int)) (duration T m))
@@ -15,6 +16,7 @@ theorem count_duration_monotone (T : Fraction) (m : Nat)
   simp only [Fraction.le, Fraction.ofInt, Int.mul_one]
   exact Int.ofNat_le.mpr hik
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem coarse_upper (b : Nat → Bool) (T : Fraction) (m : Nat) :
     Fraction.equiv (Fraction.add (timeApprox b T m) (duration T m))
       (Fraction.mul (Fraction.ofInt ((ticks b m+1:Int))) (duration T m)) := by
@@ -22,6 +24,7 @@ theorem coarse_upper (b : Nat → Bool) (T : Fraction) (m : Nat) :
     Fraction.ofInt, Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 7/51 (M=7, H=44; transitive project theorems/axioms).
 theorem time_interval (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m j : Nat) :
     Fraction.le (timeApprox b T m) (timeApprox b T (m+j)) ∧
@@ -31,6 +34,7 @@ theorem time_interval (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
   exact ⟨(difference_nonnegative_iff _ _).mp hs.1,
     difference_add_bound _ _ _ hs.2⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem coarse_two_step (b : Nat → Bool) (T : Fraction) (m : Nat) :
     Fraction.equiv
       (Fraction.add (Fraction.add (timeApprox b T m) (duration T m)) (duration T m))
@@ -42,6 +46,7 @@ theorem coarse_two_step (b : Nat → Bool) (T : Fraction) (m : Nat) :
   simp only [Int.mul_add, Int.mul_one, Int.add_mul]
   ac_nf
 
+-- Modern dependency score: 10/56 (M=10, H=46; transitive project theorems/axioms).
 theorem separated_cell_time_gap (b c : Nat → Bool) (T : Fraction)
     (hT : 0 ≤ T.num) (m j : Nat) (hgap : ticks b m + 2 ≤ ticks c m) :
     Fraction.le (duration T m)
@@ -59,6 +64,7 @@ theorem separated_cell_time_gap (b c : Nat → Bool) (T : Fraction)
       (Fraction.equiv_symm (add_difference_cancel _ _)))
   exact Fraction.magnitudes.le_trans hd (Fraction.le_abs _)
 
+-- Modern dependency score: 17/72 (M=17, H=55; transitive project theorems/axioms).
 theorem address_equiv_no_separated_cells (b c : Nat → Bool) (T : Fraction)
     (hT : 0 ≤ T.num) (hpos : 0 < T.num) (m : Nat)
     (ht : AddressEquiv T hT b c) : ¬ ticks b m + 2 ≤ ticks c m := by
@@ -71,6 +77,7 @@ theorem address_equiv_no_separated_cells (b c : Nat → Bool) (T : Fraction)
   exact Fraction.magnitudes.lt_irrefl _
     (Fraction.magnitudes.lt_of_le_lt hlow hsmall)
 
+-- Modern dependency score: 18/73 (M=18, H=55; transitive project theorems/axioms).
 theorem address_equiv_cell_cases (b c : Nat → Bool) (T : Fraction)
     (hT : 0 ≤ T.num) (hpos : 0 < T.num) (m : Nat)
     (ht : AddressEquiv T hT b c) :

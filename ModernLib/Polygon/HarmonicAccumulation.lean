@@ -37,6 +37,7 @@ private def localC (w h : Fraction) : Fraction :=
 /-- The actual fine-minus-coarse state displacement, as represented rational
 values. The first component is the position error, the second the velocity
 error. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem local_error_identity (w h : Fraction) (s : Point × Point) :
     stateEquiv (stateSub (HarmonicRefinement.fine w h s) (HarmonicRefinement.coarse w h s))
       (pointScale (negF (localA w h)) (middle w h s),
@@ -50,17 +51,20 @@ theorem local_error_identity (w h : Fraction) (s : Point × Point) :
       Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
     ac_nf <;> omega
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem localA_abs (w h : Fraction) :
     Fraction.equiv (localA w h).abs
       (Fraction.mul (Fraction.mul h.abs h.abs) w.abs) := by
   simp only [localA, Fraction.equiv, Fraction.abs, Fraction.mul,
     Int.natAbs_mul, Int.ofNat_mul]
 
+-- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 private theorem neg_localA_abs (w h : Fraction) :
     Fraction.equiv (negF (localA w h)).abs
       (Fraction.mul (Fraction.mul h.abs h.abs) w.abs) :=
   Fraction.equiv_trans (Fraction.abs_neg (localA w h)) (localA_abs w h)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem localC_abs (w h : Fraction) :
     Fraction.equiv (localC w h).abs
       (Fraction.mul (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)
@@ -69,6 +73,7 @@ private theorem localC_abs (w h : Fraction) :
     Int.natAbs_mul, Int.ofNat_mul]
   ac_nf
 
+-- Modern dependency score: 3/28 (M=3, H=25; transitive project theorems/axioms).
 private theorem middle_norm_bound (w h : Fraction) (s : Point × Point) :
     Fraction.le (pointNorm (middle w h s))
       (Fraction.mul (Fraction.add (Fraction.ofInt 1) h.abs) (stateNorm s)) :=
@@ -79,17 +84,20 @@ private def amplitude (w h : Fraction) : Fraction :=
 
 private def kickMagnitude (w h : Fraction) : Fraction := Fraction.mul h.abs w.abs
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 private theorem amplitude_nonnegative (w h : Fraction) :
     0 ≤ (amplitude w h).num :=
   Fraction.nonnegative_mul _ _
     (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _))
     (Fraction.abs_num_nonnegative _)
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 private theorem kickMagnitude_nonnegative (w h : Fraction) :
     0 ≤ (kickMagnitude w h).num :=
   Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative _) (Fraction.abs_num_nonnegative _)
 
 /-- Triangle and scaling estimate for the explicit local mismatch. -/
+-- Modern dependency score: 4/27 (M=4, H=23; transitive project theorems/axioms).
 theorem local_error_expanded_bound (w h : Fraction) (s : Point × Point) :
     Fraction.le
       (stateNorm (stateSub (HarmonicRefinement.fine w h s)
@@ -124,6 +132,7 @@ theorem local_error_expanded_bound (w h : Fraction) (s : Point × Point) :
 
 /-- The local defect of two actual half-cells against one full cell is bounded
 by `|h|²|w|(kappa+1)` times the current state magnitude. -/
+-- Modern dependency score: 11/47 (M=11, H=36; transitive project theorems/axioms).
 theorem local_error_bound (w h : Fraction) (s : Point × Point) :
     Fraction.le
       (stateNorm (stateSub (HarmonicRefinement.fine w h s)
@@ -161,6 +170,7 @@ def fineDurations (h : Fraction) : Nat → List Fraction
   | 0 => []
   | n + 1 => h :: h :: fineDurations h n
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem coarseAt_comm (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       coarseAt w h (HarmonicRefinement.coarse w h s) n =
@@ -170,6 +180,7 @@ private theorem coarseAt_comm (w h : Fraction) (s : Point × Point) :
       simp only [coarseAt]
       rw [coarseAt_comm w h s n]
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem fineAt_comm (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       fineAt w h (HarmonicRefinement.fine w h s) n =
@@ -180,6 +191,7 @@ private theorem fineAt_comm (w h : Fraction) (s : Point × Point) :
       rw [fineAt_comm w h s n]
 
 /-- The coarse recurrence is the actual list schedule of `n` full cells. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       schedule (linearField w) (List.replicate n (Fraction.add h h)) s =
@@ -193,6 +205,7 @@ theorem coarseAt_schedule (w h : Fraction) (s : Point × Point) :
       exact coarseAt_comm w h s n
 
 /-- The fine recurrence is the actual schedule of `2n` half-cells. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem fineAt_schedule (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       schedule (linearField w) (fineDurations h n) s = fineAt w h s n
@@ -205,6 +218,7 @@ theorem fineAt_schedule (w h : Fraction) (s : Point × Point) :
       exact fineAt_comm w h s n
 
 /-- Both actual lists have the same represented elapsed duration. -/
+-- Modern dependency score: 0/9 (M=0, H=9; transitive project theorems/axioms).
 theorem schedules_common_time (w h : Fraction) :
     (n : Nat) →
       Fraction.equiv
@@ -225,24 +239,29 @@ def errorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction
         (Fraction.mul (Fraction.mul (localFactor w h) (fpower (coarseFactor w h) n))
           (stateNorm s))
 
+-- Modern dependency score: 1/4 (M=1, H=3; transitive project theorems/axioms).
 theorem kappa_nonnegative (w h : Fraction) : 0 ≤ (kappa w h).num := by
   unfold kappa
   apply Fraction.nonnegative_mul
   · exact Fraction.nonnegative_add _ _ (by decide) (Fraction.abs_num_nonnegative _)
   · exact Fraction.nonnegative_add _ _ (by decide) (kickMagnitude_nonnegative w h)
 
+-- Modern dependency score: 3/6 (M=3, H=3; transitive project theorems/axioms).
 theorem localFactor_nonnegative (w h : Fraction) :
     0 ≤ (localFactor w h).num :=
   Fraction.nonnegative_mul _ _ (amplitude_nonnegative w h)
     (Fraction.nonnegative_add _ _ (kappa_nonnegative w h) (by decide))
 
+-- Modern dependency score: 2/5 (M=2, H=3; transitive project theorems/axioms).
 theorem fineFactor_nonnegative (w h : Fraction) :
     0 ≤ (fineFactor w h).num :=
   Fraction.nonnegative_mul _ _ (kappa_nonnegative w h) (kappa_nonnegative w h)
 
+-- Modern dependency score: 2/5 (M=2, H=3; transitive project theorems/axioms).
 private theorem coarseFactor_nonnegative (w h : Fraction) :
     0 ≤ (coarseFactor w h).num := kappa_nonnegative w (Fraction.add h h)
 
+-- Modern dependency score: 6/12 (M=6, H=6; transitive project theorems/axioms).
 theorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :
     (n : Nat) → 0 ≤ (errorBudget w h s n).num
   | 0 => by simp [errorBudget, Fraction.ofInt]
@@ -256,6 +275,7 @@ theorem errorBudget_nonnegative (w h : Fraction) (s : Point × Point) :
           (stateNorm_nonnegative s))
 
 /-- Two actual fine cells carry an input perturbation by at most `kappa²`. -/
+-- Modern dependency score: 4/50 (M=4, H=46; transitive project theorems/axioms).
 theorem fine_perturbation (w h : Fraction) (s t : Point × Point) :
     Fraction.le
       (stateNorm (stateSub (HarmonicRefinement.fine w h s)
@@ -273,6 +293,7 @@ theorem fine_perturbation (w h : Fraction) (s t : Point × Point) :
 
 /-- Every actual coarse state is bounded by `b^n` times the initial state
 magnitude, with `b = kappa(w,h+h)`. -/
+-- Modern dependency score: 11/39 (M=11, H=28; transitive project theorems/axioms).
 theorem coarse_norm_bound (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       Fraction.le (stateNorm (coarseAt w h s n))
@@ -295,6 +316,7 @@ theorem coarse_norm_bound (w h : Fraction) (s : Point × Point) :
 constructed finite error budget. The recurrence uses the coarse state at each
 block for the local defect and propagates the previous actual endpoint error
 through two actual fine cells. -/
+-- Modern dependency score: 25/83 (M=25, H=58; transitive project theorems/axioms).
 theorem actual_error_bound (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       Fraction.le (stateNorm (stateSub (fineAt w h s n) (coarseAt w h s n)))
@@ -331,40 +353,49 @@ private def sample : Point × Point := ((one, zero), (zero, one))
 private instance (s t : Point × Point) : Decidable (stateEquiv s t) :=
   inferInstanceAs (Decidable (pointEquiv s.1 t.1 ∧ pointEquiv s.2 t.2))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_zero_blocks :
     stateEquiv (fineAt one zero sample 1) (coarseAt one zero sample 1) := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_zero_error :
     Fraction.equiv
       (stateNorm (stateSub (fineAt one zero sample 1) (coarseAt one zero sample 1)))
       zero := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_zero_budget :
     Fraction.equiv (errorBudget one zero sample 1) zero := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_initial_error :
     Fraction.equiv
       (stateNorm (stateSub (fineAt one half sample 0) (coarseAt one half sample 0)))
       zero := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_local_factor :
     Fraction.equiv (localFactor one half) ⟨13, 16, by decide⟩ := by decide
 
 /-- Exact one-block state error. Its four component magnitudes are `1/4`,
 `1/8`, `1/8`, and `5/16`; their sum is `13/16`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_one_block_error :
     Fraction.equiv
       (stateNorm (stateSub (fineAt one half sample 1) (coarseAt one half sample 1)))
       ⟨13, 16, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_one_block_budget :
     Fraction.equiv (errorBudget one half sample 1) ⟨13, 8, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_two_block_error :
     Fraction.equiv
       (stateNorm (stateSub (fineAt one half sample 2) (coarseAt one half sample 2)))
       ⟨173, 256, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_one_block_distinct :
     ¬ stateEquiv (fineAt one half sample 1) (coarseAt one half sample 1) := by decide
 

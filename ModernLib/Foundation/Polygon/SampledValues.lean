@@ -28,13 +28,16 @@ need not have every approximant in the region, especially at its boundary. -/
 def Admissible (region : (Point × Point) → Prop) (x : Value) : Prop :=
   ∃ a : EndpointCauchyName, realize a = x ∧ ∀ n, region (a.approx n)
 
+-- Modern dependency score: 7/41 (M=7, H=34; transitive project theorems/axioms).
 theorem admissible_realize (region : (Point × Point) → Prop)
     (a : EndpointCauchyName) (ha : ∀ n, region (a.approx n)) :
     Admissible region (realize a) := ⟨a,rfl,ha⟩
 
+-- Modern dependency score: 7/41 (M=7, H=34; transitive project theorems/axioms).
 theorem admissible_embed (region : (Point × Point) → Prop) (s : Point × Point)
     (hs : region s) : Admissible region (embed s) := ⟨constantName s,rfl,fun _ => hs⟩
 
+-- Modern dependency score: 7/41 (M=7, H=34; transitive project theorems/axioms).
 theorem admissible_true (x : Value) : Admissible (fun _ => True) x := by
   induction x using Quotient.inductionOn with
   | _ a => exact ⟨a,rfl,fun _ => True.intro⟩
@@ -42,14 +45,17 @@ theorem admissible_true (x : Value) : Admissible (fun _ => True) x := by
 noncomputable def admissibleName (region : (Point × Point) → Prop)
     (x : Value) (hx : Admissible region x) : EndpointCauchyName := hx.choose
 
+-- Modern dependency score: 7/41 (M=7, H=34; transitive project theorems/axioms).
 theorem admissibleName_mem (region : (Point × Point) → Prop)
     (x : Value) (hx : Admissible region x) (n : Nat) :
     region ((admissibleName region x hx).approx n) := hx.choose_spec.2 n
 
+-- Modern dependency score: 7/41 (M=7, H=34; transitive project theorems/axioms).
 theorem admissibleName_realize (region : (Point × Point) → Prop)
     (x : Value) (hx : Admissible region x) :
     realize (admissibleName region x hx) = x := hx.choose_spec.1
 
+-- Modern dependency score: 1/19 (M=1, H=18; transitive project theorems/axioms).
 theorem scaled_add_small (C eps d e : Fraction) (hC : 0 ≤ C.num)
     (hd : 0 ≤ d.num)
     (hdelta : Fraction.lt d (factorDelta C eps.half hC))
@@ -77,6 +83,7 @@ def sampledName (f : Family) (a : EndpointCauchyName)
         (scaled_add_small _ eps _ _ f.coefficient_nonnegative (stateNorm_nonnegative _)
           (hN j i (by omega) (by omega)) (hM j (by omega)))
 
+-- Modern dependency score: 2/35 (M=2, H=33; transitive project theorems/axioms).
 theorem sampledName_equiv (f : Family) (a b : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) (hb : ∀ n, f.region (b.approx n))
     (hab : NameEquiv a b) : NameEquiv (sampledName f a ha) (sampledName f b hb) := by
@@ -96,6 +103,7 @@ noncomputable def sampledValue (f : Family) (x : Value)
     (hx : Admissible f.region x) : Value :=
   realize (sampledName f (admissibleName f.region x hx) (admissibleName_mem f.region x hx))
 
+-- Modern dependency score: 12/58 (M=12, H=46; transitive project theorems/axioms).
 theorem sampledValue_realize (f : Family) (a : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) (hx : Admissible f.region (realize a)) :
     sampledValue f (realize a) hx = realize (sampledName f a ha) := by
@@ -103,6 +111,7 @@ theorem sampledValue_realize (f : Family) (a : EndpointCauchyName)
   exact sampledName_equiv f _ a (admissibleName_mem _ _ hx) ha
     (Quotient.exact (admissibleName_realize _ _ hx))
 
+-- Modern dependency score: 10/56 (M=10, H=46; transitive project theorems/axioms).
 theorem sampledValue_congr (f : Family) (x y : Value)
     (hx : Admissible f.region x) (hy : Admissible f.region y) (hxy : x=y) :
     sampledValue f x hx = sampledValue f y hy := by
@@ -122,6 +131,7 @@ def offsetFamily (f : Family) (m : Nat) : Family where
     exact ⟨N,fun j hj => hN (m+j) (by omega)⟩
   ordered_bound := fun i j hij => f.ordered_bound (m+i) (m+j) (by omega)
 
+-- Modern dependency score: 2/42 (M=2, H=40; transitive project theorems/axioms).
 theorem sampledName_offset_equiv (f : Family) (a : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) (m : Nat) :
     NameEquiv (sampledName f a ha) (sampledName (offsetFamily f m) a ha) := by
@@ -140,12 +150,14 @@ theorem sampledName_offset_equiv (f : Family) (a : EndpointCauchyName)
     ac_nf
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hc hz) (hN j hj)
 
+-- Modern dependency score: 11/60 (M=11, H=49; transitive project theorems/axioms).
 theorem sampledValue_offset (f : Family) (x : Value)
     (hx : Admissible f.region x) (m : Nat) :
     sampledValue (offsetFamily f m) x hx = sampledValue f x hx :=
   Quotient.sound (nameEquiv_symm (sampledName_offset_equiv f _
     (admissibleName_mem _ _ hx) m))
 
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem nameBound_of_vanishing_error (a b : EndpointCauchyName) (R : Fraction)
     (e : Nat → Fraction)
     (he : ∀ eps : Fraction, 0 < eps.num → ∃ N : Nat, ∀ n, N≤n → Fraction.lt (e n) eps)
@@ -156,6 +168,7 @@ theorem nameBound_of_vanishing_error (a b : EndpointCauchyName) (R : Fraction)
   exact ⟨N,fun n hn => Fraction.magnitudes.lt_of_le_lt (hlevel n)
     (CauchyValues.add_lt_add_left (hN n hn) R)⟩
 
+-- Modern dependency score: 1/27 (M=1, H=26; transitive project theorems/axioms).
 theorem nameBound_scale_error (a b ta tb : EndpointCauchyName)
     (C R : Fraction) (hC : 0 ≤ C.num) (e : Nat → Fraction)
     (he : ∀ eps : Fraction, 0 < eps.num →
@@ -185,6 +198,7 @@ theorem nameBound_scale_error (a b ta tb : EndpointCauchyName)
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hb hc)
     (CauchyValues.add_lt_add_left (Fraction.half_lt eps heps) _)
 
+-- Modern dependency score: 19/69 (M=19, H=50; transitive project theorems/axioms).
 theorem sampledValue_within (f : Family) (x y : Value)
     (hx : Admissible f.region x) (hy : Admissible f.region y)
     (R : Fraction) (hxy : Within x y R) :
@@ -198,6 +212,7 @@ theorem sampledValue_within (f : Family) (x y : Value)
     f.error_vanishes (fun n => f.ordered_bound n n (Nat.le_refl _) _ _
       (admissibleName_mem _ _ hx n) (admissibleName_mem _ _ hy n)) hab
 
+-- Modern dependency score: 1/20 (M=1, H=19; transitive project theorems/axioms).
 theorem nameBound_affine (a b ta tb : EndpointCauchyName)
     (C R E : Fraction) (hC : 0 ≤ C.num) (M : Nat)
     (hlevel : ∀ n, M ≤ n → Fraction.le (distance (a.approx n) (b.approx n))
@@ -223,6 +238,7 @@ theorem nameBound_affine (a b ta tb : EndpointCauchyName)
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hb hc)
     (CauchyValues.add_lt_add_left (Fraction.half_lt eps heps) _)
 
+-- Modern dependency score: 21/71 (M=21, H=50; transitive project theorems/axioms).
 theorem sampled_approximant_bound (f : Family) (a : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) (hx : Admissible f.region (realize a))
     (m : Nat) (R : Fraction) (hnear : Within (embed (a.approx m)) (realize a) R) :

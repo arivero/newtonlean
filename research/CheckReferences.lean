@@ -41,6 +41,44 @@ private partial def sourceLine? (name : Name) : TermElabM (Option Nat) := do
   if name.isAnonymous then return none
   sourceLine? name.getPrefix
 
+/- Definitions are traversed but not counted. Distinct source-declared project
+theorems/axioms count once; the root proof and compiler-generated auxiliaries
+do not count. Standard Lean infrastructure is outside the project score. -/
+private partial def closure (rows : NameMap (Array Name))
+    (todo : List Name) (seen : NameSet := {}) : NameSet :=
+  match todo with
+  | [] => seen
+  | name :: rest =>
+    if seen.contains name then closure rows rest seen
+    else match rows.find? name with
+      | none => closure rows rest seen
+      | some uses => closure rows (uses.toList ++ rest) (seen.insert name)
+
+private def score (rows : NameMap (Array Name)) (proofs modern : NameSet)
+    (name : Name) : Nat × Nat := Id.run do
+  let used := closure rows ((rows.find? name).getD #[]).toList
+  let mut m := 0
+  let mut h := 0
+  for dependency in used do
+    if dependency != name && proofs.contains dependency then
+      if modern.contains dependency then m := m + 1 else h := h + 1
+  return (m, h)
+
+private def scoreComment (m h : Nat) : String :=
+  let value := if m+h == 0 then "0" else s!"{m}/{m+h}"
+  s!"-- Modern dependency score: {value} (M={m}, H={h}; transitive project theorems/axioms)."
+
+private def declaredProof (name : Name) (line : String) : Bool :=
+  let userName := (privateToUserName? name).getD name |>.toString
+  let words := line.splitOn " " |>.filter (! ·.isEmpty)
+  let rec find : List String → Bool
+    | kind :: token :: rest =>
+      if kind == "theorem" || kind == "axiom" then
+        userName == token || userName.endsWith ("." ++ token)
+      else find (token :: rest)
+    | _ => false
+  find words
+
 end Verification
 
 run_elab do
@@ -59,18 +97,43 @@ run_elab do
       && !control.contains `Control.elementary do
     throwError "dependency verification controls failed"
 
+  let scoreRows : NameMap (Array Name) := ({} : NameMap (Array Name))
+    |>.insert `Control.root #[`Control.bridge, `Control.old, `Control.old]
+    |>.insert `Control.bridge #[modern, `Control.old]
+    |>.insert modern #[] |>.insert `Control.old #[]
+  let scoreProofs := ({} : NameSet).insert modern |>.insert `Control.old
+  unless Verification.score scoreRows scoreProofs (({} : NameSet).insert modern)
+      `Control.root == (1, 1) &&
+      Verification.score scoreRows scoreProofs (({} : NameSet).insert modern)
+        `Control.old == (0, 0) do
+    throwError "proof-score controls failed: transitive modern use, duplicate use or empty proof"
+
   let env ← getEnv
   let mut rows : Array (Name × Array Name) := #[]
   let mut seeds : NameSet := {}
   let mut primary : Array Name := #[]
   let mut headers : NameMap (Option Nat) := {}
   let mut inspected := 0
+  let mut sources : NameMap (Array String) := {}
+  let mut proofLocations : Array (Name × Name × Nat) := #[]
   for (name, info) in env.constants.toList do
     if let some idx := env.getModuleIdxFor? name then
       let module := env.header.moduleNames[idx]!
       if Verification.projectModule module then
         inspected := inspected + 1
         rows := rows.push (name, Verification.dependencies info)
+        if info matches .thmInfo _ | .axiomInfo _ then
+          if let some ranges ← findDeclarationRangesCore? name then
+            let lines ← match sources.find? module with
+              | some lines => pure lines
+              | none => do
+                let lines := (← liftM (IO.FS.readFile
+                  (module.toString.replace "." "/" ++ ".lean"))).splitOn "\n" |>.toArray
+                sources := sources.insert module lines
+                pure lines
+            let line := ranges.selectionRange.pos.line
+            if line > 0 && Verification.declaredProof name (lines[line-1]!.trim) then
+              proofLocations := proofLocations.push (name, module, line-1)
         -- Compiler-generated unsafe implementations may carry local proof
         -- placeholders. They cannot be used by safe mathematical proofs.
         unless info.isUnsafe do
@@ -107,4 +170,44 @@ run_elab do
   for name in primary do
     if let some path := paths.find? name then
       throwError "anachronical dependency in primary declaration {name}: {path}"
+
+  let mut graph : NameMap (Array Name) := {}
+  for (name, uses) in rows do graph := graph.insert name uses
+  let mut proofs : NameSet := {}
+  let mut modernProofs : NameSet := {}
+  for (name, _, _) in proofLocations do
+    proofs := proofs.insert name
+    if paths.contains name then modernProofs := modernProofs.insert name
+  unless proofs.contains `NewtonLimitDynamics.Polygon.CauchyValues.position_bounded_tail &&
+      proofs.contains `NewtonLimitDynamics.Polygon.CauchyValues.distance_self_lt &&
+      proofLocations.any (fun (name, _, _) =>
+        name.toString.endsWith ".equiv_zero_num" && (privateToUserName? name).isSome) do
+    throwError "proof-score source controls failed: documented, ordinary or private theorem omitted"
+  let writeScores := (← liftM (IO.getEnv "NEWTON_WRITE_PROOF_SCORES")) == some "1"
+  let mut edits : NameMap (Array (Nat × String)) := {}
+  let mut scored := 0
+  for (name, module, line) in proofLocations do
+    if modernProofs.contains name then
+      scored := scored + 1
+      let (m, h) := Verification.score graph proofs modernProofs name
+      let expected := Verification.scoreComment m h
+      let lines := (sources.find? module).getD #[]
+      let current := if line > 0 then lines[line-1]! else ""
+      if current != expected then
+        if writeScores then
+          edits := edits.insert module (((edits.find? module).getD #[]).push (line, expected))
+        else
+          throwError "missing/stale proof score for {name} at {module}:{line+1}; expected {expected}"
+  for (module, changes) in edits.toList do
+    let original := (sources.find? module).getD #[]
+    let mut updated : Array String := #[]
+    for i in [:original.size] do
+      if let some (_, replacement) := changes.find? (fun (line, _) => line == i) then
+        if i > 0 && original[i-1]!.startsWith "-- Modern dependency score:" then
+          updated := updated.pop
+        updated := updated.push replacement
+      updated := updated.push original[i]!
+    liftM (IO.FS.writeFile (module.toString.replace "." "/" ++ ".lean")
+      (String.intercalate "\n" updated.toList))
+  logInfo m!"{if writeScores then "Refreshed" else "Checked"} {scored} inline modern dependency scores. Prefer smaller M/(M+H); an empty dependency set scores 0. Scores describe repository classification, not verified historical source coverage."
   logInfo m!"Checked {inspected} compiled project constants: safe declarations use only standard Lean axioms; primary historical declarations have no anachronical dependency."

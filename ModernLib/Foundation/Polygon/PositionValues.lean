@@ -25,10 +25,12 @@ private def vxGap (a b : Point × Point) : Fraction :=
 private def vyGap (a b : Point × Point) : Fraction :=
   (Fraction.add a.2.2 ⟨-b.2.2.num, b.2.2.den, b.2.2.den_pos⟩).abs
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem distance_decompose (a b : Point × Point) :
     distance a b = Fraction.add (Fraction.add (xGap a b) (yGap a b))
       (Fraction.add (vxGap a b) (vyGap a b)) := rfl
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem projected_distance (a b : Point × Point) :
     Fraction.equiv (distance (positionState a) (positionState b))
       (Fraction.add (xGap a b) (yGap a b)) := by
@@ -40,6 +42,7 @@ private theorem projected_distance (a b : Point × Point) :
     Int.natAbs_zero, Int.ofNat_zero, Int.neg_zero,
     Int.mul_one, Int.one_mul]
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem first_distance (a b : Point × Point) :
     Fraction.equiv (distance (firstState a) (firstState b)) (xGap a b) := by
   simp only [distance, firstState, stateNorm, stateSub, pointNorm,
@@ -49,6 +52,7 @@ private theorem first_distance (a b : Point × Point) :
     Int.natAbs_zero, Int.ofNat_zero, Int.neg_zero,
     Int.mul_one, Int.one_mul]
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem second_distance (a b : Point × Point) :
     Fraction.equiv (distance (secondState a) (secondState b)) (yGap a b) := by
   simp only [distance, secondState, stateNorm, stateSub, pointNorm,
@@ -59,6 +63,7 @@ private theorem second_distance (a b : Point × Point) :
     Int.mul_one, Int.one_mul]
   ac_nf
 
+-- Modern dependency score: 2/8 (M=2, H=6; transitive project theorems/axioms).
 theorem position_nonexpansive (a b : Point × Point) :
     Fraction.le (distance (positionState a) (positionState b))
       (distance a b) := by
@@ -73,6 +78,7 @@ theorem position_nonexpansive (a b : Point × Point) :
         (Int.mul_nonneg (Fraction.abs_num_nonnegative _)
           (Int.le_of_lt (vxGap a b).den_pos)))
 
+-- Modern dependency score: 2/11 (M=2, H=9; transitive project theorems/axioms).
 theorem first_nonexpansive (a b : Point × Point) :
     Fraction.le (distance (firstState a) (firstState b))
       (distance a b) := by
@@ -90,6 +96,7 @@ theorem first_nonexpansive (a b : Point × Point) :
   rw [distance_decompose]
   exact Fraction.magnitudes.le_trans h₁ h₂
 
+-- Modern dependency score: 2/13 (M=2, H=11; transitive project theorems/axioms).
 theorem second_nonexpansive (a b : Point × Point) :
     Fraction.le (distance (secondState a) (secondState b))
       (distance a b) := by
@@ -121,6 +128,7 @@ def mapName (f : Point × Point → Point × Point)
     exact Fraction.magnitudes.lt_of_le_lt
       (hLip (a.approx m) (a.approx n)) (hN m n hm hn)
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 theorem mapName_equiv (f : Point × Point → Point × Point)
     (hLip : ∀ a b, Fraction.le (distance (f a) (f b)) (distance a b))
     {a b : EndpointCauchyName} (hab : NameEquiv a b) :
@@ -138,11 +146,13 @@ def mapValue (f : Point × Point → Point × Point)
   Quotient.lift (fun a => realize (mapName f hLip a))
     (fun _ _ h => Quotient.sound (mapName_equiv f hLip h))
 
+-- Modern dependency score: 8/42 (M=8, H=34; transitive project theorems/axioms).
 theorem mapValue_embed (f : Point × Point → Point × Point)
     (hLip : ∀ a b, Fraction.le (distance (f a) (f b)) (distance a b))
     (s : Point × Point) :
     mapValue f hLip (embed s) = embed (f s) := rfl
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 theorem mapName_bound (f : Point × Point → Point × Point)
     (hLip : ∀ a b, Fraction.le (distance (f a) (f b)) (distance a b))
     (a b : EndpointCauchyName) (R : Fraction) (h : NameBound a b R) :
@@ -154,6 +164,7 @@ theorem mapName_bound (f : Point × Point → Point × Point)
   exact Fraction.magnitudes.lt_of_le_lt
     (hLip (a.approx n) (b.approx n)) (hN n hn)
 
+-- Modern dependency score: 17/54 (M=17, H=37; transitive project theorems/axioms).
 theorem mapValue_within (f : Point × Point → Point × Point)
     (hLip : ∀ a b, Fraction.le (distance (f a) (f b)) (distance a b))
     (x y : Value) (R : Fraction) (h : Within x y R) :
@@ -167,33 +178,40 @@ def positionValue : Value → Value := mapValue positionState position_nonexpans
 def firstValue : Value → Value := mapValue firstState first_nonexpansive
 def secondValue : Value → Value := mapValue secondState second_nonexpansive
 
+-- Modern dependency score: 12/48 (M=12, H=36; transitive project theorems/axioms).
 theorem positionValue_embed (s : Point × Point) :
     positionValue (embed s) = embed (positionState s) :=
   mapValue_embed positionState position_nonexpansive s
 
+-- Modern dependency score: 12/48 (M=12, H=36; transitive project theorems/axioms).
 theorem firstValue_embed (s : Point × Point) :
     firstValue (embed s) = embed (firstState s) :=
   mapValue_embed firstState first_nonexpansive s
 
+-- Modern dependency score: 12/48 (M=12, H=36; transitive project theorems/axioms).
 theorem secondValue_embed (s : Point × Point) :
     secondValue (embed s) = embed (secondState s) :=
   mapValue_embed secondState second_nonexpansive s
 
+-- Modern dependency score: 11/47 (M=11, H=36; transitive project theorems/axioms).
 theorem positionValue_idempotent (v : Value) :
     positionValue (positionValue v) = positionValue v := by
   induction v using Quotient.inductionOn with
   | _ a => rfl
 
+-- Modern dependency score: 21/60 (M=21, H=39; transitive project theorems/axioms).
 theorem positionValue_within (x y : Value) (R : Fraction)
     (h : Within x y R) :
     Within (positionValue x) (positionValue y) R :=
   mapValue_within positionState position_nonexpansive x y R h
 
+-- Modern dependency score: 21/60 (M=21, H=39; transitive project theorems/axioms).
 theorem firstValue_within (x y : Value) (R : Fraction)
     (h : Within x y R) :
     Within (firstValue x) (firstValue y) R :=
   mapValue_within firstState first_nonexpansive x y R h
 
+-- Modern dependency score: 21/60 (M=21, H=39; transitive project theorems/axioms).
 theorem secondValue_within (x y : Value) (R : Fraction)
     (h : Within x y R) :
     Within (secondValue x) (secondValue y) R :=
@@ -207,11 +225,13 @@ def asPosition (v : Value) : PositionValue :=
 def embedPosition (p : Point) : PositionValue :=
   asPosition (embed (p, zeroPoint))
 
+-- Modern dependency score: 13/49 (M=13, H=36; transitive project theorems/axioms).
 theorem firstValue_positionValue (v : Value) :
     firstValue (positionValue v) = firstValue v := by
   induction v using Quotient.inductionOn with
   | _ a => rfl
 
+-- Modern dependency score: 13/49 (M=13, H=36; transitive project theorems/axioms).
 theorem secondValue_positionValue (v : Value) :
     secondValue (positionValue v) = secondValue v := by
   induction v using Quotient.inductionOn with
@@ -228,6 +248,7 @@ def CoordinateSquare (centre : Point) (radius : NonnegativeRadius)
     Within (secondValue x.val)
       (embed (secondState (centre, zeroPoint))) radius.val
 
+-- Modern dependency score: 29/69 (M=29, H=40; transitive project theorems/axioms).
 theorem square_of_eventual_coordinate_bounds
     (a : EndpointCauchyName) (centre : Point)
     (radius : NonnegativeRadius) (N : Nat)
@@ -250,6 +271,7 @@ theorem square_of_eventual_coordinate_bounds
     rw [secondValue_positionValue]
     exact nameBound_of_eventual_le _ _ _ N hy
 
+-- Modern dependency score: 30/70 (M=30, H=40; transitive project theorems/axioms).
 theorem square_of_rational_coordinate_bounds (p centre : Point)
     (radius : NonnegativeRadius)
     (hx : Fraction.le (distance (firstState (p, zeroPoint))

@@ -32,6 +32,7 @@ def scalarState (t : Fraction) : Point × Point :=
 def timeState (b : Nat → Bool) (T : Fraction) (j : Nat) : Point × Point :=
   scalarState (timeApprox b T j)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem scalarState_distance (t u : Fraction) :
     Fraction.equiv (distance (scalarState t) (scalarState u))
       (durationDifference u t).abs := by
@@ -42,11 +43,13 @@ theorem scalarState_distance (t u : Fraction) :
     Int.natAbs_zero, Int.ofNat_zero, Int.neg_zero,
     Int.mul_one, Int.one_mul]
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem timeState_distance (b c : Nat → Bool) (T : Fraction) (j : Nat) :
     Fraction.equiv (distance (timeState b T j) (timeState c T j))
       (durationDifference (timeApprox c T j) (timeApprox b T j)).abs :=
   scalarState_distance _ _
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem time_step_difference (b : Nat → Bool) (T : Fraction) (j : Nat) :
     Fraction.equiv
       (durationDifference (timeApprox b T j) (timeApprox b T (j + 1)))
@@ -60,6 +63,7 @@ theorem time_step_difference (b : Nat → Bool) (T : Fraction) (j : Nat) :
     Int.add_mul, Int.mul_add]
   ac_nf <;> omega
 
+-- Modern dependency score: 2/17 (M=2, H=15; transitive project theorems/axioms).
 theorem adjacent_time_bound (b : Nat → Bool) (T : Fraction) (j : Nat)
     (hT : 0 ≤ T.num) :
     Fraction.le (distance (timeState b T (j + 1)) (timeState b T j))
@@ -92,11 +96,13 @@ def doubleTail (T : Fraction) (j : Nat) : Fraction :=
   ⟨2 * T.num, T.den * (2 : Int) ^ j,
     Int.mul_pos T.den_pos (Int.pow_pos (by decide))⟩
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem tail_double (T : Fraction) (j : Nat) :
     Fraction.equiv (Fraction.add (duration T j) (duration T j))
       (doubleTail T j) := by
   exact GeometricTail.tail_double T j
 
+-- Modern dependency score: 3/39 (M=3, H=36; transitive project theorems/axioms).
 theorem finite_gap_time (b : Nat → Bool) (T : Fraction)
     (hT : 0 ≤ T.num) :
     (k j : Nat) → Fraction.le
@@ -106,6 +112,7 @@ theorem finite_gap_time (b : Nat → Bool) (T : Fraction)
   exact GeometricTail.finite_gap (timeState b T) T hT
     (fun i => adjacent_time_bound b T i hT) k j
 
+-- Modern dependency score: 3/45 (M=3, H=42; transitive project theorems/axioms).
 theorem two_sided_time (b : Nat → Bool) (T : Fraction)
     (hT : 0 ≤ T.num) (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
     Fraction.le (distance (timeState b T m) (timeState b T n))
@@ -115,11 +122,13 @@ theorem two_sided_time (b : Nat → Bool) (T : Fraction)
 
 def modulus (T eps : Fraction) : Nat := (2 * T.num * eps.den).toNat
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem doubleTail_lt_tolerance (T eps : Fraction)
     (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
     Fraction.lt (doubleTail T (modulus T eps)) eps := by
   exact GeometricTail.doubleTail_lt_tolerance T eps hT heps
 
+-- Modern dependency score: 5/49 (M=5, H=44; transitive project theorems/axioms).
 theorem time_cauchy (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) :
     ∀ eps : Fraction, 0 < eps.num →
       ∃ N : Nat, ∀ m n : Nat, N ≤ m → N ≤ n →
@@ -143,13 +152,16 @@ def AddressEquiv (T : Fraction) (hT : 0 ≤ T.num)
     (b c : Nat → Bool) : Prop :=
   NameEquiv (timeName b T hT) (timeName c T hT)
 
+-- Modern dependency score: 9/54 (M=9, H=45; transitive project theorems/axioms).
 theorem addressEquiv_refl (T : Fraction) (hT : 0 ≤ T.num)
     (b : Nat → Bool) : AddressEquiv T hT b b := nameEquiv_refl _
 
+-- Modern dependency score: 7/52 (M=7, H=45; transitive project theorems/axioms).
 theorem addressEquiv_symm (T : Fraction) (hT : 0 ≤ T.num)
     {b c : Nat → Bool} (h : AddressEquiv T hT b c) :
     AddressEquiv T hT c b := nameEquiv_symm h
 
+-- Modern dependency score: 9/55 (M=9, H=46; transitive project theorems/axioms).
 theorem addressEquiv_trans (T : Fraction) (hT : 0 ≤ T.num)
     {a b c : Nat → Bool} (hab : AddressEquiv T hT a b)
     (hbc : AddressEquiv T hT b c) : AddressEquiv T hT a c :=

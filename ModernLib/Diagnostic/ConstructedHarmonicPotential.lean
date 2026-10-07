@@ -18,6 +18,7 @@ open ForceClasses GeneralForceEndpoint GeneralForceSecants
 
 /-- Finite work identifies the polynomial with the linear central force:
 the residual after -mass*a(p) dot (q-p) is the quadratic displacement term. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem finite_work_remainder (mass w : Fraction) (p q : Point) :
     Fraction.equiv
       (Fraction.add
@@ -45,6 +46,7 @@ private def frame (w T : Fraction) (s : Point × Point) : Frame :=
   let U := Fraction.mul (Fraction.ofInt 2) (Fraction.mul w.abs V)
   ⟨P,V,A,U,Fraction.add A (Fraction.add (Fraction.mul T U) A)⟩
 
+-- Modern dependency score: 2/7 (M=2, H=5; transitive project theorems/axioms).
 private theorem frame_nonnegative (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) :
     0 ≤ (frame w T s).P.num ∧ 0 ≤ (frame w T s).V.num ∧ 0 ≤ (frame w T s).A.num ∧
       0 ≤ (frame w T s).U.num ∧ 0 ≤ (frame w T s).Z.num := by
@@ -61,6 +63,7 @@ def coefficient (mass w T : Fraction) (s : Point × Point) : Fraction :=
   let f := frame w T s
   remainderCoefficient (Fraction.mul mass w).half T f.P f.V f.Z f.U
 
+-- Modern dependency score: 4/9 (M=4, H=5; transitive project theorems/axioms).
 theorem coefficient_nonnegative (mass w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) :
     0 ≤ (coefficient mass w T s).num := by
   obtain ⟨hP,hV,_,hU,hZ⟩ := frame_nonnegative w T s hT
@@ -76,6 +79,7 @@ private def workName (mass w : Fraction) (a : EndpointCauchyName) : EndpointCauc
     (pairingName dotForm (secantName (negF w) a (constantName (zeroPoint,zeroPoint))) a)
     (constantName (zeroPoint,zeroPoint))
 
+-- Modern dependency score: 13/75 (M=13, H=62; transitive project theorems/axioms).
 private theorem work_approximant (mass w : Fraction) (a : EndpointCauchyName) (j : Nat) :
     stateEquiv ((workName mass w a).approx j)
       (scalarState (Fraction.mul (Fraction.mul mass w).half
@@ -87,6 +91,7 @@ private theorem work_approximant (mass w : Fraction) (a : EndpointCauchyName) (j
   exact ⟨⟨Fraction.equiv_trans he.1.1 (Fraction.mul_equiv_left _
     (dot_congr hg ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)),he.1.2⟩,he.2⟩
 
+-- Modern dependency score: 18/89 (M=18, H=71; transitive project theorems/axioms).
 theorem force_work_eq_energy (mass w : Fraction) (x : Value) :
     secantValue (Fraction.mul mass w).half
       (pairingValue dotForm (HarmonicCompletedForce.linearValue w x) x) (embed (zeroPoint,zeroPoint)) =
@@ -109,6 +114,7 @@ theorem force_work_eq_energy (mass w : Fraction) (x : Value) :
           Int.neg_zero] <;> ac_nf <;> omega
     · exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
 
+-- Modern dependency score: 110/284 (M=110, H=174; transitive project theorems/axioms).
 private theorem node_frame_bounds (w T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num)
     (m k : Nat) (hk : k+1≤blocks m) (j : Nat) :
@@ -184,6 +190,7 @@ private theorem node_frame_bounds (w T : Fraction) (s : Point × Point)
 
 /-- The potential difference is evaluated on the actual constructed endpoint
 and the tangent continuation. Its normalized drop has an explicit O(H) bound. -/
+-- Modern dependency score: 250/456 (M=250, H=206; transitive project theorems/axioms).
 theorem normalized_potential_cell_bound (mass w T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num)
     (m k : Nat) (hk : k+1≤blocks m) :
@@ -229,6 +236,7 @@ theorem normalized_potential_cell_bound (mass w T : Fraction) (s : Point × Poin
 
 /-- Uniform leading-order potential drop on all constructed dyadic cells,
 including the last cell: Delta V/H² tends to -mass*dot(a_left,a_left)/2. -/
+-- Modern dependency score: 255/461 (M=255, H=206; transitive project theorems/axioms).
 theorem normalized_potential_steps_converge (mass w T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num)
     (eps : Fraction) (heps : 0 < eps.num) :
@@ -251,6 +259,7 @@ theorem normalized_potential_steps_converge (mass w T : Fraction) (s : Point × 
 
 /-- A finite quadratic prediction still has a nonzero potential remainder.
 This rational polynomial control is not an independently computed orbit. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem quadratic_prediction_control :
     let h : Fraction := ⟨1,2,by decide⟩
     let p : Point := (Fraction.ofInt 1,Fraction.ofInt 0)

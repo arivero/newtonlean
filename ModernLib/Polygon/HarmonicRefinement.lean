@@ -35,6 +35,7 @@ def connector (w h : Fraction) (s : Point × Point) : Point :=
   pointSub (coarse w h s).1 (fine w h s).1
 
 /-- The fine endpoint is the coarse endpoint plus `-h² w y`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem position_mismatch (w h : Fraction) (s : Point × Point) :
     pointEquiv (fine w h s).1
       (pointAdd (coarse w h s).1
@@ -46,6 +47,7 @@ theorem position_mismatch (w h : Fraction) (s : Point × Point) :
     ac_nf <;> omega
 
 /-- Fine-minus-coarse velocity: `h² w v + h³ w² y`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem velocity_mismatch (w h : Fraction) (s : Point × Point) :
     pointEquiv (fine w h s).2
       (pointAdd (coarse w h s).2
@@ -64,6 +66,7 @@ def closedDefect (w h : Fraction) (s : Point × Point) : Fraction :=
   closedBoundaryTwice s.1 (middle w h s) (fine w h s).1 (coarse w h s).1
 
 /-- The local closed boundary reduces to the single triangle `y,z,X`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem closed_eq_triangle (w h : Fraction) (s : Point × Point) :
     Fraction.equiv (closedDefect w h s)
       (det (pointSub (fine w h s).1 (middle w h s))
@@ -75,6 +78,7 @@ theorem closed_eq_triangle (w h : Fraction) (s : Point × Point) :
     ac_nf <;> omega
 
 /-- Exact cubic signed doubled gap for the common-time local refinement. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem closed_defect_cubic (w h : Fraction) (s : Point × Point) :
     Fraction.equiv (closedDefect w h s)
       (negF (Fraction.mul (Fraction.mul (Fraction.mul h h) h)
@@ -90,12 +94,14 @@ account for overlaps or multiple lobes in a global polygon comparison. -/
 def absoluteClosedGap (w h : Fraction) (s : Point × Point) : Fraction :=
   (closedDefect w h s).abs
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem absoluteClosedGap_nonnegative (w h : Fraction) (s : Point × Point) :
     0 ≤ (absoluteClosedGap w h s).num := by
   exact Fraction.abs_num_nonnegative _
 
 /-- Nonnegative local gap as the magnitude of the exact cubic coefficient.
     This is one triangle, so no cancellation of distinct lobes is involved. -/
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem absolute_closed_defect_cubic (w h : Fraction) (s : Point × Point) :
     Fraction.equiv (absoluteClosedGap w h s)
       (Fraction.mul (Fraction.mul (Fraction.mul h h) h)
@@ -104,6 +110,7 @@ theorem absolute_closed_defect_cubic (w h : Fraction) (s : Point × Point) :
     (Fraction.abs_neg _)
 
 /-- Central-force Kepler sums agree for these two schedules. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem swept_equal (w h : Fraction) (s : Point × Point) :
     Fraction.equiv (swept (linearField w) [h, h] s)
       (swept (linearField w) [Fraction.add h h] s) := by
@@ -118,15 +125,23 @@ private def zero : Fraction := ⟨0, 1, by decide⟩
 private def half : Fraction := ⟨1, 2, by decide⟩
 private def sample : Point × Point := ((one, zero), (zero, one))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_middle : pointEquiv (middle one half sample) (one, half) := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_fine : pointEquiv (fine one half sample).1
     (⟨3, 4, by decide⟩, ⟨7, 8, by decide⟩) := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_coarse : pointEquiv (coarse one half sample).1 (one, one) := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_fine_swept : Fraction.equiv (swept (linearField one) [half, half] sample) one := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_coarse_swept : Fraction.equiv (swept (linearField one) [Fraction.add half half] sample) one := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_closed_defect : Fraction.equiv (closedDefect one half sample) ⟨-1, 8, by decide⟩ := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_absolute_closed_gap :
     Fraction.equiv (absoluteClosedGap one half sample) ⟨1, 8, by decide⟩ := by decide
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_closed_defect_nonzero :
     ¬ Fraction.equiv (closedDefect one half sample) zero := by decide
 

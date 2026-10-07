@@ -36,17 +36,20 @@ def chord (h : Fraction) (v a : Point) (n : Nat) : Point := pointScale h (velAt 
 def twoCellTwice (h : Fraction) (v a : Point) (n : Nat) : Fraction :=
   det (chord h v a n) (chord h v a (n + 1))
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem pointSub_add_self_left_equiv (x y : Point) :
     pointEquiv (pointSub (pointAdd x y) x) y :=
   TimeSubdivision.pointSub_add_self_left_equiv x y
 
 /-- The drift of a cell is exactly the position difference `p_{n+1} - p_n`. -/
+-- Modern dependency score: 1/2 (M=1, H=1; transitive project theorems/axioms).
 theorem chord_is_position_diff (h : Fraction) (p v a : Point) (n : Nat) :
     pointEquiv (pointSub (posAt h p v a (n + 1)) (posAt h p v a n)) (chord h v a n) := by
   simp only [posAt, chord]
   exact pointSub_add_self_left_equiv (posAt h p v a n) (pointScale h (velAt h v a n))
 
 /-- The key lemma from the hand computation: `det (w + s·a) a = det w a`. -/
+-- Modern dependency score: 0/12 (M=0, H=12; transitive project theorems/axioms).
 theorem det_kick_direction_constant (s : Fraction) (w a : Point) :
     Fraction.equiv (det (pointAdd w (pointScale s a)) a) (det w a) := by
   have h1 := det_add_left a w (pointScale s a)
@@ -66,6 +69,7 @@ theorem det_kick_direction_constant (s : Fraction) (w a : Point) :
     (Fraction.equiv_trans (Fraction.add_equiv_left (det w a) (Fraction.equiv_trans t2 t3)) t4)
 
 /-- Each velocity has the same determinant with `a` as the initial velocity. -/
+-- Modern dependency score: 1/14 (M=1, H=13; transitive project theorems/axioms).
 theorem vel_det_constant (h : Fraction) (v a : Point) (n : Nat) :
     Fraction.equiv (det (velAt h v a n) a) (det v a) := by
   induction n with
@@ -74,6 +78,7 @@ theorem vel_det_constant (h : Fraction) (v a : Point) (n : Nat) :
     exact Fraction.equiv_trans (det_kick_direction_constant h (velAt h v a n) a) ih
 
 /-- Every two-cell chord triangle has doubled area `h³·det(v, a)`. -/
+-- Modern dependency score: 2/20 (M=2, H=18; transitive project theorems/axioms).
 theorem two_cell_triangle_constant (h : Fraction) (v a : Point) (n : Nat) :
     Fraction.equiv (twoCellTwice h v a n)
       (Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a)))) := by
@@ -100,6 +105,7 @@ theorem two_cell_triangle_constant (h : Fraction) (v a : Point) (n : Nat) :
 
 /-- All two-cell triangles have the same signed doubled area.  No absolute-area
     operation or unsigned sum is asserted. -/
+-- Modern dependency score: 3/22 (M=3, H=19; transitive project theorems/axioms).
 theorem all_triangles_equal (h : Fraction) (v a : Point) (m n : Nat) :
     Fraction.equiv (twoCellTwice h v a m) (twoCellTwice h v a n) :=
   Fraction.equiv_trans (two_cell_triangle_constant h v a m)
@@ -111,6 +117,7 @@ def stripSum (h : Fraction) (v a : Point) : Nat → Fraction
   | k + 1 => Fraction.add (stripSum h v a k) (twoCellTwice h v a k)
 
 /-- The signed strip sum over `k` triangles is `k·h³·det(v, a)`. -/
+-- Modern dependency score: 3/21 (M=3, H=18; transitive project theorems/axioms).
 theorem total_strip_area (h : Fraction) (v a : Point) (k : Nat) :
     Fraction.equiv (stripSum h v a k)
       (Fraction.mul (Fraction.ofInt k) (Fraction.mul h (Fraction.mul h (Fraction.mul h (det v a))))) := by

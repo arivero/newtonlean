@@ -9,6 +9,7 @@ open PartitionControl
 /-- `n` equal unit cells over a common denominator. -/
 def unitCells (n : Nat) : List Nat := List.replicate n 1
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem unitCells_T_from (s : PartitionStats) : (n : Nat) ->
     ((unitCells n).foldl next s).T = s.T + n
   | 0 => rfl
@@ -18,17 +19,20 @@ private theorem unitCells_T_from (s : PartitionStats) : (n : Nat) ->
       simp only [next]
       omega
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem unitCells_total (n : Nat) : total (unitCells n) = n := by
   unfold total stats
   rw [unitCells_T_from]
   exact Nat.zero_add n
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem unitCells_le_one (n : Nat) : ∀ w ∈ unitCells n, w ≤ 1 := by
   intro w hw
   rw [List.eq_of_mem_replicate hw]
   exact Nat.le_refl 1
 
 /-- Refining the rational time `N/E` by a factor `K` keeps the same time. -/
+-- Modern dependency score: 3/3 (M=3, H=0; transitive project theorems/axioms).
 theorem refined_time (N E K : Nat) (hE : 0 < E) (hEK : 0 < E * K) :
     Fraction.equiv (duration (E * K) (total (unitCells (N * K))) hEK) (duration E N hE) := by
   rw [unitCells_total]
@@ -39,6 +43,7 @@ theorem refined_time (N E K : Nat) (hE : 0 < E) (hEK : 0 < E * K) :
 
 /-- Nat core of the estimate: `N*K*d ≤ n*2*(E*K)*(E*K)` once `K > N*d`,
     `n ≥ 1` and `E ≥ 1`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem nat_bound (N E n d : Nat) (hE : 0 < E) (hn : 0 < n) :
     N * (N * d + 1) * d ≤ n * (2 * ((E * (N * d + 1)) * (E * (N * d + 1)))) := by
   have hK : N * d ≤ N * d + 1 := Nat.le_succ _
@@ -64,6 +69,7 @@ private theorem nat_bound (N E n d : Nat) (hE : 0 < E) (hn : 0 < n) :
     tolerance.  Together with `candidate_partitionMotion_residual`, the actual
     polygon position at `N/E` is within that coefficient (along `a`) of the
     constructed candidate. -/
+-- Modern dependency score: 9/9 (M=9, H=0; transitive project theorems/axioms).
 theorem uniform_refinement_small (N E : Nat) (hE : 0 < E) (eps : Fraction)
     (heps : Fraction.positive eps) :
     ∃ K : Nat, ∃ hEK : 0 < E * K,

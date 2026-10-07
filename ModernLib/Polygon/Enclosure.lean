@@ -4,6 +4,7 @@ import ModernLib.Foundation.Polygon.RationalEnclosure
 
 namespace NewtonLimitDynamics.Polygon
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem isum_mono (f g : Nat → Int) (n : Nat) (h : ∀ i, i < n → f i ≤ g i) :
     isum f n ≤ isum g n := by
   induction n with
@@ -12,12 +13,14 @@ theorem isum_mono (f g : Nat → Int) (n : Nat) (h : ∀ i, i < n → f i ≤ g 
     simp only [isum]
     exact Int.add_le_add (ih (fun i hi => h i (by omega))) (h n (by omega))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem isum_mul (f : Nat → Int) (c : Int) (n : Nat) :
     isum (fun i => c * f i) n = c * isum f n := by
   induction n with
   | zero => simp [isum]
   | succ n ih => simp [isum, ih, Int.mul_add]
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem telescoping (height : Nat → Int) (n : Nat) :
     isum (fun i => height (i+1) - height i) n = height n - height 0 := by
   induction n with
@@ -28,6 +31,7 @@ theorem telescoping (height : Nat → Int) (n : Nat) :
     may be unequal; every width must obey the SAME maximum. Multiplication
     measures rectangle area. A curve enclosed by these rectangles is an
     additional geometric hypothesis, not supplied by this arithmetic result. -/
+-- Modern dependency score: 3/3 (M=3, H=0; transitive project theorems/axioms).
 theorem rectangle_gap_bound (width height : Nat → Int) (maxWidth : Int) (n : Nat)
     (hw : ∀ i, i < n → width i ≤ maxWidth)
     (hh : ∀ i, i < n → height i ≤ height (i+1)) :
@@ -47,6 +51,7 @@ def Vanishes {A : Type} [RationalEnclosure.Magnitude A] (gap : Fraction → A) :
   ∀ epsilon, Fraction.positive epsilon →
     Near Fraction.magnitudes (fun mesh => RationalEnclosure.Magnitude.small (gap mesh) epsilon)
 
+-- Modern dependency score: 0/5 (M=0, H=5; transitive project theorems/axioms).
 theorem enclosed_gap_vanishes {A : Type} [RationalEnclosure.Magnitude A]
     (gap : Fraction → A) (budget : Fraction → Fraction)
     (hbudget : Vanishes budget)
@@ -60,6 +65,7 @@ theorem enclosed_gap_vanishes {A : Type} [RationalEnclosure.Magnitude A]
 
 /-- An explicit unconditional rational budget instance, including zero
 coefficient. This is the squeeze used by constructed geometric content. -/
+-- Modern dependency score: 0/14 (M=0, H=14; transitive project theorems/axioms).
 theorem linear_budget_vanishes (A : Fraction) (hA : 0 ≤ A.num) :
     Vanishes (fun mesh => Fraction.mul mesh A) := by
   intro eps heps
@@ -71,6 +77,7 @@ theorem linear_budget_vanishes (A : Fraction) (hA : 0 ≤ A.num) :
 /-- Conditional transfer of polygon area ratios to enclosed sector area ratios.
     Lower and upper limits are geometric premises. No trajectory existence or
     identification with continuous force follows from this type. -/
+-- Modern dependency score: 0/6 (M=0, H=6; transitive project theorems/axioms).
 theorem sector_ratio_reconstruction (sector inner outer : Fraction → Fraction)
     (c : Fraction) (hin : Ultimate Fraction.magnitudes inner c)
     (hout : Ultimate Fraction.magnitudes outer c)

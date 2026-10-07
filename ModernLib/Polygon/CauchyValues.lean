@@ -19,6 +19,7 @@ def binaryValue (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) : Value :=
   realize (prefixName b w T s hT hs)
 
+-- Modern dependency score: 115/207 (M=115, H=92; transitive project theorems/axioms).
 theorem timeValue_bound (w : Fraction) (s : Point × Point)
     (T U : ShortRationalTime w) :
     Within (timeValue w s U) (timeValue w s T)
@@ -29,6 +30,7 @@ theorem timeValue_bound (w : Fraction) (s : Point × Point)
   exact endpoint_time_bound w T.val U.val s n
     T.property.1 U.property.1 T.property.2 U.property.2
 
+-- Modern dependency score: 120/215 (M=120, H=95; transitive project theorems/axioms).
 theorem binaryValue_prefix_bound (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) (m : Nat) :
@@ -38,6 +40,7 @@ theorem binaryValue_prefix_bound (b : Nat → Bool) (w T : Fraction)
     (HarmonicBinaryPrefix.coefficient w T s) (HarmonicBinaryPrefix.coefficient_nonnegative w T s hT)
     (fun j => HarmonicBinaryPrefix.adjacent_error_le b w T s j hT hs) m
 
+-- Modern dependency score: 121/213 (M=121, H=92; transitive project theorems/axioms).
 theorem rational_time_uniform_value_bound (w : Fraction) (s : Point × Point)
     (eps : Fraction) (heps : 0 < eps.num)
     (T U : ShortRationalTime w)
@@ -66,15 +69,18 @@ private def sampleState : Point × Point :=
 private def sampleTail : Fraction := ⟨3, 8, by decide⟩
 private def sampleLower : Fraction := ⟨3, 16, by decide⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_endpoint_zero_distance :
     Fraction.equiv (distance
       (endpoint sampleOne sampleQuarter sampleState 0) sampleState)
       ⟨9, 16, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_tail_zero :
     Fraction.equiv (HarmonicDyadic.tailCap sampleOne sampleQuarter sampleState 0)
       sampleTail := by decide
 
+-- Modern dependency score: 75/159 (M=75, H=84; transitive project theorems/axioms).
 theorem sample_lower_all_levels (j : Nat) :
     Fraction.le sampleLower
       (distance (endpoint sampleOne sampleQuarter sampleState j) sampleState) := by
@@ -105,6 +111,7 @@ theorem sample_lower_all_levels (j : Nat) :
   have hfull := Fraction.le_equiv_right (Fraction.le_equiv_left hL hchain) hR
   exact le_add_cancel_left sampleTail sampleLower (distance eⱼ sampleState) hfull
 
+-- Modern dependency score: 86/175 (M=86, H=89; transitive project theorems/axioms).
 theorem sample_endpoint_value_ne_initial :
     endpointValue sampleOne sampleQuarter sampleState
         (by decide) (by unfold DyadicSmallTime Fraction.le; decide) ≠

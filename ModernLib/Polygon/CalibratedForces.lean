@@ -11,6 +11,7 @@ open NewtonLimitDynamics
 open TimeSubdivision PointBounds CentralSchedule HarmonicStability ForceClasses
 
 /-- Actual two-precision sampled polygons retain the weighted sampling budget. -/
+-- Modern dependency score: 4/88 (M=4, H=84; transitive project theorems/axioms).
 theorem sampled_calibrated_discrepancy (o : Oracle) (tau h L : Fraction)
     (ht : 0 < tau.num) (hL : LipschitzOn o L)
     (i j : Nat) (hij : i ≤ j) (s : Point × Point) (n : Nat)
@@ -36,6 +37,7 @@ theorem sampled_calibrated_discrepancy (o : Oracle) (tau h L : Fraction)
   exact samples_comparison_contract o L hL i j hij _ _ (hR k hk).1 (hR k hk).2
 
 /-- Harmonic motion is an instance of the calibrated general estimate. -/
+-- Modern dependency score: 2/46 (M=2, H=44; transitive project theorems/axioms).
 theorem harmonic_calibrated_cell (tau w h : Fraction) (ht : 0 < tau.num)
     (s t : Point × Point) :
     Fraction.le
@@ -48,6 +50,7 @@ theorem harmonic_calibrated_cell (tau w h : Fraction) (ht : 0 < tau.num)
     (Fraction.abs_num_nonnegative w) (harmonic_comparison_contract w)
 
 /-- The centre-at-infinity instance uses L=0. -/
+-- Modern dependency score: 0/44 (M=0, H=44; transitive project theorems/axioms).
 theorem parallel_calibrated_cell (tau h : Fraction) (ht : 0 < tau.num)
     (a : Point) (s t : Point × Point) :
     Fraction.le
@@ -67,6 +70,7 @@ theorem parallel_calibrated_cell (tau h : Fraction) (ht : 0 < tau.num)
 
 set_option maxHeartbeats 500000 in
 /-- Exact finite harmonic mechanics commute with a positive change of time unit. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem harmonic_cell_rescale (c w h : Fraction) (hc : 0 < c.num)
     (s : Point × Point) :
     stateEquiv

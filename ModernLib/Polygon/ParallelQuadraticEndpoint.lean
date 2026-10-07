@@ -21,16 +21,19 @@ def quadraticState (a : Point) (T : Fraction) (s : Point × Point) : Point × Po
 def coefficient (a : Point) (T : Fraction) : Fraction :=
   Fraction.mul (Fraction.mul T T).half (pointNorm a)
 
+-- Modern dependency score: 0/3 (M=0, H=3; transitive project theorems/axioms).
 theorem coefficient_nonnegative (a : Point) (T : Fraction) (hT : 0 ≤ T.num) :
     0 ≤ (coefficient a T).num :=
   Fraction.nonnegative_mul _ _ (Fraction.nonnegative_mul _ _ hT hT) (pointNorm_nonnegative a)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem full_elapsed (T : Fraction) (j : Nat) :
     Fraction.equiv (time (duration T j) (blocks j)) T := by
   simp [time,duration,blocks,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
   ac_nf
 
 /-- The exact finite error has only the position half-mesh term. -/
+-- Modern dependency score: 1/42 (M=1, H=41; transitive project theorems/axioms).
 theorem endpoint_error (a : Point) (T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (j : Nat) :
     Fraction.equiv (distance (endpoint a T s j) (quadraticState a T s))
@@ -71,6 +74,7 @@ def endpointName (a : Point) (T : Fraction) (s : Point × Point) (hT : 0 ≤ T.n
 def endpointValue (a : Point) (T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) : Value :=
   realize (endpointName a T s hT)
 
+-- Modern dependency score: 10/78 (M=10, H=68; transitive project theorems/axioms).
 theorem endpointValue_eq (a : Point) (T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) :
     endpointValue a T s hT = embed (quadraticState a T s) := by
   apply Quotient.sound

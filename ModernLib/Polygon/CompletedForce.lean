@@ -15,12 +15,14 @@ open ForceClasses GeneralForcePrecision GeneralForceEndpoint HarmonicTimeRealiza
 def errorCoefficient (E0 : Fraction) : Fraction :=
   Fraction.add (Fraction.add E0 E0) E0
 
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem precisionError_le_sampleError (o : CentralOracle) (E0 : Fraction)
     (hE : 0 < E0.num) (j : Nat) :
     Fraction.le (o.error (precision o.toOracle E0 hE j)) (sampleError o E0 hE j) :=
   Fraction.magnitudes.le_trans (Fraction.le_add_nonnegative _ _ (o.error_nonnegative _))
     (Fraction.le_add_nonnegative _ _ (o.error_nonnegative _))
 
+-- Modern dependency score: 4/16 (M=4, H=12; transitive project theorems/axioms).
 theorem sampleError_tail (o : CentralOracle) (E0 : Fraction)
     (hE : 0 < E0.num) (j : Nat) :
     Fraction.le (sampleError o E0 hE j) (duration (errorCoefficient E0) j) := by
@@ -31,6 +33,7 @@ theorem sampleError_tail (o : CentralOracle) (E0 : Fraction)
     Fraction.add,Int.add_mul,Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 5/20 (M=5, H=15; transitive project theorems/axioms).
 theorem sampleError_vanishes (o : CentralOracle) (E0 : Fraction)
     (hE : 0 < E0.num) (eps : Fraction) (heps : 0 < eps.num) :
     ∃ N : Nat, ∀ j, N ≤ j → Fraction.lt (sampleError o E0 hE j) eps := by
@@ -71,6 +74,7 @@ noncomputable def forceValue (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.
     (hx : SampledValues.Admissible (fun q => o.region q.1) x) : Value :=
   SampledValues.sampledValue (family o E0 L hE hL) x hx
 
+-- Modern dependency score: 25/79 (M=25, H=54; transitive project theorems/axioms).
 theorem forceValue_realize (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
     (hL : LipschitzOn o.toOracle L) (a : EndpointCauchyName)
     (ha : ∀ n, o.region (a.approx n).1)
@@ -78,6 +82,7 @@ theorem forceValue_realize (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.nu
     forceValue o E0 L hE hL (realize a) hx = realize (forceName o E0 L hE hL a ha) :=
   SampledValues.sampledValue_realize (family o E0 L hE hL) a ha hx
 
+-- Modern dependency score: 32/89 (M=32, H=57; transitive project theorems/axioms).
 theorem forceValue_within (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
     (hL : LipschitzOn o.toOracle L) (x y : Value)
     (hx : SampledValues.Admissible (fun q => o.region q.1) x)
@@ -87,6 +92,7 @@ theorem forceValue_within (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num
       (Fraction.mul R L) :=
   SampledValues.sampledValue_within (family o E0 L hE hL) x y hx hy R hxy
 
+-- Modern dependency score: 11/47 (M=11, H=36; transitive project theorems/axioms).
 theorem position_admissible (o : CentralOracle) (x : Value)
     (hx : SampledValues.Admissible (fun q => o.region q.1) x) :
     SampledValues.Admissible (fun q => o.region q.1) (PositionValues.positionValue x) := by
@@ -94,6 +100,7 @@ theorem position_admissible (o : CentralOracle) (x : Value)
   exact ⟨PositionValues.mapName PositionValues.positionState PositionValues.position_nonexpansive a,
     rfl,ha⟩
 
+-- Modern dependency score: 31/85 (M=31, H=54; transitive project theorems/axioms).
 theorem force_input_position (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
     (hL : LipschitzOn o.toOracle L) (x : Value)
     (hx : SampledValues.Admissible (fun q => o.region q.1) x) :
@@ -107,6 +114,7 @@ theorem force_input_position (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.
     (fun n => ha n),forceValue_realize o E0 L hE hL a ha]
   rfl
 
+-- Modern dependency score: 30/84 (M=30, H=54; transitive project theorems/axioms).
 theorem force_output_position (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
     (hL : LipschitzOn o.toOracle L) (x : Value)
     (hx : SampledValues.Admissible (fun q => o.region q.1) x) :
@@ -123,6 +131,7 @@ noncomputable def acceleration (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E
 
 /-- Agreement with the retained force value at every rational point. The mesh
 precision may remain constant; no premise that precision(j) >= j is used. -/
+-- Modern dependency score: 28/82 (M=28, H=54; transitive project theorems/axioms).
 theorem force_rational_agreement (o : CentralOracle) (E0 L : Fraction)
     (hE : 0 < E0.num) (hL : LipschitzOn o.toOracle L)
     (s : Point × Point) (hs : o.region s.1) :
@@ -146,6 +155,7 @@ theorem force_rational_agreement (o : CentralOracle) (E0 L : Fraction)
 
 /-- Precision scales and valid Lipschitz bounds do not change the completed
 force. Independence of the motion from these choices is a separate theorem. -/
+-- Modern dependency score: 27/81 (M=27, H=54; transitive project theorems/axioms).
 theorem force_precision_independent (o : CentralOracle) (E0 E1 L L' : Fraction)
     (hE : 0 < E0.num) (hE' : 0 < E1.num)
     (hL : LipschitzOn o.toOracle L) (hL' : LipschitzOn o.toOracle L')
@@ -173,6 +183,7 @@ theorem force_precision_independent (o : CentralOracle) (E0 E1 L L' : Fraction)
 def curveErrorCoefficient (A E0 L : Fraction) : Fraction :=
   Fraction.add (Fraction.mul A L) (errorCoefficient E0)
 
+-- Modern dependency score: 96/265 (M=96, H=169; transitive project theorems/axioms).
 theorem prefix_force_bound (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j : Nat) :
@@ -199,6 +210,7 @@ theorem prefix_force_bound (b : Nat → Bool) (o : CentralOracle)
 
 /-- Uniform convergence of actual polygon force samples to the force at the
 constructed completed positions. This is not yet the acceleration equation. -/
+-- Modern dependency score: 97/266 (M=97, H=169; transitive project theorems/axioms).
 theorem prefix_force_uniform_convergence (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

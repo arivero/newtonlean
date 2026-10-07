@@ -22,12 +22,14 @@ def sub (x y : LatticePoint) : LatticePoint := (x.1 - y.1, x.2 - y.2)
     next vertex `C` (Newton's segment `cC`). -/
 def deflection (p q C : LatticePoint) : LatticePoint := sub C (extend p q)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem det_sub (q x y : LatticePoint) : det q (sub x y) = det q x - det q y := by
   simp only [det, sub, Int.mul_sub]
   omega
 
 /-- The deflection's determinant with the radius `Sq` is the change of oriented
     area. -/
+-- Modern dependency score: 1/2 (M=1, H=1; transitive project theorems/axioms).
 theorem det_deflection (p q C : LatticePoint) :
     det q (deflection p q C) = det q C - det p q := by
   unfold deflection
@@ -35,11 +37,13 @@ theorem det_deflection (p q C : LatticePoint) :
 
 /-- Coordinate form of the Euclid I.39/I.40 step: equal oriented areas make the
     deflection `cC` parallel to `Sq`. -/
+-- Modern dependency score: 2/3 (M=2, H=1; transitive project theorems/axioms).
 theorem equal_area_parallel (p q C : LatticePoint) (h : det q C = det p q) :
     det q (deflection p q C) = 0 := by
   rw [det_deflection, h, Int.sub_self]
 
 /-- And conversely a deflection parallel to `Sq` preserves the oriented area. -/
+-- Modern dependency score: 2/3 (M=2, H=1; transitive project theorems/axioms).
 theorem parallel_equal_area (p q C : LatticePoint) (h : det q (deflection p q C) = 0) :
     det q C = det p q := by
   rw [det_deflection] at h
@@ -47,6 +51,7 @@ theorem parallel_equal_area (p q C : LatticePoint) (h : det q (deflection p q C)
 
 /-- A vector parallel to a nonzero radius is a rational multiple of it:
     `b*d = a*q` with `b ≠ 0`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem parallel_is_multiple (q d : LatticePoint) (hq : q ≠ (0, 0)) (h : det q d = 0) :
     ∃ a b : Int, b ≠ 0 ∧ b * d.1 = a * q.1 ∧ b * d.2 = a * q.2 := by
   unfold det at h
@@ -67,6 +72,7 @@ theorem parallel_is_multiple (q d : LatticePoint) (hq : q ≠ (0, 0)) (h : det q
 
 /-- Finite converse for one step: equal oriented areas and a vertex distinct
     from S give a rational central impulse `a/b` with `b*C = b*c + a*q`. -/
+-- Modern dependency score: 4/5 (M=4, H=1; transitive project theorems/axioms).
 theorem equal_area_central_step (p q C : LatticePoint) (hq : q ≠ (0, 0))
     (h : det q C = det p q) :
     ∃ a b : Int, b ≠ 0 ∧
@@ -82,6 +88,7 @@ theorem equal_area_central_step (p q C : LatticePoint) (hq : q ≠ (0, 0))
 /-- A finite vertex sequence whose consecutive oriented triangles about S are
     all equal (equal areas in equal time cells) has every deflection parallel to
     its current radius. -/
+-- Modern dependency score: 3/4 (M=3, H=1; transitive project theorems/axioms).
 theorem equal_areas_all_central (v : Nat → LatticePoint)
     (h : ∀ n, det (v (n + 1)) (v (n + 2)) = det (v n) (v (n + 1))) (n : Nat) :
     det (v (n + 1)) (deflection (v n) (v (n + 1)) (v (n + 2))) = 0 :=
@@ -89,6 +96,7 @@ theorem equal_areas_all_central (v : Nat → LatticePoint)
 
 /-- Orientation is needed: equal unsigned areas (`det q C = -det p q`) admit a
     deflection that is not parallel to `Sq`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem unsigned_equal_area_not_central :
     det (1, 1) (2, 1) = -det (1, 0) (1, 1) ∧
       det (1, 1) (deflection (1, 0) (1, 1) (2, 1)) ≠ 0 := by
@@ -96,12 +104,14 @@ theorem unsigned_equal_area_not_central :
 
 /-- A vertex at S is degenerate: both areas vanish for every next vertex, so the
     area data fix no direction. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem vertex_at_centre_degenerate (p C : LatticePoint) :
     det (0, 0) C = det p (0, 0) := by
   simp [det]
 
 /-- The sense is not fixed by areas: an outward kick (`+1`) keeps the oriented
     area equal, as does the inward kick (`-1`). -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem outward_kick_equal_area :
     det (1, 1) (kick (1, 1) (extend (1, 0) (1, 1)) 1) = det (1, 0) (1, 1) ∧
       det (1, 1) (kick (1, 1) (extend (1, 0) (1, 1)) (-1)) = det (1, 0) (1, 1) := by
@@ -114,6 +124,7 @@ def centreAt (s0 w : LatticePoint) (n : Nat) : LatticePoint :=
 /-- Finite Case-2 fact (motivated by the laws' Corollary V, cited in 1687 par50
     and 1713 par60): inertial continuation commutes with uniform translation of
     the reference centre, so relative vertices obey the same continuation. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem extend_relative (s0 w p q : LatticePoint) (n : Nat) :
     sub (extend p q) (centreAt s0 w (n + 2)) =
       extend (sub p (centreAt s0 w n)) (sub q (centreAt s0 w (n + 1))) := by
@@ -122,6 +133,7 @@ theorem extend_relative (s0 w p q : LatticePoint) (n : Nat) :
 
 /-- Case 2, finite step: equal oriented areas about a uniformly moving centre
     make each deflection parallel to the current radius from that centre. -/
+-- Modern dependency score: 4/5 (M=4, H=1; transitive project theorems/axioms).
 theorem moving_centre_equal_areas_central (s0 w : LatticePoint) (v : Nat → LatticePoint)
     (h : ∀ n, det (sub (v (n + 1)) (centreAt s0 w (n + 1))) (sub (v (n + 2)) (centreAt s0 w (n + 2))) =
       det (sub (v n) (centreAt s0 w n)) (sub (v (n + 1)) (centreAt s0 w (n + 1)))) (n : Nat) :

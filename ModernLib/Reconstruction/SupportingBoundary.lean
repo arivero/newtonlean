@@ -6,6 +6,7 @@ namespace ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon
 open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveTrace
 
+-- Modern dependency score: 79/177 (M=79, H=98; transitive project theorems/axioms).
 theorem corollary3_4_supporting_boundary_reconstruction (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (points : Nat → Nat → Point)
@@ -23,6 +24,7 @@ namespace ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon
 open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveTrace
 
+-- Modern dependency score: 79/177 (M=79, H=98; transitive project theorems/axioms).
 theorem corollary3_4_supporting_boundary_reconstruction (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (points : Nat → Nat → Point)

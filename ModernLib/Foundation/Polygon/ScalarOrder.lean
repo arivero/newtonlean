@@ -9,6 +9,7 @@ open NewtonLimitDynamics
 open TimeSubdivision PointBounds HarmonicDyadic HarmonicTimeComparison
 open HarmonicComparison CauchyValues PositionValues BinaryTime
 
+-- Modern dependency score: 4/14 (M=4, H=10; transitive project theorems/axioms).
 theorem first_coordinate_gap (a b : Point × Point) :
     Fraction.le (durationDifference b.1.1 a.1.1).abs (distance a b) :=
   Fraction.le_equiv_left (Fraction.equiv_symm (scalarState_distance a.1.1 b.1.1))
@@ -18,6 +19,7 @@ def NameBelow (q : Fraction) (a : EndpointCauchyName) : Prop :=
   ∀ eps : Fraction, 0 < eps.num → ∃ N, ∀ n, N ≤ n →
     Fraction.le q (Fraction.add (a.approx n).1.1 eps)
 
+-- Modern dependency score: 5/28 (M=5, H=23; transitive project theorems/axioms).
 theorem nameBelow_transport (q : Fraction) (a b : EndpointCauchyName)
     (hab : NameEquiv a b) (ha : NameBelow q a) : NameBelow q b := by
   intro eps heps
@@ -35,6 +37,7 @@ theorem nameBelow_transport (q : Fraction) (a b : EndpointCauchyName)
     (Fraction.add_assoc _ eps.half eps.half)
     (Fraction.add_equiv (Fraction.equiv_refl _) (Fraction.half_add_self eps)))
 
+-- Modern dependency score: 7/37 (M=7, H=30; transitive project theorems/axioms).
 theorem nameBelow_congr (q : Fraction) (a b : EndpointCauchyName)
     (hab : NameEquiv a b) : NameBelow q a ↔ NameBelow q b :=
   ⟨nameBelow_transport q a b hab,nameBelow_transport q b a (nameEquiv_symm hab)⟩
@@ -43,9 +46,11 @@ def Below (q : Fraction) (v : Value) : Prop :=
   Quotient.liftOn v (fun a => NameBelow q a)
     (fun a b h => propext (nameBelow_congr q a b h))
 
+-- Modern dependency score: 14/56 (M=14, H=42; transitive project theorems/axioms).
 theorem below_realize (q : Fraction) (a : EndpointCauchyName) :
     Below q (realize a) ↔ NameBelow q a := Iff.rfl
 
+-- Modern dependency score: 14/57 (M=14, H=43; transitive project theorems/axioms).
 theorem below_embed_iff (q : Fraction) (s : Point × Point) :
     Below q (embed s) ↔ Fraction.le q s.1.1 := by
   constructor
@@ -58,6 +63,7 @@ theorem below_embed_iff (q : Fraction) (s : Point × Point) :
     exact ⟨0,fun _ _ => Fraction.magnitudes.le_trans h
       (Fraction.le_add_nonnegative _ _ (Int.le_of_lt heps))⟩
 
+-- Modern dependency score: 14/56 (M=14, H=42; transitive project theorems/axioms).
 theorem below_downward (p q : Fraction) (v : Value)
     (hpq : Fraction.le p q) (hq : Below q v) : Below p v := by
   induction v using Quotient.inductionOn with

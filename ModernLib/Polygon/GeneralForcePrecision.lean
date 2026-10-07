@@ -8,6 +8,7 @@ namespace NewtonLimitDynamics.Polygon.GeneralForcePrecision
 open NewtonLimitDynamics
 open ForceClasses
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem target_positive (E0 : Fraction) (hE : 0 < E0.num) (j : Nat) :
     0 < (GeometricTail.tailCap E0 j).num := hE
 
@@ -16,6 +17,7 @@ noncomputable def threshold (o : Oracle) (E0 : Fraction)
   Classical.choose (o.error_vanishes (GeometricTail.tailCap E0 j)
     (target_positive E0 hE j))
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem threshold_error (o : Oracle) (E0 : Fraction)
     (hE : 0 < E0.num) (j n : Nat)
     (hn : threshold o E0 hE j ≤ n) :
@@ -28,11 +30,13 @@ noncomputable def precision (o : Oracle) (E0 : Fraction)
   | 0 => threshold o E0 hE 0
   | j + 1 => max (precision o E0 hE j) (threshold o E0 hE (j + 1))
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem precision_successor (o : Oracle) (E0 : Fraction)
     (hE : 0 < E0.num) (j : Nat) :
     precision o E0 hE j ≤ precision o E0 hE (j + 1) :=
   Nat.le_max_left _ _
 
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 theorem precision_monotone (o : Oracle) (E0 : Fraction)
     (hE : 0 < E0.num) {i j : Nat} (hij : i ≤ j) :
     precision o E0 hE i ≤ precision o E0 hE j := by
@@ -47,12 +51,14 @@ theorem precision_monotone (o : Oracle) (E0 : Fraction)
         exact Nat.le_refl _
       · exact Nat.le_trans (ih (by omega)) (precision_successor o E0 hE j)
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem precision_threshold (o : Oracle) (E0 : Fraction)
     (hE : 0 < E0.num) :
     (j : Nat) → threshold o E0 hE j ≤ precision o E0 hE j
   | 0 => Nat.le_refl _
   | _ + 1 => Nat.le_max_right _ _
 
+-- Modern dependency score: 3/3 (M=3, H=0; transitive project theorems/axioms).
 theorem precision_error (o : Oracle) (E0 : Fraction)
     (hE : 0 < E0.num) (j : Nat) :
     Fraction.lt (o.error (precision o E0 hE j))

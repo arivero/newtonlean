@@ -40,6 +40,7 @@ def chordTrace {I : Type} (f : I → PositionValue) (nodes : Nat → I)
     (n : Nat) (x : PositionValue) : Prop :=
   ∃ k, k<n ∧ ClosedChord (f (nodes k)) (f (nodes (k+1))) x
 
+-- Modern dependency score: 33/90 (M=33, H=57; transitive project theorems/axioms).
 theorem closedChord_ball (x y z centre : PositionValue) (R : Fraction)
     (hx : Within x.val centre.val R) (hy : Within y.val centre.val R)
     (hz : ClosedChord x y z) : Within z.val centre.val R := by
@@ -51,6 +52,7 @@ theorem closedChord_ball (x y z centre : PositionValue) (R : Fraction)
   rw [centre.property] at hb
   exact hb
 
+-- Modern dependency score: 36/93 (M=36, H=57; transitive project theorems/axioms).
 theorem closedChord_anchor (x y z : PositionValue) (R : Fraction)
     (hR : 0≤R.num) (hy : Within y.val x.val R) (hz : ClosedChord x y z) :
     Within z.val x.val R :=
@@ -58,6 +60,7 @@ theorem closedChord_anchor (x y z : PositionValue) (R : Fraction)
     (by simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.one_mul,Int.mul_one] using hR)
     ((within_zero_iff _ _).mpr rfl)) hy hz
 
+-- Modern dependency score: 33/94 (M=33, H=61; transitive project theorems/axioms).
 theorem chordTrace_node {I : Type} (f : I → PositionValue) (nodes : Nat → I)
     (n : Nat) (hn : 0<n) (k : Nat) (hk : k≤n) :
     chordTrace f nodes n (f (nodes k)) := by
@@ -74,6 +77,7 @@ theorem chordTrace_node {I : Type} (f : I → PositionValue) (nodes : Nat → I)
 /-- The mesh assumptions concern time nodes and their coverage, not the
 desired curve or boundary limit. Unequal cells are allowed; `mesh` bounds
 their largest time span. -/
+-- Modern dependency score: 55/130 (M=55, H=75; transitive project theorems/axioms).
 theorem chordTrace_near (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (eps delta mesh : Fraction)
     (heps : 0<eps.num) (nodes : Nat → BinaryTime T hT) (n : Nat) (hn : 0<n)
@@ -97,6 +101,7 @@ theorem chordTrace_near (T : Fraction) (hT : 0≤T.num)
     rw [← ht]
     exact hc t (nodes k) (within_mono _ _ _ _ hmesh hkt)
 
+-- Modern dependency score: 56/131 (M=56, H=75; transitive project theorems/axioms).
 theorem chordTrace_limit (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (nodes : Nat → Nat → BinaryTime T hT) (count : Nat → Nat) (mesh : Nat → Fraction)
@@ -113,6 +118,7 @@ theorem chordTrace_limit (T : Fraction) (hT : 0≤T.num)
 
 /-- An actual dyadic chord family on the given curve, with no supplied
 boundary convergence field. Right endpoints, aliases and T=0 are included. -/
+-- Modern dependency score: 77/163 (M=77, H=86; transitive project theorems/axioms).
 theorem dyadic_chordTrace_limit (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) :
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) := by
@@ -130,6 +136,7 @@ theorem dyadic_chordTrace_limit (T : Fraction) (hT : 0≤T.num)
 
 /-- Pointwise uniform whole-edge convergence of any actual polygon maps
 implies two-sided convergence of their image boundaries. -/
+-- Modern dependency score: 21/60 (M=21, H=39; transitive project theorems/axioms).
 theorem imageTrace_limit {I : Type} (p : Nat → I → PositionValue) (f : I → PositionValue)
     (h : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
       ∀ t, Within (p m t).val (f t).val eps) :

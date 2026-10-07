@@ -27,6 +27,7 @@ def prefixState (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
     (j : Nat) : Point × Point :=
   schedule (linearField w) (List.replicate (ticks b j) (duration T j)) s
 
+-- Modern dependency score: 5/17 (M=5, H=12; transitive project theorems/axioms).
 theorem prefix_coarse (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat) :
     stateEquiv (prefixState b w T s j)
@@ -38,6 +39,7 @@ theorem prefix_coarse (b : Nat → Bool) (w T : Fraction)
       ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
   simpa only [prefixState, coarseAt_schedule] using hc
 
+-- Modern dependency score: 34/84 (M=34, H=50; transitive project theorems/axioms).
 theorem prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -50,6 +52,7 @@ theorem prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
   exact Fraction.le_equiv_left
     (stateNorm_equiv (prefix_coarse b w T s j)) hc
 
+-- Modern dependency score: 0/8 (M=0, H=8; transitive project theorems/axioms).
 theorem elapsed_replicate (d : Fraction) :
     (n : Nat) → Fraction.equiv (elapsed (List.replicate n d))
       (Fraction.mul (Fraction.ofInt (n : Int)) d)
@@ -66,12 +69,14 @@ theorem elapsed_replicate (d : Fraction) :
       simp only [Int.add_mul, Int.mul_add, Int.one_mul, Int.mul_one]
       ac_nf
 
+-- Modern dependency score: 1/9 (M=1, H=8; transitive project theorems/axioms).
 theorem prefix_elapsed (b : Nat → Bool) (T : Fraction) (j : Nat) :
     Fraction.equiv
       (elapsed (List.replicate (ticks b j) (duration T j)))
       (Fraction.mul (Fraction.ofInt (ticks b j : Int)) (duration T j)) :=
   elapsed_replicate (duration T j) (ticks b j)
 
+-- Modern dependency score: 6/24 (M=6, H=18; transitive project theorems/axioms).
 theorem prefix_elapsed_le_time (b : Nat → Bool) (T : Fraction) (j : Nat)
     (hT : 0 ≤ T.num) :
     Fraction.le (elapsed (List.replicate (ticks b j) (duration T j))) T := by
@@ -90,6 +95,7 @@ theorem prefix_elapsed_le_time (b : Nat → Bool) (T : Fraction) (j : Nat)
   exact Fraction.le_equiv_right hbound
     (Fraction.equiv_trans (Fraction.equiv_symm he) hfull)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem schedule_replicate_step (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       schedule (linearField w) (List.replicate (n + 1) h) s =
@@ -105,6 +111,7 @@ theorem schedule_replicate_step (w h : Fraction) (s : Point × Point) :
               (cell (linearField w) h s))
       rw [schedule_replicate_step w h (cell (linearField w) h s) n]
 
+-- Modern dependency score: 4/5 (M=4, H=1; transitive project theorems/axioms).
 theorem prefix_next (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat) :
     prefixState b w T s (j + 1) =
@@ -127,6 +134,7 @@ theorem prefix_next (b : Nat → Bool) (w T : Fraction)
     rw [← fineDurations_replicate]
     exact fineAt_schedule w h s (ticks b j)
 
+-- Modern dependency score: 0/5 (M=0, H=5; transitive project theorems/axioms).
 private theorem scalar_one_bound (a b c : Fraction)
     (ha : 0 ≤ a.num) :
     Fraction.le
@@ -151,6 +159,7 @@ private theorem scalar_one_bound (a b c : Fraction)
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 4/33 (M=4, H=29; transitive project theorems/axioms).
 theorem cell_parameter_bound_one (w sigma tau : Fraction) (s : Point × Point)
     (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
     (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
@@ -178,6 +187,7 @@ theorem cell_parameter_bound_one (w sigma tau : Fraction) (s : Point × Point)
 
 private def zero : Fraction := ⟨0, 1, by decide⟩
 
+-- Modern dependency score: 6/41 (M=6, H=35; transitive project theorems/axioms).
 theorem cell_increment_bound (w h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) (hsmall : Fraction.le h (Fraction.ofInt 1)) :
     Fraction.le (stateNorm (stateSub (cell (linearField w) h s) s))
@@ -206,6 +216,7 @@ theorem cell_increment_bound (w h : Fraction) (s : Point × Point)
     Int.natAbs_zero, Int.ofNat_zero, Int.mul_one, Int.one_mul,
     Int.neg_zero]
 
+-- Modern dependency score: 27/72 (M=27, H=45; transitive project theorems/axioms).
 theorem fine_prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -217,6 +228,7 @@ theorem fine_prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
     (ticks_le_blocks b j) (dyadic_smallTime w T j hs)
   exact fine_state_le_two w h s (ticks b j) hT hprefix
 
+-- Modern dependency score: 7/25 (M=7, H=18; transitive project theorems/axioms).
 theorem prefix_totalTime_le (b : Nat → Bool) (T : Fraction) (j : Nat)
     (hT : 0 ≤ T.num) :
     Fraction.le (totalTime (duration T (j + 1)) (ticks b j)) T := by
@@ -229,6 +241,7 @@ theorem prefix_totalTime_le (b : Nat → Bool) (T : Fraction) (j : Nat)
         (Fraction.equiv_symm (duration_halving T j)) (ticks b j))
   exact Fraction.le_equiv_left he (prefix_elapsed_le_time b T j hT)
 
+-- Modern dependency score: 37/92 (M=37, H=55; transitive project theorems/axioms).
 theorem fine_optional_increment (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -283,6 +296,7 @@ def optionalCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
       (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs)
         (stateNorm s)))
 
+-- Modern dependency score: 72/152 (M=72, H=80; transitive project theorems/axioms).
 theorem prefix_refinement_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -318,6 +332,7 @@ theorem prefix_refinement_error (b : Nat → Bool) (w T : Fraction)
 def adjacentCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
   Fraction.add (optionalCap w T s j) (refinementCap w T s j)
 
+-- Modern dependency score: 0/3 (M=0, H=3; transitive project theorems/axioms).
 private theorem optionalCap_nonnegative (w T : Fraction) (s : Point × Point)
     (j : Nat) (hT : 0 ≤ T.num) :
     0 ≤ (optionalCap w T s j).num := by
@@ -332,6 +347,7 @@ private theorem optionalCap_nonnegative (w T : Fraction) (s : Point × Point)
     (Int.mul_nonneg hT
       (Int.mul_nonneg hfactor (stateNorm_nonnegative s)))
 
+-- Modern dependency score: 0/9 (M=0, H=9; transitive project theorems/axioms).
 private theorem le_add_optional (a c : Fraction) (hc : 0 ≤ c.num) :
     Fraction.le a (Fraction.add c a) := by
   have hz : Fraction.le (Fraction.ofInt 0) c := by
@@ -348,6 +364,7 @@ private theorem le_add_optional (a c : Fraction) (hc : 0 ≤ c.num) :
     (Fraction.le_equiv_left (Fraction.equiv_symm he) h)
     (Fraction.add_comm a c)
 
+-- Modern dependency score: 94/177 (M=94, H=83; transitive project theorems/axioms).
 theorem adjacent_error_le_add (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -389,6 +406,7 @@ def doubleTail (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
   ⟨2 * A.num, A.den * (2 : Int) ^ j,
     Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem adjacentCap_tail (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv (adjacentCap w T s j) (tailCap w T s (j + 1)) := by
   simp only [adjacentCap, optionalCap, refinementCap, tailCap,
@@ -398,6 +416,7 @@ theorem adjacentCap_tail (w T : Fraction) (s : Point × Point) (j : Nat) :
   simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
   ac_nf
 
+-- Modern dependency score: 96/179 (M=96, H=83; transitive project theorems/axioms).
 theorem adjacent_error_le (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -408,6 +427,7 @@ theorem adjacent_error_le (b : Nat → Bool) (w T : Fraction)
   Fraction.le_equiv_right (adjacent_error_le_add b w T s j hT hs)
     (adjacentCap_tail w T s j)
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num := by
   have hOneW : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
@@ -428,17 +448,20 @@ theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
     (Int.mul_nonneg (stateNorm_nonnegative s)
       (Fraction.nonnegative_add _ _ h₁ h₂))
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv
       (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))
       (tailCap w T s j) := by
   exact GeometricTail.tail_halving (coefficient w T s) j
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))
       (doubleTail w T s j) := by
   exact GeometricTail.tail_double (coefficient w T s) j
 
+-- Modern dependency score: 98/183 (M=98, H=85; transitive project theorems/axioms).
 theorem finite_gap_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     (k j : Nat) → Fraction.le
@@ -449,6 +472,7 @@ theorem finite_gap_error (b : Nat → Bool) (w T : Fraction)
     (coefficient_nonnegative w T s hT)
     (fun i => adjacent_error_le b w T s i hT hs) k j
 
+-- Modern dependency score: 98/188 (M=98, H=90; transitive project theorems/axioms).
 theorem two_sided_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
@@ -462,12 +486,14 @@ theorem two_sided_error (b : Nat → Bool) (w T : Fraction)
 def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
   (2 * (coefficient w T s).num * eps.den).toNat
 
+-- Modern dependency score: 1/7 (M=1, H=6; transitive project theorems/axioms).
 theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
     (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
     Fraction.lt (doubleTail w T s (modulus w T s eps)) eps := by
   exact GeometricTail.doubleTail_lt_tolerance (coefficient w T s) eps
     (coefficient_nonnegative w T s hT) heps
 
+-- Modern dependency score: 100/191 (M=100, H=91; transitive project theorems/axioms).
 theorem prefix_cauchy (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     ∀ eps : Fraction, 0 < eps.num →
@@ -487,10 +513,12 @@ def prefixName (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
   approx := prefixState b w T s
   cauchy := prefix_cauchy b w T s hT hs
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem all_zero_prefix (w T : Fraction) (s : Point × Point) (j : Nat) :
     prefixState (fun _ => false) w T s j = s := by
   simp [prefixState, all_zero_ticks, schedule]
 
+-- Modern dependency score: 7/18 (M=7, H=11; transitive project theorems/axioms).
 theorem zero_time_prefix (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat) (hT : T.num = 0) :
     stateEquiv (prefixState b w T s j) s := by
@@ -503,8 +531,10 @@ private def sampleState : Point × Point :=
   ((sampleOne, sampleZero), (sampleZero, sampleOne))
 private def firstBit (j : Nat) : Bool := j == 0
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_ticks : ticks firstBit 1 = 1 ∧ ticks firstBit 2 = 2 := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_first_error :
     Fraction.equiv
       (stateNorm (stateSub
@@ -512,10 +542,12 @@ theorem sample_first_error :
         (prefixState firstBit sampleOne sampleQuarter sampleState 0)))
       ⟨17, 64, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_coefficient :
     Fraction.equiv (coefficient sampleOne sampleQuarter sampleState)
       ⟨19, 8, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_second_error :
     Fraction.equiv
       (stateNorm (stateSub

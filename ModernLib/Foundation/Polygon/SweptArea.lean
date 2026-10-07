@@ -19,6 +19,7 @@ def intervalElapsedName (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) :
   FanValues.absoluteName (secantName (Fraction.ofInt 1)
     (BinaryTime.timeName b T hT) (BinaryTime.timeName c T hT))
 
+-- Modern dependency score: 17/92 (M=17, H=75; transitive project theorems/axioms).
 theorem interval_elapsed_approx (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (m : Nat) :
     stateEquiv ((intervalElapsedName b c T hT).approx m)
@@ -81,6 +82,7 @@ def Proportional (T : Fraction) (hT : 0 ≤ T.num)
 /-- Equal swept areas in equal times follow from the proportional-area
 theorem. Existence of the common area is part of the conclusion, so this
 cannot succeed vacuously when no fan limit exists. -/
+-- Modern dependency score: 41/118 (M=41, H=77; transitive project theorems/axioms).
 theorem proportional_equal_times (T : Fraction) (hT : 0 ≤ T.num)
     (curve : BinaryTime T hT → PositionValue) (ell : Fraction)
     (hlaw : Proportional T hT curve ell)
@@ -93,6 +95,7 @@ theorem proportional_equal_times (T : Fraction) (hT : 0 ≤ T.num)
   rw [htime]
   exact hlaw u₀ u₁
 
+-- Modern dependency score: 41/118 (M=41, H=77; transitive project theorems/axioms).
 theorem areaBetween_reverse (T : Fraction) (hT : 0 ≤ T.num)
     (curve : BinaryTime T hT → PositionValue)
     (t₀ t₁ : BinaryTime T hT) (area : Value)
@@ -101,6 +104,7 @@ theorem areaBetween_reverse (T : Fraction) (hT : 0 ≤ T.num)
   intro c b hc hb eps heps
   simpa only [Nat.min_comm,Nat.max_comm] using h b c hb hc eps heps
 
+-- Modern dependency score: 48/125 (M=48, H=77; transitive project theorems/axioms).
 theorem areaBetween_unique (T : Fraction) (hT : 0 ≤ T.num)
     (curve : BinaryTime T hT → PositionValue)
     (t₀ t₁ : BinaryTime T hT) (a b : Value)
@@ -129,6 +133,7 @@ theorem areaBetween_unique (T : Fraction) (hT : 0 ≤ T.num)
 
 /-- The actual curve-fan limit determines at most one swept area. Existence
 is a separate construction, never a field of this definition. -/
+-- Modern dependency score: 48/125 (M=48, H=77; transitive project theorems/axioms).
 theorem area_unique (unsigned : Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (curve : BinaryTime T hT → PositionValue) (t : BinaryTime T hT) (a b : Value)
     (ha : AreaAt unsigned T hT curve t a) (hb : AreaAt unsigned T hT curve t b) : a=b := by

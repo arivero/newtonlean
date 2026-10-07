@@ -9,6 +9,7 @@ open TimeSubdivision PointBounds HarmonicComparison HarmonicDyadic
 open HarmonicAccumulation HarmonicTimeComparison HarmonicTimeRealization
 open BinaryTime CauchyValues
 
+-- Modern dependency score: 18/94 (M=18, H=76; transitive project theorems/axioms).
 theorem edge_boundary_names (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (x v y u : Point) (m : Nat)
     (hbase : Fraction.equiv (timeApprox c T m)

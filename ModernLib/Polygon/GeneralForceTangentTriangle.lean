@@ -15,6 +15,7 @@ open CauchyValues PositionValues SecantValues PairingValues TangentTriangleValue
 def coefficient (T L B : Fraction) (s : Point × Point) : Fraction :=
   Fraction.mul L (Fraction.mul (velocityCap T B s) (velocityCap T B s))
 
+-- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 theorem coefficient_nonnegative (T L B : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) :
     0 ≤ (coefficient T L B s).num :=
@@ -23,6 +24,7 @@ theorem coefficient_nonnegative (T L B : Fraction) (s : Point × Point)
 
 /-- Actual completed triangle/H³ differs from det(v_left,a_left)/2 by
 at most H*L*V², including the cell ending at the full endpoint. -/
+-- Modern dependency score: 138/334 (M=138, H=196; transitive project theorems/axioms).
 theorem cell_triangle_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
@@ -89,6 +91,7 @@ theorem cell_triangle_bound (o : CentralOracle) (E0 T tau L B : Fraction)
 /-- Uniform leading signed doubled triangle on all constructed dyadic cells.
 Unsigned triangle area has half the absolute doubled-area value; lobe and
 matched-region area require their own geometric identifications. -/
+-- Modern dependency score: 141/337 (M=141, H=196; transitive project theorems/axioms).
 theorem normalized_triangles_converge (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)

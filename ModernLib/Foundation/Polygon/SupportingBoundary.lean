@@ -27,6 +27,7 @@ def supportingTrace (points : Nat → Point) (cells : ∀ k, Cell (points k) (po
 
 /-- The entire closed joined boundary inherits the endpoint rectangle's
 distance bound; neither segment enclosure is a premise. -/
+-- Modern dependency score: 42/109 (M=42, H=67; transitive project theorems/axioms).
 theorem cellTrace_bound (p q : Point) (c : Cell p q) (x : PositionValue)
     (hx : cellTrace p q c x) :
     Within x.val (embedPosition p).val (pointDistance q p) := by
@@ -44,6 +45,7 @@ theorem cellTrace_bound (p q : Point) (c : Cell p q) (x : PositionValue)
   · exact closedChord_ball _ _ x _ _ hp hj hx
   · exact closedChord_ball _ _ x _ _ hj hq hx
 
+-- Modern dependency score: 34/101 (M=34, H=67; transitive project theorems/axioms).
 theorem supportingTrace_node (points : Nat → Point)
     (cells : ∀ k, Cell (points k) (points (k+1))) (n : Nat) (hn : 0<n)
     (k : Nat) (hk : k≤n) : supportingTrace points cells n (embedPosition (points k)) := by
@@ -62,6 +64,7 @@ theorem supportingTrace_node (points : Nat → Point)
 /-- A given curve, finite supporting-line data, and shrinking time cells.
 Node convergence is explicitly separate from line support; the desired
 whole-boundary convergence is derived. Unequal cells and final nodes count. -/
+-- Modern dependency score: 61/150 (M=61, H=89; transitive project theorems/axioms).
 theorem supportingTrace_limit (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (nodes : Nat → Nat → BinaryTime T hT) (count : Nat → Nat) (mesh : Nat → Fraction)
@@ -117,6 +120,7 @@ theorem supportingTrace_limit (T : Fraction) (hT : 0≤T.num)
 /-- Actual dyadic time cells supply their own spans and coverage. Only the
 given geometric line data and convergence of their finite endpoint samples
 remain premises. -/
+-- Modern dependency score: 78/176 (M=78, H=98; transitive project theorems/axioms).
 theorem dyadic_supportingTrace_limit (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (points : Nat → Nat → Point)

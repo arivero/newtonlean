@@ -27,10 +27,12 @@ def impulseContact (advance : Velocity → Impulse → Velocity)
     (left right : FiniteSegment Point Velocity) (j : Impulse) : Prop :=
   positionContact left right ∧ right.departure = advance left.arrival j
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem velocityContact_position (left right : FiniteSegment Point Velocity)
     (h : velocityContact left right) : positionContact left right :=
   h.1
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem impulseContact_position (advance : Velocity → Impulse → Velocity)
     (left right : FiniteSegment Point Velocity) (j : Impulse)
     (h : impulseContact advance left right j) : positionContact left right :=
@@ -61,22 +63,27 @@ def glue (left right : FiniteSegment Point Velocity)
   ⟨left.first, right.first, right.last,
     left.departure, left.arrival, right.departure, right.arrival⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem glue_first (left right : FiniteSegment Point Velocity)
     (h : positionContact left right) : (glue left right h).firstPoint = left.first :=
   rfl
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem glue_last (left right : FiniteSegment Point Velocity)
     (h : positionContact left right) : (glue left right h).lastPoint = right.last :=
   rfl
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem glue_middle_from_left (left right : FiniteSegment Point Velocity)
     (h : positionContact left right) : (glue left right h).middlePoint = left.last :=
   h.symm
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem glue_middle_from_right (left right : FiniteSegment Point Velocity)
     (h : positionContact left right) : (glue left right h).middlePoint = right.first :=
   rfl
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem glued_position_contact (left right : FiniteSegment Point Velocity)
     (h : positionContact left right) :
     positionContact (glue left right h).left (glue left right h).right :=
@@ -101,19 +108,23 @@ def SampledPath.restrict (path : SampledPath Point Velocity) (offset : Nat) :
   ⟨fun i => path.point (offset+i), fun i => path.arriving (offset+i),
     fun i => path.departing (offset+i)⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem restriction_cell (path : SampledPath Point Velocity) (offset i : Nat) :
     (path.restrict offset).cell i = path.cell (offset+i) := by
   simp [SampledPath.restrict, SampledPath.cell, Nat.add_assoc]
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem adjacent_position_contact (path : SampledPath Point Velocity) (i : Nat) :
     positionContact (path.cell i) (path.cell (i+1)) :=
   rfl
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem adjacent_velocityContact_iff (path : SampledPath Point Velocity) (i : Nat) :
     velocityContact (path.cell i) (path.cell (i+1)) ↔
       path.arriving (i+1) = path.departing (i+1) := by
   simp [velocityContact, positionContact, SampledPath.cell]
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem adjacent_impulseContact_iff (advance : Velocity → Impulse → Velocity)
     (path : SampledPath Point Velocity) (i : Nat) (j : Impulse) :
     impulseContact advance (path.cell i) (path.cell (i+1)) j ↔
@@ -123,6 +134,7 @@ theorem adjacent_impulseContact_iff (advance : Velocity → Impulse → Velocity
 /-- Restarting the finite construction from its kth constructed pair, with the
     shifted impulse sequence, gives the original construction after k+n cells.
     This is a theorem about the existing recursive polygonal motion only. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem motion_restart (g : EuclideanConstruction Point Impulse) (p q : Point)
     (impulse : Nat → Impulse) (k n : Nat) :
     motion g (motion g p q impulse k).1 (motion g p q impulse k).2
@@ -135,6 +147,7 @@ theorem motion_restart (g : EuclideanConstruction Point Impulse) (p q : Point)
     rw [ih]
 
 /-- Consecutive pairs created by `motion` share their middle vertex. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem motion_adjacent_pair_position_contact
     (g : EuclideanConstruction Point Impulse) (p q : Point)
     (impulse : Nat → Impulse) (n : Nat) :
@@ -153,6 +166,7 @@ def latticeScale (j : Int) (q : LatticePoint) : LatticePoint :=
 
 /-- The actual lattice step changes discrete velocity by the radial impulse.
     Unit time is built into the use of adjacent vertex differences. -/
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem lattice_step_velocity_jump (p q : LatticePoint) (j : Int) :
     latticeVelocity q (step lattice p q j) =
       latticeAdd (latticeVelocity p q) (latticeScale j q) := by
@@ -160,6 +174,7 @@ theorem lattice_step_velocity_jump (p q : LatticePoint) (j : Int) :
     simp [latticeVelocity, latticeAdd, latticeScale, step, lattice, kick, extend] <;>
     omega
 
+-- Modern dependency score: 1/3 (M=1, H=2; transitive project theorems/axioms).
 theorem motion_lattice_velocity_jump (p q : LatticePoint)
     (impulse : Nat → Int) (n : Nat) :
     latticeVelocity (motion lattice p q impulse n).2
@@ -180,12 +195,14 @@ def latticeMotionCell (p q : LatticePoint) (impulse : Nat → Int) (n : Nat) :
   let cell := motion lattice p q impulse n
   ⟨cell.1, cell.2, latticeVelocity cell.1 cell.2, latticeVelocity cell.1 cell.2⟩
 
+-- Modern dependency score: 1/3 (M=1, H=2; transitive project theorems/axioms).
 theorem latticeMotionCell_adjacent_position_contact (p q : LatticePoint)
     (impulse : Nat → Int) (n : Nat) :
     positionContact (latticeMotionCell p q impulse n)
       (latticeMotionCell p q impulse (n+1)) :=
   motion_adjacent_pair_position_contact lattice p q impulse n
 
+-- Modern dependency score: 4/6 (M=4, H=2; transitive project theorems/axioms).
 theorem latticeMotionCell_impulseContact (p q : LatticePoint)
     (impulse : Nat → Int) (n : Nat) :
     impulseContact latticeAdd (latticeMotionCell p q impulse n)
@@ -198,6 +215,7 @@ theorem latticeMotionCell_impulseContact (p q : LatticePoint)
     rw [← motion_adjacent_pair_position_contact lattice p q impulse n]
     exact motion_lattice_velocity_jump p q impulse n
 
+-- Modern dependency score: 4/6 (M=4, H=2; transitive project theorems/axioms).
 theorem latticeMotionCell_zero_impulse_velocityContact (p q : LatticePoint)
     (impulse : Nat → Int) (n : Nat) (hzero : impulse n = 0) :
     velocityContact (latticeMotionCell p q impulse n)
@@ -220,16 +238,19 @@ theorem latticeMotionCell_zero_impulse_velocityContact (p q : LatticePoint)
 def inwardOneRadialImpulse : Nat → Int := fun _ => -1
 def inwardTwoRadialImpulse : Nat → Int := fun _ => -2
 
+-- Modern dependency score: 0/6 (M=0, H=6; transitive project theorems/axioms).
 theorem inward_impulses_same_swept (n : Nat) :
     swept lattice (1, 0) (1, 1) inwardOneRadialImpulse n =
       swept lattice (1, 0) (1, 1) inwardTwoRadialImpulse n := by
   rw [swept_eq, swept_eq]
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem inward_impulses_distinct_next_vertex :
     (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 ≠
       (motion lattice (1, 0) (1, 1) inwardTwoRadialImpulse 1).2 := by
   decide
 
+-- Modern dependency score: 2/8 (M=2, H=6; transitive project theorems/axioms).
 theorem equal_swept_area_does_not_identify_next_vertex :
     (∀ n, swept lattice (1, 0) (1, 1) inwardOneRadialImpulse n =
       swept lattice (1, 0) (1, 1) inwardTwoRadialImpulse n) ∧

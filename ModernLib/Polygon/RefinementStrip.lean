@@ -20,6 +20,7 @@ def refinementDefect (a b c : LatticePoint) : Nat :=
 /-- The closed polygon difference is exactly the doubled area of its triangle.
     This is finite determinant algebra for Euclidean triangle decomposition;
     it uses no integration, derivatives, or limiting curve theorem. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem refinementStripTwice_eq_triangle (a b c : LatticePoint) :
     refinementStripTwice a b c = det (latticeSub b a) (latticeSub c a) := by
   simp [refinementStripTwice, det, latticeSub, Int.sub_mul, Int.mul_sub]
@@ -28,6 +29,7 @@ theorem refinementStripTwice_eq_triangle (a b c : LatticePoint) :
   have haa : a.1*a.2 = a.2*a.1 := Int.mul_comm _ _
   omega
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem det_translation (origin a b : LatticePoint) :
     det (latticeAdd origin a) (latticeAdd origin b) =
       det a b + det origin b - det origin a := by
@@ -39,12 +41,14 @@ theorem det_translation (origin a b : LatticePoint) :
 
 /-- Translating both finite polygons leaves their enclosed signed strip area
     unchanged. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem refinementStripTwice_translation (origin a b c : LatticePoint) :
     refinementStripTwice (latticeAdd origin a) (latticeAdd origin b)
       (latticeAdd origin c) = refinementStripTwice a b c := by
   simp only [refinementStripTwice, det_translation]
   omega
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem refinementDefect_eq_zero_iff (a b c : LatticePoint) :
     refinementDefect a b c = 0 ↔ refinementStripTwice a b c = 0 := by
   simp [refinementDefect]
@@ -60,6 +64,7 @@ def oneCellMotionRefinementCompatible
   (motion lattice coarseStart coarseEnd coarseImpulse 0).2 =
       (motion lattice fineStart fineMiddle fineImpulse 1).2
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem oneCellMotionRefinementCompatible_start
     (coarseStart coarseEnd fineStart fineMiddle : LatticePoint)
     (coarseImpulse fineImpulse : Nat → Int)
@@ -69,6 +74,7 @@ theorem oneCellMotionRefinementCompatible_start
       (motion lattice fineStart fineMiddle fineImpulse 0).1 :=
   h.1
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem oneCellMotionRefinementCompatible_end
     (coarseStart coarseEnd fineStart fineMiddle : LatticePoint)
     (coarseImpulse fineImpulse : Nat → Int)
@@ -80,6 +86,7 @@ theorem oneCellMotionRefinementCompatible_end
 
 /-- A nonzero local strip from an actual inward fine impulse and a spatially
     compatible coarse cell. This is not nonuniqueness for one fixed force law. -/
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem inward_oneCell_refinement_compatible :
     oneCellMotionRefinementCompatible (1, 0) (0, 1) (1, 0) (1, 1)
       (fun _ => 0) inwardOneRadialImpulse := by
@@ -87,6 +94,7 @@ theorem inward_oneCell_refinement_compatible :
   · rfl
   · decide
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem inward_oneCell_refinement_defect :
     refinementDefect (1, 0) (1, 1)
       (motion lattice (1, 0) (1, 1) inwardOneRadialImpulse 1).2 = 1 := by

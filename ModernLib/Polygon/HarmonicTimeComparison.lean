@@ -20,6 +20,7 @@ open HarmonicUniform
 open HarmonicDyadic
 open PointBounds
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem cell_parameter_difference (w sigma tau : Fraction) (s : Point × Point) :
     stateEquiv
       (stateSub (cell (linearField w) tau s) (cell (linearField w) sigma s))
@@ -33,6 +34,7 @@ theorem cell_parameter_difference (w sigma tau : Fraction) (s : Point × Point) 
       Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg] <;>
     ac_nf <;> omega
 
+-- Modern dependency score: 1/11 (M=1, H=10; transitive project theorems/axioms).
 theorem cell_parameter_norm_formula (w sigma tau : Fraction) (s : Point × Point) :
     Fraction.equiv
       (stateNorm (stateSub (cell (linearField w) tau s)
@@ -50,6 +52,7 @@ theorem cell_parameter_norm_formula (w sigma tau : Fraction) (s : Point × Point
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 0/20 (M=0, H=20; transitive project theorems/axioms).
 theorem short_sum_point_bound (sigma tau : Fraction) (x v : Point)
     (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
     (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
@@ -72,6 +75,7 @@ theorem short_sum_point_bound (sigma tau : Fraction) (x v : Point)
   exact Fraction.magnitudes.le_trans (pointNorm_add_le x (pointScale q v))
     (Fraction.add_le_add_left hscale (pointNorm x))
 
+-- Modern dependency score: 0/12 (M=0, H=12; transitive project theorems/axioms).
 private theorem scalar_local_bound (a b c : Fraction)
     (ha : 0 ≤ a.num) (hb : 0 ≤ b.num) (hc : 0 ≤ c.num) :
     Fraction.le
@@ -117,6 +121,7 @@ private theorem scalar_local_bound (a b c : Fraction)
 
 /-- The exact duration mismatch of one actual end-kick cell, bounded under a
 short nonnegative combined duration. -/
+-- Modern dependency score: 4/33 (M=4, H=29; transitive project theorems/axioms).
 theorem cell_parameter_bound (w sigma tau : Fraction) (s : Point × Point)
     (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
     (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
@@ -160,12 +165,14 @@ def parameterErrorBudget (w hσ hτ : Fraction) (s : Point × Point) : Nat → F
         (Fraction.mul (coarseFactor w hτ) (parameterErrorBudget w hσ hτ s i))
         (localParameterBudget w (Fraction.add hσ hσ) (Fraction.add hτ hτ) s)
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 private theorem parameterFactor_nonnegative (w : Fraction) :
     0 ≤ (parameterFactor w).num := by
   unfold parameterFactor
   exact Fraction.nonnegative_add _ _ (by decide)
     (Int.mul_nonneg (by decide) (Fraction.abs_num_nonnegative w))
 
+-- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 private theorem localParameterBudget_nonnegative (w sigma tau : Fraction)
     (s : Point × Point) :
     0 ≤ (localParameterBudget w sigma tau s).num := by
@@ -174,6 +181,7 @@ private theorem localParameterBudget_nonnegative (w sigma tau : Fraction)
     (Int.mul_nonneg (parameterFactor_nonnegative w)
       (Int.mul_nonneg (by decide) (stateNorm_nonnegative s)))
 
+-- Modern dependency score: 4/9 (M=4, H=5; transitive project theorems/axioms).
 private theorem parameterErrorBudget_nonnegative (w hσ hτ : Fraction)
     (s : Point × Point) :
     (i : Nat) → 0 ≤ (parameterErrorBudget w hσ hτ s i).num
@@ -184,6 +192,7 @@ private theorem parameterErrorBudget_nonnegative (w hσ hτ : Fraction)
           (parameterErrorBudget_nonnegative w hσ hτ s i))
         (localParameterBudget_nonnegative w _ _ s)
 
+-- Modern dependency score: 7/60 (M=7, H=53; transitive project theorems/axioms).
 theorem coarse_parameter_step (w sigma tau : Fraction) (a b : Point × Point)
     (hσ : 0 ≤ sigma.num) (hτ : 0 ≤ tau.num)
     (hsum : Fraction.le (Fraction.add sigma tau) (Fraction.ofInt 1)) :
@@ -200,6 +209,7 @@ theorem coarse_parameter_step (w sigma tau : Fraction) (a b : Point × Point)
   have h₂ := cell_parameter_bound w sigma tau b hσ hτ hsum
   exact Fraction.magnitudes.le_trans htri (Fraction.add_le_add h₁ h₂)
 
+-- Modern dependency score: 35/103 (M=35, H=68; transitive project theorems/axioms).
 theorem actual_coarse_parameter_error (w hσ hτ : Fraction) (s : Point × Point)
     (n : Nat) (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)
     (hsum : Fraction.le
@@ -243,6 +253,7 @@ def parameterPowerBudget (w hσ hτ : Fraction) (s : Point × Point)
       (localParameterBudget w (Fraction.add hσ hσ) (Fraction.add hτ hτ) s)
       (fpower (coarseFactor w hτ) i))
 
+-- Modern dependency score: 7/28 (M=7, H=21; transitive project theorems/axioms).
 theorem parameter_budget_power (w hσ hτ : Fraction) (s : Point × Point) :
     (i : Nat) → Fraction.le (parameterErrorBudget w hσ hτ s i)
       (parameterPowerBudget w hσ hτ s i)
@@ -273,6 +284,7 @@ theorem parameter_budget_power (w hσ hτ : Fraction) (s : Point × Point) :
         Int.one_mul, Int.mul_one]
       ac_nf
 
+-- Modern dependency score: 41/110 (M=41, H=69; transitive project theorems/axioms).
 theorem actual_coarse_parameter_uniform (w hσ hτ : Fraction)
     (s : Point × Point) (n : Nat)
     (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)
@@ -305,6 +317,7 @@ theorem actual_coarse_parameter_uniform (w hσ hτ : Fraction)
 
 private def half : Fraction := ⟨1, 2, by decide⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem dyadic_time_le_half (w T : Fraction)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     Fraction.le T half := by
@@ -329,6 +342,7 @@ theorem dyadic_time_le_half (w T : Fraction)
   dsimp
   omega
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem duration_le_time (T : Fraction) (j : Nat) (hT : 0 ≤ T.num) :
     Fraction.le (duration T j) T := by
   have hpow : 1 ≤ (2 : Int) ^ j := by
@@ -343,6 +357,7 @@ theorem duration_le_time (T : Fraction) (j : Nat) (hT : 0 ≤ T.num) :
   rw [he]
   omega
 
+-- Modern dependency score: 2/17 (M=2, H=15; transitive project theorems/axioms).
 theorem short_duration_pair (w T U : Fraction) (j : Nat)
     (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
     (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
@@ -366,6 +381,7 @@ theorem short_duration_pair (w T U : Fraction) (j : Nat)
 
 /-- The common count cancels the per-cell signed duration difference in
 rational value, even though the representatives differ. -/
+-- Modern dependency score: 0/14 (M=0, H=14; transitive project theorems/axioms).
 theorem count_duration_difference (T U : Fraction) (j : Nat) :
     Fraction.equiv
       (Fraction.mul (Fraction.ofInt (blocks j : Int))
@@ -391,6 +407,7 @@ theorem count_duration_difference (T U : Fraction) (j : Nat) :
     Int.one_mul, Int.mul_one]
   ac_nf
 
+-- Modern dependency score: 1/18 (M=1, H=17; transitive project theorems/axioms).
 theorem count_abs_duration_difference (T U : Fraction) (j : Nat) :
     Fraction.equiv
       (Fraction.mul (Fraction.ofInt (blocks j : Int))
@@ -421,6 +438,7 @@ def timeLipschitz (w : Fraction) (s : Point × Point) : Fraction :=
 
 /-- Uniform rational-time variation of the actual dyadic endpoint schedules.
 The same level has the same count and two different cell durations. -/
+-- Modern dependency score: 55/132 (M=55, H=77; transitive project theorems/axioms).
 theorem endpoint_time_bound (w T U : Fraction) (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
     (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
@@ -459,6 +477,7 @@ theorem endpoint_time_bound (w T U : Fraction) (s : Point × Point) (j : Nat)
   exact Fraction.le_equiv_right hfirst
     (Fraction.equiv_trans hrewrite hsecond)
 
+-- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 theorem timeLipschitz_nonnegative (w : Fraction) (s : Point × Point) :
     0 ≤ (timeLipschitz w s).num :=
   Int.mul_nonneg (by decide)
@@ -467,6 +486,7 @@ theorem timeLipschitz_nonnegative (w : Fraction) (s : Point × Point) :
 private def timeDenominator (w : Fraction) (s : Point × Point) : Fraction :=
   Fraction.add (timeLipschitz w s) (Fraction.ofInt 1)
 
+-- Modern dependency score: 2/6 (M=2, H=4; transitive project theorems/axioms).
 private theorem timeDenominator_positive (w : Fraction) (s : Point × Point) :
     0 < (timeDenominator w s).num := by
   unfold timeDenominator Fraction.add Fraction.ofInt
@@ -482,10 +502,12 @@ def timeDelta (w : Fraction) (s : Point × Point) (eps : Fraction) : Fraction :=
     eps.den * (timeDenominator w s).num,
     Int.mul_pos eps.den_pos (timeDenominator_positive w s)⟩
 
+-- Modern dependency score: 3/7 (M=3, H=4; transitive project theorems/axioms).
 theorem timeDelta_positive (w : Fraction) (s : Point × Point) (eps : Fraction)
     (heps : 0 < eps.num) : 0 < (timeDelta w s eps).num :=
   Int.mul_pos heps (timeDenominator w s).den_pos
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem mul_lt_mul_positive_left {a b : Fraction}
     (hab : Fraction.lt a b) (c : Fraction) (hc : 0 < c.num) :
     Fraction.lt (Fraction.mul c a) (Fraction.mul c b) := by
@@ -500,6 +522,7 @@ private theorem mul_lt_mul_positive_left {a b : Fraction}
   rw [h₁, h₂]
   exact hm
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem timeLipschitz_le_denominator (w : Fraction) (s : Point × Point) :
     Fraction.le (timeLipschitz w s) (timeDenominator w s) := by
   unfold timeDenominator Fraction.le Fraction.add Fraction.ofInt
@@ -510,6 +533,7 @@ private theorem timeLipschitz_le_denominator (w : Fraction) (s : Point × Point)
   simp only [Int.one_mul, Int.mul_one, Int.add_mul]
   omega
 
+-- Modern dependency score: 3/7 (M=3, H=4; transitive project theorems/axioms).
 private theorem delta_product_equiv (w : Fraction) (s : Point × Point)
     (eps : Fraction) :
     Fraction.equiv
@@ -518,6 +542,7 @@ private theorem delta_product_equiv (w : Fraction) (s : Point × Point)
   dsimp
   ac_nf
 
+-- Modern dependency score: 6/16 (M=6, H=10; transitive project theorems/axioms).
 theorem parameter_delta_control (w : Fraction) (s : Point × Point)
     (eps d : Fraction) (_heps : 0 < eps.num)
     (hd : 0 ≤ d.num) (hdelta : Fraction.lt d (timeDelta w s eps)) :
@@ -541,6 +566,7 @@ def timeName (w : Fraction) (s : Point × Point)
   endpointName w T.val s T.property.1 T.property.2
 
 /-- One explicit delta controls every approximant level at once. -/
+-- Modern dependency score: 104/192 (M=104, H=88; transitive project theorems/axioms).
 theorem timeName_uniform_continuity (w : Fraction) (s : Point × Point)
     (eps : Fraction) (heps : 0 < eps.num) :
     ∃ delta : Fraction, 0 < delta.num ∧
@@ -559,6 +585,7 @@ theorem timeName_uniform_continuity (w : Fraction) (s : Point × Point)
     (durationDifference T.val U.val).abs heps hd hdelta
   exact Fraction.magnitudes.lt_of_le_lt hb hstrict
 
+-- Modern dependency score: 0/11 (M=0, H=11; transitive project theorems/axioms).
 theorem same_time_error_zero (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv
       (stateNorm (stateSub (endpoint w T s j) (endpoint w T s j)))
@@ -569,6 +596,7 @@ private def zeroFraction : Fraction := ⟨0, 1, by decide⟩
 private def zeroState : Point × Point :=
   ((zeroFraction, zeroFraction), (zeroFraction, zeroFraction))
 
+-- Modern dependency score: 56/133 (M=56, H=77; transitive project theorems/axioms).
 theorem zero_state_error_zero (w T U : Fraction) (j : Nat)
     (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
     (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
@@ -600,11 +628,13 @@ private def sampleEighth : Fraction := ⟨1, 8, by decide⟩
 private def sampleState : Point × Point :=
   ((sampleOne, sampleZero), (sampleZero, sampleOne))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_short_times :
     DyadicSmallTime sampleOne sampleQuarter ∧
       DyadicSmallTime sampleOne sampleEighth := by
   constructor <;> unfold DyadicSmallTime Fraction.le <;> decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_parameter_error :
     Fraction.equiv
       (stateNorm (stateSub
@@ -612,16 +642,19 @@ theorem sample_parameter_error :
         (endpoint sampleOne sampleQuarter sampleState 0)))
       ⟨19, 64, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_time_lipschitz :
     Fraction.equiv (timeLipschitz sampleOne sampleState)
       (Fraction.ofInt 24) := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_time_budget :
     Fraction.equiv
       (Fraction.mul (timeLipschitz sampleOne sampleState)
         (durationDifference sampleQuarter sampleEighth).abs)
       (Fraction.ofInt 3) := by decide
 
+-- Modern dependency score: 57/134 (M=57, H=77; transitive project theorems/axioms).
 theorem sample_parameter_bound :
     Fraction.le
       (stateNorm (stateSub

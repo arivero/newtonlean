@@ -28,6 +28,7 @@ def integerCoarse (w h : Fraction) (s : Point × Point) (k : Nat) : Point × Poi
 
 /-- The position defect caused by replacing one `(a+b)` cell with an `a`
 cell followed by a `b` cell. The sampled force is at the actual first arrival. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem split_position_identity (w a b : Fraction) (s : Point × Point) :
     pointEquiv
       (stateSub (cell (linearField w) b (cell (linearField w) a s))
@@ -42,6 +43,7 @@ theorem split_position_identity (w a b : Fraction) (s : Point × Point) :
 
 /-- The velocity defect contains a sampling shift of the initial velocity
 and the second kick applied to the position defect. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem split_velocity_identity (w a b : Fraction) (s : Point × Point) :
     pointEquiv
       (stateSub (cell (linearField w) b (cell (linearField w) a s))
@@ -58,6 +60,7 @@ theorem split_velocity_identity (w a b : Fraction) (s : Point × Point) :
 
 /-- A local state bound with every force sample still at its actual point.
 For `a=i*h` and `b=h`, all three coefficients contain two step factors. -/
+-- Modern dependency score: 2/24 (M=2, H=22; transitive project theorems/axioms).
 theorem split_state_sample_bound (w a b : Fraction) (s : Point × Point) :
     Fraction.le
       (stateNorm (stateSub
@@ -104,6 +107,7 @@ theorem split_state_sample_bound (w a b : Fraction) (s : Point × Point) :
   exact Fraction.le_equiv_right hraw
     (Fraction.add_equiv hepos (Fraction.add_equiv hevel₁ hevel₂))
 
+-- Modern dependency score: 0/9 (M=0, H=9; transitive project theorems/axioms).
 theorem linearField_norm (w : Fraction) (p : Point) :
     Fraction.equiv (pointNorm (linearField w p))
       (Fraction.mul w.abs (pointNorm p)) := by
@@ -112,6 +116,7 @@ theorem linearField_norm (w : Fraction) (p : Point) :
 
 /-- The local defect uses only the initial velocity and the actual first
 arrival. Every term contains `a*b`; the last also contains `b`. -/
+-- Modern dependency score: 4/26 (M=4, H=22; transitive project theorems/axioms).
 theorem split_state_harmonic_bound (w a b : Fraction) (s : Point × Point) :
     Fraction.le
       (stateNorm (stateSub
@@ -151,6 +156,7 @@ def uniformSplitBudget (w a b M : Fraction) : Fraction :=
 
 /-- If the first arrival and initial velocity lie in one rational L1 ball,
 the unequal split has a uniform quadratic-step source. -/
+-- Modern dependency score: 5/36 (M=5, H=31; transitive project theorems/axioms).
 theorem split_state_uniform_bound (w a b M : Fraction) (s : Point × Point)
     (hb : Fraction.le b.abs (Fraction.ofInt 1))
     (hP : Fraction.le (pointNorm (cell (linearField w) a s).1) M)
@@ -205,6 +211,7 @@ theorem split_state_uniform_bound (w a b M : Fraction) (s : Point × Point)
     (split_state_harmonic_bound w a b s)
     (Fraction.add_le_add hp (Fraction.add_le_add hv hpp))
 
+-- Modern dependency score: 0/23 (M=0, H=23; transitive project theorems/axioms).
 theorem first_arrival_le_state (w a : Fraction) (s : Point × Point)
     (ha : Fraction.le a.abs (Fraction.ofInt 1)) :
     Fraction.le (pointNorm (cell (linearField w) a s).1) (stateNorm s) := by
@@ -222,6 +229,7 @@ theorem first_arrival_le_state (w a : Fraction) (s : Point × Point)
 
 /-- An unequal split whose two durations have absolute value at most one
 has a defect bounded by its product duration and the initial state ball. -/
+-- Modern dependency score: 7/41 (M=7, H=34; transitive project theorems/axioms).
 theorem split_state_short_bound (w a b : Fraction) (s : Point × Point)
     (ha : Fraction.le a.abs (Fraction.ofInt 1))
     (hb : Fraction.le b.abs (Fraction.ofInt 1)) :
@@ -238,6 +246,7 @@ def splitFactor (w : Fraction) (s : Point × Point) : Fraction :=
     (Fraction.add (Fraction.mul w.abs (stateNorm s))
       (Fraction.mul w.abs (Fraction.mul w.abs (stateNorm s))))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem uniformSplitBudget_factor (w a b : Fraction) (s : Point × Point) :
     Fraction.equiv (uniformSplitBudget w a b (stateNorm s))
       (Fraction.mul (Fraction.mul a b).abs (splitFactor w s)) := by
@@ -246,6 +255,7 @@ theorem uniformSplitBudget_factor (w a b : Fraction) (s : Point × Point) :
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 0/5 (M=0, H=5; transitive project theorems/axioms).
 theorem splitFactor_nonnegative (w : Fraction) (s : Point × Point) :
     0 ≤ (splitFactor w s).num := by
   unfold splitFactor
@@ -259,6 +269,7 @@ theorem splitFactor_nonnegative (w : Fraction) (s : Point × Point) :
         (Fraction.nonnegative_mul _ _ (Fraction.abs_num_nonnegative w)
           (stateNorm_nonnegative s))
 
+-- Modern dependency score: 0/16 (M=0, H=16; transitive project theorems/axioms).
 theorem integer_duration_product_abs (h : Fraction) (k : Nat)
     (hh : 0 ≤ h.num) :
     Fraction.equiv (Fraction.mul (IntegerSchedule.integerDuration h k) h).abs
@@ -283,11 +294,13 @@ def kappaCap (w : Fraction) : Fraction :=
   Fraction.mul (Fraction.ofInt 2)
     (Fraction.add (Fraction.ofInt 1) w.abs)
 
+-- Modern dependency score: 0/3 (M=0, H=3; transitive project theorems/axioms).
 theorem kappaCap_nonnegative (w : Fraction) : 0 ≤ (kappaCap w).num :=
   Fraction.nonnegative_mul _ _ (by decide)
     (Fraction.nonnegative_add _ _ (by decide)
       (Fraction.abs_num_nonnegative w))
 
+-- Modern dependency score: 0/17 (M=0, H=17; transitive project theorems/axioms).
 theorem kappa_le_cap (w h : Fraction)
     (hh : Fraction.le h.abs (Fraction.ofInt 1)) :
     Fraction.le (kappa w h) (kappaCap w) := by
@@ -326,6 +339,7 @@ def integerLocalBudget (w h : Fraction) (s : Point × Point) (k : Nat) : Fractio
 
 /-- Actual `k`-cell subdivision recurrence. The source is the measured
 unequal-cell defect at the coarse first arrival, not a supplied Cauchy bound. -/
+-- Modern dependency score: 8/59 (M=8, H=51; transitive project theorems/axioms).
 theorem integer_error_step (w h : Fraction) (s : Point × Point) (k : Nat) :
     Fraction.le
       (stateNorm (stateSub
@@ -347,6 +361,7 @@ theorem integer_error_step (w h : Fraction) (s : Point × Point) (k : Nat) :
   simpa only [integerFine, integerCoarse, integerDuration,
     HarmonicBinaryPrefix.schedule_replicate_step, integerLocalBudget] using hbound
 
+-- Modern dependency score: 13/70 (M=13, H=57; transitive project theorems/axioms).
 theorem integer_error_step_quadratic (w h : Fraction)
     (s : Point × Point) (k : Nat)
     (hh : 0 ≤ h.num)
@@ -387,6 +402,7 @@ def integerErrorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction
 
 /-- Every finite integer subdivision is controlled by the recursively
 computed actual local sources and one-cell amplification. -/
+-- Modern dependency score: 12/77 (M=12, H=65; transitive project theorems/axioms).
 theorem integer_error_le_budget (w h : Fraction) (s : Point × Point) :
     (k : Nat) → Fraction.le
       (stateNorm (stateSub (integerFine w h s k) (integerCoarse w h s k)))
@@ -418,6 +434,7 @@ def quadraticCap (w : Fraction) (s : Point × Point) : Nat → Fraction
       (Fraction.mul (kappaCap w) (quadraticCap w s k))
       (Fraction.mul (Fraction.ofInt (k : Int)) (splitFactor w s))
 
+-- Modern dependency score: 2/7 (M=2, H=5; transitive project theorems/axioms).
 theorem quadraticCap_nonnegative (w : Fraction) (s : Point × Point) :
     (k : Nat) → 0 ≤ (quadraticCap w s k).num
   | 0 => by simp [quadraticCap, Fraction.ofInt]
@@ -431,6 +448,7 @@ theorem quadraticCap_nonnegative (w : Fraction) (s : Point × Point) :
 and `k` actual `h` cells is at most `h²` times a coefficient independent
 of `h`. The stated short-prefix condition is finite and will be discharged
 from the global dyadic window before passing to Cauchy values. -/
+-- Modern dependency score: 23/95 (M=23, H=72; transitive project theorems/axioms).
 theorem integer_error_quadratic (w h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1)) :
     (k : Nat) →
@@ -472,6 +490,7 @@ theorem integer_error_quadratic (w h : Fraction) (s : Point × Point)
       ac_nf
 
 /-- Lipschitz control of an actual block of `k` end-kick cells. -/
+-- Modern dependency score: 5/52 (M=5, H=47; transitive project theorems/axioms).
 theorem integerFine_perturbation (w h : Fraction)
     (s t : Point × Point) :
     (k : Nat) → Fraction.le
@@ -506,6 +525,7 @@ def coarseBlocks (w h : Fraction) (k : Nat) (s : Point × Point) :
   | 0 => s
   | N + 1 => integerCoarse w h (coarseBlocks w h k s N) k
 
+-- Modern dependency score: 25/97 (M=25, H=72; transitive project theorems/axioms).
 theorem block_error_step (w h : Fraction) (k : Nat)
     (s : Point × Point) (N : Nat)
     (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
@@ -531,6 +551,7 @@ theorem block_error_step (w h : Fraction) (k : Nat)
     (Fraction.add_le_add hp hl)
   simpa only [fineBlocks, coarseBlocks] using hbound
 
+-- Modern dependency score: 0/13 (M=0, H=13; transitive project theorems/axioms).
 theorem splitFactor_le (w : Fraction) (s t : Point × Point)
     (hst : Fraction.le (stateNorm s) (stateNorm t)) :
     Fraction.le (splitFactor w s) (splitFactor w t) := by
@@ -540,6 +561,7 @@ theorem splitFactor_le (w : Fraction) (s t : Point × Point)
     (Fraction.abs_num_nonnegative w)
   exact Fraction.add_le_add h₁ (Fraction.add_le_add h₁ h₂)
 
+-- Modern dependency score: 0/13 (M=0, H=13; transitive project theorems/axioms).
 theorem splitFactor_double (w : Fraction) (s t : Point × Point)
     (hst : Fraction.le (stateNorm s)
       (Fraction.mul (Fraction.ofInt 2) (stateNorm t))) :
@@ -556,6 +578,7 @@ theorem splitFactor_double (w : Fraction) (s t : Point × Point)
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 2/17 (M=2, H=15; transitive project theorems/axioms).
 theorem quadraticCap_double (w : Fraction) (s t : Point × Point)
     (hst : Fraction.le (stateNorm s)
       (Fraction.mul (Fraction.ofInt 2) (stateNorm t))) :
@@ -579,6 +602,7 @@ theorem quadraticCap_double (w : Fraction) (s t : Point × Point)
       simp only [Int.add_mul, Int.mul_add]
       ac_nf
 
+-- Modern dependency score: 10/38 (M=10, H=28; transitive project theorems/axioms).
 theorem coarseBlocks_norm_bound (w h : Fraction) (k : Nat)
     (s : Point × Point) :
     (N : Nat) → Fraction.le (stateNorm (coarseBlocks w h k s N))
@@ -602,6 +626,7 @@ theorem coarseBlocks_norm_bound (w h : Fraction) (k : Nat)
         Fraction.mul]
       ac_nf
 
+-- Modern dependency score: 13/52 (M=13, H=39; transitive project theorems/axioms).
 theorem coarseBlocks_state_le_two (w h : Fraction) (k : Nat)
     (s : Point × Point) (N : Nat)
     (hpower : Fraction.le
@@ -622,6 +647,7 @@ def blockSource (w h : Fraction) (k : Nat) (s : Point × Point) : Fraction :=
   Fraction.mul (Fraction.mul h h)
     (Fraction.mul (Fraction.ofInt 2) (quadraticCap w s k))
 
+-- Modern dependency score: 3/8 (M=3, H=5; transitive project theorems/axioms).
 theorem blockSource_nonnegative (w h : Fraction) (k : Nat)
     (s : Point × Point) (hh : 0 ≤ h.num) :
     0 ≤ (blockSource w h k s).num :=
@@ -632,6 +658,7 @@ theorem blockSource_nonnegative (w h : Fraction) (k : Nat)
 
 /-- Finite accumulation with a measured coarse-state confinement and an
 explicit short-prefix premise. No Cauchy or partition-independence field. -/
+-- Modern dependency score: 40/120 (M=40, H=80; transitive project theorems/axioms).
 theorem block_error_le_budget (w h : Fraction) (k : Nat)
     (s : Point × Point) (N : Nat)
     (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
@@ -671,6 +698,7 @@ def FullSmallTime (w d : Fraction) (N : Nat) : Prop :=
     (Fraction.mul (fullTime d N)
       (Fraction.add (Fraction.ofInt 1) w.abs)) halfThreshold
 
+-- Modern dependency score: 0/12 (M=0, H=12; transitive project theorems/axioms).
 theorem kappa_duration_congr (w a b : Fraction)
     (hab : Fraction.equiv a b) :
     Fraction.equiv (kappa w a) (kappa w b) := by
@@ -681,6 +709,7 @@ theorem kappa_duration_congr (w a b : Fraction)
     (Fraction.add_equiv (Fraction.equiv_refl _)
       (Fraction.mul_equiv ha (Fraction.equiv_refl _)))
 
+-- Modern dependency score: 13/42 (M=13, H=29; transitive project theorems/axioms).
 theorem full_power_le_two (w d : Fraction) (N : Nat)
     (hd : 0 ≤ d.num) (hs : FullSmallTime w d N) :
     Fraction.le (fpower (kappa w d) N) (Fraction.ofInt 2) := by
@@ -694,6 +723,7 @@ theorem full_power_le_two (w d : Fraction) (N : Nat)
   exact Fraction.le_equiv_left
     (Fraction.equiv_symm (fpower_congr he N)) hpower
 
+-- Modern dependency score: 14/47 (M=14, H=33; transitive project theorems/axioms).
 theorem block_power_le_two (w h : Fraction) (k N : Nat)
     (hh : 0 ≤ h.num)
     (hs : FullSmallTime w (integerDuration h k) N) :
@@ -710,6 +740,7 @@ theorem block_power_le_two (w h : Fraction) (k N : Nat)
 /-- Accumulated comparison of `N` actual coarse cells of duration `k*h`
 with `k*N` actual fine cells. The finite short-prefix inequalities ensure
 each local split is inside the calibrated unit window. -/
+-- Modern dependency score: 57/155 (M=57, H=98; transitive project theorems/axioms).
 theorem accumulated_integer_error (w h : Fraction) (k N : Nat)
     (s : Point × Point)
     (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
@@ -748,6 +779,7 @@ theorem accumulated_integer_error (w h : Fraction) (k N : Nat)
   simp only [C, r, Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
+-- Modern dependency score: 0/13 (M=0, H=13; transitive project theorems/axioms).
 theorem full_window_duration_le_one (w d : Fraction) (N : Nat)
     (hd : 0 ≤ d.num) (hN : 0 < N)
     (hs : FullSmallTime w d N) :
@@ -785,6 +817,7 @@ theorem full_window_duration_le_one (w d : Fraction) (N : Nat)
     (Fraction.magnitudes.le_trans htimeWeighted
       (Fraction.magnitudes.le_trans hs hhalf))
 
+-- Modern dependency score: 1/26 (M=1, H=25; transitive project theorems/axioms).
 theorem integer_window_short (w h : Fraction) (k N : Nat)
     (hh : 0 ≤ h.num) (hk : 0 < k) (hN : 0 < N)
     (hs : FullSmallTime w (integerDuration h k) N) :
@@ -813,6 +846,7 @@ theorem integer_window_short (w h : Fraction) (k N : Nat)
 
 /-- The positive-count small-window form needs no separate local
 shortness assumptions. -/
+-- Modern dependency score: 60/159 (M=60, H=99; transitive project theorems/axioms).
 theorem accumulated_integer_error_positive (w h : Fraction) (k N : Nat)
     (s : Point × Point)
     (hh : 0 ≤ h.num) (hk : 0 < k) (hN : 0 < N)
@@ -826,6 +860,7 @@ theorem accumulated_integer_error_positive (w h : Fraction) (k N : Nat)
   obtain ⟨hb, hshort⟩ := integer_window_short w h k N hh hk hN hs
   exact accumulated_integer_error w h k N s hh hb hshort hs
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem integerFine_eq_run (w h : Fraction) (s : Point × Point) :
     (n : Nat) → integerFine w h s n = BoundedIteration.run (linearField w) h s n
   | 0 => rfl
@@ -834,6 +869,7 @@ theorem integerFine_eq_run (w h : Fraction) (s : Point × Point) :
       rw [← integerFine, integerFine_eq_run w h s n]
       rfl
 
+-- Modern dependency score: 2/3 (M=2, H=1; transitive project theorems/axioms).
 theorem fineBlocks_eq_schedule (w h : Fraction) (k : Nat) (s : Point × Point) :
     (N : Nat) → fineBlocks w h k s N = integerFine w h s (k*N)
   | 0 => rfl
@@ -843,6 +879,7 @@ theorem fineBlocks_eq_schedule (w h : Fraction) (k : Nat) (s : Point × Point) :
       rw [← BoundedIteration.run_add]
       congr 1
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem coarseBlocks_eq_schedule (w h : Fraction) (k : Nat) (s : Point × Point) :
     (N : Nat) → coarseBlocks w h k s N = integerFine w (integerDuration h k) s N
   | 0 => rfl

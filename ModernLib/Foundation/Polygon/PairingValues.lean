@@ -24,6 +24,7 @@ structure Form where
   magnitude_bound : ∀ p q,
     Fraction.le (apply p q).abs (Fraction.mul (pointNorm p) (pointNorm q))
 
+-- Modern dependency score: 0/18 (M=0, H=18; transitive project theorems/axioms).
 theorem dot_abs_le_product (p q : Point) :
     Fraction.le (dot p q).abs (Fraction.mul (pointNorm p) (pointNorm q)) := by
   let cross := Fraction.add (Fraction.mul p.1.abs q.2.abs) (Fraction.mul p.2.abs q.1.abs)
@@ -36,6 +37,7 @@ theorem dot_abs_le_product (p q : Point) :
   simp only [cross,pointNorm,Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 0/10 (M=0, H=10; transitive project theorems/axioms).
 theorem dot_congr {p p' q q' : Point} (hp : pointEquiv p p') (hq : pointEquiv q q') :
     Fraction.equiv (dot p q) (dot p' q') :=
   Fraction.add_equiv (Fraction.mul_equiv hp.1 hq.1) (Fraction.mul_equiv hp.2 hq.2)
@@ -58,6 +60,7 @@ def detForm : Form where
     ac_nf <;> omega
   magnitude_bound := TriangleBounds.det_abs_le_product
 
+-- Modern dependency score: 0/25 (M=0, H=25; transitive project theorems/axioms).
 theorem difference_bound (f : Form) (p q r s : Point) :
     Fraction.le (durationDifference (f.apply p q) (f.apply r s)).abs
       (Fraction.add (Fraction.mul (pointDistance p r) (pointNorm q))
@@ -73,6 +76,7 @@ theorem difference_bound (f : Form) (p q r s : Point) :
 def pairingState (f : Form) (s t : Point × Point) : Point × Point :=
   scalarState (f.apply s.1 t.1)
 
+-- Modern dependency score: 2/37 (M=2, H=35; transitive project theorems/axioms).
 theorem pairing_state_bound (f : Form) (R : Fraction) (hR : 0 ≤ R.num)
     (s t u v : Point × Point)
     (hu : Fraction.le (pointNorm u.1) R) (ht : Fraction.le (pointNorm t.1) R) :
@@ -95,6 +99,7 @@ def pairingOperation (f : Form) : BinaryLift.Operation where
   coefficient_nonnegative := fun _ hR => hR
   distance_bound := pairing_state_bound f
 
+-- Modern dependency score: 2/36 (M=2, H=34; transitive project theorems/axioms).
 theorem fixed_left_bound (f : Form) (s t u : Point × Point) :
     Fraction.le (distance (pairingState f s t) (pairingState f s u))
       (Fraction.mul (distance t u) (pointNorm s.1)) := by
@@ -116,6 +121,7 @@ theorem fixed_left_bound (f : Form) (s t u : Point × Point) :
 def pairingName (f : Form) (a b : EndpointCauchyName) : EndpointCauchyName :=
   BinaryLift.name (pairingOperation f) a b
 
+-- Modern dependency score: 7/53 (M=7, H=46; transitive project theorems/axioms).
 theorem pairingName_equiv (f : Form) (a b a' b' : EndpointCauchyName)
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
     NameEquiv (pairingName f a b) (pairingName f a' b') :=
@@ -124,9 +130,11 @@ theorem pairingName_equiv (f : Form) (a b a' b' : EndpointCauchyName)
 def pairingValue (f : Form) (x y : Value) : Value :=
   BinaryLift.value (pairingOperation f) x y
 
+-- Modern dependency score: 14/69 (M=14, H=55; transitive project theorems/axioms).
 theorem pairingValue_embed (f : Form) (s t : Point × Point) :
     pairingValue f (embed s) (embed t) = embed (pairingState f s t) := rfl
 
+-- Modern dependency score: 18/73 (M=18, H=55; transitive project theorems/axioms).
 theorem pairingValue_scalar (f : Form) (x y : Value) :
     PositionValues.firstValue (pairingValue f x y) = pairingValue f x y := by
   induction x using Quotient.inductionOn with
@@ -134,6 +142,7 @@ theorem pairingValue_scalar (f : Form) (x y : Value) :
     induction y using Quotient.inductionOn with
     | _ b => rfl
 
+-- Modern dependency score: 10/68 (M=10, H=58; transitive project theorems/axioms).
 theorem scaled_pairing_approximant (f : Form) (c : Fraction) (a b : EndpointCauchyName) (j : Nat) :
     stateEquiv ((secantName c (pairingName f a b)
       (constantName (PositionValues.zeroPoint,PositionValues.zeroPoint))).approx j)
@@ -152,6 +161,7 @@ theorem scaled_pairing_approximant (f : Form) (c : Fraction) (a b : EndpointCauc
 /-- A proved bound on the fixed input tail transfers a completed bound in
 the other input. The client supplies actual name estimates, not a bilinear
 continuity premise on completed values. -/
+-- Modern dependency score: 10/60 (M=10, H=50; transitive project theorems/axioms).
 theorem pairing_name_bound_right (f : Form) (a b c : EndpointCauchyName)
     (R S : Fraction) (hR : 0 ≤ R.num) (M : Nat)
     (ha : ∀ j, M≤j → Fraction.le (pointNorm (a.approx j).1) R)

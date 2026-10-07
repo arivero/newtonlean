@@ -47,6 +47,7 @@ def area2 (z0 z1 z2 : Phase) : Fraction := det (pointSub z1 z0) (pointSub z2 z0)
 
 /-- Cavalieri, drift: two phase points with the same velocity keep their
     position difference.  Holds for every field. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem drift_rigid (d q q' v : Fraction) :
     Fraction.equiv (fsub (drift d (q', v)).1 (drift d (q, v)).1) (fsub q' q) := by
   unfold fsub negF drift Fraction.equiv Fraction.add Fraction.mul
@@ -57,6 +58,7 @@ theorem drift_rigid (d q q' v : Fraction) :
 
 /-- Cavalieri, impulse: two phase points at the same position keep their
     velocity difference, for an arbitrary field `F`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem kick_rigid (F : Fraction → Fraction) (d q v v' : Fraction) :
     Fraction.equiv (fsub (kick F d (q, v')).2 (kick F d (q, v)).2) (fsub v' v) := by
   unfold fsub negF kick Fraction.equiv Fraction.add Fraction.mul
@@ -70,6 +72,7 @@ theorem kick_rigid (F : Fraction → Fraction) (d q v v' : Fraction) :
 def affine (c w : Fraction) : Fraction → Fraction :=
   fun q => Fraction.add c (Fraction.mul (negF w) q)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem drift_area2 (d : Fraction) (z0 z1 z2 : Phase) :
     Fraction.equiv (area2 (drift d z0) (drift d z1) (drift d z2)) (area2 z0 z1 z2) := by
   unfold area2 det pointSub pointNeg pointAdd drift Fraction.equiv Fraction.add Fraction.mul
@@ -78,6 +81,7 @@ theorem drift_area2 (d : Fraction) (z0 z1 z2 : Phase) :
   ac_nf
   omega
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem kick_area2 (c w d : Fraction) (z0 z1 z2 : Phase) :
     Fraction.equiv (area2 (kick (affine c w) d z0) (kick (affine c w) d z1) (kick (affine c w) d z2))
       (area2 z0 z1 z2) := by
@@ -90,6 +94,7 @@ theorem kick_area2 (c w d : Fraction) (z0 z1 z2 : Phase) :
 
 /-- One cell preserves the doubled phase area of every triangle, for every
     duration. -/
+-- Modern dependency score: 2/5 (M=2, H=3; transitive project theorems/axioms).
 theorem cell_area2 (c w d : Fraction) (z0 z1 z2 : Phase) :
     Fraction.equiv
       (area2 (cell (affine c w) d z0) (cell (affine c w) d z1) (cell (affine c w) d z2))
@@ -97,6 +102,7 @@ theorem cell_area2 (c w d : Fraction) (z0 z1 z2 : Phase) :
   Fraction.equiv_trans (kick_area2 c w d _ _ _) (drift_area2 d z0 z1 z2)
 
 /-- Every equal-cell schedule, at every mesh, preserves it. -/
+-- Modern dependency score: 3/7 (M=3, H=4; transitive project theorems/axioms).
 theorem cells_area2 (c w d : Fraction) :
     (n : Nat) → (z0 z1 z2 : Phase) →
     Fraction.equiv
@@ -112,6 +118,7 @@ def energyD (a d : Fraction) (z : Phase) : Fraction :=
   fsub (fsub (Fraction.mul z.2 z.2) (Fraction.add (Fraction.mul a z.1) (Fraction.mul a z.1)))
     (Fraction.mul d (Fraction.mul a z.2))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem cell_energyD (a d : Fraction) (z : Phase) :
     Fraction.equiv (energyD a d (cell (fun _ => a) d z)) (energyD a d z) := by
   unfold energyD fsub negF cell kick drift Fraction.equiv Fraction.add Fraction.mul
@@ -126,6 +133,7 @@ def half : Fraction := ⟨1, 2, by decide⟩
 
 /-- The duration-dependent invariant differs between meshes at the same state
     (`a = 1`, state `(0, 1)`): `0` for `d = 1`, `1/2` for `d = 1/2`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem energyD_depends_on_mesh :
     ¬ Fraction.equiv (energyD one one (zero, one)) (energyD one half (zero, one)) := by
   decide
@@ -133,6 +141,7 @@ theorem energyD_depends_on_mesh :
 /-- Refinement example, force as distance (`c = 0`, `w = 1`): one cell of
     duration 1 and two cells of duration 1/2 send the phase point `(1, 0)` to
     different places, while both keep the unit triangle's doubled area 1. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem refinement_moves_points_keeps_area :
     ¬ pointEquiv (cells (affine zero one) one 1 (one, zero))
         (cells (affine zero one) half 2 (one, zero)) ∧

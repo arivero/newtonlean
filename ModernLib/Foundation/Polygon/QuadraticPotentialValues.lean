@@ -21,6 +21,7 @@ def quadraticName (c : Fraction) (a : EndpointCauchyName) : EndpointCauchyName :
 def quadraticValue (c : Fraction) (x : Value) : Value :=
   secantValue c (pairingValue dotForm x x) (embed (PositionValues.zeroPoint,PositionValues.zeroPoint))
 
+-- Modern dependency score: 19/90 (M=19, H=71; transitive project theorems/axioms).
 theorem quadraticValue_embed (c : Fraction) (s : Point × Point) :
     quadraticValue c (embed s) = embed (scalarState (quadratic c s.1)) := by
   apply Quotient.sound
@@ -39,6 +40,7 @@ def normalizedStepValue (c h : Fraction) (ht : 0 < h.num) (x y : Value) : Value 
   secantValue (Fraction.mul (TimeCalibration.inverse h ht) (TimeCalibration.inverse h ht))
     (quadraticValue c y) (quadraticValue c (inertialValue h x))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem normalized_remainder_identity (c h : Fraction) (ht : 0 < h.num)
     (s u : Point × Point) (a : Point) :
     Fraction.equiv (durationDifference (Fraction.mul c (dot a s.1)) (normalizedStep c h ht s u))
@@ -54,6 +56,7 @@ theorem normalized_remainder_identity (c h : Fraction) (ht : 0 < h.num)
   simp only [show (2 : Int)=1+1 by rfl,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
   ac_nf <;> omega
 
+-- Modern dependency score: 2/32 (M=2, H=30; transitive project theorems/axioms).
 theorem normalized_remainder_bound (c h P V Z D : Fraction) (ht : 0 < h.num)
     (s u : Point × Point) (a : Point)
     (hP : 0 ≤ P.num) (hV : 0 ≤ V.num) (hZ : 0 ≤ Z.num)
@@ -101,6 +104,7 @@ def remainderCoefficient (c T P V Z U : Fraction) : Fraction :=
 def roundingCoefficient (c P A : Fraction) : Fraction :=
   Fraction.mul c.abs (Fraction.mul P A)
 
+-- Modern dependency score: 0/3 (M=0, H=3; transitive project theorems/axioms).
 theorem remainderCoefficient_nonnegative (c T P V Z U : Fraction)
     (hT : 0 ≤ T.num) (hP : 0 ≤ P.num) (hV : 0 ≤ V.num) (hZ : 0 ≤ Z.num) (hU : 0 ≤ U.num) :
     0 ≤ (remainderCoefficient c T P V Z U).num :=
@@ -109,6 +113,7 @@ theorem remainderCoefficient_nonnegative (c T P V Z U : Fraction)
       (Fraction.nonnegative_add _ _ (Fraction.nonnegative_mul _ _ hZ hV)
         (Fraction.nonnegative_mul _ _ hT (Fraction.nonnegative_mul _ _ hZ hZ))))
 
+-- Modern dependency score: 3/34 (M=3, H=31; transitive project theorems/axioms).
 theorem uniform_frame_bound (c h T P V Z U r A : Fraction) (ht : 0 < h.num)
     (s u : Point × Point) (a : Point)
     (hP : 0 ≤ P.num) (hV : 0 ≤ V.num) (hZ : 0 ≤ Z.num)
@@ -136,6 +141,7 @@ theorem uniform_frame_bound (c h T P V Z U r A : Fraction) (ht : 0 < h.num)
 
 /-- The constructed scalar increment has the expected finite approximant.
 This identity connects completed potential values to the polynomial estimate. -/
+-- Modern dependency score: 12/73 (M=12, H=61; transitive project theorems/axioms).
 theorem normalized_step_approximant (c h : Fraction) (ht : 0 < h.num)
     (a b : EndpointCauchyName) (j : Nat) :
     stateEquiv ((normalizedStepName c h ht a b).approx j)

@@ -10,6 +10,7 @@ def finiteAddress : Nat → Nat → Nat → Bool
   | 0,_,_ => false
   | m+1,k,j => if j=m then decide (k%2=1) else finiteAddress m (k/2) j
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem finiteAddress_tail : (m k j : Nat) → m ≤ j → finiteAddress m k j = false
   | 0,_,_,_ => rfl
   | m+1,k,j,hj => by
@@ -17,6 +18,7 @@ theorem finiteAddress_tail : (m k j : Nat) → m ≤ j → finiteAddress m k j =
       simp only [finiteAddress,hn,if_false]
       exact finiteAddress_tail m (k/2) j (by omega)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem ticks_congr_before (b c : Nat → Bool) : (m : Nat) →
     (∀ i, i<m → b i=c i) → ticks b m=ticks c m
   | 0,_ => rfl
@@ -25,6 +27,7 @@ theorem ticks_congr_before (b c : Nat → Bool) : (m : Nat) →
       have hb := h m (by omega)
       simp only [ticks,hp,bit,hb]
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem finiteAddress_ticks : (m k : Nat) → k<blocks m → ticks (finiteAddress m k) m=k
   | 0,k,hk => by
       have hb : blocks 0=1 := rfl

@@ -9,6 +9,7 @@ def CalibratedCauchy (tau : Fraction) (a : Nat → Point × Point) : Prop :=
     N ≤ m → N ≤ n → Fraction.lt (distance tau (a m) (a n)) eps
 
 
+-- Modern dependency score: 0/31 (M=0, H=31; transitive project theorems/axioms).
 theorem cauchy_calibration_iff (tau : Fraction) (ht : 0 < tau.num)
     (a : Nat → Point × Point) :
     CalibratedCauchy tau a ↔ CalibratedCauchy (Fraction.ofInt 1) a := by
@@ -37,6 +38,7 @@ def CalibratedEquivalent (tau : Fraction) (a b : Nat → Point × Point) : Prop 
     N ≤ n → Fraction.lt (distance tau (a n) (b n)) eps
 
 /-- The actual completed value relation is unchanged by a fixed calibration. -/
+-- Modern dependency score: 0/30 (M=0, H=30; transitive project theorems/axioms).
 theorem nameEquiv_calibration_iff (tau : Fraction) (ht : 0 < tau.num)
     (a b : HarmonicDyadic.EndpointCauchyName) :
     CalibratedEquivalent tau a.approx b.approx ↔ CauchyValues.NameEquiv a b := by
@@ -58,6 +60,7 @@ theorem nameEquiv_calibration_iff (tau : Fraction) (ht : 0 < tau.num)
 
 
 /-- Time-unit rescaling preserves the actual-family Cauchy condition. -/
+-- Modern dependency score: 0/23 (M=0, H=23; transitive project theorems/axioms).
 theorem cauchy_rescale (c tau : Fraction) (hc : 0 < c.num)
     (a : Nat → Point × Point) :
     CalibratedCauchy (Fraction.mul c tau) (fun n => rescaleState c hc (a n)) ↔

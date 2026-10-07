@@ -7,6 +7,7 @@ open TimeSubdivision PointBounds ConvexCover FiniteEstimates CauchyValues
 open HarmonicDyadic
 
 /-- A fixed rational interpolation is Lipschitz in both endpoints. -/
+-- Modern dependency score: 0/31 (M=0, H=31; transitive project theorems/axioms).
 theorem lerp_distance (a : Fraction) (ha : UnitInterval a)
     (p q p' q' : Point) :
     Fraction.le (pointDistance (lerp a p q) (lerp a p' q'))
@@ -49,6 +50,7 @@ theorem lerp_distance (a : Fraction) (ha : UnitInterval a)
 def convexState (a : Fraction) (s t : Point × Point) : Point × Point :=
   (lerp a s.1 t.1,PositionValues.zeroPoint)
 
+-- Modern dependency score: 1/36 (M=1, H=35; transitive project theorems/axioms).
 theorem convexState_distance (a : Fraction) (ha : UnitInterval a)
     (s t s' t' : Point × Point) :
     Fraction.le (distance (convexState a s t) (convexState a s' t'))
@@ -83,6 +85,7 @@ def convexName (a : Fraction) (ha : UnitInterval a)
     exact Fraction.magnitudes.lt_of_le_lt (convexState_distance a ha _ _ _ _)
       (Fraction.magnitudes.lt_of_lt_le hsum (Fraction.le_of_equiv (Fraction.half_add_self eps)))
 
+-- Modern dependency score: 2/41 (M=2, H=39; transitive project theorems/axioms).
 theorem convexName_equiv (a : Fraction) (ha : UnitInterval a)
     (s t s' t' : EndpointCauchyName) (hs : NameEquiv s s') (ht : NameEquiv t t') :
     NameEquiv (convexName a ha s t) (convexName a ha s' t') := by
@@ -104,6 +107,7 @@ def convexValue (a : Fraction) (ha : UnitInterval a) (x y : Value) : Value :=
 
 open PositionValues
 
+-- Modern dependency score: 0/39 (M=0, H=39; transitive project theorems/axioms).
 theorem convexState_anchor_bound (a : Fraction) (ha : UnitInterval a)
     (s t : Point × Point) (centre : Point) (R : Fraction)
     (hs : Fraction.le (distance s (centre,zeroPoint)) R)
@@ -121,6 +125,7 @@ theorem convexState_anchor_bound (a : Fraction) (ha : UnitInterval a)
       (pointSub_self_zero zeroPoint)) (Fraction.add_zero _)
   exact Fraction.le_equiv_left he (lerp_ball_bound a ha centre _ _ R hp hq)
 
+-- Modern dependency score: 6/52 (M=6, H=46; transitive project theorems/axioms).
 theorem convexName_ball (a : Fraction) (ha : UnitInterval a)
     (s t : EndpointCauchyName) (centre : Point) (R : Fraction)
     (hs : NameBound s (constantName (centre,zeroPoint)) R)
@@ -140,6 +145,7 @@ theorem convexName_ball (a : Fraction) (ha : UnitInterval a)
 
 /-- A common completed centre need not be a rational embedded point. The
 finite convex bound is applied to projected approximants of that centre. -/
+-- Modern dependency score: 7/51 (M=7, H=44; transitive project theorems/axioms).
 theorem convexName_relative_bound (a : Fraction) (ha : UnitInterval a)
     (s t centre : EndpointCauchyName) (R : Fraction)
     (hs : NameBound s centre R) (ht : NameBound t centre R) :
@@ -161,6 +167,7 @@ theorem convexName_relative_bound (a : Fraction) (ha : UnitInterval a)
       (positionState (t.approx n)) (centre.approx n).1 _ hp hq)
     (CauchyValues.add_lt_add_left (Fraction.half_lt eps heps) R)
 
+-- Modern dependency score: 24/81 (M=24, H=57; transitive project theorems/axioms).
 theorem convexValue_relative_bound (a : Fraction) (ha : UnitInterval a)
     (x y centre : Value) (R : Fraction)
     (hx : Within x centre R) (hy : Within y centre R) :
@@ -172,6 +179,7 @@ theorem convexValue_relative_bound (a : Fraction) (ha : UnitInterval a)
       induction centre using Quotient.inductionOn with
       | _ c => exact convexName_relative_bound a ha s t c R hx hy
 
+-- Modern dependency score: 20/77 (M=20, H=57; transitive project theorems/axioms).
 theorem convexValue_ball (a : Fraction) (ha : UnitInterval a)
     (x y : Value) (centre : Point) (R : Fraction)
     (hx : Within x (embed (centre,zeroPoint)) R)
@@ -182,6 +190,7 @@ theorem convexValue_ball (a : Fraction) (ha : UnitInterval a)
     induction y using Quotient.inductionOn with
     | _ t => exact convexName_ball a ha s t centre R hx hy
 
+-- Modern dependency score: 14/65 (M=14, H=51; transitive project theorems/axioms).
 theorem convexValue_position (a : Fraction) (ha : UnitInterval a) (x y : Value) :
     positionValue (convexValue a ha x y) = convexValue a ha x y := by
   induction x using Quotient.inductionOn with
@@ -193,6 +202,7 @@ def convexPosition (a : Fraction) (ha : UnitInterval a)
     (x y : PositionValue) : PositionValue :=
   ⟨convexValue a ha x.val y.val,convexValue_position a ha x.val y.val⟩
 
+-- Modern dependency score: 0/11 (M=0, H=11; transitive project theorems/axioms).
 theorem first_convex_state (a : Fraction) (s t : Point × Point) :
     stateEquiv (firstState (convexState a s t))
       (convexState a (firstState s) (firstState t)) := by
@@ -207,6 +217,7 @@ theorem first_convex_state (a : Fraction) (s t : Point × Point) :
         (Fraction.add_zero _))
   · exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
 
+-- Modern dependency score: 0/11 (M=0, H=11; transitive project theorems/axioms).
 theorem second_convex_state (a : Fraction) (s t : Point × Point) :
     stateEquiv (secondState (convexState a s t))
       (convexState a (secondState s) (secondState t)) := by
@@ -221,6 +232,7 @@ theorem second_convex_state (a : Fraction) (s t : Point × Point) :
     · exact Fraction.equiv_refl _
   · exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
 
+-- Modern dependency score: 16/75 (M=16, H=59; transitive project theorems/axioms).
 theorem firstValue_convex (a : Fraction) (ha : UnitInterval a) (x y : Value) :
     firstValue (convexValue a ha x y) =
       convexValue a ha (firstValue x) (firstValue y) := by
@@ -231,6 +243,7 @@ theorem firstValue_convex (a : Fraction) (ha : UnitInterval a) (x y : Value) :
       apply Quotient.sound
       exact nameEquiv_of_levelwise_stateEquiv _ _ (fun n => first_convex_state a _ _)
 
+-- Modern dependency score: 16/75 (M=16, H=59; transitive project theorems/axioms).
 theorem secondValue_convex (a : Fraction) (ha : UnitInterval a) (x y : Value) :
     secondValue (convexValue a ha x y) =
       convexValue a ha (secondValue x) (secondValue y) := by
@@ -241,6 +254,7 @@ theorem secondValue_convex (a : Fraction) (ha : UnitInterval a) (x y : Value) :
       apply Quotient.sound
       exact nameEquiv_of_levelwise_stateEquiv _ _ (fun n => second_convex_state a _ _)
 
+-- Modern dependency score: 35/99 (M=35, H=64; transitive project theorems/axioms).
 theorem convexPosition_square (a : Fraction) (ha : UnitInterval a)
     (x y : PositionValue) (centre : Point) (R : NonnegativeRadius)
     (hx : CoordinateSquare centre R x) (hy : CoordinateSquare centre R y) :
@@ -253,6 +267,7 @@ theorem convexPosition_square (a : Fraction) (ha : UnitInterval a)
     rw [secondValue_convex]
     exact convexValue_ball a ha _ _ (secondState (centre,zeroPoint)).1 R.val hx.2 hy.2
 
+-- Modern dependency score: 15/73 (M=15, H=58; transitive project theorems/axioms).
 theorem convexValue_zero (ha : UnitInterval (Fraction.ofInt 0)) (x y : Value) :
     convexValue (Fraction.ofInt 0) ha x y = positionValue x := by
   induction x using Quotient.inductionOn with
@@ -264,6 +279,7 @@ theorem convexValue_zero (ha : UnitInterval (Fraction.ofInt 0)) (x y : Value) :
         ⟨lerp_zero (s.approx n).1 (t.approx n).1,
           ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
 
+-- Modern dependency score: 15/73 (M=15, H=58; transitive project theorems/axioms).
 theorem convexValue_one (ha : UnitInterval (Fraction.ofInt 1)) (x y : Value) :
     convexValue (Fraction.ofInt 1) ha x y = positionValue y := by
   induction x using Quotient.inductionOn with
@@ -275,16 +291,19 @@ theorem convexValue_one (ha : UnitInterval (Fraction.ofInt 1)) (x y : Value) :
         ⟨lerp_one (s.approx n).1 (t.approx n).1,
           ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
 
+-- Modern dependency score: 17/75 (M=17, H=58; transitive project theorems/axioms).
 theorem convexPosition_zero (ha : UnitInterval (Fraction.ofInt 0))
     (x y : PositionValue) : convexPosition (Fraction.ofInt 0) ha x y = x := by
   apply Subtype.ext
   exact (convexValue_zero ha x.val y.val).trans x.property
 
+-- Modern dependency score: 17/75 (M=17, H=58; transitive project theorems/axioms).
 theorem convexPosition_one (ha : UnitInterval (Fraction.ofInt 1))
     (x y : PositionValue) : convexPosition (Fraction.ofInt 1) ha x y = y := by
   apply Subtype.ext
   exact (convexValue_one ha x.val y.val).trans y.property
 
+-- Modern dependency score: 11/70 (M=11, H=59; transitive project theorems/axioms).
 theorem convexValue_swap (a : Fraction) (ha : UnitInterval a) (x y : Value) :
     convexValue a ha x y = convexValue (complement a) (complement_interval a ha) y x := by
   induction x using Quotient.inductionOn with
@@ -296,6 +315,7 @@ theorem convexValue_swap (a : Fraction) (ha : UnitInterval a) (x y : Value) :
         ⟨lerp_swap a (s.approx n).1 (t.approx n).1,
           ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩)
 
+-- Modern dependency score: 17/76 (M=17, H=59; transitive project theorems/axioms).
 theorem convexPosition_swap (a : Fraction) (ha : UnitInterval a)
     (x y : PositionValue) :
     convexPosition a ha x y = convexPosition (complement a) (complement_interval a ha) y x :=

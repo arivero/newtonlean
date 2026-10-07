@@ -30,6 +30,7 @@ def tri : Nat → Int
   | n + 1 => tri n + n
 
 /-- Under a constant force the space described is `force * tri n`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem pos_const (c : Int) : (n : Nat) → pos (fun _ => c) n = c * tri n ∧ vel (fun _ => c) n = c * n
   | 0 => by simp [pos, vel, tri]
   | n + 1 => by
@@ -38,6 +39,7 @@ theorem pos_const (c : Int) : (n : Nat) → pos (fun _ => c) n = c * tri n ∧ v
       refine ⟨trivial, ?_⟩
       rw [Int.ofNat_one, Int.mul_one]
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem vel_bounds (a : Nat → Int) (lo hi : Int) (n : Nat)
     (h : ∀ i, i < n → lo ≤ a i ∧ a i ≤ hi) :
     ∀ k, k ≤ n → lo * k ≤ vel a k ∧ vel a k ≤ hi * k := by
@@ -53,6 +55,7 @@ theorem vel_bounds (a : Nat → Int) (lo hi : Int) (n : Nat)
 
 /-- Enclosure: impulses between `lo` and `hi` put the space described between
     the spaces described under the constant forces `lo` and `hi`. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem enclosure (a : Nat → Int) (lo hi : Int) (n : Nat)
     (h : ∀ i, i < n → lo ≤ a i ∧ a i ≤ hi) :
     lo * tri n ≤ pos a n ∧ pos a n ≤ hi * tri n := by
@@ -71,6 +74,7 @@ theorem enclosure (a : Nat → Int) (lo hi : Int) (n : Nat)
 
 /-- The 1713 clause: a force that continually increases (monotone history)
     gives the enclosure between the initial and final forces. -/
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 theorem monotone_enclosure (a : Nat → Int) (n : Nat)
     (hmono : ∀ i j, i ≤ j → j ≤ n → a i ≤ a j) :
     a 0 * tri (n + 1) ≤ pos a (n + 1) ∧ pos a (n + 1) ≤ a n * tri (n + 1) :=
@@ -79,6 +83,7 @@ theorem monotone_enclosure (a : Nat → Int) (n : Nat)
      hmono i n (Nat.le_of_lt_succ hi) (Nat.le_refl n)⟩)
 
 /-- And a force that continually decreases, symmetrically. -/
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 theorem antitone_enclosure (a : Nat → Int) (n : Nat)
     (hanti : ∀ i j, i ≤ j → j ≤ n → a j ≤ a i) :
     a n * tri (n + 1) ≤ pos a (n + 1) ∧ pos a (n + 1) ≤ a 0 * tri (n + 1) :=
@@ -88,6 +93,7 @@ theorem antitone_enclosure (a : Nat → Int) (n : Nat)
 
 /-- A finite force that rises and falls (impulses 0, 5, 0) describes space 5,
     outside the enclosure `0 ≤ pos ≤ 0` fixed by its initial and final forces. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem nonmonotone_escapes :
     pos (fun i => if i = 1 then 5 else 0) 3 = 5 ∧
       (fun i => if i = 1 then (5 : Int) else 0) 0 * tri 3 = 0 ∧

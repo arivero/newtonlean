@@ -13,6 +13,7 @@ def distance (a b : Point × Point) : Fraction := stateNorm (stateSub a b)
 
 /-- Position magnitudes on a Cauchy tail are bounded by the magnitude of one
 actual approximant plus one. This is derived, rather than a field of a name. -/
+-- Modern dependency score: 0/25 (M=0, H=25; transitive project theorems/axioms).
 theorem position_bounded_tail (a : EndpointCauchyName) :
     ∃ R : Fraction, 0 ≤ R.num ∧ ∃ N : Nat, ∀ j, N≤j →
       Fraction.le (pointNorm (a.approx j).1) R := by
@@ -27,6 +28,7 @@ theorem position_bounded_tail (a : EndpointCauchyName) :
 
 /-- A Cauchy name is bounded on a proved tail, so its position magnitude
 times a geometric mesh tends to zero. No boundedness field is supplied. -/
+-- Modern dependency score: 1/31 (M=1, H=30; transitive project theorems/axioms).
 theorem mesh_position_product_vanishes (a : EndpointCauchyName)
     (eps : Fraction) (heps : 0 < eps.num) :
     ∃ N : Nat, ∀ j, N≤j →
@@ -41,11 +43,13 @@ theorem mesh_position_product_vanishes (a : EndpointCauchyName)
     ac_nf
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hc he) (hM j (by omega))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem equiv_zero_num (a : Fraction)
     (h : Fraction.equiv a (Fraction.ofInt 0)) : a.num = 0 := by
   unfold Fraction.equiv Fraction.ofInt at h
   simpa only [Int.mul_one, Int.zero_mul] using h
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem zero_lt_positive (eps : Fraction) (heps : 0 < eps.num) :
     Fraction.lt (Fraction.ofInt 0) eps := by
   unfold Fraction.lt Fraction.ofInt
@@ -53,6 +57,7 @@ private theorem zero_lt_positive (eps : Fraction) (heps : 0 < eps.num) :
   simp only [Int.zero_mul, Int.mul_one]
   exact heps
 
+-- Modern dependency score: 1/12 (M=1, H=11; transitive project theorems/axioms).
 theorem distance_self_lt (a : Point × Point) (eps : Fraction)
     (heps : 0 < eps.num) : Fraction.lt (distance a a) eps := by
   have hz := equiv_zero_num _ (stateSub_self_norm_zero a)
@@ -65,10 +70,12 @@ def NameEquiv (a b : EndpointCauchyName) : Prop :=
     ∃ N : Nat, ∀ n : Nat, N ≤ n →
       Fraction.lt (distance (a.approx n) (b.approx n)) eps
 
+-- Modern dependency score: 2/13 (M=2, H=11; transitive project theorems/axioms).
 theorem nameEquiv_refl (a : EndpointCauchyName) : NameEquiv a a := by
   intro eps heps
   exact ⟨0, fun n _ => distance_self_lt (a.approx n) eps heps⟩
 
+-- Modern dependency score: 0/17 (M=0, H=17; transitive project theorems/axioms).
 theorem nameEquiv_symm {a b : EndpointCauchyName}
     (hab : NameEquiv a b) : NameEquiv b a := by
   intro eps heps
@@ -79,13 +86,16 @@ theorem nameEquiv_symm {a b : EndpointCauchyName}
   exact Fraction.magnitudes.lt_of_le_lt
     ((Fraction.equiv_iff_mutual_le _ _).mp hs).1 (hN n hn)
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 private theorem half_add_equiv (eps : Fraction) :
     Fraction.equiv (Fraction.add eps.half eps.half) eps :=
   Fraction.half_add_self eps
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 private theorem half_lt (eps : Fraction) (heps : 0 < eps.num) :
     Fraction.lt eps.half eps := Fraction.half_lt eps heps
 
+-- Modern dependency score: 2/27 (M=2, H=25; transitive project theorems/axioms).
 theorem nameEquiv_trans {a b c : EndpointCauchyName}
     (hab : NameEquiv a b) (hbc : NameEquiv b c) : NameEquiv a c := by
   intro eps heps
@@ -112,6 +122,7 @@ def Value := Quotient (inferInstance : Setoid EndpointCauchyName)
 
 def realize (a : EndpointCauchyName) : Value := Quotient.mk _ a
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem add_zero_split (a b : Fraction)
     (ha : 0 ≤ a.num) (hb : 0 ≤ b.num)
     (h : Fraction.equiv (Fraction.add a b) (Fraction.ofInt 0)) :
@@ -134,6 +145,7 @@ private theorem add_zero_split (a b : Fraction)
     · have hd := a.den_pos
       omega
 
+-- Modern dependency score: 2/3 (M=2, H=1; transitive project theorems/axioms).
 private theorem pointNorm_zero_coords (p : Point)
     (h : (pointNorm p).num = 0) : p.1.num = 0 ∧ p.2.num = 0 := by
   have he : Fraction.equiv (pointNorm p) (Fraction.ofInt 0) := by
@@ -148,6 +160,7 @@ private theorem pointNorm_zero_coords (p : Point)
   · have hh : p.2.num.natAbs = 0 := Int.ofNat_eq_zero.mp hs.2
     exact Int.natAbs_eq_zero.mp hh
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem fraction_sub_zero_equiv (a b : Fraction)
     (h : (Fraction.add a ⟨-b.num, b.den, b.den_pos⟩).num = 0) :
     Fraction.equiv a b := by
@@ -156,6 +169,7 @@ private theorem fraction_sub_zero_equiv (a b : Fraction)
   rw [Int.neg_mul] at h
   omega
 
+-- Modern dependency score: 4/26 (M=4, H=22; transitive project theorems/axioms).
 theorem distance_zero_iff_stateEquiv (a b : Point × Point) :
     Fraction.equiv (distance a b) (Fraction.ofInt 0) ↔ stateEquiv a b := by
   constructor
@@ -185,6 +199,7 @@ def constantName (s : Point × Point) : EndpointCauchyName where
 
 def embed (s : Point × Point) : Value := realize (constantName s)
 
+-- Modern dependency score: 2/26 (M=2, H=24; transitive project theorems/axioms).
 theorem nameEquiv_of_levelwise_stateEquiv (a b : EndpointCauchyName)
     (h : ∀ n, stateEquiv (a.approx n) (b.approx n)) : NameEquiv a b := by
   intro eps heps
@@ -199,6 +214,7 @@ theorem nameEquiv_of_levelwise_stateEquiv (a b : EndpointCauchyName)
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv he)
     (distance_self_lt _ eps heps)
 
+-- Modern dependency score: 6/32 (M=6, H=26; transitive project theorems/axioms).
 theorem constantName_equiv_iff (a b : Point × Point) :
     NameEquiv (constantName a) (constantName b) ↔ stateEquiv a b := by
   constructor
@@ -228,6 +244,7 @@ theorem constantName_equiv_iff (a b : Point × Point) :
     simp only [hnum, Int.zero_mul, Int.mul_one]
     exact Int.mul_pos heps (distance a b).den_pos
 
+-- Modern dependency score: 12/56 (M=12, H=44; transitive project theorems/axioms).
 theorem embed_eq_iff_stateEquiv (a b : Point × Point) :
     embed a = embed b ↔ stateEquiv a b := by
   constructor
@@ -236,26 +253,31 @@ theorem embed_eq_iff_stateEquiv (a b : Point × Point) :
   · intro h
     exact Quotient.sound ((constantName_equiv_iff a b).mpr h)
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem add_lt_add_left {a b : Fraction}
     (hab : Fraction.lt a b) (c : Fraction) :
     Fraction.lt (Fraction.add c a) (Fraction.add c b) :=
   Fraction.add_lt_add_left hab c
 
+-- Modern dependency score: 0/9 (M=0, H=9; transitive project theorems/axioms).
 private theorem add_lt_add_right {a b : Fraction}
     (hab : Fraction.lt a b) (c : Fraction) :
     Fraction.lt (Fraction.add a c) (Fraction.add b c) :=
   Fraction.add_lt_add_right hab c
 
+-- Modern dependency score: 0/5 (M=0, H=5; transitive project theorems/axioms).
 private theorem lt_equiv_left {a b c : Fraction}
     (hab : Fraction.equiv a b) (hbc : Fraction.lt b c) : Fraction.lt a c :=
   Fraction.magnitudes.lt_of_le_lt
     ((Fraction.equiv_iff_mutual_le _ _).mp hab).1 hbc
 
+-- Modern dependency score: 0/5 (M=0, H=5; transitive project theorems/axioms).
 theorem lt_equiv_right {a b c : Fraction}
     (hab : Fraction.lt a b) (hbc : Fraction.equiv b c) : Fraction.lt a c :=
   Fraction.magnitudes.lt_of_lt_le hab
     ((Fraction.equiv_iff_mutual_le _ _).mp hbc).1
 
+-- Modern dependency score: 4/18 (M=4, H=14; transitive project theorems/axioms).
 private theorem three_quarters_lt (R eps : Fraction) (heps : 0 < eps.num) :
     Fraction.lt
       (Fraction.add (Fraction.add
@@ -284,6 +306,7 @@ def NameBound (a b : EndpointCauchyName) (R : Fraction) : Prop :=
       Fraction.lt (distance (a.approx n) (b.approx n))
         (Fraction.add R eps)
 
+-- Modern dependency score: 1/18 (M=1, H=17; transitive project theorems/axioms).
 theorem nameBound_symm {a b : EndpointCauchyName} {R : Fraction}
     (h : NameBound a b R) : NameBound b a R := by
   intro eps heps
@@ -293,6 +316,7 @@ theorem nameBound_symm {a b : EndpointCauchyName} {R : Fraction}
   exact lt_equiv_left
     (stateSub_norm_symm (b.approx n) (a.approx n)) (hN n hn)
 
+-- Modern dependency score: 0/24 (M=0, H=24; transitive project theorems/axioms).
 private theorem distance_three (a a' b b' : Point × Point) :
     Fraction.le (distance a' b')
       (Fraction.add (distance a' a)
@@ -302,6 +326,7 @@ private theorem distance_three (a a' b b' : Point × Point) :
   exact Fraction.magnitudes.le_trans h₁
     (Fraction.add_le_add_left h₂ (distance a' a))
 
+-- Modern dependency score: 5/19 (M=5, H=14; transitive project theorems/axioms).
 private theorem three_quarters_reordered (R eps : Fraction)
     (heps : 0 < eps.num) :
     Fraction.lt
@@ -317,6 +342,7 @@ private theorem three_quarters_reordered (R eps : Fraction)
     ac_nf
   exact lt_equiv_left he (three_quarters_lt R eps heps)
 
+-- Modern dependency score: 8/41 (M=8, H=33; transitive project theorems/axioms).
 private theorem nameBound_transport {a a' b b' : EndpointCauchyName} {R : Fraction}
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
     NameBound a b R → NameBound a' b' R := by
@@ -341,6 +367,7 @@ private theorem nameBound_transport {a a' b b' : EndpointCauchyName} {R : Fracti
   exact Fraction.magnitudes.lt_of_le_lt hbound
     (three_quarters_reordered R eps heps)
 
+-- Modern dependency score: 9/42 (M=9, H=33; transitive project theorems/axioms).
 theorem nameBound_congr {a a' b b' : EndpointCauchyName} {R : Fraction}
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
     NameBound a b R ↔ NameBound a' b' R :=
@@ -353,9 +380,11 @@ def Within (x y : Value) (R : Fraction) : Prop :=
   Quotient.liftOn₂ x y (fun a b => NameBound a b R)
     (fun _ _ _ _ ha hb => propext (nameBound_congr ha hb))
 
+-- Modern dependency score: 15/52 (M=15, H=37; transitive project theorems/axioms).
 theorem within_realize (a b : EndpointCauchyName) (R : Fraction) :
     Within (realize a) (realize b) R ↔ NameBound a b R := Iff.rfl
 
+-- Modern dependency score: 16/53 (M=16, H=37; transitive project theorems/axioms).
 theorem within_symm (x y : Value) (R : Fraction)
     (h : Within x y R) : Within y x R := by
   induction x using Quotient.inductionOn with
@@ -363,6 +392,7 @@ theorem within_symm (x y : Value) (R : Fraction)
     induction y using Quotient.inductionOn with
     | _ b => exact nameBound_symm h
 
+-- Modern dependency score: 3/16 (M=3, H=13; transitive project theorems/axioms).
 private theorem two_quarters_lt (R S eps : Fraction)
     (heps : 0 < eps.num) :
     Fraction.lt
@@ -382,6 +412,7 @@ private theorem two_quarters_lt (R S eps : Fraction)
     (Fraction.add R S)
   exact lt_equiv_left (Fraction.equiv_trans he₁ he₂) hlt
 
+-- Modern dependency score: 4/31 (M=4, H=27; transitive project theorems/axioms).
 theorem nameBound_triangle {a b c : EndpointCauchyName} {R S : Fraction}
     (hab : NameBound a b R) (hbc : NameBound b c S) :
     NameBound a c (Fraction.add R S) := by
@@ -401,6 +432,7 @@ theorem nameBound_triangle {a b c : EndpointCauchyName} {R S : Fraction}
     (Fraction.magnitudes.le_trans htri hsum)
     (two_quarters_lt R S eps heps)
 
+-- Modern dependency score: 17/54 (M=17, H=37; transitive project theorems/axioms).
 theorem within_triangle (x y z : Value) (R S : Fraction)
     (hxy : Within x y R) (hyz : Within y z S) :
     Within x z (Fraction.add R S) := by
@@ -411,6 +443,7 @@ theorem within_triangle (x y z : Value) (R S : Fraction)
       induction z using Quotient.inductionOn with
       | _ c => exact nameBound_triangle hxy hyz
 
+-- Modern dependency score: 3/10 (M=3, H=7; transitive project theorems/axioms).
 private theorem lt_self_add_positive (R eps : Fraction)
     (heps : 0 < eps.num) : Fraction.lt R (Fraction.add R eps) := by
   have h := add_lt_add_left (zero_lt_positive eps heps) R
@@ -420,6 +453,7 @@ private theorem lt_self_add_positive (R eps : Fraction)
       Int.mul_one, Int.one_mul]
   exact lt_equiv_left (Fraction.equiv_symm he) h
 
+-- Modern dependency score: 4/11 (M=4, H=7; transitive project theorems/axioms).
 theorem nameBound_of_eventual_le (a b : EndpointCauchyName) (R : Fraction)
     (N : Nat) (h : ∀ n : Nat, N ≤ n →
       Fraction.le (distance (a.approx n) (b.approx n)) R) :
@@ -430,6 +464,7 @@ theorem nameBound_of_eventual_le (a b : EndpointCauchyName) (R : Fraction)
   exact Fraction.magnitudes.lt_of_le_lt (h n hn)
     (lt_self_add_positive R eps heps)
 
+-- Modern dependency score: 17/55 (M=17, H=38; transitive project theorems/axioms).
 theorem constant_approximants_converge (a : EndpointCauchyName)
     (eps : Fraction) (heps : 0 < eps.num) :
     ∃ N : Nat, ∀ m : Nat, N ≤ m →
@@ -447,6 +482,7 @@ theorem constant_approximants_converge (a : EndpointCauchyName)
   exact Fraction.magnitudes.lt_of_lt_le (hN m n hm hn)
     (Fraction.magnitudes.lt_implies_le hsmall)
 
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem nameBound_zero_iff (a b : EndpointCauchyName) :
     NameBound a b (Fraction.ofInt 0) ↔ NameEquiv a b := by
   constructor
@@ -469,6 +505,7 @@ theorem nameBound_zero_iff (a b : EndpointCauchyName) :
         Int.mul_one, Int.one_mul, Int.zero_add]
     exact lt_equiv_right (hN n hn) he
 
+-- Modern dependency score: 16/53 (M=16, H=37; transitive project theorems/axioms).
 theorem within_zero_iff (x y : Value) :
     Within x y (Fraction.ofInt 0) ↔ x = y := by
   induction x using Quotient.inductionOn with
@@ -478,6 +515,7 @@ theorem within_zero_iff (x y : Value) :
       exact Iff.trans (nameBound_zero_iff a b)
         ⟨fun h => Quotient.sound h, fun h => Quotient.exact h⟩
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem le_add_cancel_left (z a b : Fraction)
     (h : Fraction.le (Fraction.add z a) (Fraction.add z b)) :
     Fraction.le a b := Fraction.le_add_cancel_left z a b h

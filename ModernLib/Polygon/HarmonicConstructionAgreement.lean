@@ -16,11 +16,13 @@ open CauchyValues
 open BinaryTime
 open PointBounds
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 private theorem factor_nonnegative (w : Fraction) :
     0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num :=
   Fraction.nonnegative_add _ _ (by decide) (Fraction.abs_num_nonnegative w)
 
 /-- A nonnegative dyadic subduration of a short window is short. -/
+-- Modern dependency score: 2/10 (M=2, H=8; transitive project theorems/axioms).
 theorem subduration_small (w T : Fraction) (m : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     DyadicSmallTime w (duration T m) := by
@@ -29,6 +31,7 @@ theorem subduration_small (w T : Fraction) (m : Nat)
     (factor_nonnegative w)
   exact Fraction.magnitudes.le_trans h hs
 
+-- Modern dependency score: 3/18 (M=3, H=15; transitive project theorems/axioms).
 theorem unit_tail_level (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (m j : Nat)
     (htick : ticks b m = 1) (hz : ∀ i, m ≤ i → b i = false) :
@@ -45,6 +48,7 @@ theorem unit_tail_level (b : Nat → Bool) (w T : Fraction)
         ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
 
 /-- For a one-tick address, the endpoint and prefix Cauchy names agree. -/
+-- Modern dependency score: 112/205 (M=112, H=93; transitive project theorems/axioms).
 theorem unit_tail_names (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (m : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -69,6 +73,7 @@ theorem unit_tail_names (b : Nat → Bool) (w T : Fraction)
     (hN (m + j) j hshift hj)
 
 /-- Equality of the two completed state values at reciprocal dyadic times. -/
+-- Modern dependency score: 143/246 (M=143, H=103; transitive project theorems/axioms).
 theorem unit_tail_value (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (m : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -77,11 +82,13 @@ theorem unit_tail_value (b : Nat → Bool) (w T : Fraction)
       gammaValue w T s hT hs (Quotient.mk _ b) := by
   exact Quotient.sound (unit_tail_names b w T s m hT hs htick hz)
 
+-- Modern dependency score: 143/245 (M=143, H=102; transitive project theorems/axioms).
 theorem full_window_value (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     timeValue w s ⟨T,hT,hs⟩ = gammaValue w T s hT hs (rightTime T hT) :=
   (right_endpoint_value w T s hT hs).symm
 
+-- Modern dependency score: 151/252 (M=151, H=101; transitive project theorems/axioms).
 theorem zero_window_value (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hz : T.num = 0) :
     timeValue w s ⟨T,hT,hs⟩ = gammaValue w T s hT hs (Quotient.mk _ b) := by
@@ -100,12 +107,14 @@ private def threeQuarterAddress (j : Nat) : Bool := j < 2
 
 /-- A finite endpoint schedule at 3T/4 differs from the same-time global
 three-cell prefix. Limit agreement cannot be proved by equating these cells. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem three_tick_finite_control :
     Fraction.equiv
       (distance (endpoint one threeSixteenths testState 0)
         (prefixState threeQuarterAddress one quarter testState 2))
       ⟨426975,16777216,by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem three_tick_finite_identity_false :
     ¬ stateEquiv (endpoint one threeSixteenths testState 0)
       (prefixState threeQuarterAddress one quarter testState 2) := by decide

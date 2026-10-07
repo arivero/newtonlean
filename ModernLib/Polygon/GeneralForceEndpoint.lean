@@ -42,6 +42,7 @@ def time_nonnegative (d : Conditions o E0 T tau L B s hE) : 0 ≤ T.num :=
 def bound_nonnegative (d : Conditions o E0 T tau L B s hE) : 0 ≤ B.num :=
   d.frame.bound_nonnegative
 
+-- Modern dependency score: 12/60 (M=12, H=48; transitive project theorems/axioms).
 theorem run_band (d : Conditions o E0 T tau L B s hE)
     (j : Nat) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat)
     (hn : Fraction.le (BoundedIteration.time h n) T) :
@@ -50,18 +51,21 @@ theorem run_band (d : Conditions o E0 T tau L B s hE)
   RegionConfinement.run_band o.region T B _ _ s d.frame _
     (sample_central o _) (d.samples_on_band j) h hh n hn
 
+-- Modern dependency score: 13/61 (M=13, H=48; transitive project theorems/axioms).
 theorem run_region (d : Conditions o E0 T tau L B s hE)
     (j : Nat) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat)
     (hn : Fraction.le (BoundedIteration.time h n) T) :
     o.region (BoundedIteration.run (field o E0 hE j) h s n).1 :=
   d.frame.contains_band _ (d.run_band j h hh n hn)
 
+-- Modern dependency score: 13/62 (M=13, H=49; transitive project theorems/axioms).
 theorem actual_samples (d : Conditions o E0 T tau L B s hE) (j : Nat) :
     BoundedIteration.BoundedSamples (field o E0 hE j) (duration T j) s B (blocks j) :=
   RegionConfinement.run_bounded_samples o.region T B _ _ s d.frame _
     (sample_central o _) (d.samples_on_band j) (duration T j) d.time_nonnegative (blocks j)
     (Fraction.le_of_equiv (blocks_duration T j))
 
+-- Modern dependency score: 14/64 (M=14, H=50; transitive project theorems/axioms).
 theorem coarse_samples (d : Conditions o E0 T tau L B s hE) (j : Nat) :
     BoundedIteration.BoundedSamples (field o E0 hE j)
       (Fraction.add (duration T (j+1)) (duration T (j+1))) s B (blocks j) :=
@@ -71,6 +75,7 @@ theorem coarse_samples (d : Conditions o E0 T tau L B s hE) (j : Nat) :
     (Fraction.nonnegative_add _ _ d.time_nonnegative d.time_nonnegative) (blocks j)
     (Fraction.le_of_equiv (coarse_time T j))
 
+-- Modern dependency score: 13/64 (M=13, H=51; transitive project theorems/axioms).
 theorem shadow_samples (d : Conditions o E0 T tau L B s hE)
     (j k : Nat) (hk : k < blocks j) : Fraction.le
     (pointNorm (field o E0 hE j
@@ -86,12 +91,14 @@ noncomputable def sampleError (o : CentralOracle) (E0 : Fraction)
   let e := o.error (precision o.toOracle E0 hE j)
   Fraction.add (Fraction.add e e) e
 
+-- Modern dependency score: 1/2 (M=1, H=1; transitive project theorems/axioms).
 theorem sampleError_nonnegative (o : CentralOracle) (E0 : Fraction)
     (hE : 0 < E0.num) (j : Nat) : 0 ≤ (sampleError o E0 hE j).num :=
   Fraction.nonnegative_add _ _
     (Fraction.nonnegative_add _ _ (o.error_nonnegative _) (o.error_nonnegative _))
     (o.error_nonnegative _)
 
+-- Modern dependency score: 5/34 (M=5, H=29; transitive project theorems/axioms).
 theorem cross_contract (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) (p q : Point) (hp : o.region p) (hq : o.region q) :
@@ -105,6 +112,7 @@ theorem cross_contract (o : CentralOracle) (E0 T tau L B : Fraction)
     (Fraction.add_equiv (Fraction.mul_equiv_left L (FiniteEstimates.pointDistance_symm _ _))
       (Fraction.equiv_refl _))
 
+-- Modern dependency score: 4/28 (M=4, H=24; transitive project theorems/axioms).
 theorem local_contract (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) (p q : Point) (hp : o.region p) (hq : o.region q) :
@@ -112,6 +120,7 @@ theorem local_contract (o : CentralOracle) (E0 T tau L B : Fraction)
       (Fraction.add (Fraction.mul L (FiniteEstimates.pointDistance p q)) (sampleError o E0 hE j)) :=
   samples_comparison_contract o.toOracle L d.lipschitz _ _ (Nat.le_refl _) p q hp hq
 
+-- Modern dependency score: 15/68 (M=15, H=53; transitive project theorems/axioms).
 theorem coarse_velocity (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j k : Nat) (hk : k < blocks j) :
@@ -129,6 +138,7 @@ theorem coarse_velocity (o : CentralOracle) (E0 T tau L B : Fraction)
     (Fraction.le_of_equiv (coarse_time T j))
   exact BoundedIteration.velocity_bound_at_time _ _ s B T hh d.bound_nonnegative k hb ht
 
+-- Modern dependency score: 1/23 (M=1, H=22; transitive project theorems/axioms).
 theorem fine_window (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
@@ -139,6 +149,7 @@ theorem fine_window (o : CentralOracle) (E0 T tau L B : Fraction)
   exact TimeCalibration.window_of_elapsed _ _ T _ d.calibration_positive d.lipschitz.1 _
     (Fraction.le_of_equiv ht) d.window
 
+-- Modern dependency score: 1/23 (M=1, H=22; transitive project theorems/axioms).
 theorem coarse_window (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
@@ -153,6 +164,7 @@ theorem coarse_window (o : CentralOracle) (E0 T tau L B : Fraction)
     (Fraction.le_of_equiv ht) d.window
 
 /-- Actual prefix comparison with a full-window budget, including representation error. -/
+-- Modern dependency score: 24/150 (M=24, H=126; transitive project theorems/axioms).
 theorem paired_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j n : Nat) (hn : n ≤ blocks j) :
@@ -213,6 +225,7 @@ theorem paired_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
   exact Fraction.magnitudes.le_trans hb (Fraction.add_le_add
     (Fraction.mul_le_mul_nonnegative hc _ hs) (Fraction.mul_le_mul_nonnegative hc _ he))
 
+-- Modern dependency score: 25/151 (M=25, H=126; transitive project theorems/axioms).
 theorem adjacent_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
@@ -233,6 +246,7 @@ theorem adjacent_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
   exact hb
 
 /-- The same mesh estimate holds uniformly at every paired prefix. -/
+-- Modern dependency score: 26/155 (M=26, H=129; transitive project theorems/axioms).
 theorem paired_mesh_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j n : Nat) (hn : n ≤ blocks j) :
@@ -277,6 +291,7 @@ theorem paired_mesh_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
   ac_nf
 
+-- Modern dependency score: 27/156 (M=27, H=129; transitive project theorems/axioms).
 theorem adjacent_mesh_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
@@ -299,6 +314,7 @@ def weightedCoefficient (E0 T tau L B : Fraction) (s : Point × Point) : Fractio
       (CalibratedRefinement.consistencyCoefficient tau T L B (velocityCap T B s)))
     (Fraction.mul (Fraction.ofInt 42) (Fraction.mul (Fraction.mul tau T) E0))
 
+-- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 theorem weightedCoefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num)
     (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) :
@@ -315,6 +331,7 @@ theorem weightedCoefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × 
         (Int.le_of_lt hE)))
 
 /-- Geometric force precision and actual mesh consistency give a derived adjacent tail. -/
+-- Modern dependency score: 30/159 (M=30, H=129; transitive project theorems/axioms).
 theorem paired_weighted_tail (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j n : Nat) (hn : n ≤ blocks j) :
@@ -344,6 +361,7 @@ theorem paired_weighted_tail (o : CentralOracle) (E0 T tau L B : Fraction)
     show (42 : Int) = 7*3*2 by rfl,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
   ac_nf
 
+-- Modern dependency score: 31/160 (M=31, H=129; transitive project theorems/axioms).
 theorem adjacent_weighted_tail (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
@@ -360,6 +378,7 @@ noncomputable def coefficient (E0 T tau L B : Fraction) (s : Point × Point)
   Fraction.mul (Fraction.add (Fraction.ofInt 1) (TimeCalibration.inverse tau ht))
     (weightedCoefficient E0 T tau L B s)
 
+-- Modern dependency score: 2/6 (M=2, H=4; transitive project theorems/axioms).
 theorem coefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (hT : 0 ≤ T.num) (ht : 0 < tau.num)
     (hL : 0 ≤ L.num) (hB : 0 ≤ B.num) :
@@ -368,6 +387,7 @@ theorem coefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × Point)
     (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt tau.den_pos))
     (weightedCoefficient_nonnegative E0 T tau L B s hE hT ht hL hB)
 
+-- Modern dependency score: 32/162 (M=32, H=130; transitive project theorems/axioms).
 theorem adjacent_tail (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
@@ -404,6 +424,7 @@ noncomputable def endpointValue (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE) : Value :=
   realize (endpointName o E0 T tau L B s hE d)
 
+-- Modern dependency score: 53/197 (M=53, H=144; transitive project theorems/axioms).
 theorem approximants_converge (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (eps : Fraction) (heps : 0 < eps.num) :
@@ -411,11 +432,13 @@ theorem approximants_converge (o : CentralOracle) (E0 T tau L B : Fraction)
       (endpointValue o E0 T tau L B s hE d) eps :=
   constant_approximants_converge _ eps heps
 
+-- Modern dependency score: 1/8 (M=1, H=7; transitive project theorems/axioms).
 theorem zero_time_endpoint (o : CentralOracle) (E0 T : Fraction)
     (hE : 0 < E0.num) (s : Point × Point) (hT : T.num = 0) (j : Nat) :
     stateEquiv (endpoint o E0 T hE s j) s :=
   BoundedIteration.zero_duration_run (field o E0 hE j) (duration T j) hT s (blocks j)
 
+-- Modern dependency score: 47/198 (M=47, H=151; transitive project theorems/axioms).
 theorem zero_time_value (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (hT : T.num = 0) : endpointValue o E0 T tau L B s hE d = embed s := by

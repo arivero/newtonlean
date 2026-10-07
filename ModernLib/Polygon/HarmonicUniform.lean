@@ -28,13 +28,16 @@ private def denom (w h : Fraction) : Int := h.den * w.den
 private def driftIncrement (w h : Fraction) : Int := h.num * w.den
 private def kickIncrement (w h : Fraction) : Int := h.num * (w.num.natAbs : Int)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem denom_pos (w h : Fraction) : 0 < denom w h :=
   Int.mul_pos h.den_pos w.den_pos
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem driftIncrement_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
     0 ≤ driftIncrement w h :=
   Int.mul_nonneg hh (Int.le_of_lt w.den_pos)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem kickIncrement_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
     0 ≤ kickIncrement w h :=
   Int.mul_nonneg hh (Int.ofNat_nonneg _)
@@ -51,6 +54,7 @@ def fineWeights (w h : Fraction) : Nat → List Int
   | n + 1 => driftIncrement w h :: kickIncrement w h ::
       driftIncrement w h :: kickIncrement w h :: fineWeights w h n
 
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 private theorem coarseWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
     (n : Nat) → Nonnegative (coarseWeights w h n)
   | 0 => by simp [coarseWeights, Nonnegative]
@@ -62,6 +66,7 @@ private theorem coarseWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
       · exact Int.mul_nonneg (by decide) (kickIncrement_nonnegative w h hh)
       · exact coarseWeights_nonnegative w h hh n a ht
 
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 private theorem fineWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
     (n : Nat) → Nonnegative (fineWeights w h n)
   | 0 => by simp [fineWeights, Nonnegative]
@@ -75,6 +80,7 @@ private theorem fineWeights_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
       · exact kickIncrement_nonnegative w h hh
       · exact fineWeights_nonnegative w h hh n a ht
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem common_weight_sum (w h : Fraction) :
     (n : Nat) →
       weightSum (coarseWeights w h n) =
@@ -98,6 +104,7 @@ def SmallTime (w h : Fraction) (n : Nat) : Prop :=
     (Fraction.mul (totalTime h n) (Fraction.add (Fraction.ofInt 1) w.abs)) halfThreshold
 
 /-- The displayed total time is the elapsed time of the actual coarse list. -/
+-- Modern dependency score: 0/6 (M=0, H=6; transitive project theorems/axioms).
 theorem coarse_elapsed_totalTime (h : Fraction) (n : Nat) :
     Fraction.equiv (elapsed (List.replicate n (Fraction.add h h)))
       (totalTime h n) := by
@@ -121,12 +128,14 @@ theorem coarse_elapsed_totalTime (h : Fraction) (n : Nat) :
       ac_nf
 
 /-- The fine list reaches the same displayed total time. -/
+-- Modern dependency score: 2/12 (M=2, H=10; transitive project theorems/axioms).
 theorem fine_elapsed_totalTime (h : Fraction) (n : Nat) :
     Fraction.equiv (elapsed (fineDurations h n)) (totalTime h n) :=
   Fraction.equiv_trans
     (Fraction.equiv_symm (schedules_common_time (Fraction.ofInt 0) h n))
     (coarse_elapsed_totalTime h n)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem smallTime_integer (w h : Fraction) (n : Nat)
     (hs : SmallTime w h n) :
     2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) ≤ denom w h := by
@@ -142,6 +151,7 @@ private theorem smallTime_integer (w h : Fraction) (n : Nat)
     _ ≤ h.den * w.den := hs
 
 /-- The small-time condition is inherited by every earlier actual block. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem smallTime_prefix (w h : Fraction) (i n : Nat)
     (hh : 0 ≤ h.num) (hi : i ≤ n) (hs : SmallTime w h n) :
     SmallTime w h i := by
@@ -173,6 +183,7 @@ theorem smallTime_prefix (w h : Fraction) (i n : Nat)
     _ ≤ 2 * (2 * (n : Int) * h.num * (w.den + (w.num.natAbs : Int))) := hpref
     _ ≤ denom w h := hn
 
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 private theorem fineWeights_small (w h : Fraction) (n : Nat)
     (hs : SmallTime w h n) :
     2 * weightSum (fineWeights w h n) ≤ denom w h := by
@@ -186,14 +197,17 @@ private theorem fineWeights_small (w h : Fraction) (n : Nat)
       ac_nf
     _ ≤ denom w h := hi
 
+-- Modern dependency score: 3/3 (M=3, H=0; transitive project theorems/axioms).
 private theorem coarseWeights_small (w h : Fraction) (n : Nat)
     (hs : SmallTime w h n) :
     2 * weightSum (coarseWeights w h n) ≤ denom w h := by
   rw [(common_weight_sum w h n).1]
   exact fineWeights_small w h n hs
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem two_mul (x : Int) : 2 * x = x + x := by omega
 
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 private theorem coarse_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
     Fraction.equiv
       (amplification (denom w h) (denom_pos w h)
@@ -214,6 +228,7 @@ private theorem coarse_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
   simp only [two_mul, Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem fine_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
     Fraction.equiv
       (amplification (denom w h) (denom_pos w h)
@@ -229,6 +244,7 @@ private theorem fine_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 3/13 (M=3, H=10; transitive project theorems/axioms).
 private theorem coarse_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
     (n : Nat) →
       Fraction.equiv
@@ -246,6 +262,7 @@ private theorem coarse_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
         (Fraction.mul (coarseFactor w h) (fpower (coarseFactor w h) n))
       exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
 
+-- Modern dependency score: 2/12 (M=2, H=10; transitive project theorems/axioms).
 private theorem fine_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
     (n : Nat) →
       Fraction.equiv
@@ -266,6 +283,7 @@ private theorem fine_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
       exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
 
 /-- Uniform finite growth of the actual coarse amplification power. -/
+-- Modern dependency score: 11/30 (M=11, H=19; transitive project theorems/axioms).
 theorem coarse_power_le_two (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le (fpower (coarseFactor w h) n) (Fraction.ofInt 2) :=
@@ -274,6 +292,7 @@ theorem coarse_power_le_two (w h : Fraction) (n : Nat)
       (coarseWeights_nonnegative w h hh n) (coarseWeights_small w h n hs))
 
 /-- Uniform finite growth of the actual two-cell perturbation power. -/
+-- Modern dependency score: 9/28 (M=9, H=19; transitive project theorems/axioms).
 theorem fine_power_le_two (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le (fpower (fineFactor w h) n) (Fraction.ofInt 2) :=
@@ -282,6 +301,7 @@ theorem fine_power_le_two (w h : Fraction) (n : Nat)
       (fineWeights_nonnegative w h hh n) (fineWeights_small w h n hs))
 
 /-- Actual coarse states stay inside twice the initial coordinate magnitude. -/
+-- Modern dependency score: 24/65 (M=24, H=41; transitive project theorems/axioms).
 theorem coarse_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le (stateNorm (coarseAt w h s n))
@@ -290,6 +310,7 @@ theorem coarse_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
     (Fraction.mul_le_mul_nonnegative (coarse_power_le_two w h n hh hs)
       (stateNorm s) (stateNorm_nonnegative s))
 
+-- Modern dependency score: 10/38 (M=10, H=28; transitive project theorems/axioms).
 private theorem fine_cell_bound (w h : Fraction) (s : Point × Point) :
     Fraction.le (stateNorm (HarmonicRefinement.fine w h s))
       (Fraction.mul (fineFactor w h) (stateNorm s)) := by
@@ -302,6 +323,7 @@ private theorem fine_cell_bound (w h : Fraction) (s : Point × Point) :
   simp only [fineFactor, Fraction.equiv, Fraction.mul]
   ac_nf
 
+-- Modern dependency score: 12/40 (M=12, H=28; transitive project theorems/axioms).
 theorem fine_norm_bound (w h : Fraction) (s : Point × Point) :
     (n : Nat) →
       Fraction.le (stateNorm (fineAt w h s n))
@@ -320,6 +342,7 @@ theorem fine_norm_bound (w h : Fraction) (s : Point × Point) :
       simp only [fineAt, fpower, Fraction.equiv, Fraction.mul]
       ac_nf
 
+-- Modern dependency score: 23/64 (M=23, H=41; transitive project theorems/axioms).
 theorem fine_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le (stateNorm (fineAt w h s n))
@@ -328,6 +351,7 @@ theorem fine_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
     (Fraction.mul_le_mul_nonnegative (fine_power_le_two w h n hh hs)
       (stateNorm s) (stateNorm_nonnegative s))
 
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem square_dominates_double (D a : Int) (ha : 0 ≤ a) :
     D * (D + 2 * a) ≤ (D + a) * (D + a) := by
   have hp := Int.mul_nonneg ha ha
@@ -336,6 +360,7 @@ private theorem square_dominates_double (D a : Int) (ha : 0 ≤ a) :
     ac_nf
   omega
 
+-- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
 private theorem block_product_order (D A B : Int) (hD : 0 < D)
     (hA : 0 ≤ A) (hB : 0 ≤ B) :
     (D + 2 * A) * (D + 2 * B) * (D * D) ≤
@@ -356,6 +381,7 @@ private theorem block_product_order (D A B : Int) (hD : 0 < D)
     _ ≤ (D * (D + 2 * A)) * ((D + B) * (D + B)) := h₂
     _ ≤ ((D + A) * (D + A)) * ((D + B) * (D + B)) := h₁
 
+-- Modern dependency score: 6/6 (M=6, H=0; transitive project theorems/axioms).
 private theorem block_amplification_order (w h : Fraction) (hh : 0 ≤ h.num) :
     Fraction.le
       (amplification (denom w h) (denom_pos w h)
@@ -384,6 +410,7 @@ private theorem block_amplification_order (w h : Fraction) (hh : 0 ≤ h.num) :
           (denom w h * denom w h) := hm
     _ = _ := by ac_rfl
 
+-- Modern dependency score: 9/15 (M=9, H=6; transitive project theorems/axioms).
 theorem coarseFactor_le_fineFactor (w h : Fraction) (hh : 0 ≤ h.num) :
     Fraction.le (coarseFactor w h) (fineFactor w h) :=
   Fraction.le_equiv_right
@@ -391,6 +418,7 @@ theorem coarseFactor_le_fineFactor (w h : Fraction) (hh : 0 ≤ h.num) :
       (block_amplification_order w h hh))
     (fine_block_equiv w h hh)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem one_le_one_add (a : Fraction) (ha : 0 ≤ a.num) :
     Fraction.le (Fraction.ofInt 1) (Fraction.add (Fraction.ofInt 1) a) := by
   unfold Fraction.le Fraction.add Fraction.ofInt
@@ -398,6 +426,7 @@ private theorem one_le_one_add (a : Fraction) (ha : 0 ≤ a.num) :
   have hp := Int.le_of_lt a.den_pos
   omega
 
+-- Modern dependency score: 1/13 (M=1, H=12; transitive project theorems/axioms).
 theorem one_le_kappa (w h : Fraction) :
     Fraction.le (Fraction.ofInt 1) (kappa w h) := by
   let u := Fraction.add (Fraction.ofInt 1) h.abs
@@ -417,6 +446,7 @@ theorem one_le_kappa (w h : Fraction) :
     simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
     decide) hc
 
+-- Modern dependency score: 4/18 (M=4, H=14; transitive project theorems/axioms).
 private theorem one_le_fineFactor (w h : Fraction) :
     Fraction.le (Fraction.ofInt 1) (fineFactor w h) := by
   have hk := one_le_kappa w h
@@ -428,6 +458,7 @@ private theorem one_le_fineFactor (w h : Fraction) :
     simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
     decide) hc
 
+-- Modern dependency score: 0/13 (M=0, H=13; transitive project theorems/axioms).
 private theorem fpower_monotone (a b : Fraction) (ha : 0 ≤ a.num)
     (hb : 0 ≤ b.num) (hab : Fraction.le a b) :
     (n : Nat) → Fraction.le (fpower a n) (fpower b n)
@@ -439,6 +470,7 @@ private theorem fpower_monotone (a b : Fraction) (ha : 0 ≤ a.num)
         (fpower_monotone a b ha hb hab n) b hb
       exact Fraction.magnitudes.le_trans h₁ h₂
 
+-- Modern dependency score: 14/30 (M=14, H=16; transitive project theorems/axioms).
 private theorem coarse_power_le_fine_power (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) :
     Fraction.le (fpower (coarseFactor w h) n) (fpower (fineFactor w h) n) :=
@@ -452,6 +484,7 @@ private def budgetCap (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction
     (Fraction.mul (localFactor w h)
       (Fraction.mul (fpower (fineFactor w h) n) (stateNorm s)))
 
+-- Modern dependency score: 20/42 (M=20, H=22; transitive project theorems/axioms).
 private theorem budget_power_bound (w h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) :
     (n : Nat) → Fraction.le (errorBudget w h s n) (budgetCap w h s n)
@@ -494,6 +527,7 @@ private theorem budget_power_bound (w h : Fraction) (s : Point × Point)
         Int.one_mul, Int.mul_one]
       ac_nf
 
+-- Modern dependency score: 27/62 (M=27, H=35; transitive project theorems/axioms).
 private theorem budget_two_bound (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le (errorBudget w h s n)
@@ -512,6 +546,7 @@ private theorem budget_two_bound (w h : Fraction) (s : Point × Point) (n : Nat)
   simp only [budgetCap, count, Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
+-- Modern dependency score: 0/10 (M=0, H=10; transitive project theorems/axioms).
 theorem one_le_power (a : Fraction) (ha : 0 ≤ a.num)
     (h1 : Fraction.le (Fraction.ofInt 1) a) :
     (n : Nat) → Fraction.le (Fraction.ofInt 1) (fpower a n)
@@ -526,6 +561,7 @@ theorem one_le_power (a : Fraction) (ha : 0 ≤ a.num)
         simp
       exact Fraction.magnitudes.le_trans hi (Fraction.le_equiv_left he hm)
 
+-- Modern dependency score: 1/14 (M=1, H=13; transitive project theorems/axioms).
 private theorem factor_le_power_succ (a : Fraction) (ha : 0 ≤ a.num)
     (h1 : Fraction.le (Fraction.ofInt 1) a) (n : Nat) :
     Fraction.le a (fpower a (n + 1)) := by
@@ -535,6 +571,7 @@ private theorem factor_le_power_succ (a : Fraction) (ha : 0 ≤ a.num)
     simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
     simp) hm
 
+-- Modern dependency score: 4/18 (M=4, H=14; transitive project theorems/axioms).
 private theorem kappa_le_fineFactor (w h : Fraction) :
     Fraction.le (kappa w h) (fineFactor w h) := by
   have hk := one_le_kappa w h
@@ -544,6 +581,7 @@ private theorem kappa_le_fineFactor (w h : Fraction) :
     simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
     simp) hm
 
+-- Modern dependency score: 19/48 (M=19, H=29; transitive project theorems/axioms).
 private theorem kappa_le_two_of_positive_blocks (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :
     Fraction.le (kappa w h) (Fraction.ofInt 2) := by
@@ -556,12 +594,14 @@ private theorem kappa_le_two_of_positive_blocks (w h : Fraction) (n : Nat)
 private def meshAmplitude (w h : Fraction) : Fraction :=
   Fraction.mul (Fraction.mul h.abs h.abs) w.abs
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 private theorem meshAmplitude_nonnegative (w h : Fraction) :
     0 ≤ (meshAmplitude w h).num :=
   Int.mul_nonneg
     (Int.mul_nonneg (Fraction.abs_num_nonnegative h) (Fraction.abs_num_nonnegative h))
     (Fraction.abs_num_nonnegative w)
 
+-- Modern dependency score: 21/51 (M=21, H=30; transitive project theorems/axioms).
 private theorem localFactor_le_three_amplitude (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :
     Fraction.le (localFactor w h)
@@ -588,6 +628,7 @@ private theorem localFactor_le_three_amplitude (w h : Fraction) (n : Nat)
 endpoints differ in coordinate L1 magnitude by at most `3*T*h*|w|*M`.
 The hypothesis includes `h≥0` and `T*(1+|w|)≤1/2`. This is an endpoint
 estimate, with no limiting curve or intervening-area assertion. -/
+-- Modern dependency score: 55/125 (M=55, H=70; transitive project theorems/axioms).
 theorem actual_uniform_error (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le
@@ -625,24 +666,29 @@ private def zero : Fraction := ⟨0, 1, by decide⟩
 private def eighth : Fraction := ⟨1, 8, by decide⟩
 private def sample : Point × Point := ((one, zero), (zero, one))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_small_time : SmallTime one eighth 1 := by
   unfold SmallTime Fraction.le
   decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_total_time : Fraction.equiv (totalTime eighth 1) ⟨1, 4, by decide⟩ := by
   decide
 
+-- Modern dependency score: 17/36 (M=17, H=19; transitive project theorems/axioms).
 theorem sample_power_bounds :
     Fraction.le (fpower (coarseFactor one eighth) 1) (Fraction.ofInt 2) ∧
       Fraction.le (fpower (fineFactor one eighth) 1) (Fraction.ofInt 2) :=
   ⟨coarse_power_le_two one eighth 1 (by decide) sample_small_time,
     fine_power_le_two one eighth 1 (by decide) sample_small_time⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_actual_error :
     Fraction.equiv
       (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))
       ⟨145, 4096, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_uniform_rhs :
     Fraction.equiv
       (Fraction.mul (Fraction.ofInt 3)
@@ -650,6 +696,7 @@ theorem sample_uniform_rhs :
           (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample)))))
       ⟨3, 16, by decide⟩ := by decide
 
+-- Modern dependency score: 57/127 (M=57, H=70; transitive project theorems/axioms).
 theorem sample_uniform_error :
     Fraction.le
       (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))
@@ -658,11 +705,13 @@ theorem sample_uniform_error :
           (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample))))) :=
   actual_uniform_error one eighth sample 1 (by decide) sample_small_time
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_zero_blocks :
     Fraction.equiv
       (stateNorm (stateSub (fineAt one eighth sample 0) (coarseAt one eighth sample 0)))
       zero := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_zero_duration :
     Fraction.equiv
       (stateNorm (stateSub (fineAt one zero sample 1) (coarseAt one zero sample 1)))
@@ -670,6 +719,7 @@ theorem sample_zero_duration :
 
 /-- Without the total-time hypothesis, the claimed factor-two bound fails:
 `w=h=n=1` gives `fineFactor^1=16`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem false_unrestricted_power :
     ¬ Fraction.le (fpower (fineFactor one one) 1) (Fraction.ofInt 2) := by
   unfold Fraction.le

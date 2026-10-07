@@ -36,6 +36,7 @@ structure Consistency (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
 
 /-- The independently supplied motion equals the polygon limit as a conclusion
 of finite stability and local consistency, not as an existence premise. -/
+-- Modern dependency score: 97/264 (M=97, H=167; transitive project theorems/axioms).
 theorem equals_constructed (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -73,6 +74,7 @@ theorem equals_constructed (o : ForceClasses.CentralOracle) (E0 T tau L B : Frac
 
 /-- The given motion has the actual all-interval swept fan law. No area-law
 premise is used; the coefficient is its common initial state's momentum. -/
+-- Modern dependency score: 164/371 (M=164, H=207; transitive project theorems/axioms).
 theorem proportional_swept_area (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -85,6 +87,7 @@ theorem proportional_swept_area (o : ForceClasses.CentralOracle)
 
 /-- Separately, the actual matched region has covers whose canonical unsigned
 outer contents tend to zero. This is not a subtraction of swept fan areas. -/
+-- Modern dependency score: 180/379 (M=180, H=199; transitive project theorems/axioms).
 theorem between_path_content_tends_zero (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

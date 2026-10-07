@@ -53,6 +53,7 @@ def forceBySagitta {r : Fraction} (w : CircleChord r) (t : Fraction) (ht : posit
   quotient w.s (mul t t) (positive_mul t t ht ht)
 
 /-- Equal-time forces, cross-multiplied, are proportional to the sagittae. -/
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem force_ratio_is_sagitta_ratio {r r' : Fraction} (w : CircleChord r) (w' : CircleChord r')
     (t : Fraction) (ht : positive t) :
     equiv (mul (forceBySagitta w t ht) w'.s) (mul (forceBySagitta w' t ht) w.s) := by

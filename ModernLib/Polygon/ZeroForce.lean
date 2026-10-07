@@ -7,9 +7,11 @@ open NewtonLimitDynamics
 open TimeSubdivision
 open PartitionControl
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 private theorem pointEquiv_refl (p : Point) : pointEquiv p p :=
   ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩
 
+-- Modern dependency score: 0/11 (M=0, H=11; transitive project theorems/axioms).
 private theorem inertial_add_scalar (p v s t : Fraction) :
     Fraction.equiv
       (Fraction.add (Fraction.add p (Fraction.mul s v)) (Fraction.mul t v))
@@ -26,18 +28,22 @@ private theorem inertial_add_scalar (p v s t : Fraction) :
     (Fraction.add_equiv_left p hsum)
 
 /-- Inertial rational-time evolution joins by addition of elapsed times. -/
+-- Modern dependency score: 1/12 (M=1, H=11; transitive project theorems/axioms).
 theorem inertialAt_add (p v : Point) (s t : Fraction) :
     pointEquiv (inertialAt (inertialAt p v s) v t) (inertialAt p v (Fraction.add s t)) := by
   constructor <;> apply inertial_add_scalar
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem zero_scale (d : Fraction) : pointEquiv (pointScale d zeroPoint) zeroPoint := by
   constructor <;> unfold pointScale zeroPoint Fraction.equiv Fraction.mul Fraction.ofInt <;> dsimp <;> simp
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem pointAdd_zero (p : Point) : pointEquiv (pointAdd p zeroPoint) p := by
   constructor <;> unfold pointAdd zeroPoint Fraction.equiv Fraction.add Fraction.ofInt <;> dsimp <;> simp
 
 /-- One actual zero-force cell is exactly a drift at its stated Fraction time,
     and leaves velocity unchanged. -/
+-- Modern dependency score: 3/12 (M=3, H=9; transitive project theorems/axioms).
 theorem endKick_zero (d : Fraction) (state : Point × Point) :
     pointEquiv (endKick d state zeroPoint).1 (inertialAt state.1 state.2 d) ∧
       pointEquiv (endKick d state zeroPoint).2 state.2 := by
@@ -48,6 +54,7 @@ theorem endKick_zero (d : Fraction) (state : Point × Point) :
 
 /-- Replacing a rational time by an equivalent fraction leaves its inertial
     position unchanged. -/
+-- Modern dependency score: 1/12 (M=1, H=11; transitive project theorems/axioms).
 theorem inertialAt_time_congr (p v : Point) {s t : Fraction} (h : Fraction.equiv s t) :
     pointEquiv (inertialAt p v s) (inertialAt p v t) := by
   apply pointAdd_congr (pointEquiv_refl _)
@@ -57,6 +64,7 @@ theorem inertialAt_time_congr (p v : Point) {s t : Fraction} (h : Fraction.equiv
   · exact Fraction.equiv_trans (Fraction.mul_comm s v.2)
       (Fraction.equiv_trans (Fraction.mul_equiv_left v.2 h) (Fraction.equiv_symm (Fraction.mul_comm t v.2)))
 
+-- Modern dependency score: 4/13 (M=4, H=9; transitive project theorems/axioms).
 private theorem encodedPosition_zero (D : Nat) (hD : 0 < D) (s : PartitionStats) (p v : Point) :
     pointEquiv (encodedPosition D hD s p v zeroPoint)
       (inertialAt p v (duration D s.T hD)) := by
@@ -66,6 +74,7 @@ private theorem encodedPosition_zero (D : Nat) (hD : 0 < D) (s : PartitionStats)
       (zero_scale (squareDuration D s.A hD)))
     (pointAdd_zero _)
 
+-- Modern dependency score: 4/13 (M=4, H=9; transitive project theorems/axioms).
 private theorem encodedVelocity_zero (D : Nat) (hD : 0 < D) (s : PartitionStats) (v : Point) :
     pointEquiv (encodedVelocity D hD s v zeroPoint) v := by
   unfold encodedVelocity
@@ -76,6 +85,7 @@ private theorem encodedVelocity_zero (D : Nat) (hD : 0 < D) (s : PartitionStats)
 
 /-- Every actual finite zero-force schedule reaches the inertial map at its
     elapsed rational time and retains its incoming velocity. -/
+-- Modern dependency score: 13/24 (M=13, H=11; transitive project theorems/axioms).
 theorem partitionMotion_zero_force (D : Nat) (hD : 0 < D) (p v : Point) (weights : List Nat) :
     pointEquiv (partitionMotion D hD p v zeroPoint weights).1
       (inertialAt p v (duration D (total weights) hD)) ∧
@@ -89,6 +99,7 @@ theorem partitionMotion_zero_force (D : Nat) (hD : 0 < D) (p v : Point) (weights
 
 /-- Addition of two common-denominator elapsed times represents their summed
     numerator. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem duration_add (D a b : Nat) (hD : 0 < D) :
     Fraction.equiv (Fraction.add (duration D a hD) (duration D b hD))
       (duration D (a + b) hD) := by
@@ -99,6 +110,7 @@ theorem duration_add (D a b : Nat) (hD : 0 < D) :
 
 /-- The finite recurrence itself restarts exactly: this is `foldl_append`, not
     an assumption about a background curve. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem partitionMotion_append (D : Nat) (hD : 0 < D) (p v : Point)
     (ws xs : List Nat) :
     partitionMotion D hD p v zeroPoint (ws ++ xs) =
@@ -107,6 +119,7 @@ theorem partitionMotion_append (D : Nat) (hD : 0 < D) (p v : Point)
   unfold partitionMotion
   rw [List.foldl_append]
 
+-- Modern dependency score: 0/9 (M=0, H=9; transitive project theorems/axioms).
 private theorem inertialAt_state_congr {p p' v v' : Point} (hp : pointEquiv p p')
     (hv : pointEquiv v v') (t : Fraction) :
     pointEquiv (inertialAt p v t) (inertialAt p' v' t) :=
@@ -114,6 +127,7 @@ private theorem inertialAt_state_congr {p p' v v' : Point} (hp : pointEquiv p p'
 
 /-- Drifting for a rational amount `r` from the actual prefix state agrees
     with the inertial map at elapsed prefix time plus `r`. -/
+-- Modern dependency score: 18/34 (M=18, H=16; transitive project theorems/axioms).
 theorem withinCell_position (D : Nat) (hD : 0 < D) (p v : Point)
     (pre : List Nat) (r : Fraction) :
     pointEquiv (endKick r (partitionMotion D hD p v zeroPoint pre) zeroPoint).1
@@ -127,6 +141,7 @@ theorem withinCell_position (D : Nat) (hD : 0 < D) (p v : Point)
 /-- The same algebra applies to an in-cell physical drift; the displayed
     inequalities express that `r` lies between the prefix vertex and the next
     cell endpoint and are not used as algebraic premises. -/
+-- Modern dependency score: 19/35 (M=19, H=16; transitive project theorems/axioms).
 theorem withinCell_position_bounded (D w : Nat) (hD : 0 < D) (p v : Point)
     (pre : List Nat) (r : Fraction)
     (_hr0 : Fraction.le (Fraction.ofInt 0) r)
@@ -136,6 +151,7 @@ theorem withinCell_position_bounded (D w : Nat) (hD : 0 < D) (p v : Point)
   withinCell_position D hD p v pre r
 
 /-- Rest is the zero-velocity specialization of the actual finite recurrence. -/
+-- Modern dependency score: 14/25 (M=14, H=11; transitive project theorems/axioms).
 theorem partitionMotion_rest (D : Nat) (hD : 0 < D) (p : Point) (weights : List Nat) :
     pointEquiv (partitionMotion D hD p zeroPoint zeroPoint weights).1 p ∧
       pointEquiv (partitionMotion D hD p zeroPoint zeroPoint weights).2 zeroPoint := by
@@ -150,6 +166,7 @@ theorem partitionMotion_rest (D : Nat) (hD : 0 < D) (p : Point) (weights : List 
 
 /-- Equal rational elapsed times give equal positions even for schedules with
     different positive common denominators and different partitions. -/
+-- Modern dependency score: 15/28 (M=15, H=13; transitive project theorems/axioms).
 theorem partitionMotion_cross_partition (D E : Nat) (hD : 0 < D) (hE : 0 < E)
     (p v : Point) (ws xs : List Nat)
     (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total xs) hE)) :
@@ -162,6 +179,7 @@ theorem partitionMotion_cross_partition (D E : Nat) (hD : 0 < D) (hE : 0 < E)
       ⟨Fraction.equiv_symm hright.1.1, Fraction.equiv_symm hright.1.2⟩)
 
 /-- Cross-partition agreement includes the unchanged terminal velocity. -/
+-- Modern dependency score: 16/29 (M=16, H=13; transitive project theorems/axioms).
 theorem partitionMotion_cross_partition_state (D E : Nat) (hD : 0 < D) (hE : 0 < E)
     (p v : Point) (ws xs : List Nat)
     (ht : Fraction.equiv (duration D (total ws) hD) (duration E (total xs) hE)) :
@@ -185,21 +203,25 @@ def slow (t : Fraction) : Point := (t, scalarZero)
 def fast (t : Fraction) : Point := (Fraction.mul scalarTwo t, scalarZero)
 
 /-- Same endpoint with different elapsed times: `slow(1) = fast(1/2)`. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem slow_fast_equal_endpoint : pointEquiv (slow scalarOne) (fast scalarHalf) := by
   decide
 
 /-- At a common half-time the two velocity choices give different positions. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem slow_fast_different_half_time : ¬ pointEquiv (slow scalarHalf) (fast scalarHalf) := by
   decide
 
 /-- Collinear samples of these distinct motions close with zero directed area.
     This is a geometric diagnostic only, not fixed-data nonuniqueness. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem slow_fast_collinear_closedBoundary :
     Fraction.equiv (closedBoundaryTwice zeroPoint (slow scalarHalf) (slow scalarOne)
       (fast scalarHalf)) scalarZero := by
   decide
 
 /-- A concrete two-cell actual schedule has the expected inertial endpoint. -/
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 theorem slow_two_cell_schedule :
     pointEquiv (partitionMotion 2 (by decide) zeroPoint (slow scalarOne) zeroPoint [1, 1]).1
       (slow scalarOne) := by

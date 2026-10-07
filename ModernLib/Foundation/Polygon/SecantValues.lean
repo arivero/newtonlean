@@ -14,26 +14,31 @@ open FiniteEstimates HarmonicTimeRealization
 def pointState (p : Point) : Point × Point := (p,zeroPoint)
 def velocityState (s : Point × Point) : Point × Point := pointState s.2
 
+-- Modern dependency score: 0/11 (M=0, H=11; transitive project theorems/axioms).
 theorem pointState_distance (p q : Point) :
     Fraction.equiv (distance (pointState p) (pointState q)) (pointDistance p q) :=
   Fraction.equiv_trans (Fraction.add_equiv (Fraction.equiv_refl _)
     (pointDistance_self_zero zeroPoint)) (Fraction.add_zero _)
 
+-- Modern dependency score: 1/19 (M=1, H=18; transitive project theorems/axioms).
 theorem velocity_nonexpansive (s t : Point × Point) :
     Fraction.le (distance (velocityState s) (velocityState t)) (distance s t) :=
   Fraction.le_equiv_left (pointState_distance s.2 t.2) (velocity_le_state (stateSub s t))
 
 def velocityValue : Value → Value := mapValue velocityState velocity_nonexpansive
 
+-- Modern dependency score: 20/62 (M=20, H=42; transitive project theorems/axioms).
 theorem velocityValue_within (x y : Value) (R : Fraction) (h : Within x y R) :
     Within (velocityValue x) (velocityValue y) R := mapValue_within _ velocity_nonexpansive x y R h
 
+-- Modern dependency score: 11/51 (M=11, H=40; transitive project theorems/axioms).
 theorem velocityValue_embed (s : Point × Point) :
     velocityValue (embed s) = embed (velocityState s) := mapValue_embed _ velocity_nonexpansive s
 
 def secantState (q : Fraction) (s t : Point × Point) : Point × Point :=
   pointState (pointScale q (pointSub s.1 t.1))
 
+-- Modern dependency score: 1/40 (M=1, H=39; transitive project theorems/axioms).
 theorem secant_distance_bound (q : Fraction) (a b c d : Point × Point) :
     Fraction.le (distance (secantState q a b) (secantState q c d))
       (Fraction.mul q.abs (Fraction.add (distance a c) (distance b d))) := by
@@ -52,6 +57,7 @@ def secantOperation (q : Fraction) : BinaryLift.Operation where
     exact Fraction.le_equiv_right (secant_distance_bound q s t u v)
       (Fraction.mul_comm _ _)
 
+-- Modern dependency score: 1/22 (M=1, H=21; transitive project theorems/axioms).
 theorem two_scaled_small (q eps r s : Fraction) (_heps : 0 < eps.num)
     (hr : 0 ≤ r.num) (hs : 0 ≤ s.num)
     (h1 : Fraction.lt r (factorDelta q.abs eps.half (Fraction.abs_num_nonnegative q)))
@@ -68,6 +74,7 @@ theorem two_scaled_small (q eps r s : Fraction) (_heps : 0 < eps.num)
 def secantName (q : Fraction) (a b : EndpointCauchyName) : EndpointCauchyName :=
   BinaryLift.name (secantOperation q) a b
 
+-- Modern dependency score: 6/56 (M=6, H=50; transitive project theorems/axioms).
 theorem secantName_equiv (q : Fraction) (a b a' b' : EndpointCauchyName)
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
     NameEquiv (secantName q a b) (secantName q a' b') :=
@@ -76,9 +83,11 @@ theorem secantName_equiv (q : Fraction) (a b a' b' : EndpointCauchyName)
 def secantValue (q : Fraction) (x y : Value) : Value :=
   BinaryLift.value (secantOperation q) x y
 
+-- Modern dependency score: 13/73 (M=13, H=60; transitive project theorems/axioms).
 theorem secantValue_realize (q : Fraction) (a b : EndpointCauchyName) :
     secantValue q (realize a) (realize b) = realize (secantName q a b) := rfl
 
+-- Modern dependency score: 13/73 (M=13, H=60; transitive project theorems/axioms).
 theorem secantValue_embed (q : Fraction) (s t : Point × Point) :
     secantValue q (embed s) (embed t) = embed (secantState q s t) := rfl
 
@@ -100,11 +109,13 @@ def shiftedName (a : EndpointCauchyName) (m : Nat) : EndpointCauchyName where
     obtain ⟨N,hN⟩ := a.cauchy eps heps
     exact ⟨N,fun i j hi hj => hN (m+i) (m+j) (by omega) (by omega)⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem shiftedName_equiv (a : EndpointCauchyName) (m : Nat) : NameEquiv (shiftedName a m) a := by
   intro eps heps
   obtain ⟨N,hN⟩ := a.cauchy eps heps
   exact ⟨N,fun j hj => hN (m+j) j (by omega) hj⟩
 
+-- Modern dependency score: 8/42 (M=8, H=34; transitive project theorems/axioms).
 theorem shiftedValue (a : EndpointCauchyName) (m : Nat) : realize (shiftedName a m) = realize a :=
   Quotient.sound (shiftedName_equiv a m)
 

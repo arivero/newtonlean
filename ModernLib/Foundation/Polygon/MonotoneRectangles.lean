@@ -9,6 +9,7 @@ def completed (A : Point → Prop) (x : PositionValue) : Prop :=
 
 /-- Metric closure transfers the proved point-set enclosure to all completed
 points, rather than retaining only rational samples of the figure. -/
+-- Modern dependency score: 21/65 (M=21, H=44; transitive project theorems/axioms).
 theorem completed_enclosure {a b : Fraction} (g : Fraction → Fraction) (p : Partition a b)
     (hg : MonotoneOn g a b) :
     (∀ x, completed (lowerFigure g p) x → completed (figure g a b) x) ∧

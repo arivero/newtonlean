@@ -186,6 +186,7 @@ They do not identify the numerical sums with ordinary curvilinear area. -/
 namespace Principia1687.LemmaIII
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon
 
+-- Modern dependency score: 23/98 (M=23, H=75; transitive project theorems/axioms).
 theorem unequal_width_completed_enclosure_and_gap
     (g : Fraction → Fraction) (a b : Fraction)
     (parts : Nat → MonotoneRectangles.Partition a b)
@@ -212,6 +213,7 @@ end Principia1687.LemmaIII
 namespace Principia1713.LemmaIII
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon
 
+-- Modern dependency score: 23/98 (M=23, H=75; transitive project theorems/axioms).
 theorem unequal_width_completed_enclosure_and_gap
     (g : Fraction → Fraction) (a b : Fraction)
     (parts : Nat → MonotoneRectangles.Partition a b)

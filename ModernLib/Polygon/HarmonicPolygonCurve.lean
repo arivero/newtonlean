@@ -44,6 +44,7 @@ def edgeCoefficient (w T : Fraction) (s : Point × Point) : Fraction :=
   Fraction.add (Fraction.mul T (Fraction.mul (Fraction.ofInt 2) (stateNorm s)))
     (HarmonicBinaryPrefix.coefficient w T s)
 
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem edgeCoefficient_nonnegative (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) : 0 ≤ (edgeCoefficient w T s).num :=
   Fraction.nonnegative_add _ _
@@ -51,12 +52,14 @@ theorem edgeCoefficient_nonnegative (w T : Fraction) (s : Point × Point)
       (Fraction.nonnegative_mul _ _ (by decide) (stateNorm_nonnegative s)))
     (HarmonicBinaryPrefix.coefficient_nonnegative w T s hT)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem edgeRadius_geometric (w T : Fraction) (s : Point × Point) (m : Nat) :
     Fraction.equiv (edgeRadius w T s m) (duration (edgeCoefficient w T s) m) := by
   simp only [edgeRadius, edgeCoefficient, duration, HarmonicBinaryPrefix.tailCap,
     Fraction.equiv, Fraction.add, Fraction.mul, Int.add_mul, Int.mul_add]
   ac_nf
 
+-- Modern dependency score: 3/16 (M=3, H=13; transitive project theorems/axioms).
 theorem edgeRadius_eventually_small (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (eps : Fraction) (heps : 0 < eps.num) :
     ∃ N : Nat, ∀ m, N ≤ m → Fraction.lt (edgeRadius w T s m) eps := by
@@ -66,6 +69,7 @@ theorem edgeRadius_eventually_small (w T : Fraction) (s : Point × Point)
     (Fraction.le_of_equiv (edgeRadius_geometric w T s m)) (hN m hm)⟩
 
 /-- Every approximant lies at a time phase between the cell's boundaries. -/
+-- Modern dependency score: 7/48 (M=7, H=41; transitive project theorems/axioms).
 theorem polygon_phase_interval (b : Nat → Bool) (T : Fraction)
     (hT : 0 ≤ T.num) (m j : Nat) :
     0 ≤ (HarmonicTimeComparison.durationDifference (timeApprox b T m)
@@ -74,6 +78,7 @@ theorem polygon_phase_interval (b : Nat → Bool) (T : Fraction)
       (timeApprox b T (m+j))) (duration T m) :=
   AffineValues.phase_interval b T hT m j
 
+-- Modern dependency score: 78/160 (M=78, H=82; transitive project theorems/axioms).
 theorem polygon_vertex_bound (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (m : Nat) :
@@ -86,6 +91,7 @@ theorem polygon_vertex_bound (b : Nat → Bool) (w T : Fraction)
 
 /-- Whole-cell polygon/curve bound, including every interior binary time.
 Its radius is an explicit sum of two geometric mesh terms. -/
+-- Modern dependency score: 167/271 (M=167, H=104; transitive project theorems/axioms).
 theorem whole_edge_bound (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (m : Nat) :
@@ -97,6 +103,7 @@ theorem whole_edge_bound (b : Nat → Bool) (w T : Fraction)
     (binaryValue_prefix_bound b w T s hT hs m)
   exact within_triangle _ _ _ _ _ hv hg
 
+-- Modern dependency score: 171/276 (M=171, H=105; transitive project theorems/axioms).
 theorem uniform_whole_edge_convergence (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (eps : Fraction) (heps : 0 < eps.num) :
@@ -108,6 +115,7 @@ theorem uniform_whole_edge_convergence (w T : Fraction) (s : Point × Point)
     (Fraction.magnitudes.lt_implies_le (hN m hm))
     (whole_edge_bound b w T s hT hs m)⟩
 
+-- Modern dependency score: 25/85 (M=25, H=60; transitive project theorems/axioms).
 theorem polygon_same_cell_address_independent (b c : Nat → Bool)
     (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat)
     (hcell : ticks b m = ticks c m)
@@ -115,6 +123,7 @@ theorem polygon_same_cell_address_independent (b c : Nat → Bool)
     polygonPosition b w T s hT m = polygonPosition c w T s hT m := by
   exact PolygonValues.polygon_same_cell b c T hT m (vertices w T s m) hcell htime
 
+-- Modern dependency score: 33/111 (M=33, H=78; transitive project theorems/axioms).
 theorem polygon_adjacent_address_independent (b c : Nat → Bool)
     (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat)
     (hcell : ticks b m + 1 = ticks c m)
@@ -122,12 +131,14 @@ theorem polygon_adjacent_address_independent (b c : Nat → Bool)
     polygonPosition b w T s hT m = polygonPosition c w T s hT m := by
   exact PolygonValues.polygon_adjacent_cells b c T hT m (vertices w T s m) hcell htime
 
+-- Modern dependency score: 26/92 (M=26, H=66; transitive project theorems/axioms).
 theorem polygon_zero_window (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat) (hz : T.num = 0) :
     polygonPosition b w T s hT m =
       asPosition (embed (s.1,AffineValues.zeroPoint)) := by
   exact PolygonValues.polygon_zero_window b T hT m (vertices w T s m) hz
 
+-- Modern dependency score: 45/126 (M=45, H=81; transitive project theorems/axioms).
 theorem polygon_address_independent (b c : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat)
     (htime : AddressEquiv T hT b c) :
@@ -141,6 +152,7 @@ def polygonMap (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num)
   Quotient.lift (fun b => polygonPosition b w T s hT m)
     (fun b c h => polygon_address_independent b c w T s hT m h)
 
+-- Modern dependency score: 188/305 (M=188, H=117; transitive project theorems/axioms).
 theorem polygonMap_whole_edge_bound (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (t : BinaryTime T hT) :
@@ -149,6 +161,7 @@ theorem polygonMap_whole_edge_bound (w T : Fraction) (s : Point × Point)
   induction t using Quotient.inductionOn with
   | _ b => exact whole_edge_bound b w T s hT hs m
 
+-- Modern dependency score: 192/310 (M=192, H=118; transitive project theorems/axioms).
 theorem polygonMap_uniform_convergence (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (eps : Fraction) (heps : 0 < eps.num) :
@@ -163,6 +176,7 @@ theorem polygonMap_uniform_convergence (w T : Fraction) (s : Point × Point)
 
 /-- The standard terminating/nonterminating half-time addresses occupy
 different coarse cells and nevertheless give the same polygon point. -/
+-- Modern dependency score: 49/134 (M=49, H=85; transitive project theorems/axioms).
 theorem half_time_polygon_alias (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (m : Nat) :
     polygonPosition firstAlias w T s hT m =
@@ -170,9 +184,11 @@ theorem half_time_polygon_alias (w T : Fraction) (s : Point × Point)
   polygon_address_independent firstAlias secondAlias w T s hT m
     (alias_address_equiv T hT)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem half_time_distinct_coarse_cells :
     ticks firstAlias 1 = 1 ∧ ticks secondAlias 1 = 0 := by decide
 
+-- Modern dependency score: 49/131 (M=49, H=82; transitive project theorems/axioms).
 theorem polygonMap_left (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (m : Nat) :
     polygonMap w T s hT m (leftTime T hT) = embedPosition s.1 := by

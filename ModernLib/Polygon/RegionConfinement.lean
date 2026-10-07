@@ -14,11 +14,13 @@ open NewtonLimitDynamics TimeSubdivision PointBounds HarmonicDyadic
 def velocityCap (T B : Fraction) (s : Point × Point) : Fraction :=
   Fraction.add (pointNorm s.2) (Fraction.mul T B)
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 theorem velocityCap_nonnegative (T B : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hB : 0 ≤ B.num) : 0 ≤ (velocityCap T B s).num :=
   Fraction.nonnegative_add _ _ (pointNorm_nonnegative _)
     (Fraction.nonnegative_mul _ _ hT hB)
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem duration_le_window (T : Fraction) (hT : 0 ≤ T.num) (j : Nat) :
     Fraction.le (duration T j) T := by
   have hp : (1 : Int) ≤ (2 : Int)^j := by
@@ -29,6 +31,7 @@ theorem duration_le_window (T : Fraction) (hT : 0 ≤ T.num) (j : Nat) :
     (Int.mul_nonneg hT (Int.le_of_lt T.den_pos))
   simpa only [duration,Fraction.le,Int.mul_one,Int.mul_assoc] using hm
 
+-- Modern dependency score: 0/2 (M=0, H=2; transitive project theorems/axioms).
 theorem fine_time (T : Fraction) (j : Nat) :
     Fraction.equiv
       (BoundedIteration.time (duration T (j+1)) (2*blocks j)) T := by
@@ -36,6 +39,7 @@ theorem fine_time (T : Fraction) (j : Nat) :
   rw [hn]
   exact blocks_duration T (j+1)
 
+-- Modern dependency score: 0/10 (M=0, H=10; transitive project theorems/axioms).
 theorem coarse_time (T : Fraction) (j : Nat) :
     Fraction.equiv
       (BoundedIteration.time
@@ -87,6 +91,7 @@ def ball_frame (region : Point → Prop) (T B R : Fraction) (s0 : Point × Point
     simp only [Int.zero_mul,Int.one_mul]
     exact Int.mul_nonneg (Fraction.abs_num_nonnegative _) (Int.le_of_lt (velocityCap T B s0).den_pos)
 
+-- Modern dependency score: 0/3 (M=0, H=3; transitive project theorems/axioms).
 theorem initial_invariant (T B : Fraction) (s0 : Point × Point) :
     Invariant T B s0 (Fraction.ofInt 0) s0 := by
   refine ⟨?_,?_,Fraction.equiv_refl _⟩ <;> apply Fraction.le_of_equiv <;>
@@ -95,6 +100,7 @@ theorem initial_invariant (T B : Fraction) (s0 : Point × Point) :
 
 /-- Determinant conservation supplies the lower radius; no division by a
 possibly zero speed is made in the ball case. -/
+-- Modern dependency score: 0/28 (M=0, H=28; transitive project theorems/axioms).
 theorem band_of_bounds (region : Point → Prop) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame region T B r R s0)
     (p v : Point) (hp : Fraction.le (pointNorm p) R)
@@ -108,6 +114,7 @@ theorem band_of_bounds (region : Point → Prop) (T B r R : Fraction)
   · exact TriangleBounds.radius_lower_of_areal_bound p v r _ hV hv
       (Fraction.le_equiv_right d.areal_bound (Fraction.equiv_symm (Fraction.abs_equiv hm)))
 
+-- Modern dependency score: 2/32 (M=2, H=30; transitive project theorems/axioms).
 theorem invariant_band (region : Point → Prop) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame region T B r R s0)
     (t : Fraction) (q : Point × Point) (ht : Fraction.le t T)
@@ -122,6 +129,7 @@ theorem invariant_band (region : Point → Prop) (T B r R : Fraction)
     (Fraction.magnitudes.le_trans hp d.outer_bound) hv hq.areal_product
 
 /-- The drift arrives inside the region before its force value is evaluated. -/
+-- Modern dependency score: 2/41 (M=2, H=39; transitive project theorems/axioms).
 theorem arrival_band (region : Point → Prop) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame region T B r R s0)
     (a : Point → Point) (t h : Fraction) (q : Point × Point)
@@ -150,6 +158,7 @@ theorem arrival_band (region : Point → Prop) (T B r R : Fraction)
     (Fraction.magnitudes.le_trans hp' d.outer_bound) hv hm
 
 /-- One invariant step. The region bound is used only after arrival_band. -/
+-- Modern dependency score: 3/49 (M=3, H=46; transitive project theorems/axioms).
 theorem advance (region : Point → Prop) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame region T B r R s0)
     (a : Point → Point) (hc : CentralSchedule.central a)
@@ -183,6 +192,7 @@ theorem advance (region : Point → Prop) (T B r R : Fraction)
 
 /-- All finite mesh levels inherit the regional bound without BoundedSamples
 as an input. The force need not be continuous for this confinement result. -/
+-- Modern dependency score: 5/52 (M=5, H=47; transitive project theorems/axioms).
 theorem run_invariant (region : Point → Prop) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame region T B r R s0)
     (a : Point → Point) (hc : CentralSchedule.central a)
@@ -216,6 +226,7 @@ theorem run_invariant (region : Point → Prop) (T B r R : Fraction)
       · exact Fraction.le_equiv_right hs.position_bound
           (Fraction.add_equiv (Fraction.equiv_refl _) (Fraction.mul_equiv he (Fraction.equiv_refl _)))
 
+-- Modern dependency score: 7/54 (M=7, H=47; transitive project theorems/axioms).
 theorem run_band (region : Point → Prop) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame region T B r R s0)
     (a : Point → Point) (hc : CentralSchedule.central a)
@@ -228,6 +239,7 @@ theorem run_band (region : Point → Prop) (T B r R : Fraction)
 
 /-- Bounds at every actual sample are a conclusion of confinement, never
 the induction hypothesis used to establish it. -/
+-- Modern dependency score: 8/55 (M=8, H=47; transitive project theorems/axioms).
 theorem run_bounded_samples (region : Point → Prop) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame region T B r R s0)
     (a : Point → Point) (hc : CentralSchedule.central a)
@@ -241,6 +253,7 @@ theorem run_bounded_samples (region : Point → Prop) (T B r R : Fraction)
 
 /-- Both coarse-field shadow arrivals are confined. Their partial-time speed
 budgets account for the first shadow kick before the second arrival. -/
+-- Modern dependency score: 8/58 (M=8, H=50; transitive project theorems/axioms).
 theorem shadow_bands (region : Point → Prop) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame region T B r R s0)
     (a : Point → Point) (hc : CentralSchedule.central a)
@@ -278,6 +291,7 @@ theorem shadow_bands (region : Point → Prop) (T B r R : Fraction)
 
 /-- Regional one-cell comparison: certify both drift arrivals first, then
 use local Lipschitz comparison and the calibrated pointwise primitive. -/
+-- Modern dependency score: 6/58 (M=6, H=52; transitive project theorems/axioms).
 theorem sampled_cell_comparison (o : CentralOracle) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame o.region T B r R s0)
     (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num)
@@ -302,6 +316,7 @@ theorem sampled_cell_comparison (o : CentralOracle) (T B r R : Fraction)
 /-- Actual paired refinement on a certified band. Both fine arrivals, both
 coarse-field shadow arrivals and the full coarse arrival are certified before
 any of the four local force comparisons is used. -/
+-- Modern dependency score: 17/129 (M=17, H=112; transitive project theorems/axioms).
 theorem sampled_refinement_bound (o : CentralOracle) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame o.region T B r R s0)
     (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num)
@@ -388,6 +403,7 @@ theorem sampled_refinement_bound (o : CentralOracle) (T B r R : Fraction)
 
 /-- Equivalent represented durations retain their own actual force samples.
 Membership of both arrival families is derived from the same regional frame. -/
+-- Modern dependency score: 14/112 (M=14, H=98; transitive project theorems/axioms).
 theorem sampled_equivalent_duration_bound (o : CentralOracle) (T B r R : Fraction)
     (s0 : Point × Point) (f : Frame o.region T B r R s0)
     (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num)

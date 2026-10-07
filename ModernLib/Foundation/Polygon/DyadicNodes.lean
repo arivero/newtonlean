@@ -12,13 +12,16 @@ open NewtonLimitDynamics
 open TimeSubdivision PointBounds HarmonicDyadic HarmonicBinaryPrefix HarmonicTimeComparison
 open HarmonicTimeRealization CauchyValues BinaryTime SecantValues
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem blocks_add (m j : Nat) : blocks (m+j)=blocks m*blocks j := by
   simp only [blocks,Nat.pow_add]
 
+-- Modern dependency score: 3/5 (M=3, H=2; transitive project theorems/axioms).
 theorem finiteAddress_later_ticks (m k j : Nat) (hk : k<blocks m) :
     ticks (finiteAddress m k) (m+j)=k*blocks j := by
   rw [ticks_zero_tail _ m (finiteAddress_tail m k),finiteAddress_ticks m k hk]
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem grid_time (T : Fraction) (m j : Nat) :
     Fraction.equiv (Fraction.mul (Fraction.ofInt (blocks j : Int)) (duration T (m+j)))
       (duration T m) := by
@@ -28,6 +31,7 @@ theorem grid_time (T : Fraction) (m j : Nat) :
   simp only [Int.one_mul]
   ac_rfl
 
+-- Modern dependency score: 5/12 (M=5, H=7; transitive project theorems/axioms).
 theorem finiteAddress_time (T : Fraction) (m k j : Nat) (hk : k<blocks m) :
     Fraction.equiv (timeApprox (finiteAddress m k) T (m+j)) (countTime T m k) := by
   rw [timeApprox,finiteAddress_later_ticks m k j hk]
@@ -39,6 +43,7 @@ theorem finiteAddress_time (T : Fraction) (m k j : Nat) (hk : k<blocks m) :
 def nodeTime (T : Fraction) (hT : 0 ≤ T.num) (m k : Nat) : BinaryTime T hT :=
   if k=blocks m then rightTime T hT else Quotient.mk _ (finiteAddress m k)
 
+-- Modern dependency score: 29/91 (M=29, H=62; transitive project theorems/axioms).
 theorem node_time_coordinate (T : Fraction) (hT : 0 ≤ T.num) (m k : Nat) (hk : k≤blocks m) :
     timeCoordinate T hT (nodeTime T hT m k) = embed (scalarState (countTime T m k)) := by
   by_cases he : k=blocks m
@@ -58,6 +63,7 @@ theorem node_time_coordinate (T : Fraction) (hT : 0 ≤ T.num) (m k : Nat) (hk :
     exact ⟨⟨finiteAddress_time T m k j (by omega),Fraction.equiv_refl _⟩,
       ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
 
+-- Modern dependency score: 42/108 (M=42, H=66; transitive project theorems/axioms).
 theorem truncation_time_within (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num) (m : Nat) :
     TimeWithin T hT (nodeTime T hT m (ticks b m)) (Quotient.mk _ b) (duration T m) := by
   change Within (timeCoordinate T hT (nodeTime T hT m (ticks b m)))
@@ -67,6 +73,7 @@ theorem truncation_time_within (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.n
     (fun j => adjacent_time_bound b T j hT) m
 
 /-- The actual times of consecutive grid nodes differ by one mesh cell. -/
+-- Modern dependency score: 42/109 (M=42, H=67; transitive project theorems/axioms).
 theorem adjacent_node_time_within (T : Fraction) (hT : 0 ≤ T.num)
     (m k : Nat) (hk : k<blocks m) :
     TimeWithin T hT (nodeTime T hT m k) (nodeTime T hT m (k+1)) (duration T m) := by
@@ -84,6 +91,7 @@ def intervalStart (b c : Nat → Bool) (m : Nat) : Nat := min (ticks b m) (ticks
 def intervalCount (b c : Nat → Bool) (m : Nat) : Nat :=
   max (ticks b m) (ticks c m) - intervalStart b c m
 
+-- Modern dependency score: 0/4 (M=0, H=4; transitive project theorems/axioms).
 theorem interval_end_le_blocks (b c : Nat → Bool) (m : Nat) :
     intervalStart b c m + intervalCount b c m ≤ blocks m := by
   simp only [intervalStart,intervalCount]
@@ -91,6 +99,7 @@ theorem interval_end_le_blocks (b c : Nat → Bool) (m : Nat) :
   have hc := ticks_le_blocks c m
   omega
 
+-- Modern dependency score: 0/10 (M=0, H=10; transitive project theorems/axioms).
 theorem interval_count_time_gap (T : Fraction) (hT : 0 ≤ T.num)
     (u v m : Nat) :
     Fraction.equiv (countTime T m (max u v - min u v))

@@ -28,17 +28,20 @@ open PointBounds
 def endpoint (w T : Fraction) (s : Point × Point) (j : Nat) : Point × Point :=
   schedule (linearField w) (List.replicate (blocks j) (duration T j)) s
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem totalTime_dyadic (T : Fraction) (j : Nat) :
     Fraction.equiv (totalTime (duration T (j + 1)) (blocks j)) T := by
   simp only [totalTime, duration, blocks, Fraction.equiv, Fraction.mul,
     Fraction.ofInt, Int.pow_succ, Int.natCast_pow]
   ac_nf
 
+-- Modern dependency score: 0/6 (M=0, H=6; transitive project theorems/axioms).
 private theorem pointScale_congr {a b : Fraction} {p q : Point}
     (ha : Fraction.equiv a b) (hp : pointEquiv p q) :
     pointEquiv (pointScale a p) (pointScale b q) :=
   ⟨Fraction.mul_equiv ha hp.1, Fraction.mul_equiv ha hp.2⟩
 
+-- Modern dependency score: 1/12 (M=1, H=11; transitive project theorems/axioms).
 private theorem cell_congr {d e : Fraction} {s t : Point × Point}
     (hd : Fraction.equiv d e) (hs : stateEquiv s t) (w : Fraction) :
     stateEquiv (cell (linearField w) d s) (cell (linearField w) e t) := by
@@ -48,6 +51,7 @@ private theorem cell_congr {d e : Fraction} {s t : Point × Point}
     pointScale_congr (Fraction.equiv_refl _) hpos
   exact ⟨hpos, pointAdd_congr hs.2 (pointScale_congr hd hfield)⟩
 
+-- Modern dependency score: 2/13 (M=2, H=11; transitive project theorems/axioms).
 theorem schedule_replicate_congr (w d e : Fraction)
     (hd : Fraction.equiv d e) :
     (n : Nat) → (s t : Point × Point) → stateEquiv s t →
@@ -57,6 +61,7 @@ theorem schedule_replicate_congr (w d e : Fraction)
   | n + 1, _, _, hs =>
       schedule_replicate_congr w d e hd n _ _ (cell_congr hd hs w)
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem fineDurations_replicate (h : Fraction) :
     (n : Nat) → fineDurations h n = List.replicate (n + n) h
   | 0 => rfl
@@ -71,6 +76,7 @@ theorem fineDurations_replicate (h : Fraction) :
 
 /-- The coarser dyadic endpoint is value-equivalent to the actual coarse
 block schedule at half the next level's duration. -/
+-- Modern dependency score: 5/17 (M=5, H=12; transitive project theorems/axioms).
 theorem endpoint_coarse (w T : Fraction) (s : Point × Point) (j : Nat) :
     stateEquiv (endpoint w T s j)
       (coarseAt w (duration T (j + 1)) s (blocks j)) := by
@@ -82,6 +88,7 @@ theorem endpoint_coarse (w T : Fraction) (s : Point × Point) (j : Nat) :
   simpa only [endpoint, coarseAt_schedule] using hc
 
 /-- The next dyadic endpoint is the actual two-half-cell schedule. -/
+-- Modern dependency score: 3/4 (M=3, H=1; transitive project theorems/axioms).
 theorem endpoint_fine (w T : Fraction) (s : Point × Point) (j : Nat) :
     endpoint w T s (j + 1) =
       fineAt w (duration T (j + 1)) s (blocks j) := by
@@ -90,6 +97,7 @@ theorem endpoint_fine (w T : Fraction) (s : Point × Point) (j : Nat) :
   rw [← fineDurations_replicate]
   exact fineAt_schedule w (duration T (j + 1)) s (blocks j)
 
+-- Modern dependency score: 0/8 (M=0, H=8; transitive project theorems/axioms).
 theorem elapsed_replicate_congr {d e : Fraction}
     (hd : Fraction.equiv d e) :
     (n : Nat) →
@@ -97,6 +105,7 @@ theorem elapsed_replicate_congr {d e : Fraction}
   | 0 => Fraction.equiv_refl _
   | n + 1 => Fraction.add_equiv hd (elapsed_replicate_congr hd n)
 
+-- Modern dependency score: 3/12 (M=3, H=9; transitive project theorems/axioms).
 theorem endpoint_elapsed (T : Fraction) (j : Nat) :
     Fraction.equiv (elapsed (List.replicate (blocks j) (duration T j))) T :=
   Fraction.equiv_trans
@@ -105,6 +114,7 @@ theorem endpoint_elapsed (T : Fraction) (j : Nat) :
       (coarse_elapsed_totalTime (duration T (j + 1)) (blocks j))
       (totalTime_dyadic T j))
 
+-- Modern dependency score: 5/16 (M=5, H=11; transitive project theorems/axioms).
 theorem endpoint_next_elapsed (T : Fraction) (j : Nat) :
     Fraction.equiv
       (elapsed (List.replicate (blocks (j + 1)) (duration T (j + 1)))) T := by
@@ -119,6 +129,7 @@ def DyadicSmallTime (w T : Fraction) : Prop :=
   Fraction.le
     (Fraction.mul T (Fraction.add (Fraction.ofInt 1) w.abs)) halfThreshold
 
+-- Modern dependency score: 1/10 (M=1, H=9; transitive project theorems/axioms).
 theorem dyadic_smallTime (w T : Fraction) (j : Nat)
     (hs : DyadicSmallTime w T) :
     SmallTime w (duration T (j + 1)) (blocks j) := by
@@ -133,6 +144,7 @@ def adjacentCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
       (Fraction.mul (duration T (j + 1))
         (Fraction.mul w.abs (stateNorm s))))
 
+-- Modern dependency score: 68/145 (M=68, H=77; transitive project theorems/axioms).
 theorem adjacent_error_le (w T : Fraction) (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     Fraction.le
@@ -169,23 +181,27 @@ def doubleTail (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
   ⟨2 * A.num, A.den * (2 : Int) ^ j,
     Int.mul_pos A.den_pos (Int.pow_pos (by decide))⟩
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem adjacentCap_tail (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv (adjacentCap w T s j) (tailCap w T s (j + 1)) := by
   simp only [adjacentCap, tailCap, coefficient, duration, Fraction.equiv,
     Fraction.mul, Fraction.ofInt, Int.pow_succ]
   ac_nf
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem tail_halving (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv
       (Fraction.add (tailCap w T s (j + 1)) (tailCap w T s (j + 1)))
       (tailCap w T s j) := by
   exact GeometricTail.tail_halving (coefficient w T s) j
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
     Fraction.equiv (Fraction.add (tailCap w T s j) (tailCap w T s j))
       (doubleTail w T s j) := by
   exact GeometricTail.tail_double (coefficient w T s) j
 
+-- Modern dependency score: 0/3 (M=0, H=3; transitive project theorems/axioms).
 theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) : 0 ≤ (coefficient w T s).num :=
   Int.mul_nonneg (by decide)
@@ -194,6 +210,7 @@ theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
 
 /-- Any finite separation of dyadic levels has error within the tail at its
 coarser endpoint. The proof uses actual neighboring schedules. -/
+-- Modern dependency score: 71/150 (M=71, H=79; transitive project theorems/axioms).
 theorem finite_gap_error (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     (k j : Nat) → Fraction.le
@@ -206,6 +223,7 @@ theorem finite_gap_error (w T : Fraction) (s : Point × Point)
       (adjacentCap_tail w T s i)) k j
 
 /-- Both later endpoints are compared to the same earlier actual endpoint. -/
+-- Modern dependency score: 71/155 (M=71, H=84; transitive project theorems/axioms).
 theorem two_sided_error (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
@@ -221,6 +239,7 @@ theorem two_sided_error (w T : Fraction) (s : Point × Point)
 def modulus (w T : Fraction) (s : Point × Point) (eps : Fraction) : Nat :=
   (2 * (coefficient w T s).num * eps.den).toNat
 
+-- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
 theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
     (eps : Fraction) (hT : 0 ≤ T.num) (heps : 0 < eps.num) :
     Fraction.lt (doubleTail w T s (modulus w T s eps)) eps := by
@@ -229,6 +248,7 @@ theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
 
 /-- A Cauchy name stores finite rational endpoint approximants and a proved
 positive-tolerance condition. It does not supply a limit point. -/
+-- Modern dependency score: 73/159 (M=73, H=86; transitive project theorems/axioms).
 theorem endpoint_cauchy (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     ∀ eps : Fraction, 0 < eps.num →
@@ -247,10 +267,12 @@ def endpointName (w T : Fraction) (s : Point × Point)
   approx := endpoint w T s
   cauchy := endpoint_cauchy w T s hT hs
 
+-- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 private theorem stateEquiv_refl (s : Point × Point) : stateEquiv s s :=
   ⟨⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩,
     ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
 
+-- Modern dependency score: 0/3 (M=0, H=3; transitive project theorems/axioms).
 private theorem stateEquiv_trans {a b c : Point × Point}
     (hab : stateEquiv a b) (hbc : stateEquiv b c) : stateEquiv a c :=
   ⟨⟨Fraction.equiv_trans hab.1.1 hbc.1.1,
@@ -258,6 +280,7 @@ private theorem stateEquiv_trans {a b c : Point × Point}
     ⟨Fraction.equiv_trans hab.2.1 hbc.2.1,
       Fraction.equiv_trans hab.2.2 hbc.2.2⟩⟩
 
+-- Modern dependency score: 5/16 (M=5, H=11; transitive project theorems/axioms).
 private theorem zero_duration_cell (w d : Fraction) (s : Point × Point)
     (hd : d.num = 0) : stateEquiv (cell (linearField w) d s) s := by
   let z : Fraction := ⟨0, 1, by decide⟩
@@ -267,6 +290,7 @@ private theorem zero_duration_cell (w d : Fraction) (s : Point × Point)
   exact stateEquiv_trans (cell_congr he (stateEquiv_refl s) w)
     (zero_step w s)
 
+-- Modern dependency score: 6/17 (M=6, H=11; transitive project theorems/axioms).
 theorem zero_duration_schedule (w d : Fraction) (hd : d.num = 0) :
     (n : Nat) → (s : Point × Point) →
       stateEquiv (schedule (linearField w) (List.replicate n d) s) s
@@ -276,6 +300,7 @@ theorem zero_duration_schedule (w d : Fraction) (hd : d.num = 0) :
         (zero_duration_schedule w d hd n (cell (linearField w) d s))
         (zero_duration_cell w d s hd)
 
+-- Modern dependency score: 7/18 (M=7, H=11; transitive project theorems/axioms).
 theorem zero_time_endpoint (w T : Fraction) (s : Point × Point) (j : Nat)
     (hT : T.num = 0) : stateEquiv (endpoint w T s j) s := by
   exact zero_duration_schedule w (duration T j) (by exact hT) (blocks j) s
@@ -286,20 +311,24 @@ private def sampleTime : Fraction := ⟨1, 4, by decide⟩
 private def sampleState : Point × Point :=
   ((sampleOne, sampleZero), (sampleZero, sampleOne))
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_dyadic_small_time : DyadicSmallTime sampleOne sampleTime := by
   unfold DyadicSmallTime Fraction.le
   decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_adjacent_error :
     Fraction.equiv
       (stateNorm (stateSub (endpoint sampleOne sampleTime sampleState 1)
         (endpoint sampleOne sampleTime sampleState 0)))
       ⟨145, 4096, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_adjacent_cap :
     Fraction.equiv (adjacentCap sampleOne sampleTime sampleState 0)
       ⟨3, 16, by decide⟩ := by decide
 
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem sample_tail_cap :
     Fraction.equiv (tailCap sampleOne sampleTime sampleState 0)
       ⟨3, 8, by decide⟩ := by decide

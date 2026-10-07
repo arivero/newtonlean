@@ -13,6 +13,7 @@ def inertialEdge (p v : Point) (s t : Fraction) : Fraction :=
 
 /-- Three samples of the same finite zero-force comparison map have an
     additive directed determinant.  The identity is finite Fraction arithmetic. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem inertialEdge_compose (p v : Point) (s t u : Fraction) :
     Fraction.equiv
       (Fraction.add (inertialEdge p v s t) (inertialEdge p v t u))
@@ -25,6 +26,7 @@ theorem inertialEdge_compose (p v : Point) (s t u : Fraction) :
   omega
 
 /-- Determinant of a degenerate connector. -/
+-- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem inertialEdge_self (p v : Point) (s : Fraction) :
     Fraction.equiv (inertialEdge p v s s) (Fraction.ofInt 0) := by
   unfold Fraction.equiv inertialEdge det Fraction.add Fraction.mul Fraction.ofInt
@@ -39,6 +41,7 @@ def inertialWalk (p v : Point) (a b : Fraction) : List Fraction → Fraction
   | t :: ts => Fraction.add (inertialEdge p v a t) (inertialWalk p v t b ts)
 
 /-- Every finite collinear walk telescopes to its end connector. -/
+-- Modern dependency score: 1/9 (M=1, H=8; transitive project theorems/axioms).
 theorem inertialWalk_eq_edge (p v : Point) (a b : Fraction) (times : List Fraction) :
     Fraction.equiv (inertialWalk p v a b times) (inertialEdge p v a b) := by
   induction times generalizing a with
@@ -49,6 +52,7 @@ theorem inertialWalk_eq_edge (p v : Point) (a b : Fraction) (times : List Fracti
 
 /-- Any finite closed polygon sampled from an inertial recurrence has zero
     signed doubled determinant sum, for any start, times, and velocity. -/
+-- Modern dependency score: 3/11 (M=3, H=8; transitive project theorems/axioms).
 theorem inertialWalk_closed (p v : Point) (a : Fraction) (times : List Fraction) :
     Fraction.equiv (inertialWalk p v a a times) (Fraction.ofInt 0) := by
   exact Fraction.equiv_trans (inertialWalk_eq_edge p v a a times)
@@ -56,6 +60,7 @@ theorem inertialWalk_closed (p v : Point) (a : Fraction) (times : List Fraction)
 
 /-- The four-vertex boundary used by the finite scheduling diagnostic is a
     special case of the arbitrary closed walk. -/
+-- Modern dependency score: 4/13 (M=4, H=9; transitive project theorems/axioms).
 theorem inertial_closedBoundaryTwice (p v : Point) (a b c d : Fraction) :
     Fraction.equiv
       (closedBoundaryTwice (inertialAt p v a) (inertialAt p v b)
@@ -66,10 +71,12 @@ theorem inertial_closedBoundaryTwice (p v : Point) (a b c d : Fraction) :
     (inertialWalk_closed p v a [b, c, d])
 
 /-- The represented directed determinant respects point equivalence. -/
+-- Modern dependency score: 0/11 (M=0, H=11; transitive project theorems/axioms).
 theorem det_congr {a a' b b' : Point} (ha : pointEquiv a a')
     (hb : pointEquiv b b') : Fraction.equiv (det a b) (det a' b') :=
   TimeSubdivision.det_congr ha hb
 
+-- Modern dependency score: 1/12 (M=1, H=11; transitive project theorems/axioms).
 theorem closedBoundaryTwice_congr {a a' b b' c c' d d' : Point}
     (ha : pointEquiv a a') (hb : pointEquiv b b')
     (hc : pointEquiv c c') (hd : pointEquiv d d') :
@@ -80,6 +87,7 @@ theorem closedBoundaryTwice_congr {a a' b b' c c' d d' : Point}
 
 /-- Four arbitrary actual zero-force schedules (possibly with different
     partitions) have a vanishing signed determinant boundary. -/
+-- Modern dependency score: 21/38 (M=21, H=17; transitive project theorems/axioms).
 theorem partitionMotion_closedBoundaryTwice (D : Nat) (hD : 0 < D)
     (p v : Point) (w₀ w₁ w₂ w₃ : List Nat) :
     Fraction.equiv

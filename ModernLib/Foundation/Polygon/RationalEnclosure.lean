@@ -39,6 +39,7 @@ instance : Magnitude ScalarValue where
 All positive representatives select a family mesh no larger than the parameter. -/
 def level (mesh : Fraction) : Nat := mesh.den.toNat
 
+-- Modern dependency score: 0/7 (M=0, H=7; transitive project theorems/axioms).
 theorem selected_duration_bound (A mesh : Fraction) (hA : 0 ≤ A.num)
     (hm : Fraction.positive mesh) :
     Fraction.le (duration A (level mesh)) (Fraction.mul mesh A) := by
