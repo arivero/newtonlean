@@ -35,6 +35,7 @@ flowchart LR
   P1687_Law1["P1687.Law1"] -->|explicit| P1687_P1["P1687.P1"]
   P1687_Composition["P1687.Composition"] -->|explicit| P1687_P1["P1687.P1"]
   P1687_L3C4["P1687.L3C4"] -->|explicit| P1687_P1["P1687.P1"]
+  P1687_Law2["P1687.Law2"] -->|explicit| P1687_LawCor5["P1687.LawCor5"]
   P1687_Law2["P1687.Law2"] -->|explicit| P1687_LawCor6["P1687.LawCor6"]
   P1687_L3["P1687.L3"] -->|implicit| P1687_L3C1["P1687.L3C1"]
   P1687_L3C1["P1687.L3C1"] -->|implicit| P1687_L3C2["P1687.L3C2"]
@@ -44,6 +45,9 @@ flowchart LR
   P1687_L3C2["P1687.L3C2"] -->|implicit| P1687_L3C4["P1687.L3C4"]
   P1687_L3C3["P1687.L3C3"] -->|implicit| P1687_L3C4["P1687.L3C4"]
   P1687_L9["P1687.L9"] -->|explicit| P1687_L10["P1687.L10"]
+  P1687_L10["P1687.L10"] -->|explicit| P1687_L10C1["P1687.L10C1"]
+  P1687_L10["P1687.L10"] -->|implicit| P1687_L10C2["P1687.L10C2"]
+  P1687_L10C1["P1687.L10C1"] -->|implicit| P1687_L10C2["P1687.L10C2"]
   P1687_Law1["P1687.Law1"] -->|explicit| P1687_P2["P1687.P2"]
   P1687_Law2["P1687.Law2"] -->|explicit| P1687_P2["P1687.P2"]
   P1687_EuclidI40["P1687.EuclidI40"] -->|explicit| P1687_P2["P1687.P2"]
@@ -62,7 +66,8 @@ flowchart LR
 - P1687.Law1 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:94).
 - P1687.Composition → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:95).
 - P1687.L3C4 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:96).
-- P1687.Law2 → P1687.LawCor6: [NATP00076.par23](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par23); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryVI.lean:22).
+- P1687.Law2 → P1687.LawCor5: [NATP00076.par21 ("per Legem 2")](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par21); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryV.lean:29).
+- P1687.Law2 → P1687.LawCor6: [NATP00076.par23](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par23); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryVI.lean:24).
 - P1687.L3 → P1687.L3C1: [NATP00077.par7](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean:15).
 - P1687.L3C1 → P1687.L3C2: [NATP00077.par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par8); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean:15).
 - P1687.L3 → P1687.L3C3: [NATP00077.par9](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9); implicit_dependency, confidence medium; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean:15).
@@ -71,6 +76,9 @@ flowchart LR
 - P1687.L3C2 → P1687.L3C4: [NATP00077.par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean:20).
 - P1687.L3C3 → P1687.L3C4: [NATP00077.par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean:21).
 - P1687.L9 → P1687.L10: [NATP00077.par28](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par28); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX.lean:16).
+- P1687.L10 → P1687.L10C1: [NATP00077.par29 ("Et hinc facile colligitur")](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par29); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean:17).
+- P1687.L10 → P1687.L10C2: [NATP00077.par30 (errors generated as in Lemma X)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par30); implicit_dependency, confidence medium; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean:17).
+- P1687.L10C1 → P1687.L10C2: [NATP00077.par30 ("Errores autem" continues Corollary 1's errors)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par30); implicit_dependency, confidence medium; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean:18).
 - P1687.Law1 → P1687.P2: [NATP00077.par49](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par49); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/PropositionII.lean:27).
 - P1687.Law2 → P1687.P2: [NATP00077.par49](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par49); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/PropositionII.lean:28).
 - P1687.EuclidI40 → P1687.P2: [NATP00077.par49](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par49); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/PropositionII.lean:29).
@@ -93,6 +101,7 @@ flowchart LR
   P1713_Law1["P1713.Law1"] -->|explicit| P1713_P1["P1713.P1"]
   P1713_Composition["P1713.Composition"] -->|explicit| P1713_P1["P1713.P1"]
   P1713_L3C4["P1713.L3C4"] -->|explicit| P1713_P1["P1713.P1"]
+  P1713_Law2["P1713.Law2"] -->|explicit| P1713_LawCor5["P1713.LawCor5"]
   P1713_Law2["P1713.Law2"] -->|explicit| P1713_LawCor6["P1713.LawCor6"]
   P1713_L3["P1713.L3"] -->|implicit| P1713_L3C1["P1713.L3C1"]
   P1713_L3C1["P1713.L3C1"] -->|implicit| P1713_L3C2["P1713.L3C2"]
@@ -101,8 +110,14 @@ flowchart LR
   P1713_L3C1["P1713.L3C1"] -->|implicit| P1713_L3C4["P1713.L3C4"]
   P1713_L3C2["P1713.L3C2"] -->|implicit| P1713_L3C4["P1713.L3C4"]
   P1713_L3C3["P1713.L3C3"] -->|implicit| P1713_L3C4["P1713.L3C4"]
-  P1713_L10C3["P1713.L10C3"] -->|explicit| P1713_L10C4["P1713.L10C4"]
   P1713_L9["P1713.L9"] -->|explicit| P1713_L10["P1713.L10"]
+  P1713_L10["P1713.L10"] -->|explicit| P1713_L10C1["P1713.L10C1"]
+  P1713_L10["P1713.L10"] -->|implicit| P1713_L10C2["P1713.L10C2"]
+  P1713_L10C1["P1713.L10C1"] -->|implicit| P1713_L10C2["P1713.L10C2"]
+  P1713_L10C2["P1713.L10C2"] -->|explicit| P1713_L10C3["P1713.L10C3"]
+  P1713_L10C3["P1713.L10C3"] -->|explicit| P1713_L10C4["P1713.L10C4"]
+  P1713_L10C3["P1713.L10C3"] -->|implicit| P1713_L10C5["P1713.L10C5"]
+  P1713_L10C4["P1713.L10C4"] -->|implicit| P1713_L10C5["P1713.L10C5"]
   P1713_Law1["P1713.Law1"] -->|explicit| P1713_P2["P1713.P2"]
   P1713_Law2["P1713.Law2"] -->|explicit| P1713_P2["P1713.P2"]
   P1713_EuclidI40["P1713.EuclidI40"] -->|explicit| P1713_P2["P1713.P2"]
@@ -123,7 +138,8 @@ flowchart LR
 - P1713.Law1 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:420).
 - P1713.Composition → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:421).
 - P1713.L3C4 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:422).
-- P1713.Law2 → P1713.LawCor6: [NATP00081.par23](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par23); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryVI.lean:39).
+- P1713.Law2 → P1713.LawCor5: [NATP00081.par21 ("per Legem II")](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par21); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryV.lean:90).
+- P1713.Law2 → P1713.LawCor6: [NATP00081.par23](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par23); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryVI.lean:79).
 - P1713.L3 → P1713.L3C1: [NATP00082.par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean:61).
 - P1713.L3C1 → P1713.L3C2: [NATP00082.par9](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par9); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean:50).
 - P1713.L3 → P1713.L3C3: [NATP00082.par10](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10); implicit_dependency, confidence medium; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean:51).
@@ -131,8 +147,14 @@ flowchart LR
 - P1713.L3C1 → P1713.L3C4: [NATP00082.par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean:57).
 - P1713.L3C2 → P1713.L3C4: [NATP00082.par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean:58).
 - P1713.L3C3 → P1713.L3C4: [NATP00082.par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean:59).
-- P1713.L10C3 → P1713.L10C4: [NATP00082.par33](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par33); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryIV.lean:15).
 - P1713.L9 → P1713.L10: [NATP00082.par29](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par29); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX.lean:78).
+- P1713.L10 → P1713.L10C1: [NATP00082.par30 ("Et hinc facile colligitur")](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par30); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean:49).
+- P1713.L10 → P1713.L10C2: [NATP00082.par31 (errors generated as in Lemma X)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par31); implicit_dependency, confidence medium; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean:62).
+- P1713.L10C1 → P1713.L10C2: [NATP00082.par31 ("Errores autem" continues Corollary 1's errors)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par31); implicit_dependency, confidence medium; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean:63).
+- P1713.L10C2 → P1713.L10C3: [NATP00082.par32 ("Idem intelligendum est")](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par32); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryIII.lean:15).
+- P1713.L10C3 → P1713.L10C4: [NATP00082.par33](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par33); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryIV.lean:16).
+- P1713.L10C3 → P1713.L10C5: [NATP00082.par34 (the same proportion solved for the square of the time)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par34); implicit_dependency, confidence medium; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryV.lean:16).
+- P1713.L10C4 → P1713.L10C5: [NATP00082.par34 ("Et quadrata temporum" inverts Corollary 4's proportion)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par34); implicit_dependency, confidence medium; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryV.lean:17).
 - P1713.Law1 → P1713.P2: [NATP00082.par59](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par59); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/PropositionII.lean:51).
 - P1713.Law2 → P1713.P2: [NATP00082.par59](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par59); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/PropositionII.lean:52).
 - P1713.EuclidI40 → P1713.P2: [NATP00082.par59](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par59); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/PropositionII.lean:53).
@@ -154,7 +176,13 @@ flowchart LR
   NATP00089_T1["NATP00089.T1"] -->|editorial| P1687_P1["P1687.P1"]
   P1713_L3["P1713.L3"] -->|editorial| P1713_P1["P1713.P1"]
   P1687_P1["P1687.P1"] -->|editorial| P1713_P1["P1713.P1"]
+  P1687_Law1["P1687.Law1"] -->|editorial| P1687_LawCor5["P1687.LawCor5"]
+  P1713_Law1["P1713.Law1"] -->|editorial| P1713_LawCor5["P1713.LawCor5"]
+  P1687_Law1["P1687.Law1"] -->|editorial| P1687_LawCor6["P1687.LawCor6"]
+  P1713_Law1["P1713.Law1"] -->|editorial| P1713_LawCor6["P1713.LawCor6"]
   P1687_L10["P1687.L10"] -->|editorial| P1713_L10["P1713.L10"]
+  P1687_Law2["P1687.Law2"] -->|editorial| P1687_L10C2["P1687.L10C2"]
+  P1713_Law2["P1713.Law2"] -->|editorial| P1713_L10C2["P1713.L10C2"]
 ```
 
 - P1687.Law1 → P1687.Composition: [NATP00076.par1 ("movendi uniformiter in directum") and par7 ("eodem tempore")](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par7); editorial_interpretation, confidence medium; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/CompositionOfMotions.lean:70).
@@ -162,7 +190,13 @@ flowchart LR
 - NATP00089.T1 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); editorial_interpretation, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:98).
 - P1713.L3 → P1713.P1: [NATP00082.par51 (the quoted Corollary IV curve-limit step)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); editorial_interpretation, confidence high The radial triangle exhaustion below applies Lemma III arithmetic in a new coordinate reconstruction, not as an additional explicit Newton citation; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:423).
 - P1687.P1 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); editorial_interpretation, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:424).
+- P1687.Law1 → P1687.LawCor5: [NATP00076.par21 (motion between collisions, for which no law is cited)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par21); editorial_interpretation, confidence medium; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryV.lean:30).
+- P1713.Law1 → P1713.LawCor5: [NATP00081.par21 (motion between collisions, for which no law is cited)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par21); editorial_interpretation, confidence medium; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryV.lean:91).
+- P1687.Law1 → P1687.LawCor6: [NATP00076.par23 (motion between impulses, for which no law is cited)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par23); editorial_interpretation, confidence medium; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryVI.lean:25).
+- P1713.Law1 → P1713.LawCor6: [NATP00081.par23 (motion between impulses, for which no law is cited)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par23); editorial_interpretation, confidence medium; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryVI.lean:80).
 - P1687.L10 → P1713.L10: [NATP00082.par28](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par28); editorial_interpretation, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX.lean:79).
+- P1687.Law2 → P1687.L10C2: [NATP00077.par30 (errors proportional to the forces)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par30); editorial_interpretation, confidence medium; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean:19).
+- P1713.Law2 → P1713.L10C2: [NATP00082.par31 (errors proportional to the forces)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par31); editorial_interpretation, confidence medium; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean:64).
 
 ## Lean code relationships
 
@@ -180,7 +214,7 @@ flowchart LR
   NewtonLimitDynamics["NewtonLimitDynamics"] --> ClassicsLib["ClassicsLib"]
 ```
 
-The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 199 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
+The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 216 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
 
 ### Direct cross-file formal uses
 
@@ -198,9 +232,21 @@ flowchart LR
   LemmaIII_CorollaryII["LemmaIII.CorollaryII"] --> LemmaIII_CorollaryIV["LemmaIII.CorollaryIV"]
   LemmaIII_CorollaryIII["LemmaIII.CorollaryIII"] --> LemmaIII_CorollaryIV["LemmaIII.CorollaryIV"]
   LemmaIII_CorollaryI["LemmaIII.CorollaryI"] --> LemmaIII_CorollaryIII["LemmaIII.CorollaryIII"]
+  LemmaX["LemmaX"] --> LemmaX_CorollaryII["LemmaX.CorollaryII"]
   LemmaI["LemmaI"] --> LemmaII["LemmaII"]
+  LemmaX["LemmaX"] --> LemmaX_CorollaryI["LemmaX.CorollaryI"]
+  LemmaX["LemmaX"] --> LemmaX_CorollaryIII["LemmaX.CorollaryIII"]
+  LemmaX_CorollaryII["LemmaX.CorollaryII"] --> LemmaX_CorollaryIII["LemmaX.CorollaryIII"]
+  LawI["LawI"] --> LawsCorollaryVI["LawsCorollaryVI"]
+  LawII["LawII"] --> LawsCorollaryVI["LawsCorollaryVI"]
+  LawI["LawI"] --> LawsCorollaryV["LawsCorollaryV"]
+  LawII["LawII"] --> LawsCorollaryV["LawsCorollaryV"]
   LemmaIII_CorollaryI["LemmaIII.CorollaryI"] --> LemmaIII_CorollaryII["LemmaIII.CorollaryII"]
+  LemmaX["LemmaX"] --> LemmaX_CorollaryIV["LemmaX.CorollaryIV"]
+  LemmaX_CorollaryIII["LemmaX.CorollaryIII"] --> LemmaX_CorollaryIV["LemmaX.CorollaryIV"]
   LemmaIII["LemmaIII"] --> LemmaIII_CorollaryI["LemmaIII.CorollaryI"]
+  LemmaX["LemmaX"] --> LemmaX_CorollaryV["LemmaX.CorollaryV"]
+  LemmaX_CorollaryIII["LemmaX.CorollaryIII"] --> LemmaX_CorollaryV["LemmaX.CorollaryV"]
 ```
 
 No diagram certifies the full Proposition I–IV chain, the polygon-to-curve step, or a historical premise merely because a file or declaration is reachable. Read the named Lean statements and their supplied hypotheses for scope.

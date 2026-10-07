@@ -28,11 +28,13 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; area errors and fixed-area unit ratios for unequal widths | Same area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
 | Lemma III corollaries I–IV | Source-local chain: conditional area approximation, rectangle endpoint covers, two-sided chord/supporting-segment approximation to a supplied rational curve under uniform continuity and shrinking mesh | Rectangle covers are not staircase perimeters. Supporting cells are supplied; actual tangents, the circumscribed figure's area and force-polygon correspondence remain open. No arclength conclusion |
 | Laws' Corollary I | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites Laws II/I in this proof; De Motu hypotheses and finite models remain witness-local |
+| Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
 | Proposition I | Separate 1687/1713 finite constructions use their own Laws' Corollary I. Their new conditional given-motion reconstruction proves an assigned local swept-sector area equal to `T * det(initial position, initial velocity) / 2`, and comparison of two such areas from a shared initial time as their times. Finite force-polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic local motion remainders, force comparison, short-window and finite bounds, with the supplied chart's positive ray scale. A supplied positive monotone rational radial chart describes the full curve image, beyond its samples. Its chord/curve symmetric difference has shrinking finite covers | Extend beyond the rational local chart and stated mechanical/regularity premises; preserve De Motu's own exhaustion route. Whole-edge/arbitrary-time force-polygon agreement and the actual between-region B for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
 | Proposition II | Finite oriented-area converse, including unequal durations and uniformly moving centres | Vanishing-triangle/continuous-curve passage. Direction does not determine inward sense; unsigned areas and a vertex at the centre require separate treatment |
 | Proposition III | Relative deflection and reference-history cancellation; finite converse application | Realized relative-orbit limit. No Law III, mass/force law or force/time-scale conclusion is derived |
 | Proposition IV | Conditional finite circular sagitta comparison | Circle geometry, force interpretation and edition-specific ultimate ratios: 1687 uses Proposition II and Lemmas V/XI; 1713 uses Proposition II, Proposition I corollaries 2/4 and Lemma VII |
 | Lemmas IX–XI support | Conditional quadratic/contact arithmetic and coefficient rearrangements in the owning historical files | Actual curved contact, mechanical velocity-area enclosure and variable-force comparisons; regularity/finite-curvature clauses stay edition-local |
+| Lemma X corollaries | Separate 1687 Corollaries 1–2 and 1713 Corollaries 1–5 in ultimate-ratio form, each applying its edition's Lemma X reconstruction. Errors at proportional times share one positive ultimate coefficient (1); divided by force and squared time they are ultimately one positive calibration `k` (2, 3); 1713 Corollaries 4 and 5 solve Corollary 3's proportion for the force and for the squared time | Equal or force-proportional Lemma X coefficients are supplied premises, read from Law II. Similar figures and force-free places are not constructed, and the ultimate ratio of two varying errors is not formed. |
 
 No complete historical Proposition I–IV proof is certified. These retained
 results are finite, conditional or modern reconstructions in their stated
@@ -102,6 +104,19 @@ closes a historical proof.
 
 ## Current increment and next work
 
+The laws-and-lemmas increment of 7 October adds primary proofs of Laws'
+Corollaries V and VI and of Lemma X's missing corollaries. BarrowLib's
+`CommonMotion` proves that common initial motion and common velocity changes
+superpose on a finite impulse-then-drift system without changing its relative
+states. Each edition's Corollaries V and VI apply it with that edition's Law I
+and Law II predicates; Laws I/II are now formal dependencies of both. The
+NATP00090 witness of Corollary V is Lex 3, revised from "Hypoth", and has no
+proof. `UltimateScaling` adds division by a fixed positive magnitude and a
+fixed time proportion to ultimate ratios; the Lemma X corollaries use them
+with each edition's Lemma X reconstruction, and 1713 Corollaries 4 and 5 now
+formally use Corollary 3. Next, Proposition II's second case and Proposition III should
+use Corollaries V and VI in their own finite steps.
+
 The motion-sampling increment derives finite force-polygon/sample agreement
 from an independent quadratic local mechanical remainder, and the sampled
 curve's slope mesh from displacement and a positive ray-scale lower bound.
@@ -134,17 +149,23 @@ chord, a shrinking collar of the actual symmetric difference, and the
 complete-turn counterexample in `sector-unions-2026-10-07.lean`, where the fan
 sum grows while the union stays fixed: consecutive positive determinants alone
 cannot justify unrestricted union identification.
+`laws-corollaries-v-vi-2026-10-07.lean` instantiates Corollaries V and VI
+with a two-body spring impulse; a resistance measured in the resting space
+breaks Corollary V, and collinear relativistic composition changes the velocity
+differences that its "ex hypothesi" step keeps fixed.
+`lemma10-corollaries-2026-10-07.lean` satisfies the Lemma X premises for `c t²`
+and `c t² + t³` and shows that normalizing by the wrong force fails.
 
-Last full verification: 7 October 2026, after the checker learned to place
-compiler-generated auxiliaries at their parent declaration. All five builds,
-the 20 positive controls, the harmonic reference/comparator, source hashes and
+Last full verification: 7 October 2026, after the Laws' Corollaries V–VI and
+Lemma X corollaries increment and two Fable review rounds. All five builds,
+the 22 positive controls, the harmonic reference/comparator, source hashes and
 whitespace passed. The compiled checker verified 1,181 score comments and
-6,710 project constants with no project axioms, sorry or primary modern
+6,803 project constants with no project axioms, sorry or primary modern
 dependency. The corrupted comparator failed at its intended false equality.
-The diagrams recover 62 source edges and 15 formal cross-file uses across 19
-historical files. Archived Newton sources and exact Latin are unchanged.
-Astra's review covers the preceding radial-sector increment (`3a2f5e3`,
-`b827902`) only.
+The diagrams recover 79 source edges and 27 formal cross-file uses across 22
+historical files. Archived Newton sources are unchanged; new exact Latin covers
+NATP00090 par7, NATP00077 par29–30 and NATP00082 par30–32. Astra's review
+covers the radial-sector increment (`3a2f5e3`, `b827902`) only.
 
 Next extend the conditional rational local result to the remaining stage and
 geometric scope. De Motu needs its own finite construction/exhaustion passage;
