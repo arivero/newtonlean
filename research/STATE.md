@@ -26,7 +26,7 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Lemma I | Separate 1687/1713 positive-terminal-difference contradictions, including an actual positive before-end time window; rational terminal-zero consequence | Terminal comparisons and approach premises are supplied; terminal values are not constructed. No general equality of objects is inferred from an unspecified difference |
 | Lemma II | Exact equal-width gap, actual rectangle-union side-product areas under explicit partial area rules, derived enclosure/errors and unit ratios to a fixed positive assigned rational curved area; actual use of the edition's Lemma I | Existence of the geometric area convention and the curve's area remain premises; arbitrary non-rational areas and ratios of two varying areas require further treatment |
 | Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; area errors and fixed-area unit ratios for unequal widths | Same area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
-| Lemma III corollaries I–IV | Source-local area and boundary approximation chain. For concave increasing rational graph patches, two-sided secant contact and independent secant concavity derive the supporting tangent cells, their meetings, a uniform continuity bound and two-sided chord/contact-tangent boundary approximation. The joined trace is proved equal to the filled tangent polygon's vertical top, including shared endpoints, coincident lines and repeated nodes. This region encloses the curve and lies in the upper rectangle cover; assigned rational tangent-polygon areas have vanishing error through the edition's Corollary I | Arbitrary curves still use the older supplied supporting-cell interface. Tangent existence, other patch orientations and general patch decomposition remain open, as do existence of the curved/tangent-polygon areas, non-rational magnitudes and force-polygon correspondence. Rectangle covers are not staircase perimeters. No arclength conclusion |
+| Lemma III corollaries I–IV | Source-local area and boundary approximation chain. For concave increasing rational graph patches, two-sided secant contact and independent secant concavity derive the supporting tangent cells, their meetings, a uniform continuity bound and two-sided chord/contact-tangent boundary approximation. The joined trace equals the filled tangent polygon's vertical top, including shared endpoints, coincident lines and repeated nodes. Rectangle/triangle normalization, cut additivity and translation invariance now derive the actual finite polygon's trapezoid-sum area. Its error against an assigned curved area vanishes through the edition's Corollary I; no separate polygon-area assignment is needed in the constructed interface | Arbitrary curves still use the older supplied supporting-cell interface. Tangent existence, other patch orientations and general patch decomposition remain open, as do existence of the geometric area convention and curved area, non-rational magnitudes and force-polygon correspondence. Rectangle covers are not staircase perimeters. No arclength conclusion |
 | Laws' Corollary I | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites Laws II/I in this proof; De Motu hypotheses and finite models remain witness-local |
 | Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
 | Proposition I | Separate 1687/1713 finite constructions use their own Laws' Corollary I. Their new conditional given-motion reconstruction proves an assigned local swept-sector area equal to `T * det(initial position, initial velocity) / 2`, and comparison of two such areas from a shared initial time as their times. Finite force-polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic local motion remainders, force comparison, short-window and finite bounds, with the supplied chart's positive ray scale. A supplied positive monotone rational radial chart describes the full curve image, beyond its samples. Its chord/curve symmetric difference has shrinking finite covers | Extend beyond the rational local chart and stated mechanical/regularity premises; preserve De Motu's own exhaustion route. Whole-edge/arbitrary-time force-polygon agreement and the actual between-region B for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
@@ -121,14 +121,23 @@ and equivalent rational representatives. Partition order proves that boundary
 points have maximal height even across different cells. Every region point
 lies vertically below a trace point at the same abscissa. The region contains
 the curved figure and lies in the upper rectangle union. Both editions apply
-their own Corollary I to obtain area-error
-decay for separately assigned rational areas, and their own Corollaries II–III
-to obtain the chord and contact-tangent boundary limits.
+their own Corollary I to obtain area-error decay, and their own Corollaries
+II–III to obtain the chord and contact-tangent boundary limits.
+
+The finite tangent-polygon area is now constructed from an explicit elementary
+area convention. `TriangleContent.AreaRules` extends the existing rectangle,
+triangle and cut rules by translation invariance. A rectangle and a translated
+right triangle dissect each increasing affine subgraph and derive its
+width-times-mean-height area, including zero slopes and zero widths. Each
+actual tangent cell is split at a constructed meeting into two such subgraphs;
+vertical partition cuts add their areas. Both printed Corollary III sections
+use this derived area, removing their separate polygon-area assignment.
 
 The secant concavity/contact conditions are explicit editorial coordinate
 regularity, not quoted Newton hypotheses. Their existence for an arbitrary
-curve is not proved. The area convention and assigned curved/polygon areas
-remain premises. The trace/region identity is finite rational geometry;
+curve is not proved. The area convention and assigned curved area remain
+premises; existence of that convention on general figures is not constructed.
+The trace/region identity is finite rational geometry;
 it is not a claim about a topological boundary in a completed plane. Extend
 to the other patch orientations and justify patch assembly before claiming
 the unrestricted printed corollaries. De Motu retains its own unnumbered
@@ -200,26 +209,33 @@ repeated node, and both directions of the vertical-top identity. The inverse
 control starts from region membership and maximal height proved directly for
 the flat figure. Both printed editions' polygon-boundary and perimeter
 interfaces are exercised under the stated shrinking-mesh premise.
+`tangent-area-2026-10-07.lean` checks the quadratic tangent polygon's two
+trapezoids, with areas `1/2` and `5/4`, and its derived total `7/4`, distinct
+from the chord region's `3/2`. It also checks the chosen meeting and finite
+polygon sum, a flat cell of area `1`, a repeated-node cell of area `0`, and
+zero-width and zero-slope triangles. These area controls retain the explicit
+elementary area convention and contact patch; the nonlinear patch's existence
+is proved in the earlier contact control. Both printed constructed-area
+interfaces retain the curved-area and shrinking-mesh premises.
 
-Last full verification: 7 October 2026, after the trace/region identification
-and an independent sequential Sol review. All five builds, the 24 positive
-controls, the harmonic reference/comparator, source hashes and whitespace
+Last full verification: 7 October 2026, after the finite tangent-polygon area
+construction and an independent sequential Sol review. All five builds, the
+25 positive controls, the harmonic reference/comparator, source hashes and whitespace
 passed. The compiled checker verified 1,181 score comments and
-6,946 project constants with no project axioms, sorry or primary modern
+7,026 project constants with no project axioms, sorry or primary modern
 dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 79 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and exact Latin are unchanged by
 this increment. The review found no defect within the stated rational patch
-scope; it does not discharge the supplied area or mesh premises. Astra's review
+scope; it does not discharge the supplied area convention, curved area or
+mesh premises. Astra's review
 covers the radial-sector increment (`3a2f5e3`, `b827902`) only.
 
-Next derive the finite tangent-polygon area under explicit triangle and
-dissection rules, removing the separate assigned-polygon-area premise. The
-rectangle-only convention does not supply areas of oblique polygons. Keep
-curved-area existence separate from this finite construction. Extend the
-conditional rational local result to the remaining stage and geometric
-scope. De Motu needs its own finite construction/exhaustion passage;
-no printed Lemma III dependency is retrofitted. Derive whole-edge/arbitrary-
+Next advance De Motu's own finite composition and exhaustion passage, using
+its witness-local laws and argument; no printed Lemma III dependency is
+retrofitted. Extend the conditional rational local result to the remaining
+geometric scope, including other patch orientations and their assembly. Keep curved-area existence
+separate from the finite polygon construction. Derive whole-edge/arbitrary-
 time polygon agreement and actual between-region covers for Newton's force
 polygons. Existing shrinking collars concern the sampled-curve chords. Keep
 area existence, general non-rational coordinates and winding/multiplicity

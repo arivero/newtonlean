@@ -1,6 +1,7 @@
 import BarrowLib.Polygon.RationalBoundary
 import BarrowLib.Polygon.TangentContact
 import BarrowLib.Polygon.TangentBoundary
+import BarrowLib.Polygon.TangentPolygonArea
 import NewtonLimitDynamics.Historical.LemmaIII.CorollaryI
 /-! Historical result: lemma_iii_corollary_iii.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
@@ -12,7 +13,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9
 Anchor URLs: NATP00077.par9 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9
-Proof-step correspondence: The general supporting-segment reconstruction retains supplied cells and uniform continuity. The concave increasing rational graph reconstruction derives supporting cells from two-sided secant contact and independent secant concavity, derives uniform continuity from the tangent bound, and proves two-sided approximation of the joined contact-tangent trace. Finite interpolation identifies that trace exactly with the vertical top of the filled tangent polygon, including coincident tangents and repeated nodes. Its region contains the curved figure and lies in the upper rectangle cover; the edition's Corollary I derives area-error decay for separately assigned rational areas. Tangent existence and arbitrary patches, area existence, non-rational magnitudes and arclength remain open. These precise contact/concavity premises are editorial coordinate regularity, not quoted Newton hypotheses.
+Proof-step correspondence: The general supporting-segment reconstruction retains supplied cells and uniform continuity. The concave increasing rational graph reconstruction derives supporting cells from two-sided secant contact and independent secant concavity, derives uniform continuity from the tangent bound, and proves two-sided approximation of the joined contact-tangent trace. Finite interpolation identifies that trace exactly with the filled polygon's vertical top, including coincident tangents and repeated nodes. Each cell is dissected at the meeting into two affine subgraphs. Rectangle/triangle normalization, cut additivity and translation invariance then derive its trapezoid sum and the actual finite polygon area, without a separate polygon-area assignment. The region contains the curved figure and lies in the upper rectangle cover; the edition's Corollary I derives the area-error decay. The geometric area convention and curved-area assignment remain explicit. Tangent existence and arbitrary patches, non-rational magnitudes and arclength remain open. The precise contact/concavity premises are editorial coordinate regularity, not quoted Newton hypotheses.
 Historical dependency ledger for this exact witness:
 - P1687.L3 → P1687.L3C3; passage NATP00077.par9; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9; status implicit_dependency; confidence medium.
 -/
@@ -105,6 +106,23 @@ theorem corollary3_tangent_polygon_boundary {g d : Fraction → Fraction} {a b :
     obtain ⟨z, hz, hd⟩ := (hN m hm).2 y hy
     exact ⟨z, (TangentContact.trace_iff_verticalTop C (parts m) hbase z).mp hz, hd⟩
 
+/-- The finite tangent polygon's area is derived from triangle,
+translation and dissection rules. Only the curved area is assigned as a
+premise. This edition's Corollary III then gives the area-error decay. -/
+theorem corollary3_constructed_tangent_area (area : TriangleContent.AreaRules)
+    {g d : Fraction → Fraction} {a b : Fraction} (C : TangentContact.Patch g d a b)
+    (parts : Nat → MonotoneRectangles.Partition a b) (A : Fraction)
+    (hbase : 0 ≤ (g a).num) (hA : area.HasArea (MonotoneRectangles.figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    (∀ m, Fraction.le A (TangentPolygonArea.value C (parts m))) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference A
+        (TangentPolygonArea.value C (parts m))).abs) :=
+  corollary3_tangent_area_approximation area.toSectorRules.toAreaRules C parts A
+    (fun m => TangentPolygonArea.value C (parts m)) hbase hA
+    (fun m => TangentPolygonArea.polygon_area area C (parts m) hbase) hmesh
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -113,7 +131,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10
 Anchor URLs: NATP00082.par10 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10
-Proof-step correspondence: The general supporting-segment reconstruction retains supplied cells and uniform continuity. The concave increasing rational graph reconstruction derives supporting cells from two-sided secant contact and independent secant concavity, derives uniform continuity from the tangent bound, and proves two-sided approximation of the joined contact-tangent trace. Finite interpolation identifies that trace exactly with the vertical top of the filled tangent polygon, including coincident tangents and repeated nodes. Its region contains the curved figure and lies in the upper rectangle cover; the edition's Corollary I derives area-error decay for separately assigned rational areas. Tangent existence and arbitrary patches, area existence, non-rational magnitudes and arclength remain open. These precise contact/concavity premises are editorial coordinate regularity, not quoted Newton hypotheses.
+Proof-step correspondence: The general supporting-segment reconstruction retains supplied cells and uniform continuity. The concave increasing rational graph reconstruction derives supporting cells from two-sided secant contact and independent secant concavity, derives uniform continuity from the tangent bound, and proves two-sided approximation of the joined contact-tangent trace. Finite interpolation identifies that trace exactly with the filled polygon's vertical top, including coincident tangents and repeated nodes. Each cell is dissected at the meeting into two affine subgraphs. Rectangle/triangle normalization, cut additivity and translation invariance then derive its trapezoid sum and the actual finite polygon area, without a separate polygon-area assignment. The region contains the curved figure and lies in the upper rectangle cover; the edition's Corollary I derives the area-error decay. The geometric area convention and curved-area assignment remain explicit. Tangent existence and arbitrary patches, non-rational magnitudes and arclength remain open. The precise contact/concavity premises are editorial coordinate regularity, not quoted Newton hypotheses.
 Historical dependency ledger for this exact witness:
 - P1713.L3 → P1713.L3C3; passage NATP00082.par10; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10; status implicit_dependency; confidence medium.
 -/
@@ -205,5 +223,22 @@ theorem corollary3_tangent_polygon_boundary {g d : Fraction → Fraction} {a b :
   · intro y hy
     obtain ⟨z, hz, hd⟩ := (hN m hm).2 y hy
     exact ⟨z, (TangentContact.trace_iff_verticalTop C (parts m) hbase z).mp hz, hd⟩
+
+/-- The finite tangent polygon's area is derived from triangle,
+translation and dissection rules. Only the curved area is assigned as a
+premise. This edition's Corollary III then gives the area-error decay. -/
+theorem corollary3_constructed_tangent_area (area : TriangleContent.AreaRules)
+    {g d : Fraction → Fraction} {a b : Fraction} (C : TangentContact.Patch g d a b)
+    (parts : Nat → MonotoneRectangles.Partition a b) (A : Fraction)
+    (hbase : 0 ≤ (g a).num) (hA : area.HasArea (MonotoneRectangles.figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    (∀ m, Fraction.le A (TangentPolygonArea.value C (parts m))) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference A
+        (TangentPolygonArea.value C (parts m))).abs) :=
+  corollary3_tangent_area_approximation area.toSectorRules.toAreaRules C parts A
+    (fun m => TangentPolygonArea.value C (parts m)) hbase hA
+    (fun m => TangentPolygonArea.polygon_area area C (parts m) hbase) hmesh
 
 end Principia1713.LemmaIII
