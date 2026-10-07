@@ -19,3 +19,4 @@ import Reverse.Classical.ClassicalTrajectory
 import Reverse.Classical.NewtonLaws
 import Reverse.Newton.Interface
 import Reverse.Chain
+import Reverse.Principia.Laws
