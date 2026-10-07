@@ -13,7 +13,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10
 Anchor URLs: NATP00077.par10 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10
-Proof-step correspondence: The edition's Corollaries II and III supply two-sided chord and supporting-segment approximation with explicit continuity, mesh and supporting-cell premises. The added concave increasing rational patch reconstruction instead derives continuity and the cells from two-sided secant contact and independent secant concavity, and applies the edition's Corollaries II and III to the chord and actual contact-tangent traces. Tangent existence for arbitrary curves, non-rational points, force-polygon identification and arclength remain open. Modern completed-curve reconstructions remain below the separator.
+Proof-step correspondence: The edition's Corollaries II and III supply two-sided chord and supporting-segment approximation with explicit continuity, mesh and supporting-cell premises. The concave increasing rational patch reconstruction derives continuity and the cells from two-sided secant contact and independent secant concavity. Finite interpolation identifies the joined contact-tangent trace with the filled polygon's vertical top. The edition's Corollaries II and III then prove approach of the chord and that actual upper perimeter to the curve. Tangent existence for arbitrary curves, non-rational points, force-polygon identification and arclength remain open. Modern completed-curve reconstructions remain below the separator.
 Historical dependency ledger for this exact witness:
 - P1687.L3 → P1687.L3C4; passage NATP00077.par10; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10; status implicit_dependency; confidence high.
 - P1687.L3C1 → P1687.L3C4; passage NATP00077.par10; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par10; status implicit_dependency; confidence high.
@@ -64,6 +64,22 @@ theorem corollary4_tangent_perimeters {g d : Fraction → Fraction} {a b : Fract
     (TangentContact.graph_uniform C hab) hmesh,
     corollary3_tangent_boundary C parts hmesh⟩
 
+/-- The chord perimeter and the actual vertical top of the filled tangent
+polygon approach the curve, using this edition's Corollaries II and III.
+The finite trace/region identity is proved; no arclength is asserted. -/
+theorem corollary4_tangent_polygon_perimeters {g d : Fraction → Fraction} {a b : Fraction}
+    (C : TangentContact.Patch g d a b) (parts : Nat → MonotoneRectangles.Partition a b)
+    (hbase : 0 ≤ (g a).num)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    RationalBoundary.Approaches
+      (fun m => RationalBoundary.ChordTrace (TangentContact.graph g) (parts m))
+      (RationalBoundary.CurveTrace (TangentContact.graph g) a b) ∧
+    RationalBoundary.Approaches (fun m => TangentContact.VerticalTop g d (parts m))
+      (RationalBoundary.CurveTrace (TangentContact.graph g) a b) :=
+  ⟨(corollary4_tangent_perimeters C parts hmesh).1,
+    corollary3_tangent_polygon_boundary C parts hbase hmesh⟩
+
 end Principia1687.LemmaIII
 
 /-! 1713. Primary rational perimeter approximation; modern support remains separate. -/
@@ -72,7 +88,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11
 Anchor URLs: NATP00082.par11 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11
-Proof-step correspondence: The edition's Corollaries II and III supply two-sided chord and supporting-segment approximation with explicit continuity, mesh and supporting-cell premises. The added concave increasing rational patch reconstruction instead derives continuity and the cells from two-sided secant contact and independent secant concavity, and applies the edition's Corollaries II and III to the chord and actual contact-tangent traces. Tangent existence for arbitrary curves, non-rational points, force-polygon identification and arclength remain open. Modern completed-curve reconstructions remain below the separator.
+Proof-step correspondence: The edition's Corollaries II and III supply two-sided chord and supporting-segment approximation with explicit continuity, mesh and supporting-cell premises. The concave increasing rational patch reconstruction derives continuity and the cells from two-sided secant contact and independent secant concavity. Finite interpolation identifies the joined contact-tangent trace with the filled polygon's vertical top. The edition's Corollaries II and III then prove approach of the chord and that actual upper perimeter to the curve. Tangent existence for arbitrary curves, non-rational points, force-polygon identification and arclength remain open. Modern completed-curve reconstructions remain below the separator.
 Historical dependency ledger for this exact witness:
 - P1713.L3 → P1713.L3C4; passage NATP00082.par11; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11; status implicit_dependency; confidence high.
 - P1713.L3C1 → P1713.L3C4; passage NATP00082.par11; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par11; status implicit_dependency; confidence high.
@@ -122,6 +138,22 @@ theorem corollary4_tangent_perimeters {g d : Fraction → Fraction} {a b : Fract
   exact ⟨corollary2_chord_boundary (TangentContact.graph g) a b parts
     (TangentContact.graph_uniform C hab) hmesh,
     corollary3_tangent_boundary C parts hmesh⟩
+
+/-- The chord perimeter and the actual vertical top of the filled tangent
+polygon approach the curve, using this edition's Corollaries II and III.
+The finite trace/region identity is proved; no arclength is asserted. -/
+theorem corollary4_tangent_polygon_perimeters {g d : Fraction → Fraction} {a b : Fraction}
+    (C : TangentContact.Patch g d a b) (parts : Nat → MonotoneRectangles.Partition a b)
+    (hbase : 0 ≤ (g a).num)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    RationalBoundary.Approaches
+      (fun m => RationalBoundary.ChordTrace (TangentContact.graph g) (parts m))
+      (RationalBoundary.CurveTrace (TangentContact.graph g) a b) ∧
+    RationalBoundary.Approaches (fun m => TangentContact.VerticalTop g d (parts m))
+      (RationalBoundary.CurveTrace (TangentContact.graph g) a b) :=
+  ⟨(corollary4_tangent_perimeters C parts hmesh).1,
+    corollary3_tangent_polygon_boundary C parts hbase hmesh⟩
 
 end Principia1713.LemmaIII
 

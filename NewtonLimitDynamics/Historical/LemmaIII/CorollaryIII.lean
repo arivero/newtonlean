@@ -1,5 +1,6 @@
 import BarrowLib.Polygon.RationalBoundary
 import BarrowLib.Polygon.TangentContact
+import BarrowLib.Polygon.TangentBoundary
 import NewtonLimitDynamics.Historical.LemmaIII.CorollaryI
 /-! Historical result: lemma_iii_corollary_iii.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
@@ -11,7 +12,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9
 Anchor URLs: NATP00077.par9 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9
-Proof-step correspondence: The general supporting-segment reconstruction retains supplied cells and uniform continuity. The further concave increasing rational graph reconstruction derives supporting cells from two-sided secant contact and independent secant concavity, derives uniform continuity from the tangent bound, and proves two-sided approximation of the joined contact-tangent trace. Its circumscribed tangent region contains the curved figure and lies in the upper rectangle cover; the edition's Corollary I then derives area-error decay for separately assigned rational areas. Tangent existence and arbitrary patches, area existence, non-rational magnitudes and arclength remain open. These precise contact/concavity premises are editorial coordinate regularity, not quoted Newton hypotheses.
+Proof-step correspondence: The general supporting-segment reconstruction retains supplied cells and uniform continuity. The concave increasing rational graph reconstruction derives supporting cells from two-sided secant contact and independent secant concavity, derives uniform continuity from the tangent bound, and proves two-sided approximation of the joined contact-tangent trace. Finite interpolation identifies that trace exactly with the vertical top of the filled tangent polygon, including coincident tangents and repeated nodes. Its region contains the curved figure and lies in the upper rectangle cover; the edition's Corollary I derives area-error decay for separately assigned rational areas. Tangent existence and arbitrary patches, area existence, non-rational magnitudes and arclength remain open. These precise contact/concavity premises are editorial coordinate regularity, not quoted Newton hypotheses.
 Historical dependency ledger for this exact witness:
 - P1687.L3 → P1687.L3C3; passage NATP00077.par9; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par9; status implicit_dependency; confidence medium.
 -/
@@ -85,6 +86,25 @@ theorem corollary3_tangent_area_approximation (area : RectangleContent.AreaRules
   exact (HarmonicTimeComparison.difference_interval_gaps A (P m)
     (MonotoneRectangles.upperSum g (parts m)) (he m).1 (he m).2).1
 
+/-- The vertical top of the filled circumscribed tangent polygon approaches
+the curve. Its identity with the joined contact-tangent trace is proved,
+rather than supplied; rational graph regularity and shrinking mesh remain. -/
+theorem corollary3_tangent_polygon_boundary {g d : Fraction → Fraction} {a b : Fraction}
+    (C : TangentContact.Patch g d a b) (parts : Nat → MonotoneRectangles.Partition a b)
+    (hbase : 0 ≤ (g a).num)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    RationalBoundary.Approaches (fun m => TangentContact.VerticalTop g d (parts m))
+      (RationalBoundary.CurveTrace (TangentContact.graph g) a b) := by
+  intro eps heps
+  obtain ⟨N, hN⟩ := corollary3_tangent_boundary C parts hmesh eps heps
+  refine ⟨N, fun m hm => ⟨?_, ?_⟩⟩
+  · intro z hz
+    exact (hN m hm).1 z ((TangentContact.trace_iff_verticalTop C (parts m) hbase z).mpr hz)
+  · intro y hy
+    obtain ⟨z, hz, hd⟩ := (hN m hm).2 y hy
+    exact ⟨z, (TangentContact.trace_iff_verticalTop C (parts m) hbase z).mp hz, hd⟩
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -93,7 +113,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10
 Anchor URLs: NATP00082.par10 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10
-Proof-step correspondence: The general supporting-segment reconstruction retains supplied cells and uniform continuity. The further concave increasing rational graph reconstruction derives supporting cells from two-sided secant contact and independent secant concavity, derives uniform continuity from the tangent bound, and proves two-sided approximation of the joined contact-tangent trace. Its circumscribed tangent region contains the curved figure and lies in the upper rectangle cover; the edition's Corollary I then derives area-error decay for separately assigned rational areas. Tangent existence and arbitrary patches, area existence, non-rational magnitudes and arclength remain open. These precise contact/concavity premises are editorial coordinate regularity, not quoted Newton hypotheses.
+Proof-step correspondence: The general supporting-segment reconstruction retains supplied cells and uniform continuity. The concave increasing rational graph reconstruction derives supporting cells from two-sided secant contact and independent secant concavity, derives uniform continuity from the tangent bound, and proves two-sided approximation of the joined contact-tangent trace. Finite interpolation identifies that trace exactly with the vertical top of the filled tangent polygon, including coincident tangents and repeated nodes. Its region contains the curved figure and lies in the upper rectangle cover; the edition's Corollary I derives area-error decay for separately assigned rational areas. Tangent existence and arbitrary patches, area existence, non-rational magnitudes and arclength remain open. These precise contact/concavity premises are editorial coordinate regularity, not quoted Newton hypotheses.
 Historical dependency ledger for this exact witness:
 - P1713.L3 → P1713.L3C3; passage NATP00082.par10; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par10; status implicit_dependency; confidence medium.
 -/
@@ -166,5 +186,24 @@ theorem corollary3_tangent_area_approximation (area : RectangleContent.AreaRules
   refine ⟨N, fun m hm => Fraction.magnitudes.lt_of_le_lt ?_ (hN m hm)⟩
   exact (HarmonicTimeComparison.difference_interval_gaps A (P m)
     (MonotoneRectangles.upperSum g (parts m)) (he m).1 (he m).2).1
+
+/-- The vertical top of the filled circumscribed tangent polygon approaches
+the curve. Its identity with the joined contact-tangent trace is proved,
+rather than supplied; rational graph regularity and shrinking mesh remain. -/
+theorem corollary3_tangent_polygon_boundary {g d : Fraction → Fraction} {a b : Fraction}
+    (C : TangentContact.Patch g d a b) (parts : Nat → MonotoneRectangles.Partition a b)
+    (hbase : 0 ≤ (g a).num)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    RationalBoundary.Approaches (fun m => TangentContact.VerticalTop g d (parts m))
+      (RationalBoundary.CurveTrace (TangentContact.graph g) a b) := by
+  intro eps heps
+  obtain ⟨N, hN⟩ := corollary3_tangent_boundary C parts hmesh eps heps
+  refine ⟨N, fun m hm => ⟨?_, ?_⟩⟩
+  · intro z hz
+    exact (hN m hm).1 z ((TangentContact.trace_iff_verticalTop C (parts m) hbase z).mpr hz)
+  · intro y hy
+    obtain ⟨z, hz, hd⟩ := (hN m hm).2 y hy
+    exact ⟨z, (TangentContact.trace_iff_verticalTop C (parts m) hbase z).mp hz, hd⟩
 
 end Principia1713.LemmaIII
