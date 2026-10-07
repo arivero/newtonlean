@@ -45,14 +45,31 @@ structure InternalGeometry where
   isometryAlgebra : List GaugeFactor
   volume : Scalar → Scalar
 
+/-- Label for the classical geometric action of the parent. PLACEHOLDER: a
+name only, with no formal content until the action and its reduction are
+formalized. It records the intended Einstein–Hilbert starting point so that
+the KK stage's identities can later be derived from it. -/
+inductive ClassicalAction
+  | einsteinHilbert
+  | einsteinHilbertWithCosmologicalConstant
+  deriving DecidableEq, Repr
+
 /-- A quantum family over D = 4 + internal dimensions. The parameter type is
 abstract; the fundamental parameters and the theory are read off at each
-point. No point is marked as Newtonian. -/
+point. `internal` is the full internal geometry of the parent, before any
+weak-related structure is decoupled. No point is marked as Newtonian. -/
 structure QuantumKKFamily where
   Params : Type
   fundamental : Params → FundamentalParameters
   internal : InternalGeometry
+  classicalAction : ClassicalAction
   theory : Params → QuantumTheory
+
+/-- The parent's classical action is Einstein–Hilbert, with or without a
+cosmological term. A label, see `ClassicalAction`. -/
+def HasEinsteinHilbertAction (F : QuantumKKFamily) : Prop :=
+  F.classicalAction = .einsteinHilbert ∨
+    F.classicalAction = .einsteinHilbertWithCosmologicalConstant
 
 /-- Total spacetime dimension D. -/
 def QuantumKKFamily.dimension (F : QuantumKKFamily) : Nat :=
