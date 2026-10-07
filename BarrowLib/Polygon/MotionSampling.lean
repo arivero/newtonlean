@@ -612,4 +612,154 @@ theorem sampled_chord_area (g : Fraction → Fraction) (l r T : Fraction)
   exact RationalIntervals.half_equiv (TimeSubdivision.det_congr
     (chart.samples j k (by omega)) (chart.samples j (k+1) (by omega)))
 
+/-! Finite mechanical-polygon/sample-chord geometry. Source of these
+coordinate statements: the original English statements and checked proofs
+below, from the existing finite sample and convex enclosure results. This
+records the derivations without claiming historical textual support or
+discovery. The matched locus concerns two finite polygons; it is not the
+between-region B of the given curve. Square budgets count overlaps and do
+not assign an area to their union. -/
+
+def chordRadiusCoefficient (C T V : Fraction) : Fraction :=
+  Fraction.add V (Fraction.mul (Fraction.ofInt 3) (Fraction.mul C T))
+
+def chordRadius (C T V : Fraction) (j : Nat) : Fraction :=
+  Fraction.mul (chordRadiusCoefficient C T V) (duration T j)
+
+def chordSquareBudget (C T V : Fraction) (j : Nat) : Fraction :=
+  Fraction.mul (Fraction.ofInt 4) (Fraction.mul (chordRadius C T V j) (chordRadius C T V j))
+
+def chordCoverBudget (C T V : Fraction) (j : Nat) : Fraction :=
+  PolygonFanArea.sum (fun _ => chordSquareBudget C T V j) (blocks j)
+
+theorem chordRadiusCoefficient_nonnegative (C T V : Fraction)
+    (hC : 0 ≤ C.num) (hT : 0 ≤ T.num) (hV : 0 ≤ V.num) :
+    0 ≤ (chordRadiusCoefficient C T V).num :=
+  Fraction.nonnegative_add _ _ hV
+    (Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hC hT))
+
+/-- Project the derived state error to position, including the final vertex. -/
+theorem sampled_position_error (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (j k : Nat) (hk : k ≤ blocks j) :
+    Fraction.le (pointDistance (BoundedIteration.run a (duration T j) (u zero) k).1
+      (samples u T j k).1) (stateBudget C T j) :=
+  Fraction.magnitudes.le_trans (position_distance_le_state _ _)
+    (dyadic_sample_bound a C T L (u zero) (samples u T) d.remainder_nonnegative
+      d.time_nonnegative d.comparison_nonnegative (samples_initial u T) d.force_comparison
+      d.local_remainder d.short_window j k hk)
+
+/-- Equal interpolation parameters on the two actual edges inherit the
+endpoint error bound. No curve value between samples is used. -/
+theorem sampled_chord_edge_bound (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (j k : Nat) (hk : k < blocks j) (theta : Fraction) (htheta : ConvexCover.UnitInterval theta) :
+    Fraction.le (pointDistance
+      (ConvexCover.lerp theta (BoundedIteration.run a (duration T j) (u zero) k).1
+        (BoundedIteration.run a (duration T j) (u zero) (k+1)).1)
+      (ConvexCover.lerp theta (samples u T j k).1 (samples u T j (k+1)).1))
+      (stateBudget C T j) :=
+  ConvexCover.lerp_difference_bound theta htheta _ _ _ _ _
+    (sampled_position_error a C T L B P V u d j k (by omega))
+    (sampled_position_error a C T L B P V u d j (k+1) (by omega))
+
+/-- The left sample's velocity and local residual bound the full chord. -/
+theorem sampled_chord_step_bound (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (j k : Nat) (hk : k < blocks j) :
+    Fraction.le (pointDistance (samples u T j (k+1)).1 (samples u T j k).1)
+      (Fraction.mul (Fraction.add V (Fraction.mul C T)) (duration T j)) := by
+  have hb := position_step_bound a (duration T j) V (remainder C T j)
+    (samples u T j k) (samples u T j (k+1))
+    (d.curve_velocity_bound j k hk) (d.local_remainder j k hk)
+  have he := Fraction.mul_equiv_right V (Fraction.abs_of_nonnegative (duration T j) d.time_nonnegative)
+  apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans hb
+    (Fraction.add_le_add (remainder_le_width C T j d.remainder_nonnegative d.time_nonnegative)
+      (Fraction.le_of_equiv he)))
+  simp only [Fraction.equiv,Fraction.add,Fraction.mul]
+  simp only [Int.add_mul,Int.mul_add]
+  ac_nf
+
+/-- One actual square encloses every point of a matched cell patch. Its
+radius follows from the derived endpoint and sample-step bounds. -/
+theorem sampled_chord_patch_square (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (j k : Nat) (hk : k < blocks j) (theta lambda : Fraction)
+    (htheta : ConvexCover.UnitInterval theta) (hlambda : ConvexCover.UnitInterval lambda) :
+    ConvexCover.SquareContains (samples u T j k).1 (chordRadius C T V j)
+      (ConvexCover.matchedPatch theta lambda
+        (BoundedIteration.run a (duration T j) (u zero) k).1
+        (BoundedIteration.run a (duration T j) (u zero) (k+1)).1
+        (samples u T j k).1 (samples u T j (k+1)).1) := by
+  let S := Fraction.mul (Fraction.add V (Fraction.mul C T)) (duration T j)
+  have hS : 0 ≤ S.num := Fraction.nonnegative_mul _ _
+    (Fraction.nonnegative_add _ _ d.velocity_nonnegative
+      (Fraction.nonnegative_mul _ _ d.remainder_nonnegative d.time_nonnegative)) d.time_nonnegative
+  have hE := stateBudget_nonnegative C T j d.remainder_nonnegative d.time_nonnegative
+  have hR : Fraction.equiv (Fraction.add (stateBudget C T j) S) (chordRadius C T V j) := by
+    simp only [stateBudget,S,chordRadius,chordRadiusCoefficient,Fraction.equiv,Fraction.add,Fraction.mul,
+      Fraction.ofInt,Int.add_mul,Int.mul_add]
+    ac_nf
+    simp only [← Int.mul_assoc]
+    omega
+  have heR : Fraction.le (stateBudget C T j) (chordRadius C T V j) :=
+    Fraction.le_equiv_right (Fraction.le_add_nonnegative _ _ hS) hR
+  have hsR : Fraction.le S (chordRadius C T V j) :=
+    Fraction.le_equiv_right (Fraction.le_equiv_right (Fraction.le_add_nonnegative _ _ hE)
+      (Fraction.add_comm _ _)) hR
+  have hr : 0 ≤ (chordRadius C T V j).num := Fraction.nonnegative_equiv
+    (Fraction.equiv_symm hR) (Fraction.nonnegative_add _ _ hE hS)
+  apply ConvexCover.matchedPatch_square theta lambda htheta hlambda _ _ _ _ _ _
+  · exact Fraction.magnitudes.le_trans (sampled_position_error a C T L B P V u d j k (by omega)) heR
+  · exact Fraction.le_equiv_right (Fraction.magnitudes.le_trans (pointDistance_triangle _ _ _)
+      (Fraction.add_le_add (sampled_position_error a C T L B P V u d j (k+1) (by omega))
+        (sampled_chord_step_bound a C T L B P V u d j k hk))) hR
+  · exact Fraction.le_equiv_left (pointDistance_self_zero _)
+      (by simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using hr)
+  · exact Fraction.magnitudes.le_trans (sampled_chord_step_bound a C T L B P V u d j k hk) hsR
+
+/-- Set inclusion for the whole finite matched locus, with one square for
+each cell. Equivalent rational point representatives are included. -/
+theorem sampled_chord_cover (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (j : Nat) (x : Point) :
+    ConvexCover.MatchedRegion
+      (fun k => (BoundedIteration.run a (duration T j) (u zero) k).1)
+      (fun k => (samples u T j k).1) (blocks j) x →
+    ConvexCover.SquareCover (fun k => (samples u T j k).1) (chordRadius C T V j) (blocks j) x := by
+  rintro ⟨k,hk,theta,lambda,htheta,hlambda,hx⟩
+  exact ⟨k,hk,(ConvexCover.square_contains_congr _ _ hx).mpr
+    (sampled_chord_patch_square a C T L B P V u d j k hk theta lambda htheta hlambda)⟩
+
+/-- Summed side products of the actual covering squares. This is a cover
+budget, with no claim of disjointness or assigned union area. -/
+theorem chord_cover_budget_formula (C T V : Fraction) (j : Nat) :
+    Fraction.equiv (chordCoverBudget C T V j)
+      (Fraction.mul (Fraction.mul (Fraction.mul (Fraction.ofInt 4)
+        (Fraction.mul (chordRadiusCoefficient C T V) (chordRadiusCoefficient C T V))) T)
+        (duration T j)) := by
+  apply Fraction.equiv_trans (PolygonFanArea.sum_constant _ _)
+  apply Fraction.equiv_trans (b := Fraction.mul (Fraction.mul (Fraction.ofInt 4)
+    (Fraction.mul (chordRadiusCoefficient C T V) (chordRadiusCoefficient C T V)))
+    (Fraction.mul (Fraction.mul (Fraction.ofInt (blocks j : Int)) (duration T j)) (duration T j)))
+  · simp only [chordSquareBudget,chordRadius,Fraction.equiv,Fraction.mul]
+    ac_nf
+  · exact Fraction.equiv_trans
+      (Fraction.mul_equiv_left _ (Fraction.mul_equiv_right _ (blocks_duration T j)))
+      (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+
+theorem chord_cover_budgets_vanish (C T V : Fraction)
+    (hC : 0 ≤ C.num) (hT : 0 ≤ T.num) (hV : 0 ≤ V.num) :
+    Exhaustion.VanishingDifference Fraction.magnitudes (chordCoverBudget C T V) := by
+  have hK := chordRadiusCoefficient_nonnegative C T V hC hT hV
+  let D := Fraction.mul (Fraction.mul (Fraction.ofInt 4)
+    (Fraction.mul (chordRadiusCoefficient C T V) (chordRadiusCoefficient C T V))) T
+  have hD : 0 ≤ D.num := Fraction.nonnegative_mul _ _
+    (Fraction.nonnegative_mul _ _ (by decide) (Fraction.nonnegative_mul _ _ hK hK)) hT
+  have hv := dyadic_scaled_vanishes D T hD hT
+  intro eps heps
+  obtain ⟨N,hN⟩ := hv eps heps
+  exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt
+    (Fraction.le_of_equiv (chord_cover_budget_formula C T V j)) (hN j hj)⟩
+
 end NewtonLimitDynamics.Polygon.MotionSampling

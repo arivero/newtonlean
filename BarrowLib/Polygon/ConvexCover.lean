@@ -128,6 +128,37 @@ def SquareContains (anchor : Point) (R : Fraction) (p : Point) : Prop :=
   Fraction.le (pointSub p anchor).1.abs R ∧
     Fraction.le (pointSub p anchor).2.abs R
 
+/-- Source of this coordinate statement: the English statement and finite
+proof here. Equal convex weights preserve a common bound on the two endpoint
+differences. This records a formal derivation, without historical textual
+attribution or a claim of discovery. -/
+theorem lerp_difference_bound (a : Fraction) (ha : UnitInterval a)
+    (p0 p1 q0 q1 : Point) (R : Fraction)
+    (h0 : Fraction.le (pointNorm (pointSub p0 q0)) R)
+    (h1 : Fraction.le (pointNorm (pointSub p1 q1)) R) :
+    Fraction.le (pointNorm (pointSub (lerp a p0 p1) (lerp a q0 q1))) R := by
+  have he : pointEquiv (pointSub (lerp a p0 p1) (lerp a q0 q1))
+      (lerp a (pointSub p0 q0) (pointSub p1 q1)) := by
+    constructor <;>
+      simp only [lerp,pointSub,pointNeg,pointAdd,pointScale,Fraction.equiv,Fraction.add,Fraction.mul,
+        Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+  have hb := lerp_ball_bound a ha (Fraction.ofInt 0,Fraction.ofInt 0)
+    (pointSub p0 q0) (pointSub p1 q1) R
+    (Fraction.le_equiv_left (pointNorm_equiv (pointSub_zero _)) h0)
+    (Fraction.le_equiv_left (pointNorm_equiv (pointSub_zero _)) h1)
+  exact Fraction.le_equiv_left (pointNorm_equiv he)
+    (Fraction.le_equiv_left (Fraction.equiv_symm (pointNorm_equiv (pointSub_zero _))) hb)
+
+/-- Square membership respects equivalent rational point coordinates.
+Source: the original statement and coordinate proof below. -/
+theorem square_contains_congr (anchor : Point) (R : Fraction) {p q : Point}
+    (hpq : pointEquiv p q) : SquareContains anchor R p ↔ SquareContains anchor R q := by
+  have he := pointSub_congr hpq ⟨Fraction.equiv_refl anchor.1,Fraction.equiv_refl anchor.2⟩
+  exact ⟨fun h => ⟨Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.abs_equiv he.1)) h.1,
+    Fraction.le_equiv_left (Fraction.equiv_symm (Fraction.abs_equiv he.2)) h.2⟩,
+    fun h => ⟨Fraction.le_equiv_left (Fraction.abs_equiv he.1) h.1,
+      Fraction.le_equiv_left (Fraction.abs_equiv he.2) h.2⟩⟩
+
 theorem ball_inside_square (anchor p : Point) (R : Fraction)
     (h : Fraction.le (pointNorm (pointSub p anchor)) R) :
     SquareContains anchor R p := by
@@ -144,6 +175,17 @@ theorem ball_inside_square (anchor p : Point) (R : Fraction)
 polygon edges, then interpolates between those simultaneous positions. -/
 def matchedPatch (theta lambda : Fraction) (c0 c1 f0 f1 : Point) : Point :=
   lerp lambda (lerp theta c0 c1) (lerp theta f0 f1)
+
+/-- The actual finite locus of matched edge interpolations. Source: this
+original coordinate definition. It makes no assertion about a given curve. -/
+def MatchedRegion (p q : Nat → Point) (n : Nat) (x : Point) : Prop :=
+  ∃ k, k < n ∧ ∃ theta lambda, UnitInterval theta ∧ UnitInterval lambda ∧
+    pointEquiv x (matchedPatch theta lambda (p k) (p (k+1)) (q k) (q (k+1)))
+
+/-- One square at each left endpoint of q. Its union is a geometric cover;
+its area is not defined to be the sum of square budgets. Source: this definition. -/
+def SquareCover (q : Nat → Point) (R : Fraction) (n : Nat) (x : Point) : Prop :=
+  ∃ k, k < n ∧ SquareContains (q k) R x
 
 theorem matchedPatch_ball (theta lambda : Fraction)
     (ht : UnitInterval theta) (hl : UnitInterval lambda)
