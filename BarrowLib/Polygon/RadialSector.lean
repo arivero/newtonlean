@@ -527,8 +527,9 @@ theorem between_area_bound (area : DifferenceAreaRules) {a b : Fraction}
     area.monotone _ _ _ _ (between_subset_collar g p hg hbase) hB
       (collar_area area g p hg hbase)⟩
 
-/-- The exhaustion input is supplied by the owning historical Lemma III.
-The chord error is a conclusion from actual set inclusions and area rules. -/
+/-- The caller supplies exhaustion of the radial strip gap. The chord
+error follows from actual set inclusions and area rules; this generic
+interface does not depend on a particular historical limiting lemma. -/
 theorem chord_errors_vanish (area : SectorFan.AreaRules) {a b : Fraction}
     (g : Fraction → Fraction) (parts : Nat → Partition a b)
     (hg : MonotoneOn g a b) (hbase : 0 < (g a).num)
