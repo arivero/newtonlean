@@ -38,25 +38,28 @@ structure HasColourScale (C : GaugeSector) where
   scale : Scalar
   scale_positive : Fraction.positive scale
 
-/-- Mass gap: every excitation has mass at least `gap > 0`. OPEN PROBLEM in
-3+1 dimensions; stated, never proved, here. -/
+/-- Mass gap: the vacuum is massless and every other physical state has mass
+at least `gap > 0`. OPEN PROBLEM in 3+1 dimensions; stated, never proved,
+here. -/
 structure HasMassGap (C : GaugeSector) where
   gap : Scalar
   gap_positive : Fraction.positive gap
-  above_gap : ∀ s : C.Spectrum, Fraction.le gap (C.mass s)
+  vacuum_massless : (C.mass C.vacuum).num = 0
+  above_gap : ∀ s : C.Spectrum, s ≠ C.vacuum → Fraction.le gap (C.mass s)
 
 /-- Confinement: every physical state is gauge invariant (a colour singlet).
 Logically distinct from the mass gap and from the existence of nucleons. -/
 structure HasConfinement (C : GaugeSector) where
   physical_states_invariant : ∀ s : C.Spectrum, C.invariant s
 
-/-- Low-energy hadron sector read inside the physical spectrum. Its type
-depends on confinement and on the colour scale so that any use of hadrons
-carries both hypotheses visibly. -/
+/-- Low-energy hadron sector read inside the physical spectrum, excluding the
+vacuum. Its type depends on confinement and on the colour scale so that any
+use of hadrons carries both hypotheses visibly. -/
 structure HadronSector (C : GaugeSector) (_hConf : HasConfinement C)
     (_hΛ : HasColourScale C) where
   Hadron : Type
   state : Hadron → C.Spectrum
+  nonvacuum : ∀ h, state h ≠ C.vacuum
 
 /-- Hadron states are colour singlets: a formal consequence of confinement. -/
 theorem HadronSector.singlet {C : GaugeSector} {hConf : HasConfinement C}
@@ -64,11 +67,12 @@ theorem HadronSector.singlet {C : GaugeSector} {hConf : HasConfinement C}
     C.invariant (H.state h) :=
   hConf.physical_states_invariant (H.state h)
 
-/-- Hadron masses lie above the gap: a formal consequence of the gap. -/
+/-- Hadron masses lie above the gap: a formal consequence of the gap for
+non-vacuum states. -/
 theorem HadronSector.mass_above_gap {C : GaugeSector} {hConf : HasConfinement C}
     {hΛ : HasColourScale C} (H : HadronSector C hConf hΛ) (hGap : HasMassGap C)
     (h : H.Hadron) : Fraction.le hGap.gap (C.mass (H.state h)) :=
-  hGap.above_gap (H.state h)
+  hGap.above_gap (H.state h) (H.nonvacuum h)
 
 /-- Stable proton- and neutron-like states. Their existence is a hypothesis
 separate from gap and confinement. Neutron stability presupposes the weak
