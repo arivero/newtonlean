@@ -29,6 +29,7 @@ import BarrowLib.Polygon.Parallelogram
 import BarrowLib.Polygon.PointAlgebra
 import BarrowLib.Polygon.PointBounds
 import BarrowLib.Polygon.PolygonFanArea
+import BarrowLib.Polygon.SectorFan
 import BarrowLib.Polygon.QuadraticEstimates
 import BarrowLib.Polygon.RationalIntervals
 import BarrowLib.Polygon.StateDistance

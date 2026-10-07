@@ -22,6 +22,16 @@ uniform continuity. It constructs no completion, derivative, tangent or
 arclength. These declarations cannot discharge the mechanical correspondence
 between a given trajectory and Newton's polygons.
 
+`Polygon/SectorFan` represents actual filled triangles and their finite union.
+A common positive horizontal half-plane and consecutive nonnegative
+determinants derive separating radial cuts. Explicit triangle-area and
+nonzero radial-cut additivity rules extend the partial rectangle-area
+convention; these extra geometric premises are not derived from rectangle
+rules alone. The recursively constructed central polygon then has ordinary
+union area equal to half its elapsed time times its initial areal product on
+that local sector. This finite identification does not identify a curved
+sector or permit a winding fan to be treated as a union without multiplicity.
+
 ClassicsLib identifies the classical source result, currently Euclid I.37
 and I.38 coordinate special cases and their finite lattice realization.
 A determinant implementation is not a completed synthetic Euclidean proof.

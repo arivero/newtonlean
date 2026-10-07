@@ -66,7 +66,20 @@ the new primary unequal-width exhaustion and conditional actual-union areas.
 An `AreaRules` argument is an explicit geometric premise; a control with that
 argument does not prove that such a convention exists.
 
+`sector-unions-2026-10-07.lean` tests actual filled-triangle membership and
+radial separation for a nonconstant central polygon, including its shared
+radial boundary. It also exhibits a complete turn followed by a repeated
+triangle: the fan sum grows while the union stays fixed. Consecutive positive
+determinants alone therefore cannot justify unrestricted union identification.
+
 ## Current verified increment
+
+The subsequent finite-sector library extension passed all five builds,
+all positive controls, compiled axiom/taint inspection, source hashes and
+whitespace. The actual triangle-union identification is restricted to a
+common positive half-plane and explicit geometric area rules. The historical
+curve-limit proof remains open. This library addition is committed separately
+from changes to the historical Proposition I proof, as requested.
 
 On 7 October, all five builds and all positive Lean controls passed for the
 Lemma I–III, Corollaries I–IV and Laws' Corollary I increment. Compiled
