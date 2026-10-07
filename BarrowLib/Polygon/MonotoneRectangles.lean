@@ -22,7 +22,7 @@ structure Partition (a b : Fraction) where
 def MonotoneOn (g : Fraction → Fraction) (a b : Fraction) : Prop :=
   ∀ x y, Fraction.le a x → Fraction.le x y → Fraction.le y b → Fraction.le (g x) (g y)
 
-private theorem node_order {a b : Fraction} (p : Partition a b) (j : Nat) :
+theorem node_order {a b : Fraction} (p : Partition a b) (j : Nat) :
     ∀ i, i≤j → j≤p.count → Fraction.le (p.nodes i) (p.nodes j) := by
   induction j with
   | zero =>

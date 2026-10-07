@@ -54,7 +54,7 @@ example : ¬ lowerFigure squareGraph unequal (p 2 3) := by
     have hn : ¬ rectangle (unequal.nodes 1) (unequal.nodes 2) (squareGraph (unequal.nodes 1)) (p 2 3) := by decide
     exact hn hx
 
--- Actual finite areas and an unequal-width gap strictly below the maximum-width budget.
+-- Finite side-product sums and a gap strictly below the maximum-width budget.
 example : Fraction.equiv (lowerSum squareGraph unequal) (Fraction.ofInt 2) := by decide
 example : Fraction.equiv (upperSum squareGraph unequal) (Fraction.ofInt 19) := by decide
 example : Fraction.equiv (gap squareGraph unequal) (Fraction.ofInt 17) := by decide
@@ -131,6 +131,29 @@ example : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
     Fraction.lt (gap squareGraph (dyadic m)) eps :=
   gaps_vanish squareGraph dyadic (square_monotone _) dyadic_mesh
 example : Fraction.equiv (gap squareGraph (dyadic 0)) (Fraction.ofInt 1) := by decide
+
+-- Primary historical exhaustion uses the independently supplied shrinking mesh.
+example : Exhaustion.VanishingDifference Fraction.magnitudes
+    (fun m => gap squareGraph (dyadic m)) :=
+  Principia1687.LemmaIII.unequal_width_gap_vanishes squareGraph _ _ dyadic
+    (square_monotone _) dyadic_mesh
+
+-- The geometric area convention is explicit. The actual finite union, rather
+-- than a renamed sum, acquires its side-product area through its additivity rules.
+example (area : RectangleContent.AreaRules) :
+    area.HasArea (lowerFigure squareGraph unequal) (Fraction.ofInt 2) :=
+  area.congr_value _ _ _ (by decide)
+    (RectangleContent.lower_upper_areas area squareGraph _ _ unequal
+      (square_monotone _) (by decide)).1
+
+example (area : RectangleContent.AreaRules) (A : Fraction)
+    (hA : area.HasArea (figure squareGraph (Fraction.ofInt 0) (Fraction.ofInt 1)) A) :
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (durationDifference (lowerSum squareGraph (dyadic m)) A).abs) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (durationDifference A (upperSum squareGraph (dyadic m))).abs) :=
+  Principia1713.LemmaIII.corollary1_area_approximation area squareGraph _ _ A
+    dyadic (square_monotone _) (by decide) hA dyadic_mesh
 
 -- Dropping graph monotonicity would make the claimed geometric enclosure false:
 -- the polynomial hump has zero endpoint rectangle gap and a positive interior ordinate.

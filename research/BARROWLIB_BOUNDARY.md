@@ -10,6 +10,18 @@ exhaustion arguments. An explicit abstract order/limiting premise must not
 hide its desired conclusion. Coordinate L1 bounds are a chosen estimate,
 not automatically an intrinsic physical magnitude.
 
+`Common/Exhaustion` supplies an ordered positive-difference contradiction,
+including a nonempty before-end time window; it constructs no terminal value.
+`Polygon/RectangleContent` derives finite union areas from explicit rectangle,
+separated-additivity and monotonicity rules. Its partial `HasArea` relation does
+not assert rational area for arbitrary figures; a given curved area is a
+separate premise. Unit ratios require a positive fixed area.
+`Polygon/RationalBoundary` proves finite rational endpoint-cover, chord and
+supporting-segment estimates and their two-sided exhaustion under supplied
+uniform continuity. It constructs no completion, derivative, tangent or
+arclength. These declarations cannot discharge the mechanical correspondence
+between a given trajectory and Newton's polygons.
+
 ClassicsLib identifies the classical source result, currently Euclid I.37
 and I.38 coordinate special cases and their finite lattice realization.
 A determinant implementation is not a completed synthetic Euclidean proof.

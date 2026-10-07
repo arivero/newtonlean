@@ -1,4 +1,5 @@
 import BarrowLib.Common.FiniteGrowth
+import BarrowLib.Common.Exhaustion
 import BarrowLib.Common.Quadratic
 import BarrowLib.Common.RationalExhaustion
 import BarrowLib.Common.RationalMagnitudes
@@ -22,6 +23,8 @@ import BarrowLib.Polygon.IntegerSchedule
 import BarrowLib.Polygon.KinematicEstimates
 import BarrowLib.Polygon.LatticeGeometry
 import BarrowLib.Polygon.MonotoneRectangles
+import BarrowLib.Polygon.RectangleContent
+import BarrowLib.Polygon.RationalBoundary
 import BarrowLib.Polygon.Parallelogram
 import BarrowLib.Polygon.PointAlgebra
 import BarrowLib.Polygon.PointBounds

@@ -17,7 +17,7 @@ open HarmonicTimeComparison HarmonicStability
 def affine (a u v : Fraction) : Fraction :=
   Fraction.add (Fraction.mul (complement a) u) (Fraction.mul a v)
 
-private theorem affine_between (a u v : Fraction) (ha : UnitInterval a)
+theorem affine_between (a u v : Fraction) (ha : UnitInterval a)
     (h : Fraction.le u v) :
     Fraction.le u (affine a u v) ∧ Fraction.le (affine a u v) v := by
   have hconst (x : Fraction) : Fraction.equiv (affine a x x) x := by

@@ -59,7 +59,32 @@ They retain nondegeneracy/regularity controls and print axiom reports where
 relevant. Complete hypotheses live in the owning declarations; remaining
 obligations live in [STATE.md](STATE.md).
 
-## Latest consolidation
+`historical-groundwork-2026-10-07.lean` checks the positive before-end window,
+zero-duration vacuity, terminal fraction aliases, missing impulse-additivity
+and a vertical rational curve. The monotone-rectangle harness also exercises
+the new primary unequal-width exhaustion and conditional actual-union areas.
+An `AreaRules` argument is an explicit geometric premise; a control with that
+argument does not prove that such a convention exists.
+
+## Current verified increment
+
+On 7 October, all five builds and all positive Lean controls passed for the
+Lemma I–III, Corollaries I–IV and Laws' Corollary I increment. Compiled
+reference inspection found no project axioms, sorry or primary anachronical
+dependency. Graphs were regenerated from current source and compiled uses.
+Archive hashes and whitespace checks passed. The deliberate corrupted control
+failed at the intended false equality. The new Latin passages are NATP00090
+par12–13 and the two printed Law II explanations (par4); archived sources are
+unchanged. See [STATE.md](STATE.md) for the conditional scope and open claims.
+
+The authorized Astra review found no blocking defects. Its two wording
+corrections are applied: De Motu's statement/proof folios are distinguished,
+and the mechanical control is described as a concrete model instance rather
+than an independent implementation. The review checked the added Latin against
+archived TEI and confirmed the stated restrictions; it does not certify full
+historical completion.
+
+## Retained consolidation
 
 The refactor/source-only cleanup was verified and pushed as `60180f2`.
 The subsequent consolidation removes Python/plots, the whole-library interleaved

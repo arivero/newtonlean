@@ -1,4 +1,6 @@
 import BarrowLib.Polygon.ImpulseComposition
+import NewtonLimitDynamics.Historical.LawI
+import NewtonLimitDynamics.Historical.LawII
 
 /-! Historical result: composition_of_motions.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
@@ -10,7 +12,7 @@ Source: docs/m1/NATP00089.xml
 SHA-256: b91b58f8d0a79a18eb60d6a715a3952821aff4cdfabbb5a16625ff3e572bbc34
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par7
 Anchor URLs: NATP00089.par7 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00089#par7
-Proof-step correspondence: The stated parallelogram or motion-composition step corresponds to the endpoint model below; it does not establish a force law or a continuum trajectory.
+Proof-step correspondence: The finite endpoint model proves the two transverse line constraints and their unique intersection for independent directions. Printed corollary sections also derive diagonal motion at every rational time from their own explicit Law I inertia and calibrated Law II additive-change premises. These premises are not proved from geometry; De Motu witnesses retain their separate hypothesis/model scope.
 -/
 /- LATIN BEGIN NATP00089.par7
 [add: Hyp. 3. Corpus [del: minibus] in dato tempore viribus conjunctis eo ferri quo viribus divisis in temporibus æqualibus successivè. Hyp 4]
@@ -32,7 +34,7 @@ Source: docs/m1/NATP00090.xml
 SHA-256: 790b468987fd8c7716d9d43197ec3a724f7f581ec8b6ed3998edc191b951f998
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par10
 Anchor URLs: NATP00090.par10 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par10; NATP00090.par11 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par11
-Proof-step correspondence: The stated parallelogram or motion-composition step corresponds to the endpoint model below; it does not establish a force law or a continuum trajectory.
+Proof-step correspondence: The finite endpoint model proves the two transverse line constraints and their unique intersection for independent directions. Printed corollary sections also derive diagonal motion at every rational time from their own explicit Law I inertia and calibrated Law II additive-change premises. These premises are not proved from geometry; De Motu witnesses retain their separate hypothesis/model scope.
 Historical dependency ledger for this exact witness:
 - NATP00090.Law2 → NATP00090.L1; passage NATP00090.par11; witness 'De motu sphæricorum corporum in fluidis'; URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par11; status explicit_dependency; confidence high.
 -/
@@ -62,7 +64,11 @@ Source: docs/m1/NATP00076.xml
 SHA-256: fc2984820b61f64fdbf5efe1142ea8cf5458b75dd54fc6525f73ee705a8a9b1c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par7
 Anchor URLs: NATP00076.par7 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par7; NATP00076.par8 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par8
-Proof-step correspondence: The stated parallelogram or motion-composition step corresponds to the endpoint model below; it does not establish a force law or a continuum trajectory.
+Proof-step correspondence: The finite endpoint model proves the two transverse line constraints and their unique intersection for independent directions. Printed corollary sections also derive diagonal motion at every rational time from their own explicit Law I inertia and calibrated Law II additive-change premises. These premises are not proved from geometry; De Motu witnesses retain their separate hypothesis/model scope.
+Historical dependency evidence for this exact witness:
+- P1687.Law2 → P1687.Composition; passage NATP00076.par4 ("motui ejus ... additur ... componitur") and par8 ("nihil mutabit velocitatem"); witness Axiomata Sive Leges Motus (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par8; status implicit_dependency; confidence high.
+- P1687.Law1 → P1687.Composition; passage NATP00076.par1 ("movendi uniformiter in directum") and par7 ("eodem tempore"); witness Axiomata Sive Leges Motus (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par7; status editorial_interpretation; confidence medium.
+No numbered law is cited in par8. Uniform post-impulse drift is the formal model's explicit interpretation; par8 does not contain 1713's final Law I sentence.
 -/
 /- LATIN BEGIN NATP00076.par7
 Corpus viribus conjunctis diagonalem parallelogrammi eodem tempore describere, quo latera separatis.
@@ -73,6 +79,21 @@ LATIN END NATP00076.par8 -/
 
 namespace Principia1687.Laws
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon TimeSubdivision Parallelogram
+
+/-- At every rational elapsed time, initial directed additive impulses followed
+by inertia describe the diagonal. The mechanical laws are explicit premises,
+separate from the resulting parallelogram statement. -/
+theorem corollary1_from_laws
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : InertialMotion motion) (hII : AdditiveImpulse update)
+    (p u v : Point) (t : Fraction) :
+    pointEquiv (motion p (update u v) t)
+      (diagonal p (pointScale t u) (pointScale t v)) :=
+  pointEquiv_trans (hI p (update u v) t)
+    (pointEquiv_trans
+      (pointAdd_congr ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩
+        (pointScale_congr t (hII u v)))
+      (ImpulseComposition.uniform_impulse_diagonal p u v t))
 
 theorem corollary1_endpoint_reconstruction (p u v : Point) (t : Fraction)
     (h : (TimeSubdivision.det (pointScale t u) (pointScale t v)).num ≠ 0) :
@@ -95,7 +116,7 @@ Source: docs/m1/NATP00081.xml
 SHA-256: 5c72c73d9f396d3b34475543fa7cd158ab29006fb43fa35bc63df9b7e4be6bfe
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par7
 Anchor URLs: NATP00081.par7 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par7; NATP00081.par8 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8
-Proof-step correspondence: The stated parallelogram or motion-composition step corresponds to the endpoint model below; it does not establish a force law or a continuum trajectory.
+Proof-step correspondence: The finite endpoint model proves the two transverse line constraints and their unique intersection for independent directions. Printed corollary sections also derive diagonal motion at every rational time from their own explicit Law I inertia and calibrated Law II additive-change premises. These premises are not proved from geometry; De Motu witnesses retain their separate hypothesis/model scope.
 Historical dependency ledger for this exact witness:
 - P1713.Law2 → P1713.Composition; passage NATP00081.par8; witness Axiomata Sive Leges Motus (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8; status explicit_dependency; confidence high.
 - P1713.Law1 → P1713.Composition; passage NATP00081.par8; witness Axiomata Sive Leges Motus (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8; status explicit_dependency; confidence high.
@@ -109,6 +130,20 @@ LATIN END NATP00081.par8 -/
 
 namespace Principia1713.Laws
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon TimeSubdivision Parallelogram
+
+/-- The edition's explicit Laws I and II premises yield the diagonal at every
+rational time after impulses at the initial point, including dependent vectors. -/
+theorem corollary1_from_laws
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : InertialMotion motion) (hII : AdditiveImpulse update)
+    (p u v : Point) (t : Fraction) :
+    pointEquiv (motion p (update u v) t)
+      (diagonal p (pointScale t u) (pointScale t v)) :=
+  pointEquiv_trans (hI p (update u v) t)
+    (pointEquiv_trans
+      (pointAdd_congr ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩
+        (pointScale_congr t (hII u v)))
+      (ImpulseComposition.uniform_impulse_diagonal p u v t))
 
 theorem corollary1_endpoint_reconstruction (p u v : Point) (t : Fraction)
     (h : (TimeSubdivision.det (pointScale t u) (pointScale t v)).num ≠ 0) :

@@ -1,0 +1,194 @@
+import BarrowLib.Polygon.MonotoneRectangles
+import BarrowLib.Common.Exhaustion
+
+/-! Finite rectangle-union area from explicit elementary area rules.
+`AreaRules` is a supplied geometric convention, not an existence theorem for
+area on arbitrary figures. It is a partial relation: no rational area for an
+arbitrary curved or unbounded set is postulated. Additivity applies only to
+sets separated by a vertical cut, permitting a shared boundary of zero area.
+The separation of adjacent partition cells is proved below. -/
+namespace NewtonLimitDynamics.Polygon.RectangleContent
+open NewtonLimitDynamics TimeSubdivision MonotoneRectangles PolygonFanArea
+
+structure AreaRules where
+  HasArea : (Point → Prop) → Fraction → Prop
+  empty : HasArea (fun _ => False) (Fraction.ofInt 0)
+  congr_set : ∀ U V A, (∀ x, U x ↔ V x) → HasArea U A → HasArea V A
+  congr_value : ∀ U A B, Fraction.equiv A B → HasArea U A → HasArea U B
+  rectangle : ∀ l r H, Fraction.le l r → 0 ≤ H.num →
+    HasArea (MonotoneRectangles.rectangle l r H)
+      (Fraction.mul (HarmonicTimeComparison.durationDifference l r) H)
+  separated_union : ∀ U V A B c,
+    (∀ x, U x → Fraction.le x.1 c) → (∀ x, V x → Fraction.le c x.1) →
+    HasArea U A → HasArea V B → HasArea (fun x => U x ∨ V x) (Fraction.add A B)
+  monotone : ∀ U V A B, (∀ x, U x → V x) → HasArea U A → HasArea V B → Fraction.le A B
+
+def strips {a b : Fraction} (p : Partition a b) (heights : Nat → Fraction)
+    (n : Nat) (x : Point) : Prop :=
+  ∃ i, i < n ∧ MonotoneRectangles.rectangle (p.nodes i) (p.nodes (i+1)) (heights i) x
+
+theorem strips_succ {a b : Fraction} (p : Partition a b) (heights : Nat → Fraction)
+    (n : Nat) (x : Point) :
+    strips p heights (n+1) x ↔ strips p heights n x ∨
+      MonotoneRectangles.rectangle (p.nodes n) (p.nodes (n+1)) (heights n) x := by
+  constructor
+  · rintro ⟨i, hi, hx⟩
+    by_cases h : i < n
+    · exact Or.inl ⟨i, h, hx⟩
+    · have he : i = n := by omega
+      subst i
+      exact Or.inr hx
+  · intro h
+    rcases h with ⟨i, hi, hx⟩ | hx
+    · exact ⟨i, by omega, hx⟩
+    · exact ⟨n, by omega, hx⟩
+
+/-- The actual finite union has its side-product sum as area. Repeated
+nodes cause zero-width rectangles; no division or distinct-node premise is
+used. The only geometric area assumptions are the displayed `AreaRules`. -/
+theorem strips_area (area : AreaRules) {a b : Fraction} (p : Partition a b)
+    (heights : Nat → Fraction) (hh : ∀ i, i < p.count → 0 ≤ (heights i).num)
+    (n : Nat) (hn : n ≤ p.count) :
+    area.HasArea (strips p heights n)
+      (sum (fun i => Fraction.mul (width p i) (heights i)) n) := by
+  induction n with
+  | zero =>
+    apply area.congr_set (fun _ => False) _ _ _ area.empty
+    intro x
+    simp only [strips, Nat.not_lt_zero, false_and, exists_false]
+  | succ n ih =>
+    have hp := ih (by omega)
+    have hr := area.rectangle (p.nodes n) (p.nodes (n+1)) (heights n)
+      (p.ordered n (by omega)) (hh n (by omega))
+    have hu := area.separated_union _ _ _ _ (p.nodes n) ?_ ?_ hp hr
+    · exact area.congr_set _ _ _ (fun x => (strips_succ p heights n x).symm) hu
+    · intro x hx
+      obtain ⟨i, hi, _, hright, _⟩ := hx
+      exact Fraction.magnitudes.le_trans hright (node_order p n (i+1) (by omega) (by omega))
+    · intro x hx
+      exact hx.1
+
+theorem lower_upper_areas (area : AreaRules) (g : Fraction → Fraction) (a b : Fraction)
+    (p : Partition a b) (hg : MonotoneOn g a b) (hbase : 0 ≤ (g a).num) :
+    area.HasArea (lowerFigure g p) (lowerSum g p) ∧
+      area.HasArea (upperFigure g p) (upperSum g p) := by
+  have hheight (i : Nat) (hi : i ≤ p.count) : 0 ≤ (g (p.nodes i)).num :=
+    Fraction.nonnegative_of_le hbase (hg a (p.nodes i) (Fraction.magnitudes.le_refl _)
+      (node_bounds p i hi).1 (node_bounds p i hi).2)
+  exact ⟨strips_area area p (fun i => g (p.nodes i)) (fun i hi => hheight i (by omega)) _ (Nat.le_refl _),
+    strips_area area p (fun i => g (p.nodes (i+1))) (fun i hi => hheight (i+1) (by omega)) _ (Nat.le_refl _)⟩
+
+/-- If the given curved region has an assigned rational area, its numeric
+enclosure follows from proved set inclusion and the geometric area rules.
+The existence or rationality of a curved region's area is not asserted. -/
+theorem curved_area_enclosure (area : AreaRules) (g : Fraction → Fraction) (a b A : Fraction)
+    (p : Partition a b) (hg : MonotoneOn g a b) (hbase : 0 ≤ (g a).num)
+    (hA : area.HasArea (figure g a b) A) :
+    Fraction.le (lowerSum g p) A ∧ Fraction.le A (upperSum g p) := by
+  have ha := lower_upper_areas area g a b p hg hbase
+  have hs := figure_enclosure g p hg
+  exact ⟨area.monotone _ _ _ _ hs.1 ha.1 hA, area.monotone _ _ _ _ hs.2 hA ha.2⟩
+
+/-- Equal-width exhaustion uses the exact telescoping gap identity supplied
+by the owning historical Lemma II, rather than the unequal-width bound. -/
+theorem equal_width_exhaustion (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → Partition a b) (hg : MonotoneOn g a b) (mesh : Nat → Fraction)
+    (hwidth : ∀ m i, i < (parts m).count → Fraction.equiv (width (parts m) i) (mesh m))
+    (hidentity : ∀ m, Fraction.equiv (gap g (parts m))
+      (Fraction.mul (mesh m) (HarmonicTimeComparison.durationDifference (g a) (g b))))
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes mesh) :
+    Exhaustion.VanishingDifference Fraction.magnitudes (fun m => gap g (parts m)) := by
+  have hab : Fraction.le a b := Fraction.magnitudes.le_trans
+    (node_bounds (parts 0) 0 (by omega)).1 (node_bounds (parts 0) 0 (by omega)).2
+  let H := HarmonicTimeComparison.durationDifference (g a) (g b)
+  have hH : 0 ≤ H.num := (HarmonicTimeComparison.difference_nonnegative_iff _ _).mpr
+    (hg a b (Fraction.magnitudes.le_refl _) hab (Fraction.magnitudes.le_refl _))
+  intro eps heps
+  obtain ⟨N, hN⟩ := hmesh (HarmonicTimeRealization.factorDelta H eps hH)
+    (HarmonicTimeRealization.factorDelta_positive H eps hH heps)
+  refine ⟨N, fun m hm => ?_⟩
+  have hn : 0 ≤ (mesh m).num := Fraction.nonnegative_equiv
+    (Fraction.equiv_symm (hwidth m 0 (parts m).positive_count))
+    ((HarmonicTimeComparison.difference_nonnegative_iff _ _).mpr
+      ((parts m).ordered 0 (parts m).positive_count))
+  exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv (hidentity m))
+    (HarmonicTimeRealization.factor_control H eps (mesh m) hH hn (hN m hm))
+
+/-- Numeric area errors shrink because the represented sets enclose the
+given figure. Neither an area-error bound nor its vanishing is a premise. -/
+theorem area_errors_vanish (g : Fraction → Fraction) (a b A : Fraction)
+    (parts : Nat → Partition a b) (hg : MonotoneOn g a b)
+    (henclose : ∀ m, Fraction.le (lowerSum g (parts m)) A ∧ Fraction.le A (upperSum g (parts m)))
+    (hgap : Exhaustion.VanishingDifference Fraction.magnitudes (fun m => gap g (parts m))) :
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference (lowerSum g (parts m)) A).abs) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference A (upperSum g (parts m))).abs) := by
+  have bound (m : Nat) := HarmonicTimeComparison.difference_interval_gaps
+    (lowerSum g (parts m)) A (upperSum g (parts m)) (henclose m).1 (henclose m).2
+  have hnonnegative (m : Nat) : 0 ≤ (gap g (parts m)).num :=
+    (gap_bound g (parts m) hg (maxWidth (parts m)) (maxWidth_bounds (parts m)).1).1
+  constructor <;> intro eps heps <;> obtain ⟨N, hN⟩ := hgap eps heps <;>
+    refine ⟨N, fun m hm => ?_⟩
+  · exact Fraction.magnitudes.lt_of_le_lt
+      (Fraction.le_equiv_right (bound m).1 (Fraction.abs_of_nonnegative _ (hnonnegative m))) (hN m hm)
+  · exact Fraction.magnitudes.lt_of_le_lt
+      (Fraction.le_equiv_right (bound m).2 (Fraction.abs_of_nonnegative _ (hnonnegative m))) (hN m hm)
+
+/-- Ratio to a fixed, separately assigned positive rational area.
+Positivity is required before division; zero figures are excluded here. -/
+def ratioTo (A : Fraction) (hA : 0 < A.num) (X : Fraction) : Fraction :=
+  Fraction.mul X ⟨A.den, A.num, hA⟩
+
+theorem ratio_error (A : Fraction) (hA : 0 < A.num) (X : Fraction) :
+    Fraction.equiv (HarmonicTimeComparison.durationDifference (ratioTo A hA X) (Fraction.ofInt 1)).abs
+      (Fraction.mul (HarmonicTimeComparison.durationDifference X A).abs ⟨A.den,A.num,hA⟩) := by
+  have he : Fraction.equiv
+      (HarmonicTimeComparison.durationDifference (ratioTo A hA X) (Fraction.ofInt 1))
+      (Fraction.mul (HarmonicTimeComparison.durationDifference X A) ⟨A.den,A.num,hA⟩) := by
+    simp only [ratioTo, HarmonicTimeComparison.durationDifference, HarmonicStability.negF,
+      Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt,
+      Int.add_mul, Int.mul_add, Int.neg_mul, Int.mul_neg, Int.mul_one, Int.one_mul]
+    ac_nf
+  exact Fraction.equiv_trans (Fraction.abs_equiv he)
+    (by
+      have hi := Fraction.abs_eq_of_nonnegative (⟨A.den,A.num,hA⟩ : Fraction)
+        (Int.le_of_lt A.den_pos)
+      simpa only [hi] using
+        Fraction.abs_mul (HarmonicTimeComparison.durationDifference X A) ⟨A.den,A.num,hA⟩)
+
+/-- Absolute area exhaustion implies a unit ultimate ratio to a fixed
+positive assigned area. No ratio to a vanishing denominator is asserted. -/
+theorem ratios_approach_one (A : Fraction) (hA : 0 < A.num) (X : Nat → Fraction)
+    (hx : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference (X m) A).abs)) :
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference (ratioTo A hA (X m)) (Fraction.ofInt 1)).abs) := by
+  let C : Fraction := ⟨A.den,A.num,hA⟩
+  have hC : 0 ≤ C.num := Int.le_of_lt A.den_pos
+  intro eps heps
+  obtain ⟨N,hN⟩ := hx (HarmonicTimeRealization.factorDelta C eps hC)
+    (HarmonicTimeRealization.factorDelta_positive C eps hC heps)
+  refine ⟨N, fun m hm => ?_⟩
+  exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv (ratio_error A hA (X m)))
+    (HarmonicTimeRealization.factor_control C eps _ hC
+      (Fraction.abs_num_nonnegative _) (hN m hm))
+
+theorem area_ratios_approach_one (A : Fraction) (hA : 0 < A.num)
+    (L U : Nat → Fraction)
+    (hl : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference (L m) A).abs))
+    (hu : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference A (U m)).abs)) :
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference (ratioTo A hA (L m)) (Fraction.ofInt 1)).abs) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference (ratioTo A hA (U m)) (Fraction.ofInt 1)).abs) := by
+  refine ⟨ratios_approach_one A hA L hl, ratios_approach_one A hA U ?_⟩
+  intro eps heps
+  obtain ⟨N,hN⟩ := hu eps heps
+  exact ⟨N, fun m hm => Fraction.magnitudes.lt_of_le_lt
+    (Fraction.le_of_equiv (HarmonicTimeRealization.durationDifference_abs_symm (U m) A))
+    (hN m hm)⟩
+
+end NewtonLimitDynamics.Polygon.RectangleContent

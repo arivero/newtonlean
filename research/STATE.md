@@ -1,6 +1,6 @@
 # Research state and open obligations
 
-Updated 6 October 2026. This is the single maintained state/task file.
+Updated 7 October 2026. This is the single maintained state/task file.
 Follow [the current handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md) and
 [GOALS.md](GOALS.md). Previous session logs and task snapshots are in Git.
 The historical-file refactor and source-only cleanup were committed and
@@ -23,11 +23,11 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 
 | Result or bridge | Retained checked result | Open historical obligation |
 | --- | --- | --- |
-| Lemma I | Exact Latin statement and contradiction proof in each witness section | Both historical Lean namespaces are empty. Formalize the positive-difference contradiction with explicit limiting/order premises; do not assume equality |
-| Lemma II | Equal-width gap identity in a rational monotone graph model | Identify rectangle sums with geometric union area; enclose the given curvilinear area and actually apply Lemma I |
-| Lemma III | Maximum-width gap bound and exhaustion; actual partition coverage and rectangle-set enclosure | Unequal-width ultimate-area ratio, retaining nonzero area where ratios require it |
-| Lemma III corollaries | Modern two-sided chord and supporting-segment trace limits | Source-local corollary chain, actual tangents, vertical patches and geometric area passage; no arclength conclusion is proved |
-| Laws' Corollary I | Endpoint constraints and unique parallelogram intersection; actual central-cell composition | Connect mechanical premises to each witness's laws/hypotheses. Only 1713 explicitly cites Laws II/I in that proof |
+| Lemma I | Separate 1687/1713 positive-terminal-difference contradictions, including an actual positive before-end time window; rational terminal-zero consequence | Terminal comparisons and approach premises are supplied; terminal values are not constructed. No general equality of objects is inferred from an unspecified difference |
+| Lemma II | Exact equal-width gap, actual rectangle-union side-product areas under explicit partial area rules, derived enclosure/errors and unit ratios to a fixed positive assigned rational curved area; actual use of the edition's Lemma I | Existence of the geometric area convention and the curve's area remain premises; arbitrary non-rational areas and ratios of two varying areas require further treatment |
+| Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; area errors and fixed-area unit ratios for unequal widths | Same area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
+| Lemma III corollaries I–IV | Source-local chain: conditional area approximation, rectangle endpoint covers, two-sided chord/supporting-segment approximation to a supplied rational curve under uniform continuity and shrinking mesh | Rectangle covers are not staircase perimeters. Supporting cells are supplied; actual tangents, the circumscribed figure's area and force-polygon correspondence remain open. No arclength conclusion |
+| Laws' Corollary I | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites Laws II/I in this proof; De Motu hypotheses and finite models remain witness-local |
 | Proposition I | Finite equal-area/componendo steps; modern constructed-curve and conditional given-curve fan laws | Historical swept-sector proof through invoked results, sector-area identification and approximation of the given curve |
 | Proposition II | Finite oriented-area converse, including unequal durations and uniformly moving centres | Vanishing-triangle/continuous-curve passage. Direction does not determine inward sense; unsigned areas and a vertex at the centre require separate treatment |
 | Proposition III | Relative deflection and reference-history cancellation; finite converse application | Realized relative-orbit limit. No Law III, mass/force law or force/time-scale conclusion is derived |
@@ -80,6 +80,11 @@ uniqueness statements, with counterexamples where appropriate.
 
 NATP00089 and NATP00090 retain separate revisions. Their area arguments do not
 cite a numbered limiting lemma; do not give them the printed Lemma III citation.
+LemmaI.lean houses the exact NATP00090 par12–13 Lemma 2 passage and a conditional
+enclosing-ratio reconstruction of its unnumbered exhaustion step. This is an
+editorial comparison with printed Lemma I, not De Motu's numbered Lemma 1 (motion
+composition), and not a newly asserted dependency of its Theorem 1. NATP00089's
+unnumbered terminal assertion remains with its Theorem 1 in AreaLaw.lean.
 Proposed 1694 and 1726 remain comparison witnesses. Earliest H4 chronology,
 direct C42 text and exact draft-folio identification remain source gaps.
 The edited Rouse Ball witness and its limits are in [sources.md](sources.md).
@@ -89,7 +94,10 @@ layer. Positivity, finiteness, partition stability, system independence and
 action rescaling are distinct tests. No universal constant or quantum premise
 closes a historical proof.
 
-The next increment is Lemma I, then Lemmas II–III's actual area passage and
-invoked corollaries, then Proposition I. Cleanup and modern wiring add no
-historical proof-completion credit. Use [verification](VERIFICATION.md) and
+The next increment is to connect Proposition I's actual force polygons and
+given trajectory to these explicit geometric/regularity premises, then prove
+ordinary swept-sector identification and B. Do not infer either from rational
+boundary approach or from multiplicity-counted fan sums. The groundwork has
+checked conditional increments; the full historical statements remain subject
+to the restrictions above. Use [verification](VERIFICATION.md) and
 read the different scope of [source/compiled-use diagrams](figures.md).

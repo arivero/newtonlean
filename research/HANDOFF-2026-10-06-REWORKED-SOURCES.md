@@ -49,11 +49,11 @@ proof correspondence and dependency evidence:
 | Work | Current owner | Present boundary |
 | --- | --- | --- |
 | Proposition I / De Motu Theorem I | NewtonLimitDynamics/Historical/AreaLaw.lean | Finite equal-area proof steps; modern constructed-curve results below the separator; complete historical swept-sector proof open |
-| Laws' Corollary I / De Motu composition | NewtonLimitDynamics/Historical/CompositionOfMotions.lean | Finite rational endpoint reconstruction; independent mechanical law correspondence still explicit |
-| Laws I and II | NewtonLimitDynamics/Historical/LawI.lean; LawII.lean | Source-local law statements; mechanical premises must be represented honestly |
-| Lemma I | NewtonLimitDynamics/Historical/LemmaI.lean | Latin statement and contradiction proof present; both Lean namespaces still empty |
-| Lemmas II and III | NewtonLimitDynamics/Historical/LemmaII.lean; LemmaIII.lean | Finite equal/unequal-width gap algebra; ordinary geometric area and ultimate-ratio passage open |
-| Lemma III corollaries | NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean through CorollaryIV.lean | Source chain recorded; chord/supporting-line boundary reconstructions use modern curve machinery |
+| Laws' Corollary I / De Motu composition | NewtonLimitDynamics/Historical/CompositionOfMotions.lean | Printed editions derive diagonal motion from their own supplied inertia/additive-change predicates; separate De Motu finite models |
+| Laws I and II | NewtonLimitDynamics/Historical/LawI.lean; LawII.lean | Source-local statements, Law II explanations and explicit calibrated mechanical predicates |
+| Lemma I | NewtonLimitDynamics/Historical/LemmaI.lean | Separate ordered contradiction and positive before-end-window proofs; NATP00090 Lemma 2's unnumbered squeeze comparison |
+| Lemmas II and III | NewtonLimitDynamics/Historical/LemmaII.lean; LemmaIII.lean | Actual finite union areas under supplied area rules, fixed positive rational-area ratios, actual historical cross-result uses; arbitrary curved areas remain open |
+| Lemma III corollaries | NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean through CorollaryIV.lean | Primary rational approximation chain with explicit continuity/mesh/support data; actual tangents and circumscribed area remain open |
 | Propositions II–IV | NewtonLimitDynamics/Historical/PropositionII.lean through PropositionIV.lean | Retained finite/conditional reconstructions; historical limiting routes open |
 
 Use the archived TEI in docs/m1 and docs/m4 as the transcription authority.
@@ -64,45 +64,43 @@ Lean scope harnesses explain the current boundaries. The [migration note](HISTOR
 records the library boundaries and nine ownership corrections.
 
 `lake env lean scripts/inspect_graphs.lean` recovers diagrams in figures.md
-from the current files. There are 58 recorded source edges, including three
-editorial comparisons, and zero direct compiled uses between historical
-files at this checkpoint. The latter exposes the interface gap: the formal
-proofs have not yet implemented the cited historical chain. Graph omissions
-are coverage limits, not evidence of absence in Newton.
+from the current files. Primary compiled uses now include Lemma I in Lemmas II/III, Lemma II in
+Lemma III, the corollary approximation chain, and Laws I/II in the printed
+composition results. The source evidence and formal uses have different scopes:
+these uses prove the stated conditional reconstructions, not every clause of
+Newton's general assertions. Graph omissions are coverage limits, not evidence
+of absence in Newton.
 
 ## Work order
 
-1. **Lemma I, the first bounded proof increment.** Read both exact Latin
-   proofs in LemmaI.lean. Formalize their contradiction using a supposed
-   positive ultimate difference and the ability to approach more closely
-   than any assigned difference. State terminal-value and order/limiting
-   premises explicitly; preserve 1687's given-time and 1713's finite-time,
-   before-end wording. Put reusable order/exhaustion arithmetic in BarrowLib.
-   Do not supply ultimate equality itself as a premise or import a ModernLib
-   limit theorem into the primary section. The acceptance criterion is a
-   compiling, source-corresponding proof in each previously empty namespace,
-   with every remaining interpretive premise identified. This is an invoked
-   lemma increment, not completion of Proposition I.
-2. **Lemmas II–III's geometric area passage.** Reuse the actual monotone
-   partitions, enclosure sets, maximum widths and gap exhaustion in
-   BarrowLib/Polygon/MonotoneRectangles.lean. Prove the identification of
-   rectangle side-product sums with the area of the represented finite
-   rectangle unions, including repeated nodes and zero widths. State the
-   geometric area convention and required disjointness/additivity explicitly;
-   do not rename an arbitrary scalar sum as ordinary area. Establish the
-   given curvilinear figure's enclosure, then actually apply the separately
-   proved Lemma I. Keep nonzero area explicit wherever ratios need it.
-   Lemma II's equal-width argument and Lemma III's unequal-width argument
-   remain separate results. An elementary finite substep is reviewable on
-   its own; it does not complete their ultimate-area conclusions.
-3. **The invoked corollaries and composition.** Complete the source-local
-   Lemma III corollary chain used by Corollary IV. Retain the distinction
-   between inscribed chords, supporting lines and actual force polygons.
-   Actual tangent identification and vertical patches remain open; the
-   modern trace theorems do not discharge them. Connect the finite composition
-   argument to each witness's Laws I/II or De Motu hypothesis, using the
-   existing endpoint proofs rather than restating them. Do not silently add
-   1713's explicit law citations to 1687.
+1. **Lemma I: checked conditional increment, 7 October.** The formerly
+   empty namespaces now prove the positive-difference contradiction, with
+   terminal lower comparisons supplied independently of equality. The
+   before-end forms require a positive time window and construct an actual
+   sample. Rational nonnegative terminal differences are zero. The exact
+   NATP00090 par12–13 squeeze occurs inside De Motu Lemma 2; it is an editorial
+   comparison, not that witness's numbered Lemma 1 or an invented Theorem 1
+   citation. Its quadratic/mechanical enclosure premises remain supplied.
+2. **Lemmas II–III: checked conditional geometric passage.** Actual finite
+   rectangle unions have side-product areas under explicit partial area
+   rules; adjacent-cell separation is proved, including repeated nodes.
+   Given an assigned rational curved area, geometric inclusion derives its
+   enclosure, absolute approximation errors and, if positive, unit ratios to
+   that fixed area. Equal-width telescoping and unequal-width maximum estimates
+   remain separate. Both editions actually use their Lemma I contradiction;
+   Lemma III uses its Lemma II enclosure. General area existence, non-rational
+   areas and ratios between two varying areas are still open.
+3. **Corollaries and composition: checked restricted chain.** Corollary I
+   uses the edition's Lemma III area theorem. A separate endpoint-rectangle
+   cover estimate, supplied uniform continuity and shrinking mesh give
+   two-sided rational chord/supporting-segment approximation through
+   Corollaries I–IV. The covers are not staircase perimeters. Supporting
+   cells are not identified as actual tangents; their enclosed area and
+   arclength are not proved. Laws' Corollary I now uses separate edition-local
+   inertia and calibrated additive-impulse predicates. Mechanical premises
+   are supplied, not proved; the 1687 dependency interpretation remains
+   distinct from 1713's explicit Law II/I citations. De Motu witness models
+   are not silently replaced by printed laws.
 4. **Proposition I's historical proof.** Use those checked historical results
    in AreaLaw.lean to justify Newton's finite construction, the passage to the
    supplied trajectory and swept-sector area proportionality. Prove B where
@@ -184,7 +182,9 @@ Reader Markdown can be rendered with pandoc on demand; generated whole-library
 documents and checked-in reader PDFs are removed.
 
 Use Lean 4.19 core/Std only, no mathlib, no sorry and no project axioms.
-Delegated work remains sequential v6 Sol/Luna under AGENTS.md, without Astra.
+Delegated implementation remains sequential v6 Sol/Luna under AGENTS.md.
+For the 7 October groundwork increment the user explicitly authorized one
+final Astra review, overriding the earlier prohibition for that review.
 Preserve unrelated worktree changes. Commit only verified increments under
 the requested Sol6.1 identity and push as authorized. Update STATE.md and the
 owning source/scope notes when the result changes them. Measure progress by
