@@ -108,37 +108,36 @@ the source-local Laws' Corollary I dependency without assuming equal areas.
 
 ## Current verified increment
 
-The printed editions' law-driven finite-sector increment passed all five
-builds, all positive controls, source hashes and whitespace. The compiled
-checker verified 1,181 opening score comments and 6,450 project constants:
-no project axioms, sorry or primary modern dependency. The corrupted control
-failed at its intended false equality. Astra found no blocking mathematical
-or attribution defect; its build-before-refresh workflow correction is
-applied above. This verifies the finite local result, not the curved-sector
-proof or complete exact-source coverage of the existing libraries.
+The radial-sector increment derives actual set enclosures for a given positive
+monotone rational radial graph and its chord polygon, finite triangle-union
+areas, chord-area errors, and shrinking covers of their symmetric difference.
+The chart is `(x,y)=(g(t),g(t)*t)`: `t=y/x` is slope, and `g(t)` is the
+positive x-coordinate. Subtraction of nested assigned areas is an additional
+explicit geometric rule; it assumes no curve agreement or limiting area.
+Each printed edition actually uses its own Lemmas III/I. Force-polygon
+identification and slope-parameter mesh exhaustion for the mechanical
+construction remain open.
 
-The subsequent finite-sector library extension passed all five builds,
-all positive controls, compiled axiom/taint inspection, source hashes and
-whitespace. The actual triangle-union identification is restricted to a
-common positive half-plane and explicit geometric area rules. The historical
-curve-limit proof remains open. This library addition is committed separately
-from changes to the historical Proposition I proof, as requested.
+`radial-sector-2026-10-07.lean` checks a nonlinear curve point outside its chord,
+actual finite sums, the between-region cover, collapsed slope intervals and
+the failure of the increasing ray-scale premise for a decreasing graph.
+`historical-radial-sector-2026-10-07.lean` constructs shrinking dyadic slope
+partitions for a nonconstant graph and exercises both printed-edition chains.
+The area convention and any assigned curved/between areas stay explicit.
 
-On 7 October, all five builds and all positive Lean controls passed for the
-Lemma I–III, Corollaries I–IV and Laws' Corollary I increment. Compiled
-reference inspection found no project axioms, sorry or primary anachronical
-dependency. Graphs were regenerated from current source and compiled uses.
-Archive hashes and whitespace checks passed. The deliberate corrupted control
-failed at the intended false equality. The new Latin passages are NATP00090
-par12–13 and the two printed Law II explanations (par4); archived sources are
-unchanged. See [STATE.md](STATE.md) for the conditional scope and open claims.
+All five builds, all positive controls, source hashes and whitespace passed.
+The compiled checker verified 1,181 opening score comments and 6,561 project
+constants, with no project axioms, sorry or primary modern dependency. The
+corrupted comparator failed at its intended false equality. The current
+diagrams recover 62 source edges and 15 formal cross-file uses across 19
+historical files. Archived Newton sources and exact Latin are unchanged.
 
-The authorized Astra review found no blocking defects. Its two wording
-corrections are applied: De Motu's statement/proof folios are distinguished,
-and the mechanical control is described as a concrete model instance rather
-than an independent implementation. The review checked the added Latin against
-archived TEI and confirmed the stated restrictions; it does not certify full
-historical completion.
+The authorized Astra review found no blocking mathematical or attribution
+defect. Its slope-chart clarification is applied above and in the owning
+Lean files. This verifies the stated local conditional approximation and
+retained finite construction, not complete historical Proposition I or
+complete exact-source coverage of the existing libraries. Library extensions
+and historical proof applications are committed separately.
 
 ## Retained consolidation
 

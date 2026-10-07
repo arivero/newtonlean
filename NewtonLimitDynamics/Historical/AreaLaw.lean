@@ -1,6 +1,8 @@
 import BarrowLib.Polygon.Finite
 import BarrowLib.Polygon.SectorFan
+import BarrowLib.Polygon.RadialSector
 import NewtonLimitDynamics.Historical.CompositionOfMotions
+import NewtonLimitDynamics.Historical.LemmaIII
 import ModernLib.Polygon.PathDefect
 import ModernLib.Polygon.GeneralForceArea
 import ModernLib.Polygon.GivenTrajectoryArea
@@ -86,11 +88,12 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44
 Anchor URLs: NATP00077.par44 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44; NATP00077.par45 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45
-Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. Passage to the given curve and its swept-sector area remains open.
+Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. Their mesh and identification with the equal-time mechanical polygons remain open; full Proposition I is not certified.
 Historical dependency ledger for this exact witness:
 - P1687.Law1 → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
 - P1687.Composition → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
 - P1687.L3C4 → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
+- P1687.L3 → P1687.P1; passage NATP00077.par45 (the quoted Corollary IV curve-limit step); witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status editorial_interpretation; confidence high. The radial triangle exhaustion below applies Lemma III arithmetic in a new coordinate reconstruction, not as an additional explicit Newton citation.
 - NATP00089.T1 → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status editorial_interpretation; confidence high.
 -/
 /- LATIN BEGIN NATP00077.par44
@@ -235,6 +238,67 @@ theorem finite_geometric_sector
   simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
   ac_nf
 
+/-! Local curved-sector exhaustion, in rational coordinates. The given
+positive monotone radial graph and its actual chord polygon have derived
+geometric enclosures. This applies the edition's Lemma III to radial triangle
+areas; it is our reconstruction of an area-limit step, not a quotation of
+Newton's rectangle construction. Assigned rational areas and the partial
+area convention remain premises. The mesh is in the slope parameter, not yet the equal-time
+mechanical polygon's mesh. No force-polygon/curve agreement is assumed or
+proved by these geometric declarations. -/
+theorem radial_sector_approximation (area : RadialSector.DifferenceAreaRules)
+    (g : Fraction → Fraction) (a b A : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0 < (g a).num)
+    (hA : area.HasArea (RadialSector.sector g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    (∀ m, area.HasArea (RadialSector.chordFigure g (parts m)) (RadialSector.chordArea g (parts m))) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference A (RadialSector.chordArea g (parts m))).abs) ∧
+    (∀ m x, RadialSector.between g (parts m) x → RadialSector.collar g (parts m) x) ∧
+    (∀ m, area.HasArea (RadialSector.collar g (parts m)) (MonotoneRectangles.gap (RadialSector.density g) (parts m))) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.gap (RadialSector.density g) (parts m)) := by
+  have hgap := Principia1687.LemmaIII.unequal_width_gap_vanishes (RadialSector.density g) a b parts
+    (RadialSector.density_monotone g a b hg (Int.le_of_lt hbase)) hmesh
+  exact ⟨fun m => RadialSector.chord_area area.toSectorAreaRules g (parts m) hg hbase,
+    RadialSector.chord_errors_vanish area.toSectorAreaRules g parts hg hbase A hA hgap,
+    fun m => RadialSector.between_subset_collar g (parts m) hg hbase,
+    fun m => RadialSector.collar_area area g (parts m) hg hbase,hgap⟩
+
+/-- The region between the actual curve and its chord polygon has shrinking
+explicit covers above. For any separately assigned rational areas of these
+regions, nonnegativity and vanishing are derived, not supplied. -/
+theorem radial_between_area_approximation (area : RadialSector.DifferenceAreaRules)
+    (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0 < (g a).num)
+    (B : Nat → Fraction) (hB : ∀ m, area.HasArea (RadialSector.between g (parts m)) (B m))
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    (∀ m, 0 ≤ (B m).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes B :=
+  RadialSector.between_areas_vanish area g parts hg hbase B hB
+    (Principia1687.LemmaIII.unequal_width_gap_vanishes (RadialSector.density g) a b parts
+      (RadialSector.density_monotone g a b hg (Int.le_of_lt hbase)) hmesh)
+
+/-- Lemma I excludes a positive terminal chord-area discrepancy after the
+actual geometric exhaustion. The supplied terminal comparisons do not
+construct a terminal value. -/
+theorem radial_ultimate_chord_difference_zero (area : RadialSector.DifferenceAreaRules)
+    (g : Fraction → Fraction) (a b A : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0 < (g a).num)
+    (hA : area.HasArea (RadialSector.sector g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m)))
+    (D : Fraction) (hD : 0 ≤ D.num)
+    (hterminal : Exhaustion.TerminalLower Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference A (RadialSector.chordArea g (parts m))).abs) D) :
+    Fraction.equiv D (Fraction.ofInt 0) :=
+  Principia1687.LemmaI.ultimate_difference_zero _ D hD
+    (radial_sector_approximation area g a b A parts hg hbase hA hmesh).2.1 hterminal
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite proof steps; full sector limit open. -/
@@ -243,11 +307,12 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50
 Anchor URLs: NATP00082.par50 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50; NATP00082.par51 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51
-Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. Passage to the given curve and its swept-sector area remains open.
+Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. Their mesh and identification with the equal-time mechanical polygons remain open; full Proposition I is not certified.
 Historical dependency ledger for this exact witness:
 - P1713.Law1 → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
 - P1713.Composition → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
 - P1713.L3C4 → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
+- P1713.L3 → P1713.P1; passage NATP00082.par51 (the quoted Corollary IV curve-limit step); witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status editorial_interpretation; confidence high. The radial triangle exhaustion below applies Lemma III arithmetic in a new coordinate reconstruction, not as an additional explicit Newton citation.
 - P1687.P1 → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status editorial_interpretation; confidence high.
 -/
 /- LATIN BEGIN NATP00082.par50
@@ -391,6 +456,67 @@ theorem finite_geometric_sector
   apply Fraction.equiv_trans (PolygonFanArea.sum_constant (Fraction.mul h (CentralSchedule.momentum s)).half n)
   simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
   ac_nf
+
+/-! Local curved-sector exhaustion, in rational coordinates. The given
+positive monotone radial graph and its actual chord polygon have derived
+geometric enclosures. This applies the edition's Lemma III to radial triangle
+areas; it is our reconstruction of an area-limit step, not a quotation of
+Newton's rectangle construction. Assigned rational areas and the partial
+area convention remain premises. The mesh is in the slope parameter, not yet the equal-time
+mechanical polygon's mesh. No force-polygon/curve agreement is assumed or
+proved by these geometric declarations. -/
+theorem radial_sector_approximation (area : RadialSector.DifferenceAreaRules)
+    (g : Fraction → Fraction) (a b A : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0 < (g a).num)
+    (hA : area.HasArea (RadialSector.sector g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    (∀ m, area.HasArea (RadialSector.chordFigure g (parts m)) (RadialSector.chordArea g (parts m))) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference A (RadialSector.chordArea g (parts m))).abs) ∧
+    (∀ m x, RadialSector.between g (parts m) x → RadialSector.collar g (parts m) x) ∧
+    (∀ m, area.HasArea (RadialSector.collar g (parts m)) (MonotoneRectangles.gap (RadialSector.density g) (parts m))) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.gap (RadialSector.density g) (parts m)) := by
+  have hgap := Principia1713.LemmaIII.unequal_width_gap_vanishes (RadialSector.density g) a b parts
+    (RadialSector.density_monotone g a b hg (Int.le_of_lt hbase)) hmesh
+  exact ⟨fun m => RadialSector.chord_area area.toSectorAreaRules g (parts m) hg hbase,
+    RadialSector.chord_errors_vanish area.toSectorAreaRules g parts hg hbase A hA hgap,
+    fun m => RadialSector.between_subset_collar g (parts m) hg hbase,
+    fun m => RadialSector.collar_area area g (parts m) hg hbase,hgap⟩
+
+/-- The region between the actual curve and its chord polygon has shrinking
+explicit covers above. For any separately assigned rational areas of these
+regions, nonnegativity and vanishing are derived, not supplied. -/
+theorem radial_between_area_approximation (area : RadialSector.DifferenceAreaRules)
+    (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0 < (g a).num)
+    (B : Nat → Fraction) (hB : ∀ m, area.HasArea (RadialSector.between g (parts m)) (B m))
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    (∀ m, 0 ≤ (B m).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes B :=
+  RadialSector.between_areas_vanish area g parts hg hbase B hB
+    (Principia1713.LemmaIII.unequal_width_gap_vanishes (RadialSector.density g) a b parts
+      (RadialSector.density_monotone g a b hg (Int.le_of_lt hbase)) hmesh)
+
+/-- Lemma I excludes a positive terminal chord-area discrepancy after the
+actual geometric exhaustion. The supplied terminal comparisons do not
+construct a terminal value. -/
+theorem radial_ultimate_chord_difference_zero (area : RadialSector.DifferenceAreaRules)
+    (g : Fraction → Fraction) (a b A : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0 < (g a).num)
+    (hA : area.HasArea (RadialSector.sector g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m)))
+    (D : Fraction) (hD : 0 ≤ D.num)
+    (hterminal : Exhaustion.TerminalLower Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference A (RadialSector.chordArea g (parts m))).abs) D) :
+    Fraction.equiv D (Fraction.ofInt 0) :=
+  Principia1713.LemmaI.ultimate_difference_zero _ D hD
+    (radial_sector_approximation area g a b A parts hg hbase hA hmesh).2.1 hterminal
 
 end Principia1713.PropositionI
 
