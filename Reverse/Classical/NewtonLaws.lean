@@ -13,7 +13,7 @@ MATHEMATICAL CONTENT:
   additive impulses on momenta: the additive calibrated velocity update.
   The two together inhabit `NewtonInterface`.
 INPUT PARAMETERS:
-  Effective masses.
+  Masses of the composites.
 OUTPUT PARAMETERS:
   A `NewtonInterface` per body.
 PROVED HERE:
@@ -38,7 +38,7 @@ open NewtonLimitDynamics NewtonLimitDynamics.Polygon NewtonLimitDynamics.Polygon
 variable {I : MatterInputs} {M : HasStableNeutralMatter I}
   {T : HasLocalizedCOMTrajectory M} {D : HasFreeCOMDynamics T}
 
-/-- The inverse effective mass of a body. -/
+/-- The inverse mass of a body, the mass of the composite. -/
 def inverseMass (M : HasStableNeutralMatter I) (b : M.Body) : Scalar :=
   Fraction.quotient (Fraction.ofInt 1) (M.body b).mass (M.body b).mass_positive
 

@@ -17,7 +17,7 @@ MATHEMATICAL CONTENT:
   rest-subtracted dispersion relation at the sector's kappa = invC², and
   the collinear velocity-composition law at the same kappa.
 INPUT PARAMETERS:
-  ℏ, invC, G, effective masses of the neutral bodies.
+  ℏ, invC, G, masses of the neutral composite bodies.
 OUTPUT PARAMETERS:
   Kinetic energy of each body as a function of coordinate momentum.
 PROVED HERE:

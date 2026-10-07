@@ -73,7 +73,7 @@ inductive Fate
   | integratedOut
   | confined
   | unobservable
-  | survivesEffective
+  | survivesAsConstant
   | undetermined
   deriving DecidableEq, Repr
 

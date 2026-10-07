@@ -10,13 +10,13 @@ PHYSICAL STAGE:
   here.
 MATHEMATICAL CONTENT:
   The bundle of matter inputs; a composite body carrier with constituent
-  counts and effective mass; the net charge computed from the constituents'
+  counts and the mass of the composite; the net charge computed from the constituents'
   charges; the neutral matter interface; consequences.
 INPUT PARAMETERS:
   Electromagnetic coupling (nonzero), nucleon and electron charges and
   masses, the mass gap, confinement.
 OUTPUT PARAMETERS:
-  Effective inertial masses and (zero) net charges of bodies.
+  Inertial masses of the composites and (zero) net charges.
 PROVED HERE:
   `coulomb_leading_zero`: Q₁ Q₂ = 0 for neutral bodies, so the leading
     Coulomb interaction between distant neutral bodies vanishes while gravity
@@ -28,8 +28,8 @@ PROVED HERE:
   `constituents_singlet`, `constituents_massive`: the constituents are colour
     singlets with positive masses, from confinement and the gap.
 ASSUMED HERE:
-  Existence of stable neutral composites with positive effective mass. The
-  effective mass is the constituent mass minus binding energy; binding
+  Existence of stable neutral composites with positive mass. The mass of
+  the composite is the constituent mass minus binding energy; binding
   energies are not modelled, so `mass` stays a field with its positivity.
   `massGap` and `confinement` are consumed by the theorems above and not by
   the construction of the bodies: the absence of long-range colour forces
@@ -78,7 +78,7 @@ def MatterInputs.ofWeakDecoupling {S : FourDimensionalSector} (W : HasWeakDecoup
   electron := hElectron
 
 /-- A composite body as the long-distance sector sees it: constituent counts
-and an effective inertial mass. The mass is an output of strong and
+and the inertial mass of the composite. The mass is an output of strong and
 electromagnetic binding; the parent has no such parameter. -/
 structure CompositeBody where
   protons : Nat

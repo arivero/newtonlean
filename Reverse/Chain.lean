@@ -19,7 +19,7 @@ OUTPUT PARAMETERS:
   fibre sector.
 PROVED HERE:
   `modern_to_newton` (composition), `modern_to_newton_kinetic` (each body's
-  Newtonian kinetic energy on the fibre with its effective mass),
+  Newtonian kinetic energy on the fibre with the mass of the composite),
   `modern_to_newton_velocity_addition` (collinear velocity composition is
   v + w on the fibre) and `modern_to_newton_velocity_consistent`
   (K = ½ p · v on the fibre).
@@ -64,7 +64,7 @@ def modern_to_newton
   Classical.newtonInterface hPV hJ b
 
 /-- On the zero-invC fibre, each neutral body's kinetic energy is Newtonian
-with the effective composite mass, which the parent never contained as a
+with the mass of the composite, which the parent never contained as a
 parameter. -/
 theorem modern_to_newton_kinetic
     (F : QuantumKKFamily) (a : F.Params)

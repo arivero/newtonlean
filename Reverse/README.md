@@ -72,7 +72,7 @@ STATUS:
 - theorem
 - formal consequence of assumptions
 - physical hypothesis
-- effective-theory assumption
+- assumption below the cutoff
 - open problem
 - heuristic placeholder
 ```
@@ -109,7 +109,7 @@ Matter forms before the classical limit. Hadrons, nuclei, atoms and molecules
 are quantum bound states, so microscopic ℏ stays nonzero through
 `Reverse/Strong` and `Reverse/Matter`. The classical limit acts on the
 effective centre-of-mass theory of already-formed composites, through the
-effective parameter ε = ℏ / S_CM, while internal quantum structure persists.
+centre-of-mass parameter ε = ℏ / S_CM, while internal quantum structure persists.
 
 Colour leaves the observable sector through confinement and singlet
 formation, and the hadronic mass scale is an output of the strong quantum
@@ -188,7 +188,7 @@ Status by stage:
 | Weak | — | residual su(3), u(1) inside the reduced algebra with nonzero couplings; suppressed parameters recorded, choice open | — | electroweak compactification |
 | Strong | hadrons are singlets (from the singlet asymptotic spectrum), above the gap and positive (from the gap); nucleons likewise | positive colour scale; gap above a massless vacuum; singlet asymptotic spectrum carried by the confinement placeholder; nucleon states with mass ratios and charges | Yang–Mills mass gap; confinement proper (placeholder) | — |
 | Electron | — | a stable negatively charged massive state | — | which Yukawa data survive weak decoupling |
-| Matter | `Q₁Q₂ = 0` for neutral bodies; a neutral body with a proton has an electron; constituents are singlets and massive | neutral composites with positive effective mass; neutrality as a condition on constituent counts | nuclear and atomic many-body theory | effective mass from constituents and binding |
+| Matter | `Q₁Q₂ = 0` for neutral bodies; a neutral body with a proton has an electron; constituents are singlets and massive | neutral composites with positive mass; neutrality as a condition on constituent counts | nuclear and atomic many-body theory | mass of the composite from constituents and binding |
 | RelativisticQM | — | dispersion relation and collinear composition of each body at the sector's kappa | positive-mass sectors of interacting QFT | both laws from a boost law |
 | NonRelativistic | on the fibre: `K = p²/(2m)`, `v ⊕ w = v + w`; standalone: `gamma = 1`, `x' = x − frameV t`, `t' = t`; defect identities and bounds for every kappa | the fibre sector with ℏ, G unchanged | — | convergence as `invC → 0`; frames attached to the sector; non-collinear composition |
 | Classical | drift `q + t v`; additive velocity update; `v = p/m`; `K = ½ p · v` on the fibre | (1) localized trajectories; (2) conserved momentum with uniform increments; (3) `p = m v`; (4) additive impulses on momenta | semiclassical analysis | (3) from the fibre `K`; (1), (2) from a Hamiltonian COM limit |
@@ -215,7 +215,7 @@ additive momenta instead.
 `Reverse/Parent/Parameters.lean` names the tracked parameters and the
 possible fates (`toZero`, `toInfinity`, `remainsFinite`,
 `combinesIntoInvariant`, `integratedOut`, `confined`, `unobservable`,
-`survivesEffective`, `undetermined`). `currentFate` records what the
+`survivesAsConstant`, `undetermined`). `currentFate` records what the
 formalization has established and is `undetermined` for every parameter.
 The fibre results evaluate at `invC = 0`, which the fibre interface takes as
 given; whether that fibre is required for the Newtonian kinematics (question
@@ -226,13 +226,13 @@ table:
 | Parameter | Expected fate | Where it should be decided |
 | --- | --- | --- |
 | `invC` | to zero, by the nonrelativistic limit | `NonRelativistic` (fibre formalized; convergence open) |
-| microscopic ℏ | remains finite; the effective ε = ℏ/S_CM goes to zero | `Classical` |
+| microscopic ℏ | remains finite; the centre-of-mass ε = ℏ/S_CM goes to zero | `Classical` |
 | `G_D`, compactification radius | combine into `G`; `G` is free for Propositions I–IV | `KK`; `Principia` |
 | cosmological constant | should become invisible before Section II | undecided |
 | `g₃` | confined, traded for Λ_colour by transmutation | `Strong` |
 | electromagnetic coupling | remains finite; unobservable at leading order between neutral bodies | `Matter` |
 | weak couplings, Yukawas, breaking scale | decoupled; which parameter is suppressed is a reduction problem; the electron mass must survive | `KK/WeakSector`, `Matter/ElectronSector` |
-| particle masses | effective constants: nucleon masses as ratios times Λ_colour, body masses from binding | `Strong`, `Matter` |
+| particle masses | inherited constants: nucleon masses as ratios times Λ_colour, body masses from binding | `Strong`, `Matter` |
 
 ## Questions the architecture is built to answer
 

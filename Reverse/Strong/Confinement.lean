@@ -102,7 +102,7 @@ theorem hadron_mass_positive {C : GaugeSector} (hGap : HasMassGap C)
 
 /-- Stable proton- and neutron-like hadrons, with masses referred to the
 colour scale and with electromagnetic charges. The mass ratios are the
-dimensionless effective constants the Newtonian sector inherits; writing
+dimensionless inherited constants of the Newtonian sector; writing
 m = ratio · Λ is bookkeeping of dimensional transmutation, never a
 derivation of the ratios. The proton charge is positive and the neutron
 charge zero by convention. Neutron stability presupposes the weak

@@ -29,7 +29,7 @@ OPEN PROBLEMS USED:
 NEXT REDUCTION:
   `Reverse/KK/WeakSector.lean`.
 
-STATUS: effective-theory assumption (decoupling); formalizable classical
+STATUS: assumption below the cutoff (decoupling); formalizable classical
 identities (gauge algebra, coupling relation) stated as interface fields.
 -/
 
@@ -64,8 +64,8 @@ structure FourDimensionalSector where
   theory : QuantumTheory
 
 /-- KK reduction interface. The two identities are the classical content of
-the ansatz; the decoupling of the massive tower is an effective-theory
-assumption made visible by the positive scale. -/
+the ansatz; the decoupling of the massive tower is an assumption below the
+cutoff, made visible by the positive scale. -/
 structure HasKKReduction (F : QuantumKKFamily) where
   reduce : F.Params → FourDimensionalSector
   gauge_from_isometries : ∀ a, (reduce a).gaugeAlgebra = F.internal.isometryAlgebra

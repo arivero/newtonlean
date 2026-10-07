@@ -19,7 +19,7 @@ OUTPUT PARAMETERS:
   A sector with invC = 0, hence kappa = 0.
 PROVED HERE:
   `kinetic_energy_on_fibre`: on the fibre every body's kinetic energy is
-  p²/(2m), with m the effective composite mass.
+  p²/(2m), with m the mass of the composite.
   `collinear_velocity_additive_on_fibre`: on the fibre the sector's
   collinear velocity composition is v + w.
 ASSUMED HERE:
@@ -31,7 +31,7 @@ OPEN PROBLEMS USED:
 NEXT REDUCTION:
   `Reverse/Classical`.
 
-STATUS: theorem (kinetic energy); effective-theory assumption (fibre sector
+STATUS: theorem (kinetic energy); assumption below the cutoff (fibre sector
 with parameter preservation).
 -/
 
@@ -57,8 +57,8 @@ structure HasZeroInvCFibre (S : StableParticleSector M) where
   hbar_preserved : fibre.params.hbar = S.params.hbar
   gravity_preserved : fibre.params.gravitationalCoupling = S.params.gravitationalCoupling
 
-/-- On the fibre each body's kinetic energy is Newtonian, with the effective
-composite mass in the denominator. -/
+/-- On the fibre each body's kinetic energy is Newtonian, with the mass of the
+composite in the denominator. -/
 theorem kinetic_energy_on_fibre {S : StableParticleSector M}
     (Z : HasZeroInvCFibre S) (b : M.Body) (p : Point) :
     Fraction.equiv (Z.fibre.kinetic b p)

@@ -31,7 +31,7 @@ MATHEMATICAL CONTENT:
   Commutativity of the classical observable algebra is presupposed by (1)
   and is not stated separately.
 INPUT PARAMETERS:
-  Effective masses of the bodies.
+  Masses of the composite bodies.
 OUTPUT PARAMETERS:
   Position, momentum, velocity and kick maps on the shared coordinate model.
 PROVED HERE:
@@ -47,7 +47,7 @@ OPEN PROBLEMS USED:
 NEXT REDUCTION:
   `Reverse/Classical/NewtonLaws.lean`.
 
-STATUS: effective-theory assumptions.
+STATUS: assumptions below the cutoff.
 -/
 
 namespace Reverse.Classical
