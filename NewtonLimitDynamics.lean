@@ -14,6 +14,9 @@ import NewtonLimitDynamics.Historical.LemmaIII.CorollaryII
 import NewtonLimitDynamics.Historical.LemmaIII.CorollaryIII
 import NewtonLimitDynamics.Historical.LemmaIII.CorollaryIV
 import NewtonLimitDynamics.Historical.LemmaIII
+import NewtonLimitDynamics.Historical.LemmaX.CorollaryI
+import NewtonLimitDynamics.Historical.LemmaX.CorollaryII
+import NewtonLimitDynamics.Historical.LemmaX.CorollaryIII
 import NewtonLimitDynamics.Historical.LemmaX.CorollaryIV
 import NewtonLimitDynamics.Historical.LemmaX.CorollaryV
 import NewtonLimitDynamics.Historical.LemmaX

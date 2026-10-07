@@ -5,6 +5,18 @@ Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additio
 Each edition retains its exact source statement and proof.
 -/
 
+/-! NATP00090. Lex 3: the same statement as a law, without proof. -/
+/-! Witness: NATP00090.
+Source: docs/m1/NATP00090.xml
+SHA-256: 790b468987fd8c7716d9d43197ec3a724f7f581ec8b6ed3998edc191b951f998
+URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par7
+Anchor URLs: NATP00090.par7 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par7
+Proof-step correspondence: In this witness the statement is Lex 3, a law given without proof; the deleted "Hypoth" before the supralinear "Lex" records an earlier label as a hypothesis. It is a premise of this witness, so there is no proof to formalize. No Lean theorem is attached to this witness.
+-/
+/- LATIN BEGIN NATP00090.par7
+[del: Hypoth] [add: Lex] 3. Corporum dato spatio inclusorum eosdem esse motus inter se sive spatium illud quiescat sive moveat id perpetuò et uniformiter in directum abs motu circulari.
+LATIN END NATP00090.par7 -/
+
 /-! 1687 witness.
 Source: docs/m1/NATP00076.xml
 SHA-256: fc2984820b61f64fdbf5efe1142ea8cf5458b75dd54fc6525f73ee705a8a9b1c
