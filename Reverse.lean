@@ -12,6 +12,7 @@ import Reverse.Matter.ElectronSector
 import Reverse.Matter.NeutralMatter
 import Reverse.RelativisticQM.StableParticleSector
 import Reverse.NonRelativistic.KineticEnergy
+import Reverse.NonRelativistic.VelocityComposition
 import Reverse.NonRelativistic.ZeroInvCFibre
 import Reverse.Classical.ClassicalTrajectory
 import Reverse.Classical.NewtonLaws
