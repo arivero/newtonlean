@@ -26,7 +26,7 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Lemma I | Separate 1687/1713 positive-terminal-difference contradictions, including an actual positive before-end time window; rational terminal-zero consequence | Terminal comparisons and approach premises are supplied; terminal values are not constructed. No general equality of objects is inferred from an unspecified difference |
 | Lemma II | Exact equal-width gap, actual rectangle-union side-product areas under explicit partial area rules, derived enclosure/errors and unit ratios to a fixed positive assigned rational curved area; actual use of the edition's Lemma I | Existence of the geometric area convention and the curve's area remain premises; arbitrary non-rational areas and ratios of two varying areas require further treatment |
 | Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; area errors and fixed-area unit ratios for unequal widths | Same area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
-| Lemma III corollaries I–IV | Source-local chain: conditional area approximation, rectangle endpoint covers, two-sided chord/supporting-segment approximation to a supplied rational curve under uniform continuity and shrinking mesh | Rectangle covers are not staircase perimeters. Supporting cells are supplied; actual tangents, the circumscribed figure's area and force-polygon correspondence remain open. No arclength conclusion |
+| Lemma III corollaries I–IV | Source-local area and boundary approximation chain. For concave increasing rational graph patches, two-sided secant contact and independent secant concavity now derive the supporting tangent cells, their meetings, a uniform continuity bound and two-sided chord/contact-tangent boundary approximation. The circumscribed tangent region encloses the curve and lies in the upper rectangle cover; assigned rational tangent-polygon areas have vanishing error through the edition's Corollary I | Arbitrary curves still use the older supplied supporting-cell interface. Tangent existence, other patch orientations and general patch decomposition remain open, as do existence of the curved/tangent-polygon areas, non-rational magnitudes and force-polygon correspondence. Rectangle covers are not staircase perimeters. No arclength conclusion |
 | Laws' Corollary I | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites Laws II/I in this proof; De Motu hypotheses and finite models remain witness-local |
 | Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
 | Proposition I | Separate 1687/1713 finite constructions use their own Laws' Corollary I. Their new conditional given-motion reconstruction proves an assigned local swept-sector area equal to `T * det(initial position, initial velocity) / 2`, and comparison of two such areas from a shared initial time as their times. Finite force-polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic local motion remainders, force comparison, short-window and finite bounds, with the supplied chart's positive ray scale. A supplied positive monotone rational radial chart describes the full curve image, beyond its samples. Its chord/curve symmetric difference has shrinking finite covers | Extend beyond the rational local chart and stated mechanical/regularity premises; preserve De Motu's own exhaustion route. Whole-edge/arbitrary-time force-polygon agreement and the actual between-region B for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
@@ -104,6 +104,30 @@ closes a historical proof.
 
 ## Current increment and next work
 
+The contact-tangent increment of 7 October advances the printed Lemma III
+Corollaries III–IV. Proposition I explicitly invokes Corollary IV in each
+printed edition's limiting passage. `TangentContact`
+represents a concave increasing rational graph by its own finite secant slopes
+and their two-sided contact values. It does not assume tangent support,
+intersections, rectangle enclosure, uniform continuity, boundary convergence
+or area-error decay. Those conclusions are derived, with endpoint contact
+one-sided and repeated partition nodes allowed. The contact slope at the left
+endpoint bounds the graph throughout the patch and supplies the continuity
+modulus. Every point of the joined tangent trace lies on an endpoint contact
+line. The separately defined polygonal region under the lesser of the two
+endpoint tangent heights contains the curved figure and lies in the upper
+rectangle union. Both editions apply their own Corollary I to obtain area-error
+decay for separately assigned rational areas, and their own Corollaries II–III
+to obtain the chord and contact-tangent boundary limits.
+
+The secant concavity/contact conditions are explicit editorial coordinate
+regularity, not quoted Newton hypotheses. Their existence for an arbitrary
+curve is not proved. The area convention and assigned curved/polygon areas
+remain premises; the exact identification of the joined trace with the upper
+boundary of the polygonal region is not yet formalized. Extend to the other
+patch orientations and justify patch assembly before claiming the unrestricted
+printed corollaries. De Motu retains its own unnumbered exhaustion route.
+
 The laws-and-lemmas increment of 7 October adds primary proofs of Laws'
 Corollaries V and VI and of Lemma X's missing corollaries. BarrowLib's
 `CommonMotion` proves that common initial motion and common velocity changes
@@ -155,16 +179,23 @@ breaks Corollary V, and collinear relativistic composition changes the velocity
 differences that its "ex hypothesi" step keeps fixed.
 `lemma10-corollaries-2026-10-07.lean` satisfies the Lemma X premises for `c t²`
 and `c t² + t³` and shows that normalizing by the wrong force fails.
+`tangent-contact-2026-10-07.lean` proves the contact and concavity premises
+for `g(x)=4-x²` on `[-2,-1]`. Its endpoint tangents meet at `(-3/2,2)`,
+above the curve value `7/4` and chord value `3/2`. A line through both
+endpoints with slope `3` fails tangent contact. The control also checks a
+repeated node, the literal tangent-region enclosure and both editions'
+corollaries for arbitrary shrinking partitions.
 
-Last full verification: 7 October 2026, after the Laws' Corollaries V–VI and
-Lemma X corollaries increment and two Fable review rounds. All five builds,
-the 22 positive controls, the harmonic reference/comparator, source hashes and
-whitespace passed. The compiled checker verified 1,181 score comments and
-6,803 project constants with no project axioms, sorry or primary modern
+Last full verification: 7 October 2026, after the contact-tangent increment
+and an independent sequential Sol review. All five builds, the 23 positive
+controls, the harmonic reference/comparator, source hashes and whitespace
+passed. The compiled checker verified 1,181 score comments and
+6,911 project constants with no project axioms, sorry or primary modern
 dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 79 source edges and 27 formal cross-file uses across 22
-historical files. Archived Newton sources are unchanged; new exact Latin covers
-NATP00090 par7, NATP00077 par29–30 and NATP00082 par30–32. Astra's review
+historical files. Archived Newton sources and exact Latin are unchanged by
+this increment. The review found no defect within the stated rational patch
+scope; it does not discharge the supplied area or mesh premises. Astra's review
 covers the radial-sector increment (`3a2f5e3`, `b827902`) only.
 
 Next extend the conditional rational local result to the remaining stage and
