@@ -28,7 +28,7 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; area errors and fixed-area unit ratios for unequal widths | Same area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
 | Lemma III corollaries I–IV | Source-local chain: conditional area approximation, rectangle endpoint covers, two-sided chord/supporting-segment approximation to a supplied rational curve under uniform continuity and shrinking mesh | Rectangle covers are not staircase perimeters. Supporting cells are supplied; actual tangents, the circumscribed figure's area and force-polygon correspondence remain open. No arclength conclusion |
 | Laws' Corollary I | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites Laws II/I in this proof; De Motu hypotheses and finite models remain witness-local |
-| Proposition I | Separate 1687/1713 finite constructions actually use their own Laws' Corollary I to derive equal triangles and ordinary local sector-union area. SectorFan supplies radial separation in a common positive half-plane. Separate printed-edition Lemma III/I applications now derive chord-area approximation and shrinking actual between-region covers for a given positive monotone rational radial graph, under explicit partial area rules. Assigned between-region areas are nonnegative and vanish. Modern constructed/given-curve fan laws remain support | Identify the equal-time force polygons with the given trajectory and derive their slope-parameter mesh exhaustion. The radial result is local and monotone; area existence and general non-rational sectors are not constructed. No complete historical Proposition I is certified |
+| Proposition I | Separate 1687/1713 finite constructions use their own Laws' Corollary I. Their new conditional given-motion reconstruction proves an assigned local swept-sector area equal to `T * det(initial position, initial velocity) / 2`, and comparison of two such areas from a shared initial time as their times. Finite force-polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic local motion remainders, force comparison, short-window and finite bounds, with the supplied chart's positive ray scale. A supplied positive monotone rational radial chart describes the full curve image, beyond its samples. Its chord/curve symmetric difference has shrinking finite covers | Extend beyond the rational local chart and stated mechanical/regularity premises; preserve De Motu's own exhaustion route. Whole-edge/arbitrary-time force-polygon agreement and the actual between-region B for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
 | Proposition II | Finite oriented-area converse, including unequal durations and uniformly moving centres | Vanishing-triangle/continuous-curve passage. Direction does not determine inward sense; unsigned areas and a vertex at the centre require separate treatment |
 | Proposition III | Relative deflection and reference-history cancellation; finite converse application | Realized relative-orbit limit. No Law III, mass/force law or force/time-scale conclusion is derived |
 | Proposition IV | Conditional finite circular sagitta comparison | Circle geometry, force interpretation and edition-specific ultimate ratios: 1687 uses Proposition II and Lemmas V/XI; 1713 uses Proposition II, Proposition I corollaries 2/4 and Lemma VII |
@@ -100,14 +100,22 @@ layer. Positivity, finiteness, partition stability, system independence and
 action rescaling are distinct tests. No universal constant or quantum premise
 closes a historical proof.
 
-The next increment is to connect Proposition I's actual force polygons and
-given trajectory to the radial sector and its shrinking slope-parameter partitions.
-The curve/chord symmetric difference now has explicit finite covers whose
-areas vanish in the positive monotone local case. Its assigned rational area,
-when supplied, is proved nonnegative and vanishing; area existence is not
-asserted. The new covers are for actual sampled-curve chords, not yet the
-equal-time mechanical polygons. Do not infer force-polygon agreement or the
-swept area law from boundary approach or multiplicity-counted fan sums.
-The groundwork has checked conditional increments; the full historical statements remain subject
-to the restrictions above. Use [verification](VERIFICATION.md) and
-read the different scope of [source/compiled-use diagrams](figures.md).
+The given-curve local law now derives finite force-polygon/sample agreement
+and the curve's slope mesh from `MotionSampling.Conditions`, rather than
+supplying either conclusion. These conditions contain only finite force
+comparison, a quadratic cell residual, a short window and force/curve bounds.
+The separately supplied `RadialChart` represents the full curve image in both
+directions and its own equal-time samples. `sweptSector` is defined from every
+rational-time point of the given curve in the window, including times between
+samples. No area law or vanishing area belongs to either condition structure.
+The force comparison is a whole-plane premise; forces singular at the centre
+need a regional version available to the primary chain.
+
+Next extend the conditional rational local result to the remaining stage and
+geometric scope. De Motu needs its own finite construction/exhaustion passage;
+no printed Lemma III dependency is retrofitted. Derive whole-edge/arbitrary-
+time polygon agreement and actual between-region covers for Newton's force
+polygons. Existing shrinking collars concern the sampled-curve chords. Keep
+area existence, general non-rational coordinates and winding/multiplicity
+separate from this local area law. See [verification](VERIFICATION.md) and
+[source/compiled-use diagrams](figures.md).

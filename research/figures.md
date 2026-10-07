@@ -22,8 +22,8 @@ flowchart LR
 ```
 
 - NATP00090.Law2 → NATP00090.L1: [NATP00090.par11](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par11); explicit_dependency, confidence high; witness 'De motu sphæricorum corporum in fluidis'; [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/CompositionOfMotions.lean:39).
-- NATP00090.Law1 → NATP00090.T1: [NATP00090.par17](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17); explicit_dependency, confidence high; witness 'De motu sphæricorum corporum in fluidis'; [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:56).
-- NATP00090.L1 → NATP00090.T1: [NATP00090.par17](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17); explicit_dependency, confidence high; witness 'De motu sphæricorum corporum in fluidis'; [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:57).
+- NATP00090.Law1 → NATP00090.T1: [NATP00090.par17](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17); explicit_dependency, confidence high; witness 'De motu sphæricorum corporum in fluidis'; [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:57).
+- NATP00090.L1 → NATP00090.T1: [NATP00090.par17](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17); explicit_dependency, confidence high; witness 'De motu sphæricorum corporum in fluidis'; [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:58).
 
 ### 1687
 
@@ -59,9 +59,9 @@ flowchart LR
 - P1687.Law2 → P1687.Composition: [NATP00076.par4 ("motui ejus ... additur ... componitur") and par8 ("nihil mutabit velocitatem")](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par8); implicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/CompositionOfMotions.lean:69).
 - P1687.L1 → P1687.L2: [NATP00077.par4](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaII.lean:17).
 - P1687.L2 → P1687.L3: [NATP00077.par5](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par5); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII.lean:16).
-- P1687.Law1 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:93).
-- P1687.Composition → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:94).
-- P1687.L3C4 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:95).
+- P1687.Law1 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:94).
+- P1687.Composition → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:95).
+- P1687.L3C4 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:96).
 - P1687.Law2 → P1687.LawCor6: [NATP00076.par23](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par23); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryVI.lean:22).
 - P1687.L3 → P1687.L3C1: [NATP00077.par7](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean:15).
 - P1687.L3C1 → P1687.L3C2: [NATP00077.par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par8); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean:15).
@@ -120,9 +120,9 @@ flowchart LR
 - P1713.Law1 → P1713.Composition: [NATP00081.par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/CompositionOfMotions.lean:122).
 - P1713.L1 → P1713.L2: [NATP00082.par5](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaII.lean:125).
 - P1713.L2 → P1713.L3: [NATP00082.par6](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII.lean:101).
-- P1713.Law1 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:312).
-- P1713.Composition → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:313).
-- P1713.L3C4 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:314).
+- P1713.Law1 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:420).
+- P1713.Composition → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:421).
+- P1713.L3C4 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:422).
 - P1713.Law2 → P1713.LawCor6: [NATP00081.par23](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par23); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LawsCorollaryVI.lean:39).
 - P1713.L3 → P1713.L3C1: [NATP00082.par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean:61).
 - P1713.L3C1 → P1713.L3C2: [NATP00082.par9](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par9); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean:50).
@@ -158,10 +158,10 @@ flowchart LR
 ```
 
 - P1687.Law1 → P1687.Composition: [NATP00076.par1 ("movendi uniformiter in directum") and par7 ("eodem tempore")](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00076#par7); editorial_interpretation, confidence medium; witness Axiomata Sive Leges Motus (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/CompositionOfMotions.lean:70).
-- P1687.L3 → P1687.P1: [NATP00077.par45 (the quoted Corollary IV curve-limit step)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); editorial_interpretation, confidence high The radial triangle exhaustion below applies Lemma III arithmetic in a new coordinate reconstruction, not as an additional explicit Newton citation; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:96).
-- NATP00089.T1 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); editorial_interpretation, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:97).
-- P1713.L3 → P1713.P1: [NATP00082.par51 (the quoted Corollary IV curve-limit step)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); editorial_interpretation, confidence high The radial triangle exhaustion below applies Lemma III arithmetic in a new coordinate reconstruction, not as an additional explicit Newton citation; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:315).
-- P1687.P1 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); editorial_interpretation, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:316).
+- P1687.L3 → P1687.P1: [NATP00077.par45 (the quoted Corollary IV curve-limit step)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); editorial_interpretation, confidence high The radial triangle exhaustion below applies Lemma III arithmetic in a new coordinate reconstruction, not as an additional explicit Newton citation; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:97).
+- NATP00089.T1 → P1687.P1: [NATP00077.par45](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45); editorial_interpretation, confidence high; witness De Motu Corporum (Liber Primus) (1687); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:98).
+- P1713.L3 → P1713.P1: [NATP00082.par51 (the quoted Corollary IV curve-limit step)](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); editorial_interpretation, confidence high The radial triangle exhaustion below applies Lemma III arithmetic in a new coordinate reconstruction, not as an additional explicit Newton citation; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:423).
+- P1687.P1 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); editorial_interpretation, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:424).
 - P1687.L10 → P1713.L10: [NATP00082.par28](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par28); editorial_interpretation, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaX.lean:79).
 
 ## Lean code relationships
@@ -180,20 +180,20 @@ flowchart LR
   NewtonLimitDynamics["NewtonLimitDynamics"] --> ClassicsLib["ClassicsLib"]
 ```
 
-The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 179 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
+The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 189 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
 
 ### Direct cross-file formal uses
 
 ```mermaid
 flowchart LR
   LemmaII["LemmaII"] --> LemmaIII["LemmaIII"]
+  LemmaI["LemmaI"] --> AreaLaw["AreaLaw"]
   LawI["LawI"] --> CompositionOfMotions["CompositionOfMotions"]
   LawII["LawII"] --> CompositionOfMotions["CompositionOfMotions"]
   LawI["LawI"] --> AreaLaw["AreaLaw"]
   LawII["LawII"] --> AreaLaw["AreaLaw"]
   CompositionOfMotions["CompositionOfMotions"] --> AreaLaw["AreaLaw"]
   LemmaIII["LemmaIII"] --> AreaLaw["AreaLaw"]
-  LemmaI["LemmaI"] --> AreaLaw["AreaLaw"]
   LemmaI["LemmaI"] --> LemmaIII["LemmaIII"]
   LemmaIII_CorollaryII["LemmaIII.CorollaryII"] --> LemmaIII_CorollaryIV["LemmaIII.CorollaryIV"]
   LemmaIII_CorollaryIII["LemmaIII.CorollaryIII"] --> LemmaIII_CorollaryIV["LemmaIII.CorollaryIV"]

@@ -22,6 +22,9 @@ bodies and private helpers, using source positions to classify the five-line
 `ANACHRONICAL PROOFS` sections. Compiler-generated unsafe implementation
 placeholders cannot enter safe mathematical proofs; their dependencies remain
 in the graph. Passing does not discharge geometric or mechanical premises.
+Unfold recursive definitions in historical files by definitional steps such
+as `congrArg`: a `simp` unfolding can generate private match-equation lemmas
+without source positions, which the checker rejects as unclassifiable.
 
 `CheckReferences.lean` also verifies the opening `Modern dependency score`
 comments against compiled transitive project theorem/axiom dependencies.
@@ -108,36 +111,50 @@ the source-local Laws' Corollary I dependency without assuming equal areas.
 
 ## Current verified increment
 
-The radial-sector increment derives actual set enclosures for a given positive
-monotone rational radial graph and its chord polygon, finite triangle-union
-areas, chord-area errors, and shrinking covers of their symmetric difference.
-The chart is `(x,y)=(g(t),g(t)*t)`: `t=y/x` is slope, and `g(t)` is the
-positive x-coordinate. Subtraction of nested assigned areas is an additional
-explicit geometric rule; it assumes no curve agreement or limiting area.
-Each printed edition actually uses its own Lemmas III/I. Force-polygon
-identification and slope-parameter mesh exhaustion for the mechanical
-construction remain open.
+The motion-sampling increment derives finite force-polygon/sample agreement
+from an independent quadratic local mechanical remainder. It derives the
+sampled curve's slope mesh from displacement and a positive ray-scale lower
+bound. Each printed edition's conditional local area law then uses its own
+Laws' Corollary I/equal-triangle chain and Lemmas III/I. Its conclusion is the
+assigned actual swept-sector area `T * det(initial position, initial velocity)
+/ 2`; a further theorem compares two windows sharing their initial time as
+their elapsed times.
 
-`radial-sector-2026-10-07.lean` checks a nonlinear curve point outside its chord,
-actual finite sums, the between-region cover, collapsed slope intervals and
-the failure of the increasing ray-scale premise for a decreasing graph.
-`historical-radial-sector-2026-10-07.lean` constructs shrinking dyadic slope
-partitions for a nonconstant graph and exercises both printed-edition chains.
-The area convention and any assigned curved/between areas stay explicit.
+`MotionSampling.Conditions` exposes force comparison, the local remainder,
+a short window and finite force/curve bounds. The supplied `RadialChart`
+describes the full
+curve image in both directions and its own samples. The swept-sector set uses
+all rational-time curve points in the window. The chart is `(x,y)=(g(t),g(t)*t)`:
+`t=y/x` is slope, and `g(t)` is the positive x-coordinate. Neither condition
+structure supplies polygon agreement, shrinking mesh or an area law.
+The partial area convention and any assigned rational curved area remain
+explicit; general area existence is not constructed.
 
-All five builds, all positive controls, source hashes and whitespace passed.
-The compiled checker verified 1,181 opening score comments and 6,561 project
-constants, with no project axioms, sorry or primary modern dependency. The
-corrupted comparator failed at its intended false equality. The current
-diagrams recover 62 source edges and 15 formal cross-file uses across 19
-historical files. Archived Newton sources and exact Latin are unchanged.
+`motion-sampling-2026-10-07.lean` independently prescribes a quadratic curve
+under constant acceleration. It proves a nonzero quadratic cell remainder,
+all finite bounds and derived sample agreement. That acceleration is not
+central, which the control explicitly verifies. It tests comparison without
+claiming Newton's area law for a noncentral field.
+`historical-motion-area-2026-10-07.lean` gives a positive-time inertial curve,
+a full chart, satisfiable mechanical premises and an actual swept-sector
+area from the triangle convention, then exercises both printed editions.
+The earlier radial-sector controls retain a nonlinear curve point outside its
+chord and an explicit shrinking collar of their actual symmetric difference.
 
-The authorized Astra review found no blocking mathematical or attribution
-defect. Its slope-chart clarification is applied above and in the owning
-Lean files. This verifies the stated local conditional approximation and
-retained finite construction, not complete historical Proposition I or
-complete exact-source coverage of the existing libraries. Library extensions
-and historical proof applications are committed separately.
+The new primary result remains local and conditional. Unrestricted/non-rational
+curves, De Motu's own exhaustion, whole-edge/arbitrary-time force-polygon
+agreement and between-region B for those mechanical polygons remain open.
+Full Proposition I is not certified by these declarations.
+
+All five builds, the 20 positive controls, the harmonic reference/comparator,
+source hashes and whitespace passed on 7 October. The compiled checker verified
+1,181 opening score comments and 6,700 project constants, with no project
+axioms, sorry or primary modern dependency. The corrupted comparator failed at
+its intended false equality. The diagrams recover 62 source edges and 15 formal
+cross-file uses across 19 historical files. Archived Newton sources and exact
+Latin are unchanged. Astra's review covers the preceding radial-sector
+increment (`3a2f5e3`, `b827902`) only; this increment was reviewed in the
+Claude Code session that committed it.
 
 ## Retained consolidation
 

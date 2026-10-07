@@ -1,6 +1,7 @@
 import BarrowLib.Polygon.Finite
 import BarrowLib.Polygon.SectorFan
 import BarrowLib.Polygon.RadialSector
+import BarrowLib.Polygon.MotionSampling
 import NewtonLimitDynamics.Historical.CompositionOfMotions
 import NewtonLimitDynamics.Historical.LemmaIII
 import ModernLib.Polygon.PathDefect
@@ -82,13 +83,13 @@ theorem natp00090_finite_block_comparison (g : EuclideanConstruction Point Impul
 
 end DeMotu1684.AreaLaw
 
-/-! 1687. Proposition I finite proof steps; full sector limit open. -/
+/-! 1687. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
 /-! Witness: 1687.
 Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44
 Anchor URLs: NATP00077.par44 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44; NATP00077.par45 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45
-Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. Their mesh and identification with the equal-time mechanical polygons remain open; full Proposition I is not certified.
+Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. A further conditional given-motion reconstruction derives finite sample agreement and mesh exhaustion from explicit quadratic remainders and bounds, then proves the assigned local rational swept-sector area proportional to time. Global/non-rational scope and between-region approximation for the mechanical polygons remain open; full Proposition I is not certified.
 Historical dependency ledger for this exact witness:
 - P1687.Law1 → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
 - P1687.Composition → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
@@ -299,15 +300,122 @@ theorem radial_ultimate_chord_difference_zero (area : RadialSector.DifferenceAre
   Principia1687.LemmaI.ultimate_difference_zero _ D hD
     (radial_sector_approximation area g a b A parts hg hbase hA hmesh).2.1 hterminal
 
+/-- The coordinate realization of this edition's mechanical polygon is the
+same finite drift/kick recurrence used by the comparison estimates. -/
+theorem canonical_polygon_eq_run (a : CentralSchedule.Field) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (n : Nat) :
+    polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n = BoundedIteration.run a h s n := by
+  induction n with
+  | zero => rfl
+  | succ n ih => exact congrArg (mechanicalCell ZeroForce.inertialAt TimeSubdivision.pointAdd a h) ih
+
+/-- This edition's own Laws' Corollary I/equal-triangle chain supplies the
+finite fan law used in the curve comparison. -/
+theorem canonical_fan_law (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (T : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (j : Nat) :
+    Fraction.equiv (PolygonFanArea.fan (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) s k).1)
+      (HarmonicDyadic.blocks j)) (Fraction.mul T (CentralSchedule.momentum s)) := by
+  have hI : Principia1687.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : Principia1687.Laws.AdditiveImpulse TimeSubdivision.pointAdd :=
+    fun _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have ht (k : Nat) := polygon_triangle_equal ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII
+    a ha (HarmonicDyadic.duration T j) s k
+  simp only [polygonVertex,canonical_polygon_eq_run] at ht
+  apply Fraction.equiv_trans (PolygonFanArea.sum_congr _ _ ht (HarmonicDyadic.blocks j))
+  apply Fraction.equiv_trans (PolygonFanArea.sum_constant _ _)
+  exact Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+    (Fraction.mul_equiv_right _ (HarmonicDyadic.blocks_duration T j))
+
+/-- Conditional local swept-sector law for one independently supplied
+rational-time state curve. MotionSampling.Conditions states the force
+comparison, quadratic local mechanical remainder, finite bounds and short
+window separately from existence. The chart describes the full curve image and its own
+samples. Both force-polygon agreement and slope-mesh exhaustion are derived.
+
+This zero-modern coordinate reconstruction uses this edition's finite laws
+and Lemmas III/I. The assigned rational sector area and partial geometric
+area convention remain explicit. It does not certify unrestricted curves,
+non-rational sectors, winding, or De Motu's different exhaustion argument. -/
+theorem sampled_radial_sector_area (area : RadialSector.DifferenceAreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u)
+    (A : Fraction) (hA : area.HasArea (MotionSampling.sweptSector u T) A) :
+    Fraction.equiv A (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half := by
+  let K := (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half
+  let F := fun j => PolygonFanArea.fan
+    (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1) (HarmonicDyadic.blocks j)
+  let Q := fun j => PolygonFanArea.fan (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j)
+  let chord := fun j => RadialSector.chordArea g (parts j)
+  have hmesh := MotionSampling.sampled_radial_mesh a C T L B P V u d g l r parts chart
+  have hAradial := area.congr_set _ _ A (MotionSampling.charted_sector g l r T parts u chart) hA
+  have hgeom := (radial_sector_approximation area g l r A parts chart.monotone chart.positive hAradial hmesh).2.1
+  have hfan := MotionSampling.sampled_fan_comparison a C T L B P V u d
+  have hfinite (j : Nat) : Fraction.equiv
+      (SectorFan.areaSum (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
+        (HarmonicDyadic.blocks j)) K :=
+    Fraction.equiv_trans (MotionSampling.areaSum_half_fan _ _)
+      (RationalIntervals.half_equiv (canonical_fan_law a ha T _ j))
+  have hchord (j : Nat) : Fraction.le (HarmonicTimeComparison.durationDifference K (chord j)).abs
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs :=
+    Fraction.le_equiv_left (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
+      (Fraction.equiv_symm (hfinite j)) (Fraction.equiv_symm (MotionSampling.sampled_chord_area g l r T parts u chart j))))
+      (MotionSampling.areaSum_error_le_fan_error _ _ _)
+  let D := (HarmonicTimeComparison.durationDifference K A).abs
+  have hbound (j : Nat) : Fraction.le D (Fraction.add
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs
+      (HarmonicTimeComparison.durationDifference A (chord j)).abs) :=
+    Fraction.magnitudes.le_trans (MotionSampling.difference_triangle K (chord j) A)
+      (Fraction.add_le_add (hchord j)
+        (Fraction.le_of_equiv (HarmonicTimeRealization.durationDifference_abs_symm (chord j) A)))
+  have hsmall := MotionSampling.vanishing_add _ _ hfan hgeom
+  have hDsmall : Exhaustion.VanishingDifference Fraction.magnitudes (fun _ => D) := by
+    intro eps heps
+    obtain ⟨N,hN⟩ := hsmall eps heps
+    exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hbound j) (hN j hj)⟩
+  have hzero := Principia1687.LemmaI.ultimate_difference_zero (fun _ => D) D
+    (Fraction.abs_num_nonnegative _) hDsmall (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
+  exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
+
+/-- Areas swept over two admissible windows `[0,T₁]` and `[0,T₂]` from the
+same initial state of one given curve compare as their elapsed times. This is
+the proportionality conclusion for windows sharing their initial time, with
+the local regularity/chart/area scope of sampled_radial_sector_area retained. -/
+theorem sampled_radial_sector_comparison (area : RadialSector.DifferenceAreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (C T₁ T₂ L B P V : Fraction) (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d₁ : MotionSampling.Conditions a C T₁ L B P V u)
+    (d₂ : MotionSampling.Conditions a C T₂ L B P V u)
+    (g₁ g₂ : Fraction → Fraction) (l₁ r₁ l₂ r₂ : Fraction)
+    (parts₁ : Nat → MonotoneRectangles.Partition l₁ r₁)
+    (parts₂ : Nat → MonotoneRectangles.Partition l₂ r₂)
+    (chart₁ : MotionSampling.RadialChart g₁ l₁ r₁ T₁ parts₁ u)
+    (chart₂ : MotionSampling.RadialChart g₂ l₂ r₂ T₂ parts₂ u)
+    (A₁ A₂ : Fraction) (hA₁ : area.HasArea (MotionSampling.sweptSector u T₁) A₁)
+    (hA₂ : area.HasArea (MotionSampling.sweptSector u T₂) A₂) :
+    Fraction.equiv (Fraction.mul A₁ T₂) (Fraction.mul A₂ T₁) := by
+  have h₁ := sampled_radial_sector_area area a ha C T₁ L B P V u d₁ g₁ l₁ r₁ parts₁ chart₁ A₁ hA₁
+  have h₂ := sampled_radial_sector_area area a ha C T₂ L B P V u d₂ g₂ l₂ r₂ parts₂ chart₂ A₂ hA₂
+  apply Fraction.equiv_trans (Fraction.mul_equiv_right T₂ h₁)
+  apply Fraction.equiv_trans (b := Fraction.mul
+    (Fraction.mul T₂ (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half T₁)
+  · simp only [Fraction.equiv,Fraction.mul,Fraction.half]
+    ac_nf
+  · exact Fraction.equiv_symm (Fraction.mul_equiv_right T₁ h₂)
+
 end Principia1687.PropositionI
 
-/-! 1713. Proposition I finite proof steps; full sector limit open. -/
+/-! 1713. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
 /-! Witness: 1713.
 Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50
 Anchor URLs: NATP00082.par50 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50; NATP00082.par51 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51
-Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. Their mesh and identification with the equal-time mechanical polygons remain open; full Proposition I is not certified.
+Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. A further conditional given-motion reconstruction derives finite sample agreement and mesh exhaustion from explicit quadratic remainders and bounds, then proves the assigned local rational swept-sector area proportional to time. Global/non-rational scope and between-region approximation for the mechanical polygons remain open; full Proposition I is not certified.
 Historical dependency ledger for this exact witness:
 - P1713.Law1 → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
 - P1713.Composition → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
@@ -517,6 +625,113 @@ theorem radial_ultimate_chord_difference_zero (area : RadialSector.DifferenceAre
     Fraction.equiv D (Fraction.ofInt 0) :=
   Principia1713.LemmaI.ultimate_difference_zero _ D hD
     (radial_sector_approximation area g a b A parts hg hbase hA hmesh).2.1 hterminal
+
+/-- The coordinate realization of this edition's mechanical polygon is the
+same finite drift/kick recurrence used by the comparison estimates. -/
+theorem canonical_polygon_eq_run (a : CentralSchedule.Field) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (n : Nat) :
+    polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n = BoundedIteration.run a h s n := by
+  induction n with
+  | zero => rfl
+  | succ n ih => exact congrArg (mechanicalCell ZeroForce.inertialAt TimeSubdivision.pointAdd a h) ih
+
+/-- This edition's own Laws' Corollary I/equal-triangle chain supplies the
+finite fan law used in the curve comparison. -/
+theorem canonical_fan_law (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (T : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point) (j : Nat) :
+    Fraction.equiv (PolygonFanArea.fan (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) s k).1)
+      (HarmonicDyadic.blocks j)) (Fraction.mul T (CentralSchedule.momentum s)) := by
+  have hI : Principia1713.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : Principia1713.Laws.AdditiveImpulse TimeSubdivision.pointAdd :=
+    fun _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have ht (k : Nat) := polygon_triangle_equal ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII
+    a ha (HarmonicDyadic.duration T j) s k
+  simp only [polygonVertex,canonical_polygon_eq_run] at ht
+  apply Fraction.equiv_trans (PolygonFanArea.sum_congr _ _ ht (HarmonicDyadic.blocks j))
+  apply Fraction.equiv_trans (PolygonFanArea.sum_constant _ _)
+  exact Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+    (Fraction.mul_equiv_right _ (HarmonicDyadic.blocks_duration T j))
+
+/-- Conditional local swept-sector law for one independently supplied
+rational-time state curve. MotionSampling.Conditions states the force
+comparison, quadratic local mechanical remainder, finite bounds and short
+window separately from existence. The chart describes the full curve image and its own
+samples. Both force-polygon agreement and slope-mesh exhaustion are derived.
+
+This zero-modern coordinate reconstruction uses this edition's finite laws
+and Lemmas III/I. The assigned rational sector area and partial geometric
+area convention remain explicit. It does not certify unrestricted curves,
+non-rational sectors, winding, or De Motu's different exhaustion argument. -/
+theorem sampled_radial_sector_area (area : RadialSector.DifferenceAreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u)
+    (A : Fraction) (hA : area.HasArea (MotionSampling.sweptSector u T) A) :
+    Fraction.equiv A (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half := by
+  let K := (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half
+  let F := fun j => PolygonFanArea.fan
+    (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1) (HarmonicDyadic.blocks j)
+  let Q := fun j => PolygonFanArea.fan (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j)
+  let chord := fun j => RadialSector.chordArea g (parts j)
+  have hmesh := MotionSampling.sampled_radial_mesh a C T L B P V u d g l r parts chart
+  have hAradial := area.congr_set _ _ A (MotionSampling.charted_sector g l r T parts u chart) hA
+  have hgeom := (radial_sector_approximation area g l r A parts chart.monotone chart.positive hAradial hmesh).2.1
+  have hfan := MotionSampling.sampled_fan_comparison a C T L B P V u d
+  have hfinite (j : Nat) : Fraction.equiv
+      (SectorFan.areaSum (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
+        (HarmonicDyadic.blocks j)) K :=
+    Fraction.equiv_trans (MotionSampling.areaSum_half_fan _ _)
+      (RationalIntervals.half_equiv (canonical_fan_law a ha T _ j))
+  have hchord (j : Nat) : Fraction.le (HarmonicTimeComparison.durationDifference K (chord j)).abs
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs :=
+    Fraction.le_equiv_left (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
+      (Fraction.equiv_symm (hfinite j)) (Fraction.equiv_symm (MotionSampling.sampled_chord_area g l r T parts u chart j))))
+      (MotionSampling.areaSum_error_le_fan_error _ _ _)
+  let D := (HarmonicTimeComparison.durationDifference K A).abs
+  have hbound (j : Nat) : Fraction.le D (Fraction.add
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs
+      (HarmonicTimeComparison.durationDifference A (chord j)).abs) :=
+    Fraction.magnitudes.le_trans (MotionSampling.difference_triangle K (chord j) A)
+      (Fraction.add_le_add (hchord j)
+        (Fraction.le_of_equiv (HarmonicTimeRealization.durationDifference_abs_symm (chord j) A)))
+  have hsmall := MotionSampling.vanishing_add _ _ hfan hgeom
+  have hDsmall : Exhaustion.VanishingDifference Fraction.magnitudes (fun _ => D) := by
+    intro eps heps
+    obtain ⟨N,hN⟩ := hsmall eps heps
+    exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hbound j) (hN j hj)⟩
+  have hzero := Principia1713.LemmaI.ultimate_difference_zero (fun _ => D) D
+    (Fraction.abs_num_nonnegative _) hDsmall (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
+  exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
+
+/-- Areas swept over two admissible windows `[0,T₁]` and `[0,T₂]` from the
+same initial state of one given curve compare as their elapsed times. This is
+the proportionality conclusion for windows sharing their initial time, with
+the local regularity/chart/area scope of sampled_radial_sector_area retained. -/
+theorem sampled_radial_sector_comparison (area : RadialSector.DifferenceAreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (C T₁ T₂ L B P V : Fraction) (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d₁ : MotionSampling.Conditions a C T₁ L B P V u)
+    (d₂ : MotionSampling.Conditions a C T₂ L B P V u)
+    (g₁ g₂ : Fraction → Fraction) (l₁ r₁ l₂ r₂ : Fraction)
+    (parts₁ : Nat → MonotoneRectangles.Partition l₁ r₁)
+    (parts₂ : Nat → MonotoneRectangles.Partition l₂ r₂)
+    (chart₁ : MotionSampling.RadialChart g₁ l₁ r₁ T₁ parts₁ u)
+    (chart₂ : MotionSampling.RadialChart g₂ l₂ r₂ T₂ parts₂ u)
+    (A₁ A₂ : Fraction) (hA₁ : area.HasArea (MotionSampling.sweptSector u T₁) A₁)
+    (hA₂ : area.HasArea (MotionSampling.sweptSector u T₂) A₂) :
+    Fraction.equiv (Fraction.mul A₁ T₂) (Fraction.mul A₂ T₁) := by
+  have h₁ := sampled_radial_sector_area area a ha C T₁ L B P V u d₁ g₁ l₁ r₁ parts₁ chart₁ A₁ hA₁
+  have h₂ := sampled_radial_sector_area area a ha C T₂ L B P V u d₂ g₂ l₂ r₂ parts₂ chart₂ A₂ hA₂
+  apply Fraction.equiv_trans (Fraction.mul_equiv_right T₂ h₁)
+  apply Fraction.equiv_trans (b := Fraction.mul
+    (Fraction.mul T₂ (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half T₁)
+  · simp only [Fraction.equiv,Fraction.mul,Fraction.half]
+    ac_nf
+  · exact Fraction.equiv_symm (Fraction.mul_equiv_right T₁ h₂)
 
 end Principia1713.PropositionI
 
