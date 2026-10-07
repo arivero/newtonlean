@@ -1,4 +1,4 @@
-import Reverse.NonRelativistic.Limit
+import Reverse.NonRelativistic.ZeroInvCFibre
 import Reverse.Newton.Interface
 
 /-!
@@ -39,21 +39,30 @@ open NewtonLimitDynamics NewtonLimitDynamics.Polygon NewtonLimitDynamics.Polygon
 
 variable {I : MatterInputs} {M : HasStableNeutralMatter I}
 
-/-- Semiclassical centre-of-mass limit: classical drift and impulse update,
-with the update additive in the Galilean composition of velocities. -/
+/-- Galilean structure on the shared coordinate model: time is the rational
+parameter of `Point → Point → Fraction → Point` maps, and velocities compose
+additively. An assumption of this stage, to be derived. -/
+structure GalileanStructure where
+  composeVelocity : Point → Point → Point
+  compose_additive : ∀ u v, pointEquiv (composeVelocity u v) (pointAdd u v)
+
+/-- Semiclassical centre-of-mass limit on the zero-invC fibre: classical
+drift and impulse update, with the update additive in the Galilean
+composition of velocities. -/
 structure HasSemiclassicalCOMLimit {S : StableParticleSector M}
-    (L : HasNonrelativisticLimit S) where
+    (Z : HasZeroInvCFibre S) where
+  galilean : GalileanStructure
   motion : Point → Point → Fraction → Point
   update : Point → Point → Point
   inertial : ∀ p v t, pointEquiv (motion p v t) (ZeroForce.inertialAt p v t)
-  additive : ∀ u v, pointEquiv (update u v) (L.galilean.composeVelocity u v)
+  additive : ∀ u v, pointEquiv (update u v) (galilean.composeVelocity u v)
 
 /-- The Newton interface produced by the semiclassical limit. -/
 def HasSemiclassicalCOMLimit.newtonInterface {S : StableParticleSector M}
-    {L : HasNonrelativisticLimit S} (hSC : HasSemiclassicalCOMLimit L) : NewtonInterface where
+    {Z : HasZeroInvCFibre S} (hSC : HasSemiclassicalCOMLimit Z) : NewtonInterface where
   motion := hSC.motion
   update := hSC.update
   inertial := hSC.inertial
-  additive := fun u v => pointEquiv_trans (hSC.additive u v) (L.galilean.compose_additive u v)
+  additive := fun u v => pointEquiv_trans (hSC.additive u v) (hSC.galilean.compose_additive u v)
 
 end Reverse.Classical

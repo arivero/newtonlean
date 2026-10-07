@@ -33,8 +33,8 @@ ASSUMED HERE:
 OPEN PROBLEMS USED:
   None.
 NEXT REDUCTION:
-  `Reverse/NonRelativistic/Limit.lean` applies these results to the stable
-  composite sector on the fibre.
+  `Reverse/NonRelativistic/ZeroInvCFibre.lean` applies these results to the
+  stable composite sector on the fibre.
 
 STATUS: theorem.
 -/

@@ -13,7 +13,7 @@ INPUT PARAMETERS:
   The parent's fundamental parameters at the point `a`.
 OUTPUT PARAMETERS:
   A `NewtonInterface`; invC = 0 on the fibre; ℏ and G carried unchanged to the
-  nonrelativistic sector.
+  fibre sector.
 PROVED HERE:
   `modern_to_newton` (composition) and `modern_to_newton_kinetic` (each
   body's Newtonian kinetic energy on the fibre with its effective mass).
@@ -49,13 +49,13 @@ def modern_to_newton
       (MatterInputs.ofWeakDecoupling hWeak hΛ hGap hConf hNuc hElectron))
     (S : StableParticleSector hBound)
     (_hparams : S.params = F.fundamental a)
-    (hNR : HasNonrelativisticLimit S)
-    (hSC : HasSemiclassicalCOMLimit hNR) : NewtonInterface :=
+    (hZ : HasZeroInvCFibre S)
+    (hSC : HasSemiclassicalCOMLimit hZ) : NewtonInterface :=
   hSC.newtonInterface
 
-/-- On the nonrelativistic fibre, each neutral body's kinetic energy is
-Newtonian with the effective composite mass, which the parent never
-contained as a parameter. -/
+/-- On the zero-invC fibre, each neutral body's kinetic energy is Newtonian
+with the effective composite mass, which the parent never contained as a
+parameter. -/
 theorem modern_to_newton_kinetic
     (F : QuantumKKFamily) (a : F.Params)
     (hKK : HasKKReduction F)
@@ -69,10 +69,10 @@ theorem modern_to_newton_kinetic
       (MatterInputs.ofWeakDecoupling hWeak hΛ hGap hConf hNuc hElectron))
     (S : StableParticleSector hBound)
     (_hparams : S.params = F.fundamental a)
-    (hNR : HasNonrelativisticLimit S) (b : hBound.Body) (p : Point) :
-    Fraction.equiv (hNR.limit.kinetic b p)
+    (hZ : HasZeroInvCFibre S) (b : hBound.Body) (p : Point) :
+    Fraction.equiv (hZ.fibre.kinetic b p)
       (Fraction.quotient (normSq p) (twice (hBound.body b).mass)
         (twice_positive (hBound.body b).mass_positive)) :=
-  kinetic_energy_newtonian hNR b p
+  kinetic_energy_on_fibre hZ b p
 
 end Reverse

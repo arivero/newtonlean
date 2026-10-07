@@ -27,7 +27,7 @@ ASSUMED HERE:
 OPEN PROBLEMS USED:
   Existence of positive-mass stable sectors in an interacting QFT.
 NEXT REDUCTION:
-  `Reverse/NonRelativistic/Limit.lean`.
+  `Reverse/NonRelativistic/ZeroInvCFibre.lean`.
 
 STATUS: well-established physics, stated as an interface.
 -/
