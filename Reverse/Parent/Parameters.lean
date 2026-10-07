@@ -94,4 +94,11 @@ structure FundamentalParameters where
   compactificationRadius : Scalar
   cosmologicalConstant : Scalar
 
+/-- kappa = invC² = 1/c², the parameter of the rest-subtracted dispersion
+relation and of velocity composition. Reverse/ writes `invC` for 1/c and
+`kappa` for 1/c² only; `v`, `w` are velocities, `p` a momentum, `K` the
+rest-subtracted kinetic energy, `m` a mass. -/
+def FundamentalParameters.kappa (P : FundamentalParameters) : Scalar :=
+  NewtonLimitDynamics.Fraction.mul P.invC P.invC
+
 end Reverse.Parent
