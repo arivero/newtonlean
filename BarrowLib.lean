@@ -1,3 +1,9 @@
+/- Historical scope: results after Hypatia and before the Principia.
+Earlier classical results belong in ClassicsLib; results after the Principia
+belong in ModernLib. Chronology concerns the mathematical result, not the
+date of its Lean encoding. Newton's own results remain in their historical
+witness files. -/
+
 import BarrowLib.Common.FiniteGrowth
 import BarrowLib.Common.Exhaustion
 import BarrowLib.Common.Quadratic

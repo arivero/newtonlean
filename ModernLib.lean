@@ -1,3 +1,9 @@
+/- Historical scope: any result after the Principia.
+Results after Hypatia and before the Principia belong in BarrowLib; earlier
+classical results belong in ClassicsLib. Chronology concerns the mathematical
+result, not the date of its Lean encoding. Use of these results makes a
+downstream historical proof anachronical, including use through its types. -/
+
 import ModernLib.Comparison.CircleCompare
 import ModernLib.Diagnostic.ConstructedHarmonicPotential
 import ModernLib.Diagnostic.DeflectionPotential
