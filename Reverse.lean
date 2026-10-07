@@ -7,4 +7,5 @@ import Reverse.Parent.QuantumKKFamily
 import Reverse.Parent.InternalGeometry
 import Reverse.KK.DimensionalReduction
 import Reverse.KK.WeakSector
+import Reverse.Strong.Confinement
 import Reverse.Newton.Interface
