@@ -36,6 +36,7 @@ import BarrowLib.Polygon.LatticeGeometry
 import BarrowLib.Polygon.MonotoneRectangles
 import BarrowLib.Polygon.RectangleContent
 import BarrowLib.Polygon.SectorFan
+import BarrowLib.Polygon.RadialSector
 import BarrowLib.Polygon.RationalBoundary
 import BarrowLib.Polygon.Parallelogram
 import BarrowLib.Polygon.PointAlgebra
