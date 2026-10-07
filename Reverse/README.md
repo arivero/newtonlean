@@ -169,10 +169,12 @@ Status by stage:
 possible fates (`toZero`, `toInfinity`, `remainsFinite`,
 `combinesIntoInvariant`, `integratedOut`, `confined`, `unobservable`,
 `survivesEffective`, `undetermined`). `currentFate` records what the
-formalization has established; it is `undetermined` for every parameter
-except `invC`, whose fibre `invC = 0` is the one formalized limit. The
-expectations below are working hypotheses and are kept out of the Lean
-table:
+formalization has established and is `undetermined` for every parameter.
+The kinetic-energy result is derived on the fibre `invC = 0`, which the
+nonrelativistic interface takes as given; whether that fibre is required for
+the Newtonian kinematics (question 1 below) is still open, so even `invC`
+stays undetermined in the Lean table. The expectations below are working
+hypotheses and are kept out of the Lean table:
 
 | Parameter | Expected fate | Where it should be decided |
 | --- | --- | --- |
@@ -196,15 +198,40 @@ grep -rn "import Reverse" NewtonLimitDynamics BarrowLib ClassicsLib ModernLib   
 command is the historical-isolation check: no historical or supporting
 library imports the reverse programme.
 
+## Questions the architecture is built to answer
+
+1. Is `invC = 0` required for the kinematic assumptions of Propositions
+   I–IV, or only sufficient?
+2. Is a literal microscopic `ℏ = 0` required, or only the centre-of-mass
+   semiclassical limit?
+3. Can the electromagnetic coupling stay nonzero while the astronomical
+   sector is obtained by restriction to neutral matter?
+4. Which part of Newtonian inertial mass is inherited from the strong sector?
+5. Does Proposition I–IV need a value of `G`, or is `G` free there?
+6. Does the inverse-square law enter Propositions I–IV at all?
+7. Which assumptions are kinematic and which belong to particular forces?
+8. Which modern constants are invisible before the first four propositions?
+9. Do `invC → 0` and `ℏ_eff → 0` commute under the hypotheses required?
+10. Which step first needs quantum mechanics for the existence of classical
+    matter?
+
+Theorem names and interface fields are chosen so that these can be stated
+formally as the chain deepens.
+
 ## Milestone record
 
-First milestone (7 October 2026, in progress): README, parameter vocabulary,
-interfaces for the parent, KK reduction, weak decoupling, colour sector,
-neutral matter, relativistic composite sector, nonrelativistic and
-semiclassical limits; the shared endpoint identified and packaged; the
-kinetic-energy fibre theorem proved; the chain composed with its explicit
-hypothesis list. Files named above that are missing from the tree are the
-remaining steps of this milestone.
+First milestone, 7 October 2026: README; parameter vocabulary
+(`Parent/Parameters`); interfaces for the parent (`Parent/QuantumKKFamily`,
+`Parent/InternalGeometry`), KK reduction and weak decoupling (`KK/`), the
+colour sector (`Strong/Confinement`), neutral matter
+(`Matter/NeutralMatter`), the relativistic composite sector
+(`RelativisticQM/StableParticleSector`), the nonrelativistic and
+semiclassical limits (`NonRelativistic/Limit`, `Classical/SemiclassicalLimit`);
+the shared endpoint packaged in `Newton/Interface`; the kinetic-energy fibre
+theorems in `NonRelativistic/KineticEnergy`; the chain composed in `Chain`
+with its explicit hypothesis list. `modern_to_newton` depends on the
+standard axioms only (`propext`, `Classical.choice`, `Quot.sound`); there is
+no `sorry` in the library.
 
 Next blocking question: factor the edition-local law predicates into a
 neutral shared location, or import the law files from `Reverse/Principia/`
