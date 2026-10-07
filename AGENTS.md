@@ -1,5 +1,30 @@
 # Project method
 
+- User clarification, 7 October: library chronology is ClassicsLib through
+  Hypatia, BarrowLib after Hypatia and before the Principia, and ModernLib
+  after the Principia. Keep these scopes at the library entry points. Each
+  pre-Principia Chinese result belongs in ClassicsLib by explicit exception;
+  Arabic results belong in BarrowLib when their dates fit its window. Every
+  library element needs its original-language source; Unicode comments are
+  allowed. A cited external source must state the exact result. An unmatched
+  AI-derived result may cite its own original statement/proof and claim that
+  provenance explicitly, without claiming historical textual support or
+  priority. Never attribute a known result to its AI formalizer; unmatched
+  sources remain unverified unless the result is actually derived here.
+  Its class follows its mathematical dependencies: Classics only
+  gives Classics, Barrow plus Classics gives Barrow, any modern use gives
+  Modern. New authorship alone does not make a result modern.
+- Anachronical proofs carry an opening `Modern dependency score` comment:
+  M/(M+H), counting distinct transitive mathematical theorem/axiom
+  dependencies, with fewer modern dependencies preferred. Traverse types,
+  definitions and private helpers; exclude the proof itself and Lean's
+  logical/compiler infrastructure. Report M and H so adding historical
+  helpers cannot conceal an unchanged modern burden. The score is not a
+  completion percentage or a historical-source certificate.
+- For this task the user explicitly authorized the final Astra review after
+  reset, overriding the older no-Astra restriction below. Keep all other
+  resource limits, including at most one sequential subagent.
+
 - The user released the review hold on 6 October with “push as it is”. The
   verified refactor and source-only cleanup were committed and pushed as
   `60180f2`. Continue with verified increments, preserving unrelated changes.

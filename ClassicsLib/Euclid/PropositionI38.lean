@@ -2,6 +2,11 @@ import BarrowLib.Polygon.LatticeGeometry
 
 /-! Euclid, Elements, Book I.
 Source: https://mathcs.clarku.edu/~djoyce/elements/bookI/propI38.html
+Original Greek statement, Elements I.38, Stamatis text as transcribed at:
+https://physics.ntua.gr/mourmouras/euclid/book1/postulate38.html
+Τὰ τρίγωνα τὰ ἐπὶ ἴσων βάσεων ὄντα καὶ ἐν ταῖς αὐταῖς παραλλήλοις
+ἴσα ἀλλήλοις ἐστίν.
+
 Triangles on equal bases between the same parallels. The retained extension_identity is the integer-coordinate special case of consecutive equal collinear bases and the fixed opposite vertex at the origin. It proves determinant preservation, not the full synthetic Euclidean theorem.
 Status: modern_reconstruction of this classical coordinate special case;
 not an assertion that Newton explicitly cites the proposition by number.

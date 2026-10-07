@@ -8,11 +8,30 @@ Area itself remains a supplied partial geometric relation, extended from the
 rectangle convention by triangle areas and additivity across nonzero radial
 lines. No curved sector or limiting area is postulated or constructed here.
 
-Classical source correspondence: Euclid, Elements I.41 (triangle area is half
+Source of the coordinate definitions and derived lemmas below: the original
+AI-assisted NewtonLean derivation in this file (English explanation and Lean
+statements/proofs). No external exact-result source or priority is claimed.
+The derivation uses BarrowLib only and is classified as Barrow support under
+the user's dependency rule; recent authorship alone does not make it modern.
+
+Classical background correspondence: Euclid, Elements I.41 (triangle area is half
 the corresponding parallelogram) and Common Notions 2–5 (addition, subtraction,
 coincidence and comparison of figures).
 https://mathcs.clarku.edu/~djoyce/elements/bookI/propI41.html
 https://mathcs.clarku.edu/~djoyce/elements/bookI/cn.html
+Original Greek, I.41, Stamatis text as transcribed at:
+https://physics.ntua.gr/mourmouras/euclid/book1/postulate41.html
+Ἐὰν παραλληλόγραμμον τριγώνῳ βάσιν τε ἔχῃ τὴν αὐτὴν καὶ ἐν ταῖς
+αὐταῖς παραλλήλοις ᾖ, διπλάσιόν ἐστι τὸ παραλληλόγραμμον τοῦ τριγώνου.
+
+Original Greek Common Notions (same transcription, numbers 2, 3, 7, 8;
+the latter two correspond to 4 and 5 in Joyce's five-notion presentation):
+https://physics.ntua.gr/mourmouras/euclid/book1/elements1.html
+Καὶ ἐὰν ἴσοις ἴσα προστεθῇ, τὰ ὅλα ἐστὶν ἴσα.
+Καὶ ἐὰν ἀπὸ ἴσων ἴσα ἀφαιρεθῇ, τὰ καταλειπόμενά ἐστιν ἴσα.
+Καὶ τὰ ἐφαρμόζοντα ἐπ᾿ ἄλληλα ἴσα ἀλλήλοις ἐστίν.
+Καὶ τὸ ὅλον τοῦ μέρους μεῖζον [ἐστιν].
+
 These are source-identified geometric premises, not a claim that Euclid
 states the coordinate predicates below. The radial ordering proof is our
 finite coordinate reconstruction of the dissection. Triangle normalization
