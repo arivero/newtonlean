@@ -13,6 +13,7 @@ import Reverse.Matter.NeutralMatter
 import Reverse.RelativisticQM.StableParticleSector
 import Reverse.NonRelativistic.KineticEnergy
 import Reverse.NonRelativistic.ZeroInvCFibre
-import Reverse.Classical.SemiclassicalLimit
+import Reverse.Classical.ClassicalTrajectory
+import Reverse.Classical.NewtonLaws
 import Reverse.Newton.Interface
 import Reverse.Chain
