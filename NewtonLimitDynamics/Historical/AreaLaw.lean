@@ -52,7 +52,7 @@ Source: docs/m1/NATP00090.xml
 SHA-256: 790b468987fd8c7716d9d43197ec3a724f7f581ec8b6ed3998edc191b951f998
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par16
 Anchor URLs: NATP00090.par16 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par16; NATP00090.par17 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17
-Proof-step correspondence: Finite equal-time inertial segments and parallel central deflections preserve the triangle areas; composition sums them. The passage then takes the polygon to a curve, which remains open.
+Proof-step correspondence: The abstract finite model remains available. A separate coordinate reconstruction now takes this witness's own Lex 1 inertia and Lex 2 calibrated change as explicit premises, uses its Lemma 1 to locate the next arrival, and derives equal consecutive triangle areas for the actual impulse-then-drift recurrence. Finite dissection gives ordinary sector-union area under explicit elementary area rules, nonnegative orientation and a strict common positive half-plane. Rational calibration and discrete sampled impulses are editorial model premises. The infinite-triangle passage to the given curve remains open; no printed Lemma III or printed-edition law supplies it.
 Historical dependency ledger for this exact witness:
 - NATP00090.Law1 → NATP00090.T1; passage NATP00090.par17; witness 'De motu sphæricorum corporum in fluidis'; URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17; status explicit_dependency; confidence high.
 - NATP00090.L1 → NATP00090.T1; passage NATP00090.par17; witness 'De motu sphæricorum corporum in fluidis'; URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17; status explicit_dependency; confidence high.
@@ -82,6 +82,116 @@ theorem natp00090_finite_block_comparison (g : EuclideanConstruction Point Impul
   positive_unsigned_area_comparison g p q impulse dt hdt start₁ start₂ m n hm hn
 
 end DeMotu1684.AreaLaw
+
+namespace DeMotu1684.NATP00090.AreaLaw
+open NewtonLimitDynamics NewtonLimitDynamics.Polygon TimeSubdivision
+
+/-- Drift to the next vertex, then apply the calibrated field impulse
+there. No equal-area or polygon/curve-agreement clause is supplied. -/
+def mechanicalCell (motion : Point → Point → Fraction → Point)
+    (update : Point → Point → Point) (a : CentralSchedule.Field) (h : Fraction)
+    (s : Point × Point) : Point × Point :=
+  let q := motion s.1 s.2 h
+  (q, update s.2 (pointScale h (a q)))
+
+def polygonState (motion : Point → Point → Fraction → Point)
+    (update : Point → Point → Point) (a : CentralSchedule.Field) (h : Fraction)
+    (s : Point × Point) : Nat → Point × Point
+  | 0 => s
+  | n+1 => mechanicalCell motion update a h (polygonState motion update a h s n)
+
+def polygonVertex (motion : Point → Point → Fraction → Point)
+    (update : Point → Point → Point) (a : CentralSchedule.Field) (h : Fraction)
+    (s : Point × Point) (n : Nat) : Point :=
+  (polygonState motion update a h s n).1
+
+/-- NATP00090's own Lemma 1 locates C in its AB, Bc, BC construction.
+The central impulse and preceding Lex 1 drift then give equal triangles.
+The conclusion is a finite signed doubled-area equality. -/
+theorem two_triangle_step
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : DeMotu1684.NATP00090.Laws.InertialMotion motion)
+    (hII : DeMotu1684.NATP00090.Laws.CalibratedChange update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (p v : Point) (h : Fraction) (hh : 0 ≤ h.num) :
+    Fraction.equiv
+      (det (motion p v h)
+        (motion (motion p v h) (update v (pointScale h (a (motion p v h)))) h))
+      (det p (motion p v h)) := by
+  let q := motion p v h
+  let j := pointScale h (a q)
+  have hlemma := DeMotu1684.Composition.natp00090_lemma1_from_laws
+    motion update hI hII q v j h hh
+  have hj : Fraction.equiv (det q j) (Fraction.ofInt 0) :=
+    Fraction.equiv_trans (det_scale_right h q (a q))
+      (Fraction.equiv_trans (Fraction.mul_equiv_left h (ha q)) (Fraction.mul_zero h))
+  have hd : Fraction.equiv (det q (Parallelogram.diagonal q (pointScale h v) (pointScale h j)))
+      (Fraction.add (Fraction.mul h (det q v)) (Fraction.mul h (det q j))) := by
+    simp only [Parallelogram.diagonal,TimeSubdivision.det,pointAdd,pointScale,Fraction.equiv,
+      Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg]
+    ac_nf
+    omega
+  have hnext : Fraction.equiv (det q (motion q (update v j) h))
+      (Fraction.mul h (det q v)) :=
+    Fraction.equiv_trans (det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ hlemma)
+      (Fraction.equiv_trans hd (Fraction.equiv_trans
+        (Fraction.add_equiv_left _ (Fraction.equiv_trans (Fraction.mul_equiv_left h hj)
+          (Fraction.mul_zero h))) (Fraction.add_zero _)))
+  have hprior : Fraction.equiv (det p q) (Fraction.mul h (det p v)) :=
+    Fraction.equiv_trans (det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (hI p v h hh))
+      (CentralSchedule.det_cell_area p v h)
+  have hdrift : Fraction.equiv (det q v) (det p v) :=
+    Fraction.equiv_trans (det_congr (hI p v h hh)
+      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩) (CentralSchedule.det_drift p v h)
+  exact Fraction.equiv_trans hnext
+    (Fraction.equiv_trans (Fraction.mul_equiv_left h hdrift) (Fraction.equiv_symm hprior))
+
+/-- Every consecutive triangle of the actual finite recurrence has the
+initial triangle's area; the equality is derived from the two-triangle step. -/
+theorem polygon_triangle_equal
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : DeMotu1684.NATP00090.Laws.InertialMotion motion)
+    (hII : DeMotu1684.NATP00090.Laws.CalibratedChange update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (h : Fraction) (hh : 0 ≤ h.num) (s : Point × Point) (n : Nat) :
+    Fraction.equiv
+      (det (polygonVertex motion update a h s n) (polygonVertex motion update a h s (n+1)))
+      (Fraction.mul h (CentralSchedule.momentum s)) := by
+  induction n with
+  | zero =>
+    exact Fraction.equiv_trans
+      (det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (hI s.1 s.2 h hh))
+      (CentralSchedule.det_cell_area s.1 s.2 h)
+  | succ n ih =>
+    exact Fraction.equiv_trans
+      (two_triangle_step motion update hI hII a ha
+        (polygonState motion update a h s n).1 (polygonState motion update a h s n).2 h hh) ih
+
+/-- Finite ordinary sector-union area is elapsed time times the initial
+areal product divided by two. Common half-plane and nonnegative orientation
+are explicit: winding triangles cannot be counted as a simple union. The
+area convention is supplied; the curved-sector limit is not proved here. -/
+theorem finite_geometric_sector (area : SectorFan.AreaRules)
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : DeMotu1684.NATP00090.Laws.InertialMotion motion)
+    (hII : DeMotu1684.NATP00090.Laws.CalibratedChange update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (h : Fraction) (hh : 0 ≤ h.num) (s : Point × Point)
+    (hs : 0 ≤ (CentralSchedule.momentum s).num) (n : Nat)
+    (hp : ∀ i, i ≤ n → 0 < (polygonVertex motion update a h s i).1.num) :
+    area.HasArea (SectorFan.Region (polygonVertex motion update a h s) n)
+      (Fraction.mul (BoundedIteration.time h n) (CentralSchedule.momentum s)).half := by
+  have htriangle := polygon_triangle_equal motion update hI hII a ha h hh s
+  have hregion := SectorFan.region_area area _ n hp (fun i _ =>
+    Fraction.nonnegative_equiv (htriangle i) (Fraction.nonnegative_mul _ _ hh hs))
+  apply area.congr_value _ _ _ ?_ hregion
+  apply Fraction.equiv_trans
+    (PolygonFanArea.sum_congr _ _ (fun i => RationalIntervals.half_equiv (htriangle i)) n)
+  apply Fraction.equiv_trans (PolygonFanArea.sum_constant (Fraction.mul h (CentralSchedule.momentum s)).half n)
+  simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
+  ac_nf
+
+end DeMotu1684.NATP00090.AreaLaw
 
 /-! 1687. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
 /-! Witness: 1687.

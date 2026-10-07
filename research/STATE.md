@@ -27,9 +27,9 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Lemma II | Exact equal-width gap, actual rectangle-union side-product areas under explicit partial area rules, derived enclosure/errors and unit ratios to a fixed positive assigned rational curved area; actual use of the edition's Lemma I | Existence of the geometric area convention and the curve's area remain premises; arbitrary non-rational areas and ratios of two varying areas require further treatment |
 | Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; area errors and fixed-area unit ratios for unequal widths | Same area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
 | Lemma III corollaries I–IV | Source-local area and boundary approximation chain. For concave increasing rational graph patches, two-sided secant contact and independent secant concavity derive the supporting tangent cells, their meetings, a uniform continuity bound and two-sided chord/contact-tangent boundary approximation. The joined trace equals the filled tangent polygon's vertical top, including shared endpoints, coincident lines and repeated nodes. Rectangle/triangle normalization, cut additivity and translation invariance now derive the actual finite polygon's trapezoid-sum area. Its error against an assigned curved area vanishes through the edition's Corollary I; no separate polygon-area assignment is needed in the constructed interface | Arbitrary curves still use the older supplied supporting-cell interface. Tangent existence, other patch orientations and general patch decomposition remain open, as do existence of the geometric area convention and curved area, non-rational magnitudes and force-polygon correspondence. Rectangle covers are not staircase perimeters. No arclength conclusion |
-| Laws' Corollary I | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites Laws II/I in this proof; De Motu hypotheses and finite models remain witness-local |
+| Laws' Corollary I / De Motu Lemma 1 | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates. NATP00090 now derives its own two endpoint constraints and independent-line intersection from its Lex 1 inertia and Lex 2 calibrated velocity difference; direct addition also covers degenerate directions and zero time | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites both Laws II/I in this proof; NATP00090 cites Lex 2, and post-impulse inertia is an editorial interpretation of its Lex 1. Its literal M/AC label inconsistency is recorded. NATP00089 retains its own hypothesis/model scope |
 | Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
-| Proposition I | Separate 1687/1713 finite constructions use their own Laws' Corollary I. Their new conditional given-motion reconstruction proves an assigned local swept-sector area equal to `T * det(initial position, initial velocity) / 2`, and comparison of two such areas from a shared initial time as their times. Finite force-polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic local motion remainders, force comparison, short-window and finite bounds, with the supplied chart's positive ray scale. A supplied positive monotone rational radial chart describes the full curve image, beyond its samples. Its chord/curve symmetric difference has shrinking finite covers | Extend beyond the rational local chart and stated mechanical/regularity premises; preserve De Motu's own exhaustion route. Whole-edge/arbitrary-time force-polygon agreement and the actual between-region B for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
+| Proposition I / De Motu Theorem 1 | NATP00090's actual impulse-then-drift recurrence uses its own Lemma 1 and Lex 1 to derive equal consecutive triangles and finite ordinary sector-union area under explicit area rules, common half-plane and nonnegative orientation. Separate 1687/1713 finite constructions use their own Laws' Corollary I. Their conditional given-motion reconstruction proves an assigned local swept-sector area equal to `T * det(initial position, initial velocity) / 2`, and comparison of two such areas from a shared initial time as their times. Finite force-polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic local motion remainders, force comparison, short-window and finite bounds, with the supplied chart's positive ray scale. A supplied positive monotone rational radial chart describes the full curve image, beyond its samples. Its chord/curve symmetric difference has shrinking finite covers | Extend beyond the rational local chart and stated mechanical/regularity premises; preserve De Motu's own exhaustion route. NATP00089's hypothesis and NATP00090's laws remain distinct. Whole-edge/arbitrary-time force-polygon agreement and the actual between-region B for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
 | Proposition II | Finite oriented-area converse, including unequal durations and uniformly moving centres | Vanishing-triangle/continuous-curve passage. Direction does not determine inward sense; unsigned areas and a vertex at the centre require separate treatment |
 | Proposition III | Relative deflection and reference-history cancellation; finite converse application | Realized relative-orbit limit. No Law III, mass/force law or force/time-scale conclusion is derived |
 | Proposition IV | Conditional finite circular sagitta comparison | Circle geometry, force interpretation and edition-specific ultimate ratios: 1687 uses Proposition II and Lemmas V/XI; 1713 uses Proposition II, Proposition I corollaries 2/4 and Lemma VII |
@@ -104,6 +104,28 @@ closes a historical proof.
 
 ## Current increment and next work
 
+The NATP00090 motion-composition increment derives its Lemma 1 from its own
+Lex 1 and Lex 2 premises. Lex 1 supplies unimpeded uniform drift at nonnegative
+rational times. Lex 2 supplies the velocity difference generated by a
+calibrated directed impulse on one fixed body. Finite cancellation derives
+addition, then the two transverse endpoint constraints and their unique
+intersection for independent directions. A separate direct addition proof
+includes parallel, opposite and zero impulses and zero time; it does not
+claim uniqueness of degenerate endpoint lines. The Latin is preserved:
+par11 labels the force along AC as M although its setup associates M with AB
+and N with AC. The vector roles are an explicit editorial interpretation of
+that inconsistent label and the symmetric argument.
+
+NATP00090's Theorem 1 now uses this law-driven Lemma 1 in the actual sampled
+impulse-then-drift recurrence. The two-triangle step and finite induction
+derive equal signed doubled triangle areas. Elementary dissection then gives
+the ordinary local sector-union area as elapsed time times the initial areal
+product divided by two, under explicit area rules, nonnegative orientation
+and a strict common positive half-plane. These finite conclusions supply
+neither polygon/curve agreement nor a curved-area limit. They use no
+printed-edition law or limiting lemma. NATP00089's revised hypothesis and
+its existing finite models remain separate.
+
 The contact-tangent increment of 7 October advances the printed Lemma III
 Corollaries III–IV. Proposition I explicitly invokes Corollary IV in each
 printed edition's limiting passage. `TangentContact`
@@ -177,7 +199,17 @@ remain explicit; general area existence is not constructed. The force
 comparison is a whole-plane premise; forces singular at the centre need a
 regional version available to the primary chain.
 
-Controls: `motion-sampling-2026-10-07.lean` prescribes a quadratic curve under
+Controls: `demotu-composition-2026-10-07.lean` supplies concrete NATP00090
+law witnesses for affine drift and vector impulse addition. Its full-step
+central construction has arrivals `(2,1)` and `(0,1)` with both doubled
+triangle areas `2`. Its half-step construction has arrivals `(2,1/2)` and
+`(3/2,7/8)` with doubled area `1`; the two-cell ordinary union has area `1`
+under explicit elementary area rules and derived half-plane/orientation
+conditions. A noncentral impulse gives `(3,2)` and changes the doubled area
+to `1`. Further controls cover zero time, dependent vectors and equivalent
+rational representatives. No control supplies a continuous curve-limit passage.
+
+`motion-sampling-2026-10-07.lean` prescribes a quadratic curve under
 a constant, explicitly noncentral acceleration and proves its nonzero quadratic
 cell remainder, finite bounds and derived sample agreement without claiming
 Newton's area law. `historical-motion-area-2026-10-07.lean` gives a
@@ -218,23 +250,25 @@ elementary area convention and contact patch; the nonlinear patch's existence
 is proved in the earlier contact control. Both printed constructed-area
 interfaces retain the curved-area and shrinking-mesh premises.
 
-Last full verification: 7 October 2026, after the finite tangent-polygon area
+Last full verification: 7 October 2026, after the NATP00090 law-driven finite
 construction and an independent sequential Sol review. All five builds, the
-25 positive controls, the harmonic reference/comparator, source hashes and whitespace
+26 positive controls, the harmonic reference/comparator, source hashes and whitespace
 passed. The compiled checker verified 1,181 score comments and
-7,026 project constants with no project axioms, sorry or primary modern
+7,050 project constants with no project axioms, sorry or primary modern
 dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 79 source edges and 27 formal cross-file uses across 22
-historical files. Archived Newton sources and exact Latin are unchanged by
-this increment. The review found no defect within the stated rational patch
-scope; it does not discharge the supplied area convention, curved area or
-mesh premises. Astra's review
+historical files. Archived Newton sources and previously transcribed Latin
+are unchanged; the added Lex 1/2 passages were checked against NATP00090's
+archived TEI and diplomatic HTML. The review found no defect in the finite
+calibrated-motion chain. Mechanical laws and geometric area rules remain
+premises, and the curve-limit passage remains open. Astra's review
 covers the radial-sector increment (`3a2f5e3`, `b827902`) only.
 
-Next advance De Motu's own finite composition and exhaustion passage, using
-its witness-local laws and argument; no printed Lemma III dependency is
-retrofitted. Extend the conditional rational local result to the remaining
-geometric scope, including other patch orientations and their assembly. Keep curved-area existence
+Next advance De Motu's own exhaustion passage from the law-driven finite
+construction, keeping its witnesses and limiting assertions separate; no
+printed Lemma III dependency is retrofitted. Extend the conditional rational
+local result to the remaining geometric scope, including other patch
+orientations and their assembly. Keep curved-area existence
 separate from the finite polygon construction. Derive whole-edge/arbitrary-
 time polygon agreement and actual between-region covers for Newton's force
 polygons. Existing shrinking collars concern the sampled-curve chords. Keep

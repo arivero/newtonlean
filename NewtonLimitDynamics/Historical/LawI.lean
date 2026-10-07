@@ -4,6 +4,28 @@ import BarrowLib.Polygon.ZeroForce
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
+/-! NATP00090. Its own Lex 1, revised from Hypoth. -/
+/-! Witness: NATP00090.
+Source: docs/m1/NATP00090.xml
+SHA-256: 790b468987fd8c7716d9d43197ec3a724f7f581ec8b6ed3998edc191b951f998
+URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par5
+Anchor URLs: NATP00090.par5 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par5
+Proof-step correspondence: This law is supplied, not proved from geometry. `InertialMotion` represents its uniform rectilinear continuation while nothing impedes the body, for nonnegative rational elapsed times. A fixed body's calibrated velocity and impulse-free drift intervals are explicit editorial model premises (confidence high). This witness does not inherit a printed-edition law, and does not supply NATP00089's hypotheses.
+-/
+/- LATIN BEGIN NATP00090.par5
+[del: Hypoth] [add: Lex] 1. Sola vi insita corpus [del: motu] uniformi[add: ter] in linea recta semper pergere si nil impediat.
+LATIN END NATP00090.par5 -/
+
+namespace DeMotu1684.NATP00090.Laws
+open NewtonLimitDynamics NewtonLimitDynamics.Polygon TimeSubdivision
+
+/-- Witness-local supplied inertia during an unimpeded drift. The
+nonnegative time restriction includes the zero-duration boundary. -/
+def InertialMotion (motion : Point → Point → Fraction → Point) : Prop :=
+  ∀ p v t, 0 ≤ t.num → pointEquiv (motion p v t) (ZeroForce.inertialAt p v t)
+
+end DeMotu1684.NATP00090.Laws
+
 /-! 1687. Inertia as an explicit mechanical premise. -/
 /-! Witness: 1687.
 Source: docs/m1/NATP00076.xml

@@ -34,9 +34,11 @@ Source: docs/m1/NATP00090.xml
 SHA-256: 790b468987fd8c7716d9d43197ec3a724f7f581ec8b6ed3998edc191b951f998
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par10
 Anchor URLs: NATP00090.par10 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par10; NATP00090.par11 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par11
-Proof-step correspondence: The finite endpoint model proves the two transverse line constraints and their unique intersection for independent directions. Printed corollary sections also derive diagonal motion at every rational time from their own explicit Law I inertia and calibrated Law II additive-change premises. These premises are not proved from geometry; De Motu witnesses retain their separate hypothesis/model scope.
+Proof-step correspondence: This witness's supplied Lex 1 inertia and Lex 2 calibrated velocity difference derive the simultaneous endpoint's two transverse line constraints. For independent directions their unique intersection gives the diagonal, following the stated endpoint argument. The direct finite addition identity also covers parallel, opposite and zero impulses and zero elapsed time; this extension does not infer unique intersection of degenerate lines. The post-impulse uniform drift, fixed-body calibration and rational coordinates are explicit editorial model premises. The text literally says M acts along AC, although its setup places M along AB and N along AC. This witness-internal label inconsistency is retained in the Latin; the two vector roles are interpreted from the setup and the symmetric line argument, not silently corrected or replaced by 1687 wording. No printed-edition law is used, and NATP00089 remains separate.
 Historical dependency ledger for this exact witness:
 - NATP00090.Law2 → NATP00090.L1; passage NATP00090.par11; witness 'De motu sphæricorum corporum in fluidis'; URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par11; status explicit_dependency; confidence high.
+- NATP00090.Law1 → NATP00090.L1; passage NATP00090.par5 ("uniformiter" in the revised reading) and par11 ("dato tempore" and the endpoint approach argument); witness 'De motu sphæricorum corporum in fluidis'; URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par11; status editorial_interpretation; confidence medium.
+The model applies impulses initially and uses unimpeded uniform drift afterward. Par11 itself cites only Lex 2.
 -/
 /- LATIN BEGIN NATP00090.par10
 Lemma 1 Corpus viribus conjunctis diagonalem parallelogramm [del: ] [add: i] eodem tempore describere quo latera separ [del: t] [add: a] tis.
@@ -47,6 +49,71 @@ LATIN END NATP00090.par11 -/
 
 namespace DeMotu1684.Composition
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon TimeSubdivision Parallelogram
+
+/-- Cancellation converts the supplied calibrated velocity difference into
+addition; it is not a mechanical law derived from geometry. -/
+private theorem natp00090_additive
+    (update : Point → Point → Point) (hII : NATP00090.Laws.CalibratedChange update)
+    (u j : Point) : pointEquiv (update u j) (pointAdd u j) := by
+  have hc : pointEquiv (pointAdd u (pointSub (update u j) u)) (update u j) := by
+    constructor <;>
+      simp only [pointSub,pointNeg,pointAdd,Fraction.equiv,Fraction.add,
+        Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg] <;> ac_nf <;> omega
+  exact pointEquiv_trans (pointEquiv_symm hc)
+    (pointAdd_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (hII u j))
+
+private theorem natp00090_uniform_after_change
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : NATP00090.Laws.InertialMotion motion)
+    (hII : NATP00090.Laws.CalibratedChange update)
+    (p u v : Point) (t : Fraction) (ht : 0 ≤ t.num) :
+    pointEquiv (motion p (update u v) t)
+      (ZeroForce.inertialAt p (pointAdd u v) t) :=
+  pointEquiv_trans (hI p (update u v) t ht)
+    (pointAdd_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+      (pointScale_congr t (natp00090_additive update hII u v)))
+
+/-- The two endpoint-line constraints are derived from this witness's
+mechanical premises, rather than supplied as the composition conclusion. -/
+theorem natp00090_lemma1_endpoint_lines_from_laws
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : NATP00090.Laws.InertialMotion motion)
+    (hII : NATP00090.Laws.CalibratedChange update)
+    (p u v : Point) (t : Fraction) (ht : 0 ≤ t.num) :
+    ParallelThrough (motion p (update u v) t)
+      (ZeroForce.inertialAt p u t) (pointScale t v) ∧
+    ParallelThrough (motion p (update u v) t)
+      (ZeroForce.inertialAt p v t) (pointScale t u) := by
+  have hm := natp00090_uniform_after_change motion update hI hII p u v t ht
+  have hl := ImpulseComposition.uniform_endpoint_lines p u v t
+  exact ⟨Fraction.equiv_trans (det_congr hm ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩) hl.1,
+    Fraction.equiv_trans (det_congr hm ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩) hl.2⟩
+
+/-- The source's two-line intersection argument, with its necessary
+independence premise. The M/AC label inconsistency is recorded above. -/
+theorem natp00090_lemma1_endpoint_from_laws
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : NATP00090.Laws.InertialMotion motion)
+    (hII : NATP00090.Laws.CalibratedChange update)
+    (p u v : Point) (t : Fraction) (ht : 0 ≤ t.num)
+    (hind : (det (pointScale t u) (pointScale t v)).num ≠ 0) :
+    pointEquiv (motion p (update u v) t)
+      (diagonal p (pointScale t u) (pointScale t v)) := by
+  have hl := natp00090_lemma1_endpoint_lines_from_laws motion update hI hII p u v t ht
+  exact ImpulseComposition.endpoint_from_components p (pointScale t u) (pointScale t v)
+    (motion p (update u v) t) hind hl.1 hl.2
+
+/-- Finite calibrated-motion extension covering dependent impulse
+directions and zero time by addition, without degenerate-line uniqueness. -/
+theorem natp00090_lemma1_from_laws
+    (motion : Point → Point → Fraction → Point) (update : Point → Point → Point)
+    (hI : NATP00090.Laws.InertialMotion motion)
+    (hII : NATP00090.Laws.CalibratedChange update)
+    (p u v : Point) (t : Fraction) (ht : 0 ≤ t.num) :
+    pointEquiv (motion p (update u v) t)
+      (diagonal p (pointScale t u) (pointScale t v)) :=
+  pointEquiv_trans (natp00090_uniform_after_change motion update hI hII p u v t ht)
+    (ImpulseComposition.uniform_impulse_diagonal p u v t)
 
 theorem natp00090_lemma1_endpoint_reconstruction (p u v : Point) (t : Fraction)
     (h : (TimeSubdivision.det (pointScale t u) (pointScale t v)).num ≠ 0) :
