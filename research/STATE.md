@@ -30,6 +30,7 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Laws' Corollary I / De Motu Lemma 1 | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates. NATP00090 now derives its own two endpoint constraints and independent-line intersection from its Lex 1 inertia and Lex 2 calibrated velocity difference; direct addition also covers degenerate directions and zero time | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites both Laws II/I in this proof; NATP00090 cites Lex 2, and post-impulse inertia is an editorial interpretation of its Lex 1. Its literal M/AC label inconsistency is recorded. NATP00089 retains its own hypothesis/model scope |
 | Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
 | Proposition I / De Motu Theorem 1 | NATP00090's finite recurrence uses its own Lemma 1 and Lex 1/2; the printed editions use their own Laws' Corollary I. All three now have conditional given-motion results assigning the actual local swept sector area `T * det(initial position, initial velocity) / 2`, with proportionality for two windows sharing their initial time. NATP00090 uses direct elementary exhaustion for its unnumbered passage; the printed editions use their own Lemmas III/I. Polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic mechanical remainders, force comparison, a short window and finite bounds. A positive monotone rational radial chart describes the full curve image. Its chord/curve symmetric difference has shrinking finite covers. The NATP00090 area-law interface needs only triangle/cut area rules, without a rule for subtracting regions | Extend beyond the rational local chart and stated mechanical/regularity premises. NATP00089's hypothesis and limiting assertion remain separate from NATP00090's laws and reconstruction. Whole-edge/arbitrary-time force-polygon agreement and the actual between-region B for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
+| Mechanical polygon/sample-chord bridge | Existing motion premises derive equal-parameter whole-edge error bounds and a shrinking finite square cover of the actual matched interpolation locus. Separate NATP00090, 1687 and 1713 clients use their own canonical polygons | This locus is between two finite polygons. Mechanical/sample-chord sector-union symmetric-difference inclusion, terminal connectors, assigned union area and the actual curve's B remain open. No arbitrary-time curve agreement |
 | Proposition II | Finite oriented-area converse, including unequal durations and uniformly moving centres | Vanishing-triangle/continuous-curve passage. Direction does not determine inward sense; unsigned areas and a vertex at the centre require separate treatment |
 | Proposition III | Relative deflection and reference-history cancellation; finite converse application | Realized relative-orbit limit. No Law III, mass/force law or force/time-scale conclusion is derived |
 | Proposition IV | Conditional finite circular sagitta comparison | Circle geometry, force interpretation and edition-specific ultimate ratios: 1687 uses Proposition II and Lemmas V/XI; 1713 uses Proposition II, Proposition I corollaries 2/4 and Lemma VII |
@@ -103,6 +104,29 @@ action rescaling are distinct tests. No universal constant or quantum premise
 closes a historical proof.
 
 ## Current increment and next work
+
+The mechanical/sample-chord increment derives whole-edge comparison for the
+two finite polygons from the existing motion conditions. Their equal-parameter
+edge points differ by at most `2*C*T*h`. Every actual matched interpolation
+patch lies in a square centered at its left curve sample, of radius
+`(V+3*C*T)*h`. The sum of the squares' side-product budgets is
+`4*(V+3*C*T)^2*T*h`, which vanishes along the dyadic refinements. The actual
+finite matched locus is proved to lie in that square union, including
+equivalent rational point representatives. The budget counts overlaps; it
+does not assign an area to the union. No centrality, radial chart, curved area
+or new regularity premise is needed. Separate NATP00090, 1687 and 1713 clients
+use their own canonical mechanical-polygon identity.
+
+This proves an intermediary required by Astra's next-goal evaluation, rather
+than the curve's between-region B. The remaining geometric step is to cover
+the symmetric difference of the mechanical and sample-chord sector unions,
+including terminal radial connectors, then combine it with the existing
+curve/chord collar. Establish the union geometry and adequate area rules
+before inferring any assigned B bound. Astra's interface assessment flags
+that the dyadic motion premises and full-image chart leave the temporal order
+of points between samples unconstrained. Same-time arbitrary-rational curve
+agreement remains open and needs independently justified temporal premises.
+No such agreement is inferred from this finite cover.
 
 The NATP00090 exhaustion increment proves a conditional area law for the
 full image of a given rational-time curve. Its own Lex 1/2 and Lemma 1
@@ -246,7 +270,16 @@ These controls retain the explicit elementary area convention.
 `motion-sampling-2026-10-07.lean` prescribes a quadratic curve under
 a constant, explicitly noncentral acceleration and proves its nonzero quadratic
 cell remainder, finite bounds and derived sample agreement without claiming
-Newton's area law. `historical-motion-area-2026-10-07.lean` gives a
+Newton's area law. Its new matched-edge controls distinguish the mechanical
+endpoint `(0,1/4)` from the given sample `(1/16,1/4)` and derive midpoint
+distance `1/32`, rejecting a zero-discrepancy claim. For `C=1`, `V=2` and
+`T=1/4`, the covering radii are `11/16` and `11/32`, and the summed budgets
+are `121/64` and `121/128` for the first two refinements. These are derived
+side-product budgets, not assigned areas. The public edge and patch theorems,
+finite set inclusion and budget exhaustion are exercised, with endpoint and
+equivalent interpolation fractions, a final cell, zero time and a positive-
+time inertial cell with zero edge discrepancy for every interpolation
+parameter. `historical-motion-area-2026-10-07.lean` gives a
 positive-time inertial curve, a full chart, satisfiable mechanical premises and
 an actual swept-sector area from the triangle convention, then exercises both
 printed editions. Earlier controls retain a nonlinear curve point outside its
@@ -284,23 +317,33 @@ elementary area convention and contact patch; the nonlinear patch's existence
 is proved in the earlier contact control. Both printed constructed-area
 interfaces retain the curved-area and shrinking-mesh premises.
 
-Last full verification: 7 October 2026, after the NATP00090 conditional
-exhaustion increment and an independent sequential Sol review. All five builds, the
+Last full verification: 7 October 2026, after the mechanical/sample-chord
+cover increment and an independent sequential Sol review. All five builds, the
 27 positive controls, the harmonic reference/comparator, source hashes and whitespace
 passed. The compiled checker verified 1,181 score comments and
-7,058 project constants with no project axioms, sorry or primary modern
+7,084 project constants with no project axioms, sorry or primary modern
 dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
-unchanged in this increment; the exhaustion passage was checked against
-NATP00090's archived TEI. The review found no defect within the stated
-conditional rational scope. Mechanical/regularity, chart and geometric area
-premises remain explicit; unrestricted curves and mechanical between-region
-control remain open. Astra's review
-covers the radial-sector increment (`3a2f5e3`, `b827902`) only.
+unchanged. New quantitative bounds are explicitly derived coordinate
+statements, without historical textual attribution. The witness-client
+controls traverse compiled types, bodies and private helpers, require each
+client's own canonical polygon identity and exclude other witnesses and
+ModernLib. The check first detected Lean's sharing of a NATP00090-generated
+recursion helper in both printed polygon definitions. Explicit `Nat.rec`
+definitions preserve the recurrence and remove that sharing; this presentation
+repair adds no mathematical conclusion. The review found no defect within
+the stated finite matched-locus scope. Unrestricted curves, mechanical
+sector-union difference geometry and the actual curve's B remain open.
+Astra's proof review covers the radial-sector increment (`3a2f5e3`,
+`b827902`); its later next-goal evaluation is a planning assessment.
 
-Next advance the remaining geometric scope and mechanical-polygon
-between-region control. Keep NATP00089's hypothesis and limiting assertion
+Next prove the finite geometric inclusion for the mechanical/sample-chord
+sector-union symmetric difference, with terminal radial connectors and the
+required local orientation and half-plane control derived where possible.
+Combine the resulting cover with the curve/chord collar only after its
+geometric inclusion and area premises are justified. Keep NATP00089's
+hypothesis and limiting assertion
 separate from the NATP00090 law-driven reconstruction; no printed Lemma III
 dependency is retrofitted. Extend the conditional rational local result to other patch
 orientations and their assembly. Keep curved-area existence

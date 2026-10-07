@@ -96,9 +96,8 @@ def mechanicalCell (motion : Point → Point → Fraction → Point)
 
 def polygonState (motion : Point → Point → Fraction → Point)
     (update : Point → Point → Point) (a : CentralSchedule.Field) (h : Fraction)
-    (s : Point × Point) : Nat → Point × Point
-  | 0 => s
-  | n+1 => mechanicalCell motion update a h (polygonState motion update a h s n)
+    (s : Point × Point) : Nat → Point × Point :=
+  Nat.rec s (fun _ state => mechanicalCell motion update a h state)
 
 def polygonVertex (motion : Point → Point → Fraction → Point)
     (update : Point → Point → Point) (a : CentralSchedule.Field) (h : Fraction)
@@ -198,7 +197,12 @@ theorem canonical_polygon_eq_run (a : CentralSchedule.Field) (h : Fraction)
     polygonState ZeroForce.inertialAt pointAdd a h s n = BoundedIteration.run a h s n := by
   induction n with
   | zero => rfl
-  | succ n ih => simp only [polygonState,BoundedIteration.run,ih]; rfl
+  | succ n ih =>
+    change mechanicalCell ZeroForce.inertialAt TimeSubdivision.pointAdd a h
+      (polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n) =
+      FiniteEstimates.cell a h (BoundedIteration.run a h s n)
+    rw [ih]
+    rfl
 
 /-- The finite fan law is derived through this witness's own Lemma 1 and
 Lex 1/2 chain. The given curve does not supply its area law. -/
@@ -321,6 +325,45 @@ theorem sampled_radial_sector_comparison (area : SectorFan.AreaRules)
     ac_nf
   · exact Fraction.mul_equiv_right T₁ (Fraction.equiv_symm h₂)
 
+
+/-- This witness's actual canonical mechanical polygon and the sample-chord
+polygon have derived edge bounds and a shrinking cover of their matched
+finite locus. This coordinate intermediary supplies no full-curve agreement,
+assigned union area or between-region B. Its quantitative statement is an
+editorial derivation from the explicit motion premises. -/
+theorem mechanical_sampled_chord_control (a : CentralSchedule.Field) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u) :
+    (∀ j k, k < HarmonicDyadic.blocks j → ∀ theta, ConvexCover.UnitInterval theta →
+      Fraction.le (FiniteEstimates.pointDistance
+        (ConvexCover.lerp theta
+          (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+            (u (Fraction.ofInt 0)) k)
+          (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+            (u (Fraction.ofInt 0)) (k+1)))
+        (ConvexCover.lerp theta (MotionSampling.samples u T j k).1
+          (MotionSampling.samples u T j (k+1)).1)) (MotionSampling.stateBudget C T j)) ∧
+    (∀ j x, ConvexCover.MatchedRegion
+      (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)))
+      (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j) x →
+      ConvexCover.SquareCover (fun k => (MotionSampling.samples u T j k).1)
+        (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes (MotionSampling.chordCoverBudget C T V) := by
+  refine ⟨?_,?_,MotionSampling.chord_cover_budgets_vanish C T V
+    d.remainder_nonnegative d.time_nonnegative d.velocity_nonnegative⟩
+  · intro j k hk theta htheta
+    simp only [polygonVertex,canonical_polygon_eq_run]
+    exact MotionSampling.sampled_chord_edge_bound a C T L B P V u d j k hk theta htheta
+  · intro j x
+    have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)) = fun k =>
+        (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+      funext k
+      exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+    rw [hp]
+    exact MotionSampling.sampled_chord_cover a C T L B P V u d j x
+
 end DeMotu1684.NATP00090.AreaLaw
 
 /-! 1687. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -378,9 +421,8 @@ def polygonState
     (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
     (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
     (a : CentralSchedule.Field) (h : Fraction)
-    (s : TimeSubdivision.Point × TimeSubdivision.Point) : Nat → TimeSubdivision.Point × TimeSubdivision.Point
-  | 0 => s
-  | n+1 => mechanicalCell motion update a h (polygonState motion update a h s n)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) : Nat → TimeSubdivision.Point × TimeSubdivision.Point :=
+  Nat.rec s (fun _ state => mechanicalCell motion update a h state)
 
 def polygonVertex
     (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
@@ -547,7 +589,12 @@ theorem canonical_polygon_eq_run (a : CentralSchedule.Field) (h : Fraction)
     polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n = BoundedIteration.run a h s n := by
   induction n with
   | zero => rfl
-  | succ n ih => simp only [polygonState,BoundedIteration.run,ih]; rfl
+  | succ n ih =>
+    change mechanicalCell ZeroForce.inertialAt TimeSubdivision.pointAdd a h
+      (polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n) =
+      FiniteEstimates.cell a h (BoundedIteration.run a h s n)
+    rw [ih]
+    rfl
 
 /-- This edition's own Laws' Corollary I/equal-triangle chain supplies the
 finite fan law used in the curve comparison. -/
@@ -647,6 +694,45 @@ theorem sampled_radial_sector_comparison (area : RadialSector.DifferenceAreaRule
     ac_nf
   · exact Fraction.equiv_symm (Fraction.mul_equiv_right T₁ h₂)
 
+
+/-- This witness's actual canonical mechanical polygon and the sample-chord
+polygon have derived edge bounds and a shrinking cover of their matched
+finite locus. This coordinate intermediary supplies no full-curve agreement,
+assigned union area or between-region B. Its quantitative statement is an
+editorial derivation from the explicit motion premises. -/
+theorem mechanical_sampled_chord_control (a : CentralSchedule.Field) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u) :
+    (∀ j k, k < HarmonicDyadic.blocks j → ∀ theta, ConvexCover.UnitInterval theta →
+      Fraction.le (FiniteEstimates.pointDistance
+        (ConvexCover.lerp theta
+          (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+            (u (Fraction.ofInt 0)) k)
+          (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+            (u (Fraction.ofInt 0)) (k+1)))
+        (ConvexCover.lerp theta (MotionSampling.samples u T j k).1
+          (MotionSampling.samples u T j (k+1)).1)) (MotionSampling.stateBudget C T j)) ∧
+    (∀ j x, ConvexCover.MatchedRegion
+      (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)))
+      (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j) x →
+      ConvexCover.SquareCover (fun k => (MotionSampling.samples u T j k).1)
+        (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes (MotionSampling.chordCoverBudget C T V) := by
+  refine ⟨?_,?_,MotionSampling.chord_cover_budgets_vanish C T V
+    d.remainder_nonnegative d.time_nonnegative d.velocity_nonnegative⟩
+  · intro j k hk theta htheta
+    simp only [polygonVertex,canonical_polygon_eq_run]
+    exact MotionSampling.sampled_chord_edge_bound a C T L B P V u d j k hk theta htheta
+  · intro j x
+    have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)) = fun k =>
+        (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+      funext k
+      exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+    rw [hp]
+    exact MotionSampling.sampled_chord_cover a C T L B P V u d j x
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -704,9 +790,8 @@ def polygonState
     (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
     (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
     (a : CentralSchedule.Field) (h : Fraction)
-    (s : TimeSubdivision.Point × TimeSubdivision.Point) : Nat → TimeSubdivision.Point × TimeSubdivision.Point
-  | 0 => s
-  | n+1 => mechanicalCell motion update a h (polygonState motion update a h s n)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) : Nat → TimeSubdivision.Point × TimeSubdivision.Point :=
+  Nat.rec s (fun _ state => mechanicalCell motion update a h state)
 
 def polygonVertex
     (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
@@ -873,7 +958,12 @@ theorem canonical_polygon_eq_run (a : CentralSchedule.Field) (h : Fraction)
     polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n = BoundedIteration.run a h s n := by
   induction n with
   | zero => rfl
-  | succ n ih => simp only [polygonState,BoundedIteration.run,ih]; rfl
+  | succ n ih =>
+    change mechanicalCell ZeroForce.inertialAt TimeSubdivision.pointAdd a h
+      (polygonState ZeroForce.inertialAt TimeSubdivision.pointAdd a h s n) =
+      FiniteEstimates.cell a h (BoundedIteration.run a h s n)
+    rw [ih]
+    rfl
 
 /-- This edition's own Laws' Corollary I/equal-triangle chain supplies the
 finite fan law used in the curve comparison. -/
@@ -972,6 +1062,45 @@ theorem sampled_radial_sector_comparison (area : RadialSector.DifferenceAreaRule
   · simp only [Fraction.equiv,Fraction.mul,Fraction.half]
     ac_nf
   · exact Fraction.equiv_symm (Fraction.mul_equiv_right T₁ h₂)
+
+
+/-- This witness's actual canonical mechanical polygon and the sample-chord
+polygon have derived edge bounds and a shrinking cover of their matched
+finite locus. This coordinate intermediary supplies no full-curve agreement,
+assigned union area or between-region B. Its quantitative statement is an
+editorial derivation from the explicit motion premises. -/
+theorem mechanical_sampled_chord_control (a : CentralSchedule.Field) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u) :
+    (∀ j k, k < HarmonicDyadic.blocks j → ∀ theta, ConvexCover.UnitInterval theta →
+      Fraction.le (FiniteEstimates.pointDistance
+        (ConvexCover.lerp theta
+          (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+            (u (Fraction.ofInt 0)) k)
+          (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+            (u (Fraction.ofInt 0)) (k+1)))
+        (ConvexCover.lerp theta (MotionSampling.samples u T j k).1
+          (MotionSampling.samples u T j (k+1)).1)) (MotionSampling.stateBudget C T j)) ∧
+    (∀ j x, ConvexCover.MatchedRegion
+      (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)))
+      (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j) x →
+      ConvexCover.SquareCover (fun k => (MotionSampling.samples u T j k).1)
+        (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes (MotionSampling.chordCoverBudget C T V) := by
+  refine ⟨?_,?_,MotionSampling.chord_cover_budgets_vanish C T V
+    d.remainder_nonnegative d.time_nonnegative d.velocity_nonnegative⟩
+  · intro j k hk theta htheta
+    simp only [polygonVertex,canonical_polygon_eq_run]
+    exact MotionSampling.sampled_chord_edge_bound a C T L B P V u d j k hk theta htheta
+  · intro j x
+    have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)) = fun k =>
+        (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+      funext k
+      exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+    rw [hp]
+    exact MotionSampling.sampled_chord_cover a C T L B P V u d j x
 
 end Principia1713.PropositionI
 
