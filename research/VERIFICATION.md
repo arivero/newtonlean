@@ -101,7 +101,21 @@ radial boundary. It also exhibits a complete turn followed by a repeated
 triangle: the fan sum grows while the union stays fixed. Consecutive positive
 determinants alone therefore cannot justify unrestricted union identification.
 
+`historical-sector-construction-2026-10-07.lean` instantiates both printed
+editions' law-driven construction with altered fraction displays. It checks
+the derived equal-triangle and actual local union-area results, exercising
+the source-local Laws' Corollary I dependency without assuming equal areas.
+
 ## Current verified increment
+
+The printed editions' law-driven finite-sector increment passed all five
+builds, all positive controls, source hashes and whitespace. The compiled
+checker verified 1,181 opening score comments and 6,450 project constants:
+no project axioms, sorry or primary modern dependency. The corrupted control
+failed at its intended false equality. Astra found no blocking mathematical
+or attribution defect; its build-before-refresh workflow correction is
+applied above. This verifies the finite local result, not the curved-sector
+proof or complete exact-source coverage of the existing libraries.
 
 The subsequent finite-sector library extension passed all five builds,
 all positive controls, compiled axiom/taint inspection, source hashes and

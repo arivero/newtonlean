@@ -1,4 +1,6 @@
 import BarrowLib.Polygon.Finite
+import BarrowLib.Polygon.SectorFan
+import NewtonLimitDynamics.Historical.CompositionOfMotions
 import ModernLib.Polygon.PathDefect
 import ModernLib.Polygon.GeneralForceArea
 import ModernLib.Polygon.GivenTrajectoryArea
@@ -84,7 +86,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44
 Anchor URLs: NATP00077.par44 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44; NATP00077.par45 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45
-Proof-step correspondence: Finite equal-time inertial segments and parallel central deflections preserve the triangle areas; composition sums them. The passage then takes the polygon to a curve, which remains open.
+Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. Passage to the given curve and its swept-sector area remains open.
 Historical dependency ledger for this exact witness:
 - P1687.Law1 → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
 - P1687.Composition → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
@@ -115,6 +117,124 @@ theorem finite_componendo (g : EuclideanConstruction Point Impulse)
         unsignedBlock g p q impulse start₂ n * (m * dt) :=
   positive_unsigned_area_comparison g p q impulse dt hdt start₁ start₂ m n hm hn
 
+/-! Coordinate realization of the finite historical construction. Inertia
+governs each drift and the directed impulse changes its arrival velocity.
+The laws are independent mechanical premises; equality of triangle areas
+and identification with a local geometric union are proved below. -/
+
+def mechanicalCell
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (a : CentralSchedule.Field) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) : TimeSubdivision.Point × TimeSubdivision.Point :=
+  let q := motion s.1 s.2 h
+  (q, update s.2 (TimeSubdivision.pointScale h (a q)))
+
+def polygonState
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (a : CentralSchedule.Field) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) : Nat → TimeSubdivision.Point × TimeSubdivision.Point
+  | 0 => s
+  | n+1 => mechanicalCell motion update a h (polygonState motion update a h s n)
+
+def polygonVertex
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (a : CentralSchedule.Field) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (n : Nat) : TimeSubdivision.Point :=
+  (polygonState motion update a h s n).1
+
+open TimeSubdivision in
+/-- Newton's AB, Bc, BC step: the edition's Laws Corollary I locates C;
+the central direction and the preceding Law I drift give equal triangles.
+Neither equal areas nor an areal-product conservation law is a premise. -/
+theorem two_triangle_step
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (hI : Principia1687.Laws.InertialMotion motion)
+    (hII : Principia1687.Laws.AdditiveImpulse update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (p v : TimeSubdivision.Point) (h : Fraction) :
+    Fraction.equiv
+      (TimeSubdivision.det (motion p v h)
+        (motion (motion p v h) (update v (pointScale h (a (motion p v h)))) h))
+      (TimeSubdivision.det p (motion p v h)) := by
+  let q := motion p v h
+  let j := pointScale h (a q)
+  have hcor := Principia1687.Laws.corollary1_from_laws motion update hI hII q v j h
+  have hj : Fraction.equiv (TimeSubdivision.det q j) (Fraction.ofInt 0) :=
+    Fraction.equiv_trans (det_scale_right h q (a q))
+      (Fraction.equiv_trans (Fraction.mul_equiv_left h (ha q)) (Fraction.mul_zero h))
+  have hd : Fraction.equiv (TimeSubdivision.det q (Parallelogram.diagonal q (pointScale h v) (pointScale h j)))
+      (Fraction.add (Fraction.mul h (TimeSubdivision.det q v)) (Fraction.mul h (TimeSubdivision.det q j))) := by
+    simp only [Parallelogram.diagonal,TimeSubdivision.det,pointAdd,pointScale,
+      Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg]
+    ac_nf
+    omega
+  have hnext : Fraction.equiv
+      (TimeSubdivision.det q (motion q (update v j) h))
+      (Fraction.mul h (TimeSubdivision.det q v)) :=
+    Fraction.equiv_trans (TimeSubdivision.det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ hcor)
+      (Fraction.equiv_trans hd (Fraction.equiv_trans
+        (Fraction.add_equiv_left _ (Fraction.equiv_trans (Fraction.mul_equiv_left h hj)
+          (Fraction.mul_zero h))) (Fraction.add_zero _)))
+  have hprior : Fraction.equiv (TimeSubdivision.det p q)
+      (Fraction.mul h (TimeSubdivision.det p v)) :=
+    Fraction.equiv_trans
+      (TimeSubdivision.det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (hI p v h))
+      (CentralSchedule.det_cell_area p v h)
+  have hdrift : Fraction.equiv (TimeSubdivision.det q v) (TimeSubdivision.det p v) :=
+    Fraction.equiv_trans (TimeSubdivision.det_congr (hI p v h)
+      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩) (CentralSchedule.det_drift p v h)
+  exact Fraction.equiv_trans hnext
+    (Fraction.equiv_trans (Fraction.mul_equiv_left h hdrift) (Fraction.equiv_symm hprior))
+
+theorem polygon_triangle_equal
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (hI : Principia1687.Laws.InertialMotion motion)
+    (hII : Principia1687.Laws.AdditiveImpulse update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (n : Nat) :
+    Fraction.equiv
+      (TimeSubdivision.det (polygonVertex motion update a h s n) (polygonVertex motion update a h s (n+1)))
+      (Fraction.mul h (CentralSchedule.momentum s)) := by
+  induction n with
+  | zero =>
+    exact Fraction.equiv_trans
+      (TimeSubdivision.det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (hI s.1 s.2 h))
+      (CentralSchedule.det_cell_area s.1 s.2 h)
+  | succ n ih =>
+    exact Fraction.equiv_trans
+      (two_triangle_step motion update hI hII a ha
+        (polygonState motion update a h s n).1 (polygonState motion update a h s n).2 h) ih
+
+/-- The historical finite construction now has an actual local sector-union
+area, rather than only a multiplicity-counted fan sum. The half-plane and
+area convention are explicit geometric premises; this is not the curved
+trajectory or the limiting step of Proposition I. -/
+theorem finite_geometric_sector
+    (area : SectorFan.AreaRules)
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (hI : Principia1687.Laws.InertialMotion motion)
+    (hII : Principia1687.Laws.AdditiveImpulse update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (h : Fraction) (hh : 0 ≤ h.num)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hs : 0 ≤ (CentralSchedule.momentum s).num)
+    (n : Nat) (hp : ∀ i, i ≤ n → 0 < (polygonVertex motion update a h s i).1.num) :
+    area.HasArea (SectorFan.Region (polygonVertex motion update a h s) n)
+      (Fraction.mul (BoundedIteration.time h n) (CentralSchedule.momentum s)).half := by
+  have htriangle := polygon_triangle_equal motion update hI hII a ha h s
+  have hregion := SectorFan.region_area area _ n hp (fun i _ =>
+    Fraction.nonnegative_equiv (htriangle i) (Fraction.nonnegative_mul _ _ hh hs))
+  apply area.congr_value _ _ _ ?_ hregion
+  apply Fraction.equiv_trans
+    (PolygonFanArea.sum_congr _ _ (fun i => RationalIntervals.half_equiv (htriangle i)) n)
+  apply Fraction.equiv_trans (PolygonFanArea.sum_constant (Fraction.mul h (CentralSchedule.momentum s)).half n)
+  simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
+  ac_nf
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite proof steps; full sector limit open. -/
@@ -123,7 +243,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50
 Anchor URLs: NATP00082.par50 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50; NATP00082.par51 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51
-Proof-step correspondence: Finite equal-time inertial segments and parallel central deflections preserve the triangle areas; composition sums them. The passage then takes the polygon to a curve, which remains open.
+Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. Passage to the given curve and its swept-sector area remains open.
 Historical dependency ledger for this exact witness:
 - P1713.Law1 → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
 - P1713.Composition → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
@@ -153,6 +273,124 @@ theorem finite_componendo (g : EuclideanConstruction Point Impulse)
       unsignedBlock g p q impulse start₁ m * (n * dt) =
         unsignedBlock g p q impulse start₂ n * (m * dt) :=
   positive_unsigned_area_comparison g p q impulse dt hdt start₁ start₂ m n hm hn
+
+/-! Coordinate realization of the finite historical construction. Inertia
+governs each drift and the directed impulse changes its arrival velocity.
+The laws are independent mechanical premises; equality of triangle areas
+and identification with a local geometric union are proved below. -/
+
+def mechanicalCell
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (a : CentralSchedule.Field) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) : TimeSubdivision.Point × TimeSubdivision.Point :=
+  let q := motion s.1 s.2 h
+  (q, update s.2 (TimeSubdivision.pointScale h (a q)))
+
+def polygonState
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (a : CentralSchedule.Field) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) : Nat → TimeSubdivision.Point × TimeSubdivision.Point
+  | 0 => s
+  | n+1 => mechanicalCell motion update a h (polygonState motion update a h s n)
+
+def polygonVertex
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (a : CentralSchedule.Field) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (n : Nat) : TimeSubdivision.Point :=
+  (polygonState motion update a h s n).1
+
+open TimeSubdivision in
+/-- Newton's AB, Bc, BC step: the edition's Laws Corollary I locates C;
+the central direction and the preceding Law I drift give equal triangles.
+Neither equal areas nor an areal-product conservation law is a premise. -/
+theorem two_triangle_step
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (hI : Principia1713.Laws.InertialMotion motion)
+    (hII : Principia1713.Laws.AdditiveImpulse update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
+    (p v : TimeSubdivision.Point) (h : Fraction) :
+    Fraction.equiv
+      (TimeSubdivision.det (motion p v h)
+        (motion (motion p v h) (update v (pointScale h (a (motion p v h)))) h))
+      (TimeSubdivision.det p (motion p v h)) := by
+  let q := motion p v h
+  let j := pointScale h (a q)
+  have hcor := Principia1713.Laws.corollary1_from_laws motion update hI hII q v j h
+  have hj : Fraction.equiv (TimeSubdivision.det q j) (Fraction.ofInt 0) :=
+    Fraction.equiv_trans (det_scale_right h q (a q))
+      (Fraction.equiv_trans (Fraction.mul_equiv_left h (ha q)) (Fraction.mul_zero h))
+  have hd : Fraction.equiv (TimeSubdivision.det q (Parallelogram.diagonal q (pointScale h v) (pointScale h j)))
+      (Fraction.add (Fraction.mul h (TimeSubdivision.det q v)) (Fraction.mul h (TimeSubdivision.det q j))) := by
+    simp only [Parallelogram.diagonal,TimeSubdivision.det,pointAdd,pointScale,
+      Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add,Int.neg_mul,Int.mul_neg]
+    ac_nf
+    omega
+  have hnext : Fraction.equiv
+      (TimeSubdivision.det q (motion q (update v j) h))
+      (Fraction.mul h (TimeSubdivision.det q v)) :=
+    Fraction.equiv_trans (TimeSubdivision.det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ hcor)
+      (Fraction.equiv_trans hd (Fraction.equiv_trans
+        (Fraction.add_equiv_left _ (Fraction.equiv_trans (Fraction.mul_equiv_left h hj)
+          (Fraction.mul_zero h))) (Fraction.add_zero _)))
+  have hprior : Fraction.equiv (TimeSubdivision.det p q)
+      (Fraction.mul h (TimeSubdivision.det p v)) :=
+    Fraction.equiv_trans
+      (TimeSubdivision.det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (hI p v h))
+      (CentralSchedule.det_cell_area p v h)
+  have hdrift : Fraction.equiv (TimeSubdivision.det q v) (TimeSubdivision.det p v) :=
+    Fraction.equiv_trans (TimeSubdivision.det_congr (hI p v h)
+      ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩) (CentralSchedule.det_drift p v h)
+  exact Fraction.equiv_trans hnext
+    (Fraction.equiv_trans (Fraction.mul_equiv_left h hdrift) (Fraction.equiv_symm hprior))
+
+theorem polygon_triangle_equal
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (hI : Principia1713.Laws.InertialMotion motion)
+    (hII : Principia1713.Laws.AdditiveImpulse update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (h : Fraction)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (n : Nat) :
+    Fraction.equiv
+      (TimeSubdivision.det (polygonVertex motion update a h s n) (polygonVertex motion update a h s (n+1)))
+      (Fraction.mul h (CentralSchedule.momentum s)) := by
+  induction n with
+  | zero =>
+    exact Fraction.equiv_trans
+      (TimeSubdivision.det_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ (hI s.1 s.2 h))
+      (CentralSchedule.det_cell_area s.1 s.2 h)
+  | succ n ih =>
+    exact Fraction.equiv_trans
+      (two_triangle_step motion update hI hII a ha
+        (polygonState motion update a h s n).1 (polygonState motion update a h s n).2 h) ih
+
+/-- The historical finite construction now has an actual local sector-union
+area, rather than only a multiplicity-counted fan sum. The half-plane and
+area convention are explicit geometric premises; this is not the curved
+trajectory or the limiting step of Proposition I. -/
+theorem finite_geometric_sector
+    (area : SectorFan.AreaRules)
+    (motion : TimeSubdivision.Point → TimeSubdivision.Point → Fraction → TimeSubdivision.Point)
+    (update : TimeSubdivision.Point → TimeSubdivision.Point → TimeSubdivision.Point)
+    (hI : Principia1713.Laws.InertialMotion motion)
+    (hII : Principia1713.Laws.AdditiveImpulse update)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (h : Fraction) (hh : 0 ≤ h.num)
+    (s : TimeSubdivision.Point × TimeSubdivision.Point) (hs : 0 ≤ (CentralSchedule.momentum s).num)
+    (n : Nat) (hp : ∀ i, i ≤ n → 0 < (polygonVertex motion update a h s i).1.num) :
+    area.HasArea (SectorFan.Region (polygonVertex motion update a h s) n)
+      (Fraction.mul (BoundedIteration.time h n) (CentralSchedule.momentum s)).half := by
+  have htriangle := polygon_triangle_equal motion update hI hII a ha h s
+  have hregion := SectorFan.region_area area _ n hp (fun i _ =>
+    Fraction.nonnegative_equiv (htriangle i) (Fraction.nonnegative_mul _ _ hh hs))
+  apply area.congr_value _ _ _ ?_ hregion
+  apply Fraction.equiv_trans
+    (PolygonFanArea.sum_congr _ _ (fun i => RationalIntervals.half_equiv (htriangle i)) n)
+  apply Fraction.equiv_trans (PolygonFanArea.sum_constant (Fraction.mul h (CentralSchedule.momentum s)).half n)
+  simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
+  ac_nf
 
 end Principia1713.PropositionI
 

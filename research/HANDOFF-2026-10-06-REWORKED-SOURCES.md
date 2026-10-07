@@ -48,7 +48,7 @@ proof correspondence and dependency evidence:
 
 | Work | Current owner | Present boundary |
 | --- | --- | --- |
-| Proposition I / De Motu Theorem I | NewtonLimitDynamics/Historical/AreaLaw.lean | Finite equal-area proof steps; modern constructed-curve results below the separator; complete historical swept-sector proof open |
+| Proposition I / De Motu Theorem I | NewtonLimitDynamics/Historical/AreaLaw.lean | Printed law-driven finite construction derives equal triangles and local ordinary sector-union area; De Motu finite steps remain separate; historical curved-sector proof open |
 | Laws' Corollary I / De Motu composition | NewtonLimitDynamics/Historical/CompositionOfMotions.lean | Printed editions derive diagonal motion from their own supplied inertia/additive-change predicates; separate De Motu finite models |
 | Laws I and II | NewtonLimitDynamics/Historical/LawI.lean; LawII.lean | Source-local statements, Law II explanations and explicit calibrated mechanical predicates |
 | Lemma I | NewtonLimitDynamics/Historical/LemmaI.lean | Separate ordered contradiction and positive before-end-window proofs; NATP00090 Lemma 2's unnumbered squeeze comparison |
@@ -107,6 +107,13 @@ of absence in Newton.
    needed for that passage. Distinguish period-appropriate premises from
    additional modern regularity. De Motu's unnumbered limiting passage and
    its two revision witnesses must not inherit the printed Lemma III citation.
+   The printed editions now actually use their own Laws' Corollary I in the
+   equal-triangle step; a common positive half-plane derives radial separation
+   and ordinary finite union area. The passage from those finite polygons to
+   the given curve is still to prove. The user explicitly requires at least
+   one historical proof for the active Proposition I goal; the finite result
+   and modern supporting proofs do not complete it. Commit library additions
+   and newly needed historical transcriptions separately from proof changes.
    A dependency must occur in the compiled proof/type where mathematically
    used; importing a file alone is insufficient.
 5. **Applications and extensions after the general Proposition I proof.**

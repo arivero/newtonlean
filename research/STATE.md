@@ -28,7 +28,7 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; area errors and fixed-area unit ratios for unequal widths | Same area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
 | Lemma III corollaries I–IV | Source-local chain: conditional area approximation, rectangle endpoint covers, two-sided chord/supporting-segment approximation to a supplied rational curve under uniform continuity and shrinking mesh | Rectangle covers are not staircase perimeters. Supporting cells are supplied; actual tangents, the circumscribed figure's area and force-polygon correspondence remain open. No arclength conclusion |
 | Laws' Corollary I | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites Laws II/I in this proof; De Motu hypotheses and finite models remain witness-local |
-| Proposition I | Finite equal-area/componendo steps; SectorFan derives ordinary finite triangle-union area for the actual central polygon in a common positive half-plane; modern constructed/given-curve fan laws | Historical swept-sector proof through invoked results, curved-sector identification and approximation of the given curve. The local finite-union bridge does not identify winding fan sums with global union area |
+| Proposition I | Separate 1687/1713 finite constructions actually use their own Laws' Corollary I to derive equal triangles and ordinary local sector-union area. SectorFan supplies radial separation in a common positive half-plane. Modern constructed/given-curve fan laws remain support | Historical curved-sector identification and approximation of the given trajectory, through the invoked limiting lemmas. The local finite-union bridge does not identify winding fan sums with global union area; no complete historical Proposition I is certified |
 | Proposition II | Finite oriented-area converse, including unequal durations and uniformly moving centres | Vanishing-triangle/continuous-curve passage. Direction does not determine inward sense; unsigned areas and a vertex at the centre require separate treatment |
 | Proposition III | Relative deflection and reference-history cancellation; finite converse application | Realized relative-orbit limit. No Law III, mass/force law or force/time-scale conclusion is derived |
 | Proposition IV | Conditional finite circular sagitta comparison | Circle geometry, force interpretation and edition-specific ultimate ratios: 1687 uses Proposition II and Lemmas V/XI; 1713 uses Proposition II, Proposition I corollaries 2/4 and Lemma VII |
@@ -37,6 +37,12 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 No complete historical Proposition I–IV proof is certified. These retained
 results are finite, conditional or modern reconstructions in their stated
 domains. There is no theorem-count or percentage completion metric.
+The requested modern-dependency score measures each anachronical proof's
+dependency burden, not progress toward historical completion. Exact original-
+language source coverage of the supporting libraries is still being checked;
+known results are not attributed to their AI formalizers. New project
+derivations are classified by their mathematical dependencies, rather than
+their date of authorship.
 
 ## Retained construction and deferred applications
 
