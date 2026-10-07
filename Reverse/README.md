@@ -11,7 +11,8 @@ steps remain physical hypotheses or open problems.
 
 `Reverse/` is modern. It may use modern mathematics within the repository's
 Lean-core-only policy, and it may import BarrowLib, ClassicsLib and ModernLib.
-Historical files never import it. Both routes meet at the small shared
+Historical files never import it. `Reverse/Principia` imports the historical
+law files for their predicates, and the two routes meet at the small shared
 Newtonian interface described below.
 
 ## Goal
@@ -24,20 +25,28 @@ leaves.
 ## Direction
 
 ```text
-quantum KK gravity                       Reverse/Parent
-→ 4D gravity + gauge sectors             Reverse/KK
-→ weak-sector decoupling                 Reverse/KK/WeakSector
-→ colour: scale, gap, confinement        Reverse/Strong
-→ hadrons, nuclei, neutral matter        Reverse/Matter
-→ stable relativistic quantum composites Reverse/RelativisticQM
-→ nonrelativistic limit, invC = 0        Reverse/NonRelativistic
-→ semiclassical centre-of-mass limit     Reverse/Classical
-→ Newton interface                       Reverse/Newton
-→ existing Proposition I–IV machinery    Reverse/Principia (later)
+quantum KK gravity                        Reverse/Parent
+→ 4D gravity + gauge sectors              Reverse/KK
+→ weak-sector decoupling                  Reverse/KK/WeakSector
+→ colour: scale, gap, confinement         Reverse/Strong
+→ electrons, nucleons, neutral matter     Reverse/Matter
+→ stable relativistic quantum composites  Reverse/RelativisticQM
+→ zero-invC fibre (kappa = 0)             Reverse/NonRelativistic
+→ centre-of-mass assumptions → Law shapes Reverse/Classical
+→ Newton interface                        Reverse/Newton
+→ edition-local law predicates            Reverse/Principia
+→ existing Proposition I–IV machinery     (later)
 ```
 
 The order is the default working order. If two limits fail to commute under
 the hypotheses actually required, that fact is a result and gets recorded.
+
+## Notation
+
+`invC` is 1/c and `kappa` is invC² = 1/c²; neither name is used for a
+velocity. `v`, `w` are velocities, `p` a momentum, `K` the rest-subtracted
+kinetic energy, `m` a mass, `frameV` a relative frame velocity and `gamma`
+the Lorentz factor. The nonrelativistic fibre is `invC = 0`, never `c = ∞`.
 
 ## Non-goals
 
@@ -75,6 +84,12 @@ its type. Hypotheses carry content-naming identifiers (`HasMassGap`,
 are excluded. There is no `sorry` anywhere in `Reverse/`; missing content is
 a named structure or hypothesis.
 
+Two further rules apply after the second pass. A zero fibre is named as a
+fibre: `HasZeroInvCFibre` is evaluation at `invC = 0`, and no declaration
+claims that finite-c sectors converge to it. A hypothesis that occurs only in
+a type, without the data being derived from it, is called a phantom
+dependence and is either replaced by a derivation or documented as remaining.
+
 Every substantial file opens with:
 
 ```text
@@ -102,7 +117,8 @@ dynamics via dimensional transmutation. Setting `g₃ = 0` would delete the
 mechanism that produces the matter. Electromagnetism stays active
 microscopically because it binds atoms; the long-range Coulomb force between
 distant bodies vanishes at leading order through neutrality `Q_B = 0`, with
-`invC → 0` leaving the coupling untouched.
+`invC → 0` leaving the coupling untouched. Neutral matter containing protons
+requires the electron sector: `protons_need_electrons` is a theorem.
 
 ## The shared Newton interface
 
@@ -121,47 +137,78 @@ reading the Law I, Law II and Proposition I files:
 | Proposition I synthetic route | `EuclideanConstruction Point Impulse` (two Euclidean identities) | `BarrowLib/Polygon/Finite.lean` |
 
 `Reverse/Newton/Interface.lean` packages the first two law shapes as
-`NewtonInterface` using only BarrowLib primitives. Its `inertial` field is
-literally the 1687/1713 `InertialMotion` body, its `additive` field the
-`AdditiveImpulse` body; the file proves that the NATP00090 shapes follow.
-The bridging theorems that apply the edition-local predicates to a
-`NewtonInterface` belong in `Reverse/Principia/` and wait until the law files,
-currently modified in the working tree by the historical work, are committed.
-The central force schedule `a` is a separate input: producing it from the
-gravitational sector is a later stage of this programme.
+`NewtonInterface` using only BarrowLib primitives. `Reverse/Principia/Laws.lean`
+proves that the interface produced by the chain satisfies every edition's
+law predicates (`modern_to_newton_laws`). The central force schedule `a` is
+a separate input: producing it from the gravitational sector is a later
+stage of this programme, and Proposition I waits for it.
 
 ## Layout and dependency diagram
 
+Edge labels say what each stage assumes and what it proves. The legend is:
+**proved** (a theorem in this tree), **assumed** (an interface field),
+**open** (a named open problem), **future** (a derivation planned to replace
+an assumption).
+
 ```mermaid
 flowchart TD
-  P["QuantumKKFamily<br/>Parent/QuantumKKFamily"] -->|"HasKKReduction<br/>assumed: gauge algebra = isometry algebra, G·Vol = G_D"| S4["FourDimensionalSector<br/>KK/DimensionalReduction"]
-  S4 -->|"HasWeakDecoupling<br/>assumed; parameter choice open"| LE["colour + electromagnetic GaugeSector<br/>KK/WeakSector"]
-  LE -->|"HasColourScale (assumed)<br/>HasMassGap (open problem)<br/>HasConfinement (open problem)"| H["HadronSector<br/>Strong/Confinement"]
-  H -->|"HasStableNucleons (assumed)"| N["HasStableNeutralMatter<br/>Matter/NeutralMatter"]
-  N -->|"coulomb_leading_zero (proved)"| R["StableParticleSector<br/>RelativisticQM/StableParticleSector"]
-  R -->|"HasNonrelativisticLimit<br/>assumed: Galilean structure, invC = 0 fibre<br/>proved: kinetic energy → p²/2m"| G["GalileanStructure<br/>NonRelativistic/Limit"]
-  G -->|"HasSemiclassicalCOMLimit<br/>assumed: localisation, Hamiltonian limit"| NI["NewtonInterface<br/>Newton/Interface"]
-  NI -->|"Reverse/Principia (later)"| PI["Historical Propositions I–IV"]
+  P["QuantumKKFamily<br/>Parent/QuantumKKFamily<br/>ClassicalAction label (placeholder)"] -->|"HasKKReduction<br/>assumed: gauge algebra = isometry algebra, G·Vol = G_D, massive tower scale<br/>future: derive from the Einstein–Hilbert action"| S4["FourDimensionalSector<br/>KK/DimensionalReduction"]
+  S4 -->|"HasWeakDecoupling<br/>assumed: residual factors inside the reduced algebra, spectra inside the reduced states, couplings nonzero<br/>proved: descent from the internal isometries"| LE["colour + electromagnetic GaugeSector<br/>KK/WeakSector"]
+  LE -->|"HasColourScale (assumed)<br/>HasMassGap (open; vacuum massless)<br/>HasConfinement (placeholder; open)<br/>HasStableNucleons (assumed)<br/>proved: hadrons are singlets, above the gap, positive"| H["hadronSpectrum, nucleons<br/>Strong/Confinement"]
+  LE -->|"HasStableElectronLikeState (assumed)"| E["electron<br/>Matter/ElectronSector"]
+  H --> N["HasStableNeutralMatter<br/>Matter/NeutralMatter<br/>proved: Q₁Q₂ = 0, protons need electrons"]
+  E --> N
+  N -->|"StableParticleSector<br/>assumed: dispersion relation and collinear composition at kappa"| R["RelativisticQM/StableParticleSector"]
+  R -->|"HasZeroInvCFibre<br/>assumed: fibre sector with ℏ, G unchanged<br/>proved on the fibre: K = p²/2m, v ⊕ w = v + w<br/>future: convergence as invC → 0"| Z["zero-invC fibre<br/>NonRelativistic/ZeroInvCFibre"]
+  B["LorentzBoost (standalone)<br/>proved on the fibre: gamma = 1, x' = x − frameV t, t' = t<br/>future: attach frames to the sector"] -.-> Z
+  N -->|"(1) HasLocalizedCOMTrajectory<br/>(2) HasFreeCOMDynamics<br/>(3) HasMomentumVelocityRelation<br/>(4) HasImpulseDynamics<br/>all assumed; future: derive (3) from the fibre K"| C["Classical/ClassicalTrajectory"]
+  C -->|"proved: drift q + t v, additive velocity update, v = p/m"| NL["Classical/NewtonLaws"]
+  Z -->|"proved: K = ½ p · v (consistency of (3) with the fibre)"| NL
+  NL -->|"proved: newtonInterface"| NI["NewtonInterface<br/>Newton/Interface"]
+  NI -->|"proved: 1687, 1713, NATP00090 law predicates"| PL["Principia/Laws"]
+  PL -->|"future: central schedule from the gravitational sector"| PI["Historical Propositions I–IV"]
 ```
 
-Edge labels say what each stage assumes and what it proves. Every assumed
-edge is a structure whose fields are the assumption; `Reverse/Chain.lean`
-composes the stages into `modern_to_newton`, whose argument list is the full
-hypothesis list. The chain's only computational content at this milestone is
-the composition itself and the kinetic-energy fibre result.
+`Reverse/Chain.lean` composes the stages. `modern_to_newton` constructs the
+interface of one body from the parent, KK, weak, strong, electron and matter
+hypotheses and the centre-of-mass assumptions (1)–(4); the relativistic
+sector and the zero-invC fibre are consumed by `modern_to_newton_kinetic`,
+`modern_to_newton_velocity_addition` and
+`modern_to_newton_velocity_consistent`, and by nothing in the Law-shape
+construction. That gap is the first item of the next pass: derive (3), the
+velocity of a momentum, from the fibre kinetic energy, so that the Law shapes
+consume the fibre.
 
 Status by stage:
 
-| Stage | Proved | Assumed (interface) | Open problem used |
-| --- | --- | --- | --- |
-| Parent | carriers only | existence of the quantum family as an opaque theory per parameter point | quantum gravity (never invoked as a theorem) |
-| KK | carriers only | reduced gauge algebra equals the internal isometry algebra; `G · Vol(K) = G_D`; massive tower decouples; zero modes survive | classical KK calculation (formalizable later) |
-| Weak | carriers only | a residual su(3) ⊕ u(1) sector with both couplings nonzero; which weak parameter is suppressed stays open | — |
-| Strong | hadron states are singlets given confinement | positive colour scale; positive mass gap; confinement; proton/neutron states | 3+1 Yang–Mills mass gap; rigorous confinement |
-| Matter | leading Coulomb product `Q₁Q₂ = 0` for neutral bodies | electromagnetic binding into neutral composites with positive effective mass | nuclear and atomic many-body theory |
-| RelativisticQM | — | each stable composite obeys the rest-subtracted dispersion relation at the parent's `invC` | positive-mass sectors of interacting QFT |
-| NonRelativistic | on the fibre `invC = 0`, each body's kinetic energy is `p²/(2m)`; off the fibre the defect is `K² invC²`, bounded by `B² invC²` on `0 ≤ K ≤ B` | Galilean velocity composition, absolute rational time; `ℏ`, `G` unchanged by the limit | Poincaré → Galilei contraction (formalizable later) |
-| Classical | composition into `NewtonInterface` | localised centre-of-mass states; Hamiltonian limit; additive impulses on velocities | semiclassical analysis |
+| Stage | Proved now | Assumed now | Open | Future derivation |
+| --- | --- | --- | --- | --- |
+| Parent | — | existence of the quantum family as an opaque theory per parameter point; Einstein–Hilbert action as a label | quantum gravity (never invoked as a theorem) | — |
+| KK | residual factors descend from the internal isometries | reduced gauge algebra = isometry algebra; `G · Vol(K) = G_D`; positive massive-tower scale; zero modes untouched | — | the two identities from the action |
+| Weak | — | residual su(3), u(1) inside the reduced algebra with nonzero couplings; suppressed parameters recorded, choice open | — | electroweak compactification |
+| Strong | hadrons are singlets (from the singlet asymptotic spectrum), above the gap and positive (from the gap); nucleons likewise | positive colour scale; gap above a massless vacuum; singlet asymptotic spectrum carried by the confinement placeholder; nucleon states with mass ratios and charges | Yang–Mills mass gap; confinement proper (placeholder) | — |
+| Electron | — | a stable negatively charged massive state | — | which Yukawa data survive weak decoupling |
+| Matter | `Q₁Q₂ = 0` for neutral bodies; a neutral body with a proton has an electron; constituents are singlets and massive | neutral composites with positive effective mass; neutrality as a condition on constituent counts | nuclear and atomic many-body theory | effective mass from constituents and binding |
+| RelativisticQM | — | dispersion relation and collinear composition of each body at the sector's kappa | positive-mass sectors of interacting QFT | both laws from a boost law |
+| NonRelativistic | on the fibre: `K = p²/(2m)`, `v ⊕ w = v + w`; standalone: `gamma = 1`, `x' = x − frameV t`, `t' = t`; defect identities and bounds for every kappa | the fibre sector with ℏ, G unchanged | — | convergence as `invC → 0`; frames attached to the sector; non-collinear composition |
+| Classical | drift `q + t v`; additive velocity update; `v = p/m`; `K = ½ p · v` on the fibre | (1) localized trajectories; (2) conserved momentum with uniform increments; (3) `p = m v`; (4) additive impulses on momenta | semiclassical analysis | (3) from the fibre `K`; (1), (2) from a Hamiltonian COM limit |
+| Principia | the chain's interface satisfies the 1687, 1713 and NATP00090 law predicates | — | — | central impulse schedule for Proposition I |
+
+## Galilean statements: theorems against assumptions
+
+Theorems, each on the fibre `kappa = 0` from a relational relativistic law:
+Newtonian kinetic energy `K = p²/(2m)`; collinear velocity composition
+`v ⊕ w = v + w`; Lorentz factor `gamma = 1`; Galilean boost
+`x' = x − frameV t`; common time `t' = t`. For every kappa the exact defect
+identities `2mK + K² kappa = p²` and `composed + kappa v w · composed = v + w`
+hold, with bounds linear in kappa on bounded data.
+
+Assumptions, stated in `Reverse/Classical`: the existence of localized
+centre-of-mass trajectories; conserved momentum with uniform increments at
+the velocity of the current momentum; the velocity of the momentum `m v` is
+`v`; additive impulses on momenta. Vector (non-collinear) velocity
+composition is assumed nowhere now and proved nowhere; the Law shapes use
+additive momenta instead.
 
 ## Parameter fates
 
@@ -170,33 +217,22 @@ possible fates (`toZero`, `toInfinity`, `remainsFinite`,
 `combinesIntoInvariant`, `integratedOut`, `confined`, `unobservable`,
 `survivesEffective`, `undetermined`). `currentFate` records what the
 formalization has established and is `undetermined` for every parameter.
-The kinetic-energy result is derived on the fibre `invC = 0`, which the
-nonrelativistic interface takes as given; whether that fibre is required for
-the Newtonian kinematics (question 1 below) is still open, so even `invC`
-stays undetermined in the Lean table. The expectations below are working
-hypotheses and are kept out of the Lean table:
+The fibre results evaluate at `invC = 0`, which the fibre interface takes as
+given; whether that fibre is required for the Newtonian kinematics (question
+1 below) is still open, so even `invC` stays undetermined in the Lean table.
+The expectations below are working hypotheses and are kept out of the Lean
+table:
 
 | Parameter | Expected fate | Where it should be decided |
 | --- | --- | --- |
-| `invC` | to zero, by the nonrelativistic limit | `NonRelativistic` (fibre formalized) |
+| `invC` | to zero, by the nonrelativistic limit | `NonRelativistic` (fibre formalized; convergence open) |
 | microscopic ℏ | remains finite; the effective ε = ℏ/S_CM goes to zero | `Classical` |
 | `G_D`, compactification radius | combine into `G`; `G` is free for Propositions I–IV | `KK`; `Principia` |
 | cosmological constant | should become invisible before Section II | undecided |
 | `g₃` | confined, traded for Λ_colour by transmutation | `Strong` |
 | electromagnetic coupling | remains finite; unobservable at leading order between neutral bodies | `Matter` |
-| weak couplings, Yukawas, breaking scale | decoupled; which parameter is suppressed is a reduction problem | `KK/WeakSector` |
-| particle masses | effective constants inherited from Λ_colour and binding | `Strong`, `Matter` |
-
-## Build and isolation
-
-```sh
-lake build Reverse
-grep -rn "import Reverse" NewtonLimitDynamics BarrowLib ClassicsLib ModernLib   # must print nothing
-```
-
-`lake build` also builds `Reverse`, as a second default target. The second
-command is the historical-isolation check: no historical or supporting
-library imports the reverse programme.
+| weak couplings, Yukawas, breaking scale | decoupled; which parameter is suppressed is a reduction problem; the electron mass must survive | `KK/WeakSector`, `Matter/ElectronSector` |
+| particle masses | effective constants: nucleon masses as ratios times Λ_colour, body masses from binding | `Strong`, `Matter` |
 
 ## Questions the architecture is built to answer
 
@@ -218,24 +254,43 @@ library imports the reverse programme.
 Theorem names and interface fields are chosen so that these can be stated
 formally as the chain deepens.
 
+## Build and isolation
+
+```sh
+lake build Reverse
+grep -rn "import Reverse" NewtonLimitDynamics BarrowLib ClassicsLib ModernLib   # must print nothing
+```
+
+`lake build` also builds `Reverse`, as a second default target. The second
+command is the historical-isolation check: no historical or supporting
+library imports the reverse programme. The reverse direction,
+`Reverse/Principia` importing the historical law files, is intended.
+
 ## Milestone record
 
-First milestone, 7 October 2026: README; parameter vocabulary
-(`Parent/Parameters`); interfaces for the parent (`Parent/QuantumKKFamily`,
-`Parent/InternalGeometry`), KK reduction and weak decoupling (`KK/`), the
-colour sector (`Strong/Confinement`), neutral matter
-(`Matter/NeutralMatter`), the relativistic composite sector
-(`RelativisticQM/StableParticleSector`), the nonrelativistic and
-semiclassical limits (`NonRelativistic/Limit`, `Classical/SemiclassicalLimit`);
-the shared endpoint packaged in `Newton/Interface`; the kinetic-energy fibre
-theorems in `NonRelativistic/KineticEnergy`; the chain composed in `Chain`
-with its explicit hypothesis list. `modern_to_newton` depends on the
-standard axioms only (`propext`, `Classical.choice`, `Quot.sound`); there is
-no `sorry` in the library.
+First milestone, 7 October 2026: README; parameter vocabulary; interfaces
+for every stage; the shared endpoint packaged in `Newton/Interface`; the
+kinetic-energy fibre theorems; the chain composed with its explicit
+hypothesis list.
 
-Next blocking question: factor the edition-local law predicates into a
-neutral shared location, or import the law files from `Reverse/Principia/`
-once their working-tree changes are committed, and then state Proposition I
-for `modern_to_newton`'s output by applying the existing historical theorems.
-After that, the first substantive reduction to deepen is the KK relation
-between the internal isometry algebra and the reduced gauge algebra.
+Second pass, 7 October 2026: semantic repairs and the first kinematic
+derivations. The notation `invC`/`kappa` is fixed; `HasZeroInvCFibre`
+replaces the limit vocabulary; the mass gap leaves the vacuum massless;
+gauge invariance, singlet asymptotic spectrum and confinement are separate,
+with confinement an explicit placeholder; the residual gauge sectors descend
+from the KK output; CP² × S¹ is a residual candidate; neutral matter is built
+from counted constituents with the electron sector; the hadron sector is a
+defined subtype rather than a phantom carrier; the semiclassical stage is
+decomposed into (1)–(4) and the Law shapes are derived from them;
+collinear velocity composition, the Lorentz factor and the boost are
+Galilean on the fibre by theorem; the chain's interface satisfies the
+historical law predicates. `modern_to_newton` depends on the standard axioms
+only (`propext`, `Classical.choice`, `Quot.sound`); there is no `sorry` in
+the library.
+
+Next blockers, in order: derive the momentum–velocity relation (3) from the
+fibre kinetic energy, which needs a finite-difference or derivative notion
+for `K`; attach frames to the stable-particle sector so that the common time
+`t' = t` is consumed by the centre-of-mass stage; state convergence as
+`invC → 0` from the defect bounds; produce the central impulse schedule from
+the gravitational sector for Proposition I.
