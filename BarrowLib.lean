@@ -34,6 +34,7 @@ import BarrowLib.Polygon.IntegerSchedule
 import BarrowLib.Polygon.KinematicEstimates
 import BarrowLib.Polygon.LatticeGeometry
 import BarrowLib.Polygon.MonotoneRectangles
+import BarrowLib.Polygon.MotionSampling
 import BarrowLib.Polygon.RectangleContent
 import BarrowLib.Polygon.SectorFan
 import BarrowLib.Polygon.RadialSector

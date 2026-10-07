@@ -139,6 +139,15 @@ theorem sum_congr (a b : Nat → Fraction)
   | 0 => Fraction.equiv_refl _
   | n+1 => Fraction.add_equiv (sum_congr a b h n) (h n)
 
+/-- Equality of a finite sum needs equal summands only inside that sum.
+Source: this coordinate statement and proof, derived by finite induction;
+no historical priority or exact external quotation is claimed. -/
+theorem sum_congr_bounded (a b : Nat → Fraction) (n : Nat)
+    (h : ∀ i, i < n → Fraction.equiv (a i) (b i)) : Fraction.equiv (sum a n) (sum b n) := by
+  induction n with
+  | zero => exact Fraction.equiv_refl _
+  | succ n ih => exact Fraction.add_equiv (ih (fun i hi => h i (by omega))) (h n (by omega))
+
 theorem fan_congr {p q : Nat → Point}
     (h : ∀ i, pointEquiv (p i) (q i)) (n : Nat) :
     Fraction.equiv (fan p n) (fan q n) :=
