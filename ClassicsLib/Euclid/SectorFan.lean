@@ -1,7 +1,4 @@
 import BarrowLib.Polygon.RectangleContent
-import BarrowLib.Polygon.CentralSchedule
-import BarrowLib.Polygon.BoundedIteration
-import BarrowLib.Polygon.RationalIntervals
 
 /-! Actual finite sector unions, distinguished from fans with multiplicity.
 All vertices lie in the positive horizontal half-plane and consecutive
@@ -9,7 +6,18 @@ determinants are nonnegative. These local geometric conditions derive the
 radial cuts separating successive triangles; separation is not a premise.
 Area itself remains a supplied partial geometric relation, extended from the
 rectangle convention by triangle areas and additivity across nonzero radial
-lines. No curved sector or limiting area is postulated or constructed here. -/
+lines. No curved sector or limiting area is postulated or constructed here.
+
+Classical source correspondence: Euclid, Elements I.41 (triangle area is half
+the corresponding parallelogram) and Common Notions 2–5 (addition, subtraction,
+coincidence and comparison of figures).
+https://mathcs.clarku.edu/~djoyce/elements/bookI/propI41.html
+https://mathcs.clarku.edu/~djoyce/elements/bookI/cn.html
+These are source-identified geometric premises, not a claim that Euclid
+states the coordinate predicates below. The radial ordering proof is our
+finite coordinate reconstruction of the dissection. Triangle normalization
+and radial-cut additivity remain supplied; a full synthetic proof of the
+area convention is not claimed. -/
 namespace NewtonLimitDynamics.Polygon.SectorFan
 open NewtonLimitDynamics TimeSubdivision PolygonFanArea
 
@@ -136,53 +144,5 @@ theorem region_area (area : AreaRules) (p : Nat → Point) (n : Nat)
     · intro x hx
       exact triangle_right _ _ _ x hx
         (Fraction.nonnegative_equiv (det_self _) (by decide)) (hc n (by omega))
-
-def vertices (a : CentralSchedule.Field) (h : Fraction) (s : Point × Point) (i : Nat) : Point :=
-  (BoundedIteration.run a h s i).1
-
-theorem run_momentum (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
-    (h : Fraction) (s : Point × Point) (i : Nat) :
-    Fraction.equiv (CentralSchedule.momentum (BoundedIteration.run a h s i))
-      (CentralSchedule.momentum s) := by
-  induction i with
-  | zero => exact Fraction.equiv_refl _
-  | succ i ih =>
-    exact Fraction.equiv_trans
-      (CentralSchedule.cell_momentum a ha h (BoundedIteration.run a h s i)) ih
-
-theorem central_triangle (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
-    (h : Fraction) (s : Point × Point) (i : Nat) :
-    Fraction.equiv (det (vertices a h s i) (vertices a h s (i+1)))
-      (Fraction.mul h (CentralSchedule.momentum s)) :=
-  Fraction.equiv_trans
-    (CentralSchedule.det_cell_area (BoundedIteration.run a h s i).1
-      (BoundedIteration.run a h s i).2 h)
-    (Fraction.mul_equiv_left h (run_momentum a ha h s i))
-
-theorem central_area_sum (a : CentralSchedule.Field) (ha : CentralSchedule.central a)
-    (h : Fraction) (s : Point × Point) (n : Nat) :
-    Fraction.equiv (areaSum (vertices a h s) n)
-      (Fraction.mul (BoundedIteration.time h n) (CentralSchedule.momentum s)).half := by
-  have hs := sum_congr _ _ (fun i =>
-    RationalIntervals.half_equiv (central_triangle a ha h s i)) n
-  apply Fraction.equiv_trans hs
-  apply Fraction.equiv_trans (sum_constant (Fraction.mul h (CentralSchedule.momentum s)).half n)
-  simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
-  ac_nf
-
-/-- Newton's actual recursively constructed central-impulse polygon has an
-ordinary union area proportional to its elapsed time on this local sector.
-The half-plane clause is geometric; no triangle-area equality or union-area
-conclusion is included in it. -/
-theorem central_region_area (area : AreaRules) (a : CentralSchedule.Field)
-    (ha : CentralSchedule.central a) (h : Fraction) (hh : 0 ≤ h.num)
-    (s : Point × Point) (hs : 0 ≤ (CentralSchedule.momentum s).num) (n : Nat)
-    (hp : ∀ i, i ≤ n → 0 < (vertices a h s i).1.num) :
-    area.HasArea (Region (vertices a h s) n)
-      (Fraction.mul (BoundedIteration.time h n) (CentralSchedule.momentum s)).half :=
-  area.congr_value _ _ _ (central_area_sum a ha h s n)
-    (region_area area _ n hp (fun i _ =>
-      Fraction.nonnegative_equiv (central_triangle a ha h s i)
-        (Fraction.nonnegative_mul _ _ hh hs)))
 
 end NewtonLimitDynamics.Polygon.SectorFan

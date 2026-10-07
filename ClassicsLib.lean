@@ -6,3 +6,4 @@ result, not the date of its Lean encoding. -/
 import ClassicsLib.Euclid.PropositionI37
 import ClassicsLib.Euclid.PropositionI38
 import ClassicsLib.Euclid.FiniteLattice
+import ClassicsLib.Euclid.SectorFan

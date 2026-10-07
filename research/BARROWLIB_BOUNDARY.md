@@ -1,8 +1,14 @@
 # Elementary, classical and modern support
 
-Current ownership after the 6 October historical-file refactor is determined
-by the actual Lean files/imports. The earlier extraction design is in Git;
-its placement of Cauchy machinery in BarrowLib is superseded.
+The user clarified chronological ownership on 7 October: ClassicsLib covers
+classical results through Hypatia; BarrowLib covers results after Hypatia and
+before the Principia; ModernLib covers any result after the Principia.
+The date of a Lean encoding does not change the date of its mathematical
+content. Newton's own results stay in their historical witness files.
+These scopes are comments at the start of all three library entry points.
+The earlier extraction design is in Git; its placement of Cauchy machinery
+in BarrowLib is superseded. Existing arithmetic/data infrastructure is used
+to encode the mathematics, not as evidence for its historical availability.
 
 BarrowLib contains rational arithmetic, ordered ratios, finite sums/products,
 coordinate point/determinant geometry, finite refinement and explicit
@@ -22,15 +28,17 @@ uniform continuity. It constructs no completion, derivative, tangent or
 arclength. These declarations cannot discharge the mechanical correspondence
 between a given trajectory and Newton's polygons.
 
-`Polygon/SectorFan` represents actual filled triangles and their finite union.
+`ClassicsLib/Euclid/SectorFan` represents filled triangles and their finite union.
 A common positive horizontal half-plane and consecutive nonnegative
 determinants derive separating radial cuts. Explicit triangle-area and
 nonzero radial-cut additivity rules extend the partial rectangle-area
 convention; these extra geometric premises are not derived from rectangle
-rules alone. The recursively constructed central polygon then has ordinary
-union area equal to half its elapsed time times its initial areal product on
-that local sector. This finite identification does not identify a curved
-sector or permit a winding fan to be treated as a union without multiplicity.
+rules alone. Euclid I.41 and Common Notions 2–5 identify the classical area
+principles; the coordinate dissection is a reconstruction, not a full
+synthetic proof of those supplied rules. Newton's law-driven application
+belongs in Historical/AreaLaw.lean. This finite identification does not
+identify a curved sector or permit a winding fan to be treated as a union
+without multiplicity.
 
 ClassicsLib identifies the classical source result, currently Euclid I.37
 and I.38 coordinate special cases and their finite lattice realization.

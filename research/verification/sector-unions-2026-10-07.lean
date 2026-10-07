@@ -1,4 +1,5 @@
 import BarrowLib
+import ClassicsLib
 
 /-! Finite geometric controls: actual triangle membership and separation,
 shared radial boundaries, a central polygon, and repeated coverage. -/
@@ -9,6 +10,8 @@ private def f (x : Int) (d : Nat) : Fraction := ⟨x,d+1,by omega⟩
 private def p (x y : Int) : Point := (Fraction.ofInt x,Fraction.ofInt y)
 private def h : Fraction := f 1 1
 private def s : Point × Point := (p 1 0,p 0 1)
+private def vertices (a : Field) (d : Fraction) (initial : Point × Point) (i : Nat) : Point :=
+  (BoundedIteration.run a d initial i).1
 
 example : Fraction.equiv (areaSum (vertices harmonic h s) 2) (f 1 1) := by decide
 
@@ -36,11 +39,15 @@ example : ¬ Triangle (vertices harmonic h s 1) (vertices harmonic h s 2) (f 1 1
   exact hfalse hn
 
 example (area : AreaRules) : area.HasArea (Region (vertices harmonic h s) 2) (f 1 1) := by
-  have ha := central_region_area area harmonic harmonic_central h (by decide) s (by decide) 2
+  have ha := region_area area (vertices harmonic h s) 2
     (by
       intro i hi
       have he : i=0 ∨ i=1 ∨ i=2 := by omega
       rcases he with rfl | rfl | rfl <;> decide)
+    (by
+      intro i hi
+      have he : i=0 ∨ i=1 := by omega
+      rcases he with rfl | rfl <;> decide)
   exact area.congr_value _ _ _ (by decide) ha
 
 -- After a complete turn, revisiting a triangle enlarges the fan sum while
@@ -73,5 +80,4 @@ example : ¬ Fraction.equiv (areaSum cycle 5) (areaSum cycle 4) := by decide
 
 #print axioms SectorFan.pairwise_orientation
 #print axioms SectorFan.region_area
-#print axioms SectorFan.central_region_area
 end NewtonLimitDynamics.Polygon.SectorUnionControls
