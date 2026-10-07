@@ -37,16 +37,22 @@ namespace Reverse.KK
 open Reverse.Parent NewtonLimitDynamics
 
 /-- One gauge sector of the reduced theory: its algebra factor, coupling,
-and physical spectrum carrier with a distinguished vacuum, masses and a
-gauge-invariance predicate. For colour, `invariant` reads as "colour
-singlet". The vacuum is separated so that a mass gap can leave it massless. -/
+and physical spectrum carrier with a distinguished vacuum, masses and three
+separate predicates. `gaugeInvariant` is invariance under local gauge
+transformations (Gauss law); `singlet` is triviality under the global group
+of the factor, "colour singlet" for su(3) and "neutral" for u(1); a
+gauge-invariant state can still carry global charge, so the two differ.
+`asymptotic` marks states that appear as free particles at large distances.
+The vacuum is separated so that a mass gap can leave it massless. -/
 structure GaugeSector where
   factor : GaugeFactor
   coupling : Scalar
   Spectrum : Type
   vacuum : Spectrum
   mass : Spectrum → Scalar
-  invariant : Spectrum → Prop
+  gaugeInvariant : Spectrum → Prop
+  singlet : Spectrum → Prop
+  asymptotic : Spectrum → Prop
 
 /-- The four-dimensional output of a reduction: gravity with coupling `G`,
 the gauge algebra by factor, the scale of the massive internal tower, and the
