@@ -1,4 +1,5 @@
 import BarrowLib.Polygon.RectangleContent
+import BarrowLib.Polygon.RationalIntervals
 
 /-! Actual finite sector unions, distinguished from fans with multiplicity.
 All vertices lie in the positive horizontal half-plane and consecutive
@@ -62,6 +63,37 @@ structure AreaRules extends RectangleContent.AreaRules where
     (∀ x, U x → 0 ≤ (det x r).num) →
     (∀ x, V x → 0 ≤ (det r x).num) →
     HasArea U A → HasArea V B → HasArea (fun x => U x ∨ V x) (Fraction.add A B)
+
+/-- Reordering the two nonorigin vertices preserves the filled triangle.
+Source: the original English statement and barycentric proof here. -/
+theorem triangle_swap (p q x : Point) : Triangle p q x ↔ Triangle q p x := by
+  constructor <;> rintro ⟨u,v,hu,hv,hs,hx⟩
+  · exact ⟨v,u,hv,hu,Fraction.le_equiv_left (Fraction.add_comm _ _) hs,
+      pointEquiv_trans hx (pointAdd_comm _ _)⟩
+  · exact ⟨v,u,hv,hu,Fraction.le_equiv_left (Fraction.add_comm _ _) hs,
+      pointEquiv_trans hx (pointAdd_comm _ _)⟩
+
+/-- The supplied oriented normalization also assigns an unsigned area to
+every radial connector, including reversed and collapsed triangles. Source:
+this original finite derivation; no further area convention is added. -/
+theorem unsigned_triangle_area (area : AreaRules) (p q : Point) :
+    area.HasArea (Triangle p q) (det p q).abs.half := by
+  by_cases h : 0 ≤ (det p q).num
+  · exact area.congr_value _ _ _
+      (RationalIntervals.half_equiv (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ h)))
+      (area.triangle p q h)
+  · let neg : Fraction := ⟨-(det p q).num,(det p q).den,(det p q).den_pos⟩
+    have hn : 0 ≤ neg.num := by dsimp [neg]; omega
+    have he : Fraction.equiv (det q p) neg := by
+      simp only [neg,det,Fraction.equiv,Fraction.add,Fraction.mul,Int.neg_mul,Int.mul_neg,
+        Int.neg_add,Int.add_mul,Int.mul_add,Int.neg_neg]
+      ac_nf
+    have habs : Fraction.equiv neg (det p q).abs :=
+      Fraction.equiv_trans (Fraction.equiv_symm (Fraction.abs_of_nonnegative neg hn))
+        (Fraction.abs_neg (det p q))
+    have hqa := area.triangle q p (Fraction.nonnegative_equiv he hn)
+    exact area.congr_set _ _ _ (fun x => (triangle_swap q p x))
+      (area.congr_value _ _ _ (RationalIntervals.half_equiv (Fraction.equiv_trans he habs)) hqa)
 
 def slope (p : Point) (hp : 0 < p.1.num) : Fraction :=
   ⟨p.2.num * p.1.den, p.2.den * p.1.num, Int.mul_pos p.2.den_pos hp⟩

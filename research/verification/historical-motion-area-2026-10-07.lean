@@ -122,4 +122,23 @@ example (area : DifferenceAreaRules) (A : Fraction) (hA : area.HasArea (sweptSec
 
 #print axioms Principia1687.PropositionI.sampled_radial_sector_area
 #print axioms Principia1713.PropositionI.sampled_radial_sector_area
+
+example : ∃ N, ∀ j, N ≤ j → ∀ k, k ≤ blocks j →
+    0 < (BoundedIteration.run force (duration T j) (curve z) k).1.1.num :=
+  polygon_eventually_positive force z T z z two o curve conditions g z T parts chart
+
+example (area : SectorFan.AreaRules) :
+    ∃ N, ∀ j, N ≤ j → area.HasArea (SectorFan.Region
+      (Principia1687.PropositionI.polygonVertex ZeroForce.inertialAt pointAdd force (duration T j)
+        (curve z)) (blocks j)) (Fraction.mul T (CentralSchedule.momentum (curve z))).half :=
+  Principia1687.PropositionI.eventual_mechanical_sector_area area force central
+    z T z z two o curve conditions (by decide) g z T parts chart
+
+example (area : SectorFan.AreaRules) :
+    ∃ N, ∀ j, N ≤ j → area.HasArea (SectorFan.Region
+      (Principia1713.PropositionI.polygonVertex ZeroForce.inertialAt pointAdd force (duration T j)
+        (curve z)) (blocks j)) (Fraction.mul T (CentralSchedule.momentum (curve z))).half :=
+  Principia1713.PropositionI.eventual_mechanical_sector_area area force central
+    z T z z two o curve conditions (by decide) g z T parts chart
+
 end NewtonLimitDynamics.Polygon.HistoricalMotionAreaControls

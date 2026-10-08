@@ -243,6 +243,37 @@ private def inertialCurve (t : Fraction) : Point × Point := ((t,z),(o,z))
 private def inertialMechanical (k : Nat) : Point :=
   (BoundedIteration.run inertialForce (duration T 0) (inertialCurve z) k).1
 private def inertialSampled (k : Nat) : Point := (samples inertialCurve T 0 k).1
+
+-- A displaced terminal radial edge has actual nonzero unsigned triangle
+-- area. Values are direct rational computations, independent of the bounds'
+-- proof path, but share the kernel and coordinate definitions with it.
+example : Fraction.equiv (terminalConnectorArea force T curve 0) ⟨1,128,by decide⟩ := by decide
+example : Fraction.equiv (terminalConnectorArea force T curve 1) ⟨1,256,by decide⟩ := by decide
+example : ¬ Fraction.equiv (terminalConnectorArea force T curve 0) z := by decide
+example : Fraction.equiv (terminalConnectorArea inertialForce T inertialCurve 0) z := by decide
+example : Fraction.equiv (terminalConnectorArea force z curve 0) z := by decide
+example (area : SectorFan.AreaRules) :
+    area.HasArea (terminalConnector force T curve 0) ⟨1,128,by decide⟩ :=
+  area.congr_value _ _ _ (by decide) (terminal_connector_area area force T curve 0)
+example : Fraction.le (terminalConnectorArea force T curve 0)
+    (Fraction.mul (BoundedIteration.uniformPositionCap T (curve z) two) (stateBudget o T 0)) :=
+  terminal_connector_bound force o T z two o two curve conditions 0
+example : Exhaustion.VanishingDifference Fraction.magnitudes (terminalConnectorArea force T curve) :=
+  terminal_connector_areas_vanish force o T z two o two curve conditions
+
+-- Distinct edge parameters and the terminal cell of a refinement.
+example : ConvexCover.SquareContains (sampled 1 1) (chordRadius o T two 1)
+    (ConvexCover.filledPatch z o midpointEquivalent
+      (mechanical 1 1) (mechanical 1 2) (sampled 1 1) (sampled 1 2)) :=
+  sampled_filled_patch_square force o T z two o two curve conditions 1 1
+    (by decide) z o midpointEquivalent zero_interval one_interval midpointEquivalent_interval
+example : ConvexCover.SquareCover (sampled 1) (chordRadius o T two 1) (blocks 1)
+    (ConvexCover.filledPatch z o midpointEquivalent
+      (mechanical 1 1) (mechanical 1 2) (sampled 1 1) (sampled 1 2)) := by
+  apply sampled_filled_cover force o T z two o two curve conditions 1
+  exact ⟨1,by decide,z,o,midpointEquivalent,zero_interval,one_interval,midpointEquivalent_interval,
+    ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
+
 private theorem inertial_edge_zero (theta : Fraction) (htheta : ConvexCover.UnitInterval theta) :
     Fraction.equiv (pointDistance
       (ConvexCover.lerp theta (inertialMechanical 0) (inertialMechanical 1))
@@ -383,6 +414,24 @@ run_elab do
       #["DeMotu1684.", "Principia1713.", "ModernLib."]),
     (`Principia1713.PropositionI.mechanical_sampled_chord_control,
       `Principia1713.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1687.", "ModernLib."]),
+    (`DeMotu1684.NATP00090.AreaLaw.mechanical_filled_chord_control,
+      `DeMotu1684.NATP00090.AreaLaw.canonical_polygon_eq_run,
+      #["DeMotu1684.AreaLaw.", "DeMotu1684.NATP00089.", "Principia1687.", "Principia1713."]),
+    (`DeMotu1684.NATP00090.AreaLaw.eventual_mechanical_sector_area,
+      `DeMotu1684.NATP00090.AreaLaw.canonical_polygon_eq_run,
+      #["DeMotu1684.AreaLaw.", "DeMotu1684.NATP00089.", "Principia1687.", "Principia1713."]),
+    (`Principia1687.PropositionI.mechanical_filled_chord_control,
+      `Principia1687.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1713.", "ModernLib."]),
+    (`Principia1687.PropositionI.eventual_mechanical_sector_area,
+      `Principia1687.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1713.", "ModernLib."]),
+    (`Principia1713.PropositionI.mechanical_filled_chord_control,
+      `Principia1713.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1687.", "ModernLib."]),
+    (`Principia1713.PropositionI.eventual_mechanical_sector_area,
+      `Principia1713.PropositionI.canonical_polygon_eq_run,
       #["DeMotu1684.", "Principia1687.", "ModernLib."])]
   for (root, ownPolygon, blocked) in checks do
     unless (env.find? root).isSome do
@@ -390,6 +439,10 @@ run_elab do
     let used := dependencyClosure env [root]
     unless used.contains ownPolygon do
       throwError "{root} does not use its own canonical polygon equality"
+    if root.toString.endsWith ".eventual_mechanical_sector_area" then
+      let ownFiniteArea := root.getPrefix ++ `finite_geometric_sector
+      unless used.contains ownFiniteArea do
+        throwError "{root} does not use its own finite geometric sector proof"
     for blockedPrefix in blocked do
       if let some offender := matchingPrefix? used blockedPrefix then
         throwError "{root} reaches forbidden dependency {offender}"

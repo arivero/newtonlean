@@ -680,14 +680,15 @@ theorem sampled_chord_step_bound (a : Point → Point) (C T L B P V : Fraction)
   simp only [Int.add_mul,Int.mul_add]
   ac_nf
 
-/-- One actual square encloses every point of a matched cell patch. Its
+/-- One actual square encloses every point of a filled cell patch. Its
 radius follows from the derived endpoint and sample-step bounds. -/
-theorem sampled_chord_patch_square (a : Point → Point) (C T L B P V : Fraction)
+theorem sampled_filled_patch_square (a : Point → Point) (C T L B P V : Fraction)
     (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
-    (j k : Nat) (hk : k < blocks j) (theta lambda : Fraction)
-    (htheta : ConvexCover.UnitInterval theta) (hlambda : ConvexCover.UnitInterval lambda) :
+    (j k : Nat) (hk : k < blocks j) (theta mu lambda : Fraction)
+    (htheta : ConvexCover.UnitInterval theta) (hmu : ConvexCover.UnitInterval mu)
+    (hlambda : ConvexCover.UnitInterval lambda) :
     ConvexCover.SquareContains (samples u T j k).1 (chordRadius C T V j)
-      (ConvexCover.matchedPatch theta lambda
+      (ConvexCover.filledPatch theta mu lambda
         (BoundedIteration.run a (duration T j) (u zero) k).1
         (BoundedIteration.run a (duration T j) (u zero) (k+1)).1
         (samples u T j k).1 (samples u T j (k+1)).1) := by
@@ -709,7 +710,7 @@ theorem sampled_chord_patch_square (a : Point → Point) (C T L B P V : Fraction
       (Fraction.add_comm _ _)) hR
   have hr : 0 ≤ (chordRadius C T V j).num := Fraction.nonnegative_equiv
     (Fraction.equiv_symm hR) (Fraction.nonnegative_add _ _ hE hS)
-  apply ConvexCover.matchedPatch_square theta lambda htheta hlambda _ _ _ _ _ _
+  apply ConvexCover.filledPatch_square theta mu lambda htheta hmu hlambda _ _ _ _ _ _
   · exact Fraction.magnitudes.le_trans (sampled_position_error a C T L B P V u d j k (by omega)) heR
   · exact Fraction.le_equiv_right (Fraction.magnitudes.le_trans (pointDistance_triangle _ _ _)
       (Fraction.add_le_add (sampled_position_error a C T L B P V u d j (k+1) (by omega))
@@ -717,6 +718,31 @@ theorem sampled_chord_patch_square (a : Point → Point) (C T L B P V : Fraction
   · exact Fraction.le_equiv_left (pointDistance_self_zero _)
       (by simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using hr)
   · exact Fraction.magnitudes.le_trans (sampled_chord_step_bound a C T L B P V u d j k hk) hsR
+
+/-- The matched patch is a special case of the filled patch. -/
+theorem sampled_chord_patch_square (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (j k : Nat) (hk : k < blocks j) (theta lambda : Fraction)
+    (htheta : ConvexCover.UnitInterval theta) (hlambda : ConvexCover.UnitInterval lambda) :
+    ConvexCover.SquareContains (samples u T j k).1 (chordRadius C T V j)
+      (ConvexCover.matchedPatch theta lambda
+        (BoundedIteration.run a (duration T j) (u zero) k).1
+        (BoundedIteration.run a (duration T j) (u zero) (k+1)).1
+        (samples u T j k).1 (samples u T j (k+1)).1) :=
+  sampled_filled_patch_square a C T L B P V u d j k hk theta theta lambda htheta htheta hlambda
+
+/-- The larger finite edge strip has the same shrinking square cover. This
+is geometric inclusion in the square union, not inclusion of sector differences. -/
+theorem sampled_filled_cover (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (j : Nat) (x : Point) :
+    ConvexCover.FilledRegion
+      (fun k => (BoundedIteration.run a (duration T j) (u zero) k).1)
+      (fun k => (samples u T j k).1) (blocks j) x →
+    ConvexCover.SquareCover (fun k => (samples u T j k).1) (chordRadius C T V j) (blocks j) x := by
+  rintro ⟨k,hk,theta,mu,lambda,htheta,hmu,hlambda,hx⟩
+  exact ⟨k,hk,(ConvexCover.square_contains_congr _ _ hx).mpr
+    (sampled_filled_patch_square a C T L B P V u d j k hk theta mu lambda htheta hmu hlambda)⟩
 
 /-- Set inclusion for the whole finite matched locus, with one square for
 each cell. Equivalent rational point representatives are included. -/
@@ -761,5 +787,96 @@ theorem chord_cover_budgets_vanish (C T V : Fraction)
   obtain ⟨N,hN⟩ := hv eps heps
   exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt
     (Fraction.le_of_equiv (chord_cover_budget_formula C T V j)) (hN j hj)⟩
+
+/-! Terminal radial connectors. Source: the original English coordinate
+statements and proofs here. These derive an actual finite triangle's area
+and its exhaustion from the motion estimates, not a sector-difference
+inclusion or an assigned area for the union of strips. -/
+
+def terminalConnector (a : Point → Point) (T : Fraction)
+    (u : Fraction → Point × Point) (j : Nat) : Point → Prop :=
+  SectorFan.Triangle (BoundedIteration.run a (duration T j) (u zero) (blocks j)).1
+    (samples u T j (blocks j)).1
+
+def terminalConnectorArea (a : Point → Point) (T : Fraction)
+    (u : Fraction → Point × Point) (j : Nat) : Fraction :=
+  (det (BoundedIteration.run a (duration T j) (u zero) (blocks j)).1
+    (samples u T j (blocks j)).1).abs.half
+
+theorem terminal_connector_area (area : SectorFan.AreaRules) (a : Point → Point)
+    (T : Fraction) (u : Fraction → Point × Point) (j : Nat) :
+    area.HasArea (terminalConnector a T u j) (terminalConnectorArea a T u j) :=
+  SectorFan.unsigned_triangle_area area _ _
+
+/-- The terminal sample is not covered by the supplied left-sample position
+cap. Instead use the derived mechanical position cap and endpoint error. -/
+theorem terminal_connector_bound (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u) (j : Nat) :
+    Fraction.le (terminalConnectorArea a T u j)
+      (Fraction.mul (BoundedIteration.uniformPositionCap T (u zero) B) (stateBudget C T j)) := by
+  apply Fraction.magnitudes.le_trans (half_le_self _ (Fraction.abs_num_nonnegative _))
+  apply det_chord_bound _ _ _ _
+    (polygon_position_cap_nonnegative T B (u zero) d.time_nonnegative d.force_nonnegative)
+    (polygon_position_bound a C T L B P V u d j (blocks j) (Nat.le_refl _))
+  exact Fraction.le_equiv_left (pointDistance_symm _ _)
+    (sampled_position_error a C T L B P V u d j (blocks j) (Nat.le_refl _))
+
+theorem terminal_connector_areas_vanish (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u) :
+    Exhaustion.VanishingDifference Fraction.magnitudes (terminalConnectorArea a T u) := by
+  let R := BoundedIteration.uniformPositionCap T (u zero) B
+  let K := Fraction.mul R (Fraction.mul (Fraction.ofInt 2) (Fraction.mul C T))
+  have hR := polygon_position_cap_nonnegative T B (u zero) d.time_nonnegative d.force_nonnegative
+  have hK : 0 ≤ K.num := Fraction.nonnegative_mul _ _ hR
+    (Fraction.nonnegative_mul _ _ (by decide)
+      (Fraction.nonnegative_mul _ _ d.remainder_nonnegative d.time_nonnegative))
+  obtain hv := dyadic_scaled_vanishes K T hK d.time_nonnegative
+  intro eps heps
+  obtain ⟨N,hN⟩ := hv eps heps
+  refine ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt ?_ (hN j hj)⟩
+  exact Fraction.le_equiv_right (terminal_connector_bound a C T L B P V u d j)
+    (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+
+/-! Half-plane control for the finite mechanical vertices. Source: the
+coordinate argument below, derived from the chart's positive lower radius
+and the already proved shrinking sample error. This adds no premise of
+polygon agreement or arbitrary-time curve regularity. -/
+
+theorem positive_first_of_near_lower (p q : Point) (r : Fraction)
+    (hq : Fraction.le r q.1) (hd : Fraction.lt (pointDistance p q) r) :
+    0 < p.1.num := by
+  by_cases hpos : 0 < p.1.num
+  · exact hpos
+  apply False.elim
+  have hp : 0 ≤ -p.1.num := by omega
+  have hsub : Fraction.le q.1 (pointSub q p).1 := Fraction.le_add_nonnegative _ _ hp
+  have hnorm : Fraction.le (pointSub q p).1.abs (pointDistance q p) :=
+    Fraction.le_add_nonnegative _ _ (Fraction.abs_num_nonnegative _)
+  have hr := Fraction.magnitudes.le_trans hq (Fraction.magnitudes.le_trans hsub
+    (Fraction.magnitudes.le_trans (Fraction.le_abs _) hnorm))
+  exact Fraction.magnitudes.lt_irrefl r (Fraction.magnitudes.lt_of_le_lt
+    (Fraction.le_equiv_right hr (pointDistance_symm _ _)) hd)
+
+theorem sampled_first_lower (g : Fraction → Fraction) (l r T : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r) (u : Fraction → Point × Point)
+    (chart : RadialChart g l r T parts u) (j k : Nat) (hk : k ≤ blocks j) :
+    Fraction.le (g l) (samples u T j k).1.1 := by
+  have hk' : k ≤ (parts j).count := by rw [chart.count]; exact hk
+  have hb := MonotoneRectangles.node_bounds (parts j) k hk'
+  exact Fraction.le_equiv_right
+    (chart.monotone l ((parts j).nodes k) (Fraction.magnitudes.le_refl _) hb.1 hb.2)
+    (Fraction.equiv_symm (chart.samples j k hk').1)
+
+theorem polygon_eventually_positive (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r) (chart : RadialChart g l r T parts u) :
+    ∃ N, ∀ j, N ≤ j → ∀ k, k ≤ blocks j →
+      0 < (BoundedIteration.run a (duration T j) (u zero) k).1.1.num := by
+  obtain ⟨N,hN⟩ := state_budgets_vanish C T d.remainder_nonnegative d.time_nonnegative
+    (g l) chart.positive
+  exact ⟨N,fun j hj k hk => positive_first_of_near_lower _ _ (g l)
+    (sampled_first_lower g l r T parts u chart j k hk)
+    (Fraction.magnitudes.lt_of_le_lt (sampled_position_error a C T L B P V u d j k hk) (hN j hj))⟩
 
 end NewtonLimitDynamics.Polygon.MotionSampling

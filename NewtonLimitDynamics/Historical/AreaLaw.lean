@@ -364,6 +364,69 @@ theorem mechanical_sampled_chord_control (a : CentralSchedule.Field) (C T L B P 
     rw [hp]
     exact MotionSampling.sampled_chord_cover a C T L B P V u d j x
 
+/-- The independent-parameter finite edge strip has the same cover budget.
+Source: this editorial coordinate consequence of the motion premises and this
+witness's own canonical polygon identity. Sector-difference inclusion is not
+assumed or concluded. -/
+theorem mechanical_filled_chord_control (a : CentralSchedule.Field) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u) :
+    (∀ j x, ConvexCover.FilledRegion
+      (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)))
+      (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j) x →
+      ConvexCover.SquareCover (fun k => (MotionSampling.samples u T j k).1)
+        (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes (MotionSampling.chordCoverBudget C T V) := by
+  refine ⟨?_,MotionSampling.chord_cover_budgets_vanish C T V
+    d.remainder_nonnegative d.time_nonnegative d.velocity_nonnegative⟩
+  intro j x
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp]
+  exact MotionSampling.sampled_filled_cover a C T L B P V u d j x
+
+/-- The motion estimates and positive chart derive the finite polygons'
+half-plane premise eventually. This witness's own mechanical triangle chain
+then assigns the actual sector-union area. Source: this editorial derivation;
+the regularity/chart premises are not quotations from Newton. No B or
+arbitrary-time polygon agreement is concluded. -/
+theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ N, ∀ j, N ≤ j →
+      area.HasArea (SectorFan.Region
+        (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))) (HarmonicDyadic.blocks j))
+        (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half := by
+  obtain ⟨N,hN⟩ := MotionSampling.polygon_eventually_positive a C T L B P V u d g l r parts chart
+  refine ⟨N,fun j hj => ?_⟩
+  have hI : DeMotu1684.NATP00090.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : DeMotu1684.NATP00090.Laws.CalibratedChange TimeSubdivision.pointAdd :=
+    TimeSubdivision.pointSub_add_self_left_equiv
+  have hp : ∀ k, k ≤ HarmonicDyadic.blocks j →
+      0 < (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)) k).1.num := by
+    intro k hk
+    simp only [polygonVertex,canonical_polygon_eq_run]
+    exact hN j hj k hk
+  exact area.congr_value _ _ _
+    (RationalIntervals.half_equiv (Fraction.mul_equiv_right _
+      (HarmonicDyadic.blocks_duration T j)))
+    (finite_geometric_sector area ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) hs
+      (HarmonicDyadic.blocks j) hp)
+
+
 end DeMotu1684.NATP00090.AreaLaw
 
 /-! 1687. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -733,6 +796,69 @@ theorem mechanical_sampled_chord_control (a : CentralSchedule.Field) (C T L B P 
     rw [hp]
     exact MotionSampling.sampled_chord_cover a C T L B P V u d j x
 
+/-- The independent-parameter finite edge strip has the same cover budget.
+Source: this editorial coordinate consequence of the motion premises and this
+witness's own canonical polygon identity. Sector-difference inclusion is not
+assumed or concluded. -/
+theorem mechanical_filled_chord_control (a : CentralSchedule.Field) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u) :
+    (∀ j x, ConvexCover.FilledRegion
+      (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)))
+      (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j) x →
+      ConvexCover.SquareCover (fun k => (MotionSampling.samples u T j k).1)
+        (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes (MotionSampling.chordCoverBudget C T V) := by
+  refine ⟨?_,MotionSampling.chord_cover_budgets_vanish C T V
+    d.remainder_nonnegative d.time_nonnegative d.velocity_nonnegative⟩
+  intro j x
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp]
+  exact MotionSampling.sampled_filled_cover a C T L B P V u d j x
+
+/-- The motion estimates and positive chart derive the finite polygons'
+half-plane premise eventually. This witness's own mechanical triangle chain
+then assigns the actual sector-union area. Source: this editorial derivation;
+the regularity/chart premises are not quotations from Newton. No B or
+arbitrary-time polygon agreement is concluded. -/
+theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ N, ∀ j, N ≤ j →
+      area.HasArea (SectorFan.Region
+        (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))) (HarmonicDyadic.blocks j))
+        (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half := by
+  obtain ⟨N,hN⟩ := MotionSampling.polygon_eventually_positive a C T L B P V u d g l r parts chart
+  refine ⟨N,fun j hj => ?_⟩
+  have hI : Principia1687.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : Principia1687.Laws.AdditiveImpulse TimeSubdivision.pointAdd :=
+    fun _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hp : ∀ k, k ≤ HarmonicDyadic.blocks j →
+      0 < (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)) k).1.num := by
+    intro k hk
+    simp only [polygonVertex,canonical_polygon_eq_run]
+    exact hN j hj k hk
+  exact area.congr_value _ _ _
+    (RationalIntervals.half_equiv (Fraction.mul_equiv_right _
+      (HarmonicDyadic.blocks_duration T j)))
+    (finite_geometric_sector area ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) hs
+      (HarmonicDyadic.blocks j) hp)
+
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -1101,6 +1227,69 @@ theorem mechanical_sampled_chord_control (a : CentralSchedule.Field) (C T L B P 
       exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
     rw [hp]
     exact MotionSampling.sampled_chord_cover a C T L B P V u d j x
+
+/-- The independent-parameter finite edge strip has the same cover budget.
+Source: this editorial coordinate consequence of the motion premises and this
+witness's own canonical polygon identity. Sector-difference inclusion is not
+assumed or concluded. -/
+theorem mechanical_filled_chord_control (a : CentralSchedule.Field) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u) :
+    (∀ j x, ConvexCover.FilledRegion
+      (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)))
+      (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j) x →
+      ConvexCover.SquareCover (fun k => (MotionSampling.samples u T j k).1)
+        (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes (MotionSampling.chordCoverBudget C T V) := by
+  refine ⟨?_,MotionSampling.chord_cover_budgets_vanish C T V
+    d.remainder_nonnegative d.time_nonnegative d.velocity_nonnegative⟩
+  intro j x
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp]
+  exact MotionSampling.sampled_filled_cover a C T L B P V u d j x
+
+/-- The motion estimates and positive chart derive the finite polygons'
+half-plane premise eventually. This witness's own mechanical triangle chain
+then assigns the actual sector-union area. Source: this editorial derivation;
+the regularity/chart premises are not quotations from Newton. No B or
+arbitrary-time polygon agreement is concluded. -/
+theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ N, ∀ j, N ≤ j →
+      area.HasArea (SectorFan.Region
+        (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))) (HarmonicDyadic.blocks j))
+        (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half := by
+  obtain ⟨N,hN⟩ := MotionSampling.polygon_eventually_positive a C T L B P V u d g l r parts chart
+  refine ⟨N,fun j hj => ?_⟩
+  have hI : Principia1713.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : Principia1713.Laws.AdditiveImpulse TimeSubdivision.pointAdd :=
+    fun _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hp : ∀ k, k ≤ HarmonicDyadic.blocks j →
+      0 < (polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0)) k).1.num := by
+    intro k hk
+    simp only [polygonVertex,canonical_polygon_eq_run]
+    exact hN j hj k hk
+  exact area.congr_value _ _ _
+    (RationalIntervals.half_equiv (Fraction.mul_equiv_right _
+      (HarmonicDyadic.blocks_duration T j)))
+    (finite_geometric_sector area ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) hs
+      (HarmonicDyadic.blocks j) hp)
+
 
 end Principia1713.PropositionI
 

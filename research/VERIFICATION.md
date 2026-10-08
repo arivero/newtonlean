@@ -82,3 +82,14 @@ Each harness's opening docstring states what it controls. An `AreaRules` or
 with that argument does not prove that such a convention exists. Complete
 hypotheses live in the owning declarations. Results, the latest verification
 record and open obligations live in [STATE.md](STATE.md).
+
+`sector-difference-2026-10-07.lean` checks actual fan, connector and filled-strip
+membership/exclusion, equivalent point displays, the strict half-plane bound
+and unsigned areas for reversed/collapsed triangles. Its written rational-root
+argument is not a Lean-certified exclusion of every matched parameter.
+`motion-sampling-2026-10-07.lean` checks a displaced terminal connector and its
+nonzero area, zero-time/inertial controls and the filled cover. Its compiled
+dependency checks require each new historical client to use its own canonical
+polygon, and each eventual sector-area client its own finite geometric proof;
+foreign witnesses and ModernLib dependencies are rejected. The separate
+full-turn union/multiplicity falsifier remains in `sector-unions-2026-10-07.lean`.

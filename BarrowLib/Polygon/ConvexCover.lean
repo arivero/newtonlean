@@ -182,6 +182,47 @@ def MatchedRegion (p q : Nat → Point) (n : Nat) (x : Point) : Prop :=
   ∃ k, k < n ∧ ∃ theta lambda, UnitInterval theta ∧ UnitInterval lambda ∧
     pointEquiv x (matchedPatch theta lambda (p k) (p (k+1)) (q k) (q (k+1)))
 
+/-- Join arbitrary points of the two edges, using independent rational edge
+parameters. Source: this original coordinate definition. Equal parameters
+give the older matched patch; they need not fill the rational edge strip. -/
+def filledPatch (theta mu lambda : Fraction) (p0 p1 q0 q1 : Point) : Point :=
+  lerp lambda (lerp theta p0 p1) (lerp mu q0 q1)
+
+def FilledRegion (p q : Nat → Point) (n : Nat) (x : Point) : Prop :=
+  ∃ k, k < n ∧ ∃ theta mu lambda,
+    UnitInterval theta ∧ UnitInterval mu ∧ UnitInterval lambda ∧
+    pointEquiv x (filledPatch theta mu lambda (p k) (p (k+1)) (q k) (q (k+1)))
+
+theorem matched_inside_filled (p q : Nat → Point) (n : Nat) (x : Point)
+    (hx : MatchedRegion p q n x) : FilledRegion p q n x := by
+  obtain ⟨k,hk,theta,lambda,ht,hl,hx⟩ := hx
+  exact ⟨k,hk,theta,theta,lambda,ht,ht,hl,hx⟩
+
+/-- Independent convex combinations of the four endpoints stay in their
+common ball. Source: the English statement and finite derivation here. -/
+theorem filledPatch_ball (theta mu lambda : Fraction)
+    (ht : UnitInterval theta) (hm : UnitInterval mu) (hl : UnitInterval lambda)
+    (anchor p0 p1 q0 q1 : Point) (R : Fraction)
+    (hp0 : Fraction.le (pointNorm (pointSub p0 anchor)) R)
+    (hp1 : Fraction.le (pointNorm (pointSub p1 anchor)) R)
+    (hq0 : Fraction.le (pointNorm (pointSub q0 anchor)) R)
+    (hq1 : Fraction.le (pointNorm (pointSub q1 anchor)) R) :
+    Fraction.le (pointNorm (pointSub (filledPatch theta mu lambda p0 p1 q0 q1) anchor)) R :=
+  lerp_ball_bound lambda hl anchor _ _ R
+    (lerp_ball_bound theta ht anchor p0 p1 R hp0 hp1)
+    (lerp_ball_bound mu hm anchor q0 q1 R hq0 hq1)
+
+theorem filledPatch_square (theta mu lambda : Fraction)
+    (ht : UnitInterval theta) (hm : UnitInterval mu) (hl : UnitInterval lambda)
+    (anchor p0 p1 q0 q1 : Point) (R : Fraction)
+    (hp0 : Fraction.le (pointNorm (pointSub p0 anchor)) R)
+    (hp1 : Fraction.le (pointNorm (pointSub p1 anchor)) R)
+    (hq0 : Fraction.le (pointNorm (pointSub q0 anchor)) R)
+    (hq1 : Fraction.le (pointNorm (pointSub q1 anchor)) R) :
+    SquareContains anchor R (filledPatch theta mu lambda p0 p1 q0 q1) :=
+  ball_inside_square anchor _ R
+    (filledPatch_ball theta mu lambda ht hm hl anchor p0 p1 q0 q1 R hp0 hp1 hq0 hq1)
+
 /-- One square at each left endpoint of q. Its union is a geometric cover;
 its area is not defined to be the sum of square budgets. Source: this definition. -/
 def SquareCover (q : Nat → Point) (R : Fraction) (n : Nat) (x : Point) : Prop :=
