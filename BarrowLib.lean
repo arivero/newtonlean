@@ -20,6 +20,7 @@ import BarrowLib.Common.SimplexExit
 import BarrowLib.Common.UltimateScaling
 import BarrowLib.Polygon.AccelerationEstimates
 import BarrowLib.Polygon.BoundedIteration
+import BarrowLib.Polygon.BoxCoverArea
 import BarrowLib.Polygon.CalibratedGrowth
 import BarrowLib.Polygon.CalibratedRefinement
 import BarrowLib.Polygon.ConvexCover

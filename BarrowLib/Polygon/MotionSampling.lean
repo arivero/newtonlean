@@ -3,6 +3,7 @@ import BarrowLib.Polygon.CentralSchedule
 import BarrowLib.Polygon.RadialSector
 import BarrowLib.Polygon.TriangleExchange
 import BarrowLib.Polygon.FanDifference
+import BarrowLib.Polygon.BoxCoverArea
 import BarrowLib.Polygon.GeometricTail
 import BarrowLib.Polygon.PolygonFanArea
 import BarrowLib.Common.Exhaustion
@@ -982,5 +983,35 @@ theorem eventual_sampled_sector_difference_cover (a : Point → Point) (C T L B 
   refine ⟨N,fun j hj x hx => ?_⟩
   obtain ⟨hq,hdq⟩ := sampled_positive_oriented g l r T parts u chart j
   exact sampled_sector_difference_cover a C T L B P V u d j (hN j hj) hq (hdp j) hdq x hx
+
+/-- The actual finite square covers now have constructed assigned areas
+bounded by the existing side-product budgets, and those areas vanish. The
+area convention is explicitly the existing translation-and-cut convention;
+the older subtraction-only convention is not silently strengthened.
+No area assignment for the mechanical/curve difference is inferred. -/
+theorem sampled_chord_cover_areas (area : TriangleContent.AreaRules) (C T V : Fraction)
+    (hC : 0 ≤ C.num) (hT : 0 ≤ T.num) (hV : 0 ≤ V.num)
+    (u : Fraction → Point × Point) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea
+          (ConvexCover.SquareCover (fun k => (samples u T j k).1) (chordRadius C T V j) (blocks j))
+          (A j) ∧ 0 ≤ (A j).num ∧ Fraction.le (A j) (chordCoverBudget C T V j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A := by
+  have hcover : ∀ j, ∃ A, area.HasArea
+        (ConvexCover.SquareCover (fun k => (samples u T j k).1) (chordRadius C T V j) (blocks j)) A ∧
+      0 ≤ A.num ∧ Fraction.le A (chordCoverBudget C T V j) := by
+    intro j
+    have hR : 0 ≤ (chordRadius C T V j).num := Fraction.nonnegative_mul _ _
+      (chordRadiusCoefficient_nonnegative C T V hC hT hV) hT
+    exact BoxCoverArea.square_cover_area area _ _ hR (blocks j)
+  let A : Nat → Fraction := fun j => Classical.choose (hcover j)
+  have hA : ∀ j, area.HasArea
+        (ConvexCover.SquareCover (fun k => (samples u T j k).1) (chordRadius C T V j) (blocks j)) (A j) ∧
+      0 ≤ (A j).num ∧ Fraction.le (A j) (chordCoverBudget C T V j) :=
+    fun j => Classical.choose_spec (hcover j)
+  refine ⟨A,hA,?_⟩
+  intro eps heps
+  obtain ⟨N,hN⟩ := chord_cover_budgets_vanish C T V hC hT hV eps heps
+  exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hA j).2.2 (hN j hj)⟩
 
 end NewtonLimitDynamics.Polygon.MotionSampling

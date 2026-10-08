@@ -109,3 +109,15 @@ and a terminal-only point proved to lie outside every filled cell. The
 symmetric form, nonmonotone intermediate radii and zero-group-weight
 convexity are included. These shared-kernel controls do not assign an area
 to the sector-union difference or the square-cover union.
+
+`box-cover-area-2026-10-08.lean` checks the separate square-union area
+construction under the explicit existing `TriangleContent.AreaRules`
+translation-and-cut convention. Two overlapping unit-radius squares have
+area `6` by a different vertical dissection, while their summed budget is
+`8`; an assignment of area `8` is rejected. Duplicate squares have area `4`,
+and zero-radius, negative-centre, closed-lower-edge, reversed-box and empty
+cover controls are included. The general construction supplies the overlap
+assignment and bound, and the motion client supplies vanishing cover areas
+without motion or curved-area hypotheses. These controls share the kernel
+and coordinate definitions; they do not prove a model of the convention,
+subtraction-only sufficiency, or the actual mechanical/curve difference B.
