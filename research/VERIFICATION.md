@@ -93,3 +93,10 @@ dependency checks require each new historical client to use its own canonical
 polygon, and each eventual sector-area client its own finite geometric proof;
 foreign witnesses and ModernLib dependencies are rejected. The separate
 full-turn union/multiplicity falsifier remains in `sector-unions-2026-10-07.lean`.
+
+`triangle-exchange-2026-10-08.lean` checks finite simplex exit with signed
+inserted coordinates, rejects an excessive scale and an invalid total, and
+exercises independent, collinear, reversed radial order and coincident rays.
+Its displaced one-cell difference point belongs to neither the mechanical
+sector nor terminal connector; the derived cover therefore supplies actual
+square membership. This does not verify the many-cell collar inclusion.

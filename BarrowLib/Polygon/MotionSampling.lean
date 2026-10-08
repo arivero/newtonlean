@@ -1,6 +1,7 @@
 import BarrowLib.Polygon.TimeCalibration
 import BarrowLib.Polygon.CentralSchedule
 import BarrowLib.Polygon.RadialSector
+import BarrowLib.Polygon.TriangleExchange
 import BarrowLib.Polygon.GeometricTail
 import BarrowLib.Polygon.PolygonFanArea
 import BarrowLib.Common.Exhaustion
@@ -878,5 +879,31 @@ theorem polygon_eventually_positive (a : Point → Point) (C T L B P V : Fractio
   exact ⟨N,fun j hj k hk => positive_first_of_near_lower _ _ (g l)
     (sampled_first_lower g l r T parts u chart j k hk)
     (Fraction.magnitudes.lt_of_le_lt (sampled_position_error a C T L B P V u d j k hk) (hN j hj))⟩
+
+/-- The first cell has a common initial vertex. Triangle exchange therefore
+derives its actual sector-difference inclusion in the existing shrinking
+square or its endpoint radial connector. Local chart orientation remains
+explicit; this does not propagate the inclusion across all later cells.
+Source: this original finite coordinate derivation. -/
+theorem initial_cell_difference_cover (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (j : Nat) (x : Point)
+    (h0 : 0 < (samples u T j 0).1.1.num) (h1 : 0 < (samples u T j 1).1.1.num)
+    (hd : 0 ≤ (det (samples u T j 0).1 (samples u T j 1).1).num)
+    (hx : SectorFan.Triangle (samples u T j 0).1 (samples u T j 1).1 x)
+    (hn : ¬ SectorFan.Triangle
+      (BoundedIteration.run a (duration T j) (u zero) 0).1
+      (BoundedIteration.run a (duration T j) (u zero) 1).1 x) :
+    ConvexCover.SquareContains (samples u T j 0).1 (chordRadius C T V j) x ∨
+      SectorFan.Triangle (BoundedIteration.run a (duration T j) (u zero) 1).1
+        (samples u T j 1).1 x := by
+  have hk : 0 < blocks j := by unfold blocks; exact Nat.pow_pos (by decide)
+  rcases TriangleExchange.exchange_positive (samples u T j 0).1 (samples u T j 1).1
+      (BoundedIteration.run a (duration T j) (u zero) 1).1 x h0 h1 hd hx with hp | hp | hp
+  · exact False.elim (hn hp)
+  · obtain ⟨r,v,hr,hv,he⟩ := TriangleExchange.triangleAt_common_start_patch _ _ _ _ hp
+    exact Or.inl ((ConvexCover.square_contains_congr _ _ he).mpr
+      (sampled_chord_patch_square a C T L B P V u d j 0 hk r v hr hv))
+  · exact Or.inr hp
 
 end NewtonLimitDynamics.Polygon.MotionSampling
