@@ -6,7 +6,12 @@ import Lean
    No external catalog or generated reference list is used. Historical sections
    are classified by their actual source positions relative to the five-line
    ANACHRONICAL PROOFS header. This checks provenance, not Newton's unproved
-   geometric or mechanical premises. -/
+   geometric or mechanical premises.
+   NEWTON_PRINT_THEOREM_COUNTS=1 also prints README rows for source lines,
+   declared theorems, actual theorem dependencies and the import closure.
+   NEWTON_CHECK_README_COUNTS=1 checks those rows against README.md.
+   Both modes reuse the compiled graph and source-declaration classification;
+   neither writes a catalogue, ledger or generated data file. -/
 open Lean Elab Command Term
 
 namespace Verification
@@ -49,9 +54,9 @@ private partial def sourceLine? (name : Name) : TermElabM (Option Nat) := do
   if name.isAnonymous then return none
   sourceLine? name.getPrefix
 
-/- Definitions are traversed but not counted. Distinct source-declared project
-theorems/axioms count once; the root proof and compiler-generated auxiliaries
-do not count. Standard Lean infrastructure is outside the project score. -/
+/- Traverse all reachable project constants, including definitions and helpers.
+The score below counts distinct source-declared theorems/axioms, excluding the
+root proof and compiler auxiliaries. Lean infrastructure is outside the graph. -/
 private partial def closure (rows : NameMap (Array Name))
     (todo : List Name) (seen : NameSet := {}) : NameSet :=
   match todo with
@@ -87,6 +92,22 @@ private def declaredProof (name : Name) (line : String) : Bool :=
     | _ => false
   find words
 
+/-- Count distinct source-declared theorems in the selected set and scope.
+Definitions and compiler auxiliaries are traversed but never counted. -/
+private def theoremCount (owners : NameMap Name) (used : NameSet)
+    (scope : Name → Bool) : Nat := Id.run do
+  let mut count := 0
+  for (name, module) in owners.toList do
+    if used.contains name && scope module then count := count + 1
+  return count
+
+private def physicalLines (text : String) : Nat :=
+  if text.isEmpty then 0
+  else (text.splitOn "\n").length - (if text.endsWith "\n" then 1 else 0)
+
+private def uniqueRow (lines : List String) (row : String) : Bool :=
+  (lines.filter (· == row)).length == 1
+
 end Verification
 
 run_elab do
@@ -115,6 +136,25 @@ run_elab do
       Verification.score scoreRows scoreProofs (({} : NameSet).insert modern)
         `Control.old == (0, 0) do
     throwError "proof-score controls failed: transitive modern use, duplicate use or empty proof"
+
+  -- Count a shared transitive dependency once, exclude same-scope roots,
+  -- and omit definition nodes and unreachable source theorems.
+  let countOwners : NameMap Name := ({} : NameMap Name)
+    |>.insert `Control.root `Control.Host |>.insert `Control.old `Control.Host
+    |>.insert modern `Control.Foreign |>.insert `Control.unused `Control.Foreign
+  let countUsed := Verification.closure scoreRows [`Control.root]
+  unless Verification.theoremCount countOwners countUsed (· == `Control.Host) == 2 &&
+      Verification.theoremCount countOwners countUsed (· != `Control.Host) == 1 &&
+      Verification.theoremCount countOwners
+        (Verification.closure scoreRows [`Control.bridge]) (· != `Control.Host) == 1 &&
+      Verification.theoremCount countOwners {} (fun _ => true) == 0 &&
+      Verification.physicalLines "" == 0 &&
+      Verification.physicalLines "one\ntwo\n" == 2 &&
+      Verification.physicalLines "one\ntwo" == 2 &&
+      Verification.uniqueRow ["| file | 2 | 1 | 3 | 4 |"] "| file | 2 | 1 | 3 | 4 |" &&
+      !Verification.uniqueRow ["| file | 2 | 1 | 3 | 4 |"] "| file | 2 | 1 | 3 | 5 |" &&
+      !Verification.uniqueRow ["row", "row"] "row" do
+    throwError "README count controls failed: shared dependencies, scope, empty set or physical lines"
 
   let env ← getEnv
   -- Known control: a private-mangled matcher equation lemma, as `simp`
@@ -226,3 +266,72 @@ run_elab do
       (String.intercalate "\n" updated.toList))
   logInfo m!"{if writeScores then "Refreshed" else "Checked"} {scored} inline modern dependency scores. Prefer smaller M/(M+H); an empty dependency set scores 0. Scores describe repository classification, not verified historical source coverage."
   logInfo m!"Checked {inspected} compiled project constants: safe declarations use only standard Lean axioms; primary historical declarations have no anachronical dependency."
+
+  let printCounts := (← liftM (IO.getEnv "NEWTON_PRINT_THEOREM_COUNTS")) == some "1"
+  let checkCounts := (← liftM (IO.getEnv "NEWTON_CHECK_README_COUNTS")) == some "1"
+  if printCounts || checkCounts then
+    let mut owners : NameMap Name := {}
+    let mut theoremNames : NameSet := {}
+    for (name, module, _) in proofLocations do
+      if let some (.thmInfo _) := env.find? name then
+        owners := owners.insert name module
+        theoremNames := theoremNames.insert name
+    let mut moduleConstants : NameMap (Array Name) := {}
+    for (name, _) in rows do
+      if let some idx := env.getModuleIdxFor? name then
+        let module := env.header.moduleNames[idx]!
+        moduleConstants := moduleConstants.insert module
+          (((moduleConstants.find? module).getD #[]).push name)
+    let mut moduleImports : NameMap (Array Name) := {}
+    for i in [:env.header.moduleNames.size] do
+      let module := env.header.moduleNames[i]!
+      if Verification.projectModule module then
+        moduleImports := moduleImports.insert module
+          (env.header.moduleData[i]!.imports.map (·.module)
+            |>.filter Verification.projectModule)
+    unless owners.find? `Principia1687.LemmaI.given_time_exhaustion ==
+          some `NewtonLimitDynamics.Historical.LemmaI &&
+        owners.find? `Principia1713.LemmaI.finite_time_before_end_exhaustion ==
+          some `NewtonLimitDynamics.Historical.LemmaI do
+      throwError "README source controls failed: known declarations not classified"
+    let mut report : Array String := #[]
+    let historical := env.header.moduleNames.filter
+      (fun module => module.toString.startsWith "NewtonLimitDynamics.Historical.")
+      |>.qsort (fun a b => a.toString < b.toString)
+    for module in historical do
+      let path := module.toString.replace "." "/" ++ ".lean"
+      let label := (module.toString.replace "NewtonLimitDynamics.Historical." ""
+        |>.replace "." "/") ++ ".lean"
+      let lines := Verification.physicalLines (← liftM (IO.FS.readFile path))
+      let own := Verification.theoremCount owners theoremNames (· == module)
+      let used := Verification.closure graph ((moduleConstants.find? module).getD #[]).toList
+      let dependencies := Verification.theoremCount owners used (· != module)
+      let imported := Verification.closure moduleImports [module]
+      let importCount := Verification.theoremCount owners theoremNames
+        (fun owner => owner != module && imported.contains owner)
+      report := report.push s!"| [{label}]({path}) | {lines} | {own} | {own + dependencies} | {own + importCount} |"
+    for library in #["ClassicsLib", "BarrowLib", "ModernLib"] do
+      let scope := fun module : Name => module.toString == library ||
+        module.toString.startsWith (library ++ ".")
+      let modules := env.header.moduleNames.filter scope
+      let mut roots : Array Name := #[]
+      let mut lines := 0
+      for module in modules do
+        roots := roots ++ (moduleConstants.find? module).getD #[]
+        lines := lines + Verification.physicalLines
+          (← liftM (IO.FS.readFile (module.toString.replace "." "/" ++ ".lean")))
+      let own := Verification.theoremCount owners theoremNames scope
+      let dependencies := Verification.theoremCount owners
+        (Verification.closure graph roots.toList) (fun module => !scope module)
+      let imported := Verification.closure moduleImports modules.toList
+      let importCount := Verification.theoremCount owners theoremNames
+        (fun module => !scope module && imported.contains module)
+      report := report.push s!"| [{library}]({library}.lean) | {lines} | {own} | {own + dependencies} | {own + importCount} |"
+    if checkCounts then
+      let readme := (← liftM (IO.FS.readFile "README.md")).splitOn "\n"
+      for row in report do
+        unless Verification.uniqueRow readme row do
+          throwError "README count row missing/stale/duplicated; expected exactly once:\n{row}"
+      logInfo m!"Checked README measurements for {historical.size} historical files and 3 supporting libraries."
+    if printCounts then
+      logInfo m!"{String.intercalate "\n" report.toList}"

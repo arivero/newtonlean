@@ -7,7 +7,17 @@ Pre-Principia Chinese results go to ClassicsLib; Arabic results in the
 post-Hypatia, pre-Principia window go to BarrowLib.
 AI-derived results are modern only when their mathematics uses modern support.
 Borrowed results must retain their exact original-language source passage;
-formalization authorship does not establish discovery or historical dating. -/
+formalization authorship does not establish discovery or historical dating.
+
+Authorities and provenance: modern mathematical content is checked in the
+owning Lean modules. Foundation/Polygon/CauchyValues.lean and
+EndpointCauchyName.lean contain the sequence/completion constructions;
+Polygon/GivenTrajectoryArea.lean contains a conditional given-curve area result.
+These checked statements establish their formal scope. Exact original-language
+sources for the standard borrowed modern results remain to be supplied and
+verified; the word Cauchy in a module name is not an exact-result citation.
+Known mathematics is not attributed to its AI formalizer. Project-specific
+constructions must identify their own statement/proof provenance separately. -/
 
 import ModernLib.Comparison.CircleCompare
 import ModernLib.Diagnostic.ConstructedHarmonicPotential

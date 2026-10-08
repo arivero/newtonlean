@@ -39,7 +39,13 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 
 No complete historical Proposition I–IV proof is certified. These retained
 results are finite, conditional or modern reconstructions in their stated
-domains. There is no theorem-count or percentage completion metric.
+domains. The [README](../README.md#proof-progress) gives user-requested rounded
+remaining-work estimates for each historical file and witness: work done /
+(work done + estimated remaining work). Its separate measured table records
+source lines, declared theorems and distinct theorem counts in compiled proof
+and import dependencies. These measurements inform the estimates; neither an
+estimate nor a count certifies historical completion. The explicit obligations
+here remain authoritative.
 The requested modern-dependency score measures each anachronical proof's
 dependency burden, not progress toward historical completion. Exact original-
 language source coverage of the supporting libraries is still being checked;

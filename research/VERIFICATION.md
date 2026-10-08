@@ -49,6 +49,40 @@ traversed; Lean infrastructure, generated auxiliaries and the proof itself are
 excluded. A score describes repository classification; it cannot establish
 the original attribution of a result.
 
+## README measurements
+
+The existing checker also reports source lines, source-declared theorems and
+distinct theorem counts in compiled proof and import graphs. After rebuilding:
+
+```sh
+NEWTON_PRINT_THEOREM_COUNTS=1 lake env lean research/CheckReferences.lean
+NEWTON_CHECK_README_COUNTS=1 lake env lean research/CheckReferences.lean
+```
+
+The print mode supplies Markdown rows for the README; the check mode rejects
+missing, stale or duplicated measurement rows. Neither mode writes files.
+Added 8 October 2026: the default axiom, taint and score checks retain their
+previous behavior; these optional reports reuse their compiled graph.
+
+Lines include comments, Latin and blanks. Named source theorems, including
+private theorems, count once; definitions, anonymous examples, generated
+auxiliaries and Lean/Std declarations are excluded from the theorem counts.
+Proof trees include the file's own theorems and all project theorems reached
+from its declarations, traversing types, definitions and private helpers.
+Import trees include its own theorems and all project theorems available
+through its compiled imports. Both primary and anachronical sections count.
+The three library rows aggregate their own modules and entry point, with
+dependencies counted once across the whole library.
+
+Synthetic known-answer controls cover duplicate/shared dependencies, an
+unreachable theorem, scope exclusion, definition traversal, empty inputs,
+line endings, and rejection of a corrupted or duplicated README row. Live
+controls check that both printed Lemma I before-end theorems are classified
+in their owning source file. Compare direct counts and line totals with the
+source; the proof/import distinction requires compiled dependencies. These
+measurements describe existing work. The completion percentages separately
+estimate work done / (work done + estimated remaining work).
+
 `inspect_graphs.lean` regenerates `research/figures.md`, distinguishing
 witness-specific source evidence, editorial comparisons, library imports and
 direct formal uses. A missing source-comment edge does not establish

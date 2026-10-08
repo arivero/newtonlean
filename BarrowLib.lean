@@ -7,7 +7,19 @@ Arabic results belong here when their dates fit this window; pre-Principia
 Chinese results belong in ClassicsLib under the user's explicit exception.
 AI-derived results using only Barrow/Classics mathematics belong here.
 Borrowed results must retain their exact original-language source passage;
-formalization authorship does not establish discovery or historical dating. -/
+formalization authorship does not establish discovery or historical dating.
+
+Authorities and provenance: the name BarrowLib specifies the admitted
+mathematical layer; it does not attribute all results to Isaac Barrow.
+Polygon/SectorFan.lean quotes Euclid, Elements I.41 and the Common Notions
+in Greek as background for triangle normalization and finite dissection.
+Polygon/TriangleContent.lean states the precise supplied area convention.
+These passages do not state the coordinate constructions proved here.
+SectorFan, TriangleContent, FanDifference, BoxCoverArea and AreaDomain record
+their own English statements and checked project derivations as provenance,
+without external exact-result or priority claims. Exact original-language
+attributions for other borrowed results remain to be verified individually;
+successful compilation alone does not establish that source coverage. -/
 
 import BarrowLib.Common.FiniteGrowth
 import BarrowLib.Common.FiniteCrossing
