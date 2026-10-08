@@ -1,5 +1,14 @@
 # Project method
 
+- User rule, 8 October: every commit must modify the README completion-
+  percentage information. Reassess the affected file/witness estimates as
+  work done / (work done + estimated remaining work), and update their
+  percentages and remaining-work rationale in the same commit. If a rounded
+  percentage remains justified, explicitly record the reassessment and why
+  it is unchanged in the README progress section; do not invent progress.
+  Refresh the measured lines, theorem counts and dependency sizes when they
+  change. Verify the task-owned changes, commit them and push immediately.
+
 - User clarification, 7 October: library chronology is ClassicsLib through
   Hypatia, BarrowLib after Hypatia and before the Principia, and ModernLib
   after the Principia. Keep these scopes at the library entry points. Each

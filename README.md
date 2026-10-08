@@ -78,6 +78,13 @@ than fixed stages assigned to particular kinds of result. They may change
 when an attempted proof reveals more work. Rows are not averaged into a
 project percentage.
 
+Every commit must update this completion-percentage information, reassessing
+the affected files and witnesses and explaining changes to the estimates or
+remaining work. An unchanged rounded estimate must be explicitly justified
+here. Measured counts must also be refreshed whenever they change.
+This rule-only update leaves the estimates unchanged: it adds a maintenance
+requirement without changing any proof, source scope or remaining proof task.
+
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
 deriving the physical laws is outside the task. **Lemma I is also 100% for its
