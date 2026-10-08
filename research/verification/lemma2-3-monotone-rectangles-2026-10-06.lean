@@ -1,4 +1,11 @@
 import NewtonLimitDynamics
+import Lean
+
+/-! Rectangle controls, including the 8 October mutual-ratio increment.
+The nonconstant positive graph, aliases and repeated nodes exercise derived
+denominator bounds. Shrinking positive magnitudes with constant ratio 1/2
+falsify the claim without a uniform lower bound. These exact controls share
+the rational definitions and Lean kernel; supplied area rules remain premises. -/
 
 namespace NewtonLimitDynamics.Polygon.MonotoneRectangleControls
 open NewtonLimitDynamics TimeSubdivision PositionValues CompletionGeometry
@@ -190,6 +197,122 @@ private def zeroWidth : Partition (Fraction.ofInt 0) (Fraction.ofInt 0) :=
 example : Fraction.equiv (gap (fun _ => Fraction.ofInt 5) zeroWidth) (Fraction.ofInt 0) := by decide
 example : rectangle (Fraction.ofInt 0) (Fraction.ofInt 0) (Fraction.ofInt 5) (p 0 3) := by decide
 
+private def raisedGraph (x : Fraction) : Fraction := Fraction.add (Fraction.ofInt 1) (squareGraph x)
+private theorem raised_monotone (b : Fraction) : MonotoneOn raisedGraph (Fraction.ofInt 0) b := by
+  intro x y hx hxy hy
+  exact Fraction.add_le_add_left (square_monotone b x y hx hxy hy) (Fraction.ofInt 1)
+private theorem uniform_mesh : Exhaustion.VanishingDifference Fraction.magnitudes
+    (fun m => duration (Fraction.ofInt 1) m) :=
+  fun delta hd => duration_eventually_small (Fraction.ofInt 1) delta (by decide) hd
+
+-- The raw endpoint aliases do not affect the base rectangle or either ratio.
+example : Fraction.le (Fraction.ofInt 1) (lowerSum raisedGraph aliases) :=
+  lower_sum_base_bound raisedGraph aliases (raised_monotone _)
+example : Fraction.equiv (lowerSum raisedGraph aliases) (⟨9,8,by decide⟩ : Fraction) := by decide
+example : Fraction.equiv (upperSum raisedGraph aliases) (⟨13,8,by decide⟩ : Fraction) := by decide
+example : Fraction.equiv
+    (RectangleContent.ratioTo (upperSum raisedGraph aliases) (by decide) (lowerSum raisedGraph aliases))
+    (⟨9,13,by decide⟩ : Fraction) := by decide
+example : Fraction.equiv
+    (RectangleContent.ratioTo (lowerSum raisedGraph aliases) (by decide) (upperSum raisedGraph aliases))
+    (⟨13,9,by decide⟩ : Fraction) := by decide
+example : ¬ Fraction.equiv
+    (RectangleContent.ratioTo (upperSum raisedGraph aliases) (by decide) (lowerSum raisedGraph aliases))
+    (⟨10,13,by decide⟩ : Fraction) := by decide
+
+-- An actual zero-width cell is allowed alongside two positive-width cells.
+private def repeated : Partition (Fraction.ofInt 0) (Fraction.ofInt 1) where
+  count := 3
+  positive_count := by decide
+  nodes := fun i => if i ≤ 1 then Fraction.ofInt 0 else if i = 2 then (Fraction.ofInt 1).half else Fraction.ofInt 1
+  first := by decide
+  last := by decide
+  ordered := by
+    intro i hi
+    by_cases h0 : i=0
+    · subst i; decide
+    · by_cases h1 : i=1
+      · subst i; decide
+      · have h2 : i=2 := by omega
+        subst i; decide
+example : Fraction.equiv (width repeated 0) (Fraction.ofInt 0) := by decide
+example : Fraction.equiv (lowerSum raisedGraph repeated) (⟨9,8,by decide⟩ : Fraction) := by decide
+example : Fraction.le (Fraction.ofInt 1) (lowerSum raisedGraph repeated) :=
+  lower_sum_base_bound raisedGraph repeated (raised_monotone _)
+example : Fraction.equiv (lowerSum raisedGraph unequal) (Fraction.ofInt 5) := by decide
+example : Fraction.equiv (upperSum raisedGraph unequal) (Fraction.ofInt 22) := by decide
+example : Fraction.le (Fraction.ofInt 3) (lowerSum raisedGraph unequal) :=
+  lower_sum_base_bound raisedGraph unequal (raised_monotone _)
+
+-- Neither denominator positivity nor an area for the curved figure is assumed.
+example (area : RectangleContent.AreaRules) : RectangleContent.MutualRatiosOne
+    (fun m => lowerSum raisedGraph (dyadic m)) (fun m => upperSum raisedGraph (dyadic m)) :=
+  (Principia1687.LemmaII.equal_width_mutual_area_ratios area raisedGraph _ _ dyadic
+    (raised_monotone _) (by decide) (by decide) _
+    (fun m i _ => grid_width m i) uniform_mesh).2
+example (area : RectangleContent.AreaRules) : RectangleContent.MutualRatiosOne
+    (fun m => lowerSum raisedGraph (dyadic m)) (fun m => upperSum raisedGraph (dyadic m)) :=
+  (Principia1713.LemmaII.equal_width_mutual_area_ratios area raisedGraph _ _ dyadic
+    (raised_monotone _) (by decide) (by decide) _
+    (fun m i _ => grid_width m i) uniform_mesh).2
+example (area : RectangleContent.AreaRules) : RectangleContent.MutualRatiosOne
+    (fun m => lowerSum raisedGraph (dyadic m)) (fun m => upperSum raisedGraph (dyadic m)) :=
+  (Principia1687.LemmaIII.unequal_width_mutual_area_ratios area raisedGraph _ _ dyadic
+    (raised_monotone _) (by decide) (by decide) dyadic_mesh).2
+example (area : RectangleContent.AreaRules) : RectangleContent.MutualRatiosOne
+    (fun m => lowerSum raisedGraph (dyadic m)) (fun m => upperSum raisedGraph (dyadic m)) :=
+  (Principia1713.LemmaIII.unequal_width_mutual_area_ratios area raisedGraph _ _ dyadic
+    (raised_monotone _) (by decide) (by decide) dyadic_mesh).2
+example (area : RectangleContent.AreaRules) :
+    area.HasArea (lowerFigure raisedGraph (dyadic 1)) (⟨9,8,by decide⟩ : Fraction) :=
+  area.congr_value _ _ _ (by decide)
+    ((Principia1713.LemmaIII.unequal_width_mutual_area_ratios area raisedGraph _ _ dyadic
+      (raised_monotone _) (by decide) (by decide) dyadic_mesh).1 1).1
+
+-- Degenerate patches have zero lower area, so the strict premises are needed.
+example : (lowerSum squareGraph (dyadic 0)).num = 0 := by decide
+example : (lowerSum (fun _ => Fraction.ofInt 5) zeroWidth).num = 0 := by decide
+example : Fraction.equiv
+    (RectangleContent.ratioTo (lowerSum (fun _ => Fraction.ofInt 5) (dyadic 0)) (by decide)
+      (upperSum (fun _ => Fraction.ofInt 5) (dyadic 0))) (Fraction.ofInt 1) := by decide
+
+-- Both magnitudes are positive and their absolute gap vanishes, but L/U=1/2.
+private def shrinking (m : Nat) : Fraction := duration (Fraction.ofInt 1) m
+private def doubled (m : Nat) : Fraction := Fraction.mul (Fraction.ofInt 2) (shrinking m)
+private theorem doubled_gap (m : Nat) :
+    Fraction.equiv (durationDifference (shrinking m) (doubled m)) (shrinking m) := by
+  simp only [doubled,shrinking,duration,durationDifference,HarmonicStability.negF,Fraction.equiv,Fraction.add,
+    Fraction.mul,Fraction.ofInt,Int.one_mul,Int.mul_one,Int.add_mul,Int.mul_add,Int.neg_mul]
+  ac_nf
+  omega
+private theorem shrinking_ratio (m : Nat) (h : 0 < (doubled m).num) :
+    Fraction.equiv (RectangleContent.ratioTo (doubled m) h (shrinking m)) (Fraction.ofInt 1).half := by
+  simp only [doubled,RectangleContent.ratioTo,Fraction.equiv,Fraction.mul,Fraction.half,
+    Fraction.ofInt,Int.mul_one,Int.one_mul]
+  ac_nf
+example : (∀ m, 0 < (shrinking m).num ∧ 0 < (doubled m).num) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (durationDifference (shrinking m) (doubled m)).abs) ∧
+    ¬ RectangleContent.MutualRatiosOne shrinking doubled := by
+  refine ⟨fun _ => ⟨by change (0 : Int) < 1; decide, by change (0 : Int) < 2; decide⟩, ?_, ?_⟩
+  · intro eps heps
+    obtain ⟨N,hN⟩ := uniform_mesh eps heps
+    exact ⟨N,fun m hm => Fraction.magnitudes.lt_of_le_lt
+      (Fraction.le_of_equiv (Fraction.equiv_trans (Fraction.abs_equiv (doubled_gap m))
+        (Fraction.abs_of_nonnegative _ (by change (0 : Int) ≤ 1; decide)))) (hN m hm)⟩
+  · rintro ⟨_,hU,hsmall,_⟩
+    obtain ⟨N,hN⟩ := hsmall (Fraction.ofInt 1).half (by change (0 : Int) < 1; decide)
+    have he : Fraction.equiv
+        (durationDifference (RectangleContent.ratioTo (doubled N) (hU N) (shrinking N))
+          (Fraction.ofInt 1)).abs (Fraction.ofInt 1).half :=
+      Fraction.equiv_trans (Fraction.abs_equiv
+        (difference_congr (shrinking_ratio N (hU N)) (Fraction.equiv_refl _))) (by decide)
+    exact Fraction.magnitudes.lt_irrefl _ (Fraction.magnitudes.lt_of_le_lt
+      (Fraction.le_of_equiv (Fraction.equiv_symm he)) (hN N (Nat.le_refl _)))
+
+#print axioms RectangleContent.rectangle_mutual_ratios
+#print axioms Principia1687.LemmaII.equal_width_mutual_area_ratios
+#print axioms Principia1713.LemmaIII.unequal_width_mutual_area_ratios
 #print axioms MonotoneRectangles.completed_enclosure
 #print axioms MonotoneRectangles.maxWidth_bounds
 #print axioms MonotoneRectangles.gap_equal_width
@@ -198,3 +321,34 @@ example : rectangle (Fraction.ofInt 0) (Fraction.ofInt 0) (Fraction.ofInt 5) (p 
 #print axioms ModernLib.Reconstruction.Principia1687.LemmaIIIII.lemmas2_3_monotone_rectangle_reconstruction
 #print axioms Principia1713.LemmaII.lemma2_equal_width_gap
 end NewtonLimitDynamics.Polygon.MonotoneRectangleControls
+
+-- Inspect proof terms and types, including private helpers, rather than imports.
+open Lean in
+run_elab do
+  let env ← getEnv
+  for (edition, foreign) in #[(`Principia1687, "Principia1713."), (`Principia1713, "Principia1687.")] do
+    for (root, required) in #[
+        (edition ++ `LemmaII.equal_width_mutual_area_ratios,
+          #[edition ++ `LemmaII.rectangle_mutual_ratios_from_gap,
+            edition ++ `LemmaII.equal_width_gap_vanishes]),
+        (edition ++ `LemmaIII.unequal_width_mutual_area_ratios,
+          #[edition ++ `LemmaII.rectangle_mutual_ratios_from_gap,
+            edition ++ `LemmaIII.unequal_width_gap_vanishes])] do
+      unless (env.find? root).isSome do throwError "missing mutual-ratio client {root}"
+      let mut todo := #[root]
+      let mut used : NameSet := {}
+      while !todo.isEmpty do
+        let name := todo.back!
+        todo := todo.pop
+        unless used.contains name do
+          used := used.insert name
+          if let some info := env.find? name then
+            todo := todo ++ info.type.getUsedConstants ++
+              ((info.value? true).map Expr.getUsedConstants |>.getD #[])
+      for dependency in required do
+        unless used.contains dependency do throwError "{root} omits {dependency}"
+      for dependency in used do
+        let name := ((privateToUserName? dependency).getD dependency).toString
+        if #[foreign, "DeMotu1684.", "ModernLib."].any name.startsWith then
+          throwError "{root} uses forbidden witness/modern declaration {dependency}"
+  logInfo "Checked four mutual-ratio clients: own-edition reduction/exhaustion, no foreign witness or ModernLib."

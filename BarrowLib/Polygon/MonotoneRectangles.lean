@@ -200,6 +200,28 @@ theorem sums_nonnegative {a b : Fraction} (g : Fraction → Fraction) (p : Parti
   exact ⟨sum_nonnegative _ p.count (fun i hi => Fraction.nonnegative_mul _ _ (hw i hi) (hn i (by omega))),
     sum_nonnegative _ p.count (fun i hi => Fraction.nonnegative_mul _ _ (hw i hi) (hn (i+1) (by omega)))⟩
 
+/-- Every lower sum is bounded below by `(b-a)*g(a)`, independently of its
+mesh. Source: this English coordinate statement and finite telescoping
+proof; no exact external quotation or priority is claimed. Repeated nodes
+and equivalent endpoint representations are allowed. -/
+theorem lower_sum_base_bound {a b : Fraction} (g : Fraction → Fraction)
+    (p : Partition a b) (hg : MonotoneOn g a b) :
+    Fraction.le (Fraction.mul (durationDifference a b) (g a)) (lowerSum g p) := by
+  have hw : Fraction.equiv (sum (width p) p.count) (durationDifference a b) :=
+    Fraction.equiv_trans (sum_telescope p.nodes p.count)
+      (difference_congr p.first p.last)
+  have he := Fraction.equiv_trans (sum_mul (width p) (g a) p.count)
+    (Fraction.equiv_trans (Fraction.mul_equiv_left (g a) hw)
+      (Fraction.mul_comm (g a) (durationDifference a b)))
+  apply Fraction.le_equiv_left (Fraction.equiv_symm he)
+  apply sum_mono
+  intro i hi
+  exact Fraction.le_equiv_left (Fraction.mul_comm (g a) (width p i))
+    (Fraction.mul_le_mul_nonnegative_left
+      (hg a (p.nodes i) (Fraction.magnitudes.le_refl _)
+        (node_bounds p i (by omega)).1 (node_bounds p i (by omega)).2)
+      (width p i) ((difference_nonnegative_iff _ _).mpr (p.ordered i hi)))
+
 /-- Equal widths make the actual difference of the finite rectangle sums
 exactly one width times the figure's total height (Lemma II's identity). -/
 theorem gap_equal_width {a b : Fraction} (g : Fraction → Fraction) (p : Partition a b)

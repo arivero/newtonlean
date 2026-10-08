@@ -133,8 +133,8 @@ flowchart LR
 
 - P1713.Law2 → P1713.Composition: [NATP00081.par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/CompositionOfMotions.lean:188).
 - P1713.Law1 → P1713.Composition: [NATP00081.par8](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00081#par8); explicit_dependency, confidence high; witness Axiomata Sive Leges Motus (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/CompositionOfMotions.lean:189).
-- P1713.L1 → P1713.L2: [NATP00082.par5](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaII.lean:125).
-- P1713.L2 → P1713.L3: [NATP00082.par6](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII.lean:101).
+- P1713.L1 → P1713.L2: [NATP00082.par5](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaII.lean:166).
+- P1713.L2 → P1713.L3: [NATP00082.par6](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6); implicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/LemmaIII.lean:121).
 - P1713.Law1 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:1210).
 - P1713.Composition → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:1211).
 - P1713.L3C4 → P1713.P1: [NATP00082.par51](https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51); explicit_dependency, confidence high; witness De Motu Corporum (Liber Primus) (1713); [source](/home/codexssh/newtonlean/NewtonLimitDynamics/Historical/AreaLaw.lean:1212).
@@ -216,7 +216,7 @@ flowchart LR
   NewtonLimitDynamics["NewtonLimitDynamics"] --> ClassicsLib["ClassicsLib"]
 ```
 
-The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 268 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
+The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 274 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
 
 ### Direct cross-file formal uses
 

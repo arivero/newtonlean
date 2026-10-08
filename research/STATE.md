@@ -24,8 +24,8 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Result or bridge | Retained checked result | Open historical obligation |
 | --- | --- | --- |
 | Lemma I | Separate 1687/1713 positive-terminal-difference contradictions, including an actual positive before-end time window; rational terminal-zero consequence | Terminal comparisons and approach premises are supplied; terminal values are not constructed. No general equality of objects is inferred from an unspecified difference |
-| Lemma II | Exact equal-width gap, actual rectangle-union side-product areas under explicit partial area rules, derived enclosure/errors and unit ratios to a fixed positive assigned rational curved area; actual use of the edition's Lemma I | Existence of the geometric area convention and the curve's area remain premises; arbitrary non-rational areas and ratios of two varying areas require further treatment |
-| Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; area errors and fixed-area unit ratios for unequal widths | Same area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
+| Lemma II | Exact equal-width gap, actual rectangle-union side-product areas under explicit partial area rules, derived enclosure/errors and fixed assigned-area ratios; actual use of the edition's Lemma I. On nonzero intervals with positive starting ordinate, finite telescoping derives the uniform base-rectangle lower bound and both mutual ratios of varying finite areas approach one without an assigned curved area | Zero-base patches may have initial zero lower sums and require eventual denominator control. Existence of the geometric area convention and curved area, general patch scope and arbitrary non-rational magnitudes remain open |
+| Lemma III | Maximum-width exhaustion, actual use of Lemma II's geometric enclosure and Lemma I's contradiction; fixed-area approximation. The edition's Lemma II mutual-ratio reduction and its own unequal-width gap exhaustion give both varying finite-area ratios on positive-base patches | Same zero-base and general-area scope as Lemma II; mesh exhaustion must be established for the particular force polygons |
 | Lemma III corollaries I–IV | Source-local area and boundary approximation chain. For concave increasing rational graph patches, two-sided secant contact and independent secant concavity derive the supporting tangent cells, their meetings, a uniform continuity bound and two-sided chord/contact-tangent boundary approximation. The joined trace equals the filled tangent polygon's vertical top, including shared endpoints, coincident lines and repeated nodes. Rectangle/triangle normalization, cut additivity and translation invariance now derive the actual finite polygon's trapezoid-sum area. Its error against an assigned curved area vanishes through the edition's Corollary I; no separate polygon-area assignment is needed in the constructed interface | Arbitrary curves still use the older supplied supporting-cell interface. Tangent existence, other patch orientations and general patch decomposition remain open, as do existence of the geometric area convention and curved area, non-rational magnitudes and force-polygon correspondence. Rectangle covers are not staircase perimeters. No arclength conclusion |
 | Laws' Corollary I / De Motu Lemma 1 | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates. NATP00090 now derives its own two endpoint constraints and independent-line intersection from its Lex 1 inertia and Lex 2 calibrated velocity difference; direct addition also covers degenerate directions and zero time | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites both Laws II/I in this proof; NATP00090 cites Lex 2, and post-impulse inertia is an editorial interpretation of its Lex 1. Its literal M/AC label inconsistency is recorded. NATP00089 retains its own hypothesis/model scope |
 | Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
@@ -110,6 +110,29 @@ action rescaling are distinct tests. No universal constant or quantum premise
 closes a historical proof.
 
 ## Current increment and next work
+
+The printed 1687/1713 Lemmas II and III now prove the mutual-ratio clause
+for finite rectangle unions on a nonzero rational interval with a positive
+starting ordinate. `MonotoneRectangles.lower_sum_base_bound` telescopes all
+cell widths and proves `(b-a)*g(a) ≤ lowerSum` independently of the mesh.
+Monotonicity then gives the same fixed positive bound for the upper sums.
+`RectangleContent.varying_ratios_approach_one` bounds each absolute ratio
+error by the absolute gap times the reciprocal of that fixed bound.
+Positivity of both denominators is derived. Equal widths use
+the owning edition's exact gap identity; unequal widths use that edition's
+Lemma II reduction and its own maximum-width exhaustion. No curved-area
+assignment or later reciprocal-limit theorem is used. The finite union areas
+still use the unchanged explicit `RectangleContent.AreaRules`.
+
+Exact controls give lower/upper areas `9/8` and `13/8` and mutual ratios
+`9/13` and `13/9` for `g(x)=1+x²` on the two-cell unit interval, including
+aliased endpoint displays. Repeated nodes, unequal cells, constant heights
+and degenerate patches are exercised. A positive pair `L_m=2^-m`,
+`U_m=2*2^-m` has a vanishing absolute gap but constant ratio `1/2`;
+the Lean control rejects the conclusion that both ratios approach one. These
+controls share the rational definitions and kernel. The remaining zero-base
+case requires an eventual bound from a positive interior ordinate, allowing
+early lower sums to vanish; general curved-area existence is still separate.
 
 `AreaDomain.relative_countermodel` settles a specific premise question
 behind the remaining B-area obligation. From any supplied
@@ -567,12 +590,12 @@ controls, now retained in the same harness. The review and controls share
 the rational definitions and Lean kernel; initial convention existence is
 still an explicit input.
 
-Last full verification: 8 October 2026, after the partial-area relative
-countermodel and its nested-subtraction repair. All five
-builds, 34 positive controls, the harmonic reference/comparator, source hashes
-and whitespace passed. The compiled checker verified 1,181 score comments
-and 7,724 project constants with no project axioms, sorry or primary modern
-dependency. The corrupted comparator failed at its intended false equality.
+Last full verification: 8 October 2026, after the positive-base Lemma II–III
+mutual-ratio increment. All five builds, all 36 positive scope harnesses
+(including the harmonic reference/comparator), source hashes and whitespace
+passed. The compiled checker verified the README measurements, 1,181 score
+comments and 7,737 project constants with no project axioms, sorry or primary
+modern dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
 unchanged. New coordinate statements record their derivations without
@@ -584,6 +607,8 @@ proved FanDifference inclusion. The curve-cover clients additionally require
 their own mechanical/sample client, the derived collar-cell bound and full
 given-curve sector identification; the conditional B-area clients require
 their own curve-cover client. Foreign witnesses and ModernLib are excluded.
+The four new mutual-ratio clients must use their own edition's reduction and
+gap exhaustion, with the same foreign-witness and ModernLib exclusions.
 Sol's retained fan-inclusion controls force both crossing-index orders, a
 collapsed cell and the terminal-only branch. Astra's preceding review of
 the fan-difference increment, committed as `4db8758`, found no substantive
@@ -594,12 +619,12 @@ Unrestricted curves and construction of actual mechanical/curve difference
 areas remain open. The new conditional B-area decay is separate from Astra's
 earlier reviewed fan-difference increment.
 
-Next return to the source-local Lemmas II–III and derive ultimate equality
-of the two varying finite rectangle-union areas, with denominator positivity
-proved from a stated nondegenerate graph patch. Their present ratio clients
-only compare each finite area with a fixed assigned curved area. This is an
-independent remaining clause of Newton's printed statements, and avoids
-assuming a rational curved-area assignment for the finite comparison.
+Next extend the new source-local Lemma II–III mutual-ratio clients to
+zero-base patches with a positive interior ordinate. The positive-base case
+now derives both denominator bounds and both varying finite-area ratio
+errors without assigning a rational curved area. A zero-base graph can have
+zero initial lower sums, so the extension needs an eventual positive bound
+and a justified restriction to sufficiently refined partitions.
 Existence of the actual between-region area remains a separate obligation:
 the relative countermodel rules out inferring arbitrary difference assignments
 uniformly from the present translation-and-cut interface. The full

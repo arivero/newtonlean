@@ -117,6 +117,19 @@ with that argument does not prove that such a convention exists. Complete
 hypotheses live in the owning declarations. Results, the latest verification
 record and open obligations live in [STATE.md](STATE.md).
 
+`lemma2-3-monotone-rectangles-2026-10-06.lean` also checks the mutual-ratio
+increment of 8 October. For `g(x)=1+x²`, exact aliased-node areas `9/8` and
+`13/8` give ratios `9/13` and `13/9`; the perturbed ratio `10/13` is rejected.
+Repeated nodes, unequal cells, constant graphs and zero-area degeneracies
+exercise the finite base bound. All four printed-edition clients are applied
+without a curved-area assignment. Compiled traversal through types, bodies
+and private helpers requires their own edition's reduction and exhaustion,
+excluding foreign witnesses and ModernLib. The pair `2^-m`, `2*2^-m` has a
+vanishing gap and positive terms, but its ratio remains `1/2`; a Lean proof
+rejects the unit-ratio conclusion without a uniform denominator bound.
+These controls share the kernel and rational definitions with the theorem;
+they do not construct an area convention or close the zero-base case.
+
 `sector-difference-2026-10-07.lean` checks actual fan, connector and filled-strip
 membership/exclusion, equivalent point displays, the strict half-plane bound
 and unsigned areas for reversed/collapsed triangles. Its written rational-root
