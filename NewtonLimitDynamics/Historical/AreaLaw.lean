@@ -3,6 +3,7 @@ import BarrowLib.Polygon.SectorFan
 import BarrowLib.Polygon.RadialSector
 import BarrowLib.Polygon.MotionSampling
 import BarrowLib.Polygon.MotionSectorCover
+import BarrowLib.Polygon.MotionCurveCover
 import NewtonLimitDynamics.Historical.CompositionOfMotions
 import NewtonLimitDynamics.Historical.LemmaIII
 import ModernLib.Polygon.PathDefect
@@ -53,7 +54,7 @@ Source: docs/m1/NATP00090.xml
 SHA-256: 790b468987fd8c7716d9d43197ec3a724f7f581ec8b6ed3998edc191b951f998
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par16
 Anchor URLs: NATP00090.par16 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par16; NATP00090.par17 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17
-Proof-step correspondence: The abstract finite model remains available. The coordinate reconstruction takes this witness's own Lex 1 inertia and Lex 2 calibrated change as explicit premises, uses its Lemma 1 to locate the next arrival, and derives equal consecutive triangle areas for the actual impulse-then-drift recurrence. Finite dissection gives ordinary sector-union area under explicit elementary area rules, nonnegative orientation and a strict common positive half-plane. A separate conditional reconstruction of the unnumbered exhaustion passage takes a given rational-time state curve, explicit quadratic mechanical remainders, force comparison, finite bounds, a short window and a positive monotone radial chart of its full image. Sample agreement and mesh shrinking are derived; finite geometric enclosure and elementary exhaustion give any assigned rational swept-sector area as time times the initial areal product divided by two. These coordinate and regularity premises are editorial additions, not quotations or hypotheses explicitly stated here. No printed Lemma I/III or printed-edition law supplies the proof. Arbitrary curves, non-rational area existence, patch assembly and whole-edge between-region control for the mechanical polygons remain open; unrestricted historical Theorem 1 is not certified.
+Proof-step correspondence: The abstract finite model remains available. The coordinate reconstruction takes this witness's own Lex 1 inertia and Lex 2 calibrated change as explicit premises, uses its Lemma 1 to locate the next arrival, and derives equal consecutive triangle areas for the actual impulse-then-drift recurrence. Finite dissection gives ordinary sector-union area under explicit elementary area rules, nonnegative orientation and a strict common positive half-plane. A separate conditional reconstruction of the unnumbered exhaustion passage takes a given rational-time state curve, explicit quadratic mechanical remainders, force comparison, finite bounds, a short window and a positive monotone radial chart of its full image. Sample agreement and mesh shrinking are derived; finite geometric enclosure and elementary exhaustion give any assigned rational swept-sector area as time times the initial areal product divided by two. These coordinate and regularity premises are editorial additions, not quotations or hypotheses explicitly stated here. No printed Lemma I/III or printed-edition law supplies the proof. Arbitrary curves, non-rational area existence, patch assembly and unrestricted between-region control for the mechanical polygons remain open; unrestricted historical Theorem 1 is not certified.
 Historical dependency ledger for this exact witness:
 - NATP00090.Law1 → NATP00090.T1; passage NATP00090.par17; witness 'De motu sphæricorum corporum in fluidis'; URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17; status explicit_dependency; confidence high.
 - NATP00090.L1 → NATP00090.T1; passage NATP00090.par17; witness 'De motu sphæricorum corporum in fluidis'; URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00090#par17; status explicit_dependency; confidence high.
@@ -522,6 +523,80 @@ theorem eventual_mechanical_sector_difference_cover_areas
   · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
     simpa only [polygonVertex,canonical_polygon_eq_run] using h
 
+
+/-- This witness's own mechanical/sample-sector cover is combined with the
+derived collar of the full given curve and its chord polygon. The resulting
+finite square union has a constructed nonnegative area tending to zero.
+Source: this editorial finite-coordinate consequence of the explicitly
+stated motion, chart and translation/cut premises. No between-region area
+or arbitrary-time polygon/curve agreement is supplied or constructed. -/
+theorem eventual_mechanical_curve_between_cover_areas
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionCurveCover.cover a C T B P V u g l r chart.positive j) (A j) ∧
+        0 ≤ (A j).num ∧ Fraction.le (A j)
+          (MotionCurveCover.budget C T B P V (u (Fraction.ofInt 0)) g l r chart.positive j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A ∧
+      ∃ N, ∀ j, N ≤ j →
+        let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))
+        ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧ ¬ MotionSampling.sweptSector u T x) ∨
+          (MotionSampling.sweptSector u T x ∧ ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+          MotionCurveCover.cover a C T B P V u g l r chart.positive j x := by
+  obtain ⟨A,hA,hvanish⟩ := MotionCurveCover.cover_areas area a C T B P V u g l r chart.positive
+    (MotionCurveCover.chart_terminal_nonnegative g l r T parts u chart)
+    d.remainder_nonnegative d.time_nonnegative d.force_nonnegative d.position_nonnegative d.velocity_nonnegative
+  obtain ⟨_,_,_,N,hN⟩ := eventual_mechanical_sector_difference_cover_areas area a ha
+    C T L B P V u d hs g l r parts chart
+  refine ⟨A,hA,hvanish,N,fun j hj => ?_⟩
+  dsimp only
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  have hN' := hN j hj
+  dsimp only at hN'
+  rw [hp] at hN' ⊢
+  exact MotionCurveCover.between_cover_of_sector_cover a C T L B P V u d g l r parts chart j hN'
+
+/-- Any separately assigned rational areas of the actual mechanical/curve
+sector symmetric differences are nonnegative and vanish. The cover and
+exhaustion are conclusions; existence of these between-region areas remains
+an explicit premise, separate from existence of the given trajectory. -/
+theorem mechanical_between_area_approximation
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u)
+    (D : Nat → Fraction) (hD : ∀ j, area.HasArea (MotionCurveCover.between a T u j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D := by
+  apply MotionCurveCover.assigned_between_areas_vanish_of_cover area a C T L B P V u d
+    g l r parts chart D hD
+  obtain ⟨_,_,_,N,hN⟩ := eventual_mechanical_curve_between_cover_areas area a ha
+    C T L B P V u d hs g l r parts chart
+  refine ⟨N,fun j hj => ?_⟩
+  have hN' := hN j hj
+  dsimp only at hN'
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp] at hN'
+  exact hN'
+
 end DeMotu1684.NATP00090.AreaLaw
 
 /-! 1687. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -530,7 +605,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44
 Anchor URLs: NATP00077.par44 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par44; NATP00077.par45 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45
-Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. A further conditional given-motion reconstruction derives finite sample agreement and mesh exhaustion from explicit quadratic remainders and bounds, then proves the assigned local rational swept-sector area proportional to time. Global/non-rational scope and between-region approximation for the mechanical polygons remain open; full Proposition I is not certified.
+Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. A further conditional given-motion reconstruction derives finite sample agreement and mesh exhaustion from explicit quadratic remainders and bounds, then proves the assigned local rational swept-sector area proportional to time. Global/non-rational scope and existence of the between-region area for the mechanical polygons remain open; full Proposition I is not certified.
 Historical dependency ledger for this exact witness:
 - P1687.Law1 → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
 - P1687.Composition → P1687.P1; passage NATP00077.par45; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par45; status explicit_dependency; confidence high.
@@ -1048,6 +1123,80 @@ theorem eventual_mechanical_sector_difference_cover_areas
   · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
     simpa only [polygonVertex,canonical_polygon_eq_run] using h
 
+
+/-- This witness's own mechanical/sample-sector cover is combined with the
+derived collar of the full given curve and its chord polygon. The resulting
+finite square union has a constructed nonnegative area tending to zero.
+Source: this editorial finite-coordinate consequence of the explicitly
+stated motion, chart and translation/cut premises. No between-region area
+or arbitrary-time polygon/curve agreement is supplied or constructed. -/
+theorem eventual_mechanical_curve_between_cover_areas
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionCurveCover.cover a C T B P V u g l r chart.positive j) (A j) ∧
+        0 ≤ (A j).num ∧ Fraction.le (A j)
+          (MotionCurveCover.budget C T B P V (u (Fraction.ofInt 0)) g l r chart.positive j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A ∧
+      ∃ N, ∀ j, N ≤ j →
+        let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))
+        ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧ ¬ MotionSampling.sweptSector u T x) ∨
+          (MotionSampling.sweptSector u T x ∧ ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+          MotionCurveCover.cover a C T B P V u g l r chart.positive j x := by
+  obtain ⟨A,hA,hvanish⟩ := MotionCurveCover.cover_areas area a C T B P V u g l r chart.positive
+    (MotionCurveCover.chart_terminal_nonnegative g l r T parts u chart)
+    d.remainder_nonnegative d.time_nonnegative d.force_nonnegative d.position_nonnegative d.velocity_nonnegative
+  obtain ⟨_,_,_,N,hN⟩ := eventual_mechanical_sector_difference_cover_areas area a ha
+    C T L B P V u d hs g l r parts chart
+  refine ⟨A,hA,hvanish,N,fun j hj => ?_⟩
+  dsimp only
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  have hN' := hN j hj
+  dsimp only at hN'
+  rw [hp] at hN' ⊢
+  exact MotionCurveCover.between_cover_of_sector_cover a C T L B P V u d g l r parts chart j hN'
+
+/-- Any separately assigned rational areas of the actual mechanical/curve
+sector symmetric differences are nonnegative and vanish. The cover and
+exhaustion are conclusions; existence of these between-region areas remains
+an explicit premise, separate from existence of the given trajectory. -/
+theorem mechanical_between_area_approximation
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u)
+    (D : Nat → Fraction) (hD : ∀ j, area.HasArea (MotionCurveCover.between a T u j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D := by
+  apply MotionCurveCover.assigned_between_areas_vanish_of_cover area a C T L B P V u d
+    g l r parts chart D hD
+  obtain ⟨_,_,_,N,hN⟩ := eventual_mechanical_curve_between_cover_areas area a ha
+    C T L B P V u d hs g l r parts chart
+  refine ⟨N,fun j hj => ?_⟩
+  have hN' := hN j hj
+  dsimp only at hN'
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp] at hN'
+  exact hN'
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -1056,7 +1205,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50
 Anchor URLs: NATP00082.par50 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par50; NATP00082.par51 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51
-Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. A further conditional given-motion reconstruction derives finite sample agreement and mesh exhaustion from explicit quadratic remainders and bounds, then proves the assigned local rational swept-sector area proportional to time. Global/non-rational scope and between-region approximation for the mechanical polygons remain open; full Proposition I is not certified.
+Proof-step correspondence: The edition's Laws Corollary I is actually used with supplied inertia/additive-change predicates to construct the next vertex and derive equal triangles. Finite composition and radial separation identify ordinary local triangle-union area under explicit area rules. A positive monotone radial sector and its actual chord polygon have derived shrinking area errors and between-region covers, using the edition's Lemmas III/I. A further conditional given-motion reconstruction derives finite sample agreement and mesh exhaustion from explicit quadratic remainders and bounds, then proves the assigned local rational swept-sector area proportional to time. Global/non-rational scope and existence of the between-region area for the mechanical polygons remain open; full Proposition I is not certified.
 Historical dependency ledger for this exact witness:
 - P1713.Law1 → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
 - P1713.Composition → P1713.P1; passage NATP00082.par51; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par51; status explicit_dependency; confidence high.
@@ -1573,6 +1722,80 @@ theorem eventual_mechanical_sector_difference_cover_areas
       d.time_nonnegative d.force_nonnegative x h
   · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
     simpa only [polygonVertex,canonical_polygon_eq_run] using h
+
+
+/-- This witness's own mechanical/sample-sector cover is combined with the
+derived collar of the full given curve and its chord polygon. The resulting
+finite square union has a constructed nonnegative area tending to zero.
+Source: this editorial finite-coordinate consequence of the explicitly
+stated motion, chart and translation/cut premises. No between-region area
+or arbitrary-time polygon/curve agreement is supplied or constructed. -/
+theorem eventual_mechanical_curve_between_cover_areas
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionCurveCover.cover a C T B P V u g l r chart.positive j) (A j) ∧
+        0 ≤ (A j).num ∧ Fraction.le (A j)
+          (MotionCurveCover.budget C T B P V (u (Fraction.ofInt 0)) g l r chart.positive j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A ∧
+      ∃ N, ∀ j, N ≤ j →
+        let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))
+        ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧ ¬ MotionSampling.sweptSector u T x) ∨
+          (MotionSampling.sweptSector u T x ∧ ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+          MotionCurveCover.cover a C T B P V u g l r chart.positive j x := by
+  obtain ⟨A,hA,hvanish⟩ := MotionCurveCover.cover_areas area a C T B P V u g l r chart.positive
+    (MotionCurveCover.chart_terminal_nonnegative g l r T parts u chart)
+    d.remainder_nonnegative d.time_nonnegative d.force_nonnegative d.position_nonnegative d.velocity_nonnegative
+  obtain ⟨_,_,_,N,hN⟩ := eventual_mechanical_sector_difference_cover_areas area a ha
+    C T L B P V u d hs g l r parts chart
+  refine ⟨A,hA,hvanish,N,fun j hj => ?_⟩
+  dsimp only
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  have hN' := hN j hj
+  dsimp only at hN'
+  rw [hp] at hN' ⊢
+  exact MotionCurveCover.between_cover_of_sector_cover a C T L B P V u d g l r parts chart j hN'
+
+/-- Any separately assigned rational areas of the actual mechanical/curve
+sector symmetric differences are nonnegative and vanish. The cover and
+exhaustion are conclusions; existence of these between-region areas remains
+an explicit premise, separate from existence of the given trajectory. -/
+theorem mechanical_between_area_approximation
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u)
+    (D : Nat → Fraction) (hD : ∀ j, area.HasArea (MotionCurveCover.between a T u j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D := by
+  apply MotionCurveCover.assigned_between_areas_vanish_of_cover area a C T L B P V u d
+    g l r parts chart D hD
+  obtain ⟨_,_,_,N,hN⟩ := eventual_mechanical_curve_between_cover_areas area a ha
+    C T L B P V u d hs g l r parts chart
+  refine ⟨N,fun j hj => ?_⟩
+  have hN' := hN j hj
+  dsimp only at hN'
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp] at hN'
+  exact hN'
 
 end Principia1713.PropositionI
 

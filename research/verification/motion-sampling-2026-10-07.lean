@@ -25,7 +25,10 @@ Extension, 8 October: enclose the terminal triangle and edge squares in one
 finite square union. Its area controls explicitly supply the existing
 TriangleContent.AreaRules; the geometric enclosure needs no area premise.
 The full budgets below are bounds for assigned cover areas, and no area of
-the actual sector difference or the given curve's B is assigned.
+the actual sector difference or the given curve's B is assigned. The later
+curve-cover clients must use their own preceding mechanical cover, the
+derived radial collar squares and the chart's full swept-sector identity;
+conditional between-area clients separately retain their area assignments.
 The geometric controls and formal proofs share the Lean kernel and elementary
 rational definitions; exact controls do not independently certify those layers. -/
 namespace NewtonLimitDynamics.Polygon.MotionSamplingControls
@@ -482,6 +485,24 @@ run_elab do
       #["DeMotu1684.", "Principia1713.", "ModernLib."]),
     (`Principia1713.PropositionI.eventual_mechanical_sector_difference_cover_areas,
       `Principia1713.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1687.", "ModernLib."]),
+    (`DeMotu1684.NATP00090.AreaLaw.eventual_mechanical_curve_between_cover_areas,
+      `DeMotu1684.NATP00090.AreaLaw.canonical_polygon_eq_run,
+      #["DeMotu1684.AreaLaw.", "DeMotu1684.NATP00089.", "Principia1687.", "Principia1713."]),
+    (`Principia1687.PropositionI.eventual_mechanical_curve_between_cover_areas,
+      `Principia1687.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1713.", "ModernLib."]),
+    (`Principia1713.PropositionI.eventual_mechanical_curve_between_cover_areas,
+      `Principia1713.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1687.", "ModernLib."]),
+    (`DeMotu1684.NATP00090.AreaLaw.mechanical_between_area_approximation,
+      `DeMotu1684.NATP00090.AreaLaw.canonical_polygon_eq_run,
+      #["DeMotu1684.AreaLaw.", "DeMotu1684.NATP00089.", "Principia1687.", "Principia1713."]),
+    (`Principia1687.PropositionI.mechanical_between_area_approximation,
+      `Principia1687.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1713.", "ModernLib."]),
+    (`Principia1713.PropositionI.mechanical_between_area_approximation,
+      `Principia1713.PropositionI.canonical_polygon_eq_run,
       #["DeMotu1684.", "Principia1687.", "ModernLib."])]
   for (root, ownPolygon, blocked) in checks do
     unless (env.find? root).isSome do
@@ -494,19 +515,34 @@ run_elab do
       unless used.contains ownFiniteArea do
         throwError "{root} does not use its own finite geometric sector proof"
     if root.toString.endsWith ".eventual_mechanical_sector_difference_cover" ||
-        root.toString.endsWith ".eventual_mechanical_sector_difference_cover_areas" then
+        root.toString.endsWith ".eventual_mechanical_sector_difference_cover_areas" ||
+        root.toString.endsWith ".eventual_mechanical_curve_between_cover_areas" ||
+        root.toString.endsWith ".mechanical_between_area_approximation" then
       let ownTriangle := root.getPrefix ++ `polygon_triangle_equal
       unless used.contains ownTriangle do
         throwError "{root} does not derive orientation from its own triangle chain"
       unless used.contains `NewtonLimitDynamics.Polygon.FanDifference.symmetric_difference_cover do
         throwError "{root} does not use the derived geometric difference inclusion"
-    if root.toString.endsWith ".eventual_mechanical_sector_difference_cover_areas" then
+    if root.toString.endsWith ".eventual_mechanical_sector_difference_cover_areas" ||
+        root.toString.endsWith ".eventual_mechanical_curve_between_cover_areas" ||
+        root.toString.endsWith ".mechanical_between_area_approximation" then
       unless used.contains (root.getPrefix ++ `eventual_mechanical_sector_difference_cover) do
         throwError "{root} does not use its own sector-difference cover"
       unless used.contains `NewtonLimitDynamics.Polygon.BoxCoverArea.cover_area do
         throwError "{root} does not construct its square-union area"
       unless used.contains `NewtonLimitDynamics.Polygon.RadialTriangleCover.terminal_triangle_square_cover do
         throwError "{root} does not geometrically cover its terminal triangle"
+    if root.toString.endsWith ".eventual_mechanical_curve_between_cover_areas" ||
+        root.toString.endsWith ".mechanical_between_area_approximation" then
+      unless used.contains (root.getPrefix ++ `eventual_mechanical_sector_difference_cover_areas) do
+        throwError "{root} does not use its own mechanical/sample cover area client"
+      unless used.contains `NewtonLimitDynamics.Polygon.MotionCurveCover.collar_cell_square do
+        throwError "{root} does not derive its curve/chord collar squares"
+      unless used.contains `NewtonLimitDynamics.Polygon.MotionSampling.charted_sector do
+        throwError "{root} does not use the full given-curve sector identity"
+    if root.toString.endsWith ".mechanical_between_area_approximation" then
+      unless used.contains (root.getPrefix ++ `eventual_mechanical_curve_between_cover_areas) do
+        throwError "{root} does not use its own derived mechanical/curve cover"
     for blockedPrefix in blocked do
       if let some offender := matchingPrefix? used blockedPrefix then
         throwError "{root} reaches forbidden dependency {offender}"

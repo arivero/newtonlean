@@ -100,6 +100,10 @@ preceding sector-inclusion client, the proved terminal triangle square cover
 and the finite square-union area construction. Concrete motion controls
 check `K=19/16`, radius `19/32` at level 1, and full budgets `361/32` and
 `361/64`, while retaining the explicitly noncentral control curve.
+Each new mechanical/given-curve cover client must use its own preceding
+mechanical/sample cover client, the derived radial collar bound and the
+full-chart sector identification. Each conditional B-area client must use
+its own preceding curve-cover client. Traversal includes types and helpers.
 
 `triangle-exchange-2026-10-08.lean` checks finite simplex exit with signed
 inserted coordinates, rejects an excessive scale and an invalid total, and
@@ -134,3 +138,21 @@ order, a negative determinant, final cells and a collapsed origin triangle.
 A displaced point rejects zero radius. Distinct joined-square groups force
 both branches with points excluded from the other group. These are shared
 kernel geometry controls, with no area-existence or curve-B conclusion.
+
+`motion-curve-cover-2026-10-08.lean` checks the sharp collar-cell bound
+`9/16`, equivalent representatives and a collapsed slope interval. For
+`g(theta)=1+theta`, the nonlinear point `(9/8,9/64)` lies in the actual curve
+sector outside its chord. Exact controls check the mechanical coefficient
+`43/16`, collar coefficient `195/16`, combined coefficient `367/64`, and
+budgets `134689/512` and `134689/1024`. Under acceleration `(0,2)`, the
+given quadratic curve `(1+t,t+t²)` has terminal point `(5/4,5/16)` outside
+its level-zero mechanical sector; the point belongs to the new cover and
+rejects zero radius. The force is explicitly noncentral. This finite
+quadratic control does not construct its full Conditions/RadialChart witness
+or assert a Newton area law. The constructed square-cover areas are exercised
+under the existing explicit translation-and-cut premise.
+`historical-motion-area-2026-10-07.lean` exercises all three new historical
+cover and conditional B-area clients on its already proved satisfiable
+central inertial motion and full chart. B-area existence remains supplied.
+These controls and the sequential Sol review share the rational definitions
+and Lean kernel with the proof; neither establishes a model of AreaRules.

@@ -141,4 +141,57 @@ example (area : SectorFan.AreaRules) :
   Principia1713.PropositionI.eventual_mechanical_sector_area area force central
     z T z z two o curve conditions (by decide) g z T parts chart
 
+/- The full curve-cover clients are exercised on these satisfiable central
+motion and chart premises. Their conditional B-area clients retain hD;
+these controls do not supply existence of a B-area assignment. -/
+example (area : TriangleContent.AreaRules) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionCurveCover.cover force z T z two o curve g z T chart.positive j)
+        (A j) ∧ 0 ≤ (A j).num ∧ Fraction.le (A j)
+          (MotionCurveCover.budget z T z two o (curve z) g z T chart.positive j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A := by
+  obtain ⟨A,hA,hv,_⟩ := DeMotu1684.NATP00090.AreaLaw.eventual_mechanical_curve_between_cover_areas
+    area force central z T z z two o curve conditions (by decide) g z T parts chart
+  exact ⟨A,hA,hv⟩
+
+example (area : TriangleContent.AreaRules) (D : Nat → Fraction)
+    (hD : ∀ j, area.HasArea (MotionCurveCover.between force T curve j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D :=
+  DeMotu1684.NATP00090.AreaLaw.mechanical_between_area_approximation
+    area force central z T z z two o curve conditions (by decide) g z T parts chart D hD
+
+
+example (area : TriangleContent.AreaRules) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionCurveCover.cover force z T z two o curve g z T chart.positive j)
+        (A j) ∧ 0 ≤ (A j).num ∧ Fraction.le (A j)
+          (MotionCurveCover.budget z T z two o (curve z) g z T chart.positive j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A := by
+  obtain ⟨A,hA,hv,_⟩ := Principia1687.PropositionI.eventual_mechanical_curve_between_cover_areas
+    area force central z T z z two o curve conditions (by decide) g z T parts chart
+  exact ⟨A,hA,hv⟩
+
+example (area : TriangleContent.AreaRules) (D : Nat → Fraction)
+    (hD : ∀ j, area.HasArea (MotionCurveCover.between force T curve j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D :=
+  Principia1687.PropositionI.mechanical_between_area_approximation
+    area force central z T z z two o curve conditions (by decide) g z T parts chart D hD
+
+
+example (area : TriangleContent.AreaRules) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionCurveCover.cover force z T z two o curve g z T chart.positive j)
+        (A j) ∧ 0 ≤ (A j).num ∧ Fraction.le (A j)
+          (MotionCurveCover.budget z T z two o (curve z) g z T chart.positive j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A := by
+  obtain ⟨A,hA,hv,_⟩ := Principia1713.PropositionI.eventual_mechanical_curve_between_cover_areas
+    area force central z T z z two o curve conditions (by decide) g z T parts chart
+  exact ⟨A,hA,hv⟩
+
+example (area : TriangleContent.AreaRules) (D : Nat → Fraction)
+    (hD : ∀ j, area.HasArea (MotionCurveCover.between force T curve j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D :=
+  Principia1713.PropositionI.mechanical_between_area_approximation
+    area force central z T z z two o curve conditions (by decide) g z T parts chart D hD
+
 end NewtonLimitDynamics.Polygon.HistoricalMotionAreaControls
