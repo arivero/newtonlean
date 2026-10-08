@@ -237,6 +237,115 @@ table:
 | weak couplings, Yukawas, breaking scale | decoupled; which parameter is suppressed is a reduction problem; whether the electron's Dirac mass descends from Yukawa data is a question about the collapse K_full → K₅ | `KK/WeakSector`, `Matter/ElectronSector` |
 | particle masses | inherited constants: nucleon masses as ratios times Λ_colour, body masses from binding | `Strong`, `Matter` |
 
+## Kept structures along the descent (a note, 8 October 2026)
+
+This section is a rumination recorded for later work; it changes no
+interface. On the way down from the parent to the Newtonian sector, every
+limit erases a derivation, and the theory below the limit has to carry the
+result as a structure it can state but can no longer explain. The programme
+calls such a structure an epicycle, after the historical device, and the
+historical device is the right model: epicycles are usually fragments of
+the exact motion rather than ad hoc patches, even where a particular one was
+born as a patch. A deferent with one epicycle approximates the Kepler
+ellipse, a second epicycle improves it (Copernicus used one in place of the
+equant), and the series continues: the Fourier expansion of the Kepler
+motion in the mean anomaly is a sum of uniformly rotating circles, so a
+finite stack of epicycles is a truncation of the exact motion. In the same
+way an electrostatic force plus a separate magnetic force is a good
+approach to Maxwell's equations: each is the Galilean limit of one part of
+the field, and the pair is what survives at `invC = 0`.
+
+Three kinds, in the vocabulary used here:
+
+- **Fragments.** Pieces of one parent structure, each surviving the limit
+  as a complete theory of its own, with the symmetry that related them gone.
+  Electrostatics and magnetism at `invC = 0` (Le Bellac and Lévy-Leblond
+  1973 show that Maxwell's equations have two inequivalent Galilean limits,
+  electric and magnetic, according to which fields are held fixed). Mass
+  conservation and energy conservation as separate laws. Space and time as
+  separate. The trace of the lost unification is a constant or a
+  coincidence that the fragments share and cannot explain: the ratio of
+  electric to magnetic units, which Weber and Kohlrausch measured in 1856
+  and found equal to c; the equality of inertial and gravitational mass;
+  the exact equality of proton and electron charge that the neutrality
+  condition in `Matter/NeutralMatter` presupposes. The general tool is the
+  Inönü–Wigner contraction: a fragment is a parent invariant that the
+  contracted group no longer mixes, and the unexplained constant is the
+  mixing the contraction removed.
+- **Patches.** Added to save phenomena, with no standing of their own:
+  Vulcan, Hall's exponent, Newcomb's empirical perihelion term. These are
+  the ad hoc auxiliary hypotheses of Popper and Lakatos; the Neptune–Vulcan
+  contrast is Lakatos's progressive against degenerating problemshift, and
+  the use-novelty criterion of Zahar and Worrall is the philosophers' form
+  of the consumption test below.
+- **Open anomalies.** A discrepancy carried with no structure at all
+  (Mercury's perihelion between 1859 and 1915; here the `open problem`
+  category).
+
+Fermi's contact interaction sits between the first two kinds: a fragment of
+the electroweak sector that was proposed as a patch, consumed in every
+calculation, with a dimensionful coupling that named its own cutoff; here,
+an `assumption below the cutoff`. Newton kept a fragment himself: a
+corollary to Book III, Proposition VI records that magnetic attraction
+fails to scale with the quantity of matter and falls off roughly as the cube
+of the distance, so magnetism stands in the Principia as a separate force
+with its own law (the corollary's number in each edition is to be checked
+against the witnesses before it is cited in a Lean header).
+
+The reverse direction adds a response of its own: the discrepancy stated
+exactly, with its mechanism, as a defect identity on the parent side, with
+the sector below consuming only the bound. The kinetic-energy and
+velocity-composition defects are the two instances so far. The
+singular-limit literature (Nickles 1973, Berry 2002, Batterman 2002) is the
+part of philosophy of science that addresses this direction; a note on
+Berry is kept in `research/action-arguments/`.
+
+The chain currently carries many such structures without deriving them.
+The ones identified so far, with their kind and the stage that holds each:
+
+| Kept structure | Kind | Where it is carried | How it is carried now |
+| --- | --- | --- | --- |
+| fermions as such (spin, exclusion, the spin^c requirement on CP²) | fragment | `Parent/InternalGeometry`, `Matter/ElectronSector` | remark and a Dirac label; exclusion appears nowhere, although extended stable bodies depend on it |
+| subatomic particles (quarks behind the confinement placeholder, nucleons, the electron) | fragment | `Strong/Confinement`, `Matter/ElectronSector` | assumed states with mass ratios, charges and a Dirac mass as parameters |
+| the Fermi interaction (beta decay selecting the stable nuclei) | fragment born as a patch | `KK/WeakSector` | suppressed before matter forms, so the chain's neutron is stable and its table of stable nuclei is the one with a vanishing Fermi coupling; Section II consumes existence only, so the selection is a phantom there and load-bearing for the actual matter table |
+| colour gap and confinement | open anomaly, with a consumed placeholder | `Strong/Confinement` | open problem and placeholder |
+| neutrality of bodies, with the charge equality it presupposes | fragment, trace coincidence | `Matter/NeutralMatter` | a condition on constituent counts |
+| mass of the composite | fragment | `Matter/NeutralMatter` | a positive parameter; binding is undecided |
+| localized trajectories, `p = m v`, additive impulses | fragment | `Classical/ClassicalTrajectory` | the centre-of-mass assumptions (1)–(4), Newton's own kept structures |
+| magnetism as a separate force | fragment, in the primary source | historical files (later) | absent from the chain; the Principia carries it |
+| cosmological constant | undecided | `Parent/Parameters` | undecided |
+
+What the programme does not yet cover is how each kept structure is held at
+each scale, in two senses of the word. The first is the scale of scientific
+knowledge: in which theory layer the structure was a postulate and in which
+it became a derivation (Newton 1687, the nineteenth-century tables, Fermi
+1934, the gauge theory, the parent). The second is the literal scale of
+measurement: at which energy, length or time the structure is active, at
+which it acts only as a selection rule on the states that survive, and at
+which it becomes invisible to the dynamics. The Fermi term is the clearest
+case of the two coming apart: invisible as a force at Newton's scale,
+decisive as a selection rule at nuclear scales, and a postulate for seventy
+years before its derivation. A covering would record, per structure, the
+scale at which it is derived, the scale at which it is consumed, the scale
+at which it becomes invisible, and the knowledge layer in which it was first
+carried. For fragments it would also record the contraction that separates
+them and the constant that remembers the mixing. None of that is
+formalized; the status headers and the parameter-fate table are the only
+present records, and they conflate "decoupled from the forces" with
+"finished doing its work". One consequence for the fibre convention: the
+zero-invC fibre is unique for the particle kinematics, and for a field
+sector it depends on a scaling choice and yields several fragments.
+
+Two rules follow from the discussion and are adopted as working rules,
+for fragments and patches alike. A kept structure is worth carrying only
+when a proof term consumes it; one present in a type alone is a phantom,
+and the reference checker decides which is which. A limit is taken after
+the structure it erases has done its explanatory work, and a structure
+that would have to be re-added below the limit is evidence that the limit
+came too early. The weak decoupling placed before the strong and matter
+stages is the one known violation, recorded here as an obligation and left
+as it is.
+
 ## Questions the architecture is built to answer
 
 1. Is `invC = 0` required for the kinematic assumptions of Propositions
