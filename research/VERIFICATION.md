@@ -156,3 +156,19 @@ cover and conditional B-area clients on its already proved satisfiable
 central inertial motion and full chart. B-area existence remains supplied.
 These controls and the sequential Sol review share the rational definitions
 and Lean kernel with the proof; neither establishes a model of AreaRules.
+
+`area-domain-2026-10-08.lean` exercises the relative countermodel for the
+unchanged `TriangleContent.AreaRules`. Both nested triangles retain their
+areas `1/2` and `1`; points `(1/2,1)` and `(1/4,1/2)` belong to their
+actual difference, which excludes the origin and has no minimum first
+coordinate. The restricted convention therefore assigns that difference no
+area. The existing separate `DifferenceAreaRules` does assign it `1/2`,
+and assignment `1` is rejected. Assigned nonlinear radial sectors and actual
+square-union areas are retained. A bounded line-segment predicate using only
+the exact fraction display `0/1` at its left endpoint falsifies raw minimum
+preservation under translation; representative invariance repairs the
+restriction. Fresh sequential Sol controls exercise negative and collapsed
+triangles, noncanonical translation, each minimum-union branch and an
+incorrect empty-set area. These controls share the kernel and rational
+definitions; the countermodel is relative to a supplied initial convention,
+not a construction of one or a theorem that every historical B fails.

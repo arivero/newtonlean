@@ -62,6 +62,7 @@ import BarrowLib.Polygon.SupportingTangents
 import BarrowLib.Polygon.TangentContact
 import BarrowLib.Polygon.TangentBoundary
 import BarrowLib.Polygon.TriangleContent
+import BarrowLib.Polygon.AreaDomain
 import BarrowLib.Polygon.TangentPolygonArea
 import BarrowLib.Polygon.TimeCalibration
 import BarrowLib.Polygon.TriangleBounds

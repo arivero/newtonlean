@@ -105,6 +105,27 @@ closes a historical proof.
 
 ## Current increment and next work
 
+`AreaDomain.relative_countermodel` settles a specific premise question
+behind the remaining B-area obligation. From any supplied
+`TriangleContent.AreaRules`, it constructs a convention satisfying all
+original rules by retaining representative-invariant sets with an attained
+minimum first coordinate, together with the empty set. Rectangles,
+triangles of either orientation, translations and separated unions retain
+these properties. Any already assigned positive radial sector also retains
+its area, so the restriction need not remove the curved-sector input.
+
+The nested triangles `O,(1,0),(1,1)` and `O,(1,0),(1,2)` retain areas
+`1/2` and `1`, while their actual symmetric difference has no assigned
+area in this convention. Every point of that difference has positive first
+coordinate, and every proposed minimum admits a strictly smaller rational
+point on the ray of slope `2`. This is a relative countermodel to uniform
+difference-area existence from the current rules, conditional on an initial
+supplied convention. It does not establish an initial area model or a
+failure of Newton's physical or geometric claim. Under the separately stated
+existing `DifferenceAreaRules`, the same nested difference has area `1/2`.
+The two interfaces are not silently combined, and the nested repair does
+not prove area existence for arbitrary mechanical/curve intersections.
+
 `RadialCollarCover.triangle_collar_ball` derives a finite collar-cell bound.
 For `a ≤ b` and `0 < R ≤ S`, a point in the radius-`S` triangle outside the
 radius-`R` triangle has radial coordinates `R ≤ rho ≤ S`, `a ≤ t ≤ b`.
@@ -528,11 +549,23 @@ A sequential Sol review found no hidden desired inclusion or B-area
 premise in the new library. It and these controls share the rational
 definitions and Lean kernel; they do not construct a model of AreaRules.
 
-Last full verification: 8 October 2026, after the full mechanical/given-curve
-cover, its constructed area exhaustion and six witness-local clients. All five
-builds, 33 positive controls, the harmonic reference/comparator, source hashes
+`area-domain-2026-10-08.lean` exercises the retained triangle areas, actual
+difference points at scales `1/2` and `1/4`, origin exclusion and missing
+minimum. The separate subtraction convention gives area `1/2` and rejects
+area `1`. Nonlinear radial-sector assignments and square-cover assignments
+survive the restriction. The bounded representative-sensitive line test
+shows why minimum attainment alone is not preserved by raw translation.
+A fresh sequential Sol review found no defect and compiled distinct negative
+and collapsed triangle, noncanonical translation, union-branch and false-area
+controls, now retained in the same harness. The review and controls share
+the rational definitions and Lean kernel; initial convention existence is
+still an explicit input.
+
+Last full verification: 8 October 2026, after the partial-area relative
+countermodel and its nested-subtraction repair. All five
+builds, 34 positive controls, the harmonic reference/comparator, source hashes
 and whitespace passed. The compiled checker verified 1,181 score comments
-and 7,651 project constants with no project axioms, sorry or primary modern
+and 7,724 project constants with no project axioms, sorry or primary modern
 dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
@@ -555,12 +588,19 @@ Unrestricted curves and construction of actual mechanical/curve difference
 areas remain open. The new conditional B-area decay is separate from Astra's
 earlier reviewed fan-difference increment.
 
-Next address existence of the actual between-region area in a stated
-domain, without treating a cover budget as its area. The full mechanical/
-given-curve cover and conditional decay of separately assigned B areas are
-now proved under the single existing translation-and-cut convention. The
-constructed assigned areas belong to the enclosing square unions. An
-assigned area of the actual sector difference is not constructed.
+Next return to the source-local Lemmas II–III and derive ultimate equality
+of the two varying finite rectangle-union areas, with denominator positivity
+proved from a stated nondegenerate graph patch. Their present ratio clients
+only compare each finite area with a fixed assigned curved area. This is an
+independent remaining clause of Newton's printed statements, and avoids
+assuming a rational curved-area assignment for the finite comparison.
+Existence of the actual between-region area remains a separate obligation:
+the relative countermodel rules out inferring arbitrary difference assignments
+uniformly from the present translation-and-cut interface. The full
+mechanical/given-curve cover and conditional decay of separately assigned B
+areas are proved; constructed assigned areas belong to the enclosing square
+unions. A constructive treatment of the actual difference needs an explicitly
+justified area domain and operations.
 The finite square-union construction
 uses translation and cuts; the original `DifferenceAreaRules`-only target
 remains open, including initially positive-half-plane squares. Neither
