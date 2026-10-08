@@ -95,6 +95,11 @@ foreign witnesses and ModernLib dependencies are rejected. Each new eventual
 sector-difference client must also use its own triangle chain to derive
 orientation and the proved FanDifference inclusion. The separate
 full-turn union/multiplicity falsifier remains in `sector-unions-2026-10-07.lean`.
+Each new assigned-full-cover-area client must additionally use its own
+preceding sector-inclusion client, the proved terminal triangle square cover
+and the finite square-union area construction. Concrete motion controls
+check `K=19/16`, radius `19/32` at level 1, and full budgets `361/32` and
+`361/64`, while retaining the explicitly noncentral control curve.
 
 `triangle-exchange-2026-10-08.lean` checks finite simplex exit with signed
 inserted coordinates, rejects an excessive scale and an invalid total, and
@@ -121,3 +126,11 @@ assignment and bound, and the motion client supplies vanishing cover areas
 without motion or curved-area hypotheses. These controls share the kernel
 and coordinate definitions; they do not prove a model of the convention,
 subtraction-only sufficiency, or the actual mechanical/curve difference B.
+
+`radial-triangle-cover-2026-10-08.lean` checks thin triangles with
+`p=(2,1)`, `q=p+(0,2^-j)` and derived covering radius `4*2^-j`, including
+all rational barycentric points, the upper vertex, origin, reversed vertex
+order, a negative determinant, final cells and a collapsed origin triangle.
+A displaced point rejects zero radius. Distinct joined-square groups force
+both branches with points excluded from the other group. These are shared
+kernel geometry controls, with no area-existence or curve-B conclusion.

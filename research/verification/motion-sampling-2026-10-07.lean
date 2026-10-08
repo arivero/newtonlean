@@ -21,6 +21,11 @@ is 11/16 and one-square budget is 121/64; at j=1 the total is 121/128.
 Reject a zero edge-discrepancy claim for that midpoint. An inertial positive-
 time curve must have zero edge discrepancy for every interpolation parameter.
 Include endpoint parameters, zero time and equivalent rational representatives.
+Extension, 8 October: enclose the terminal triangle and edge squares in one
+finite square union. Its area controls explicitly supply the existing
+TriangleContent.AreaRules; the geometric enclosure needs no area premise.
+The full budgets below are bounds for assigned cover areas, and no area of
+the actual sector difference or the given curve's B is assigned.
 The geometric controls and formal proofs share the Lean kernel and elementary
 rational definitions; exact controls do not independently certify those layers. -/
 namespace NewtonLimitDynamics.Polygon.MotionSamplingControls
@@ -261,6 +266,33 @@ example : Fraction.le (terminalConnectorArea force T curve 0)
 example : Exhaustion.VanishingDifference Fraction.magnitudes (terminalConnectorArea force T curve) :=
   terminal_connector_areas_vanish force o T z two o two curve conditions
 
+-- The new full square cover includes the terminal triangle and has an
+-- assigned union area bounded by a shrinking budget. The independent curve
+-- here remains noncentral, and no sector-difference area is assigned.
+example : Fraction.equiv (MotionSectorCover.coefficient o T two two (curve z))
+    ⟨19,16,by decide⟩ := by decide
+example : Fraction.equiv (MotionSectorCover.radius o T two two (curve z) 1)
+    ⟨19,32,by decide⟩ := by decide
+example : Fraction.equiv (MotionSectorCover.budget o T two two (curve z) 0)
+    ⟨361,32,by decide⟩ := by decide
+example : Fraction.equiv (MotionSectorCover.budget o T two two (curve z) 1)
+    ⟨361,64,by decide⟩ := by decide
+example (j : Nat) (x : Point) (hx : terminalConnector force T curve j x) :
+    MotionSectorCover.cover force o T two two curve j x :=
+  MotionSectorCover.terminal_cover_inside force o T z two o two curve conditions j x hx
+example (j : Nat) (x : Point)
+    (hx : ConvexCover.SquareCover (sampled j) (chordRadius o T two j) (blocks j) x) :
+    MotionSectorCover.cover force o T two two curve j x :=
+  MotionSectorCover.edge_cover_inside force o T two two curve j
+    (by decide) (by decide) (by decide) x hx
+example (area : TriangleContent.AreaRules) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionSectorCover.cover force o T two two curve j) (A j) ∧
+        0 ≤ (A j).num ∧ Fraction.le (A j) (MotionSectorCover.budget o T two two (curve z) j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A :=
+  MotionSectorCover.cover_areas area force o T two two curve
+    (by decide) (by decide) (by decide) (by decide)
+
 -- Distinct edge parameters and the terminal cell of a refinement.
 example : ConvexCover.SquareContains (sampled 1 1) (chordRadius o T two 1)
     (ConvexCover.filledPatch z o midpointEquivalent
@@ -441,6 +473,15 @@ run_elab do
       #["DeMotu1684.", "Principia1713.", "ModernLib."]),
     (`Principia1713.PropositionI.eventual_mechanical_sector_difference_cover,
       `Principia1713.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1687.", "ModernLib."]),
+    (`DeMotu1684.NATP00090.AreaLaw.eventual_mechanical_sector_difference_cover_areas,
+      `DeMotu1684.NATP00090.AreaLaw.canonical_polygon_eq_run,
+      #["DeMotu1684.AreaLaw.", "DeMotu1684.NATP00089.", "Principia1687.", "Principia1713."]),
+    (`Principia1687.PropositionI.eventual_mechanical_sector_difference_cover_areas,
+      `Principia1687.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1713.", "ModernLib."]),
+    (`Principia1713.PropositionI.eventual_mechanical_sector_difference_cover_areas,
+      `Principia1713.PropositionI.canonical_polygon_eq_run,
       #["DeMotu1684.", "Principia1687.", "ModernLib."])]
   for (root, ownPolygon, blocked) in checks do
     unless (env.find? root).isSome do
@@ -452,12 +493,20 @@ run_elab do
       let ownFiniteArea := root.getPrefix ++ `finite_geometric_sector
       unless used.contains ownFiniteArea do
         throwError "{root} does not use its own finite geometric sector proof"
-    if root.toString.endsWith ".eventual_mechanical_sector_difference_cover" then
+    if root.toString.endsWith ".eventual_mechanical_sector_difference_cover" ||
+        root.toString.endsWith ".eventual_mechanical_sector_difference_cover_areas" then
       let ownTriangle := root.getPrefix ++ `polygon_triangle_equal
       unless used.contains ownTriangle do
         throwError "{root} does not derive orientation from its own triangle chain"
       unless used.contains `NewtonLimitDynamics.Polygon.FanDifference.symmetric_difference_cover do
         throwError "{root} does not use the derived geometric difference inclusion"
+    if root.toString.endsWith ".eventual_mechanical_sector_difference_cover_areas" then
+      unless used.contains (root.getPrefix ++ `eventual_mechanical_sector_difference_cover) do
+        throwError "{root} does not use its own sector-difference cover"
+      unless used.contains `NewtonLimitDynamics.Polygon.BoxCoverArea.cover_area do
+        throwError "{root} does not construct its square-union area"
+      unless used.contains `NewtonLimitDynamics.Polygon.RadialTriangleCover.terminal_triangle_square_cover do
+        throwError "{root} does not geometrically cover its terminal triangle"
     for blockedPrefix in blocked do
       if let some offender := matchingPrefix? used blockedPrefix then
         throwError "{root} reaches forbidden dependency {offender}"

@@ -2,6 +2,7 @@ import BarrowLib.Polygon.Finite
 import BarrowLib.Polygon.SectorFan
 import BarrowLib.Polygon.RadialSector
 import BarrowLib.Polygon.MotionSampling
+import BarrowLib.Polygon.MotionSectorCover
 import NewtonLimitDynamics.Historical.CompositionOfMotions
 import NewtonLimitDynamics.Historical.LemmaIII
 import ModernLib.Polygon.PathDefect
@@ -477,6 +478,49 @@ theorem eventual_mechanical_sector_difference_cover
   rw [hp]
   exact hN j hj
 
+
+
+/-- This witness's own sector-difference inclusion is enclosed by one
+finite square union, including its terminal triangle. Its nonnegative
+assigned area and vanishing bound are derived under the explicit existing
+translation-and-cut area convention. Source: this editorial coordinate
+consequence; neither the actual difference's area nor the given curve's B
+is constructed, and no new hypothesis is attributed to Newton's text. -/
+theorem eventual_mechanical_sector_difference_cover_areas
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionSectorCover.cover a C T B V u j) (A j) ∧
+        0 ≤ (A j).num ∧
+        Fraction.le (A j) (MotionSectorCover.budget C T B V (u (Fraction.ofInt 0)) j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A ∧
+      ∃ N, ∀ j, N ≤ j →
+        let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))
+        let q := fun k => (MotionSampling.samples u T j k).1
+        ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧
+            ¬ SectorFan.Region q (HarmonicDyadic.blocks j) x) ∨
+          (SectorFan.Region q (HarmonicDyadic.blocks j) x ∧
+            ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+          MotionSectorCover.cover a C T B V u j x := by
+  obtain ⟨A,hA,hvanish⟩ := MotionSectorCover.cover_areas area a C T B V u
+    d.remainder_nonnegative d.time_nonnegative d.force_nonnegative d.velocity_nonnegative
+  obtain ⟨N,hN⟩ := eventual_mechanical_sector_difference_cover a ha C T L B P V u d hs
+    g l r parts chart
+  refine ⟨A,hA,hvanish,N,fun j hj => ?_⟩
+  dsimp only
+  intro x hx
+  rcases hN j hj x hx with h | h
+  · exact MotionSectorCover.edge_cover_inside a C T B V u j d.remainder_nonnegative
+      d.time_nonnegative d.force_nonnegative x h
+  · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
+    simpa only [polygonVertex,canonical_polygon_eq_run] using h
 
 end DeMotu1684.NATP00090.AreaLaw
 
@@ -961,6 +1005,49 @@ theorem eventual_mechanical_sector_difference_cover
   exact hN j hj
 
 
+
+/-- This witness's own sector-difference inclusion is enclosed by one
+finite square union, including its terminal triangle. Its nonnegative
+assigned area and vanishing bound are derived under the explicit existing
+translation-and-cut area convention. Source: this editorial coordinate
+consequence; neither the actual difference's area nor the given curve's B
+is constructed, and no new hypothesis is attributed to Newton's text. -/
+theorem eventual_mechanical_sector_difference_cover_areas
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionSectorCover.cover a C T B V u j) (A j) ∧
+        0 ≤ (A j).num ∧
+        Fraction.le (A j) (MotionSectorCover.budget C T B V (u (Fraction.ofInt 0)) j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A ∧
+      ∃ N, ∀ j, N ≤ j →
+        let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))
+        let q := fun k => (MotionSampling.samples u T j k).1
+        ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧
+            ¬ SectorFan.Region q (HarmonicDyadic.blocks j) x) ∨
+          (SectorFan.Region q (HarmonicDyadic.blocks j) x ∧
+            ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+          MotionSectorCover.cover a C T B V u j x := by
+  obtain ⟨A,hA,hvanish⟩ := MotionSectorCover.cover_areas area a C T B V u
+    d.remainder_nonnegative d.time_nonnegative d.force_nonnegative d.velocity_nonnegative
+  obtain ⟨N,hN⟩ := eventual_mechanical_sector_difference_cover a ha C T L B P V u d hs
+    g l r parts chart
+  refine ⟨A,hA,hvanish,N,fun j hj => ?_⟩
+  dsimp only
+  intro x hx
+  rcases hN j hj x hx with h | h
+  · exact MotionSectorCover.edge_cover_inside a C T B V u j d.remainder_nonnegative
+      d.time_nonnegative d.force_nonnegative x h
+  · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
+    simpa only [polygonVertex,canonical_polygon_eq_run] using h
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -1443,6 +1530,49 @@ theorem eventual_mechanical_sector_difference_cover
   rw [hp]
   exact hN j hj
 
+
+
+/-- This witness's own sector-difference inclusion is enclosed by one
+finite square union, including its terminal triangle. Its nonnegative
+assigned area and vanishing bound are derived under the explicit existing
+translation-and-cut area convention. Source: this editorial coordinate
+consequence; neither the actual difference's area nor the given curve's B
+is constructed, and no new hypothesis is attributed to Newton's text. -/
+theorem eventual_mechanical_sector_difference_cover_areas
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ A : Nat → Fraction,
+      (∀ j, area.HasArea (MotionSectorCover.cover a C T B V u j) (A j) ∧
+        0 ≤ (A j).num ∧
+        Fraction.le (A j) (MotionSectorCover.budget C T B V (u (Fraction.ofInt 0)) j)) ∧
+      Exhaustion.VanishingDifference Fraction.magnitudes A ∧
+      ∃ N, ∀ j, N ≤ j →
+        let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+          (u (Fraction.ofInt 0))
+        let q := fun k => (MotionSampling.samples u T j k).1
+        ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧
+            ¬ SectorFan.Region q (HarmonicDyadic.blocks j) x) ∨
+          (SectorFan.Region q (HarmonicDyadic.blocks j) x ∧
+            ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+          MotionSectorCover.cover a C T B V u j x := by
+  obtain ⟨A,hA,hvanish⟩ := MotionSectorCover.cover_areas area a C T B V u
+    d.remainder_nonnegative d.time_nonnegative d.force_nonnegative d.velocity_nonnegative
+  obtain ⟨N,hN⟩ := eventual_mechanical_sector_difference_cover a ha C T L B P V u d hs
+    g l r parts chart
+  refine ⟨A,hA,hvanish,N,fun j hj => ?_⟩
+  dsimp only
+  intro x hx
+  rcases hN j hj x hx with h | h
+  · exact MotionSectorCover.edge_cover_inside a C T B V u j d.remainder_nonnegative
+      d.time_nonnegative d.force_nonnegative x h
+  · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
+    simpa only [polygonVertex,canonical_polygon_eq_run] using h
 
 end Principia1713.PropositionI
 
