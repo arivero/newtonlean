@@ -10,6 +10,7 @@ Borrowed results must retain their exact original-language source passage;
 formalization authorship does not establish discovery or historical dating. -/
 
 import BarrowLib.Common.FiniteGrowth
+import BarrowLib.Common.FiniteCrossing
 import BarrowLib.Common.Exhaustion
 import BarrowLib.Common.Quadratic
 import BarrowLib.Common.RationalExhaustion
@@ -22,6 +23,10 @@ import BarrowLib.Polygon.BoundedIteration
 import BarrowLib.Polygon.CalibratedGrowth
 import BarrowLib.Polygon.CalibratedRefinement
 import BarrowLib.Polygon.ConvexCover
+import BarrowLib.Polygon.FilledStrips
+import BarrowLib.Polygon.FanRadial
+import BarrowLib.Polygon.FanCorridor
+import BarrowLib.Polygon.FanDifference
 import BarrowLib.Polygon.DyadicArithmetic
 import BarrowLib.Polygon.EquivalentDuration
 import BarrowLib.Polygon.FiniteAccumulation

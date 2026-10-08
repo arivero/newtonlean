@@ -30,7 +30,7 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Laws' Corollary I / De Motu Lemma 1 | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates. NATP00090 now derives its own two endpoint constraints and independent-line intersection from its Lex 1 inertia and Lex 2 calibrated velocity difference; direct addition also covers degenerate directions and zero time | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites both Laws II/I in this proof; NATP00090 cites Lex 2, and post-impulse inertia is an editorial interpretation of its Lex 1. Its literal M/AC label inconsistency is recorded. NATP00089 retains its own hypothesis/model scope |
 | Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
 | Proposition I / De Motu Theorem 1 | NATP00090's finite recurrence uses its own Lemma 1 and Lex 1/2; the printed editions use their own Laws' Corollary I. All three now have conditional given-motion results assigning the actual local swept sector area `T * det(initial position, initial velocity) / 2`, with proportionality for two windows sharing their initial time. NATP00090 uses direct elementary exhaustion for its unnumbered passage; the printed editions use their own Lemmas III/I. Polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic mechanical remainders, force comparison, a short window and finite bounds. A positive monotone rational radial chart describes the full curve image. Its chord/curve symmetric difference has shrinking finite covers. The NATP00090 area-law interface needs only triangle/cut area rules, without a rule for subtracting regions | Extend beyond the rational local chart and stated mechanical/regularity premises. NATP00089's hypothesis and limiting assertion remain separate from NATP00090's laws and reconstruction. Whole-edge/arbitrary-time force-polygon agreement and the actual between-region B for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
-| Mechanical polygon/sample-chord bridge | Existing motion premises derive whole-edge error bounds and a shrinking square cover of the larger edge strip with independent rational parameters. The actual terminal radial triangle has a derived unsigned area and vanishing bound. The positive chart and sample estimates derive the mechanical vertices' common half-plane eventually; each witness's own triangle chain then assigns its finite sector-union area. Triangle exchange now derives the first-cell sector-difference cover. Separate NATP00090, 1687 and 1713 clients retain their own canonical polygons | Many-cell mechanical/sample-chord sector-union symmetric-difference inclusion in the strips and terminal connector, assigned difference/cover union areas and the actual curve's B remain open. No arbitrary-time curve agreement |
+| Mechanical polygon/sample-chord bridge | The actual symmetric difference of two positive ordered finite fans with a common start is proved to lie in the independent-parameter filled edge strips and terminal radial triangle. Internal connector triangles are eliminated through rational ray corridors. Existing motion premises enclose the strips in shrinking square covers; the terminal triangle has a derived unsigned area and vanishing bound. The chart and sample estimates derive the mechanical half-plane eventually. Separate NATP00090, 1687 and 1713 clients derive orientation from their own triangle chains and retain their own canonical polygons | Assigned difference/cover union areas and the actual curve's B remain open. No arbitrary-time curve agreement |
 | Proposition II | Finite oriented-area converse, including unequal durations and uniformly moving centres | Vanishing-triangle/continuous-curve passage. Direction does not determine inward sense; unsigned areas and a vertex at the centre require separate treatment |
 | Proposition III | Relative deflection and reference-history cancellation; finite converse application | Realized relative-orbit limit. No Law III, mass/force law or force/time-scale conclusion is derived |
 | Proposition IV | Conditional finite circular sagitta comparison | Circle geometry, force interpretation and edition-specific ultimate ratios: 1687 uses Proposition II and Lemmas V/XI; 1713 uses Proposition II, Proposition I corollaries 2/4 and Lemma VII |
@@ -105,6 +105,32 @@ closes a historical proof.
 
 ## Current increment and next work
 
+`FanDifference.symmetric_difference_cover` now proves the whole finite
+geometric inclusion: two fans sharing their initial vertex, with positive
+horizontal coordinates and nonnegative consecutive determinants, have their
+actual sector-union symmetric difference in the filled paired-edge strips
+or final radial connector triangle. No area or desired inclusion is supplied.
+The proof intersects a fixed rational ray with the boundary edges. On the
+intervening connectors, ordered slopes derive opposite height signs and hence
+rational intersection points. Convexity of the independent-parameter filled
+cells and finite interval induction cover the radial interval between the
+boundary crossings. Intermediate radii may reverse order. If the ray extends
+beyond one fan's final slope, its final connector supplies the remaining cap.
+Internal origin triangles are never added to the cover budget.
+
+The checked scope includes equal slopes, coincident vertices, zero group
+weights and the vacuous zero-cell case. Exact controls force both strict
+orders of crossing-cell indices, a collapsed first cell, and a terminal-only
+point outside every filled cell. They share the rational definitions and
+Lean kernel with the proof, rather than independently certifying those layers.
+`MotionSampling` combines the inclusion with its existing square cover and
+derives sample orientation from the chart. Each historical witness's new
+eventual mechanical-sector-difference client derives mechanical orientation
+from its own finite triangle chain and uses its own canonical polygon
+identity. The existing square and terminal area budgets exhaust separately.
+This assigns no area to the covered difference or cover union and does not
+yet prove the given curve's B.
+
 Finite triangle exchange is now proved in `TriangleExchange`: for positive
 horizontal A,Q with nonnegative orientation, a point of triangle O,A,Q is
 covered by O,A,P, A,P,Q or O,P,Q. The positive-determinant
@@ -120,14 +146,14 @@ For a common initial vertex, triangle exchange now derives the actual
 one-cell sector-difference inclusion in the existing square or the endpoint
 radial connector. `MotionSampling.initial_cell_difference_cover` applies
 this to the first mechanical/sample cell from its motion conditions and
-explicit local orientation/positivity. It does not propagate the statement
-through the later cells. Exact controls include signed/exterior coordinates,
+explicit local orientation/positivity. The separate ray-corridor proof above
+extends the geometric conclusion through all cells. Exact controls include signed/exterior coordinates,
 collinear and coincident rays, and a displaced endpoint whose difference
 point lies outside both the mechanical sector and terminal connector, forcing
 the square-cover branch. A fresh sequential Sol review supplied an exterior
 inserted point with unnormalized coordinates that lies in neither origin
 cone, forcing the translated triangle branch; that control is retained.
-The many-cell fan-collar inclusion remains open.
+The triangle-exchange theorem remains supporting finite geometry.
 
 The filled-strip/terminal-connector increment enlarges the finite edge patch
 to use independent rational parameters on its two edges. The same radius
@@ -151,13 +177,11 @@ area without an additional half-plane premise at that client. The geometric
 area convention, centrality, initial orientation and motion/chart premises
 remain explicit; this is a conditional rational reconstruction.
 
-The next geometric obligation is the fixed-ray collar inclusion: a point
-between the two ordered finite fans must lie in a filled paired-edge strip
-or the terminal connector. Triangle exchange and its collinear case are now
-available, but the many-cell inclusion is not proved; the internal radial
-connectors must be eliminated rather than simply added to the cover budget.
-After that inclusion, combine the existing curve/chord collar and justify
-the area rules needed for actual B. NATP00089's separate source-local chain,
+The next obligation is to combine the proved mechanical/chord inclusion
+with the existing curve/chord collar and justify the finite-union and
+difference-area rules needed for actual B. A sum of square side products
+is still a covering budget; it is not an assigned area of the union or
+the covered difference. NATP00089's separate source-local chain,
 other patch orientations and non-rational areas also remain open.
 
 The mechanical/sample-chord increment derives whole-edge comparison for the
@@ -173,9 +197,9 @@ or new regularity premise is needed. Separate NATP00090, 1687 and 1713 clients
 use their own canonical mechanical-polygon identity.
 
 These covers and connector bounds are intermediaries required by Astra's
-next-goal evaluation; the curve's between-region B remains open. Establish
-the sector-difference inclusion and adequate area rules before inferring any
-assigned B bound. Astra's interface assessment flags
+next-goal evaluation; the curve's between-region B remains open. The
+sector-difference inclusion is now proved; adequate area rules are still
+needed before inferring any assigned B bound. Astra's interface assessment flags
 that the dyadic motion premises and full-image chart leave the temporal order
 of points between samples unconstrained. Same-time arbitrary-rational curve
 agreement remains open and needs independently justified temporal premises.
@@ -370,11 +394,12 @@ elementary area convention and contact patch; the nonlinear patch's existence
 is proved in the earlier contact control. Both printed constructed-area
 interfaces retain the curved-area and shrinking-mesh premises.
 
-Last full verification: 8 October 2026, after finite triangle exchange and
-the first-cell cover, with a fresh sequential Sol review. All five
-builds, 29 positive controls, the harmonic reference/comparator, source hashes
+Last full verification: 8 October 2026, after the whole finite fan-difference
+inclusion and three witness-local mechanical clients, with sequential Sol
+controls and an Astra review. All five
+builds, 30 positive controls, the harmonic reference/comparator, source hashes
 and whitespace passed. The compiled checker verified 1,181 score comments
-and 7,192 project constants with no project axioms, sorry or primary modern
+and 7,354 project constants with no project axioms, sorry or primary modern
 dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
@@ -382,27 +407,40 @@ unchanged. New coordinate statements record their derivations without
 historical textual attribution. Compiled witness-client controls traverse
 types, bodies and private helpers, require each client's own canonical
 polygon identity and each eventual sector-area client's own finite geometric
-proof, and exclude other witnesses and ModernLib. The fresh Sol review found
-no defect within the finite triangle-exchange and first-cell scope and
-supplied the retained hostile exterior-point control. The many-cell
-fan-collar inclusion is not proved. Unrestricted curves, mechanical sector-union
-difference geometry and the actual curve's B remain open.
-Astra's proof review covers the radial-sector increment (`3a2f5e3`,
-`b827902`); its later next-goal evaluation is a planning assessment.
+proof. The new difference clients must use their own triangle chain and the
+proved FanDifference inclusion. Foreign witnesses and ModernLib are excluded.
+Sol's retained adversarial controls force both crossing-index orders, a
+collapsed cell and the terminal-only branch. Astra found no substantive
+correction in the inclusion or clients, compiled the new controls and
+confirmed closure of the finite geometric obligation in its stated domain.
+This review shares the Lean kernel and supporting rational definitions.
+Unrestricted curves, assigned mechanical sector-union difference area and
+the actual curve's B remain open.
 
-Next prove the finite geometric inclusion for the mechanical/sample-chord
-sector-union symmetric difference in the filled edge strips and terminal
-connector. The mechanical half-plane control is now derived eventually;
-centrality and nonnegative initial orientation remain explicit.
-Combine the resulting cover with the curve/chord collar only after its
-geometric inclusion and area premises are justified. Keep NATP00089's
+Next justify area bounds for the actual covered difference and combine the
+proved mechanical/chord cover with the curve/chord collar. Astra's bounded
+next target is to construct an assigned area of the finite square-cover
+union, initially for nonnegative radius with squares wholly inside the
+positive horizontal half-plane, and prove it is nonnegative and at most
+the sum of the squares' side-product budgets. Derive translated-square
+normalization and finite rational dissection from the existing partial
+area rules. `DifferenceAreaRules` adds nested subtraction, not arbitrary
+overlapping-union area or subadditivity; neither may be silently supplied.
+The terminal triangle already has an assigned unsigned area and vanishing
+bound. Later combination with the curve/chord collar remains explicit.
+The mechanical
+half-plane and sample orientation are derived eventually; each witness's
+triangle chain derives mechanical orientation from centrality and the
+nonnegative initial areal product. Those mechanical and chart premises
+remain explicit. Keep NATP00089's
 hypothesis and limiting assertion
 separate from the NATP00090 law-driven reconstruction; no printed Lemma III
 dependency is retrofitted. Extend the conditional rational local result to other patch
 orientations and their assembly. Keep curved-area existence
 separate from the finite polygon construction. Derive whole-edge/arbitrary-
 time polygon agreement and actual between-region covers for Newton's force
-polygons. Existing shrinking collars concern the sampled-curve chords. Keep
+polygons. Existing assigned curve-collar areas concern sampled-curve chords;
+the new mechanical/chord cover has no assigned difference area yet. Keep
 area existence, general non-rational coordinates and winding/multiplicity
 separate from this local area law. See [verification](VERIFICATION.md) and
 [source/compiled-use diagrams](figures.md).

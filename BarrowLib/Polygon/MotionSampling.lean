@@ -2,6 +2,7 @@ import BarrowLib.Polygon.TimeCalibration
 import BarrowLib.Polygon.CentralSchedule
 import BarrowLib.Polygon.RadialSector
 import BarrowLib.Polygon.TriangleExchange
+import BarrowLib.Polygon.FanDifference
 import BarrowLib.Polygon.GeometricTail
 import BarrowLib.Polygon.PolygonFanArea
 import BarrowLib.Common.Exhaustion
@@ -905,5 +906,81 @@ theorem initial_cell_difference_cover (a : Point → Point) (C T L B P V : Fract
     exact Or.inl ((ConvexCover.square_contains_congr _ _ he).mpr
       (sampled_chord_patch_square a C T L B P V u d j 0 hk r v hr hv))
   · exact Or.inr hp
+
+/-- The actual two finite sector unions have their symmetric difference in
+the shrinking square cover or terminal connector. The orientations and
+positive half-plane are explicit here; the inclusion itself is derived.
+Source: this original finite coordinate consequence of FanDifference and
+the motion estimates. No area of a union or curve difference is concluded. -/
+theorem sampled_sector_difference_cover (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u) (j : Nat)
+    (hp : ∀ k, k ≤ blocks j →
+      0 < (BoundedIteration.run a (duration T j) (u zero) k).1.1.num)
+    (hq : ∀ k, k ≤ blocks j → 0 < (samples u T j k).1.1.num)
+    (hdp : ∀ k, k < blocks j → 0 ≤ (det
+      (BoundedIteration.run a (duration T j) (u zero) k).1
+      (BoundedIteration.run a (duration T j) (u zero) (k+1)).1).num)
+    (hdq : ∀ k, k < blocks j →
+      0 ≤ (det (samples u T j k).1 (samples u T j (k+1)).1).num)
+    (x : Point)
+    (hx : (SectorFan.Region
+        (fun k => (BoundedIteration.run a (duration T j) (u zero) k).1) (blocks j) x ∧
+        ¬ SectorFan.Region (fun k => (samples u T j k).1) (blocks j) x) ∨
+      (SectorFan.Region (fun k => (samples u T j k).1) (blocks j) x ∧
+        ¬ SectorFan.Region
+          (fun k => (BoundedIteration.run a (duration T j) (u zero) k).1) (blocks j) x)) :
+    ConvexCover.SquareCover (fun k => (samples u T j k).1) (chordRadius C T V j) (blocks j) x ∨
+      terminalConnector a T u j x := by
+  have hstart : pointEquiv (BoundedIteration.run a (duration T j) (u zero) 0).1
+      (samples u T j 0).1 := by
+    rw [samples_initial]
+    exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  rcases FanDifference.symmetric_difference_cover _ _ (blocks j) hp hq hdp hdq hstart x hx with h | h
+  · exact Or.inl (sampled_filled_cover a C T L B P V u d j x h)
+  · exact Or.inr h
+
+/-- The full positive radial chart derives the sample vertices' half-plane
+and orientation premises, including coincident chart nodes. -/
+theorem sampled_positive_oriented (g : Fraction → Fraction) (l r T : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r) (u : Fraction → Point × Point)
+    (chart : RadialChart g l r T parts u) (j : Nat) :
+    (∀ k, k ≤ blocks j → 0 < (samples u T j k).1.1.num) ∧
+    (∀ k, k < blocks j → 0 ≤ (det (samples u T j k).1 (samples u T j (k+1)).1).num) := by
+  have hp : ∀ k, k ≤ blocks j → 0 < (samples u T j k).1.1.num :=
+    fun k hk => RadialSector.positive_of_le _ _ chart.positive
+      (sampled_first_lower g l r T parts u chart j k hk)
+  refine ⟨hp,?_⟩
+  intro k hk
+  have hk' : k < (parts j).count := by rw [chart.count]; exact hk
+  have he := TimeSubdivision.det_congr (chart.samples j k (by omega)) (chart.samples j (k+1) (by omega))
+  exact Fraction.nonnegative_equiv he (RadialSector.ray_orientation _ _ _ _
+    (Int.le_of_lt (RadialSector.node_positive g (parts j) chart.monotone chart.positive k (by omega)))
+    (Int.le_of_lt (RadialSector.node_positive g (parts j) chart.monotone chart.positive (k+1) (by omega)))
+    ((parts j).ordered k hk'))
+
+/-- Positive half-plane control is derived eventually from the chart and
+sample error; only the mechanical fan's orientation is still supplied to
+this library interface. Historical clients derive it from their own finite
+triangle chains. The conclusion is a geometric cover, separate from B area. -/
+theorem eventual_sampled_sector_difference_cover (a : Point → Point) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : Conditions a C T L B P V u)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r) (chart : RadialChart g l r T parts u)
+    (hdp : ∀ j k, k < blocks j → 0 ≤ (det
+      (BoundedIteration.run a (duration T j) (u zero) k).1
+      (BoundedIteration.run a (duration T j) (u zero) (k+1)).1).num) :
+    ∃ N, ∀ j, N ≤ j → ∀ x,
+      ((SectorFan.Region
+          (fun k => (BoundedIteration.run a (duration T j) (u zero) k).1) (blocks j) x ∧
+          ¬ SectorFan.Region (fun k => (samples u T j k).1) (blocks j) x) ∨
+        (SectorFan.Region (fun k => (samples u T j k).1) (blocks j) x ∧
+          ¬ SectorFan.Region
+            (fun k => (BoundedIteration.run a (duration T j) (u zero) k).1) (blocks j) x)) →
+      ConvexCover.SquareCover (fun k => (samples u T j k).1) (chordRadius C T V j) (blocks j) x ∨
+        terminalConnector a T u j x := by
+  obtain ⟨N,hN⟩ := polygon_eventually_positive a C T L B P V u d g l r parts chart
+  refine ⟨N,fun j hj x hx => ?_⟩
+  obtain ⟨hq,hdq⟩ := sampled_positive_oriented g l r T parts u chart j
+  exact sampled_sector_difference_cover a C T L B P V u d j (hN j hj) hq (hdp j) hdq x hx
 
 end NewtonLimitDynamics.Polygon.MotionSampling

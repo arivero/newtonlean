@@ -34,8 +34,9 @@ The first matched patch has nonpositive y. This rational-root exclusion is
 a written argument, not a Lean theorem asserted by this control. The exact
 memberships and exclusions tested below are kernel checked.
 
-The fixed-ray collar/triangle-exchange inclusion is still open. These tests
-certify neither that inclusion nor an area of a finite union. Direct values
+The fixed-ray collar inclusion is now proved in FanDifference under the
+target premises. These direct tests alone certify neither the general
+inclusion nor an area of a finite union. Direct values
 and the general results share the Lean kernel and coordinate definitions.
 The full-turn union/multiplicity falsifier remains in sector-unions. -/
 namespace NewtonLimitDynamics.Polygon.SectorDifferenceControls

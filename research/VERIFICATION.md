@@ -91,7 +91,9 @@ argument is not a Lean-certified exclusion of every matched parameter.
 nonzero area, zero-time/inertial controls and the filled cover. Its compiled
 dependency checks require each new historical client to use its own canonical
 polygon, and each eventual sector-area client its own finite geometric proof;
-foreign witnesses and ModernLib dependencies are rejected. The separate
+foreign witnesses and ModernLib dependencies are rejected. Each new eventual
+sector-difference client must also use its own triangle chain to derive
+orientation and the proved FanDifference inclusion. The separate
 full-turn union/multiplicity falsifier remains in `sector-unions-2026-10-07.lean`.
 
 `triangle-exchange-2026-10-08.lean` checks finite simplex exit with signed
@@ -99,4 +101,11 @@ inserted coordinates, rejects an excessive scale and an invalid total, and
 exercises independent, collinear, reversed radial order and coincident rays.
 Its displaced one-cell difference point belongs to neither the mechanical
 sector nor terminal connector; the derived cover therefore supplies actual
-square membership. This does not verify the many-cell collar inclusion.
+square membership. The general many-cell inclusion is checked separately.
+
+`fan-difference-2026-10-08.lean` exercises the general geometric inclusion
+with both strict orders of boundary-crossing cells, a collapsed first cell,
+and a terminal-only point proved to lie outside every filled cell. The
+symmetric form, nonmonotone intermediate radii and zero-group-weight
+convexity are included. These shared-kernel controls do not assign an area
+to the sector-union difference or the square-cover union.

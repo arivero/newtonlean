@@ -432,6 +432,15 @@ run_elab do
       #["DeMotu1684.", "Principia1687.", "ModernLib."]),
     (`Principia1713.PropositionI.eventual_mechanical_sector_area,
       `Principia1713.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1687.", "ModernLib."]),
+    (`DeMotu1684.NATP00090.AreaLaw.eventual_mechanical_sector_difference_cover,
+      `DeMotu1684.NATP00090.AreaLaw.canonical_polygon_eq_run,
+      #["DeMotu1684.AreaLaw.", "DeMotu1684.NATP00089.", "Principia1687.", "Principia1713."]),
+    (`Principia1687.PropositionI.eventual_mechanical_sector_difference_cover,
+      `Principia1687.PropositionI.canonical_polygon_eq_run,
+      #["DeMotu1684.", "Principia1713.", "ModernLib."]),
+    (`Principia1713.PropositionI.eventual_mechanical_sector_difference_cover,
+      `Principia1713.PropositionI.canonical_polygon_eq_run,
       #["DeMotu1684.", "Principia1687.", "ModernLib."])]
   for (root, ownPolygon, blocked) in checks do
     unless (env.find? root).isSome do
@@ -443,6 +452,12 @@ run_elab do
       let ownFiniteArea := root.getPrefix ++ `finite_geometric_sector
       unless used.contains ownFiniteArea do
         throwError "{root} does not use its own finite geometric sector proof"
+    if root.toString.endsWith ".eventual_mechanical_sector_difference_cover" then
+      let ownTriangle := root.getPrefix ++ `polygon_triangle_equal
+      unless used.contains ownTriangle do
+        throwError "{root} does not derive orientation from its own triangle chain"
+      unless used.contains `NewtonLimitDynamics.Polygon.FanDifference.symmetric_difference_cover do
+        throwError "{root} does not use the derived geometric difference inclusion"
     for blockedPrefix in blocked do
       if let some offender := matchingPrefix? used blockedPrefix then
         throwError "{root} reaches forbidden dependency {offender}"

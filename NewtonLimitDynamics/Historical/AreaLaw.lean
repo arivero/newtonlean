@@ -427,6 +427,57 @@ theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
       (HarmonicDyadic.blocks j) hp)
 
 
+/-- This witness's own finite triangle chain derives the mechanical
+orientation. The motion estimates and full positive radial chart then derive
+a square/terminal-triangle cover of the mechanical/sample sector-union
+symmetric difference eventually. Source: this editorial finite-coordinate
+consequence; no difference area, B for the given curve, or arbitrary-time
+polygon agreement is assumed or concluded. -/
+theorem eventual_mechanical_sector_difference_cover
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ N, ∀ j, N ≤ j →
+      let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0))
+      let q := fun k => (MotionSampling.samples u T j k).1
+      ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧
+          ¬ SectorFan.Region q (HarmonicDyadic.blocks j) x) ∨
+        (SectorFan.Region q (HarmonicDyadic.blocks j) x ∧
+          ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+        ConvexCover.SquareCover q (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x ∨
+          SectorFan.Triangle (p (HarmonicDyadic.blocks j)) (q (HarmonicDyadic.blocks j)) x := by
+  have hI : DeMotu1684.NATP00090.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : DeMotu1684.NATP00090.Laws.CalibratedChange TimeSubdivision.pointAdd :=
+    TimeSubdivision.pointSub_add_self_left_equiv
+  have hdet : ∀ j k, k < HarmonicDyadic.blocks j → 0 ≤ (TimeSubdivision.det
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) (k+1)).1).num := by
+    intro j k _
+    have he := polygon_triangle_equal ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) k
+    have he' := he
+    simp only [polygonVertex,canonical_polygon_eq_run] at he'
+    exact Fraction.nonnegative_equiv he'
+      (Fraction.nonnegative_mul _ _ d.time_nonnegative hs)
+  obtain ⟨N,hN⟩ := MotionSampling.eventual_sampled_sector_difference_cover a C T L B P V u d
+    g l r parts chart hdet
+  refine ⟨N,fun j hj => ?_⟩
+  dsimp only
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp]
+  exact hN j hj
+
+
 end DeMotu1684.NATP00090.AreaLaw
 
 /-! 1687. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -859,6 +910,57 @@ theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
       (HarmonicDyadic.blocks j) hp)
 
 
+/-- This witness's own finite triangle chain derives the mechanical
+orientation. The motion estimates and full positive radial chart then derive
+a square/terminal-triangle cover of the mechanical/sample sector-union
+symmetric difference eventually. Source: this editorial finite-coordinate
+consequence; no difference area, B for the given curve, or arbitrary-time
+polygon agreement is assumed or concluded. -/
+theorem eventual_mechanical_sector_difference_cover
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ N, ∀ j, N ≤ j →
+      let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0))
+      let q := fun k => (MotionSampling.samples u T j k).1
+      ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧
+          ¬ SectorFan.Region q (HarmonicDyadic.blocks j) x) ∨
+        (SectorFan.Region q (HarmonicDyadic.blocks j) x ∧
+          ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+        ConvexCover.SquareCover q (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x ∨
+          SectorFan.Triangle (p (HarmonicDyadic.blocks j)) (q (HarmonicDyadic.blocks j)) x := by
+  have hI : Principia1687.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : Principia1687.Laws.AdditiveImpulse TimeSubdivision.pointAdd :=
+    fun _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hdet : ∀ j k, k < HarmonicDyadic.blocks j → 0 ≤ (TimeSubdivision.det
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) (k+1)).1).num := by
+    intro j k _
+    have he := polygon_triangle_equal ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k
+    have he' := he
+    simp only [polygonVertex,canonical_polygon_eq_run] at he'
+    exact Fraction.nonnegative_equiv he'
+      (Fraction.nonnegative_mul _ _ d.time_nonnegative hs)
+  obtain ⟨N,hN⟩ := MotionSampling.eventual_sampled_sector_difference_cover a C T L B P V u d
+    g l r parts chart hdet
+  refine ⟨N,fun j hj => ?_⟩
+  dsimp only
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp]
+  exact hN j hj
+
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -1289,6 +1391,57 @@ theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
     (finite_geometric_sector area ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
       (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) hs
       (HarmonicDyadic.blocks j) hp)
+
+
+/-- This witness's own finite triangle chain derives the mechanical
+orientation. The motion estimates and full positive radial chart then derive
+a square/terminal-triangle cover of the mechanical/sample sector-union
+symmetric difference eventually. Source: this editorial finite-coordinate
+consequence; no difference area, B for the given curve, or arbitrary-time
+polygon agreement is assumed or concluded. -/
+theorem eventual_mechanical_sector_difference_cover
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : MotionSampling.RadialChart g l r T parts u) :
+    ∃ N, ∀ j, N ≤ j →
+      let p := polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+        (u (Fraction.ofInt 0))
+      let q := fun k => (MotionSampling.samples u T j k).1
+      ∀ x, ((SectorFan.Region p (HarmonicDyadic.blocks j) x ∧
+          ¬ SectorFan.Region q (HarmonicDyadic.blocks j) x) ∨
+        (SectorFan.Region q (HarmonicDyadic.blocks j) x ∧
+          ¬ SectorFan.Region p (HarmonicDyadic.blocks j) x)) →
+        ConvexCover.SquareCover q (MotionSampling.chordRadius C T V j) (HarmonicDyadic.blocks j) x ∨
+          SectorFan.Triangle (p (HarmonicDyadic.blocks j)) (q (HarmonicDyadic.blocks j)) x := by
+  have hI : Principia1713.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : Principia1713.Laws.AdditiveImpulse TimeSubdivision.pointAdd :=
+    fun _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hdet : ∀ j k, k < HarmonicDyadic.blocks j → 0 ≤ (TimeSubdivision.det
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) (k+1)).1).num := by
+    intro j k _
+    have he := polygon_triangle_equal ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k
+    have he' := he
+    simp only [polygonVertex,canonical_polygon_eq_run] at he'
+    exact Fraction.nonnegative_equiv he'
+      (Fraction.nonnegative_mul _ _ d.time_nonnegative hs)
+  obtain ⟨N,hN⟩ := MotionSampling.eventual_sampled_sector_difference_cover a C T L B P V u d
+    g l r parts chart hdet
+  refine ⟨N,fun j hj => ?_⟩
+  dsimp only
+  have hp : polygonVertex ZeroForce.inertialAt TimeSubdivision.pointAdd a (HarmonicDyadic.duration T j)
+      (u (Fraction.ofInt 0)) = fun k =>
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1 := by
+    funext k
+    exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
+  rw [hp]
+  exact hN j hj
 
 
 end Principia1713.PropositionI
