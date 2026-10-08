@@ -111,6 +111,33 @@ closes a historical proof.
 
 ## Current increment and next work
 
+The user's classical comparison examples now live in ClassicsLib. Euclid
+VII.31 supplies a prime divisor by finite descent; IX.20 proves a prime lies
+outside any proposed finite list and supplies the numeric `n ≤ p` form.
+Its finite product replaces the least common multiple in Euclid's original
+construction, with that substitution recorded explicitly. The √2 example
+excludes `a*a = 2*(b*b)` for natural or integer terms with nonzero denominator,
+using parity and decreasing positive denominators. Aristotle's Greek at
+Prior Analytics I.23, 41a26–27 attests the contradiction, not these complete
+reconstructed steps. No real square root or geometric diagonal is constructed.
+The Lean files pin and discuss the inspected mathlib routes. The primes route
+uses classical arithmetic; the real √2 route uses rational-square criteria,
+the inverse of a power order isomorphism and a Cauchy-completed real type.
+The replacements use only Lean core and the displayed classical helpers.
+This source inspection is distinct from a compiled mathlib dependency census.
+The new compiled controls exclude later project libraries and exercise empty
+and repeated prime collections, a composite product-plus-one, unreduced and
+negative ratios, and the necessary zero-denominator exclusion.
+
+The classical size comparison also prompted [PROOF_STRATEGY.md](PROOF_STRATEGY.md):
+design from the historical target, reuse permitted foundations and accept
+increments by the obligation discharged. Core arithmetic is excluded from
+our project counts, while our rational geometry is included; aggregate file
+counts are not individual proof sizes. The verification checklist now asks
+for an explicit comparison of conclusions and remaining premises. Public Lean
+skills were reviewed as sources of techniques, without installing packages
+or adopting mathlib, sorry scaffolds or additional agent procedures.
+
 The printed 1687/1713 Lemmas II and III now prove the mutual-ratio clause
 for finite rectangle unions on a nonzero rational interval with a positive
 starting ordinate. `MonotoneRectangles.lower_sum_base_bound` telescopes all

@@ -39,3 +39,5 @@ wrapper family or new completed operation merely to raise a count. Modern
 conditional fan laws and path-content controls remain distinct from Newton's
 ordinary swept-sector conclusion. [STATE.md](STATE.md) records these boundaries
 and [the handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md) sets the proof order.
+The [proof strategy](PROOF_STRATEGY.md) applies these findings to new increments
+and reviews public Lean guidance for compatibility with this repository.

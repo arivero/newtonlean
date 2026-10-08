@@ -1,6 +1,9 @@
 # Verification checklist
 
 Use Lean 4.19.0 core/Std only, with no mathlib, sorry or project axioms.
+Choose the mathematical increment using [PROOF_STRATEGY.md](PROOF_STRATEGY.md).
+This checklist verifies that increment; passing it alone does not establish
+that the selected theorem advances the historical target.
 Run from the repository root:
 
 ```sh
@@ -49,10 +52,28 @@ traversed; Lean infrastructure, generated auxiliaries and the proof itself are
 excluded. A score describes repository classification; it cannot establish
 the original attribution of a result.
 
+## Review the conclusion before accepting progress
+
+Read the changed theorem's full statement alongside the previous result and
+the exact historical passage. Identify the obligation it now proves and every
+premise it still supplies. A new hypothesis containing the missing conclusion
+does not discharge that obligation. A deliberately conditional theorem must
+be reported with its conditions, including whether their joint realization
+has been established in the intended domain.
+
+Check that the historical client actually uses the new mathematical result
+through the compiled dependency graph. Distinguish a new conclusion, a removed
+premise and an enlarged domain from an edition wrapper or structural cleanup.
+Counts describe all of those changes; completion estimates must reflect the
+remaining mathematical work. Compare proof sizes only at the same scope:
+one theorem versus one theorem, or a complete shared development versus another.
+Neither a short proof body nor a smaller import graph establishes sufficiency.
+
 ## README measurements
 
 The existing checker also reports source lines, source-declared theorems and
-distinct theorem counts in compiled proof and import graphs. After rebuilding:
+distinct theorem counts in compiled proof and import graphs, including each
+ClassicsLib source file as well as the historical files. After rebuilding:
 
 ```sh
 NEWTON_PRINT_THEOREM_COUNTS=1 lake env lean research/CheckReferences.lean
@@ -116,6 +137,14 @@ Each harness's opening docstring states what it controls. An `AreaRules` or
 with that argument does not prove that such a convention exists. Complete
 hypotheses live in the owning declarations. Results, the latest verification
 record and open obligations live in [STATE.md](STATE.md).
+
+`classical-comparisons-2026-10-08.lean` checks the two arithmetic comparisons:
+empty/repeated collections and a composite common-multiple-plus-one for
+Euclid, and unreduced/signed ratios and the necessary denominator restriction
+for √2. Compiled traversal requires the prime-divisor/product and parity/halving
+helpers and excludes BarrowLib, ModernLib, Newton and mathlib. These checks
+share Lean core arithmetic and the kernel; the source-level mathlib review
+does not claim to enumerate that library's compiled transitive dependencies.
 
 `lemma2-3-monotone-rectangles-2026-10-06.lean` also checks the mutual-ratio
 increment of 8 October. For `g(x)=1+x²`, exact aliased-node areas `9/8` and

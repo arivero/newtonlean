@@ -25,7 +25,8 @@ the transcription authority; see [source coverage](research/sources.md).
 
 BarrowLib contains elementary arithmetic, finite geometry and explicit
 exhaustion arguments. ClassicsLib contains source-identified classical
-mathematics, currently Euclidean coordinate special cases. ModernLib contains
+mathematics, including Euclidean coordinate special cases, infinitude of primes
+and the integer-ratio obstruction for √2. ModernLib contains
 completion, modern motion constructions and diagnostics. Primary historical
 proofs use elementary/classical support and untainted historical results.
 Anachronical proofs occupy a section below five full lines of `=` and
@@ -61,7 +62,7 @@ authorities and original-language passages belong in the owning files:
 
 | Library | Authorities and checked scope | Source work remaining |
 | --- | --- | --- |
-| [ClassicsLib](ClassicsLib.lean) | Euclid's *Elements* [I.37](https://physics.ntua.gr/mourmouras/euclid/book1/postulate37.html), equal triangles on the same base between the same parallels, and [I.38](https://physics.ntua.gr/mourmouras/euclid/book1/postulate38.html), the corresponding equal-base result. The Greek statements are retained in [I.37](ClassicsLib/Euclid/PropositionI37.lean) and [I.38](ClassicsLib/Euclid/PropositionI38.lean). The checked determinant identities and [finite model](ClassicsLib/Euclid/FiniteLattice.lean) are coordinate special cases. | Full synthetic Euclidean area semantics and exact-result provenance of the model's supporting helpers remain separate obligations. |
+| [ClassicsLib](ClassicsLib.lean) | Euclid's *Elements* [I.37](ClassicsLib/Euclid/PropositionI37.lean), [I.38](ClassicsLib/Euclid/PropositionI38.lean), [VII.31](ClassicsLib/Euclid/PropositionVII31.lean) and [IX.20](ClassicsLib/Euclid/PropositionIX20.lean), plus Aristotle, *Prior Analytics* I.23, 41a26–27 in [SquareRootTwo](ClassicsLib/Aristotle/SquareRootTwo.lean). Original Greek and exact URLs are in the files. | I.37/I.38 remain determinant special cases. IX.20 uses a finite product in place of Euclid's least common multiple. Aristotle attests the parity contradiction, not the full reconstructed descent proof or a constructed geometric diagonal. Full synthetic area semantics and exact-result provenance of the older model's helpers remain separate obligations. |
 | [BarrowLib](BarrowLib.lean) | [SectorFan](BarrowLib/Polygon/SectorFan.lean) quotes Greek from Euclid [I.41](https://physics.ntua.gr/mourmouras/euclid/book1/postulate41.html), the triangle/parallelogram area relation, and the [Common Notions](https://physics.ntua.gr/mourmouras/euclid/book1/elements1.html), as background for the supplied area rules. SectorFan, [TriangleContent](BarrowLib/Polygon/TriangleContent.lean), [FanDifference](BarrowLib/Polygon/FanDifference.lean), [BoxCoverArea](BarrowLib/Polygon/BoxCoverArea.lean) and [AreaDomain](BarrowLib/Polygon/AreaDomain.lean) state their own English project derivations without historical textual support or priority claims. | The library name does not attribute its contents to Isaac Barrow. Original-language, exact-result attribution for other borrowed helpers remains unverified; the Greek background does not state the new coordinate results. |
 | [ModernLib](ModernLib.lean) | The exact checked constructions are in their Lean files, including [CauchyValues](ModernLib/Foundation/Polygon/CauchyValues.lean), [EndpointCauchyName](ModernLib/Foundation/Polygon/EndpointCauchyName.lean) and the conditional [given-trajectory area result](ModernLib/Polygon/GivenTrajectoryArea.lean). | Exact original-language sources for standard borrowed modern results remain to be supplied and verified. Names such as “Cauchy” alone establish no exact attribution; known results are not credited to their AI formalizer. |
 
@@ -82,11 +83,12 @@ Every commit must update this completion-percentage information, reassessing
 the affected files and witnesses and explaining changes to the estimates or
 remaining work. An unchanged rounded estimate must be explicitly justified
 here. Measured counts must also be refreshed whenever they change.
-Current reassessment: Lemmas II and III rise from 60% to 70% in both printed
-editions after deriving their mutual finite-area ratios on positive graph
-patches. The zero-base case and general area/magnitude scope remain work to
-do. Other estimates remain unchanged because their proof conclusions and
-remaining tasks are unchanged.
+Current reassessment: the two classical comparison examples below are complete
+for their stated finite arithmetic conclusions. All Newton file/witness
+estimates remain unchanged, including Lemmas II/III at 70%: the new examples
+do not alter their proofs or discharge their remaining area/ratio obligations.
+The proof-strategy review changes how we select and assess future increments;
+it does not discharge an additional Newton obligation or change those estimates.
 
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
@@ -149,6 +151,34 @@ and conditional difference-area decay intact. Full obligations and verification
 evidence remain in [STATE.md](research/STATE.md) and
 [VERIFICATION.md](research/VERIFICATION.md).
 
+### Classical comparison examples
+
+These examples let readers compare a short library proof with the arithmetic
+it delegates. Their source comments pin the inspected mathlib version and
+describe the substitutions; mathlib is not imported or installed.
+
+| Result and file | Completion in the stated scope | Inspected mathlib route | Checked classical substitute |
+| --- | ---: | --- | --- |
+| [Prime divisor, VII.31](ClassicsLib/Euclid/PropositionVII31.lean) | 100% | `minFac_prime` and `minFac_dvd` supply a prime divisor. | Finite descent through proper divisors, with the prime criterion explicit. |
+| [Infinitude of primes, IX.20](ClassicsLib/Euclid/PropositionIX20.lean) | 100% | `Nat.exists_infinite_primes` uses a prime factor of `n!+1`; its arithmetic argument is already classical. | Multiply a finite positive list, add one, apply VII.31 and exclude every old entry. The numeric `n ≤ p` form is also proved. |
+| [√2 integer-ratio obstruction](ClassicsLib/Aristotle/SquareRootTwo.lean) | 100% | `irrational_sqrt_two` passes through prime-square and rational-square criteria and the real square-root interface. | Even square implies even side; a hypothetical ratio gives a smaller positive denominator. Both signs and unreduced integer ratios are covered. |
+
+Here 100% concerns these arithmetic statements. A completed real square root
+or synthetic geometric diagonal is outside that scope. In the inspected
+mathlib implementation, `Real.sqrt` uses the inverse of a power order
+isomorphism on nonnegative reals. Replacing that interface with the explicit
+ratio equation removes it entirely from the classical proof. The source review
+follows named definitions and proof steps; it is not a compiled transitive
+dependency census of mathlib. Our new proofs' compiled dependencies are checked.
+
+The smaller examples also motivate the [proof strategy](research/PROOF_STRATEGY.md).
+Their arithmetic foundation is already in Lean core and excluded from our
+project counts; Newton's fraction, geometry and approximation foundations are
+included. That explains part of the difference. New layers and conditional
+wrappers still need justification by the historical obligation they discharge.
+The strategy guide reviews public Lean skills and the adaptations required by
+our source-first, core-only method.
+
 ### Measured work
 
 The measurements cover all witness sections and both primary and anachronical
@@ -192,7 +222,13 @@ whole library. Counts from different rows overlap and should not be summed.
 | [PropositionII.lean](NewtonLimitDynamics/Historical/PropositionII.lean) | 55 | 0 | 0 | 28 |
 | [PropositionIII.lean](NewtonLimitDynamics/Historical/PropositionIII.lean) | 47 | 0 | 0 | 45 |
 | [PropositionIV.lean](NewtonLimitDynamics/Historical/PropositionIV.lean) | 48 | 0 | 0 | 64 |
-| [ClassicsLib](ClassicsLib.lean) | 113 | 6 | 6 | 16 |
+| [ClassicsLib/Aristotle/SquareRootTwo.lean](ClassicsLib/Aristotle/SquareRootTwo.lean) | 86 | 4 | 4 | 4 |
+| [ClassicsLib/Euclid/FiniteLattice.lean](ClassicsLib/Euclid/FiniteLattice.lean) | 43 | 4 | 6 | 16 |
+| [ClassicsLib/Euclid/PropositionI37.lean](ClassicsLib/Euclid/PropositionI37.lean) | 23 | 1 | 1 | 1 |
+| [ClassicsLib/Euclid/PropositionI38.lean](ClassicsLib/Euclid/PropositionI38.lean) | 25 | 1 | 1 | 1 |
+| [ClassicsLib/Euclid/PropositionIX20.lean](ClassicsLib/Euclid/PropositionIX20.lean) | 87 | 5 | 6 | 6 |
+| [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
+| [ClassicsLib](ClassicsLib.lean) | 340 | 16 | 16 | 26 |
 | [BarrowLib](BarrowLib.lean) | 14522 | 966 | 966 | 966 |
 | [ModernLib](ModernLib.lean) | 19677 | 1157 | 1496 | 1681 |
 

@@ -298,7 +298,10 @@ run_elab do
     let historical := env.header.moduleNames.filter
       (fun module => module.toString.startsWith "NewtonLimitDynamics.Historical.")
       |>.qsort (fun a b => a.toString < b.toString)
-    for module in historical do
+    let classical := env.header.moduleNames.filter
+      (fun module => module.toString.startsWith "ClassicsLib.")
+      |>.qsort (fun a b => a.toString < b.toString)
+    for module in historical ++ classical do
       let path := module.toString.replace "." "/" ++ ".lean"
       let label := (module.toString.replace "NewtonLimitDynamics.Historical." ""
         |>.replace "." "/") ++ ".lean"
@@ -332,6 +335,6 @@ run_elab do
       for row in report do
         unless Verification.uniqueRow readme row do
           throwError "README count row missing/stale/duplicated; expected exactly once:\n{row}"
-      logInfo m!"Checked README measurements for {historical.size} historical files and 3 supporting libraries."
+      logInfo m!"Checked README measurements for {historical.size} historical files, {classical.size} classical files and 3 supporting libraries."
     if printCounts then
       logInfo m!"{String.intercalate "\n" report.toList}"
