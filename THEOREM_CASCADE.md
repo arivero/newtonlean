@@ -18,7 +18,7 @@ There are three different quantities:
   not use, including available library theorems. The proof tree measures
   actual dependencies; the import tree measures availability.
 
-The current compiled cascade (9 October, interior-rectangle ratio increment) is:
+The current compiled cascade (9 October, explicit staircase-edge increment) is:
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
@@ -31,10 +31,10 @@ The current compiled cascade (9 October, interior-rectangle ratio increment) is:
 | `LemmaI.lean` | 7 | 18 | 78 |
 | `LemmaII.lean` | 20 | 105 | 303 |
 | `LemmaIII.lean` | 14 | 149 | 427 |
-| `LemmaIII/CorollaryI.lean` | 4 | 80 | 465 |
-| `LemmaIII/CorollaryII.lean` | 2 | 70 | 467 |
-| `LemmaIII/CorollaryIII.lean` | 10 | 208 | 601 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 469 | 1346 |
+| `LemmaIII/CorollaryI.lean` | 6 | 98 | 473 |
+| `LemmaIII/CorollaryII.lean` | 2 | 70 | 475 |
+| `LemmaIII/CorollaryIII.lean` | 10 | 208 | 609 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 469 | 1354 |
 | `LemmaX.lean` | 4 | 14 | 67 |
 | `LemmaX/CorollaryI.lean` | 2 | 14 | 77 |
 | `LemmaX/CorollaryII.lean` | 4 | 24 | 79 |
@@ -45,7 +45,7 @@ The current compiled cascade (9 October, interior-rectangle ratio increment) is:
 | `PropositionIII.lean` | 0 | 0 | 45 |
 | `PropositionIV.lean` | 0 | 0 | 64 |
 | `ClassicsLib` | 16 | 16 | 26 |
-| `BarrowLib` | 977 | 977 | 977 |
+| `BarrowLib` | 983 | 983 | 983 |
 | `ModernLib` | 1157 | 1496 | 1689 |
 
 The README additionally lists line counts and the individual classical files.
@@ -74,7 +74,7 @@ they do not inherit the full scope of a historical sentence automatically.
 | [LemmaI](NewtonLimitDynamics/Historical/LemmaI.lean) | Ordered exhaustion contradiction with explicit approach and terminal-comparison premises; manuscript enclosing-ratio step kept separate. | 3: 1687, 1713, NATP00090 |
 | [LemmaII](NewtonLimitDynamics/Historical/LemmaII.lean) | Equal-width finite rectangle areas, gap exhaustion and mutual ratios, including positive-interior zero-base patches on a tail. Assigned curved-area statements retain that premise. | 2: 1687, 1713 |
 | [LemmaIII](NewtonLimitDynamics/Historical/LemmaIII.lean) | Unequal-width counterparts using the same edition's Lemmas I/II and supplied shrinking mesh; modern completion is separate. | 2: 1687, 1713 |
-| [LemmaIII Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | Assigned-area error decay and two-sided rectangle endpoint-cover approximation under continuity/mesh premises; full staircase geometry remains open. | 2: 1687, 1713 |
+| [LemmaIII Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | Assigned-area error decay and two-sided approximation of explicit free staircase tops/vertical joins under continuity/mesh premises. The traces lie in their actual rectangle unions; fixed sides are omitted. | 2: 1687, 1713 |
 | [LemmaIII Corollary II](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | Two-sided rational chord approximation; no area or arclength conclusion. | 2: 1687, 1713 |
 | [LemmaIII Corollary III](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | Supporting-tangent geometry and actual finite polygon area for concave increasing rational patches, with contact and area premises; tangent existence is not proved. | 2: 1687, 1713 |
 | [LemmaIII Corollary IV](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | Chord and tangent upper-boundary approximation in the stated rational domain; modern completed-curve results are separate. | 2: 1687, 1713 |
@@ -109,9 +109,11 @@ own statement and proof are explicitly presented as a project derivation.
 | --- | ---: | ---: |
 | `LemmaII.lean` | 2 edition witness sections (1687, 1713) | 20 formal declarations; 4 interior-rectangle extensions are explicitly editorial reconstructions |
 | `LemmaIII.lean` | 2 edition witness sections (1687, 1713) | 14 formal declarations; 2 interior-rectangle extensions are explicitly editorial reconstructions |
+| `LemmaIII/CorollaryI.lean` | 2 edition witness sections (1687, 1713) | 6 formal declarations; 2 staircase clients are explicit editorial coordinate reconstructions |
 | `ClassicsLib` | 5 source-linked result files; `FiniteLattice` is support | 16 formal declarations; determinant interpretations and Aristotle's proof reconstruction are qualified in their files |
 | Prior `BarrowLib` support | Euclid I.41 is background for supplied area rules | 968 prior theorems; exact sourced/authored split has not been verified and is not inferred from the library name |
 | Zero-base/tail-ratio support since `1a20c9d` | 0 exact external result claims | 9 explicit project derivations, 5 public and 4 private; no historical priority claims |
+| Explicit staircase support | 0 exact external result claims | 6 public project derivations: two node inclusions, two endpoint-box inclusions and two actual rectangle-union inclusions |
 | `ModernLib` | No exact original-language result is established by this aggregate row | 1157 formal declarations; exact sourced/authored split remains unverified |
 
 The two Lemma II and two Lemma III witness sections preserve their separate
@@ -130,6 +132,17 @@ The original English statements and checked derivations are their provenance;
 the Newton passages support the proof route, not a quotation of this coordinate
 extension. Anonymous harness examples do not count as project theorems.
 
+The staircase construction uses the same ordered nodes and left/right heights
+as the actual rectangle unions. Horizontal tops and vertical joins are explicit
+coordinate sets. The lower construction omits the last rise to the final curve
+ordinate, which would exceed the last lower rectangle. The upper construction
+includes the initial partial side. Both trace-to-union inclusions are proved;
+neither is supplied in a premise. Each historical client uses its own
+rectangle-cover estimate and the shared node approximation to derive two-sided
+approach. Fixed baseline and remaining endpoint sides, general area existence
+and arclength are outside that conclusion. The exact English statements and
+checked proofs provide the new coordinate results' project provenance.
+
 The proof-tree number counts the total actually used project cascade,
 including library theorems. The import-tree number counts the total available
 cascade, including unused theorems. Neither predicts how many further lemmas
@@ -145,10 +158,12 @@ form a completely inspected, disjoint slice:
 | New Lemma II interior reductions and clients | 0 | 4 | 0 |
 | New Lemma III interior clients | 0 | 2 | 0 |
 | BarrowLib zero-base/tail support since `1a20c9d` | 0 | 9 | 0 |
-| Total of these additions | 0 | 15 | 0 |
+| BarrowLib staircase support | 0 | 6 | 0 |
+| New Corollary I staircase clients | 0 | 2 | 0 |
+| Total of these additions | 0 | 23 | 0 |
 
 “Project derivation” identifies the provenance of the exact statement and
-proof, not mathematical novelty. These 15 declarations are not 15 historical
+proof, not mathematical novelty. These 23 declarations are not 23 historical
 lemmas, and not all are used by every client. Older declarations and their
 transitive source attributions are outside this inspected slice. Future
 cascade censuses must deduplicate actual compiled dependencies and retain an

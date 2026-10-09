@@ -138,6 +138,19 @@ with that argument does not prove that such a convention exists. Complete
 hypotheses live in the owning declarations. Results, the latest verification
 record and open obligations live in [STATE.md](STATE.md).
 
+`lemma3-staircase-boundaries-2026-10-09.lean` distinguishes explicit step
+edges from filled endpoint boxes. It rejects both an interior box point and
+the false final rise above the last lower rectangle, includes internal joins
+in adjacent/repeated cells, and transports equivalent rational coordinates.
+Flat graphs and a collapsed interval are allowed. A nonzero identity graph
+with actual dyadic partitions realizes continuity and mesh exhaustion; the
+reverse approach estimate reaches the omitted final graph endpoint on a
+usable tail. Compiled traversal requires each edition's own rectangle-cover
+theorem, the node/sandwich proofs, all four node/box inclusions and both actual
+rectangle-union inclusions. It excludes foreign witnesses and ModernLib by
+compiled module ownership. The new argument uses no area assignment and
+claims no fixed-side, full topological perimeter or arclength conclusion.
+
 `classical-comparisons-2026-10-08.lean` checks the two arithmetic comparisons:
 empty/repeated collections and a composite common-multiple-plus-one for
 Euclid, and unreduced/signed ratios and the necessary denominator restriction

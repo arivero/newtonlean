@@ -27,6 +27,37 @@ def Approaches (traces : Nat → Point → Prop) (curve : Point → Prop) : Prop
 def RectangleTrace (f : Fraction → Point) {a b : Fraction} (p : Partition a b) (x : Point) : Prop :=
   ∃ i, i < p.count ∧ RectangleBetween (f (p.nodes i)) x (f (p.nodes (i+1)))
 
+/-- The horizontal top of the rectangle with these three defining data. -/
+def RectangleTop (l r H : Fraction) (x : Point) : Prop :=
+  Fraction.le l x.1 ∧ Fraction.le x.1 r ∧ Fraction.equiv x.2 H
+
+/-- The vertical join of two adjacent rectangle heights at their shared node. -/
+def VerticalJoin (c u v : Fraction) (x : Point) : Prop :=
+  Fraction.equiv x.1 c ∧ Between u x.2 v
+
+/-- Free step edges of the actual left-ordinate rectangle construction:
+horizontal tops and internal vertical joins. There is no final rise to `g b`:
+that rise would lie above the last lower rectangle. Fixed baseline and endpoint
+sides are not part of this trace. Repeated nodes are allowed. -/
+def LowerStaircase (g : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (x : Point) : Prop :=
+  ∃ i, i < p.count ∧
+    (RectangleTop (p.nodes i) (p.nodes (i+1)) (g (p.nodes i)) x ∨
+      (i+1 < p.count ∧ VerticalJoin (p.nodes (i+1))
+        (g (p.nodes i)) (g (p.nodes (i+1))) x))
+
+/-- Free step edges of the actual right-ordinate rectangle construction.
+The first vertical join starts at `g (nodes 0)` on the initial side; subsequent
+joins connect adjacent rectangle tops. Baseline and the remaining fixed sides
+are omitted, as for `LowerStaircase`. These definitions and the checked finite
+derivations below are project provenance, with no external exact-result or
+historical priority claim. -/
+def UpperStaircase (g : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (x : Point) : Prop :=
+  ∃ i, i < p.count ∧
+    (VerticalJoin (p.nodes i) (g (p.nodes i)) (g (p.nodes (i+1))) x ∨
+      RectangleTop (p.nodes i) (p.nodes (i+1)) (g (p.nodes (i+1))) x)
+
 def Segment (p q x : Point) : Prop :=
   ∃ u, UnitInterval u ∧ pointEquiv x (lerp u p q)
 
@@ -76,6 +107,89 @@ theorem between_congr {u v x y : Fraction} (he : Fraction.equiv x y)
   rcases hy with hy | hy
   · exact Or.inl ⟨Fraction.le_equiv_right hy.1 (Fraction.equiv_symm he), Fraction.le_equiv_left he hy.2⟩
   · exact Or.inr ⟨Fraction.le_equiv_right hy.1 (Fraction.equiv_symm he), Fraction.le_equiv_left he hy.2⟩
+
+/-- Every sampled left node belongs to each actual step-edge construction. -/
+theorem nodes_in_lower_staircase (g : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (x : Point) (hx : NodeTrace (fun t => (t,g t)) p x) :
+    LowerStaircase g p x := by
+  obtain ⟨i,hi,he⟩ := hx
+  exact ⟨i,hi,Or.inl ⟨Fraction.le_equiv_right
+    (Fraction.magnitudes.le_refl _) (Fraction.equiv_symm he.1),
+    Fraction.le_equiv_left he.1 (p.ordered i hi),he.2⟩⟩
+
+theorem nodes_in_upper_staircase (g : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (x : Point) (hx : NodeTrace (fun t => (t,g t)) p x) :
+    UpperStaircase g p x := by
+  obtain ⟨i,hi,he⟩ := hx
+  exact ⟨i,hi,Or.inl ⟨he.1,between_congr he.2 (between_left _ _)⟩⟩
+
+theorem lower_staircase_in_rectangles (g : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (x : Point) (hx : LowerStaircase g p x) :
+    RectangleTrace (fun t => (t,g t)) p x := by
+  obtain ⟨i,hi,hx⟩ := hx
+  refine ⟨i,hi,?_⟩
+  rcases hx with hx | ⟨_,hx⟩
+  · exact ⟨Or.inl ⟨hx.1,hx.2.1⟩,between_congr hx.2.2 (between_left _ _)⟩
+  · exact ⟨between_congr hx.1 (between_right _ _),hx.2⟩
+
+theorem upper_staircase_in_rectangles (g : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (x : Point) (hx : UpperStaircase g p x) :
+    RectangleTrace (fun t => (t,g t)) p x := by
+  obtain ⟨i,hi,hx⟩ := hx
+  refine ⟨i,hi,?_⟩
+  rcases hx with hx | hx
+  · exact ⟨between_congr hx.1 (between_left _ _),hx.2⟩
+  · exact ⟨Or.inl ⟨hx.1,hx.2.1⟩,between_congr hx.2.2 (between_right _ _)⟩
+
+/-- The lower step edges really belong to the lower rectangle union, including
+each internal vertical join. This is why the last join is excluded. -/
+theorem lower_staircase_in_figure (g : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (hg : MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (x : Point) (hx : LowerStaircase g p x) : lowerFigure g p x := by
+  have hn (j : Nat) (hj : j≤p.count) : 0≤(g (p.nodes j)).num :=
+    Fraction.nonnegative_of_le hbase (hg a (p.nodes j) (Fraction.magnitudes.le_refl _)
+      (node_bounds p j hj).1 (node_bounds p j hj).2)
+  obtain ⟨i,hi,hx⟩ := hx
+  rcases hx with hx | ⟨hnext,he,hbetween⟩
+  · exact ⟨i,hi,hx.1,hx.2.1,Fraction.nonnegative_equiv
+      hx.2.2 (hn i (by omega)),Fraction.le_of_equiv hx.2.2⟩
+  · have horder := hg _ _ (node_bounds p i (by omega)).1
+      (p.ordered i hi) (node_bounds p (i+1) (by omega)).2
+    have hbounds : Fraction.le (g (p.nodes i)) x.2 ∧
+        Fraction.le x.2 (g (p.nodes (i+1))) := by
+      rcases hbetween with h | h
+      · exact h
+      · exact ⟨Fraction.magnitudes.le_trans horder h.1,
+          Fraction.magnitudes.le_trans h.2 horder⟩
+    exact ⟨i+1,hnext,Fraction.le_equiv_right
+      (Fraction.magnitudes.le_refl _) (Fraction.equiv_symm he),
+      Fraction.le_equiv_left he (p.ordered (i+1) hnext),
+      Fraction.nonnegative_of_le (hn i (by omega)) hbounds.1,hbounds.2⟩
+
+/-- The upper step edges, including the initial partial side, belong to the
+upper rectangle union. No area or boundary convergence is assumed. -/
+theorem upper_staircase_in_figure (g : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (hg : MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (x : Point) (hx : UpperStaircase g p x) : upperFigure g p x := by
+  have hn (j : Nat) (hj : j≤p.count) : 0≤(g (p.nodes j)).num :=
+    Fraction.nonnegative_of_le hbase (hg a (p.nodes j) (Fraction.magnitudes.le_refl _)
+      (node_bounds p j hj).1 (node_bounds p j hj).2)
+  obtain ⟨i,hi,hx⟩ := hx
+  refine ⟨i,hi,?_⟩
+  rcases hx with ⟨he,hbetween⟩ | hx
+  · have horder := hg _ _ (node_bounds p i (by omega)).1
+      (p.ordered i hi) (node_bounds p (i+1) (by omega)).2
+    have hbounds : Fraction.le (g (p.nodes i)) x.2 ∧
+        Fraction.le x.2 (g (p.nodes (i+1))) := by
+      rcases hbetween with h | h
+      · exact h
+      · exact ⟨Fraction.magnitudes.le_trans horder h.1,
+          Fraction.magnitudes.le_trans h.2 horder⟩
+    exact ⟨Fraction.le_equiv_right (Fraction.magnitudes.le_refl _)
+      (Fraction.equiv_symm he),Fraction.le_equiv_left he (p.ordered i hi),
+      Fraction.nonnegative_of_le (hn i (by omega)) hbounds.1,hbounds.2⟩
+  · exact ⟨hx.1,hx.2.1,Fraction.nonnegative_equiv
+      hx.2.2 (hn (i+1) (by omega)),Fraction.le_of_equiv hx.2.2⟩
 
 theorem segment_rectangle (p q x : Point) (hx : Segment p q x) : RectangleBetween p x q := by
   obtain ⟨u, hu, he⟩ := hx
