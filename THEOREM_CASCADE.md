@@ -5,6 +5,12 @@ The counts are produced from the compiled Lean environment by
 `research/CheckReferences.lean`; they are not a count of historical
 propositions and they are not additive across rows.
 
+The mathematical snapshot is `a116c87` (9 October 2026). This report's
+provenance review changes no theorem or completion estimate. The README
+keeps the progress estimates and compact measurements; this file explains
+the kinds of result, their sources and the provenance coverage of the
+dependencies actually used.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,
@@ -56,6 +62,81 @@ NEWTON_PRINT_THEOREM_COUNTS=1 lake env lean research/CheckReferences.lean
 NEWTON_CHECK_README_COUNTS=1 lake env lean research/CheckReferences.lean
 ```
 
+## Provenance within each actual proof cascade
+
+These columns partition **theorem declarations**, using the same distinct
+nodes as the proof-tree column above. They include the file's own theorems
+and the library theorems actually reached through types, definitions, proof
+bodies and private helpers. They exclude unused imports.
+
+- **S — source match:** the represented result is matched to an exact
+  original-language statement. This does not certify that the formal proof
+  reproduces the source's proof word for word.
+- **R — source-related reconstruction:** an inspected source motivates the
+  result, but its coordinates, restricted domain, explicit limiting premises
+  or reformulation require qualification. This is kept separate from an
+  exact statement match.
+- **P — internally derived support:** the exact statement and checked
+  derivation or concrete control are presented here. This identifies the
+  provenance of this formulation, without claiming novelty or transferring
+  a known result's authorship to its formalizer.
+- **U — unverified in this census:** the declaration has not received one
+  of the preceding theorem-level classifications. It may already have a
+  source comment. It is neither presumed unsourced nor counted as authored
+  here merely because its Lean proof was written here.
+
+For every row, **S + R + P + U = proof tree**. The reviewed groups are
+identified below; classifications outside those groups remain U. In
+particular, S=0 means that this review has established no exact statement
+match in that cascade, rather than that the cascade has no historical
+source. Source witnesses for every historical file remain in the next table.
+
+| File or library | S | R | P | U | Proof tree |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| `AreaLaw.lean` | 0 | 6 | 0 | 878 | 884 |
+| `CompositionOfMotions.lean` | 0 | 0 | 0 | 48 | 48 |
+| `LawI.lean` | 0 | 0 | 0 | 0 | 0 |
+| `LawII.lean` | 0 | 0 | 0 | 0 | 0 |
+| `LawsCorollaryV.lean` | 0 | 0 | 0 | 45 | 45 |
+| `LawsCorollaryVI.lean` | 0 | 0 | 0 | 33 | 33 |
+| `LemmaI.lean` | 0 | 7 | 0 | 11 | 18 |
+| `LemmaII.lean` | 0 | 20 | 7 | 78 | 105 |
+| `LemmaIII.lean` | 0 | 18 | 7 | 124 | 149 |
+| `LemmaIII/CorollaryI.lean` | 0 | 10 | 8 | 80 | 98 |
+| `LemmaIII/CorollaryII.lean` | 0 | 2 | 0 | 68 | 70 |
+| `LemmaIII/CorollaryIII.lean` | 0 | 10 | 0 | 198 | 208 |
+| `LemmaIII/CorollaryIV.lean` | 0 | 2 | 0 | 467 | 469 |
+| `LemmaX.lean` | 0 | 0 | 0 | 14 | 14 |
+| `LemmaX/CorollaryI.lean` | 0 | 0 | 0 | 14 | 14 |
+| `LemmaX/CorollaryII.lean` | 0 | 0 | 0 | 24 | 24 |
+| `LemmaX/CorollaryIII.lean` | 0 | 0 | 0 | 20 | 20 |
+| `LemmaX/CorollaryIV.lean` | 0 | 0 | 0 | 23 | 23 |
+| `LemmaX/CorollaryV.lean` | 0 | 0 | 0 | 23 | 23 |
+| `PropositionII.lean` | 0 | 0 | 0 | 0 | 0 |
+| `PropositionIII.lean` | 0 | 0 | 0 | 0 | 0 |
+| `PropositionIV.lean` | 0 | 0 | 0 | 0 | 0 |
+| `ClassicsLib/Aristotle/SquareRootTwo.lean` | 0 | 2 | 2 | 0 | 4 |
+| `ClassicsLib/Euclid/FiniteLattice.lean` | 0 | 2 | 4 | 0 | 6 |
+| `ClassicsLib/Euclid/PropositionI37.lean` | 0 | 1 | 0 | 0 | 1 |
+| `ClassicsLib/Euclid/PropositionI38.lean` | 0 | 1 | 0 | 0 | 1 |
+| `ClassicsLib/Euclid/PropositionIX20.lean` | 1 | 3 | 2 | 0 | 6 |
+| `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
+| `ClassicsLib` | 1 | 7 | 8 | 0 | 16 |
+| `BarrowLib` | 0 | 0 | 15 | 968 | 983 |
+| `ModernLib` | 0 | 2 | 0 | 1494 | 1496 |
+
+Across the whole loaded project environment, deduplicating rather than
+adding these overlapping rows, this bounded review classifies **76 of 2336
+theorems: 1 S, 44 R and 31 P; 2260 remain U**. This measures provenance-review
+coverage, not proof completeness, novelty or a library's historical class.
+The large U counts expose the remaining attribution work. They do not
+invalidate the compiled proofs.
+
+The zero proof trees of Laws I/II and Propositions II–IV also need care:
+supplied-law predicates and source-only declarations do not count as named
+theorems. Their nonzero import trees describe available support, rather than
+a source-local proof.
+
 ## What kind of result each file contains
 
 The links below lead to the exact Latin, witness URLs, proof correspondence
@@ -95,6 +176,28 @@ theorem totals; the compiled reference checker separately verifies dependency
 taint. Their whole-file proof trees include both sections, so those aggregate
 sizes should not be read as the cost of a primary proof alone. Importing a
 modern module does not itself constitute using a modern theorem.
+
+## Premises that theorem counts do not measure
+
+A structure field or theorem argument can carry mathematical content without
+being a named theorem or a Lean `axiom` declaration. The compiled axiom check
+does not discharge such a premise. These are the important examples in the
+current cascades:
+
+| Cascade | Supplied input | What the checked proof establishes |
+| --- | --- | --- |
+| Lemma I | [Magnitudes](BarrowLib/Common/Quadratic.lean), `VanishingDifference`, `TerminalLower`; positive duration in the before-end version | The ordered contradiction; rational terminal zero when nonnegativity is supplied. No terminal object is constructed. |
+| Lemmas II/III and area corollaries | [AreaRules](BarrowLib/Polygon/RectangleContent.lean): partial `HasArea`, rectangle normalization, vertical-cut additivity, congruence and monotonicity; shrinking mesh; a separate `HasArea` premise when a curved area is used | Finite rectangle areas and their geometric enclosures, gap exhaustion, and the stated conditional error/ratio conclusions. General curved-area existence is outside these results. |
+| Boundary corollaries | [UniformOn](BarrowLib/Polygon/RationalBoundary.lean), shrinking mesh, and supporting/contact data where needed | Two-sided approximation of the stated traces. Tangent existence and arclength are not inferred. |
+| Motion composition and laws' corollaries | [InertialMotion](NewtonLimitDynamics/Historical/LawI.lean), [AdditiveImpulse / CalibratedChange](NewtonLimitDynamics/Historical/LawII.lean), shared time and the displayed update rules | Endpoint geometry and finite motion consequences under those laws. The physical laws remain premises. |
+| Local Proposition I area law | Given curve; [MotionSampling.Conditions and RadialChart](BarrowLib/Polygon/MotionSampling.lean); the displayed area assignment/convention | The conditional local swept-sector law and the stated mechanical approximation controls. General area existence and unrestricted historical scope remain open. |
+
+There are no project `axiom` declarations in the checked mathematical snapshot;
+safe proofs use only Lean's standard `propext`, `Classical.choice` and
+`Quot.sound`. This is compatible with the explicit mathematical inputs above.
+A future sourced classical axiom or supplied exhaustion rule would need its
+own visible premise and exact source, rather than being hidden in a theorem
+count or treated as a discharged goal.
 
 ## Source versus project authorship
 
@@ -146,9 +249,9 @@ checked proofs provide the new coordinate results' project provenance.
 The proof-tree number counts the total actually used project cascade,
 including library theorems. The import-tree number counts the total available
 cascade, including unused theorems. Neither predicts how many further lemmas
-will be needed to complete the historical result. A full sourced-versus-authored
-count for each transitive cascade remains unverified; the table above reports
-the source coverage actually inspected rather than inventing that split.
+will be needed to complete the historical result. The provenance breakdown
+above counts the inspected declarations inside each actual proof tree and
+retains the remainder as unverified.
 
 For a numerical sourced-versus-internally-derived count, the recent additions
 form a completely inspected, disjoint slice:
@@ -170,6 +273,50 @@ cascade censuses must deduplicate actual compiled dependencies and retain an
 unclassified count rather than assigning unsourced known mathematics to the
 project. Exact source matches and project derivations must use the same
 theorem-level unit; witness-section counts cannot supply that split.
+
+## Which declarations received a provenance classification
+
+The following review is deliberately bounded. The local Lean statements,
+their proofs and their opening source/proof-correspondence comments were
+inspected. Source matching here concerns the statements recorded in those
+files; this increment performs no new manuscript or scan collation. The
+external witness URLs and original-language passages remain at those
+locations.
+
+| Reviewed group | S | R | P | Reason and locator |
+| --- | ---: | ---: | ---: | --- |
+| [Euclid IX.20](ClassicsLib/Euclid/PropositionIX20.lean), own declarations | 1 | 2 | 2 | `infinitude_primes` represents the finite-collection statement. `prime_outside_positive_list` and `exists_prime_ge` are explicit reformulations; `finiteProduct_positive` and `divides_finiteProduct` are the exposed arithmetic helpers. The proof substitutes a common product for Euclid's least common multiple. Euclid retains the mathematical attribution. |
+| [Euclid VII.31](ClassicsLib/Euclid/PropositionVII31.lean) | 0 | 1 | 0 | `prime_divisor` extends the quoted composite-number statement to every natural number greater than one, including primes. That difference is why it is R. |
+| [Euclid I.37](ClassicsLib/Euclid/PropositionI37.lean) and [I.38](ClassicsLib/Euclid/PropositionI38.lean) | 0 | 2 | 0 | `parallel_identity` and `extension_identity` are determinant special cases, without full synthetic area semantics. |
+| [Aristotle comparison](ClassicsLib/Aristotle/SquareRootTwo.lean) | 0 | 2 | 2 | `no_natural_ratio_square_two` and `no_integer_ratio_square_two` reconstruct the attested parity contradiction. `even_of_even_square` and `halve_square_equation` expose the arithmetic steps; the exact descent is not attributed to Aristotle. |
+| [Finite lattice controls](ClassicsLib/Euclid/FiniteLattice.lean) | 0 | 0 | 4 | The four named orientation, degeneracy and repeated-coverage controls are concrete statements checked here; anonymous examples are excluded. |
+| [Lemma I](NewtonLimitDynamics/Historical/LemmaI.lean) | 0 | 7 | 0 | Six printed-edition ordered-exhaustion/terminal-zero formulations and one separately qualified NATP00090 enclosing-ratio reconstruction. Explicit interfaces qualify the source correspondence. |
+| [Lemma II](NewtonLimitDynamics/Historical/LemmaII.lean) | 0 | 16 | 4 | Eight source-related rational formulations per printed edition; the two explicitly editorial interior-rectangle extensions per edition are P. |
+| [Lemma III](NewtonLimitDynamics/Historical/LemmaIII.lean) | 0 | 10 | 2 | Five primary unequal-width reconstructions and one interior extension per edition. The two anachronical completed-enclosure theorems remain U in this source census. |
+| [Lemma III Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 0 | 4 | 2 | Area and rectangle-cover reconstructions in each edition are R; the two explicit staircase-edge clients are P. |
+| [MonotoneRectangles](BarrowLib/Polygon/MonotoneRectangles.lean), selected additions | 0 | 0 | 6 | `exists_positive_width_from_aux`, `exists_positive_width_from`, `interval_left_gap_le_total`, `interval_right_gap_le_total`, `lower_sum_eventually_positive`, `upper_sum_eventually_positive`; the first four are private. |
+| [RectangleContent](BarrowLib/Polygon/RectangleContent.lean), selected additions | 0 | 0 | 3 | `varying_ratios_approach_one_eventually`, `rectangle_interior_denominator_bound`, `rectangle_mutual_ratios_interior`. |
+| [RationalBoundary](BarrowLib/Polygon/RationalBoundary.lean), selected additions | 0 | 0 | 6 | The lower/upper pairs `nodes_in_*_staircase`, `*_staircase_in_rectangles` and `*_staircase_in_figure`. |
+| Distinct reviewed declarations | 1 | 44 | 31 | 76 theorem declarations; these owning groups are disjoint. |
+
+These classifications were intersected with the actual compiled dependency
+closures to obtain the per-cascade table. Shared dependencies were counted
+once; private names were resolved to their source declarations. Each
+partition was checked against the existing compiled proof-tree total. The
+README count checker verifies the totals automatically; the source
+classifications in this Markdown report are a bounded manual review.
+
+This also explains why the 23 recent project derivations are not added to
+every cascade. Seven occur in Lemma II's proof tree, seven in Lemma III's,
+and eight in Corollary I's; none occurs in the current `AreaLaw` proof tree.
+The latter's P=0 only concerns the 31 inspected project derivations, while
+older internally derived support can remain among its 878 U entries.
+
+When the mathematical snapshot changes, refresh the compiled totals and
+their intersections with these reviewed groups. Classify further results
+only after checking their exact source or their explicit project derivation;
+leave the remaining nodes U. This keeps provenance coverage separate from
+the README's estimates of remaining proof work.
 
 No new classical or Barrow-era axiom was introduced for this increment. If a
 future reduction in theorem proliferation uses an axiom, it must be declared

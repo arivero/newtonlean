@@ -100,6 +100,16 @@ obligations are unchanged. Other file/witness percentages are also unchanged
 because their mechanical or limiting obligations are untouched. The classical
 arithmetic comparisons remain 100% in their stated scope.
 
+Provenance-report reassessment, 9 October: all completion percentages remain
+at the estimates above. Separating source matches, qualified reconstructions,
+project derivations and unverified dependencies changes our description of
+the work, while the proved statements and estimated remaining mathematical
+obligations stay the same. The measured theorem and dependency counts are
+unchanged and have been rechecked against the compiled snapshot. The detailed
+root report now gives a provenance breakdown for each actual proof cascade;
+an unverified attribution is retained explicitly rather than counted as
+internally authored mathematics.
+
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
 deriving the physical laws is outside the task. **Lemma I is also 100% for its
@@ -212,8 +222,9 @@ whole library. Counts from different rows overlap and should not be summed.
 
 The measured cascade and its provenance notes are maintained in
 [THEOREM_CASCADE.md](THEOREM_CASCADE.md). It explains how own declarations,
-actual proof trees and full import trees differ, and records which entries have
-an exact source witness versus which are project-authored support. Both trees
+actual proof trees and full import trees differ, and gives per-cascade counts
+of source matches, qualified source reconstructions, internally derived
+support and unverified provenance. Both trees
 include library theorems: the proof tree measures actual use, while the import
 tree measures the full available cascade. A theorem-by-theorem source census
 of the older library helpers remains unverified.
