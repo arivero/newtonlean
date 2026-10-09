@@ -160,6 +160,11 @@ the Lean control rejects the conclusion that both ratios approach one. These
 controls share the rational definitions and kernel. The remaining zero-base
 case requires an eventual bound from a positive interior ordinate, allowing
 early lower sums to vanish; general curved-area existence is still separate.
+The first finite prerequisite is now proved in
+`MonotoneRectangles.lower_sum_positive_of_positive_cell`: under the existing
+monotonicity and nonnegative-base premises, one positive-width cell whose left
+ordinate is positive makes the complete lower sum positive. The zero-base
+eventual-index argument remains open; this helper does not claim it.
 
 `AreaDomain.relative_countermodel` settles a specific premise question
 behind the remaining B-area obligation. From any supplied

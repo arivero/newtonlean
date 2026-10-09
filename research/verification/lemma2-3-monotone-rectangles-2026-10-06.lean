@@ -79,6 +79,13 @@ example : Fraction.equiv (maxWidth unequal) (Fraction.ofInt 2) := by
   · exact hs.1 1 (by decide)
 example : Fraction.lt (gap squareGraph unequal) (Fraction.ofInt 18) := by decide
 
+-- A positive-width cell with a positive left ordinate makes the lower sum
+-- positive, even when the base ordinate is zero. This is the finite
+-- prerequisite for the remaining zero-base eventual-index argument.
+example : 0 < (lowerSum squareGraph unequal).num :=
+  lower_sum_positive_of_positive_cell squareGraph unequal (square_monotone _)
+    (by decide) 1 (by decide) (by decide) (by decide)
+
 -- All completed figure points inherit the set enclosure, not just vertices.
 example (x : PositionValue) (hx : completed (figure squareGraph (Fraction.ofInt 0) (Fraction.ofInt 3)) x) :
     completed (upperFigure squareGraph unequal) x :=

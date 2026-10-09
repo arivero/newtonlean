@@ -200,6 +200,58 @@ theorem sums_nonnegative {a b : Fraction} (g : Fraction → Fraction) (p : Parti
   exact ⟨sum_nonnegative _ p.count (fun i hi => Fraction.nonnegative_mul _ _ (hw i hi) (hn i (by omega))),
     sum_nonnegative _ p.count (fun i hi => Fraction.nonnegative_mul _ _ (hw i hi) (hn (i+1) (by omega)))⟩
 
+private theorem sum_positive_of_term_positive (a : Nat → Fraction) : ∀ n,
+    (∀ i, i<n → 0≤(a i).num) → ∀ i, i<n → 0<(a i).num → 0<(sum a n).num
+  | 0, _, i, hi, _ => by omega
+  | n+1, ha, i, hi, hp => by
+      by_cases hlast : i=n
+      · subst i
+        change 0 < (Fraction.add (sum a n) (a n)).num
+        unfold Fraction.add
+        dsimp
+        have hs := sum_nonnegative a n (fun j hj => ha j (by omega))
+        have ht := hp
+        have hleft : 0≤(sum a n).num * (a n).den :=
+          Int.mul_nonneg hs (Int.le_of_lt (a n).den_pos)
+        have hright : 0<(a n).num * (sum a n).den :=
+          Int.mul_pos ht (sum a n).den_pos
+        omega
+      · have hprev := sum_positive_of_term_positive a n
+          (fun j hj => ha j (by omega)) i (by omega) hp
+        change 0 < (Fraction.add (sum a n) (a n)).num
+        unfold Fraction.add
+        dsimp
+        have ht := ha n (by omega)
+        have hleft : 0<(sum a n).num * (a n).den :=
+          Int.mul_pos hprev (a n).den_pos
+        have hright : 0≤(a n).num * (sum a n).den :=
+          Int.mul_nonneg ht (Int.le_of_lt (sum a n).den_pos)
+        omega
+
+/-! A positive cell in a monotone nonnegative graph gives a positive lower
+sum. This is the finite arithmetic prerequisite for the zero-base case. The
+statement is a project derivation with no external exact-result attribution. -/
+theorem lower_sum_positive_of_positive_cell {a b : Fraction}
+    (g : Fraction → Fraction) (p : Partition a b)
+    (hg : MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (i : Nat) (hi : i<p.count)
+    (hwidth : 0<(width p i).num) (hheight : 0<(g (p.nodes i)).num) :
+    0<(lowerSum g p).num := by
+  have hsum := sum_positive_of_term_positive
+    (fun k => Fraction.mul (width p k) (g (p.nodes k))) p.count (by
+    intro j hj
+    have hgj : 0≤(g (p.nodes j)).num :=
+      Fraction.nonnegative_of_le hbase (hg _ _ (Fraction.magnitudes.le_refl _)
+        (node_bounds p j (by omega)).1 (node_bounds p j (by omega)).2)
+    have hwj : 0≤(width p j).num :=
+      (difference_nonnegative_iff _ _).mpr (p.ordered j hj)
+    exact Fraction.nonnegative_mul _ _ hwj hgj)
+  apply hsum i hi
+  change 0<(Fraction.mul (width p i) (g (p.nodes i))).num
+  unfold Fraction.mul
+  dsimp
+  exact Int.mul_pos hwidth hheight
+
 /-- Every lower sum is bounded below by `(b-a)*g(a)`, independently of its
 mesh. Source: this English coordinate statement and finite telescoping
 proof; no exact external quotation or priority is claimed. Repeated nodes

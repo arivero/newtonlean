@@ -158,6 +158,11 @@ vanishing gap and positive terms, but its ratio remains `1/2`; a Lean proof
 rejects the unit-ratio conclusion without a uniform denominator bound.
 These controls share the kernel and rational definitions with the theorem;
 they do not construct an area convention or close the zero-base case.
+The same harness checks the finite zero-base prerequisite: a positive-width
+cell with a positive left ordinate gives a positive lower sum through
+`lower_sum_positive_of_positive_cell`. It does not prove that sufficiently
+refined arbitrary partitions contain such a cell; that eventual-index lemma
+remains an explicit open obligation.
 
 `sector-difference-2026-10-07.lean` checks actual fan, connector and filled-strip
 membership/exclusion, equivalent point displays, the strict half-plane bound
