@@ -52,14 +52,16 @@ Source hashes record byte identity, not source truth or proof verification.
 The Greek [Euclid X.1 transcription](../docs/classics/euclid-X1.md), including
 its exact-halves closing sentence, supplies the explicitly conditional
 `MagnitudeContent.Rules.unit_halves_exhaust` specialization. The Greek
-[Book V definitions 4–5](../docs/classics/euclid-V.md) delimit comparability
-and general ratio language. Both HTML originals were retrieved on 9 October
+[Book V definitions 2, 4 and 5](../docs/classics/euclid-V.md) delimit multiples,
+comparability and general ratio language. Both HTML originals were retrieved on 9 October
 2026 and are preserved with checksums and reading-coverage companions.
 This is an editorial interpretation of classical exhaustion, not an asserted
 Newton textual dependency or an axiom of curved-area existence. Rational
 coordinates and finite sums remain; the assigned curved area need not be
-rational. General magnitude ratios and nonrational model realization are
-not constructed by this increment.
+rational. Integer-multiple unit-ratio comparisons for all three areas are
+now derived here under explicit order compatibility and a geometrically
+derived eventual positive bracket. Exact finite V.5 equality, full ratio
+calculus and nonrational model realization are not constructed.
 
 ## Archived edited reprint
 

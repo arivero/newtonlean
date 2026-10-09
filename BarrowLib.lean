@@ -22,6 +22,9 @@ Polygon/MagnitudeContent.lean quotes Euclid X.1 in Greek and exposes its
 unit-halving specialization as a supplied premise for comparable area
 magnitudes. Its pullback and approximation proofs have explicit project
 provenance; their Barrow classification follows the rational dependencies.
+Its integer-multiple comparisons use the language of Euclid V.2/V.5, quoted
+in Greek, with explicit supplied order/addition compatibility. The sequence
+limit theorem is derived here; no full Eudoxian ratio calculus is claimed.
 Exact original-language attributions for other borrowed results remain to be verified individually;
 successful compilation alone does not establish that source coverage. -/
 

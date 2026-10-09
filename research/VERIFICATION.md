@@ -133,6 +133,20 @@ kernel and rational arithmetic and do not establish general area existence.
 The Greek X.1 and V.4–5 archive companions record the selected reading and
 the exact classical-premise/source boundary.
 
+The same harness also checks the integer-multiple unit-ratio extension of
+both editions' Lemmas II/III. Its dyadic identity patch has zero first lower
+sum and a positive interior rectangle; all four general assigned-magnitude
+clients compile and a returned tail yields an actual 2:3 comparison.
+Equal positive constants pass. Zero/zero, constant ratio 1:2 and shrinking
+areas with ratio 1:2 are rejected; the last case has a proved vanishing gap.
+Compiled traversal requires the shared bracket derivation, multiple-order
+proofs and explicit compatibility laws, rejecting foreign witnesses and
+ModernLib. The supplied order laws have a rational realization and contain
+no ratio convergence premise. A bounded sequential Sol review found no
+invalid implication. The result concerns eventual comparisons for each fixed
+unequal positive integer pair, not exact finite Euclid V.5 equality, a full
+ratio calculus, a separate abstract `positive A` conclusion or area existence.
+
 ```sh
 for check in research/verification/*.lean; do
   lake env lean "$check" || exit 1
