@@ -10,7 +10,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7
 Anchor URLs: NATP00077.par7 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7
-Proof-step correspondence: The edition's Lemma III derives lower/upper area errors for a separately assigned rational curved area under explicit area rules. Its rectangle-endpoint-cover approximation now bounds explicit horizontal tops and vertical joins of the left/right-ordinate rectangle constructions. The lower trace excludes the spurious final rise above its last rectangle. Both free step-edge traces belong to their actual rectangle unions and approach the given rational graph in both directions under supplied uniform continuity and shrinking mesh. Fixed baseline and endpoint sides are omitted. This graph-patch and regularity interpretation is editorial (confidence high), not an exact coordinate quotation; general curved-area existence and unrestricted magnitudes remain open.
+Proof-step correspondence: The edition's Lemma III derives lower/upper area errors for a separately assigned rational curved area under explicit area rules. Its rectangle-endpoint-cover approximation now bounds explicit horizontal tops and vertical joins of the left/right-ordinate rectangle constructions. The lower trace excludes the spurious final rise above its last rectangle. Both free step-edge traces belong to their actual rectangle unions and approach the given rational graph in both directions under supplied uniform continuity and shrinking mesh. Fixed baseline and endpoint sides are omitted. This graph-patch and regularity interpretation is editorial (confidence high), not an exact coordinate quotation; general curved-area existence and unrestricted coordinate/ratio scope remain open. A separately labeled project extension below uses this edition’s Lemma III to approximate any supplied area magnitude through addition and comparison under explicit X.1 halving and geometric area rules.
 Historical dependency ledger for this exact witness:
 - P1687.L3 → P1687.L3C1; passage NATP00077.par7; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7; status implicit_dependency; confidence high.
 -/
@@ -77,6 +77,21 @@ theorem corollary1_staircase_boundaries (g : Fraction → Fraction) (a b : Fract
     fun m x => ⟨RationalBoundary.lower_staircase_in_figure g (parts m) hg hbase x,
       RationalBoundary.upper_staircase_in_figure g (parts m) hg hbase x⟩⟩
 
+/-- The edition's Lemma III now approximates any supplied area magnitude,
+without requiring it to be a rational image. The classical halving and
+geometric area premises are visible in the rules. This coordinate extension
+is a project derivation; no curved-area existence or general ratio theorem
+is asserted. -/
+theorem corollary1_magnitude_area_approximation {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    MagnitudeContent.Approximates area g a b A parts :=
+  (unequal_width_magnitude_approximation area g a b A parts hg hbase hA hmesh).1
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -85,7 +100,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8
 Anchor URLs: NATP00082.par8 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8
-Proof-step correspondence: The edition's Lemma III derives lower/upper area errors for a separately assigned rational curved area under explicit area rules. Its rectangle-endpoint-cover approximation now bounds explicit horizontal tops and vertical joins of the left/right-ordinate rectangle constructions. The lower trace excludes the spurious final rise above its last rectangle. Both free step-edge traces belong to their actual rectangle unions and approach the given rational graph in both directions under supplied uniform continuity and shrinking mesh. Fixed baseline and endpoint sides are omitted. This graph-patch and regularity interpretation is editorial (confidence high), not an exact coordinate quotation; general curved-area existence and unrestricted magnitudes remain open.
+Proof-step correspondence: The edition's Lemma III derives lower/upper area errors for a separately assigned rational curved area under explicit area rules. Its rectangle-endpoint-cover approximation now bounds explicit horizontal tops and vertical joins of the left/right-ordinate rectangle constructions. The lower trace excludes the spurious final rise above its last rectangle. Both free step-edge traces belong to their actual rectangle unions and approach the given rational graph in both directions under supplied uniform continuity and shrinking mesh. Fixed baseline and endpoint sides are omitted. This graph-patch and regularity interpretation is editorial (confidence high), not an exact coordinate quotation; general curved-area existence and unrestricted coordinate/ratio scope remain open. A separately labeled project extension below uses this edition’s Lemma III to approximate any supplied area magnitude through addition and comparison under explicit X.1 halving and geometric area rules.
 Historical dependency ledger for this exact witness:
 - P1713.L3 → P1713.L3C1; passage NATP00082.par8; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8; status implicit_dependency; confidence high.
 -/
@@ -150,5 +165,20 @@ theorem corollary1_staircase_boundaries (g : Fraction → Fraction) (a b : Fract
       (fun m => RationalBoundary.upper_staircase_in_rectangles g (parts m)),
     fun m x => ⟨RationalBoundary.lower_staircase_in_figure g (parts m) hg hbase x,
       RationalBoundary.upper_staircase_in_figure g (parts m) hg hbase x⟩⟩
+
+/-- The edition's Lemma III now approximates any supplied area magnitude,
+without requiring it to be a rational image. The classical halving and
+geometric area premises are visible in the rules. This coordinate extension
+is a project derivation; no curved-area existence or general ratio theorem
+is asserted. -/
+theorem corollary1_magnitude_area_approximation {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    MagnitudeContent.Approximates area g a b A parts :=
+  (unequal_width_magnitude_approximation area g a b A parts hg hbase hA hmesh).1
 
 end Principia1713.LemmaIII

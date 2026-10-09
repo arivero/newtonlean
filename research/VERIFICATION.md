@@ -113,6 +113,26 @@ witness-specific wording.
 
 ## Proof scope controls
 
+`magnitude-content-2026-10-09.lean` checks the enlarged assigned-area domain
+of both editions' Lemmas II/III and Corollary I. Actual dyadic identity-graph
+partitions realize the geometric/mesh premises for arbitrary supplied `A : Q`,
+without an image-of-rationals assumption. The legacy adapter preserves the
+partial area relation, accepts unreduced rational displays, and proves
+zero-height approximation from the rectangle rule alone. A fixed-gap
+enclosure is rejected as nonconvergent; a lexicographic infinitesimal control
+rejects unit-halving exhaustion without the classical condition. The latter
+is a comparison counterexample, not a model of every area rule.
+Compiled traversal requires the edition's own enclosure, exhaustion and
+Lemma I, the reused finite area proof and `Rules.unit_halves_exhaust`; foreign
+witnesses and ModernLib owners are rejected. Only the rational magnitude
+model is realized. The arbitrary magnitude domain and geometric area
+convention remain supplied, with no constructed nonrational area model or
+general magnitude-ratio theorem. A bounded sequential Sol review found no
+blocking issue in the pullback and comparison proof. These checks share the
+kernel and rational arithmetic and do not establish general area existence.
+The Greek X.1 and V.4–5 archive companions record the selected reading and
+the exact classical-premise/source boundary.
+
 ```sh
 for check in research/verification/*.lean; do
   lake env lean "$check" || exit 1

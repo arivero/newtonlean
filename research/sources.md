@@ -47,6 +47,20 @@ the milestone/source notes and historical Lean sections for source-linked
 Euclidean, conic, contact and mechanical premises and checked proof boundaries.
 Source hashes record byte identity, not source truth or proof verification.
 
+## Classical magnitude premises
+
+The Greek [Euclid X.1 transcription](../docs/classics/euclid-X1.md), including
+its exact-halves closing sentence, supplies the explicitly conditional
+`MagnitudeContent.Rules.unit_halves_exhaust` specialization. The Greek
+[Book V definitions 4–5](../docs/classics/euclid-V.md) delimit comparability
+and general ratio language. Both HTML originals were retrieved on 9 October
+2026 and are preserved with checksums and reading-coverage companions.
+This is an editorial interpretation of classical exhaustion, not an asserted
+Newton textual dependency or an axiom of curved-area existence. Rational
+coordinates and finite sums remain; the assigned curved area need not be
+rational. General magnitude ratios and nonrational model realization are
+not constructed by this increment.
+
 ## Archived edited reprint
 
 The retained [Rouse Ball extract](../docs/m1/rouse-ball-demotu-pp35-37.pdf)

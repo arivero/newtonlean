@@ -5,8 +5,9 @@ The counts are produced from the compiled Lean environment by
 `research/CheckReferences.lean`; they are not a count of historical
 propositions and they are not additive across rows.
 
-The mathematical snapshot is `a116c87` (9 October 2026). This report's
-provenance review changes no theorem or completion estimate. The README
+The mathematical snapshot is the assigned-magnitude increment of 9 October
+2026, based on `f103e7f`. The README records why its completion estimates
+remain unchanged despite the enlarged conditional area domain. The README
 keeps the progress estimates and compact measurements; this file explains
 the kinds of result, their sources and the provenance coverage of the
 dependencies actually used.
@@ -24,23 +25,23 @@ There are three different quantities:
   not use, including available library theorems. The proof tree measures
   actual dependencies; the import tree measures availability.
 
-The current compiled cascade (9 October, explicit staircase-edge increment) is:
+The current compiled cascade (9 October, assigned-magnitude increment) is:
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 884 | 1777 |
+| `AreaLaw.lean` | 73 | 884 | 1786 |
 | `CompositionOfMotions.lean` | 13 | 48 | 169 |
 | `LawI.lean` | 0 | 0 | 97 |
 | `LawII.lean` | 0 | 0 | 83 |
 | `LawsCorollaryV.lean` | 4 | 45 | 124 |
 | `LawsCorollaryVI.lean` | 4 | 33 | 124 |
 | `LemmaI.lean` | 7 | 18 | 78 |
-| `LemmaII.lean` | 20 | 105 | 303 |
-| `LemmaIII.lean` | 14 | 149 | 427 |
-| `LemmaIII/CorollaryI.lean` | 6 | 98 | 473 |
-| `LemmaIII/CorollaryII.lean` | 2 | 70 | 475 |
-| `LemmaIII/CorollaryIII.lean` | 10 | 208 | 609 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 469 | 1354 |
+| `LemmaII.lean` | 24 | 112 | 323 |
+| `LemmaIII.lean` | 16 | 156 | 436 |
+| `LemmaIII/CorollaryI.lean` | 8 | 112 | 484 |
+| `LemmaIII/CorollaryII.lean` | 2 | 70 | 486 |
+| `LemmaIII/CorollaryIII.lean` | 10 | 208 | 620 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 469 | 1365 |
 | `LemmaX.lean` | 4 | 14 | 67 |
 | `LemmaX/CorollaryI.lean` | 2 | 14 | 77 |
 | `LemmaX/CorollaryII.lean` | 4 | 24 | 79 |
@@ -51,7 +52,7 @@ The current compiled cascade (9 October, explicit staircase-edge increment) is:
 | `PropositionIII.lean` | 0 | 0 | 45 |
 | `PropositionIV.lean` | 0 | 0 | 64 |
 | `ClassicsLib` | 16 | 16 | 26 |
-| `BarrowLib` | 983 | 983 | 983 |
+| `BarrowLib` | 986 | 986 | 986 |
 | `ModernLib` | 1157 | 1496 | 1689 |
 
 The README additionally lists line counts and the individual classical files.
@@ -100,9 +101,9 @@ source. Source witnesses for every historical file remain in the next table.
 | `LawsCorollaryV.lean` | 0 | 0 | 0 | 45 | 45 |
 | `LawsCorollaryVI.lean` | 0 | 0 | 0 | 33 | 33 |
 | `LemmaI.lean` | 0 | 7 | 0 | 11 | 18 |
-| `LemmaII.lean` | 0 | 20 | 7 | 78 | 105 |
-| `LemmaIII.lean` | 0 | 18 | 7 | 124 | 149 |
-| `LemmaIII/CorollaryI.lean` | 0 | 10 | 8 | 80 | 98 |
+| `LemmaII.lean` | 0 | 20 | 14 | 78 | 112 |
+| `LemmaIII.lean` | 0 | 18 | 14 | 124 | 156 |
+| `LemmaIII/CorollaryI.lean` | 0 | 12 | 17 | 83 | 112 |
 | `LemmaIII/CorollaryII.lean` | 0 | 2 | 0 | 68 | 70 |
 | `LemmaIII/CorollaryIII.lean` | 0 | 10 | 0 | 198 | 208 |
 | `LemmaIII/CorollaryIV.lean` | 0 | 2 | 0 | 467 | 469 |
@@ -122,12 +123,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionIX20.lean` | 1 | 3 | 2 | 0 | 6 |
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib` | 1 | 7 | 8 | 0 | 16 |
-| `BarrowLib` | 0 | 0 | 15 | 968 | 983 |
+| `BarrowLib` | 0 | 0 | 18 | 968 | 986 |
 | `ModernLib` | 0 | 2 | 0 | 1494 | 1496 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **76 of 2336
-theorems: 1 S, 44 R and 31 P; 2260 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **87 of 2347
+theorems: 1 S, 44 R and 42 P; 2260 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.
@@ -153,9 +154,9 @@ they do not inherit the full scope of a historical sentence automatically.
 | [LawsCorollaryV](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | Relative-state preservation at finite cell boundaries under shared time and relative-state impulse rules. The manuscript statement is a supplied law. | 3: NATP00090, 1687, 1713 |
 | [LawsCorollaryVI](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | Common calibrated changes preserve mutual states at cell boundaries; continuous forcing and absolute-state force rules are outside the model. | 2: 1687, 1713 |
 | [LemmaI](NewtonLimitDynamics/Historical/LemmaI.lean) | Ordered exhaustion contradiction with explicit approach and terminal-comparison premises; manuscript enclosing-ratio step kept separate. | 3: 1687, 1713, NATP00090 |
-| [LemmaII](NewtonLimitDynamics/Historical/LemmaII.lean) | Equal-width finite rectangle areas, gap exhaustion and mutual ratios, including positive-interior zero-base patches on a tail. Assigned curved-area statements retain that premise. | 2: 1687, 1713 |
-| [LemmaIII](NewtonLimitDynamics/Historical/LemmaIII.lean) | Unequal-width counterparts using the same edition's Lemmas I/II and supplied shrinking mesh; modern completion is separate. | 2: 1687, 1713 |
-| [LemmaIII Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | Assigned-area error decay and two-sided approximation of explicit free staircase tops/vertical joins under continuity/mesh premises. The traces lie in their actual rectangle unions; fixed sides are omitted. | 2: 1687, 1713 |
+| [LemmaII](NewtonLimitDynamics/Historical/LemmaII.lean) | Equal-width rectangle areas, gap exhaustion and finite mutual ratios, including positive-interior zero-base tails. Any assigned curved-area magnitude is now approximated under explicit X.1 halving and area rules; coordinates/sums stay rational. | 2: 1687, 1713 |
+| [LemmaIII](NewtonLimitDynamics/Historical/LemmaIII.lean) | Unequal-width counterparts using the same edition's Lemmas I/II, including the arbitrary assigned-magnitude extension and supplied shrinking mesh; modern completion is separate. | 2: 1687, 1713 |
+| [LemmaIII Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | Error decay for any supplied area magnitude under X.1 halving/area rules, and two-sided approximation of explicit free staircase tops/vertical joins under continuity/mesh premises. The traces belong to their actual rectangle unions; fixed sides are omitted. | 2: 1687, 1713 |
 | [LemmaIII Corollary II](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | Two-sided rational chord approximation; no area or arclength conclusion. | 2: 1687, 1713 |
 | [LemmaIII Corollary III](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | Supporting-tangent geometry and actual finite polygon area for concave increasing rational patches, with contact and area premises; tangent existence is not proved. | 2: 1687, 1713 |
 | [LemmaIII Corollary IV](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | Chord and tangent upper-boundary approximation in the stated rational domain; modern completed-curve results are separate. | 2: 1687, 1713 |
@@ -170,7 +171,7 @@ they do not inherit the full scope of a historical sentence automatically.
 | [PropositionIV](NewtonLimitDynamics/Historical/PropositionIV.lean) | Source correspondence and edition-specific limit obligations; imported modern finite sagitta support is not an edition-specific proof. | 2: 1687, 1713 |
 
 Three files mix primary and anachronical theorem declarations: `AreaLaw`
-has 57 primary and 16 anachronical, `LemmaIII` has 12 and 2, and its
+has 57 primary and 16 anachronical, `LemmaIII` has 14 and 2, and its
 `CorollaryIV` has 6 and 6. These are section counts, checked against their own
 theorem totals; the compiled reference checker separately verifies dependency
 taint. Their whole-file proof trees include both sections, so those aggregate
@@ -188,6 +189,7 @@ current cascades:
 | --- | --- | --- |
 | Lemma I | [Magnitudes](BarrowLib/Common/Quadratic.lean), `VanishingDifference`, `TerminalLower`; positive duration in the before-end version | The ordered contradiction; rational terminal zero when nonnegativity is supplied. No terminal object is constructed. |
 | Lemmas II/III and area corollaries | [AreaRules](BarrowLib/Polygon/RectangleContent.lean): partial `HasArea`, rectangle normalization, vertical-cut additivity, congruence and monotonicity; shrinking mesh; a separate `HasArea` premise when a curved area is used | Finite rectangle areas and their geometric enclosures, gap exhaustion, and the stated conditional error/ratio conclusions. General curved-area existence is outside these results. |
+| Assigned-magnitude extension | [MagnitudeContent.AreaRules and Rules](BarrowLib/Polygon/MagnitudeContent.lean): partial area convention, order/addition/rational embedding, positive unit and the sourced `unit_halves_exhaust` premise | The rational pullback reuses finite rectangle geometry. Exhaustion transfers to the supplied domain and gives comparison error bounds for arbitrary assigned `A : Q`. No nonrational model, curved-area existence or general magnitude-ratio theorem is constructed. |
 | Boundary corollaries | [UniformOn](BarrowLib/Polygon/RationalBoundary.lean), shrinking mesh, and supporting/contact data where needed | Two-sided approximation of the stated traces. Tangent existence and arclength are not inferred. |
 | Motion composition and laws' corollaries | [InertialMotion](NewtonLimitDynamics/Historical/LawI.lean), [AdditiveImpulse / CalibratedChange](NewtonLimitDynamics/Historical/LawII.lean), shared time and the displayed update rules | Endpoint geometry and finite motion consequences under those laws. The physical laws remain premises. |
 | Local Proposition I area law | Given curve; [MotionSampling.Conditions and RadialChart](BarrowLib/Polygon/MotionSampling.lean); the displayed area assignment/convention | The conditional local swept-sector law and the stated mechanical approximation controls. General area existence and unrestricted historical scope remain open. |
@@ -195,9 +197,9 @@ current cascades:
 There are no project `axiom` declarations in the checked mathematical snapshot;
 safe proofs use only Lean's standard `propext`, `Classical.choice` and
 `Quot.sound`. This is compatible with the explicit mathematical inputs above.
-A future sourced classical axiom or supplied exhaustion rule would need its
-own visible premise and exact source, rather than being hidden in a theorem
-count or treated as a discharged goal.
+The classical exhaustion specialization is a visible field of the supplied
+rules, with its exact Greek source. It is not counted as a proved theorem or
+treated as a discharged goal for arbitrary magnitude domains.
 
 ## Source versus project authorship
 
@@ -210,13 +212,14 @@ own statement and proof are explicitly presented as a project derivation.
 
 | Cascade component | Exact source witnesses | Theorems and provenance boundary |
 | --- | ---: | ---: |
-| `LemmaII.lean` | 2 edition witness sections (1687, 1713) | 20 formal declarations; 4 interior-rectangle extensions are explicitly editorial reconstructions |
-| `LemmaIII.lean` | 2 edition witness sections (1687, 1713) | 14 formal declarations; 2 interior-rectangle extensions are explicitly editorial reconstructions |
-| `LemmaIII/CorollaryI.lean` | 2 edition witness sections (1687, 1713) | 6 formal declarations; 2 staircase clients are explicit editorial coordinate reconstructions |
+| `LemmaII.lean` | 2 edition witness sections (1687, 1713) | 24 formal declarations; 4 magnitude and 4 interior-rectangle extensions are explicitly editorial reconstructions |
+| `LemmaIII.lean` | 2 edition witness sections (1687, 1713) | 16 formal declarations; 2 magnitude and 2 interior-rectangle extensions are explicitly editorial reconstructions |
+| `LemmaIII/CorollaryI.lean` | 2 edition witness sections (1687, 1713) | 8 formal declarations; 2 magnitude and 2 staircase clients are explicit editorial coordinate reconstructions |
 | `ClassicsLib` | 5 source-linked result files; `FiniteLattice` is support | 16 formal declarations; determinant interpretations and Aristotle's proof reconstruction are qualified in their files |
 | Prior `BarrowLib` support | Euclid I.41 is background for supplied area rules | 968 prior theorems; exact sourced/authored split has not been verified and is not inferred from the library name |
 | Zero-base/tail-ratio support since `1a20c9d` | 0 exact external result claims | 9 explicit project derivations, 5 public and 4 private; no historical priority claims |
 | Explicit staircase support | 0 exact external result claims | 6 public project derivations: two node inclusions, two endpoint-box inclusions and two actual rectangle-union inclusions |
+| Assigned-magnitude support | Euclid X.1 exact-halves clause supports one supplied premise; V.4–5 are context | 3 shared project theorems and 8 edition-local extensions; the source premise is not added to the sourced-theorem count |
 | `ModernLib` | No exact original-language result is established by this aggregate row | 1157 formal declarations; exact sourced/authored split remains unverified |
 
 The two Lemma II and two Lemma III witness sections preserve their separate
@@ -263,10 +266,11 @@ form a completely inspected, disjoint slice:
 | BarrowLib zero-base/tail support since `1a20c9d` | 0 | 9 | 0 |
 | BarrowLib staircase support | 0 | 6 | 0 |
 | New Corollary I staircase clients | 0 | 2 | 0 |
-| Total of these additions | 0 | 23 | 0 |
+| New magnitude support and edition clients | 0 | 11 | 0 |
+| Total of these additions | 0 | 34 | 0 |
 
 “Project derivation” identifies the provenance of the exact statement and
-proof, not mathematical novelty. These 23 declarations are not 23 historical
+proof, not mathematical novelty. These 34 declarations are not 34 historical
 lemmas, and not all are used by every client. Older declarations and their
 transitive source attributions are outside this inspected slice. Future
 cascade censuses must deduplicate actual compiled dependencies and retain an
@@ -291,13 +295,14 @@ locations.
 | [Aristotle comparison](ClassicsLib/Aristotle/SquareRootTwo.lean) | 0 | 2 | 2 | `no_natural_ratio_square_two` and `no_integer_ratio_square_two` reconstruct the attested parity contradiction. `even_of_even_square` and `halve_square_equation` expose the arithmetic steps; the exact descent is not attributed to Aristotle. |
 | [Finite lattice controls](ClassicsLib/Euclid/FiniteLattice.lean) | 0 | 0 | 4 | The four named orientation, degeneracy and repeated-coverage controls are concrete statements checked here; anonymous examples are excluded. |
 | [Lemma I](NewtonLimitDynamics/Historical/LemmaI.lean) | 0 | 7 | 0 | Six printed-edition ordered-exhaustion/terminal-zero formulations and one separately qualified NATP00090 enclosing-ratio reconstruction. Explicit interfaces qualify the source correspondence. |
-| [Lemma II](NewtonLimitDynamics/Historical/LemmaII.lean) | 0 | 16 | 4 | Eight source-related rational formulations per printed edition; the two explicitly editorial interior-rectangle extensions per edition are P. |
-| [Lemma III](NewtonLimitDynamics/Historical/LemmaIII.lean) | 0 | 10 | 2 | Five primary unequal-width reconstructions and one interior extension per edition. The two anachronical completed-enclosure theorems remain U in this source census. |
-| [Lemma III Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 0 | 4 | 2 | Area and rectangle-cover reconstructions in each edition are R; the two explicit staircase-edge clients are P. |
+| [Lemma II](NewtonLimitDynamics/Historical/LemmaII.lean) | 0 | 16 | 8 | Eight source-related rational formulations per printed edition; the two interior-rectangle and two assigned-magnitude extensions per edition are P. |
+| [Lemma III](NewtonLimitDynamics/Historical/LemmaIII.lean) | 0 | 10 | 4 | Five source-related unequal-width reconstructions, one interior extension and one assigned-magnitude extension per edition. The two anachronical completed-enclosure theorems remain U in this source census. |
+| [Lemma III Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 0 | 4 | 4 | Area and rectangle-cover reconstructions in each edition are R; the two staircase-edge and two assigned-magnitude clients are P. |
 | [MonotoneRectangles](BarrowLib/Polygon/MonotoneRectangles.lean), selected additions | 0 | 0 | 6 | `exists_positive_width_from_aux`, `exists_positive_width_from`, `interval_left_gap_le_total`, `interval_right_gap_le_total`, `lower_sum_eventually_positive`, `upper_sum_eventually_positive`; the first four are private. |
 | [RectangleContent](BarrowLib/Polygon/RectangleContent.lean), selected additions | 0 | 0 | 3 | `varying_ratios_approach_one_eventually`, `rectangle_interior_denominator_bound`, `rectangle_mutual_ratios_interior`. |
 | [RationalBoundary](BarrowLib/Polygon/RationalBoundary.lean), selected additions | 0 | 0 | 6 | The lower/upper pairs `nodes_in_*_staircase`, `*_staircase_in_rectangles` and `*_staircase_in_figure`. |
-| Distinct reviewed declarations | 1 | 44 | 31 | 76 theorem declarations; these owning groups are disjoint. |
+| [MagnitudeContent](BarrowLib/Polygon/MagnitudeContent.lean) | 0 | 0 | 3 | `curved_area_enclosure`, `rational_exhaustion`, `errors_vanish`; X.1 is a separate supplied premise, not a proved theorem declaration here. |
+| Distinct reviewed declarations | 1 | 44 | 42 | 87 theorem declarations; these owning groups are disjoint. |
 
 These classifications were intersected with the actual compiled dependency
 closures to obtain the per-cascade table. Shared dependencies were counted
@@ -306,10 +311,10 @@ partition was checked against the existing compiled proof-tree total. The
 README count checker verifies the totals automatically; the source
 classifications in this Markdown report are a bounded manual review.
 
-This also explains why the 23 recent project derivations are not added to
-every cascade. Seven occur in Lemma II's proof tree, seven in Lemma III's,
-and eight in Corollary I's; none occurs in the current `AreaLaw` proof tree.
-The latter's P=0 only concerns the 31 inspected project derivations, while
+This also explains why the 34 recent project derivations are not added to
+every cascade. Fourteen occur in Lemma II's proof tree, fourteen in Lemma III's,
+and seventeen in Corollary I's; none occurs in the current `AreaLaw` proof tree.
+The latter's P=0 only concerns the 42 inspected project derivations, while
 older internally derived support can remain among its 878 U entries.
 
 When the mathematical snapshot changes, refresh the compiled totals and
@@ -318,9 +323,9 @@ only after checking their exact source or their explicit project derivation;
 leave the remaining nodes U. This keeps provenance coverage separate from
 the README's estimates of remaining proof work.
 
-No new classical or Barrow-era axiom was introduced for this increment. If a
-future reduction in theorem proliferation uses an axiom, it must be declared
-explicitly, placed in the correct historical library, and accompanied by an
-original-language passage stating that exact premise. It must also remain
-visible in the compiled dependency and provenance checks; an unattributed
-convenience axiom would not count as historical progress.
+The new classical premise is the unit-halving specialization of
+[Euclid X.1](docs/classics/euclid-X1.md). It is supplied explicitly in the
+area-magnitude rules and verified in their rational realization, with no
+new Lean `axiom` declaration. The pullback and the eleven proved extensions
+remain project derivations. [V.4–5](docs/classics/euclid-V.md) delimit the
+comparability and ratio scope; they supply no general area-existence premise.

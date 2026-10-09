@@ -8,3 +8,5 @@
 /docs/m1/NATP00081_*.html -diff
 /docs/time/THEM00092.xml -diff
 /docs/time/THEM00092_*.html -diff
+# Archived Greek transcriptions retain their downloaded bytes.
+/docs/classics/*.html -diff -text

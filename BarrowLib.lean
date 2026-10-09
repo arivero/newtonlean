@@ -17,8 +17,12 @@ Polygon/TriangleContent.lean states the precise supplied area convention.
 These passages do not state the coordinate constructions proved here.
 SectorFan, TriangleContent, FanDifference, BoxCoverArea and AreaDomain record
 their own English statements and checked project derivations as provenance,
-without external exact-result or priority claims. Exact original-language
-attributions for other borrowed results remain to be verified individually;
+without external exact-result or priority claims.
+Polygon/MagnitudeContent.lean quotes Euclid X.1 in Greek and exposes its
+unit-halving specialization as a supplied premise for comparable area
+magnitudes. Its pullback and approximation proofs have explicit project
+provenance; their Barrow classification follows the rational dependencies.
+Exact original-language attributions for other borrowed results remain to be verified individually;
 successful compilation alone does not establish that source coverage. -/
 
 import BarrowLib.Common.FiniteGrowth
@@ -54,6 +58,7 @@ import BarrowLib.Polygon.IntegerSchedule
 import BarrowLib.Polygon.KinematicEstimates
 import BarrowLib.Polygon.LatticeGeometry
 import BarrowLib.Polygon.MonotoneRectangles
+import BarrowLib.Polygon.MagnitudeContent
 import BarrowLib.Polygon.MotionSampling
 import BarrowLib.Polygon.MotionSectorCover
 import BarrowLib.Polygon.MotionCurveCover

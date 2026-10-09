@@ -1,5 +1,6 @@
 import BarrowLib.Polygon.MonotoneRectangles
 import BarrowLib.Polygon.RectangleContent
+import BarrowLib.Polygon.MagnitudeContent
 import NewtonLimitDynamics.Historical.LemmaI
 
 /-! Historical result: lemma_ii.
@@ -12,7 +13,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par3
 Anchor URLs: NATP00077.par3 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par3; NATP00077.par4 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4
-Proof-step correspondence: The finite equal-width gap is identified with the difference of actual rectangle-union areas under explicit elementary area rules. Shrinking mesh derives exhaustion; the edition's Lemma I excludes a positive supplied terminal gap. On a nonzero interval with positive starting ordinate, a finite base rectangle derives a uniform positive lower bound for both varying areas, and their mutual ratio errors vanish without assigning a curved area. A separately assigned rational curvilinear area is also enclosed and approximated. An interior positive ordinate now also derives a fixed positive denominator bound and mutual-ratio convergence on an actual tail, allowing an initially zero lower sum. The positive-patch restriction and interior-rectangle extension are editorial coordinate interpretations (confidence high); general area existence and unrestricted magnitudes remain open.
+Proof-step correspondence: The finite equal-width gap is identified with the difference of actual rectangle-union areas under explicit elementary area rules. Shrinking mesh derives exhaustion; the edition's Lemma I excludes a positive supplied terminal gap. On a nonzero interval with positive starting ordinate, a finite base rectangle derives a uniform positive lower bound for both varying areas, and their mutual ratio errors vanish without assigning a curved area. A separately assigned rational curvilinear area is also enclosed and approximated. An interior positive ordinate now also derives a fixed positive denominator bound and mutual-ratio convergence on an actual tail, allowing an initially zero lower sum. The positive-patch restriction and interior-rectangle extension are editorial coordinate interpretations (confidence high); general area existence, non-rational coordinate geometry and general magnitude ratios remain open. A separately labeled project extension below permits an arbitrary assigned area magnitude through explicit X.1 halving and geometric area rules, retaining this edition’s enclosure, gap exhaustion and Lemma I.
 Historical dependency ledger for this exact witness:
 - P1687.L1 → P1687.L2; passage NATP00077.par4; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4; status explicit_dependency; confidence high.
 -/
@@ -196,6 +197,43 @@ theorem equal_width_mutual_area_ratios_interior (area : RectangleContent.AreaRul
   rectangle_mutual_ratios_from_gap_interior area g a b c parts hg hbase hac hcb hgc
     (equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh)
 
+/-- The edition's rectangle enclosure with an arbitrary assigned area
+magnitude. This is an editorial extension of the rational-coordinate model;
+the geometric area convention is still supplied. -/
+theorem rectangle_magnitude_enclosure {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q) (p : MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
+    area.magnitudes.order.le (area.magnitudes.embed (MonotoneRectangles.lowerSum g p)) A ∧
+      area.magnitudes.order.le A (area.magnitudes.embed (MonotoneRectangles.upperSum g p)) :=
+  MagnitudeContent.curved_area_enclosure area g a b A p hg hbase hA
+
+/-- Equal-width approximation no longer requires the assigned curved area to
+be rational. The supplied magnitude rules expose Euclid X.1's halving premise.
+This edition's gap exhaustion and Lemma I exclude a positive terminal gap.
+Coordinates, mesh and finite area sums remain rational; no area exists by fiat.
+The exact extended statement and derivation are project provenance. -/
+theorem equal_width_magnitude_approximation {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) (mesh : Nat → Fraction)
+    (hwidth : ∀ m i, i < (parts m).count →
+      Fraction.equiv (MonotoneRectangles.width (parts m) i) (mesh m))
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes mesh) :
+    MagnitudeContent.Approximates area g a b A parts ∧
+    ∀ D : Q, Exhaustion.TerminalLower area.magnitudes.order
+      (fun m => area.magnitudes.embed (MonotoneRectangles.gap g (parts m))) D →
+      ¬ area.magnitudes.order.positive D := by
+  have hgap := equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh
+  exact ⟨⟨fun m => RectangleContent.lower_upper_areas
+      (MagnitudeContent.rationalAreas area) g a b (parts m) hg hbase,
+    MagnitudeContent.errors_vanish area.magnitudes _ _ A
+      (fun m => rectangle_magnitude_enclosure area g a b A (parts m) hg hbase hA) hgap⟩,
+    fun D hterminal => Principia1687.LemmaI.no_positive_ultimate_difference
+      area.magnitudes.order _ D
+      (MagnitudeContent.rational_exhaustion area.magnitudes _ hgap) hterminal⟩
+
 end Principia1687.LemmaII
 
 /-! 1713. Equal-width gap identity in an explicit rational monotone graph model. -/
@@ -204,7 +242,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par4
 Anchor URLs: NATP00082.par4 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par4; NATP00082.par5 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5
-Proof-step correspondence: The finite equal-width gap is identified with the difference of actual rectangle-union areas under explicit elementary area rules. Shrinking mesh derives exhaustion; the edition's Lemma I excludes a positive supplied terminal gap. On a nonzero interval with positive starting ordinate, a finite base rectangle derives a uniform positive lower bound for both varying areas, and their mutual ratio errors vanish without assigning a curved area. A separately assigned rational curvilinear area is also enclosed and approximated. An interior positive ordinate now also derives a fixed positive denominator bound and mutual-ratio convergence on an actual tail, allowing an initially zero lower sum. The positive-patch restriction and interior-rectangle extension are editorial coordinate interpretations (confidence high); general area existence and unrestricted magnitudes remain open.
+Proof-step correspondence: The finite equal-width gap is identified with the difference of actual rectangle-union areas under explicit elementary area rules. Shrinking mesh derives exhaustion; the edition's Lemma I excludes a positive supplied terminal gap. On a nonzero interval with positive starting ordinate, a finite base rectangle derives a uniform positive lower bound for both varying areas, and their mutual ratio errors vanish without assigning a curved area. A separately assigned rational curvilinear area is also enclosed and approximated. An interior positive ordinate now also derives a fixed positive denominator bound and mutual-ratio convergence on an actual tail, allowing an initially zero lower sum. The positive-patch restriction and interior-rectangle extension are editorial coordinate interpretations (confidence high); general area existence, non-rational coordinate geometry and general magnitude ratios remain open. A separately labeled project extension below permits an arbitrary assigned area magnitude through explicit X.1 halving and geometric area rules, retaining this edition’s enclosure, gap exhaustion and Lemma I.
 Historical dependency ledger for this exact witness:
 - P1713.L1 → P1713.L2; passage NATP00082.par5; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5; status explicit_dependency; confidence high.
 -/
@@ -387,5 +425,42 @@ theorem equal_width_mutual_area_ratios_interior (area : RectangleContent.AreaRul
       (fun m => MonotoneRectangles.upperSum g (parts m)) :=
   rectangle_mutual_ratios_from_gap_interior area g a b c parts hg hbase hac hcb hgc
     (equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh)
+
+/-- The edition's rectangle enclosure with an arbitrary assigned area
+magnitude. This is an editorial extension of the rational-coordinate model;
+the geometric area convention is still supplied. -/
+theorem rectangle_magnitude_enclosure {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q) (p : MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
+    area.magnitudes.order.le (area.magnitudes.embed (MonotoneRectangles.lowerSum g p)) A ∧
+      area.magnitudes.order.le A (area.magnitudes.embed (MonotoneRectangles.upperSum g p)) :=
+  MagnitudeContent.curved_area_enclosure area g a b A p hg hbase hA
+
+/-- Equal-width approximation no longer requires the assigned curved area to
+be rational. The supplied magnitude rules expose Euclid X.1's halving premise.
+This edition's gap exhaustion and Lemma I exclude a positive terminal gap.
+Coordinates, mesh and finite area sums remain rational; no area exists by fiat.
+The exact extended statement and derivation are project provenance. -/
+theorem equal_width_magnitude_approximation {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) (mesh : Nat → Fraction)
+    (hwidth : ∀ m i, i < (parts m).count →
+      Fraction.equiv (MonotoneRectangles.width (parts m) i) (mesh m))
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes mesh) :
+    MagnitudeContent.Approximates area g a b A parts ∧
+    ∀ D : Q, Exhaustion.TerminalLower area.magnitudes.order
+      (fun m => area.magnitudes.embed (MonotoneRectangles.gap g (parts m))) D →
+      ¬ area.magnitudes.order.positive D := by
+  have hgap := equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh
+  exact ⟨⟨fun m => RectangleContent.lower_upper_areas
+      (MagnitudeContent.rationalAreas area) g a b (parts m) hg hbase,
+    MagnitudeContent.errors_vanish area.magnitudes _ _ A
+      (fun m => rectangle_magnitude_enclosure area g a b A (parts m) hg hbase hA) hgap⟩,
+    fun D hterminal => Principia1713.LemmaI.no_positive_ultimate_difference
+      area.magnitudes.order _ D
+      (MagnitudeContent.rational_exhaustion area.magnitudes _ hgap) hterminal⟩
 
 end Principia1713.LemmaII
