@@ -154,26 +154,36 @@ example : ∃ N, ∀ m, N≤m →
       (c := (Fraction.ofInt 1).half) squareGraph dyadic (square_monotone _)
       (by decide) (by decide) (by decide) (by decide) dyadic_mesh)
 
--- The tail-ratio interface is independently inhabited on constant positive
--- sequences; it exposes the common-index proof without changing the existing
--- all-index `MutualRatiosOne` predicate.
-example : True := by
-  have h := RectangleContent.varying_ratios_approach_one_eventually
+-- A nonzero offset is returned and usable even with five initial zero terms.
+-- The old all-index predicate must reject the same sequences.
+private def delayed (m : Nat) : Fraction :=
+  if m<5 then Fraction.ofInt 0 else Fraction.ofInt 1
+private theorem delayed_ratios : RectangleContent.EventuallyMutualRatiosOne delayed delayed := by
+  apply RectangleContent.varying_ratios_approach_one_eventually
     (B := Fraction.ofInt 1) (hB := by decide)
-    (L := fun _ => Fraction.ofInt 1) (U := fun _ => Fraction.ofInt 1) (N := 0)
-    (hBL := by intro m hm; exact Fraction.magnitudes.le_refl _)
-    (hBU := by intro m hm; exact Fraction.magnitudes.le_refl _)
-    (hgap := by
-      intro d hd
-      refine ⟨0, fun m hm => ?_⟩
-      have hz : Fraction.equiv
-          (HarmonicTimeComparison.durationDifference
-            (Fraction.ofInt 1) (Fraction.ofInt 1)).abs
-          (Fraction.ofInt 0) := by decide
-      exact Fraction.magnitudes.lt_of_le_lt
-        (Fraction.le_of_equiv (Fraction.equiv_symm hz))
-        ((Fraction.positive_iff_zero_lt d).mp hd))
-  exact True.intro
+    (L := delayed) (U := delayed) (N := 5)
+  · intro m hm
+    simp only [delayed, if_neg (show ¬ m<5 by omega)]
+    exact Fraction.magnitudes.le_refl _
+  · intro m hm
+    simp only [delayed, if_neg (show ¬ m<5 by omega)]
+    exact Fraction.magnitudes.le_refl _
+  · intro d hd
+    refine ⟨0, fun m hm => ?_⟩
+    have hz : Fraction.equiv
+        (durationDifference (delayed m) (delayed m)).abs (Fraction.ofInt 0) := by
+      unfold delayed
+      split <;> decide
+    exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv hz)
+      ((Fraction.positive_iff_zero_lt d).mp hd)
+example : ∃ N, 0<(delayed N).num := by
+  obtain ⟨N,hL,_,_,_⟩ := delayed_ratios
+  exact ⟨N,by simpa using hL 0⟩
+example : ¬ RectangleContent.MutualRatiosOne delayed delayed := by
+  rintro ⟨hL,_,_,_⟩
+  have h := hL 0
+  change (0 : Int)<0 at h
+  omega
 
 -- A constructed, nonconstant curved example instantiates the whole reconstruction;
 -- no desired rectangle enclosure, area-gap budget or convergence is supplied.
@@ -312,6 +322,32 @@ example (area : RectangleContent.AreaRules) :
     ((Principia1713.LemmaIII.unequal_width_mutual_area_ratios area raisedGraph _ _ dyadic
       (raised_monotone _) (by decide) (by decide) dyadic_mesh).1 1).1
 
+-- All four edition clients handle the zero-base square with c=1/2.
+-- Its interior rectangle has area 1/8, hence the eventual bound is 1/16.
+example : Fraction.equiv
+    (Fraction.mul (durationDifference (Fraction.ofInt 1).half (Fraction.ofInt 1))
+      (squareGraph (Fraction.ofInt 1).half)).half (⟨1,16,by decide⟩ : Fraction) := by decide
+example (area : RectangleContent.AreaRules) : RectangleContent.EventuallyMutualRatiosOne
+    (fun m => lowerSum squareGraph (dyadic m)) (fun m => upperSum squareGraph (dyadic m)) :=
+  (Principia1687.LemmaII.equal_width_mutual_area_ratios_interior area squareGraph _ _
+    (Fraction.ofInt 1).half dyadic (square_monotone _) (by decide) (by decide)
+    (by decide) (by decide) _ (fun m i _ => grid_width m i) uniform_mesh).2
+example (area : RectangleContent.AreaRules) : RectangleContent.EventuallyMutualRatiosOne
+    (fun m => lowerSum squareGraph (dyadic m)) (fun m => upperSum squareGraph (dyadic m)) :=
+  (Principia1687.LemmaIII.unequal_width_mutual_area_ratios_interior area squareGraph _ _
+    (Fraction.ofInt 1).half dyadic (square_monotone _) (by decide) (by decide)
+    (by decide) (by decide) dyadic_mesh).2
+example (area : RectangleContent.AreaRules) : RectangleContent.EventuallyMutualRatiosOne
+    (fun m => lowerSum squareGraph (dyadic m)) (fun m => upperSum squareGraph (dyadic m)) :=
+  (Principia1713.LemmaII.equal_width_mutual_area_ratios_interior area squareGraph _ _
+    (Fraction.ofInt 1).half dyadic (square_monotone _) (by decide) (by decide)
+    (by decide) (by decide) _ (fun m i _ => grid_width m i) uniform_mesh).2
+example (area : RectangleContent.AreaRules) : RectangleContent.EventuallyMutualRatiosOne
+    (fun m => lowerSum squareGraph (dyadic m)) (fun m => upperSum squareGraph (dyadic m)) :=
+  (Principia1713.LemmaIII.unequal_width_mutual_area_ratios_interior area squareGraph _ _
+    (Fraction.ofInt 1).half dyadic (square_monotone _) (by decide) (by decide)
+    (by decide) (by decide) dyadic_mesh).2
+
 -- Degenerate patches have zero lower area, so the strict premises are needed.
 example : (lowerSum squareGraph (dyadic 0)).num = 0 := by decide
 example : (lowerSum (fun _ => Fraction.ofInt 5) zeroWidth).num = 0 := by decide
@@ -336,20 +372,20 @@ private theorem shrinking_ratio (m : Nat) (h : 0 < (doubled m).num) :
 example : (∀ m, 0 < (shrinking m).num ∧ 0 < (doubled m).num) ∧
     Exhaustion.VanishingDifference Fraction.magnitudes
       (fun m => (durationDifference (shrinking m) (doubled m)).abs) ∧
-    ¬ RectangleContent.MutualRatiosOne shrinking doubled := by
+    ¬ RectangleContent.EventuallyMutualRatiosOne shrinking doubled := by
   refine ⟨fun _ => ⟨by change (0 : Int) < 1; decide, by change (0 : Int) < 2; decide⟩, ?_, ?_⟩
   · intro eps heps
     obtain ⟨N,hN⟩ := uniform_mesh eps heps
     exact ⟨N,fun m hm => Fraction.magnitudes.lt_of_le_lt
       (Fraction.le_of_equiv (Fraction.equiv_trans (Fraction.abs_equiv (doubled_gap m))
         (Fraction.abs_of_nonnegative _ (by change (0 : Int) ≤ 1; decide)))) (hN m hm)⟩
-  · rintro ⟨_,hU,hsmall,_⟩
+  · rintro ⟨K,_,hU,hsmall,_⟩
     obtain ⟨N,hN⟩ := hsmall (Fraction.ofInt 1).half (by change (0 : Int) < 1; decide)
     have he : Fraction.equiv
-        (durationDifference (RectangleContent.ratioTo (doubled N) (hU N) (shrinking N))
+        (durationDifference (RectangleContent.ratioTo (doubled (K+N)) (hU N) (shrinking (K+N)))
           (Fraction.ofInt 1)).abs (Fraction.ofInt 1).half :=
       Fraction.equiv_trans (Fraction.abs_equiv
-        (difference_congr (shrinking_ratio N (hU N)) (Fraction.equiv_refl _))) (by decide)
+        (difference_congr (shrinking_ratio (K+N) (hU N)) (Fraction.equiv_refl _))) (by decide)
     exact Fraction.magnitudes.lt_irrefl _ (Fraction.magnitudes.lt_of_le_lt
       (Fraction.le_of_equiv (Fraction.equiv_symm he)) (hN N (Nat.le_refl _)))
 
@@ -376,7 +412,17 @@ run_elab do
             edition ++ `LemmaII.equal_width_gap_vanishes]),
         (edition ++ `LemmaIII.unequal_width_mutual_area_ratios,
           #[edition ++ `LemmaII.rectangle_mutual_ratios_from_gap,
-            edition ++ `LemmaIII.unequal_width_gap_vanishes])] do
+            edition ++ `LemmaIII.unequal_width_gap_vanishes]),
+        (edition ++ `LemmaII.equal_width_mutual_area_ratios_interior,
+          #[edition ++ `LemmaII.rectangle_mutual_ratios_from_gap_interior,
+            edition ++ `LemmaII.equal_width_gap_vanishes,
+            `NewtonLimitDynamics.Polygon.RectangleContent.rectangle_interior_denominator_bound,
+            `NewtonLimitDynamics.Polygon.RectangleContent.varying_ratios_approach_one]),
+        (edition ++ `LemmaIII.unequal_width_mutual_area_ratios_interior,
+          #[edition ++ `LemmaII.rectangle_mutual_ratios_from_gap_interior,
+            edition ++ `LemmaIII.unequal_width_gap_vanishes,
+            `NewtonLimitDynamics.Polygon.RectangleContent.rectangle_interior_denominator_bound,
+            `NewtonLimitDynamics.Polygon.RectangleContent.varying_ratios_approach_one])] do
       unless (env.find? root).isSome do throwError "missing mutual-ratio client {root}"
       let mut todo := #[root]
       let mut used : NameSet := {}
@@ -394,4 +440,4 @@ run_elab do
         let name := ((privateToUserName? dependency).getD dependency).toString
         if #[foreign, "DeMotu1684.", "ModernLib."].any name.startsWith then
           throwError "{root} uses forbidden witness/modern declaration {dependency}"
-  logInfo "Checked four mutual-ratio clients: own-edition reduction/exhaustion, no foreign witness or ModernLib."
+  logInfo "Checked eight mutual-ratio clients: own-edition reduction/exhaustion; interior clients derive a fixed bound and use the ratio proof; no foreign witness or ModernLib."

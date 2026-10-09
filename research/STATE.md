@@ -622,11 +622,11 @@ controls, now retained in the same harness. The review and controls share
 the rational definitions and Lean kernel; initial convention existence is
 still an explicit input.
 
-Last full verification: 9 October 2026, after the zero-base lower/upper-tail
-support increment. All five builds, all 36 positive scope harnesses
+Last full verification: 9 October 2026, after the zero-base mutual-ratio
+clients and tail-interface repair. All five builds, all 37 positive scope harnesses
 (including the harmonic reference/comparator), source hashes and whitespace
 passed. The compiled checker verified the README measurements, 1,181 score
-comments and 7,802 project constants with no project axioms, sorry or primary
+comments and 7,812 project constants with no project axioms, sorry or primary
 modern dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
@@ -639,8 +639,15 @@ proved FanDifference inclusion. The curve-cover clients additionally require
 their own mechanical/sample client, the derived collar-cell bound and full
 given-curve sector identification; the conditional B-area clients require
 their own curve-cover client. Foreign witnesses and ModernLib are excluded.
-The four new mutual-ratio clients must use their own edition's reduction and
+The eight mutual-ratio clients must use their own edition's reduction and
 gap exhaustion, with the same foreign-witness and ModernLib exclusions.
+The four interior-positive clients additionally traverse the derived fixed
+rectangle denominator bound and the existing mutual-ratio proof.
+A sequential Sol review found no defect in the new denominator/ratio argument
+and compiled an independent disposable proof extracting original-index
+positivity and an epsilon bound from the returned tail. It made no repository
+edits. The review and retained controls share the rational definitions and
+Lean kernel; the supplied geometric area convention remains an input.
 Sol's retained fan-inclusion controls force both crossing-index orders, a
 collapsed cell and the terminal-only branch. Astra's preceding review of
 the fan-difference increment, committed as `4db8758`, found no substantive
@@ -651,21 +658,27 @@ Unrestricted curves and construction of actual mechanical/curve difference
 areas remain open. The new conditional B-area decay is separate from Astra's
 earlier reviewed fan-difference increment.
 
-Next extend the new source-local Lemma II–III mutual-ratio clients to
-consume the zero-base support theorem on patches with a positive interior
-ordinate. `MonotoneRectangles.lower_sum_eventually_positive` now derives an
-eventual positive lower sum from finite partition coverage and the shrinking
-maximum-width premise; the retained square harness checks the zero-base case.
-The upper-sum tail now follows from the finite lower/upper ordering and is
-checked in the same harness.
-`RectangleContent.varying_ratios_approach_one_eventually` now packages the
-common-index ratio estimates once a fixed positive denominator bound is
-supplied; a constant-positive harness exercises that dependent interface.
-The positive-base case still derives both denominator bounds and both varying
-finite-area ratio errors without assigning a rational curved area. The new
-support theorem is not yet wired into the edition-local mutual-ratio clients,
-and the zero-base theorem still needs a uniform positive denominator bound plus
-an explicit historical wrapper and hypotheses.
+The zero-base Lemma II–III ratio obligation is now proved for nonnegative
+rational monotone patches with a positive ordinate at `a≤c<b`, under the
+existing explicit rectangle-area rules. The rectangle `[c,b]×[0,g(c)]` lies
+below each upper cover; its positive area `R` and the vanishing upper/lower
+gap derive the uniform eventual bound `R/2` on both sums. Both printed
+editions use their own exhaustion proof and their own Lemma II reduction to
+derive mutual ratios on an actual tail; initial lower sums may vanish.
+The earlier tail statement's `∃ M, ∀ hNM : N≤M, ...` permitted an unusable
+index. It is replaced by `∃ N, MutualRatiosOne (L(N+·)) (U(N+·))`, reusing the
+existing ratio proof rather than duplicating its calculation. The harness
+extracts a positive term after five initial zeros, applies all four new
+clients to the square patch, checks its rectangle half-area `1/16`, and rejects
+unit ratios for shrinking sequences with constant ratio `1/2` even after any
+tail restriction. The earlier finite/tail positivity results remain available.
+No curved area is assigned in this argument and no new axiom is introduced.
+General curved-area existence, arbitrary patches and non-rational magnitudes
+remain open. Next address Lemma III Corollary I's whole staircase boundary:
+the retained rectangle-endpoint cover is proved, but needs explicit geometric
+identification with the staircase edges before claiming coincidence of that
+boundary with the curve. Keep the supplied continuity and mesh hypotheses
+visible and preserve both printed witness passages.
 Existence of the actual between-region area remains a separate obligation:
 the relative countermodel rules out inferring arbitrary difference assignments
 uniformly from the present translation-and-cut interface. The full

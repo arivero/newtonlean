@@ -11,7 +11,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par5
 Anchor URLs: NATP00077.par5 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par5; NATP00077.par6 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par6
-Proof-step correspondence: Maximum width bounds the unequal-width gap and derives its exhaustion. The edition's Lemma I excludes a positive supplied terminal gap; its Lemma II supplies geometric area enclosure and the mutual-ratio reduction. On a nonzero interval with positive starting ordinate, that reduction gives both varying finite-area ratio errors tending to zero without assigning a curved area. Actual finite rectangle unions also approximate a separately assigned rational curved area under explicit area rules. The positive-patch restriction is an editorial coordinate interpretation (confidence high); general area existence, zero-base patches and unrestricted magnitudes remain open.
+Proof-step correspondence: Maximum width bounds the unequal-width gap and derives its exhaustion. The edition's Lemma I excludes a positive supplied terminal gap; its Lemma II supplies geometric area enclosure and the mutual-ratio reduction. On a nonzero interval with positive starting ordinate, that reduction gives both varying finite-area ratio errors tending to zero without assigning a curved area. Actual finite rectangle unions also approximate a separately assigned rational curved area under explicit area rules. An interior positive ordinate now also derives a fixed positive denominator bound and mutual-ratio convergence on an actual tail, allowing an initially zero lower sum. The positive-patch restriction and interior-rectangle extension are editorial coordinate interpretations (confidence high); general area existence and unrestricted magnitudes remain open.
 Historical dependency ledger for this exact witness:
 - P1687.L2 → P1687.L3; passage NATP00077.par5; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par5; status implicit_dependency; confidence high.
 -/
@@ -108,6 +108,28 @@ theorem unequal_width_mutual_area_ratios (area : RectangleContent.AreaRules)
   Principia1687.LemmaII.rectangle_mutual_ratios_from_gap area g a b parts hg hab hbase
     (unequal_width_gap_vanishes g a b parts hg hmesh)
 
+
+/-- The edition's Lemma II interior-rectangle reduction plus its own
+maximum-width exhaustion gives both mutual ratios on an actual tail.
+The base ordinate may vanish; an interior ordinate must be positive. -/
+theorem unequal_width_mutual_area_ratios_interior (area : RectangleContent.AreaRules)
+    (g : Fraction → Fraction) (a b c : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    (∀ m, area.HasArea (MonotoneRectangles.lowerFigure g (parts m))
+        (MonotoneRectangles.lowerSum g (parts m)) ∧
+      area.HasArea (MonotoneRectangles.upperFigure g (parts m))
+        (MonotoneRectangles.upperSum g (parts m))) ∧
+    RectangleContent.EventuallyMutualRatiosOne
+      (fun m => MonotoneRectangles.lowerSum g (parts m))
+      (fun m => MonotoneRectangles.upperSum g (parts m)) :=
+  Principia1687.LemmaII.rectangle_mutual_ratios_from_gap_interior area g a b c
+    parts hg hbase hac hcb hgc
+    (unequal_width_gap_vanishes g a b parts hg hmesh)
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own unequal-width exhaustion and conditional geometric area approximation. -/
@@ -116,7 +138,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6
 Anchor URLs: NATP00082.par6 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6; NATP00082.par7 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par7
-Proof-step correspondence: Maximum width bounds the unequal-width gap and derives its exhaustion. The edition's Lemma I excludes a positive supplied terminal gap; its Lemma II supplies geometric area enclosure and the mutual-ratio reduction. On a nonzero interval with positive starting ordinate, that reduction gives both varying finite-area ratio errors tending to zero without assigning a curved area. Actual finite rectangle unions also approximate a separately assigned rational curved area under explicit area rules. The positive-patch restriction is an editorial coordinate interpretation (confidence high); general area existence, zero-base patches and unrestricted magnitudes remain open.
+Proof-step correspondence: Maximum width bounds the unequal-width gap and derives its exhaustion. The edition's Lemma I excludes a positive supplied terminal gap; its Lemma II supplies geometric area enclosure and the mutual-ratio reduction. On a nonzero interval with positive starting ordinate, that reduction gives both varying finite-area ratio errors tending to zero without assigning a curved area. Actual finite rectangle unions also approximate a separately assigned rational curved area under explicit area rules. An interior positive ordinate now also derives a fixed positive denominator bound and mutual-ratio convergence on an actual tail, allowing an initially zero lower sum. The positive-patch restriction and interior-rectangle extension are editorial coordinate interpretations (confidence high); general area existence and unrestricted magnitudes remain open.
 Historical dependency ledger for this exact witness:
 - P1713.L2 → P1713.L3; passage NATP00082.par6; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par6; status implicit_dependency; confidence high.
 -/
@@ -208,6 +230,28 @@ theorem unequal_width_mutual_area_ratios (area : RectangleContent.AreaRules)
       (fun m => MonotoneRectangles.lowerSum g (parts m))
       (fun m => MonotoneRectangles.upperSum g (parts m)) :=
   Principia1713.LemmaII.rectangle_mutual_ratios_from_gap area g a b parts hg hab hbase
+    (unequal_width_gap_vanishes g a b parts hg hmesh)
+
+
+/-- The edition's Lemma II interior-rectangle reduction plus its own
+maximum-width exhaustion gives both mutual ratios on an actual tail.
+The base ordinate may vanish; an interior ordinate must be positive. -/
+theorem unequal_width_mutual_area_ratios_interior (area : RectangleContent.AreaRules)
+    (g : Fraction → Fraction) (a b c : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m))) :
+    (∀ m, area.HasArea (MonotoneRectangles.lowerFigure g (parts m))
+        (MonotoneRectangles.lowerSum g (parts m)) ∧
+      area.HasArea (MonotoneRectangles.upperFigure g (parts m))
+        (MonotoneRectangles.upperSum g (parts m))) ∧
+    RectangleContent.EventuallyMutualRatiosOne
+      (fun m => MonotoneRectangles.lowerSum g (parts m))
+      (fun m => MonotoneRectangles.upperSum g (parts m)) :=
+  Principia1713.LemmaII.rectangle_mutual_ratios_from_gap_interior area g a b c
+    parts hg hbase hac hcb hgc
     (unequal_width_gap_vanishes g a b parts hg hmesh)
 
 end Principia1713.LemmaIII

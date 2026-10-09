@@ -83,24 +83,21 @@ Every commit must update this completion-percentage information, reassessing
 the affected files and witnesses and explaining changes to the estimates or
 remaining work. An unchanged rounded estimate must be explicitly justified
 here. Measured counts must also be refreshed whenever they change.
-Current reassessment: the two classical comparison examples below are complete
-for their stated finite arithmetic conclusions. All Newton file/witness
-estimates remain unchanged, including Lemmas II/III at 70%: the new examples
-do not alter their proofs or discharge their remaining area/ratio obligations.
-The proof-strategy review changes how we select and assess future increments;
-it does not discharge an additional Newton obligation or change those estimates.
-The zero-base work now isolates and checks the finite lemma that a positive
-width cell with a positive left ordinate makes the lower sum positive. It now
-also proves the eventual positive lower-sum index from an interior positive
-ordinate and a shrinking maximum-width bound, and the retained harness checks
-it on the zero-base square patch. The theorem is still a BarrowLib support
-result: the source-local Lemma II/III mutual-ratio clients have not yet been
-refactored to consume this new hypothesis, and general area/rational-scope
-obligations remain open. The rounded Lemma II/III estimates therefore remain
-70%, with that unchanged rounding recorded rather than counted as completed
-historical proof. The upper-sum tail now follows from the finite lower/upper
-ordering, but the all-index `MutualRatiosOne` interface still cannot consume
-tail positivity without a separate eventual-ratio wrapper.
+Current reassessment, 9 October: the 1687 and 1713 Lemma II/III estimates rise
+from 70% to 75%. Both editions now prove mutual ratios for zero-base rational
+monotone patches with a positive interior ordinate. A fixed interior rectangle
+derives a uniform positive bound on both finite areas once their gap is small;
+the edition's own exhaustion proof supplies the resulting tail. This removes
+the zero-base denominator/ratio obligation in that scope. The remaining work
+is estimated at about one third of the completed work: general curved-area
+existence, arbitrary patches and non-rational magnitudes still need proofs.
+The earlier tail-ratio statement admitted an unusable index; it is repaired by
+returning an actual offset and applying the existing mutual-ratio theorem on
+that tail. Completion credit comes from the derived bound and historical
+clients, rather than that interface repair. Other file/witness percentages
+remain unchanged: the increment does not change their limiting, geometric or
+mechanical obligations. The classical arithmetic comparison estimates remain
+100% in their stated scope.
 
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
@@ -126,8 +123,8 @@ work; they do not discharge the remaining primary historical tasks.
 | [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | — / 20% | 80% | 80% | Printed proofs preserve relative states under uniform translation at every cell boundary, using their own laws. Shared time, additive velocities and relative-state impulse rules remain explicit; continuous collision geometry is open. NATP00090 records Lex 3 without attaching a proof. |
 | [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | — / — | 80% | 80% | Common calibrated velocity changes add a shared motion and preserve mutual states at cell boundaries. Continuous forcing and forces depending on absolute states are outside the checked model. Application in historical Proposition III remains open. |
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | — / 40% | 100% | 100% | Printed ordered-difference contradiction complete: exclusion of a positive terminal difference, positive time windows before the endpoint and a rational terminal-zero consequence. Approach and terminal comparisons are explicit premises. NATP00090 has only the enclosing-ratio step inside its Lemma 2; tangent-area geometry and its mechanical premises remain open, without attributing a printed Lemma I dependency. |
-| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | — / — | 70% | 70% | Equal-width gap identity, actual rectangle-union areas, exhaustion and use of the edition's Lemma I. Both mutual ratios of the varying finite areas approach one on a nonzero interval with positive starting ordinate: a base rectangle derives their uniform denominator bound, without assigning a curved area. Fixed assigned-area ratios remain available. Zero-base patches, general curved-area existence and non-rational scope remain open. |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | — / — | 70% | 70% | Unequal-width gap exhaustion from shrinking maximum width; the edition's Lemma II reduction gives both varying finite-area ratios on the same positive patches. Assigned curved-area approximation and the Lemma I contradiction remain available. Zero-base patches and general area/magnitude scope remain open; applications must establish their own mesh exhaustion. |
+| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | — / — | 75% | 75% | Equal-width gap identity, actual rectangle-union areas, exhaustion and use of the edition's Lemma I. Both varying finite-area ratios approach one for positive-base patches and, on a returned tail, for zero-base patches with a positive interior ordinate. Their uniform denominator bounds are derived without assigning a curved area. Fixed assigned-area ratios remain available. General curved-area existence, arbitrary patches and non-rational scope remain open. |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | — / — | 75% | 75% | Unequal-width gap exhaustion from shrinking maximum width; the edition's Lemma II reduction gives both varying finite-area ratios, including the zero-base interior-positive case on an actual tail. Assigned curved-area approximation and the Lemma I contradiction remain available. General area/magnitude scope and arbitrary patches remain open; applications must establish their own mesh exhaustion. |
 | [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | — / — | 60% | 60% | Area-error decay through the edition's Lemma III, plus two-sided approximation by rectangle covers of sampled endpoints under continuity and mesh premises. Full geometric coincidence is open; endpoint covers are not the entire staircase perimeter. |
 | [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | — / — | 80% | 80% | Two-sided rational chord-boundary approximation through Corollary I. Uniform continuity and shrinking mesh remain explicit; the theorem gives no area or arclength conclusion. |
 | [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | — / — | 80% | 80% | For concave increasing rational patches, supplied contact and concavity derive supporting cells, continuity, the identity of the tangent trace with the polygon's upper boundary, and finite tangent-polygon areas by dissection. Area errors vanish against a supplied curved area. Tangent existence, arbitrary patches and curved-area existence remain open. |
@@ -150,15 +147,13 @@ by the 1713 Proposition IV route also remain to be formalized separately.
 De Motu counterparts of Propositions II–IV remain a source-correspondence
 question, rather than receiving the printed proofs by analogy.
 
-The zero-base increment now derives eventual positivity of both lower and
-upper rectangle sums from a positive interior ordinate and shrinking mesh,
-allowing initial zero denominators. A separate tail-ratio theorem handles the
-common-index form once a fixed positive denominator bound is supplied; the
-zero-base theorem has not yet constructed that uniform bound. The positive-base
-patch case still proves both varying finite-area ratio errors vanish without an
-assigned curved area. The next Lemma II–III step is to derive and consume the
-uniform zero-base denominator bound in edition-local wrappers. The separate
-existence problem for
+The zero-base increment now derives a uniform positive denominator bound and
+both mutual finite-area ratios on a returned tail, including initial zero
+denominators. The historical clients use their own edition's exhaustion and
+the existing explicit rectangle-area convention; no curved area is assigned.
+The remaining Lemma II–III work concerns general curved-area existence,
+arbitrary patch geometry and non-rational magnitudes. The separate existence
+problem for
 the actual mechanical/curve difference needs a justified area domain:
 [AreaDomain.lean](BarrowLib/Polygon/AreaDomain.lean) proves a relative
 countermodel to inferring arbitrary difference assignments from the current
@@ -214,27 +209,29 @@ branches. Lean/Std infrastructure is excluded. Library rows aggregate their own
 source modules and entry point; their dependency counts deduplicate across the
 whole library. Counts from different rows overlap and should not be summed.
 
-The measured cascade and its provenance audit are maintained in
+The measured cascade and its provenance notes are maintained in
 [THEOREM_CASCADE.md](THEOREM_CASCADE.md). It explains how own declarations,
 actual proof trees and full import trees differ, and records which entries have
-an exact source witness versus which are project-authored support. The import
-tree is the total theorem cascade, including library theorems.
+an exact source witness versus which are project-authored support. Both trees
+include library theorems: the proof tree measures actual use, while the import
+tree measures the full available cascade. A theorem-by-theorem source census
+of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1769 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1777 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 169 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 97 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 83 |
 | [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 124 |
 | [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 124 |
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 144 | 7 | 18 | 78 |
-| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 305 | 16 | 95 | 297 |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 278 | 12 | 140 | 419 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 97 | 4 | 80 | 457 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 459 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 593 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1338 |
+| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 391 | 20 | 105 | 303 |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 322 | 14 | 149 | 427 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 97 | 4 | 80 | 465 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 467 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 601 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1346 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 67 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 77 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 79 |
@@ -251,7 +248,7 @@ tree is the total theorem cascade, including library theorems.
 | [ClassicsLib/Euclid/PropositionIX20.lean](ClassicsLib/Euclid/PropositionIX20.lean) | 87 | 5 | 6 | 6 |
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib](ClassicsLib.lean) | 340 | 16 | 16 | 26 |
-| [BarrowLib](BarrowLib.lean) | 14819 | 975 | 975 | 975 |
+| [BarrowLib](BarrowLib.lean) | 14867 | 977 | 977 | 977 |
 | [ModernLib](ModernLib.lean) | 19677 | 1157 | 1496 | 1689 |
 
 After a build, reproduce or check these rows with the existing compiled checker:

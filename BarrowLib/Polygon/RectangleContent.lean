@@ -208,6 +208,11 @@ def MutualRatiosOne (L U : Nat → Fraction) : Prop :=
       (fun m => (HarmonicTimeComparison.durationDifference
         (ratioTo (L m) (hL m) (U m)) (Fraction.ofInt 1)).abs)
 
+/-- Ratios are defined and approach one on an actual tail. The offset is
+returned as data; every index `N+m` lies in that tail. Initial sums may vanish. -/
+def EventuallyMutualRatiosOne (L U : Nat → Fraction) : Prop :=
+  ∃ N, MutualRatiosOne (fun m => L (N+m)) (fun m => U (N+m))
+
 private theorem varying_ratio_error_bound (B D X : Fraction)
     (hB : 0 < B.num) (hD : 0 < D.num) (hBD : Fraction.le B D) :
     Fraction.le
@@ -254,54 +259,21 @@ theorem varying_ratios_approach_one (B : Fraction) (hB : 0 < B.num)
   · exact Fraction.magnitudes.lt_of_le_lt (boundL m) hc
   · exact Fraction.magnitudes.lt_of_le_lt (boundU m) hc
 
-/-! Tail positivity is enough for a tail ratio statement. This keeps the
-all-index `MutualRatiosOne` interface unchanged while exposing the form needed
-when an initial zero-base partition may have zero sums. -/
+/-- Restrict the existing mutual-ratio proof to a tail with uniform positive
+denominator bounds. Source: this project derivation and its English statement;
+no exact historical attribution or priority is claimed. -/
 theorem varying_ratios_approach_one_eventually (B : Fraction) (hB : 0 < B.num)
     (L U : Nat → Fraction) (N : Nat)
     (hBL : ∀ m, N≤m → Fraction.le B (L m))
     (hBU : ∀ m, N≤m → Fraction.le B (U m))
     (hgap : Exhaustion.VanishingDifference Fraction.magnitudes
       (fun m => (HarmonicTimeComparison.durationDifference (L m) (U m)).abs)) :
-    ∃ hL : ∀ m, N≤m → 0<(L m).num,
-      ∃ hU : ∀ m, N≤m → 0<(U m).num,
-        ∀ eps : Fraction, 0<eps.num →
-          ∃ M, ∀ hNM : N≤M, ∀ m, ∀ hm : M≤m,
-            (Fraction.lt
-              (HarmonicTimeComparison.durationDifference
-                (ratioTo (U m) (hU m (Nat.le_trans hNM hm)) (L m))
-                  (Fraction.ofInt 1)).abs eps ∧
-             Fraction.lt
-              (HarmonicTimeComparison.durationDifference
-                (ratioTo (L m) (hL m (Nat.le_trans hNM hm)) (U m))
-                  (Fraction.ofInt 1)).abs eps) := by
-  have positive (X : Fraction) (hBX : Fraction.le B X) : 0<X.num :=
-    (Fraction.positive_iff_zero_lt X).mpr
-      (Fraction.magnitudes.lt_of_lt_le ((Fraction.positive_iff_zero_lt B).mp hB) hBX)
-  let hL : ∀ m, N≤m → 0<(L m).num := fun m hm => positive (L m) (hBL m hm)
-  let hU : ∀ m, N≤m → 0<(U m).num := fun m hm => positive (U m) (hBU m hm)
-  refine ⟨hL,hU,?_⟩
-  let C : Fraction := ⟨B.den,B.num,hB⟩
-  have hC : 0≤C.num := Int.le_of_lt B.den_pos
+    EventuallyMutualRatiosOne L U := by
+  refine ⟨N, varying_ratios_approach_one B hB _ _
+    (fun m => hBL (N+m) (by omega)) (fun m => hBU (N+m) (by omega)) ?_⟩
   intro eps heps
-  obtain ⟨K,hK⟩ := hgap (HarmonicTimeRealization.factorDelta C eps hC)
-    (HarmonicTimeRealization.factorDelta_positive C eps hC heps)
-  refine ⟨max N K, fun hNM m hm => ?_⟩
-  have hmN : N≤m := by omega
-  have hmK : K≤m := by omega
-  have boundL := varying_ratio_error_bound B (U m) (L m) hB (hU m hmN) (hBU m hmN)
-  have boundU : Fraction.le
-      (HarmonicTimeComparison.durationDifference
-        (ratioTo (L m) (hL m hmN) (U m)) (Fraction.ofInt 1)).abs
-      (Fraction.mul (HarmonicTimeComparison.durationDifference (L m) (U m)).abs C) :=
-    Fraction.le_equiv_right
-      (varying_ratio_error_bound B (L m) (U m) hB (hL m hmN) (hBL m hmN))
-      (Fraction.mul_equiv_right C
-        (HarmonicTimeRealization.durationDifference_abs_symm (U m) (L m)))
-  have hc := HarmonicTimeRealization.factor_control C eps _ hC
-    (Fraction.abs_num_nonnegative _) (hK m hmK)
-  exact ⟨Fraction.magnitudes.lt_of_le_lt boundL hc,
-    Fraction.magnitudes.lt_of_le_lt boundU hc⟩
+  obtain ⟨K,hK⟩ := hgap eps heps
+  exact ⟨K,fun m hm => hK (N+m) (by omega)⟩
 
 /-- A nonzero horizontal interval and positive starting ordinate derive the
 uniform denominator bound `(b-a)*g(a)`. No curved-area assignment is used. -/
@@ -329,5 +301,81 @@ theorem rectangle_mutual_ratios (g : Fraction → Fraction) (a b : Fraction)
     obtain ⟨N, hN⟩ := hgap eps heps
     exact ⟨N, fun m hm => Fraction.magnitudes.lt_of_le_lt
       (Fraction.le_of_equiv (Fraction.abs_of_nonnegative _ (hnon m))) (hN m hm)⟩
+
+/-- An interior positive ordinate supplies a fixed rectangle below every
+upper cover. Once the finite gap is below half its area, that half-area bounds
+both sums, including for a zero base ordinate. Source: this English coordinate
+statement and the checked containment/cancellation proof, without an external
+exact-result attribution or priority claim. The geometric area rules are
+explicit; no curved-area assignment or nesting of partitions is used. -/
+theorem rectangle_interior_denominator_bound (area : AreaRules)
+    (g : Fraction → Fraction) (a b c : Fraction)
+    (parts : Nat → Partition a b) (hg : MonotoneOn g a b)
+    (hbase : 0≤(g a).num) (hac : Fraction.le a c)
+    (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hgap : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => gap g (parts m))) :
+    ∃ B : Fraction, 0<B.num ∧ ∃ N, ∀ m, N≤m →
+      Fraction.le B (lowerSum g (parts m)) ∧
+      Fraction.le B (upperSum g (parts m)) := by
+  let R := Fraction.mul (HarmonicTimeComparison.durationDifference c b) (g c)
+  have hspan : 0<(HarmonicTimeComparison.durationDifference c b).num := by
+    simp only [HarmonicTimeComparison.durationDifference, HarmonicStability.negF,
+      Fraction.add, Int.neg_mul]
+    unfold Fraction.lt at hcb
+    omega
+  have hR : 0<R.num := Int.mul_pos hspan hgc
+  have hRU (m : Nat) : Fraction.le R (upperSum g (parts m)) := by
+    apply area.monotone _ _ _ _ ?_
+      (area.rectangle c b (g c) (Fraction.magnitudes.lt_implies_le hcb)
+        (Int.le_of_lt hgc))
+      (lower_upper_areas area g a b (parts m) hg hbase).2
+    intro x hx
+    apply (figure_enclosure g (parts m) hg).2 x
+    exact ⟨Fraction.magnitudes.le_trans hac hx.1,hx.2.1,hx.2.2.1,
+      Fraction.magnitudes.le_trans hx.2.2.2 (hg c x.1 hac hx.1 hx.2.1)⟩
+  obtain ⟨N,hN⟩ := hgap R.half hR
+  refine ⟨R.half,hR,N,fun m hm => ?_⟩
+  have hsmall : Fraction.le (gap g (parts m)) R.half :=
+    Fraction.magnitudes.lt_implies_le (hN m hm)
+  have hsum : Fraction.le R (Fraction.add (lowerSum g (parts m)) R.half) :=
+    Fraction.magnitudes.le_trans
+      (Fraction.le_equiv_right (hRU m)
+        (Fraction.equiv_symm (HarmonicTimeComparison.add_difference_cancel
+          (lowerSum g (parts m)) (upperSum g (parts m)))))
+      (Fraction.add_le_add_left hsmall _)
+  have hL : Fraction.le R.half (lowerSum g (parts m)) :=
+    Fraction.le_add_cancel_left R.half R.half (lowerSum g (parts m))
+      (Fraction.le_equiv_left (Fraction.half_add_self R)
+        (Fraction.le_equiv_right hsum (Fraction.add_comm _ _)))
+  exact ⟨hL,Fraction.magnitudes.le_trans hL
+    ((HarmonicTimeComparison.difference_nonnegative_iff _ _).mp
+      (gap_bound g (parts m) hg (maxWidth (parts m))
+        (maxWidth_bounds (parts m)).1).1)⟩
+
+/-- The finite lower and upper areas have mutual ratios tending to one on
+an actual tail whenever the figure has a positive interior rectangle.
+Initial zero denominators are allowed. The fixed denominator bound is derived,
+not supplied, and a rational area for the curved figure is unnecessary. -/
+theorem rectangle_mutual_ratios_interior (area : AreaRules)
+    (g : Fraction → Fraction) (a b c : Fraction)
+    (parts : Nat → Partition a b) (hg : MonotoneOn g a b)
+    (hbase : 0≤(g a).num) (hac : Fraction.le a c)
+    (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hgap : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => gap g (parts m))) :
+    EventuallyMutualRatiosOne (fun m => lowerSum g (parts m))
+      (fun m => upperSum g (parts m)) := by
+  obtain ⟨B,hB,N,hN⟩ := rectangle_interior_denominator_bound
+    area g a b c parts hg hbase hac hcb hgc hgap
+  apply varying_ratios_approach_one_eventually B hB _ _ N
+    (fun m hm => (hN m hm).1) (fun m hm => (hN m hm).2)
+  intro eps heps
+  obtain ⟨K,hK⟩ := hgap eps heps
+  refine ⟨K,fun m hm => ?_⟩
+  have hnon := (gap_bound g (parts m) hg (maxWidth (parts m))
+    (maxWidth_bounds (parts m)).1).1
+  exact Fraction.magnitudes.lt_of_le_lt
+    (Fraction.le_of_equiv (Fraction.abs_of_nonnegative _ hnon)) (hK m hm)
 
 end NewtonLimitDynamics.Polygon.RectangleContent

@@ -146,8 +146,8 @@ helpers and excludes BarrowLib, ModernLib, Newton and mathlib. These checks
 share Lean core arithmetic and the kernel; the source-level mathlib review
 does not claim to enumerate that library's compiled transitive dependencies.
 
-`lemma2-3-monotone-rectangles-2026-10-06.lean` also checks the mutual-ratio
-increment of 8 October. For `g(x)=1+x²`, exact aliased-node areas `9/8` and
+`lemma2-3-monotone-rectangles-2026-10-06.lean` checks the positive-base and
+interior-positive mutual-ratio increments. For `g(x)=1+x²`, exact aliased-node areas `9/8` and
 `13/8` give ratios `9/13` and `13/9`; the perturbed ratio `10/13` is rejected.
 Repeated nodes, unequal cells, constant graphs and zero-area degeneracies
 exercise the finite base bound. All four printed-edition clients are applied
@@ -156,20 +156,20 @@ and private helpers requires their own edition's reduction and exhaustion,
 excluding foreign witnesses and ModernLib. The pair `2^-m`, `2*2^-m` has a
 vanishing gap and positive terms, but its ratio remains `1/2`; a Lean proof
 rejects the unit-ratio conclusion without a uniform denominator bound.
+The same harness now proves all four interior-positive edition clients apply
+to the zero-base square patch, with no assigned curved area. Its fixed interior
+rectangle at `c=1/2` has area `1/8`, with half-area `1/16`. Compiled traversal
+requires each new client to use the derived denominator bound and the existing
+ratio proof, as well as its own edition's reduction/exhaustion. The repaired
+tail interface returns an actual offset; a delayed sequence has five initial
+zeros yet supplies a positive term from the returned tail, and is rejected by
+the all-index predicate. The shrinking-sequence control now rejects the
+eventual-ratio conclusion for every offset, catching vacuous tail statements.
+Earlier positive-cell and lower/upper-tail positivity controls are retained.
 These controls share the kernel and rational definitions with the theorem;
-they do not construct an area convention or close the full zero-base area
-case. The same harness checks the finite zero-base prerequisite: a
-positive-width cell with a positive left ordinate gives a positive lower sum
-through `lower_sum_positive_of_positive_cell`. It now also checks
-`lower_sum_eventually_positive` on the zero-base square patch: an interior
-positive ordinate plus shrinking maximum width yields an eventual positive
-lower sum for arbitrary partitions. `upper_sum_eventually_positive` derives
-the corresponding upper tail from the finite lower/upper ordering. The
-historical mutual-ratio clients have not yet been refactored to consume these
-support theorems. The same harness inhabits the dependent
-`varying_ratios_approach_one_eventually` interface on constant positive
-sequences. The zero-base theorem still supplies no uniform positive bound, so
-the corresponding zero-base upper/lower area comparison remains open.
+they do not construct an area convention or the area of an arbitrary curved
+figure. The zero-base mutual finite-area ratios are proved in the stated
+interior-positive monotone rational domain.
 
 `sector-difference-2026-10-07.lean` checks actual fan, connector and filled-strip
 membership/exclusion, equivalent point displays, the strict half-plane bound

@@ -12,7 +12,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par3
 Anchor URLs: NATP00077.par3 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par3; NATP00077.par4 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4
-Proof-step correspondence: The finite equal-width gap is identified with the difference of actual rectangle-union areas under explicit elementary area rules. Shrinking mesh derives exhaustion; the edition's Lemma I excludes a positive supplied terminal gap. On a nonzero interval with positive starting ordinate, a finite base rectangle derives a uniform positive lower bound for both varying areas, and their mutual ratio errors vanish without assigning a curved area. A separately assigned rational curvilinear area is also enclosed and approximated. The positive-patch restriction is an editorial coordinate interpretation (confidence high); general area existence, zero-base patches and unrestricted magnitudes remain open.
+Proof-step correspondence: The finite equal-width gap is identified with the difference of actual rectangle-union areas under explicit elementary area rules. Shrinking mesh derives exhaustion; the edition's Lemma I excludes a positive supplied terminal gap. On a nonzero interval with positive starting ordinate, a finite base rectangle derives a uniform positive lower bound for both varying areas, and their mutual ratio errors vanish without assigning a curved area. A separately assigned rational curvilinear area is also enclosed and approximated. An interior positive ordinate now also derives a fixed positive denominator bound and mutual-ratio convergence on an actual tail, allowing an initially zero lower sum. The positive-patch restriction and interior-rectangle extension are editorial coordinate interpretations (confidence high); general area existence and unrestricted magnitudes remain open.
 Historical dependency ledger for this exact witness:
 - P1687.L1 → P1687.L2; passage NATP00077.par4; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par4; status explicit_dependency; confidence high.
 -/
@@ -153,6 +153,49 @@ theorem equal_width_mutual_area_ratios (area : RectangleContent.AreaRules)
   rectangle_mutual_ratios_from_gap area g a b parts hg hab hbase
     (equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh)
 
+
+/-- Extend the edition's finite mutual-ratio reduction to a positive interior
+rectangle, allowing a zero base and initial zero lower sums. This is an
+editorial rational-coordinate extension of the quoted Lemma II argument;
+the area convention is explicit and curved-area existence is unused. -/
+theorem rectangle_mutual_ratios_from_gap_interior (area : RectangleContent.AreaRules)
+    (g : Fraction → Fraction) (a b c : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hgap : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.gap g (parts m))) :
+    (∀ m, area.HasArea (MonotoneRectangles.lowerFigure g (parts m))
+        (MonotoneRectangles.lowerSum g (parts m)) ∧
+      area.HasArea (MonotoneRectangles.upperFigure g (parts m))
+        (MonotoneRectangles.upperSum g (parts m))) ∧
+    RectangleContent.EventuallyMutualRatiosOne
+      (fun m => MonotoneRectangles.lowerSum g (parts m))
+      (fun m => MonotoneRectangles.upperSum g (parts m)) :=
+  ⟨fun m => RectangleContent.lower_upper_areas area g a b (parts m) hg hbase,
+    RectangleContent.rectangle_mutual_ratios_interior area g a b c parts hg hbase hac hcb hgc hgap⟩
+
+/-- Equal-width exhaustion through this edition's identity now gives both
+mutual finite-area ratios on a tail, including patches with zero base. -/
+theorem equal_width_mutual_area_ratios_interior (area : RectangleContent.AreaRules)
+    (g : Fraction → Fraction) (a b c : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (mesh : Nat → Fraction)
+    (hwidth : ∀ m i, i < (parts m).count →
+      Fraction.equiv (MonotoneRectangles.width (parts m) i) (mesh m))
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes mesh) :
+    (∀ m, area.HasArea (MonotoneRectangles.lowerFigure g (parts m))
+        (MonotoneRectangles.lowerSum g (parts m)) ∧
+      area.HasArea (MonotoneRectangles.upperFigure g (parts m))
+        (MonotoneRectangles.upperSum g (parts m))) ∧
+    RectangleContent.EventuallyMutualRatiosOne
+      (fun m => MonotoneRectangles.lowerSum g (parts m))
+      (fun m => MonotoneRectangles.upperSum g (parts m)) :=
+  rectangle_mutual_ratios_from_gap_interior area g a b c parts hg hbase hac hcb hgc
+    (equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh)
+
 end Principia1687.LemmaII
 
 /-! 1713. Equal-width gap identity in an explicit rational monotone graph model. -/
@@ -161,7 +204,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par4
 Anchor URLs: NATP00082.par4 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par4; NATP00082.par5 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5
-Proof-step correspondence: The finite equal-width gap is identified with the difference of actual rectangle-union areas under explicit elementary area rules. Shrinking mesh derives exhaustion; the edition's Lemma I excludes a positive supplied terminal gap. On a nonzero interval with positive starting ordinate, a finite base rectangle derives a uniform positive lower bound for both varying areas, and their mutual ratio errors vanish without assigning a curved area. A separately assigned rational curvilinear area is also enclosed and approximated. The positive-patch restriction is an editorial coordinate interpretation (confidence high); general area existence, zero-base patches and unrestricted magnitudes remain open.
+Proof-step correspondence: The finite equal-width gap is identified with the difference of actual rectangle-union areas under explicit elementary area rules. Shrinking mesh derives exhaustion; the edition's Lemma I excludes a positive supplied terminal gap. On a nonzero interval with positive starting ordinate, a finite base rectangle derives a uniform positive lower bound for both varying areas, and their mutual ratio errors vanish without assigning a curved area. A separately assigned rational curvilinear area is also enclosed and approximated. An interior positive ordinate now also derives a fixed positive denominator bound and mutual-ratio convergence on an actual tail, allowing an initially zero lower sum. The positive-patch restriction and interior-rectangle extension are editorial coordinate interpretations (confidence high); general area existence and unrestricted magnitudes remain open.
 Historical dependency ledger for this exact witness:
 - P1713.L1 → P1713.L2; passage NATP00082.par5; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par5; status explicit_dependency; confidence high.
 -/
@@ -300,6 +343,49 @@ theorem equal_width_mutual_area_ratios (area : RectangleContent.AreaRules)
       (fun m => MonotoneRectangles.lowerSum g (parts m))
       (fun m => MonotoneRectangles.upperSum g (parts m)) :=
   rectangle_mutual_ratios_from_gap area g a b parts hg hab hbase
+    (equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh)
+
+
+/-- Extend the edition's finite mutual-ratio reduction to a positive interior
+rectangle, allowing a zero base and initial zero lower sums. This is an
+editorial rational-coordinate extension of the quoted Lemma II argument;
+the area convention is explicit and curved-area existence is unused. -/
+theorem rectangle_mutual_ratios_from_gap_interior (area : RectangleContent.AreaRules)
+    (g : Fraction → Fraction) (a b c : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hgap : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.gap g (parts m))) :
+    (∀ m, area.HasArea (MonotoneRectangles.lowerFigure g (parts m))
+        (MonotoneRectangles.lowerSum g (parts m)) ∧
+      area.HasArea (MonotoneRectangles.upperFigure g (parts m))
+        (MonotoneRectangles.upperSum g (parts m))) ∧
+    RectangleContent.EventuallyMutualRatiosOne
+      (fun m => MonotoneRectangles.lowerSum g (parts m))
+      (fun m => MonotoneRectangles.upperSum g (parts m)) :=
+  ⟨fun m => RectangleContent.lower_upper_areas area g a b (parts m) hg hbase,
+    RectangleContent.rectangle_mutual_ratios_interior area g a b c parts hg hbase hac hcb hgc hgap⟩
+
+/-- Equal-width exhaustion through this edition's identity now gives both
+mutual finite-area ratios on a tail, including patches with zero base. -/
+theorem equal_width_mutual_area_ratios_interior (area : RectangleContent.AreaRules)
+    (g : Fraction → Fraction) (a b c : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b)
+    (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (mesh : Nat → Fraction)
+    (hwidth : ∀ m i, i < (parts m).count →
+      Fraction.equiv (MonotoneRectangles.width (parts m) i) (mesh m))
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes mesh) :
+    (∀ m, area.HasArea (MonotoneRectangles.lowerFigure g (parts m))
+        (MonotoneRectangles.lowerSum g (parts m)) ∧
+      area.HasArea (MonotoneRectangles.upperFigure g (parts m))
+        (MonotoneRectangles.upperSum g (parts m))) ∧
+    RectangleContent.EventuallyMutualRatiosOne
+      (fun m => MonotoneRectangles.lowerSum g (parts m))
+      (fun m => MonotoneRectangles.upperSum g (parts m)) :=
+  rectangle_mutual_ratios_from_gap_interior area g a b c parts hg hbase hac hcb hgc
     (equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh)
 
 end Principia1713.LemmaII
