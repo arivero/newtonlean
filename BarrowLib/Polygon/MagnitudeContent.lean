@@ -159,21 +159,29 @@ def Approximates {Q : Type} (area : AreaRules Q) (g : Fraction → Fraction)
     area.HasArea (upperFigure g (parts m)) (area.magnitudes.embed (upperSum g (parts m)))) ∧
   ErrorsVanish area.magnitudes (fun m => lowerSum g (parts m)) (fun m => upperSum g (parts m)) A
 
+/-- A single finite enclosing gap controls both errors against any assigned
+area magnitude. This extracts the comparison step shared by exhaustion
+arguments; no geometric assignment or limiting conclusion is assumed. -/
+theorem enclosure_errors_lt {Q : Type} (M : Rules Q) (L U : Fraction) (A d : Q)
+    (henclose : M.order.le (M.embed L) A ∧ M.order.le A (M.embed U))
+    (hgap : M.order.lt (M.embed (durationDifference L U)) d) :
+    M.order.lt A (M.add (M.embed L) d) ∧ M.order.lt (M.embed U) (M.add A d) := by
+  have hsum : M.order.le (M.embed U)
+      (M.add (M.embed L) (M.embed (durationDifference L U))) :=
+    M.order.le_trans ((M.embed_le _ _).mpr (Fraction.le_of_equiv
+      (Fraction.equiv_symm (add_difference_cancel L U)))) (M.embed_add _ _).1
+  have hbound := M.order.lt_of_le_lt hsum
+    (M.add_lt_add_left _ _ hgap (M.embed L))
+  exact ⟨M.order.lt_of_le_lt henclose.2 hbound,
+    M.order.lt_of_lt_le hbound (M.add_le_add_right _ _ henclose.1 d)⟩
+
 theorem errors_vanish {Q : Type} (M : Rules Q) (L U : Nat → Fraction) (A : Q)
     (henclose : ∀ m, M.order.le (M.embed (L m)) A ∧ M.order.le A (M.embed (U m)))
     (hgap : Exhaustion.VanishingDifference Fraction.magnitudes
       (fun m => durationDifference (L m) (U m))) : ErrorsVanish M L U A := by
   intro d hd
   obtain ⟨N,hN⟩ := rational_exhaustion M _ hgap d hd
-  refine ⟨N,fun m hm => ?_⟩
-  have hsum : M.order.le (M.embed (U m))
-      (M.add (M.embed (L m)) (M.embed (durationDifference (L m) (U m)))) :=
-    M.order.le_trans ((M.embed_le _ _).mpr (Fraction.le_of_equiv
-      (Fraction.equiv_symm (add_difference_cancel (L m) (U m))))) (M.embed_add _ _).1
-  have hbound := M.order.lt_of_le_lt hsum
-    (M.add_lt_add_left _ _ (hN m hm) (M.embed (L m)))
-  exact ⟨M.order.lt_of_le_lt (henclose m).2 hbound,
-    M.order.lt_of_lt_le hbound (M.add_le_add_right _ _ (henclose m).1 d)⟩
+  exact ⟨N,fun m hm => enclosure_errors_lt M _ _ A d (henclose m) (hN m hm)⟩
 
 /-! Integer-multiple comparisons for ultimate equality of assigned magnitudes.
 Source language: Euclid, Elements V, definitions 2 and 5, same Greek witness

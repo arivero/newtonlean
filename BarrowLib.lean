@@ -25,6 +25,10 @@ provenance; their Barrow classification follows the rational dependencies.
 Its integer-multiple comparisons use the language of Euclid V.2/V.5, quoted
 in Greek, with explicit supplied order/addition compatibility. The sequence
 limit theorem is derived here; no full Eudoxian ratio calculus is claimed.
+Polygon/UniformRectangles.lean gives explicit project derivations of clipped
+rectangle enclosures and exhaustion for uniformly continuous nonnegative
+rational graphs. This extends the figure scope without attributing its
+continuity hypothesis or construction to Newton's printed proof.
 Exact original-language attributions for other borrowed results remain to be verified individually;
 successful compilation alone does not establish that source coverage. -/
 
@@ -62,6 +66,7 @@ import BarrowLib.Polygon.KinematicEstimates
 import BarrowLib.Polygon.LatticeGeometry
 import BarrowLib.Polygon.MonotoneRectangles
 import BarrowLib.Polygon.MagnitudeContent
+import BarrowLib.Polygon.UniformRectangles
 import BarrowLib.Polygon.MotionSampling
 import BarrowLib.Polygon.MotionSectorCover
 import BarrowLib.Polygon.MotionCurveCover

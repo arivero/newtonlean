@@ -21,6 +21,25 @@ equivalence of representatives, finite geometry, geometric area rules and
 approximation estimates. Those project theorems are counted. This is a real
 implementation burden, with an asymmetry in the reported library boundary.
 
+Historical ownership and representation cost require separate decisions.
+The proposed Euclid VII.19/Nine Chapters route in
+[BARROWLIB_BOUNDARY.md](BARROWLIB_BOUNDARY.md) needs exact original-language
+passages before a ClassicsLib migration. An unchanged move leaves the total
+theorem count unchanged, even though per-library counts and classifications
+change. Cross-product equivalence alone does not source all signed arithmetic.
+
+Two implementation alternatives deserve a bounded comparison before any
+rewrite: normalized rationals, and a quotient of the present fraction
+equivalence. Lean 4.19 includes `Std/Internal/Rat.lean`, with normalization
+and an executable rational type, but its arithmetic theorem interface must be
+checked rather than presumed sufficient. A quotient can turn representative
+equivalence into equality, while still requiring congruence proofs for lifted
+operations and an ordered arithmetic API. Neither choice automatically proves
+the geometry or removes foundational work. Compare one existing arithmetic
+client and its full dependencies first; moving proofs into Lean/Std can reduce
+our project counts without reducing the total supporting mathematics. Keep
+the accepted historical premises and core-only policy throughout.
+
 The classical statements also have narrow conclusions: a new prime outside
 a finite list, and exclusion of an integer square equation. The second does
 not construct a real square root or a geometric diagonal. Newton's target

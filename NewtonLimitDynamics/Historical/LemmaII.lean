@@ -1,6 +1,7 @@
 import BarrowLib.Polygon.MonotoneRectangles
 import BarrowLib.Polygon.RectangleContent
 import BarrowLib.Polygon.MagnitudeContent
+import BarrowLib.Polygon.UniformRectangles
 import NewtonLimitDynamics.Historical.LemmaI
 
 /-! Historical result: lemma_ii.
@@ -259,6 +260,22 @@ theorem equal_width_assigned_magnitude_ratios {Q : Type}
     (fun k => rectangle_magnitude_enclosure area g a b A (parts k) hg hbase hA)
     (equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh)
 
+/-- Uniform-continuity extension to graphs that may rise and fall. This
+uses constructed cell bounds, rather than the printed endpoint/telescoping
+construction. It is an editorial project derivation: Newton's exact Latin
+is retained above; uniform continuity is not quoted as his hypothesis.
+All sufficiently fine partitions have actual enclosing rectangle areas and
+errors below any given magnitude tolerance. Area existence stays supplied. -/
+theorem uniform_graph_rectangle_exhaustion {Q : Type}
+    (area : MagnitudeContent.AreaRules Q) (g : Fraction → Fraction)
+    (a b : Fraction) (A : Q) (hab : Fraction.le a b)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
+    UniformRectangles.Exhausts area g a b A :=
+  UniformRectangles.exhaustion
+    area g a b A hab hzero hf hA
+
 end Principia1687.LemmaII
 
 /-! 1713. Equal-width gap identity in an explicit rational monotone graph model. -/
@@ -512,5 +529,21 @@ theorem equal_width_assigned_magnitude_ratios {Q : Type}
   MagnitudeContent.rectangle_magnitude_ratios area R g a b c A parts hg hbase hac hcb hgc
     (fun k => rectangle_magnitude_enclosure area g a b A (parts k) hg hbase hA)
     (equal_width_gap_vanishes g a b parts hg mesh hwidth hmesh)
+
+/-- Uniform-continuity extension to graphs that may rise and fall. This
+uses constructed cell bounds, rather than the printed endpoint/telescoping
+construction. It is an editorial project derivation: Newton's exact Latin
+is retained above; uniform continuity is not quoted as his hypothesis.
+All sufficiently fine partitions have actual enclosing rectangle areas and
+errors below any given magnitude tolerance. Area existence stays supplied. -/
+theorem uniform_graph_rectangle_exhaustion {Q : Type}
+    (area : MagnitudeContent.AreaRules Q) (g : Fraction → Fraction)
+    (a b : Fraction) (A : Q) (hab : Fraction.le a b)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
+    UniformRectangles.Exhausts area g a b A :=
+  UniformRectangles.exhaustion
+    area g a b A hab hzero hf hA
 
 end Principia1713.LemmaII

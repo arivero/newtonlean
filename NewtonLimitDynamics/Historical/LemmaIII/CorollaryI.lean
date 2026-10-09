@@ -92,6 +92,20 @@ theorem corollary1_magnitude_area_approximation {Q : Type} (area : MagnitudeCont
     MagnitudeContent.Approximates area g a b A parts :=
   (unequal_width_magnitude_approximation area g a b A parts hg hbase hA hmesh).1
 
+/-- Area exhaustion for a uniformly continuous nonnegative graph without
+monotonicity, using this edition's Lemma III extension. The enclosing sets
+are actual finite rectangle unions. This project coordinate reconstruction
+asserts area-error control; free-boundary approximation and general area
+existence are separate obligations. -/
+theorem corollary1_uniform_graph_area_exhaustion {Q : Type}
+    (area : MagnitudeContent.AreaRules Q) (g : Fraction → Fraction)
+    (a b : Fraction) (A : Q) (hab : Fraction.le a b)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
+    UniformRectangles.Exhausts area g a b A :=
+  uniform_graph_rectangle_exhaustion area g a b A hab hzero hf hA
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -180,5 +194,19 @@ theorem corollary1_magnitude_area_approximation {Q : Type} (area : MagnitudeCont
       (fun m => MonotoneRectangles.maxWidth (parts m))) :
     MagnitudeContent.Approximates area g a b A parts :=
   (unequal_width_magnitude_approximation area g a b A parts hg hbase hA hmesh).1
+
+/-- Area exhaustion for a uniformly continuous nonnegative graph without
+monotonicity, using this edition's Lemma III extension. The enclosing sets
+are actual finite rectangle unions. This project coordinate reconstruction
+asserts area-error control; free-boundary approximation and general area
+existence are separate obligations. -/
+theorem corollary1_uniform_graph_area_exhaustion {Q : Type}
+    (area : MagnitudeContent.AreaRules Q) (g : Fraction → Fraction)
+    (a b : Fraction) (A : Q) (hab : Fraction.le a b)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
+    UniformRectangles.Exhausts area g a b A :=
+  uniform_graph_rectangle_exhaustion area g a b A hab hzero hf hA
 
 end Principia1713.LemmaIII

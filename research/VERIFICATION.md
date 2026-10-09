@@ -113,6 +113,20 @@ witness-specific wording.
 
 ## Proof scope controls
 
+`uniform-rectangles-2026-10-10.lean` checks the nonmonotone area-exhaustion
+extension of both editions' Lemmas II/III and Corollary I. The graph
+`|t-1/2|` is proved uniformly continuous and nonnegative, and is proved not
+increasing on the unit interval. Actual dyadic partitions realize arbitrarily
+small mesh; a returned delta gives a usable tail with both assigned-area
+errors. Finite controls exercise the clipped lower height at zero and above
+the tolerance, and refute the old endpoint lower enclosure on this graph.
+Compiled traversal requires the edition's own new clients, actual finite
+rectangle areas, the sum gap bound, X.1 halving and the finite magnitude-error
+comparison. Foreign witnesses and ModernLib are rejected. No Lemma I use is
+asserted for this alternative construction. The area convention and arbitrary
+curved-area magnitude remain supplied; there is no nonrational model, new
+ratio theorem or general boundary-convergence conclusion.
+
 `magnitude-content-2026-10-09.lean` checks the enlarged assigned-area domain
 of both editions' Lemmas II/III and Corollary I. Actual dyadic identity-graph
 partitions realize the geometric/mesh premises for arbitrary supplied `A : Q`,

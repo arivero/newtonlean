@@ -29,6 +29,24 @@ exhaustion arguments. An explicit abstract order/limiting premise must not
 hide its desired conclusion. Coordinate L1 bounds are a chosen estimate,
 not automatically an intrinsic physical magnitude.
 
+The arithmetic placement is provisional, not a claim that signed fraction
+arithmetic began after Hypatia. The user's proposed exact-source route is
+Euclid VII.19 for the positive-number cross-product criterion, and the
+Nine Chapters' fraction and signed-arithmetic passages for the additional
+operations. Exact Greek and Chinese passages and their operation-by-operation
+correspondence must be verified before adding those source claims or moving
+the implementation to ClassicsLib. VII.19 alone would not source zero/negative
+numerators, addition, subtraction or absolute value. The existing abstract
+magnitude-ratio rules are a separate interface.
+
+Moving the unchanged fraction implementation would change library ownership
+and classification, not the total number of project theorems. The current
+`Fraction` is an unreduced integer pair with a positive denominator, and its
+`equiv` compares cross-products. Representative conversion and congruence
+proofs cost the same in either library. A representation change is separate
+work; see [PROOF_STRATEGY.md](PROOF_STRATEGY.md). Neither source relocation nor
+renaming is mathematical completion progress.
+
 `Common/Exhaustion` supplies an ordered positive-difference contradiction,
 including a nonempty before-end time window; it constructs no terminal value.
 `Polygon/RectangleContent` derives finite union areas from explicit rectangle,
