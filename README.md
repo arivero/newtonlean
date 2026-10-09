@@ -90,9 +90,15 @@ do not alter their proofs or discharge their remaining area/ratio obligations.
 The proof-strategy review changes how we select and assess future increments;
 it does not discharge an additional Newton obligation or change those estimates.
 The zero-base work now isolates and checks the finite lemma that a positive
-width cell with a positive left ordinate makes the lower sum positive. This is
-part of the remaining denominator argument, not its eventual-index conclusion,
-so the rounded Lemma II/III estimates remain unchanged.
+width cell with a positive left ordinate makes the lower sum positive. It now
+also proves the eventual positive lower-sum index from an interior positive
+ordinate and a shrinking maximum-width bound, and the retained harness checks
+it on the zero-base square patch. The theorem is still a BarrowLib support
+result: the source-local Lemma II/III mutual-ratio clients have not yet been
+refactored to consume this new hypothesis, and general area/rational-scope
+obligations remain open. The rounded Lemma II/III estimates therefore remain
+70%, with that unchanged rounding recorded rather than counted as completed
+historical proof.
 
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
@@ -202,21 +208,27 @@ branches. Lean/Std infrastructure is excluded. Library rows aggregate their own
 source modules and entry point; their dependency counts deduplicate across the
 whole library. Counts from different rows overlap and should not be summed.
 
+The measured cascade and its provenance audit are maintained in
+[THEOREM_CASCADE.md](THEOREM_CASCADE.md). It explains how own declarations,
+actual proof trees and full import trees differ, and records which entries have
+an exact source witness versus which are project-authored support. The import
+tree is the total theorem cascade, including library theorems.
+
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1762 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1767 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 169 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 97 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 83 |
 | [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 124 |
 | [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 124 |
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 144 | 7 | 18 | 78 |
-| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 305 | 16 | 95 | 284 |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 278 | 12 | 140 | 406 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 97 | 4 | 80 | 444 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 446 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 586 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1331 |
+| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 305 | 16 | 95 | 295 |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 278 | 12 | 140 | 417 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 97 | 4 | 80 | 455 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 457 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 591 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1336 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 67 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 77 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 79 |
@@ -233,8 +245,8 @@ whole library. Counts from different rows overlap and should not be summed.
 | [ClassicsLib/Euclid/PropositionIX20.lean](ClassicsLib/Euclid/PropositionIX20.lean) | 87 | 5 | 6 | 6 |
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib](ClassicsLib.lean) | 340 | 16 | 16 | 26 |
-| [BarrowLib](BarrowLib.lean) | 14574 | 968 | 968 | 968 |
-| [ModernLib](ModernLib.lean) | 19677 | 1157 | 1496 | 1683 |
+| [BarrowLib](BarrowLib.lean) | 14746 | 973 | 973 | 973 |
+| [ModernLib](ModernLib.lean) | 19677 | 1157 | 1496 | 1688 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

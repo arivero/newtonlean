@@ -622,11 +622,11 @@ controls, now retained in the same harness. The review and controls share
 the rational definitions and Lean kernel; initial convention existence is
 still an explicit input.
 
-Last full verification: 8 October 2026, after the positive-base Lemma II–III
-mutual-ratio increment. All five builds, all 36 positive scope harnesses
+Last full verification: 9 October 2026, after the zero-base eventual-index
+Lemma II–III support increment. All five builds, all 36 positive scope harnesses
 (including the harmonic reference/comparator), source hashes and whitespace
 passed. The compiled checker verified the README measurements, 1,181 score
-comments and 7,737 project constants with no project axioms, sorry or primary
+comments and 7,796 project constants with no project axioms, sorry or primary
 modern dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
@@ -652,11 +652,15 @@ areas remain open. The new conditional B-area decay is separate from Astra's
 earlier reviewed fan-difference increment.
 
 Next extend the new source-local Lemma II–III mutual-ratio clients to
-zero-base patches with a positive interior ordinate. The positive-base case
-now derives both denominator bounds and both varying finite-area ratio
-errors without assigning a rational curved area. A zero-base graph can have
-zero initial lower sums, so the extension needs an eventual positive bound
-and a justified restriction to sufficiently refined partitions.
+consume the zero-base support theorem on patches with a positive interior
+ordinate. `MonotoneRectangles.lower_sum_eventually_positive` now derives an
+eventual positive lower sum from finite partition coverage and the shrinking
+maximum-width premise; the retained square harness checks the zero-base case.
+The positive-base case still derives both denominator bounds and both varying
+finite-area ratio errors without assigning a rational curved area. The new
+support theorem is not yet wired into the edition-local mutual-ratio clients,
+and a zero-base upper/lower area comparison still needs its own explicit
+historical wrapper and hypotheses.
 Existence of the actual between-region area remains a separate obligation:
 the relative countermodel rules out inferring arbitrary difference assignments
 uniformly from the present translation-and-cut interface. The full

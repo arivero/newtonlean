@@ -1,4 +1,5 @@
 import BarrowLib.Polygon.PolygonFanArea
+import BarrowLib.Polygon.RationalIntervals
 import BarrowLib.Common.RationalTolerance
 
 /-! Explicit lower/upper rectangle sets around a given rational monotone
@@ -10,6 +11,7 @@ with ordinary union content or a completed curvilinear area is separate. -/
 namespace NewtonLimitDynamics.Polygon.MonotoneRectangles
 open NewtonLimitDynamics TimeSubdivision
 open HarmonicTimeComparison HarmonicTimeRealization PolygonFanArea
+open RationalIntervals
 
 structure Partition (a b : Fraction) where
   count : Nat
@@ -251,6 +253,176 @@ theorem lower_sum_positive_of_positive_cell {a b : Fraction}
   unfold Fraction.mul
   dsimp
   exact Int.mul_pos hwidth hheight
+
+/-! A finite ordered partition cannot reach its right endpoint using only
+zero-width cells. The result is stated from an already interior node so it
+can be combined with a mesh bound without assigning a geometric area. -/
+private theorem exists_positive_width_from_aux {a b : Fraction} (p : Partition a b)
+    (n j : Nat) (hn : p.count-j=n) (hj : j<p.count)
+    (hjb : Fraction.lt (p.nodes j) b) :
+    ∃ i, j≤i ∧ i<p.count ∧ 0<(width p i).num := by
+  induction n using Nat.strongRecOn generalizing j with
+  | ind k ih =>
+      by_cases hpos : 0<(width p j).num
+      · exact ⟨j, Nat.le_refl _, hj, hpos⟩
+      · have hnon : 0≤(width p j).num :=
+          (difference_nonnegative_iff _ _).mpr (p.ordered j hj)
+        have hzero : (width p j).num=0 := by omega
+        have hnode : Fraction.equiv (p.nodes (j+1)) (p.nodes j) := by
+          unfold width durationDifference HarmonicStability.negF Fraction.add at hzero
+          dsimp at hzero
+          simp only [Int.neg_mul] at hzero
+          unfold Fraction.equiv
+          omega
+        have hnext : Fraction.lt (p.nodes (j+1)) b :=
+          Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv hnode) hjb
+        have hjnext : j+1<p.count := by
+          by_cases hnextlt : j+1<p.count
+          · exact hnextlt
+          · have heq : j+1=p.count := by omega
+            have hlast : Fraction.equiv (p.nodes (j+1)) b := by
+              simpa [heq] using p.last
+            exact False.elim (Fraction.magnitudes.lt_irrefl _
+              (Fraction.magnitudes.lt_of_lt_le hnext
+                (Fraction.le_of_equiv (Fraction.equiv_symm hlast))))
+        obtain ⟨i, hji, hi, hwi⟩ := ih (p.count-(j+1)) (by omega)
+          (j+1) (by omega) hjnext hnext
+        exact ⟨i, by omega, hi, hwi⟩
+
+private theorem exists_positive_width_from {a b : Fraction} (p : Partition a b)
+    (j : Nat) (hj : j<p.count) (hjb : Fraction.lt (p.nodes j) b) :
+    ∃ i, j≤i ∧ i<p.count ∧ 0<(width p i).num :=
+  exists_positive_width_from_aux p (p.count-j) j rfl hj hjb
+
+private theorem interval_left_gap_le_total (x y z : Fraction)
+    (hxy : Fraction.le x y) (hyz : Fraction.le y z) :
+    Fraction.le (durationDifference x y) (durationDifference x z) := by
+  have h := difference_interval_gaps x y z hxy hyz
+  have hxy' := (difference_nonnegative_iff x y).mpr hxy
+  have hxz' := (difference_nonnegative_iff x z).mpr
+    (Fraction.magnitudes.le_trans hxy hyz)
+  exact Fraction.le_equiv_right
+    (Fraction.le_equiv_left (Fraction.equiv_symm
+      (Fraction.abs_of_nonnegative _ hxy')) h.1)
+    (Fraction.abs_of_nonnegative _ hxz')
+
+private theorem interval_right_gap_le_total (x y z : Fraction)
+    (hxy : Fraction.le x y) (hyz : Fraction.le y z) :
+    Fraction.le (durationDifference y z) (durationDifference x z) := by
+  have h := difference_interval_gaps x y z hxy hyz
+  have hyz' := (difference_nonnegative_iff y z).mpr hyz
+  have hxz' := (difference_nonnegative_iff x z).mpr
+    (Fraction.magnitudes.le_trans hxy hyz)
+  exact Fraction.le_equiv_right
+    (Fraction.le_equiv_left (Fraction.equiv_symm
+      (Fraction.abs_of_nonnegative _ hyz')) h.2)
+    (Fraction.abs_of_nonnegative _ hxz')
+
+/-! A positive interior ordinate eventually supplies a positive lower
+sum, even when the left endpoint ordinate is zero. The proof uses only
+finite partition coverage and the shrinking maximum-width premise: a
+midpoint patch cannot be covered forever by zero-width cells. -/
+theorem lower_sum_eventually_positive {a b c : Fraction}
+    (g : Fraction → Fraction) (parts : Nat → Partition a b)
+    (hg : MonotoneOn g a b) (hbase : 0≤(g a).num)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b)
+    (hgc : 0<(g c).num)
+    (hmesh : ∀ delta : Fraction, 0<delta.num →
+      ∃ N : Nat, ∀ m, N≤m → Fraction.lt (maxWidth (parts m)) delta) :
+    ∃ N, ∀ m, N≤m → 0<(lowerSum g (parts m)).num := by
+  let d : Fraction := midpoint c b
+  let delta : Fraction := (durationDifference c b).half
+  have hspan : 0<(durationDifference c b).num := by
+    unfold durationDifference HarmonicStability.negF Fraction.add at *
+    dsimp at *
+    simp only [Int.neg_mul] at hcb ⊢
+    unfold Fraction.lt at hcb
+    omega
+  have hdelta : 0<delta.num := by
+    simpa [delta, Fraction.half] using hspan
+  obtain ⟨N,hN⟩ := hmesh delta hdelta
+  refine ⟨N,?_⟩
+  intro m hm
+  let p := parts m
+  have hcb_le : Fraction.le c b := Fraction.magnitudes.lt_implies_le hcb
+  have hbetween := midpoint_between c b hcb_le
+  have hacd : Fraction.le a d := Fraction.magnitudes.le_trans hac hbetween.1
+  obtain ⟨i,hi,hl,hr⟩ := partition_cover p d hacd hbetween.2
+  have hmax : Fraction.lt (maxWidth p) delta := hN m hm
+  have hnotleft : ¬ Fraction.le (p.nodes i) c := by
+    intro hic
+    have hleft := interval_right_gap_le_total (p.nodes i) c d hic hbetween.1
+    have hcell := interval_left_gap_le_total (p.nodes i) d (p.nodes (i+1)) hl hr
+    have hdc : Fraction.le delta (durationDifference (p.nodes i) d) :=
+      Fraction.le_equiv_left (Fraction.equiv_symm (midpoint_lower_gap c b)) hleft
+    have hwidth : Fraction.le delta (width p i) :=
+      Fraction.magnitudes.le_trans hdc hcell
+    have hbound := (maxWidth_bounds p).1 i hi
+    exact Fraction.magnitudes.lt_irrefl delta
+      (Fraction.magnitudes.lt_of_le_lt
+        (Fraction.magnitudes.le_trans hwidth hbound) hmax)
+  have hci : Fraction.lt c (p.nodes i) := by
+    have hle : Fraction.le c (p.nodes i) := by
+      by_cases h : Fraction.le c (p.nodes i)
+      · exact h
+      · have hrev : Fraction.le (p.nodes i) c := by
+          unfold Fraction.le at h ⊢
+          omega
+        exact False.elim (hnotleft hrev)
+    have hnot : ¬ Fraction.le (p.nodes i) c := hnotleft
+    unfold Fraction.lt
+    have hle' := hle
+    have hnot' := hnot
+    unfold Fraction.le at hle' hnot'
+    omega
+  have hnext : Fraction.lt (p.nodes (i+1)) b := by
+    by_cases hlt : Fraction.lt (p.nodes (i+1)) b
+    · exact hlt
+    · have hnext_le : Fraction.le (p.nodes (i+1)) b :=
+        (node_bounds p (i+1) (by omega)).2
+      have hrev : Fraction.le b (p.nodes (i+1)) := by
+        have hlt' := hlt
+        unfold Fraction.lt at hlt'
+        unfold Fraction.le
+        omega
+      have heq : Fraction.equiv (p.nodes (i+1)) b :=
+        (Fraction.equiv_iff_mutual_le _ _).mpr ⟨hnext_le,hrev⟩
+      have hleft := interval_right_gap_le_total (p.nodes i) d b hl hbetween.2
+      have hdb : Fraction.le delta (durationDifference d b) :=
+        Fraction.le_equiv_left (Fraction.equiv_symm (midpoint_upper_gap c b))
+          (Fraction.magnitudes.le_refl _)
+      have hendpoint : Fraction.equiv (width p i)
+          (durationDifference (p.nodes i) b) := by
+        exact difference_congr (Fraction.equiv_refl _) heq
+      have hdelta_total : Fraction.le delta (durationDifference (p.nodes i) b) :=
+        Fraction.magnitudes.le_trans hdb hleft
+      have hwidth : Fraction.le delta (width p i) :=
+        Fraction.le_equiv_right hdelta_total (Fraction.equiv_symm hendpoint)
+      have hbound := (maxWidth_bounds p).1 i hi
+      exact False.elim (Fraction.magnitudes.lt_irrefl delta
+        (Fraction.magnitudes.lt_of_le_lt
+          (Fraction.magnitudes.le_trans hwidth hbound) hmax))
+  have hjnext : i+1<p.count := by
+    by_cases h : i+1<p.count
+    · exact h
+    · have heq : i+1=p.count := by omega
+      have hlast : Fraction.equiv (p.nodes (i+1)) b := by
+        simpa [heq] using p.last
+      exact False.elim (Fraction.magnitudes.lt_irrefl _
+        (Fraction.magnitudes.lt_of_lt_le hnext
+          (Fraction.le_of_equiv (Fraction.equiv_symm hlast))))
+  obtain ⟨k,hik,hk,hwidth⟩ := exists_positive_width_from p (i+1) hjnext hnext
+  have hnodeik : Fraction.le (p.nodes i) (p.nodes k) :=
+    node_order p k i (by omega) (by omega)
+  have hck : Fraction.le c (p.nodes k) :=
+    Fraction.magnitudes.le_trans (Fraction.magnitudes.lt_implies_le hci) hnodeik
+  have hgck : Fraction.le (g c) (g (p.nodes k)) :=
+    hg c (p.nodes k) hac hck (node_bounds p k (by omega)).2
+  have hheight : 0<(g (p.nodes k)).num := by
+    apply (Fraction.positive_iff_zero_lt _).mpr
+    exact Fraction.magnitudes.lt_of_lt_le
+      ((Fraction.positive_iff_zero_lt _).mp hgc) hgck
+  exact lower_sum_positive_of_positive_cell g p hg hbase k hk hwidth hheight
 
 /-- Every lower sum is bounded below by `(b-a)*g(a)`, independently of its
 mesh. Source: this English coordinate statement and finite telescoping

@@ -157,12 +157,15 @@ excluding foreign witnesses and ModernLib. The pair `2^-m`, `2*2^-m` has a
 vanishing gap and positive terms, but its ratio remains `1/2`; a Lean proof
 rejects the unit-ratio conclusion without a uniform denominator bound.
 These controls share the kernel and rational definitions with the theorem;
-they do not construct an area convention or close the zero-base case.
-The same harness checks the finite zero-base prerequisite: a positive-width
-cell with a positive left ordinate gives a positive lower sum through
-`lower_sum_positive_of_positive_cell`. It does not prove that sufficiently
-refined arbitrary partitions contain such a cell; that eventual-index lemma
-remains an explicit open obligation.
+they do not construct an area convention or close the full zero-base area
+case. The same harness checks the finite zero-base prerequisite: a
+positive-width cell with a positive left ordinate gives a positive lower sum
+through `lower_sum_positive_of_positive_cell`. It now also checks
+`lower_sum_eventually_positive` on the zero-base square patch: an interior
+positive ordinate plus shrinking maximum width yields an eventual positive
+lower sum for arbitrary partitions. The historical mutual-ratio clients have
+not yet been refactored to consume that support theorem, and the corresponding
+zero-base upper/lower area comparison remains open.
 
 `sector-difference-2026-10-07.lean` checks actual fan, connector and filled-strip
 membership/exclusion, equivalent point displays, the strict half-plane bound

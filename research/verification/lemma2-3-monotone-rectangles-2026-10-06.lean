@@ -139,6 +139,15 @@ private theorem dyadic_mesh : ∀ delta : Fraction, 0<delta.num → ∃ N : Nat,
   refine ⟨N,fun m hm => Fraction.magnitudes.lt_of_le_lt ?_ (hN m hm)⟩
   exact (maxWidth_bounds (dyadic m)).2 _ (fun i _ => Fraction.le_of_equiv (grid_width m i))
 
+-- A positive interior ordinate now gives an eventual positive lower sum even
+-- for the zero-base square patch. The index is obtained from the mesh bound;
+-- no denominator positivity is supplied separately.
+example : ∃ N, ∀ m, N≤m →
+    0 < (lowerSum squareGraph (dyadic m)).num :=
+  lower_sum_eventually_positive (a := Fraction.ofInt 0) (b := Fraction.ofInt 1)
+    (c := (Fraction.ofInt 1).half) squareGraph dyadic (square_monotone _)
+    (by decide) (by decide) (by decide) (by decide) dyadic_mesh
+
 -- A constructed, nonconstant curved example instantiates the whole reconstruction;
 -- no desired rectangle enclosure, area-gap budget or convergence is supplied.
 example : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →
