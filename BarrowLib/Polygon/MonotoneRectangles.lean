@@ -424,6 +424,30 @@ theorem lower_sum_eventually_positive {a b c : Fraction}
       ((Fraction.positive_iff_zero_lt _).mp hgc) hgck
   exact lower_sum_positive_of_positive_cell g p hg hbase k hk hwidth hheight
 
+/-! The upper sums inherit eventual positivity from the lower sums. The only
+additional input is the finite lower/upper ordering already proved by the
+rectangle gap bound. -/
+theorem upper_sum_eventually_positive {a b : Fraction}
+    (g : Fraction → Fraction) (parts : Nat → Partition a b)
+    (hg : MonotoneOn g a b)
+    (hlower : ∃ N, ∀ m, N≤m → 0<(lowerSum g (parts m)).num) :
+    ∃ N, ∀ m, N≤m → 0<(upperSum g (parts m)).num := by
+  obtain ⟨N,hN⟩ := hlower
+  refine ⟨N,?_⟩
+  intro m hm
+  let p := parts m
+  have horder : Fraction.le (lowerSum g p) (upperSum g p) := by
+    apply sum_mono
+    intro i hi
+    have hheight : Fraction.le (g (p.nodes i)) (g (p.nodes (i+1))) :=
+      hg _ _ (node_bounds p i (by omega)).1 (p.ordered i hi)
+        (node_bounds p (i+1) (by omega)).2
+    exact Fraction.mul_le_mul_nonnegative_left hheight (width p i)
+      ((difference_nonnegative_iff _ _).mpr (p.ordered i hi))
+  apply (Fraction.positive_iff_zero_lt _).mpr
+  exact Fraction.magnitudes.lt_of_lt_le
+    ((Fraction.positive_iff_zero_lt _).mp (hN m hm)) horder
+
 /-- Every lower sum is bounded below by `(b-a)*g(a)`, independently of its
 mesh. Source: this English coordinate statement and finite telescoping
 proof; no exact external quotation or priority is claimed. Repeated nodes

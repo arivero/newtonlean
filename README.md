@@ -98,7 +98,9 @@ result: the source-local Lemma II/III mutual-ratio clients have not yet been
 refactored to consume this new hypothesis, and general area/rational-scope
 obligations remain open. The rounded Lemma II/III estimates therefore remain
 70%, with that unchanged rounding recorded rather than counted as completed
-historical proof.
+historical proof. The upper-sum tail now follows from the finite lower/upper
+ordering, but the all-index `MutualRatiosOne` interface still cannot consume
+tail positivity without a separate eventual-ratio wrapper.
 
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
@@ -216,19 +218,19 @@ tree is the total theorem cascade, including library theorems.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1767 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1768 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 169 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 97 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 83 |
 | [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 124 |
 | [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 124 |
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 144 | 7 | 18 | 78 |
-| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 305 | 16 | 95 | 295 |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 278 | 12 | 140 | 417 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 97 | 4 | 80 | 455 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 457 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 591 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1336 |
+| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 305 | 16 | 95 | 296 |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 278 | 12 | 140 | 418 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 97 | 4 | 80 | 456 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 458 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 592 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1337 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 67 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 77 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 79 |
@@ -245,8 +247,8 @@ tree is the total theorem cascade, including library theorems.
 | [ClassicsLib/Euclid/PropositionIX20.lean](ClassicsLib/Euclid/PropositionIX20.lean) | 87 | 5 | 6 | 6 |
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib](ClassicsLib.lean) | 340 | 16 | 16 | 26 |
-| [BarrowLib](BarrowLib.lean) | 14746 | 973 | 973 | 973 |
-| [ModernLib](ModernLib.lean) | 19677 | 1157 | 1496 | 1688 |
+| [BarrowLib](BarrowLib.lean) | 14770 | 974 | 974 | 974 |
+| [ModernLib](ModernLib.lean) | 19677 | 1157 | 1496 | 1689 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

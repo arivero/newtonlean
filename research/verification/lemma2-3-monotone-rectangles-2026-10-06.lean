@@ -147,6 +147,12 @@ example : ∃ N, ∀ m, N≤m →
   lower_sum_eventually_positive (a := Fraction.ofInt 0) (b := Fraction.ofInt 1)
     (c := (Fraction.ofInt 1).half) squareGraph dyadic (square_monotone _)
     (by decide) (by decide) (by decide) (by decide) dyadic_mesh
+example : ∃ N, ∀ m, N≤m →
+    0 < (upperSum squareGraph (dyadic m)).num :=
+  upper_sum_eventually_positive squareGraph dyadic (square_monotone _)
+    (lower_sum_eventually_positive (a := Fraction.ofInt 0) (b := Fraction.ofInt 1)
+      (c := (Fraction.ofInt 1).half) squareGraph dyadic (square_monotone _)
+      (by decide) (by decide) (by decide) (by decide) dyadic_mesh)
 
 -- A constructed, nonconstant curved example instantiates the whole reconstruction;
 -- no desired rectangle enclosure, area-gap budget or convergence is supplied.

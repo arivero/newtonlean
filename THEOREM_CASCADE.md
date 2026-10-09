@@ -29,8 +29,8 @@ The current compiled cascade is:
 | `LemmaIII/CorollaryIII.lean` | 10 | 208 | 591 |
 | `LemmaIII/CorollaryIV.lean` | 12 | 469 | 1336 |
 | `ClassicsLib` | 16 | 16 | 26 |
-| `BarrowLib` | 973 | 973 | 973 |
-| `ModernLib` | 1157 | 1496 | 1688 |
+| `BarrowLib` | 974 | 974 | 974 |
+| `ModernLib` | 1157 | 1496 | 1689 |
 
 The complete per-file table, including the other historical witnesses and
 classical files, remains in the README. Reproduce and check it with:
@@ -56,18 +56,18 @@ must not be conflated.
 | `LemmaIII.lean` | 2 edition witness sections (1687, 1713) | 12 Lean theorems |
 | `ClassicsLib` | 5 source-linked result files; `FiniteLattice` is support | 16 Lean theorems |
 | Existing `BarrowLib` support | Euclid I.41 is background for supplied area rules | 968 prior project theorems |
-| Current zero-base increment | 0 exact external result claims | 5 new project theorems, 1 public and 4 private |
+| Current zero-base increment | 0 exact external result claims | 6 new project theorems, 2 public and 4 private |
 | `ModernLib` | No exact original-language result is claimed by the aggregate row | 1157 Lean theorems |
 
 The two Lemma II and two Lemma III witness sections preserve their separate
 Latin passages and edition-local proof interfaces. Their theorem declarations
 are formalizations written here; the source passage does not certify every
 supporting coordinate lemma. The current `BarrowLib` increment proves
-`lower_sum_eventually_positive` from finite ordered-partition arithmetic, a
-midpoint interval split and the supplied shrinking maximum-width premise. It
-has no Newton quotation or external priority claim, so its five declarations
-are project-authored. The harness example is anonymous and is not included in
-the theorem count.
+`lower_sum_eventually_positive` and `upper_sum_eventually_positive` from
+finite ordered-partition arithmetic, a midpoint interval split and the
+supplied shrinking maximum-width premise. They have no Newton quotation or
+external priority claim, so the six declarations are project-authored. The
+harness examples are anonymous and are not included in the theorem count.
 
 The import-tree number is the safe answer when asking “how many theorems are
 needed or available for this file?” The proof-tree number is the narrower

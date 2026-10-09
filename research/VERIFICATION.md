@@ -163,9 +163,11 @@ positive-width cell with a positive left ordinate gives a positive lower sum
 through `lower_sum_positive_of_positive_cell`. It now also checks
 `lower_sum_eventually_positive` on the zero-base square patch: an interior
 positive ordinate plus shrinking maximum width yields an eventual positive
-lower sum for arbitrary partitions. The historical mutual-ratio clients have
-not yet been refactored to consume that support theorem, and the corresponding
-zero-base upper/lower area comparison remains open.
+lower sum for arbitrary partitions. `upper_sum_eventually_positive` derives
+the corresponding upper tail from the finite lower/upper ordering. The
+historical mutual-ratio clients have not yet been refactored to consume these
+support theorems, and the corresponding zero-base upper/lower area comparison
+remains open.
 
 `sector-difference-2026-10-07.lean` checks actual fan, connector and filled-strip
 membership/exclusion, equivalent point displays, the strict half-plane bound

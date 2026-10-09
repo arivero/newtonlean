@@ -622,11 +622,11 @@ controls, now retained in the same harness. The review and controls share
 the rational definitions and Lean kernel; initial convention existence is
 still an explicit input.
 
-Last full verification: 9 October 2026, after the zero-base eventual-index
-Lemma II–III support increment. All five builds, all 36 positive scope harnesses
+Last full verification: 9 October 2026, after the zero-base lower/upper-tail
+support increment. All five builds, all 36 positive scope harnesses
 (including the harmonic reference/comparator), source hashes and whitespace
 passed. The compiled checker verified the README measurements, 1,181 score
-comments and 7,796 project constants with no project axioms, sorry or primary
+comments and 7,799 project constants with no project axioms, sorry or primary
 modern dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
@@ -656,6 +656,8 @@ consume the zero-base support theorem on patches with a positive interior
 ordinate. `MonotoneRectangles.lower_sum_eventually_positive` now derives an
 eventual positive lower sum from finite partition coverage and the shrinking
 maximum-width premise; the retained square harness checks the zero-base case.
+The upper-sum tail now follows from the finite lower/upper ordering and is
+checked in the same harness.
 The positive-base case still derives both denominator bounds and both varying
 finite-area ratio errors without assigning a rational curved area. The new
 support theorem is not yet wired into the edition-local mutual-ratio clients,
