@@ -48,7 +48,7 @@ theorem cell_parameter_norm_formula (w sigma tau : Fraction) (s : Point × Point
   apply Fraction.equiv_trans hs
   simp only [stateNorm, pointNorm, pointScale, negF, Fraction.equiv,
     Fraction.add, Fraction.mul, Fraction.abs, Int.natAbs_mul,
-    Int.natAbs_neg, Int.ofNat_mul]
+    Int.natAbs_neg, Int.natCast_mul]
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
@@ -244,7 +244,7 @@ theorem actual_coarse_parameter_error (w hσ hτ : Fraction) (s : Point × Point
       have hsum' := Fraction.add_le_add hA hB₂
       have hchain := Fraction.magnitudes.le_trans hstep hsum'
       simpa only [coarseAt, HarmonicRefinement.coarse,
-        parameterErrorBudget, localParameterBudget] using hchain
+        parameterErrorBudget, localParameterBudget] using! hchain
 
 def parameterPowerBudget (w hσ hτ : Fraction) (s : Point × Point)
     (i : Nat) : Fraction :=

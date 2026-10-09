@@ -235,9 +235,9 @@ theorem cell_amplification_at (tau : Fraction) (ht : 0 < tau.num)
     (pointDistance s.2 t.2) h.abs L E ht
     (pointNorm_nonnegative _) (pointNorm_nonnegative _)
     (Fraction.abs_num_nonnegative h) hL
-  have hh : h.abs.abs = h.abs := by simp only [Fraction.abs, Int.natAbs_ofNat]
+  have hh : h.abs.abs = h.abs := by simp only [Fraction.abs, Int.natAbs_natCast]
   have hbound := Fraction.magnitudes.le_trans hsum hcomp
-  simpa only [distance, amplification, hh] using hbound
+  simpa only [distance, amplification, hh] using! hbound
 
 theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (h L E : Fraction) (s t : Point × Point)
@@ -570,7 +570,7 @@ theorem run_sample_distance_le_source (tau : Fraction) (ht : 0 < tau.num)
           (Fraction.add_equiv (Fraction.equiv_refl _)
             (Fraction.equiv_refl _))
       have ha' := Fraction.le_equiv_right ha he
-      simpa only [BoundedIteration.run, FiniteRecurrence.sourceBudget] using
+      simpa only [BoundedIteration.run, FiniteRecurrence.sourceBudget] using!
         (Fraction.magnitudes.le_trans ht' (Fraction.magnitudes.le_trans ha' hb))
 
 theorem run_sample_distance_le_two (tau : Fraction) (ht : 0 < tau.num)

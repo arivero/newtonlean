@@ -12,6 +12,13 @@ keeps the progress estimates and compact measurements; this file explains
 the kinds of result, their sources and the provenance coverage of the
 dependencies actually used.
 
+The Lean 4.34.1 toolchain-only migration preserves the named theorem
+cascades below and their provenance classifications. Core types and lemmas
+are encoding infrastructure, excluded from these project-only counts and
+M/H scores. This exclusion does not certify historical availability. Exact
+source attestations and domain qualifications remain independent obligations.
+No completion estimate changes for the migration.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,

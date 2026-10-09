@@ -218,7 +218,7 @@ run_elab do
       unless used.contains dependency do throwError "{root} omits {dependency}"
     for dependency in used do
       let name := ((privateToUserName? dependency).getD dependency).toString
-      if #[foreign,"DeMotu1684."].any name.startsWith then
+      if #[foreign,"DeMotu1684."].any (fun rootName => name.startsWith rootName) then
         throwError "{root} uses foreign witness {dependency}"
       if let some idx := env.getModuleIdxFor? dependency then
         if env.header.moduleNames[idx]!.toString.startsWith "ModernLib" then

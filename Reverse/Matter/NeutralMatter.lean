@@ -119,7 +119,7 @@ theorem HasStableNeutralMatter.protons_need_electrons {I : MatterInputs}
   simp only [netCharge, Fraction.add, Fraction.mul, Fraction.ofInt, hE0,
     I.nucleons.neutronCharge_zero, Int.natCast_zero, Int.mul_zero, Int.zero_mul,
     Int.mul_one, Int.one_mul, Int.add_zero, Int.zero_add] at h
-  have hp : (0 : Int) < (M.body b).protons := Int.ofNat_pos.mpr hZ
+  have hp : (0 : Int) < (M.body b).protons := Int.natCast_pos.mpr hZ
   have hpos := Int.mul_pos (Int.mul_pos (Int.mul_pos hp I.nucleons.protonCharge_positive)
     I.nucleons.neutronCharge.den_pos) I.electron.charge.den_pos
   ac_nf at h hpos

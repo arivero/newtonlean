@@ -1,7 +1,7 @@
 # Newton's changing proof architecture
 
 This repository formalizes Newton's Book I, Section II, Propositions I–IV in
-Lean 4.19.0 core/Std, with no mathlib. De Motu antecedents, the 1687 edition
+Lean 4.34.1 core/Std, with no mathlib. De Motu antecedents, the 1687 edition
 and the 1713 edition keep their own statements, proof passages and premises.
 Proposed 1694 and 1726 material serves comparison without supplying earlier
 premises silently.
@@ -83,6 +83,16 @@ Every commit must update this completion-percentage information, reassessing
 the affected files and witnesses and explaining changes to the estimates or
 remaining work. An unchanged rounded estimate must be explicitly justified
 here. Measured counts must also be refreshed whenever they change.
+Toolchain reassessment, 10 October: **every file/witness percentage remains
+unchanged** after migration from Lean 4.19.0 to 4.34.1. Compatibility repairs
+change proof elaboration only; no theorem is added or removed and no statement
+or historical obligation changes. Core arithmetic remains encoding
+infrastructure, not a certificate of historical availability. Source
+attestations will be kept separately within their exact domains. The Rat
+representation migration is a subsequent stage and earns no completion
+credit either. Measured theorem cascades are unchanged; source lines are
+refreshed below.
+
 Current reassessment, 10 October: both printed Lemma II/III estimates remain
 80% after removing monotonicity from their conditional rectangular area
 exhaustion. Uniform continuity now constructs clipped lower/upper heights
@@ -260,7 +270,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib](ClassicsLib.lean) | 340 | 16 | 16 | 26 |
 | [BarrowLib](BarrowLib.lean) | 15596 | 1000 | 1000 | 1000 |
-| [ModernLib](ModernLib.lean) | 19677 | 1157 | 1496 | 1689 |
+| [ModernLib](ModernLib.lean) | 19707 | 1157 | 1496 | 1689 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

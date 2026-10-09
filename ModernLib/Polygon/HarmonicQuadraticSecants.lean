@@ -1,6 +1,9 @@
 import ModernLib.Polygon.GeneralForceQuadraticSecants
 import ModernLib.Polygon.HarmonicCompletedForce
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! The retained harmonic curve inherits the constructed normalized
 second-order position departure criterion, with all sample bounds derived. -/
 

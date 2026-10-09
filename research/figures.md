@@ -216,7 +216,7 @@ flowchart LR
   NewtonLimitDynamics["NewtonLimitDynamics"] --> ClassicsLib["ClassicsLib"]
 ```
 
-The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 300 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
+The next arrows mean at least one compiled declaration in the target historical file **directly** uses a constant from the source historical file in its type or body. Private helpers are included. 285 compiled historical declarations were inspected; same-file and supporting-library uses are suppressed for readability. These direct formal uses are distinct from source-comment edges and from file imports.
 
 ### Direct cross-file formal uses
 
@@ -231,24 +231,24 @@ flowchart LR
   LawII["LawII"] --> AreaLaw["AreaLaw"]
   CompositionOfMotions["CompositionOfMotions"] --> AreaLaw["AreaLaw"]
   LemmaIII["LemmaIII"] --> LemmaIII_CorollaryI["LemmaIII.CorollaryI"]
-  LemmaIII["LemmaIII"] --> AreaLaw["AreaLaw"]
-  LemmaIII_CorollaryI["LemmaIII.CorollaryI"] --> LemmaIII_CorollaryIII["LemmaIII.CorollaryIII"]
-  LemmaIII_CorollaryII["LemmaIII.CorollaryII"] --> LemmaIII_CorollaryIV["LemmaIII.CorollaryIV"]
-  LemmaIII_CorollaryIII["LemmaIII.CorollaryIII"] --> LemmaIII_CorollaryIV["LemmaIII.CorollaryIV"]
-  LemmaI["LemmaI"] --> LemmaII["LemmaII"]
-  LemmaX["LemmaX"] --> LemmaX_CorollaryII["LemmaX.CorollaryII"]
-  LemmaX["LemmaX"] --> LemmaX_CorollaryI["LemmaX.CorollaryI"]
-  LemmaX["LemmaX"] --> LemmaX_CorollaryIII["LemmaX.CorollaryIII"]
-  LemmaX_CorollaryII["LemmaX.CorollaryII"] --> LemmaX_CorollaryIII["LemmaX.CorollaryIII"]
   LawI["LawI"] --> LawsCorollaryVI["LawsCorollaryVI"]
   LawII["LawII"] --> LawsCorollaryVI["LawsCorollaryVI"]
-  LawI["LawI"] --> LawsCorollaryV["LawsCorollaryV"]
-  LawII["LawII"] --> LawsCorollaryV["LawsCorollaryV"]
-  LemmaIII_CorollaryI["LemmaIII.CorollaryI"] --> LemmaIII_CorollaryII["LemmaIII.CorollaryII"]
+  LemmaI["LemmaI"] --> LemmaII["LemmaII"]
+  LemmaIII["LemmaIII"] --> AreaLaw["AreaLaw"]
+  LemmaIII_CorollaryII["LemmaIII.CorollaryII"] --> LemmaIII_CorollaryIV["LemmaIII.CorollaryIV"]
+  LemmaIII_CorollaryIII["LemmaIII.CorollaryIII"] --> LemmaIII_CorollaryIV["LemmaIII.CorollaryIV"]
   LemmaX["LemmaX"] --> LemmaX_CorollaryIV["LemmaX.CorollaryIV"]
   LemmaX_CorollaryIII["LemmaX.CorollaryIII"] --> LemmaX_CorollaryIV["LemmaX.CorollaryIV"]
+  LemmaIII_CorollaryI["LemmaIII.CorollaryI"] --> LemmaIII_CorollaryIII["LemmaIII.CorollaryIII"]
+  LemmaX["LemmaX"] --> LemmaX_CorollaryII["LemmaX.CorollaryII"]
+  LemmaX["LemmaX"] --> LemmaX_CorollaryI["LemmaX.CorollaryI"]
   LemmaX["LemmaX"] --> LemmaX_CorollaryV["LemmaX.CorollaryV"]
   LemmaX_CorollaryIII["LemmaX.CorollaryIII"] --> LemmaX_CorollaryV["LemmaX.CorollaryV"]
+  LemmaIII_CorollaryI["LemmaIII.CorollaryI"] --> LemmaIII_CorollaryII["LemmaIII.CorollaryII"]
+  LemmaX["LemmaX"] --> LemmaX_CorollaryIII["LemmaX.CorollaryIII"]
+  LemmaX_CorollaryII["LemmaX.CorollaryII"] --> LemmaX_CorollaryIII["LemmaX.CorollaryIII"]
+  LawI["LawI"] --> LawsCorollaryV["LawsCorollaryV"]
+  LawII["LawII"] --> LawsCorollaryV["LawsCorollaryV"]
 ```
 
 No diagram certifies the full Proposition I–IV chain, the polygon-to-curve step, or a historical premise merely because a file or declaration is reachable. Read the named Lean statements and their supplied hypotheses for scope.

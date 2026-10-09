@@ -219,7 +219,7 @@ example : RatiosOne rational (fun _ => one) (fun _ => one) := by
   change Fraction.lt (durationDifference one one) eps
   simpa only [durationDifference, HarmonicStability.negF, one, Fraction.lt,
     Fraction.add, Fraction.ofInt, Int.one_mul, Int.mul_one, Int.neg_mul,
-    Int.zero_mul, Int.reduceNeg, Int.reduceAdd] using heps
+    Int.zero_mul, Int.reduceNeg, Int.reduceAdd] using! heps
 
 end NewtonLimitDynamics.Polygon.MagnitudeControls
 
@@ -267,7 +267,7 @@ run_elab do
         unless used.contains dependency do throwError "{root} omits {dependency}"
       for dependency in used do
         let name := ((privateToUserName? dependency).getD dependency).toString
-        if #[foreign,"DeMotu1684."].any name.startsWith then
+        if #[foreign,"DeMotu1684."].any (fun rootName => name.startsWith rootName) then
           throwError "{root} uses foreign witness {dependency}"
         if let some idx := env.getModuleIdxFor? dependency then
           if env.header.moduleNames[idx]!.toString.startsWith "ModernLib" then

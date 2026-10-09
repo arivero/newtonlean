@@ -129,7 +129,7 @@ theorem extend_relative (s0 w p q : LatticePoint) (n : Nat) :
     sub (extend p q) (centreAt s0 w (n + 2)) =
       extend (sub p (centreAt s0 w n)) (sub q (centreAt s0 w (n + 1))) := by
   simp only [sub, extend, centreAt]
-  apply Prod.ext <;> dsimp <;> simp only [Int.ofNat_add, Int.add_mul] <;> omega
+  apply Prod.ext <;> dsimp <;> simp only [Int.natCast_add, Int.add_mul] <;> omega
 
 /-- Case 2, finite step: equal oriented areas about a uniformly moving centre
     make each deflection parallel to the current radius from that centre. -/

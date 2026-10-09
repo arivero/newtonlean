@@ -1,6 +1,9 @@
 import ModernLib.Polygon.GeneralForceAccelerationSecants
 import ModernLib.Polygon.HarmonicCompletedForce
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! The retained harmonic curve's completed velocity secants converge to
 its completed linear central force, as an instance of the general result. -/
 

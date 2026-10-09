@@ -1,6 +1,9 @@
 import ModernLib.Polygon.GeneralForceTime
 import ModernLib.Foundation.Polygon.SampledValues
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! Extend the actual sampled central force to completed positions with a
 certified regional Cauchy representative. No whole-plane domain is required.
 The same mesh precision used by the motion is retained. Error exhaustion and

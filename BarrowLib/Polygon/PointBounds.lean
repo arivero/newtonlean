@@ -55,7 +55,7 @@ theorem pointNorm_add_le (p q : Point) :
 theorem pointNorm_scale (d : Fraction) (p : Point) :
     Fraction.equiv (pointNorm (pointScale d p)) (Fraction.mul d.abs (pointNorm p)) := by
   simp only [Fraction.equiv, pointNorm, pointScale, Fraction.abs, Fraction.add,
-    Fraction.mul, Int.natAbs_mul, Int.ofNat_mul]
+    Fraction.mul, Int.natAbs_mul, Int.natCast_mul]
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 
@@ -74,7 +74,7 @@ theorem stateNorm_scale (d : Fraction) (s : Point × Point) :
       (stateNorm (pointScale d s.1, pointScale d s.2))
       (Fraction.mul d.abs (stateNorm s)) := by
   simp only [Fraction.equiv, stateNorm, pointNorm, pointScale, Fraction.abs,
-    Fraction.add, Fraction.mul, Int.natAbs_mul, Int.ofNat_mul]
+    Fraction.add, Fraction.mul, Int.natAbs_mul, Int.natCast_mul]
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 

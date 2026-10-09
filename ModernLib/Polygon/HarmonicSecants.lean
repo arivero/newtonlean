@@ -1,6 +1,9 @@
 import ModernLib.Polygon.GeneralForceSecants
 import ModernLib.Polygon.HarmonicGeneralTime
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! The retained harmonic curve's position-secants result is a corollary
 of the actual general central-force construction. No derivative primitive
 or new historical dependency is used. -/

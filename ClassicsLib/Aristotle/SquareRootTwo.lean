@@ -79,7 +79,7 @@ theorem no_integer_ratio_square_two (a b : Int) (hb : b ≠ 0) :
   intro heq
   have hnat : a.natAbs*a.natAbs = 2*(b.natAbs*b.natAbs) := by
     have := congrArg Int.natAbs heq
-    simpa only [Int.natAbs_mul] using this
+    simpa only [Int.natAbs_mul, show Int.natAbs 2 = 2 by rfl] using this
   exact no_natural_ratio_square_two a.natAbs b.natAbs
     (by simpa using hb) hnat
 

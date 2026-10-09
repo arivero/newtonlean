@@ -107,7 +107,7 @@ private theorem scalar_step_position (D A T w : Nat) (hD : 0 < D) (p v a : Fract
         (Fraction.mul (squareDuration D (A + w * T) hD) a)) := by
   unfold Fraction.equiv Fraction.add Fraction.mul duration squareDuration
   dsimp
-  simp only [Int.ofNat_add, Int.ofNat_mul, Int.add_mul, Int.mul_add]
+  simp only [Int.natCast_add, Int.natCast_mul, Int.add_mul, Int.mul_add]
   ac_rfl
 
 -- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
@@ -118,7 +118,7 @@ private theorem scalar_step_velocity (D T w : Nat) (hD : 0 < D) (v a : Fraction)
       (Fraction.add v (Fraction.mul (duration D (T + w) hD) a)) := by
   unfold Fraction.equiv Fraction.add Fraction.mul duration
   dsimp
-  simp only [Int.ofNat_add, Int.add_mul]
+  simp only [Int.natCast_add, Int.add_mul]
   ac_rfl
 
 -- Modern dependency score: 0/10 (M=0, H=10; transitive project theorems/axioms).
@@ -217,7 +217,7 @@ private theorem candidate_residual_scalar (D A Q T : Nat) (hD : 0 < D)
   have hi : (2 : Int) * (A : Int) + (Q : Int) = (T : Int) * (T : Int) := by omega
   unfold Fraction.equiv Fraction.add Fraction.mul duration squareDuration residualCoefficient
   simp only [Fraction.half, squareDuration]
-  simp only [Int.ofNat_mul, Int.add_mul, Int.mul_add]
+  simp only [Int.natCast_mul, Int.add_mul, Int.mul_add]
   rw [← hi]
   simp only [Int.add_mul, Int.mul_add]
   ac_rfl

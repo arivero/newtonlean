@@ -28,17 +28,16 @@ passages before a ClassicsLib migration. An unchanged move leaves the total
 theorem count unchanged, even though per-library counts and classifications
 change. Cross-product equivalence alone does not source all signed arithmetic.
 
-Two implementation alternatives deserve a bounded comparison before any
-rewrite: normalized rationals, and a quotient of the present fraction
-equivalence. Lean 4.19 includes `Std/Internal/Rat.lean`, with normalization
-and an executable rational type, but its arithmetic theorem interface must be
-checked rather than presumed sufficient. A quotient can turn representative
-equivalence into equality, while still requiring congruence proofs for lifted
-operations and an ordered arithmetic API. Neither choice automatically proves
-the geometry or removes foundational work. Compare one existing arithmetic
-client and its full dependencies first; moving proofs into Lean/Std can reduce
-our project counts without reducing the total supporting mathematics. Keep
-the accepted historical premises and core-only policy throughout.
+On 10 October the user selected Lean 4.34.1 and its core `Rat`, after a
+scratch check of order, arithmetic, absolute value and `grind`. The approved
+migration uses reduced rationals and equality, with a temporary conversion
+bridge; a quotient over unreduced Fraction would retain the ordered-field
+proof burden. Migrate clients in import order, deleting core duplicates and
+redundant representative transport. Compare compiled cascades against the
+scratch baseline. Moving arithmetic into core reduces the counted project
+boundary, not the total supporting mathematics or the remaining geometry.
+Core availability also does not establish historical availability: retain
+source attestations, their original languages and their stated domains.
 
 The classical statements also have narrow conclusions: a new prime outside
 a finite list, and exclusion of an integer square equation. The second does
@@ -97,7 +96,7 @@ premises, source scope and dependency classification.
 
 Source review, 8 October 2026; no package was installed or executed. The two
 public agent skills below offer useful proof engineering guidance. Their
-availability does not establish compatibility with our Lean 4.19 environment.
+availability does not establish compatibility with our Lean 4.34.1 core-only environment.
 
 | Source | Useful guidance here | Adaptation required |
 | --- | --- | --- |
@@ -107,7 +106,7 @@ availability does not establish compatibility with our Lean 4.19 environment.
 For core proof techniques, consult
 [Theorem Proving in Lean 4](https://leanprover.github.io/theorem_proving_in_lean4/),
 especially tactics, induction, structures and axioms. Its current web edition
-targets a later Lean version, so check examples against our pinned compiler.
+can change over time, so check examples against our pinned compiler.
 Use [Mathlib's style guide](https://leanprover-community.github.io/contribute/style.html)
 as a readability reference without importing its mathematical library or
 treating its repository rules as ours. No new agent skill is required to

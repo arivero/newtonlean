@@ -38,7 +38,7 @@ theorem refined_time (N E K : Nat) (hE : 0 < E) (hEK : 0 < E * K) :
   rw [unitCells_total]
   unfold Fraction.equiv duration
   dsimp
-  simp only [Int.ofNat_mul]
+  try simp only [Int.natCast_mul]
   ac_rfl
 
 /-- Nat core of the estimate: `N*K*d ≤ n*2*(E*K)*(E*K)` once `K > N*d`,
@@ -96,9 +96,9 @@ theorem uniform_refinement_small (N E : Nat) (hE : 0 < E) (eps : Fraction)
   unfold Fraction.le residualCoefficient Fraction.half squareDuration
   dsimp
   rw [← hd, ← hn]
-  simp only [Int.ofNat_mul] at hint ⊢
+  simp only [Int.natCast_mul] at hint ⊢
   have h2 : ((2 : Nat) : Int) = 2 := rfl
   rw [h2] at hint
-  simpa only [Int.ofNat_mul, Int.mul_assoc, Int.mul_comm, Int.mul_left_comm] using hint
+  simpa only [Int.natCast_mul, Int.natCast_add, Int.natCast_one, Int.mul_assoc, Int.mul_comm, Int.mul_left_comm] using hint
 
 end NewtonLimitDynamics.Polygon.UniformRefinement

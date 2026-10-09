@@ -4,6 +4,9 @@ import ModernLib.Foundation.Polygon.SecantValues
 import ModernLib.Foundation.Polygon.TailValues
 import ModernLib.Foundation.Polygon.CompletionGeometry
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! Actual dyadic nodes of the constructed binary-time domain, including
 the right endpoint. A truncation lies within one cell of its time value. -/
 

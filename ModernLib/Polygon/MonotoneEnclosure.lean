@@ -35,7 +35,7 @@ theorem pos_const (c : Int) : (n : Nat) → pos (fun _ => c) n = c * tri n ∧ v
   | 0 => by simp [pos, vel, tri]
   | n + 1 => by
       obtain ⟨hp, hv⟩ := pos_const c n
-      simp only [pos, vel, tri, hp, hv, Int.mul_add, Int.mul_one, Int.ofNat_add]
+      simp only [pos, vel, tri, hp, hv, Int.mul_add, Int.mul_one, Int.natCast_add]
       refine ⟨trivial, ?_⟩
       rw [Int.ofNat_one, Int.mul_one]
 
@@ -50,7 +50,7 @@ theorem vel_bounds (a : Nat → Int) (lo hi : Int) (n : Nat)
       intro hk
       obtain ⟨h1, h2⟩ := ih (Nat.le_of_succ_le hk)
       obtain ⟨h3, h4⟩ := h k (Nat.lt_of_succ_le hk)
-      simp only [vel, Int.ofNat_add, Int.mul_add, Int.mul_one]
+      simp only [vel, Int.natCast_add, Int.mul_add, Int.mul_one]
       constructor <;> omega
 
 /-- Enclosure: impulses between `lo` and `hi` put the space described between

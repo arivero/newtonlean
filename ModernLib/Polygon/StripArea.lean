@@ -130,7 +130,7 @@ theorem total_strip_area (h : Fraction) (v a : Point) (k : Nat) :
     exact Fraction.equiv_trans
       (Fraction.add_equiv ih (two_cell_triangle_constant h v a k))
       (by simp only [Fraction.mul, Fraction.add, Fraction.ofInt, Fraction.equiv,
-          Int.add_mul, Int.mul_add, Int.ofNat_add, Int.mul_one, Int.one_mul] <;>
+          Int.add_mul, Int.mul_add, Int.natCast_add, Int.mul_one, Int.one_mul] <;>
         ac_nf <;> omega)
 
 end NewtonLimitDynamics.Polygon.StripArea

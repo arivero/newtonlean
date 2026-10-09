@@ -38,7 +38,7 @@ theorem cellTrace_bound (p q : Point) (c : Cell p q) (x : PositionValue)
   have hR := pointNorm_nonnegative (pointSub q p)
   have hp : Within (embedPosition p).val (embedPosition p).val (pointDistance q p) :=
     within_mono _ _ _ _
-      (by simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using hR)
+      (by simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using! hR)
       ((within_zero_iff _ _).mpr rfl)
   have hj := (within_embedPosition_iff r p _).mpr hb
   rcases hx with hx | hx

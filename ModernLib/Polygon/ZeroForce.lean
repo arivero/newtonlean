@@ -105,7 +105,7 @@ theorem duration_add (D a b : Nat) (hD : 0 < D) :
       (duration D (a + b) hD) := by
   unfold Fraction.equiv Fraction.add duration
   dsimp
-  simp only [Int.ofNat_add, Int.mul_add, Int.add_mul]
+  simp only [Int.natCast_add, Int.mul_add, Int.add_mul]
   ac_rfl
 
 /-- The finite recurrence itself restarts exactly: this is `foldl_append`, not

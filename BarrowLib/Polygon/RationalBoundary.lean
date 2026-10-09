@@ -238,7 +238,7 @@ theorem endpoint_zero_bound (p q : Point) :
     Fraction.le (pointDistance p p) (pointDistance q p) :=
   Fraction.le_equiv_left (pointDistance_self_zero p)
     (by simpa only [Fraction.le, Fraction.ofInt, Int.zero_mul, Int.mul_one]
-      using pointNorm_nonnegative (pointSub q p))
+      using! pointNorm_nonnegative (pointSub q p))
 
 theorem chord_cell_bound (p q x : Point) (hx : Segment p q x) :
     Fraction.le (pointDistance x p) (pointDistance q p) :=

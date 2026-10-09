@@ -49,7 +49,7 @@ theorem intervalSum_compose (a : Nat → Fraction) (lo n k : Nat) :
       simp only [Fraction.equiv,Fraction.add]
       simp only [Int.add_mul,Int.mul_add]
       ac_nf
-    simpa only [intervalSum, sum, Nat.add_succ, Nat.add_assoc] using
+    simpa only [intervalSum, sum, Nat.add_succ, Nat.add_assoc] using!
       Fraction.equiv_trans h hassoc
 
 theorem intervalFan_compose (unsigned : Bool) (p : Nat → Point) (lo n k : Nat) :
@@ -90,7 +90,7 @@ theorem abs_sub_abs_le (a b : Fraction) :
   have hnum : (Int.natAbs ((Int.natAbs A : Int) - Int.natAbs B) : Int) ≤
       Int.natAbs (A-B) := hs
   have hm := Int.mul_le_mul_of_nonneg_right hnum hden
-  simpa only [A,B,Int.natAbs_mul,Int.ofNat_mul,Int.neg_mul,
+  simpa only [A,B,Int.natAbs_mul,Int.natCast_mul,Int.neg_mul,
     Int.natAbs_of_nonneg (Int.le_of_lt a.den_pos),
     Int.natAbs_of_nonneg (Int.le_of_lt b.den_pos),Int.sub_eq_add_neg] using hm
 

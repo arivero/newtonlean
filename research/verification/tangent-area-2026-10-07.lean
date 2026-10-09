@@ -196,7 +196,7 @@ private theorem chosen_meeting (C : Patch g d a b) :
   have hlines := meeting_on_lines (graph g a) (graph g b)
     (cell C a b ha hab hb) r (actual_meeting C)
   exact meeting_unique (graph g a) (graph g b) (cell C a b ha hab hb)
-    (meeting C oneCell 0) r (by simpa only [oneCell] using hm) hd hlines.1 hlines.2
+    (meeting C oneCell 0) r (by simpa only [oneCell] using! hm) hd hlines.1 hlines.2
 
 private theorem chosen_value (C : Patch g d a b) :
     Fraction.equiv (value C oneCell) sevenFourths := by
@@ -219,7 +219,7 @@ private theorem chosen_value (C : Patch g d a b) :
       (Fraction.add (Fraction.ofInt 0)
         (Fraction.add (trapezoid (graph g a) r) (trapezoid r (graph g b)))) := by
     simpa only [value, oneCell, PolygonFanArea.sum, cellValue, dif_pos (show 0 = 0 by rfl)]
-      using Fraction.add_equiv_left (Fraction.ofInt 0) hsum
+      using! Fraction.add_equiv_left (Fraction.ofInt 0) hsum
   exact Fraction.equiv_trans hraw hnumeric
 
 private theorem chosen_polygon_area (area : TriangleContent.AreaRules)

@@ -521,7 +521,7 @@ theorem eventual_mechanical_sector_difference_cover_areas
   · exact MotionSectorCover.edge_cover_inside a C T B V u j d.remainder_nonnegative
       d.time_nonnegative d.force_nonnegative x h
   · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
-    simpa only [polygonVertex,canonical_polygon_eq_run] using h
+    simpa only [polygonVertex,canonical_polygon_eq_run] using! h
 
 
 /-- This witness's own mechanical/sample-sector cover is combined with the
@@ -1121,7 +1121,7 @@ theorem eventual_mechanical_sector_difference_cover_areas
   · exact MotionSectorCover.edge_cover_inside a C T B V u j d.remainder_nonnegative
       d.time_nonnegative d.force_nonnegative x h
   · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
-    simpa only [polygonVertex,canonical_polygon_eq_run] using h
+    simpa only [polygonVertex,canonical_polygon_eq_run] using! h
 
 
 /-- This witness's own mechanical/sample-sector cover is combined with the
@@ -1721,7 +1721,7 @@ theorem eventual_mechanical_sector_difference_cover_areas
   · exact MotionSectorCover.edge_cover_inside a C T B V u j d.remainder_nonnegative
       d.time_nonnegative d.force_nonnegative x h
   · apply MotionSectorCover.terminal_cover_inside a C T L B P V u d j x
-    simpa only [polygonVertex,canonical_polygon_eq_run] using h
+    simpa only [polygonVertex,canonical_polygon_eq_run] using! h
 
 
 /-- This witness's own mechanical/sample-sector cover is combined with the

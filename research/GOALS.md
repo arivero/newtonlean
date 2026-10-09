@@ -100,8 +100,8 @@ do not imply an internal contradiction in its mathematical models.
 - Explicit realization/refinement obligations, with conditional results marked.
 - A separate assessment of the action hypothesis supported by those results.
 
-Use Lean 4.19 core/Std only, empty external dependencies, no `sorry`, and no
-post-Newtonian theorem filling a historical gap. Run both build targets,
+Use Lean 4.34.1 core/Std only, empty external dependencies, no `sorry`, and no
+post-Newtonian theorem filling a historical gap. Run all six build targets,
 reference/axiom inspection and source/dependency review. Compilation is not
 certification that supplied premises have been derived. Preserve unrelated
 conversation archives. Work and verification agents run sequentially according

@@ -2,6 +2,9 @@ import ModernLib.Polygon.GeneralForceTime
 import BarrowLib.Polygon.KinematicEstimates
 import ModernLib.Foundation.Polygon.DyadicNodes
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! Position secants of the actual constructed central-force map converge
 to its constructed velocity along the bracketing dyadic cells. The finite
 remainder is derived and transferred through Cauchy values. This does not
@@ -103,7 +106,7 @@ theorem cell_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction) (s : Poi
     simpa only [n,Nat.add_mul,Nat.one_mul] using hm
   have hb := BoundedIteration.boundedSamples_restart a h s B (blocks (m+j)) n (blocks j)
     hn (d.actual_samples (m+j))
-  have hp : 0 < (blocks j : Int) := Int.ofNat_pos.mpr (by unfold blocks; exact Nat.pow_pos (by decide))
+  have hp : 0 < (blocks j : Int) := Int.natCast_pos.mpr (by unfold blocks; exact Nat.pow_pos (by decide))
   have ht : 0 < (BoundedIteration.time h (blocks j)).num := Int.mul_pos hp hT
   have hr := KinematicEstimates.position_secant_equivalent_time a h q B (duration T m)
     (Int.le_of_lt hT) d.bound_nonnegative (blocks j) ht hT

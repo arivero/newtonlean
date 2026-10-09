@@ -178,7 +178,7 @@ theorem lawI_uniform (z : PairState) (d e : Nat → LatticePoint) (he : ∀ i, e
           add (extend (pairMotion z d e n).s (pairMotion z d e n).t) (e n) from rfl]
       rw [he n, add_zero_right, ih.1, ih.2]
       simp only [extend, centreAt, sub]
-      apply Prod.ext <;> dsimp <;> simp only [Int.ofNat_add, Int.add_mul] <;> omega
+      apply Prod.ext <;> dsimp <;> simp only [Int.natCast_add, Int.add_mul] <;> omega
 
 /-- With an inertial reference body, the relative radius from the uniform
     `centreAt` is the relative coordinate of the constructed polygon: Newton's

@@ -46,7 +46,7 @@ theorem velocity_displacement (a : Point → Point) (h : Fraction) (s : Point ×
   have hg := FiniteSequenceGap.finite_gap (fun x y => pointDistance x.2 y.2)
     (fun x => pointDistance_self_zero x.2) (fun x y z => pointDistance_triangle x.2 y.2 z.2)
     (run a h s) n (Fraction.mul h B) hs 0 n (by omega)
-  simpa only [Nat.zero_add,run] using
+  simpa only [Nat.zero_add,run] using!
     Fraction.le_equiv_right hg (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
 
 theorem quadratic_step (h B : Fraction) (hh : 0 ≤ h.num) (hB : 0 ≤ B.num) (n : Nat) :

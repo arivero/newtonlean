@@ -188,7 +188,7 @@ research/verification. Read historical statements/proofs in their owning files.
 Reader Markdown can be rendered with pandoc on demand; generated whole-library
 documents and checked-in reader PDFs are removed.
 
-Use Lean 4.19 core/Std only, no mathlib, no sorry and no project axioms.
+Use Lean 4.34.1 core/Std only, no mathlib, no sorry and no project axioms.
 Delegated implementation remains sequential v6 Sol/Luna under AGENTS.md.
 For the 7 October groundwork increment the user explicitly authorized one
 final Astra review, overriding the earlier prohibition for that review.

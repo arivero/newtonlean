@@ -56,7 +56,7 @@ private theorem localA_abs (w h : Fraction) :
     Fraction.equiv (localA w h).abs
       (Fraction.mul (Fraction.mul h.abs h.abs) w.abs) := by
   simp only [localA, Fraction.equiv, Fraction.abs, Fraction.mul,
-    Int.natAbs_mul, Int.ofNat_mul]
+    Int.natAbs_mul, Int.natCast_mul]
 
 -- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 private theorem neg_localA_abs (w h : Fraction) :
@@ -70,7 +70,7 @@ private theorem localC_abs (w h : Fraction) :
       (Fraction.mul (Fraction.mul (Fraction.mul h.abs h.abs) w.abs)
         (Fraction.mul h.abs w.abs)) := by
   simp only [localC, Fraction.equiv, Fraction.abs, Fraction.mul,
-    Int.natAbs_mul, Int.ofNat_mul]
+    Int.natAbs_mul, Int.natCast_mul]
   ac_nf
 
 -- Modern dependency score: 3/28 (M=3, H=25; transitive project theorems/axioms).

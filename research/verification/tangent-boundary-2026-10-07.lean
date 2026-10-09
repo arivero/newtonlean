@@ -109,7 +109,7 @@ private theorem left_high_excluded :
     simp only [Fraction.le, line, parabola, derivative, a, leftX, oneHalf,
       negF, durationDifference, Fraction.ofInt, Fraction.add, Fraction.mul]
     decide
-  exact hbad (by simpa only [CellUpper, single] using hc.2.2.1)
+  exact hbad (by simpa only [CellUpper, single] using! hc.2.2.1)
 
 private theorem right_high_excluded :
     ¬ UpperBoundary parabola derivative single (rightX, Fraction.ofInt 3) := by
@@ -123,7 +123,7 @@ private theorem right_high_excluded :
     simp only [Fraction.le, line, parabola, derivative, b, rightX,
       negF, durationDifference, Fraction.ofInt, Fraction.add, Fraction.mul]
     decide
-  exact hbad (by simpa only [CellUpper, single] using hc.2.2.2.1)
+  exact hbad (by simpa only [CellUpper, single] using! hc.2.2.2.1)
 
 private theorem higher_lines_outside_region :
     ¬ figure parabola derivative single (leftX, oneHalf) ∧
@@ -139,7 +139,7 @@ private theorem higher_lines_outside_region :
       simp only [Fraction.le, line, parabola, derivative, a, leftX, oneHalf,
         negF, durationDifference, Fraction.ofInt, Fraction.add, Fraction.mul]
       decide
-    exact hbad (by simpa only [single] using hL)
+    exact hbad (by simpa only [single] using! hL)
   · intro h
     obtain ⟨i, hi, _, _, _, _, hR⟩ := h
     have he : i = 0 := by
@@ -150,7 +150,7 @@ private theorem higher_lines_outside_region :
       simp only [Fraction.le, line, parabola, derivative, b, rightX,
         negF, durationDifference, Fraction.ofInt, Fraction.add, Fraction.mul]
       decide
-    exact hbad (by simpa only [single] using hR)
+    exact hbad (by simpa only [single] using! hR)
 
 private theorem parabola_trace_controls
     (C : Patch parabola derivative a b) :
@@ -241,7 +241,7 @@ private theorem coincident_lines :
       simp only [Fraction.le, line, flat, flatSlope, a, midX,
         durationDifference, Fraction.ofInt, Fraction.add, Fraction.mul]
       decide
-    exact hbad (by simpa only [CellUpper, single] using hc.2.2.1)
+    exact hbad (by simpa only [CellUpper, single] using! hc.2.2.1)
 
 private theorem coincident_trace (C : Patch flat flatSlope a b) :
     Trace C single (midX, Fraction.ofInt 1) ∧

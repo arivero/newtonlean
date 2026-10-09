@@ -2,6 +2,9 @@ import ModernLib.Polygon.GeneralForceSecants
 import ModernLib.Polygon.CompletedForce
 import BarrowLib.Polygon.AccelerationEstimates
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! Completed dyadic velocity secants converge to the completed force at the
 constructed positions. Actual finite velocity remainders and force sampling
 error derive the estimate; no acceleration equation is a premise. The result
@@ -80,7 +83,7 @@ theorem cell_acceleration_secant_bound (o : CentralOracle) (E0 T tau L B : Fract
       rw [blocks_add]
       have hm := Nat.mul_le_mul_right (blocks j) hk
       simpa only [n,Nat.add_mul,Nat.one_mul] using hm
-    have hp : 0 < (blocks j : Int) := Int.ofNat_pos.mpr (by unfold blocks; exact Nat.pow_pos (by decide))
+    have hp : 0 < (blocks j : Int) := Int.natCast_pos.mpr (by unfold blocks; exact Nat.pow_pos (by decide))
     have ht : 0 < (BoundedIteration.time h (blocks j)).num := Int.mul_pos hp hT
     have hv : ∀ i, i<blocks j → Fraction.le
         (pointNorm (BoundedIteration.run a h q i).2) (velocityCap T B s) := by

@@ -1,6 +1,9 @@
 import ModernLib.Polygon.GeneralForceQuadraticSecants
 import ModernLib.Foundation.Polygon.TangentTriangleValues
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! Leading signed doubled tangent-deflection triangle on the actual
 constructed sampled Lipschitz central-force curve. Completed determinants
 transfer the proved second-order position bound, without assuming an area

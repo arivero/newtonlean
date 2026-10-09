@@ -29,7 +29,7 @@ theorem cell_norm_bound_at (tau : Fraction) (ht : 0 < tau.num)
     ht (pointNorm_nonnegative _) (pointNorm_nonnegative _)
     (Fraction.abs_num_nonnegative h) hL
   simpa only [norm,TimeCalibration.amplification,
-    Fraction.abs_eq_of_nonnegative h.abs (Fraction.abs_num_nonnegative h)] using
+    Fraction.abs_eq_of_nonnegative h.abs (Fraction.abs_num_nonnegative h)] using!
     (Fraction.magnitudes.le_trans hb hc)
 
 

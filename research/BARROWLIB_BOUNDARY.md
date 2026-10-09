@@ -23,6 +23,13 @@ The earlier extraction design is in Git; its placement of Cauchy machinery
 in BarrowLib is superseded. Existing arithmetic/data infrastructure is used
 to encode the mathematics, not as evidence for its historical availability.
 
+User decision, 10 October: Lean 4.34.1 core types and lemmas, including
+`Rat`, are encoding infrastructure outside project M/H scores. Rational
+arithmetic will use core Rat; the toolchain-only stage still retains Fraction
+until its clients are migrated. The Nine Chapters attestation will be a
+separate source file, with exact rule domains and commentary kept distinct.
+Core arithmetic's availability does not certify a historical dependency.
+
 BarrowLib contains rational arithmetic, ordered ratios, finite sums/products,
 coordinate point/determinant geometry, finite refinement and explicit
 exhaustion arguments. An explicit abstract order/limiting premise must not

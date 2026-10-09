@@ -44,7 +44,7 @@ theorem le_abs (a : Fraction) : le a a.abs := by
 theorem abs_equiv {a b : Fraction} (h : equiv a b) : equiv a.abs b.abs := by
   have hn := congrArg Int.natAbs h
   have hi := congrArg (fun n : Nat => (n : Int)) hn
-  simp only [Int.natAbs_mul, Int.ofNat_mul,
+  simp only [Int.natAbs_mul, Int.natCast_mul,
     Int.natAbs_of_nonneg (Int.le_of_lt a.den_pos),
     Int.natAbs_of_nonneg (Int.le_of_lt b.den_pos)] at hi
   exact hi
@@ -52,7 +52,7 @@ theorem abs_equiv {a b : Fraction} (h : equiv a b) : equiv a.abs b.abs := by
 theorem abs_mul (a b : Fraction) : equiv (mul a b).abs (mul a.abs b.abs) := by
   unfold equiv abs mul
   dsimp
-  rw [Int.natAbs_mul, Int.ofNat_mul]
+  rw [Int.natAbs_mul, Int.natCast_mul]
 
 theorem abs_of_nonnegative (a : Fraction) (ha : 0 ≤ a.num) : equiv a.abs a := by
   unfold equiv abs
@@ -73,7 +73,7 @@ theorem abs_neg (a : Fraction) : equiv (⟨-a.num, a.den, a.den_pos⟩ : Fractio
 theorem abs_add_le (a b : Fraction) : le (add a b).abs (add a.abs b.abs) := by
   have hn := Int.natAbs_add_le (a.num * b.den) (b.num * a.den)
   have hi := Int.ofNat_le.mpr hn
-  simp only [Int.ofNat_add, Int.natAbs_mul, Int.ofNat_mul,
+  simp only [Int.natCast_add, Int.natAbs_mul, Int.natCast_mul,
     Int.natAbs_of_nonneg (Int.le_of_lt a.den_pos),
     Int.natAbs_of_nonneg (Int.le_of_lt b.den_pos)] at hi
   unfold le abs add

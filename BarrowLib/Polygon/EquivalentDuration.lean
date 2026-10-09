@@ -95,8 +95,8 @@ theorem cell_amplification_at (tau : Fraction) (ht : 0 < tau.num)
   have hcomp := TimeCalibration.component_amplification tau (pointDistance s.1 t.1)
     (pointDistance s.2 t.2) d.abs L E ht
     (pointNorm_nonnegative _) (pointNorm_nonnegative _) (Fraction.abs_num_nonnegative d) hL
-  have hh : d.abs.abs = d.abs := by simp only [Fraction.abs,Int.natAbs_ofNat]
-  simpa only [TimeCalibration.distance,TimeCalibration.amplification,hh] using
+  have hh : d.abs.abs = d.abs := by simp only [Fraction.abs,Int.natAbs_natCast]
+  simpa only [TimeCalibration.distance,TimeCalibration.amplification,hh] using!
     Fraction.magnitudes.le_trans hsum hcomp
 
 theorem cell_amplification (tau : Fraction) (ht : 0 < tau.num)

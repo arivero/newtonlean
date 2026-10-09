@@ -21,7 +21,7 @@ def radius (eps : Fraction) (v : Point) : Fraction :=
   ⟨eps.num, eps.den * (velocityBound v : Int),
     Int.mul_pos eps.den_pos (by
       unfold velocityBound
-      exact Int.ofNat_pos.mpr (by omega))⟩
+      exact Int.natCast_pos.mpr (by omega))⟩
 
 -- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem radius_positive (eps : Fraction) (v : Point)
@@ -31,7 +31,7 @@ theorem radius_positive (eps : Fraction) (v : Point)
 private theorem scalar_bound (eps h x : Fraction) (K : Nat)
     (heps : Fraction.positive eps) (hK : x.num.natAbs < K)
     (hh : absLt h ⟨eps.num, eps.den * (K : Int),
-      Int.mul_pos eps.den_pos (Int.ofNat_pos.mpr (by omega))⟩) :
+      Int.mul_pos eps.den_pos (Int.natCast_pos.mpr (by omega))⟩) :
     absLt (Fraction.mul h x) eps := by
   have hK' : (x.num.natAbs : Int) ≤ K := Int.ofNat_le.mpr (Nat.le_of_lt hK)
   have hden : 1 ≤ x.den := by

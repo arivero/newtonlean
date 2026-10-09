@@ -1,5 +1,20 @@
 # Project method
 
+- User decision, 10 October 2026: use Lean 4.34.1, replacing the 4.19.0
+  toolchain. Lean core only remains mandatory: no mathlib, Batteries or other
+  packages. Core types and lemmas (Nat, Int, Rat, Dyadic, Quotient, List) are
+  encoding infrastructure, outside historical dependencies and M/H scores.
+  Migrate Fraction to core Rat in verified stages, then review the placement
+  of surviving mathematics. Migration and relocation earn no completion
+  credit: reassess README percentages in every commit and explicitly retain
+  them unchanged for this work. Preserve historical theorem names, meanings,
+  exact Latin, edition sections and provenance; stop and report if a
+  representative-sensitive statement cannot retain its meaning under Rat.
+  User clarification, 10 October: core encoding does not establish historical
+  availability. Preserve exact source attestations and their domain limits;
+  source-only or alternate Lean files may retain historical statements for
+  future verification, without routing existing proofs through them.
+
 - User rule, 8 October: every commit must modify the README completion-
   percentage information. Reassess the affected file/witness estimates as
   work done / (work done + estimated remaining work), and update their

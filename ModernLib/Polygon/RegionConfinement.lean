@@ -397,7 +397,7 @@ theorem sampled_refinement_bound (o : CentralOracle) (T B r R : Fraction)
   · intro k hk
     have hv := (run_invariant o.region T B r R s0 d _ (sample_central o i) hbi
       (Fraction.add h h) hfull k (hct k (by omega))).velocity_bound
-    simpa only [CalibratedRefinement.coarseAt_eq_run] using
+    simpa only [CalibratedRefinement.coarseAt_eq_run] using!
       Fraction.magnitudes.le_trans hv (Fraction.add_le_add_left
         (Fraction.mul_le_mul_nonnegative (hct k (by omega)) B d.bound_nonnegative) _)
 

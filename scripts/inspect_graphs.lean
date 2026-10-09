@@ -39,7 +39,7 @@ private structure Edge where
   line : Nat
 
 private def field (s label : String) : Option String :=
-  if s.startsWith label then some (s.drop label.length) else none
+  if s.startsWith label then some (s.drop label.length).toString else none
 
 private def parseEdge (s file : String) (line : Nat) : Option Edge := do
   let parts := s.splitOn "; "
@@ -123,7 +123,7 @@ run_elab do
           throwError "Unclassified historical witness at {file}:{i + 1}"
         edges := edges.push e
       if s.startsWith "import " then
-        let imported := (s.drop 7).trim
+        let imported := (s.drop 7).trim.toString
         let importedRoot := InspectGraphs.root imported
         if #["BarrowLib", "ClassicsLib", "ModernLib", "NewtonLimitDynamics"].contains importedRoot &&
             InspectGraphs.root m.toString != importedRoot then

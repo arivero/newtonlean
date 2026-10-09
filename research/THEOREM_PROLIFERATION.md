@@ -41,3 +41,11 @@ ordinary swept-sector conclusion. [STATE.md](STATE.md) records these boundaries
 and [the handoff](HANDOFF-2026-10-06-REWORKED-SOURCES.md) sets the proof order.
 The [proof strategy](PROOF_STRATEGY.md) applies these findings to new increments
 and reviews public Lean guidance for compatibility with this repository.
+
+The 10 October migration begins with Lean 4.34.1 alone: theorem statements
+and named cascades are preserved while core lemma names and elaboration are
+adapted. The following Rat migration targets the unreduced representation's
+transport burden. Core Rat lemmas remain outside project dependency counts,
+so a reduced cascade measures less project code, not less supporting
+mathematics. Neither this migration nor classical source attestation closes
+a Newtonian proof obligation; all completion estimates stay unchanged.

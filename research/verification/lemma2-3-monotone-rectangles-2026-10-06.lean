@@ -438,6 +438,6 @@ run_elab do
         unless used.contains dependency do throwError "{root} omits {dependency}"
       for dependency in used do
         let name := ((privateToUserName? dependency).getD dependency).toString
-        if #[foreign, "DeMotu1684.", "ModernLib."].any name.startsWith then
+        if #[foreign, "DeMotu1684.", "ModernLib."].any (fun rootName => name.startsWith rootName) then
           throwError "{root} uses forbidden witness/modern declaration {dependency}"
   logInfo "Checked eight mutual-ratio clients: own-edition reduction/exhaustion; interior clients derive a fixed bound and use the ratio proof; no foreign witness or ModernLib."

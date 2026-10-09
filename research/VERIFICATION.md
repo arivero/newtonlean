@@ -1,6 +1,6 @@
 # Verification checklist
 
-Use Lean 4.19.0 core/Std only, with no mathlib, sorry or project axioms.
+Use Lean 4.34.1 core/Std only, with no mathlib, sorry or project axioms.
 Choose the mathematical increment using [PROOF_STRATEGY.md](PROOF_STRATEGY.md).
 This checklist verifies that increment; passing it alone does not establish
 that the selected theorem advances the historical target.
@@ -12,6 +12,7 @@ lake build BarrowLib
 lake build ClassicsLib
 lake build ModernLib
 lake build NewtonLimitDynamics
+lake build Reverse
 lake env lean research/CheckReferences.lean
 lake env lean scripts/inspect_graphs.lean
 sha256sum -c docs/SHA256SUMS
@@ -44,6 +45,7 @@ lake build BarrowLib
 lake build ClassicsLib
 lake build ModernLib
 lake build NewtonLimitDynamics
+lake build Reverse
 lake env lean research/CheckReferences.lean
 ```
 
@@ -51,6 +53,18 @@ The refresh edits proof comments in place. Types and private helpers are
 traversed; Lean infrastructure, generated auxiliaries and the proof itself are
 excluded. A score describes repository classification; it cannot establish
 the original attribution of a result.
+
+## Encoding migrations
+
+For the authorized 4.34.1/Rat migration, compare the scratch baseline of all
+project theorem names/types and historical `#print axioms` reports before
+changing representation. The toolchain-only stage must retain statements and
+named theorem counts; later Rat stages must preserve mathematical meanings
+and historical names. Distinguish printing changes from statement changes.
+Keep baseline outputs in scratch, and report representative-sensitive stop
+conditions. Core arithmetic is outside project M/H scores; exact historical
+attestations remain a separate source obligation. No migration or relocation
+earns completion credit. Time the same six warm builds before and after.
 
 ## Review the conclusion before accepting progress
 

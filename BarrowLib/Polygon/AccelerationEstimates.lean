@@ -28,7 +28,7 @@ theorem position_displacement (a : Point → Point) (h : Fraction) (s : Point ×
   have hg := FiniteSequenceGap.finite_gap (fun x y => pointDistance x.1 y.1)
     (fun x => pointDistance_self_zero x.1) (fun x y z => pointDistance_triangle x.1 y.1 z.1)
     (run a h s) N (Fraction.mul h V) hs 0 n (by omega)
-  simpa only [Nat.zero_add,run] using
+  simpa only [Nat.zero_add,run] using!
     Fraction.le_equiv_right hg (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
 
 def predictedVelocity (a : Point → Point) (h : Fraction) (s : Point × Point) (n : Nat) : Point :=

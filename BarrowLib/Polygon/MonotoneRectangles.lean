@@ -114,7 +114,7 @@ private theorem prefixMax_bounds (f : Nat → Fraction) (n : Nat) :
     constructor
     · intro i hi
       have he : i=0 := by omega
-      simpa only [he,prefixMax] using Fraction.magnitudes.le_refl (f 0)
+      simpa only [he,prefixMax] using! Fraction.magnitudes.le_refl (f 0)
     · intro M hM; exact hM 0 (Nat.le_refl _)
   | succ n ih =>
     simp only [prefixMax]

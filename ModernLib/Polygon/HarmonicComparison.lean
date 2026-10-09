@@ -95,7 +95,7 @@ private theorem kick_scale_norm (w h : Fraction) (p : Point) :
       (Fraction.mul (Fraction.mul h.abs w.abs) (pointNorm p)) := by
   simp only [Fraction.equiv, pointNorm, pointScale, linearField, negF,
     Fraction.abs, Fraction.add, Fraction.mul, Int.natAbs_mul,
-    Int.natAbs_neg, Int.ofNat_mul]
+    Int.natAbs_neg, Int.natCast_mul]
   simp only [Int.add_mul, Int.mul_add]
   ac_nf
 

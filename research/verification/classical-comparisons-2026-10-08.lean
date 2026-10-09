@@ -70,6 +70,6 @@ run_elab do
     for dependency in used do
       if let some idx := env.getModuleIdxFor? dependency then
         let module := env.header.moduleNames[idx]!.toString
-        if #["BarrowLib", "ModernLib", "NewtonLimitDynamics", "Mathlib"].any module.startsWith then
+        if #["BarrowLib", "ModernLib", "NewtonLimitDynamics", "Mathlib"].any (fun rootName => module.startsWith rootName) then
           throwError "{root} uses forbidden dependency {dependency} from {module}"
   logInfo "Classical comparisons use their arithmetic helpers and no later project library."

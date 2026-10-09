@@ -359,7 +359,7 @@ theorem integer_error_step (w h : Fraction) (s : Point × Point) (k : Nat) :
   have hsum := Fraction.add_le_add hp hl
   have hbound := Fraction.magnitudes.le_trans htri hsum
   simpa only [integerFine, integerCoarse, integerDuration,
-    HarmonicBinaryPrefix.schedule_replicate_step, integerLocalBudget] using hbound
+    HarmonicBinaryPrefix.schedule_replicate_step, integerLocalBudget] using! hbound
 
 -- Modern dependency score: 13/70 (M=13, H=57; transitive project theorems/axioms).
 theorem integer_error_step_quadratic (w h : Fraction)
@@ -392,7 +392,7 @@ theorem integer_error_step_quadratic (w h : Fraction)
   have hsum := Fraction.add_le_add hp hlocal
   have hbound := Fraction.magnitudes.le_trans htri hsum
   simpa only [integerFine, integerCoarse, integerDuration,
-    HarmonicBinaryPrefix.schedule_replicate_step] using hbound
+    HarmonicBinaryPrefix.schedule_replicate_step] using! hbound
 
 def integerErrorBudget (w h : Fraction) (s : Point × Point) : Nat → Fraction
   | 0 => Fraction.ofInt 0
@@ -549,7 +549,7 @@ theorem block_error_step (w h : Fraction) (k : Nat)
   have hl := integer_error_quadratic w h c hh hb k hshort
   have hbound := Fraction.magnitudes.le_trans htri
     (Fraction.add_le_add hp hl)
-  simpa only [fineBlocks, coarseBlocks] using hbound
+  simpa only [fineBlocks, coarseBlocks] using! hbound
 
 -- Modern dependency score: 0/13 (M=0, H=13; transitive project theorems/axioms).
 theorem splitFactor_le (w : Fraction) (s t : Point × Point)
@@ -691,7 +691,7 @@ theorem block_error_le_budget (w h : Fraction) (k : Nat)
         (fpower_nonnegative _ (kappa_nonnegative w h) k)
       have hsum := Fraction.add_le_add h₁ hlocal
       have hbound := Fraction.magnitudes.le_trans hstep hsum
-      simpa only [sourceBudget, blockSource] using hbound
+      simpa only [sourceBudget, blockSource] using! hbound
 
 def FullSmallTime (w d : Fraction) (N : Nat) : Prop :=
   Fraction.le

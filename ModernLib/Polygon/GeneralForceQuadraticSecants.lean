@@ -1,6 +1,9 @@
 import ModernLib.Polygon.GeneralForceAccelerationSecants
 import ModernLib.Foundation.Polygon.QuadraticSecants
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! The normalized departure from the constructed tangent over a dyadic cell
 converges to the completed force. Finite quadratic remainders and proved
 Cauchy-name boundedness remove the actual half-mesh and sampling errors.
@@ -47,7 +50,7 @@ theorem node_second_sample_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     rw [blocks_add]
     have hm := Nat.mul_le_mul_right (blocks j) hk
     simpa only [n,Nat.add_mul,Nat.one_mul] using hm
-  have hp : 0 < (blocks j : Int) := Int.ofNat_pos.mpr (by unfold blocks; exact Nat.pow_pos (by decide))
+  have hp : 0 < (blocks j : Int) := Int.natCast_pos.mpr (by unfold blocks; exact Nat.pow_pos (by decide))
   have ht : 0 < (BoundedIteration.time h (blocks j)).num := Int.mul_pos hp hT
   have hv : ∀ i, i<blocks j → Fraction.le
       (pointNorm (BoundedIteration.run a h q i).2) (velocityCap T B s) := by

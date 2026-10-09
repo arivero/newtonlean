@@ -207,7 +207,7 @@ theorem paired_finite_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (FiniteAccumulation.coarseAt (field o E0 hE j) (duration T (j+1)) s n)
     (BoundedIteration.run (field o E0 hE j) (duration T j) s n)
   have hb := Fraction.magnitudes.le_trans htri (Fraction.add_le_add h1
-    (by simpa only [CalibratedRefinement.coarseAt_eq_run] using h2))
+    (by simpa only [CalibratedRefinement.coarseAt_eq_run] using! h2))
   rw [CalibratedRefinement.fineAt_eq_run] at hb
   have hc : Fraction.le (Fraction.ofInt (2*(n : Int)))
       (Fraction.ofInt (2*(blocks j : Int))) := by

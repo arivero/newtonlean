@@ -2,6 +2,9 @@ import ModernLib.Polygon.CompletedForce
 import ModernLib.Polygon.HarmonicGeneralTime
 import ModernLib.Foundation.Polygon.SecantValues
 
+-- Retain the 4.19 elaborator's unfolding behavior during the toolchain migration.
+set_option backward.isDefEq.respectTransparency false
+
 /-! The general completed force specializes to the retained linear central
 law at all completed positions, and its actual polygon force samples converge
 uniformly along the retained harmonic curve. -/
