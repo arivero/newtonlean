@@ -150,11 +150,15 @@ by the 1713 Proposition IV route also remain to be formalized separately.
 De Motu counterparts of Propositions II–IV remain a source-correspondence
 question, rather than receiving the printed proofs by analogy.
 
-The next Lemma II–III increment is the zero-base case: from a positive
-interior ordinate, derive an eventual positive lower bound for the full lower
-rectangle sums, allowing initial zero denominators. The positive-base patch
-case now proves both varying finite-area ratio errors vanish without an
-assigned curved area. The separate existence problem for
+The zero-base increment now derives eventual positivity of both lower and
+upper rectangle sums from a positive interior ordinate and shrinking mesh,
+allowing initial zero denominators. A separate tail-ratio theorem handles the
+common-index form once a fixed positive denominator bound is supplied; the
+zero-base theorem has not yet constructed that uniform bound. The positive-base
+patch case still proves both varying finite-area ratio errors vanish without an
+assigned curved area. The next Lemma II–III step is to derive and consume the
+uniform zero-base denominator bound in edition-local wrappers. The separate
+existence problem for
 the actual mechanical/curve difference needs a justified area domain:
 [AreaDomain.lean](BarrowLib/Polygon/AreaDomain.lean) proves a relative
 countermodel to inferring arbitrary difference assignments from the current
@@ -218,19 +222,19 @@ tree is the total theorem cascade, including library theorems.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1768 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1769 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 169 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 97 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 83 |
 | [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 124 |
 | [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 124 |
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 144 | 7 | 18 | 78 |
-| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 305 | 16 | 95 | 296 |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 278 | 12 | 140 | 418 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 97 | 4 | 80 | 456 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 458 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 592 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1337 |
+| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 305 | 16 | 95 | 297 |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 278 | 12 | 140 | 419 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 97 | 4 | 80 | 457 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 459 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 593 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1338 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 67 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 77 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 79 |
@@ -247,7 +251,7 @@ tree is the total theorem cascade, including library theorems.
 | [ClassicsLib/Euclid/PropositionIX20.lean](ClassicsLib/Euclid/PropositionIX20.lean) | 87 | 5 | 6 | 6 |
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib](ClassicsLib.lean) | 340 | 16 | 16 | 26 |
-| [BarrowLib](BarrowLib.lean) | 14770 | 974 | 974 | 974 |
+| [BarrowLib](BarrowLib.lean) | 14819 | 975 | 975 | 975 |
 | [ModernLib](ModernLib.lean) | 19677 | 1157 | 1496 | 1689 |
 
 After a build, reproduce or check these rows with the existing compiled checker:

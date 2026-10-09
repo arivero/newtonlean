@@ -154,6 +154,27 @@ example : ∃ N, ∀ m, N≤m →
       (c := (Fraction.ofInt 1).half) squareGraph dyadic (square_monotone _)
       (by decide) (by decide) (by decide) (by decide) dyadic_mesh)
 
+-- The tail-ratio interface is independently inhabited on constant positive
+-- sequences; it exposes the common-index proof without changing the existing
+-- all-index `MutualRatiosOne` predicate.
+example : True := by
+  have h := RectangleContent.varying_ratios_approach_one_eventually
+    (B := Fraction.ofInt 1) (hB := by decide)
+    (L := fun _ => Fraction.ofInt 1) (U := fun _ => Fraction.ofInt 1) (N := 0)
+    (hBL := by intro m hm; exact Fraction.magnitudes.le_refl _)
+    (hBU := by intro m hm; exact Fraction.magnitudes.le_refl _)
+    (hgap := by
+      intro d hd
+      refine ⟨0, fun m hm => ?_⟩
+      have hz : Fraction.equiv
+          (HarmonicTimeComparison.durationDifference
+            (Fraction.ofInt 1) (Fraction.ofInt 1)).abs
+          (Fraction.ofInt 0) := by decide
+      exact Fraction.magnitudes.lt_of_le_lt
+        (Fraction.le_of_equiv (Fraction.equiv_symm hz))
+        ((Fraction.positive_iff_zero_lt d).mp hd))
+  exact True.intro
+
 -- A constructed, nonconstant curved example instantiates the whole reconstruction;
 -- no desired rectangle enclosure, area-gap budget or convergence is supplied.
 example : ∀ eps : Fraction, 0<eps.num → ∃ N : Nat, ∀ m, N≤m →

@@ -254,6 +254,55 @@ theorem varying_ratios_approach_one (B : Fraction) (hB : 0 < B.num)
   · exact Fraction.magnitudes.lt_of_le_lt (boundL m) hc
   · exact Fraction.magnitudes.lt_of_le_lt (boundU m) hc
 
+/-! Tail positivity is enough for a tail ratio statement. This keeps the
+all-index `MutualRatiosOne` interface unchanged while exposing the form needed
+when an initial zero-base partition may have zero sums. -/
+theorem varying_ratios_approach_one_eventually (B : Fraction) (hB : 0 < B.num)
+    (L U : Nat → Fraction) (N : Nat)
+    (hBL : ∀ m, N≤m → Fraction.le B (L m))
+    (hBU : ∀ m, N≤m → Fraction.le B (U m))
+    (hgap : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => (HarmonicTimeComparison.durationDifference (L m) (U m)).abs)) :
+    ∃ hL : ∀ m, N≤m → 0<(L m).num,
+      ∃ hU : ∀ m, N≤m → 0<(U m).num,
+        ∀ eps : Fraction, 0<eps.num →
+          ∃ M, ∀ hNM : N≤M, ∀ m, ∀ hm : M≤m,
+            (Fraction.lt
+              (HarmonicTimeComparison.durationDifference
+                (ratioTo (U m) (hU m (Nat.le_trans hNM hm)) (L m))
+                  (Fraction.ofInt 1)).abs eps ∧
+             Fraction.lt
+              (HarmonicTimeComparison.durationDifference
+                (ratioTo (L m) (hL m (Nat.le_trans hNM hm)) (U m))
+                  (Fraction.ofInt 1)).abs eps) := by
+  have positive (X : Fraction) (hBX : Fraction.le B X) : 0<X.num :=
+    (Fraction.positive_iff_zero_lt X).mpr
+      (Fraction.magnitudes.lt_of_lt_le ((Fraction.positive_iff_zero_lt B).mp hB) hBX)
+  let hL : ∀ m, N≤m → 0<(L m).num := fun m hm => positive (L m) (hBL m hm)
+  let hU : ∀ m, N≤m → 0<(U m).num := fun m hm => positive (U m) (hBU m hm)
+  refine ⟨hL,hU,?_⟩
+  let C : Fraction := ⟨B.den,B.num,hB⟩
+  have hC : 0≤C.num := Int.le_of_lt B.den_pos
+  intro eps heps
+  obtain ⟨K,hK⟩ := hgap (HarmonicTimeRealization.factorDelta C eps hC)
+    (HarmonicTimeRealization.factorDelta_positive C eps hC heps)
+  refine ⟨max N K, fun hNM m hm => ?_⟩
+  have hmN : N≤m := by omega
+  have hmK : K≤m := by omega
+  have boundL := varying_ratio_error_bound B (U m) (L m) hB (hU m hmN) (hBU m hmN)
+  have boundU : Fraction.le
+      (HarmonicTimeComparison.durationDifference
+        (ratioTo (L m) (hL m hmN) (U m)) (Fraction.ofInt 1)).abs
+      (Fraction.mul (HarmonicTimeComparison.durationDifference (L m) (U m)).abs C) :=
+    Fraction.le_equiv_right
+      (varying_ratio_error_bound B (L m) (U m) hB (hL m hmN) (hBL m hmN))
+      (Fraction.mul_equiv_right C
+        (HarmonicTimeRealization.durationDifference_abs_symm (U m) (L m)))
+  have hc := HarmonicTimeRealization.factor_control C eps _ hC
+    (Fraction.abs_num_nonnegative _) (hK m hmK)
+  exact ⟨Fraction.magnitudes.lt_of_le_lt boundL hc,
+    Fraction.magnitudes.lt_of_le_lt boundU hc⟩
+
 /-- A nonzero horizontal interval and positive starting ordinate derive the
 uniform denominator bound `(b-a)*g(a)`. No curved-area assignment is used. -/
 theorem rectangle_mutual_ratios (g : Fraction → Fraction) (a b : Fraction)

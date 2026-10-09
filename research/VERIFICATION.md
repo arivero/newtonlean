@@ -166,8 +166,10 @@ positive ordinate plus shrinking maximum width yields an eventual positive
 lower sum for arbitrary partitions. `upper_sum_eventually_positive` derives
 the corresponding upper tail from the finite lower/upper ordering. The
 historical mutual-ratio clients have not yet been refactored to consume these
-support theorems, and the corresponding zero-base upper/lower area comparison
-remains open.
+support theorems. The same harness inhabits the dependent
+`varying_ratios_approach_one_eventually` interface on constant positive
+sequences. The zero-base theorem still supplies no uniform positive bound, so
+the corresponding zero-base upper/lower area comparison remains open.
 
 `sector-difference-2026-10-07.lean` checks actual fan, connector and filled-strip
 membership/exclusion, equivalent point displays, the strict half-plane bound

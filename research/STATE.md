@@ -626,7 +626,7 @@ Last full verification: 9 October 2026, after the zero-base lower/upper-tail
 support increment. All five builds, all 36 positive scope harnesses
 (including the harmonic reference/comparator), source hashes and whitespace
 passed. The compiled checker verified the README measurements, 1,181 score
-comments and 7,799 project constants with no project axioms, sorry or primary
+comments and 7,802 project constants with no project axioms, sorry or primary
 modern dependency. The corrupted comparator failed at its intended false equality.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
@@ -658,11 +658,14 @@ eventual positive lower sum from finite partition coverage and the shrinking
 maximum-width premise; the retained square harness checks the zero-base case.
 The upper-sum tail now follows from the finite lower/upper ordering and is
 checked in the same harness.
+`RectangleContent.varying_ratios_approach_one_eventually` now packages the
+common-index ratio estimates once a fixed positive denominator bound is
+supplied; a constant-positive harness exercises that dependent interface.
 The positive-base case still derives both denominator bounds and both varying
 finite-area ratio errors without assigning a rational curved area. The new
 support theorem is not yet wired into the edition-local mutual-ratio clients,
-and a zero-base upper/lower area comparison still needs its own explicit
-historical wrapper and hypotheses.
+and the zero-base theorem still needs a uniform positive denominator bound plus
+an explicit historical wrapper and hypotheses.
 Existence of the actual between-region area remains a separate obligation:
 the relative countermodel rules out inferring arbitrary difference assignments
 uniformly from the present translation-and-cut interface. The full
