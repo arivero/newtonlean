@@ -13,6 +13,8 @@ tail checks that their mesh cutoffs are usable; zero and fixed 1:2 brackets
 are rejected. Nonmonotone free-step traces now approach the graph in both
 directions while remaining in their actual rectangle unions; falling/rising
 joins and a nonvanishing-height falsifier exercise that separate argument.
+One increasing selection now couples these boundary and area conclusions;
+shrinking but unselected mesh/height pairs can fail graph enclosure.
 These controls share the rational arithmetic and kernel;
 they construct neither general curved areas nor a nonrational area model. -/
 
@@ -275,6 +277,94 @@ example : StaircaseApproximation valley z one dyadic errors :=
     (fun _ => by change (0 : Int)≤8; decide) (fun t _ _ => valley_nonnegative t)
     valley_uniform dyadic_mesh errors_vanish
 
+-- The matched theorem derives the coupling rather than asking for it.
+example {Q : Type} (area : MagnitudeContent.AreaRules Q) (A : Q)
+    (hA : area.HasArea (figure valley z one) A) :
+    ∃ indices, MatchedApproximation area valley z one A dyadic errors indices :=
+  Principia1687.LemmaIII.corollary1_uniform_graph_matched area valley z one A dyadic errors
+    (fun _ => by change (0 : Int)<8; decide) (by decide)
+    (fun t _ _ => valley_nonnegative t) valley_uniform hA dyadic_mesh errors_vanish
+example {Q : Type} (area : MagnitudeContent.AreaRules Q) (A : Q)
+    (hA : area.HasArea (figure valley z one) A) :
+    ∃ indices, MatchedApproximation area valley z one A dyadic errors indices :=
+  Principia1713.LemmaIII.corollary1_uniform_graph_matched area valley z one A dyadic errors
+    (fun _ => by change (0 : Int)<8; decide) (by decide)
+    (fun t _ _ => valley_nonnegative t) valley_uniform hA dyadic_mesh errors_vanish
+
+-- Area and edge tails hold at the SAME selected index after a common cutoff.
+example {Q : Type} (area : MagnitudeContent.AreaRules Q) (A d : Q)
+    (hA : area.HasArea (figure valley z one) A) (hd : area.magnitudes.order.positive d)
+    (q : Fraction) (hq : 0<q.num) :
+    ∃ indices : Nat → Nat, (∀ m, indices m<indices (m+1)) ∧
+      ∃ N, ∀ m, N≤m →
+        Encloses area valley z one A (dyadic (indices m))
+          (lowerHeights valley (dyadic (indices m)) (errors m))
+          (upperHeights valley (dyadic (indices m)) (errors m)) ∧
+        area.magnitudes.order.lt A (area.magnitudes.add
+          (area.magnitudes.embed (value (dyadic (indices m))
+            (lowerHeights valley (dyadic (indices m)) (errors m)))) d) ∧
+        (∀ x, RationalBoundary.LowerStaircase (fun t => lower (valley t) (errors m))
+          (dyadic (indices m)) x → ∃ y,
+            RationalBoundary.CurveTrace (fun t => (t,valley t)) z one y ∧
+            Fraction.lt (FiniteEstimates.pointDistance x y) q) := by
+  obtain ⟨indices,_,hincrease,_,henclose,_,herrors,hboundary⟩ :=
+    Principia1713.LemmaIII.corollary1_uniform_graph_matched area valley z one A dyadic errors
+      (fun _ => by change (0 : Int)<8; decide) (by decide)
+      (fun t _ _ => valley_nonnegative t) valley_uniform hA dyadic_mesh errors_vanish
+  obtain ⟨N,hN⟩ := herrors d hd
+  obtain ⟨M,hM⟩ := hboundary.1 q hq
+  exact ⟨indices,hincrease,N+M,fun m hm =>
+    ⟨henclose m,(hN m (by omega)).1,(hM m (by omega)).1⟩⟩
+
+private def tooSmall (m : Nat) : Fraction := duration quarter m
+example : Exhaustion.VanishingDifference Fraction.magnitudes tooSmall := by
+  intro q hq
+  exact duration_eventually_small quarter q (by decide) hq
+example : ¬ Exhaustion.VanishingDifference Fraction.magnitudes (fun _ => quarter) := by
+  intro h
+  obtain ⟨N,hN⟩ := h quarter (by change (0 : Int)<1; decide)
+  exact Fraction.magnitudes.lt_irrefl quarter (hN N (Nat.le_refl _))
+
+-- Mesh and height errors both vanish, yet their unselected pairing fails
+-- upper enclosure at EVERY level, on the positive identity graph.
+example (m : Nat) : ∃ x, figure id z one x ∧
+    ¬ RectangleContent.strips (dyadic m)
+      (upperHeights id (dyadic m) (tooSmall m)) (dyadic m).count x := by
+  let t := duration one (m+1)
+  have hp : 0<(2 : Int)^m := Int.pow_pos (by decide)
+  have ht : Fraction.le t one := by
+    simp only [Fraction.le,t,one,Fraction.ofInt,duration,Int.one_mul]
+    have := two_pow_ge_succ (m+1)
+    omega
+  refine ⟨(t,t),⟨?_,ht,?_,Fraction.magnitudes.le_refl _⟩,?_⟩
+  · simp only [Fraction.le,z,t,one,Fraction.ofInt,duration,Int.zero_mul,Int.mul_one]
+    decide
+  · change (0 : Int)≤1
+    decide
+  · rintro ⟨i,_,hl,_,_,hy⟩
+    have hleft : (i : Int)*2≤1 := by
+      have h := hl
+      dsimp only [Fraction.le,dyadic,countTime,Fraction.mul,Fraction.ofInt,one,duration,t] at h
+      simp only [Int.one_mul,Int.mul_one] at h
+      rw [Int.pow_succ] at h
+      have h' : ((i : Int)*2)*2^m≤1*2^m := by
+        calc
+          ((i : Int)*2)*2^m = (i : Int)*(2^m*2) := by ac_rfl
+          _ ≤ 1*2^m := by simpa only [Int.one_mul] using h
+      exact Int.le_of_mul_le_mul_right h' hp
+    have hi : i=0 := by omega
+    subst i
+    dsimp only [Fraction.le,upperHeights,upper,id,dyadic,countTime,Fraction.mul,
+      Fraction.add,Fraction.ofInt,one,duration,tooSmall,quarter,t] at hy
+    simp only [Int.natCast_zero,Int.zero_mul,Int.zero_add,Int.one_mul,Int.pow_succ] at hy
+    have h' : ((4 : Int)*2^m)*2^m≤(2*2^m)*2^m := by
+      calc
+        ((4 : Int)*2^m)*2^m = 2^m*(4*2^m) := by ac_rfl
+        _ ≤ 2^m*(2^m*2) := hy
+        _ = (2*2^m)*2^m := by ac_rfl
+    have hcancel := Int.le_of_mul_le_mul_right (Int.le_of_mul_le_mul_right h' hp) hp
+    omega
+
 -- Falling joins must select the taller LEFT rectangle; rising joins select
 -- the taller RIGHT one. The helper handles both without ordering the graph.
 example : RationalBoundary.LowerStaircase valley (dyadic 1) (half,quarter) :=
@@ -401,7 +491,9 @@ run_elab do
   logInfo "Checked four nonmonotone multiple-ratio clients: constructed positive rectangle, fine rectangle areas, finite comparison and own-edition II-to-III chain; no foreign witness or modern module."
   for (root,foreign) in #[(
       `Principia1687.LemmaIII.corollary1_uniform_graph_staircases,"Principia1713."),
-      (`Principia1713.LemmaIII.corollary1_uniform_graph_staircases,"Principia1687.")] do
+      (`Principia1713.LemmaIII.corollary1_uniform_graph_staircases,"Principia1687."),
+      (`Principia1687.LemmaIII.corollary1_uniform_graph_matched,"Principia1713."),
+      (`Principia1713.LemmaIII.corollary1_uniform_graph_matched,"Principia1687.")] do
     let mut todo := #[root]
     let mut used : NameSet := {}
     while !todo.isEmpty do
@@ -430,4 +522,14 @@ run_elab do
     unless used.toArray.any (fun n => ((privateToUserName? n).getD n) ==
         `NewtonLimitDynamics.Polygon.UniformRectangles.height_distances) do
       throwError "{root} omits the derived height-error bounds"
-  logInfo "Checked two nonmonotone free-staircase clients: shrinking node perturbations, actual rectangle membership and no foreign witness/modern module."
+    if root.getString! == "corollary1_uniform_graph_matched" then
+      for dependency in #[
+          `NewtonLimitDynamics.Polygon.UniformRectangles.matched_approximation,
+          `NewtonLimitDynamics.Polygon.UniformRectangles.fine_rectangles,
+          `NewtonLimitDynamics.Polygon.UniformRectangles.rectangle_enclosure,
+          `NewtonLimitDynamics.Polygon.RectangleContent.strips_area,
+          `NewtonLimitDynamics.Polygon.MagnitudeContent.errors_vanish,
+          `NewtonLimitDynamics.Polygon.MagnitudeContent.rational_exhaustion,
+          `NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factor_delta_weak] do
+        unless used.contains dependency do throwError "{root} omits matched-family step {dependency}"
+  logInfo "Checked two free-staircase and two matched-family clients: shrinking perturbations, actual rectangle membership and simultaneous derived area/error/boundary limits; no foreign witness/modern module."

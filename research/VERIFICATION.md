@@ -145,6 +145,12 @@ definition warnings; none was suppressed or required argument restoration.
 Existing theorem names/types and all 232 preceding historical axiom reports
 are unchanged; six new proof declarations include two historical clients,
 whose reports use only propext, Classical.choice and Quot.sound.
+The matched-family increment adds no warnings: both touched proof modules
+and the expanded scope harness remain warning-free. The global census remains
+516 unused-simp, zero deprecation and four proposition-as-definition warnings.
+Three new named proofs are P; all previous theorem names/types and 234 preceding
+historical axiom reports remain unchanged, with only the standard Lean axioms
+in the two new reports. No warning options were added or simp arguments restored.
 For provenance rows, require S + R + P + U to equal the same compiled proof
 tree shown in the measurements; wrapped scratch output must not skip rows.
 
@@ -256,6 +262,24 @@ assignment. Require explicit nonnegative errors, vanishing errors and mesh;
 do not infer area enclosure from independent shrinkage. It also needs the
 mesh–height relation of `fine_rectangles`. Fixed baseline/endpoint sides and
 full topological perimeter remain outside the statement.
+
+The matched-family controls instantiate both edition clients on the valley,
+extract strictly increasing original indices and combine area/boundary bounds
+at the same selected step after a common cutoff. Positive vanishing errors
+and vanishing mesh are inputs; coupling, enclosure and error/boundary limits
+are outputs. A negative control proves that dyadic partitions paired with
+height tolerances one quarter of their widths fail upper enclosure on the
+identity graph at every level, although both sequences vanish. Constant
+positive tolerances fail the vanishing premise. Compiled traversal of both
+matched clients additionally requires fine_rectangles, actual finite strip
+areas, errors_vanish, rational_exhaustion and finite multiplication control;
+foreign witnesses and ModernLib remain excluded. Astra independently compiled
+a shrinking mismatched pair, an explicitly refined point inclusion, failure
+of constant errors and the index inequalities for oscillating cutoffs. The
+review shares core arithmetic and the kernel. State the selected pairing
+as parts (indices m) with eps m, not eps (indices m). Classical choice gives
+existence, not an executable selector. Do not infer nested refinement, fixed
+sides or area existence.
 
 `magnitude-content-2026-10-09.lean` checks the enlarged assigned-area domain
 of both editions' Lemmas II/III and Corollary I. Actual dyadic identity-graph

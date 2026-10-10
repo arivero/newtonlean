@@ -324,6 +324,114 @@ theorem fine_rectangles {Q : Type} (area : MagnitudeContent.AreaRules Q)
       (fun i hi => Fraction.nonnegative_add _ eps (hn i hi) (Int.le_of_lt heps)) hbounds hA,
     value_gap_bound p _ _ _ (fun i hi => height_gap _ eps (hn i hi) (Int.le_of_lt heps))⟩
 
+/-- One actual succession of rectangle unions has simultaneous enclosure,
+shrinking area gap, assigned-area error decay and free-edge approximation.
+Indices increase strictly, retaining the order of the supplied subdivisions;
+nesting is not asserted unless the supplied subdivisions have that property.
+The selected partitions are paired with eps m, not eps (indices m).
+This packages conclusions, not additional geometric or limiting premises. -/
+def MatchedApproximation {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q)
+    (parts : Nat → Partition a b) (eps : Nat → Fraction) (indices : Nat → Nat) : Prop :=
+  (∀ m, m≤indices m) ∧ (∀ m, indices m<indices (m+1)) ∧
+  let selected := fun m => parts (indices m)
+  let L := fun m => value (selected m) (lowerHeights g (selected m) (eps m))
+  let U := fun m => value (selected m) (upperHeights g (selected m) (eps m))
+  Exhaustion.VanishingDifference Fraction.magnitudes (fun m => maxWidth (selected m)) ∧
+    (∀ m, Encloses area g a b A (selected m)
+      (lowerHeights g (selected m) (eps m)) (upperHeights g (selected m) (eps m))) ∧
+    Exhaustion.VanishingDifference Fraction.magnitudes (fun m => durationDifference (L m) (U m)) ∧
+    MagnitudeContent.ErrorsVanish area.magnitudes L U A ∧
+    StaircaseApproximation g a b selected eps
+
+/-- Select a single matched family from any shrinking mesh and positive
+vanishing height tolerances. Continuity constructs the required coupling:
+no enclosure, area-error limit or boundary limit is assumed. The gap bound
+2*eps*(b-a) gives area decay on this same family. This exact statement and
+derivation are project provenance, without historical textual attribution.
+Classical choice gives existential indices, not an executable index algorithm.
+Curved-area existence remains supplied; fixed sides remain outside the trace. -/
+theorem matched_approximation {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q)
+    (parts : Nat → Partition a b) (eps : Nat → Fraction)
+    (heps : ∀ m, 0<(eps m).num) (hab : Fraction.le a b)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes (fun m => maxWidth (parts m)))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
+    ∃ indices, MatchedApproximation area g a b A parts eps indices := by
+  classical
+  have choices (m : Nat) : ∃ N, ∀ k, N≤k →
+      Encloses area g a b A (parts k)
+        (lowerHeights g (parts k) (eps m)) (upperHeights g (parts k) (eps m)) ∧
+      Fraction.le (durationDifference
+        (value (parts k) (lowerHeights g (parts k) (eps m)))
+        (value (parts k) (upperHeights g (parts k) (eps m))))
+        (Fraction.mul (Fraction.add (eps m) (eps m)) (durationDifference a b)) := by
+    obtain ⟨delta,hd,hfine⟩ := fine_rectangles area g a b A hzero hf hA (eps m) (heps m)
+    obtain ⟨N,hN⟩ := hmesh delta hd
+    exact ⟨N,fun k hk => hfine (parts k) (hN k hk)⟩
+  let cutoff := fun m => Classical.choose (choices m)
+  let indices : Nat → Nat := Nat.rec (cutoff 0)
+    (fun m previous => max (previous+1) (cutoff (m+1)))
+  have hindices (m : Nat) : m≤indices m ∧ cutoff m≤indices m := by
+    induction m with
+    | zero => exact ⟨Nat.zero_le _,Nat.le_refl _⟩
+    | succ m ih =>
+      change m+1≤max (indices m+1) (cutoff (m+1)) ∧
+        cutoff (m+1)≤max (indices m+1) (cutoff (m+1))
+      omega
+  have hincrease (m : Nat) : indices m<indices (m+1) := by
+    change indices m<max (indices m+1) (cutoff (m+1))
+    omega
+  let selected := fun m => parts (indices m)
+  let L := fun m => value (selected m) (lowerHeights g (selected m) (eps m))
+  let U := fun m => value (selected m) (upperHeights g (selected m) (eps m))
+  have hfinite (m : Nat) := Classical.choose_spec (choices m) (indices m) (hindices m).2
+  have hselected : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => maxWidth (selected m)) := by
+    intro d hd
+    obtain ⟨N,hN⟩ := hmesh d hd
+    exact ⟨N,fun m hm => hN (indices m) (by have := (hindices m).1; omega)⟩
+  have hgap : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => durationDifference (L m) (U m)) := by
+    intro d hd
+    let C : Rat := 2*(b.toRat-a.toRat)
+    have habR := (Fraction.le_iff_toRat _ _).mp hab
+    have hC : 0≤C := by dsimp only [C]; grind only
+    have hhalf := (Fraction.positive_iff_toRat d.half).mp hd
+    let eta := Fraction.ofRat (factorDelta C d.half.toRat hC)
+    have heta : 0<eta.num := by
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0<(Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      grind only [factorDelta,Rat.div_def,Rat.inv_pos,Rat.mul_pos]
+    obtain ⟨N,hN⟩ := hvanish eta heta
+    refine ⟨N,fun m hm => ?_⟩
+    have hsmall := (Fraction.lt_iff_toRat _ _).mp (hN m hm)
+    change (eps m).toRat<(Fraction.ofRat _).toRat at hsmall
+    rw [Fraction.toRat_ofRat] at hsmall
+    have hscaled := Rat.le_trans
+      (Rat.mul_le_mul_of_nonneg_right (Rat.le_of_lt hsmall) hC)
+      (factor_delta_weak C d.half.toRat hC (Rat.le_of_lt hhalf))
+    have hb := (Fraction.le_iff_toRat _ _).mp (hfinite m).2
+    simp only [Fraction.toRat_mul,Fraction.toRat_add,Fraction.toRat_durationDifference] at hb
+    have hbound : (durationDifference (L m) (U m)).toRat≤(eps m).toRat*C := by
+      have he : ((eps m).toRat+(eps m).toRat)*(b.toRat-a.toRat)=(eps m).toRat*C := by
+        dsimp only [C]
+        grind only
+      rw [Fraction.toRat_durationDifference,←he]
+      exact hb
+    exact Fraction.magnitudes.lt_of_le_lt
+      ((Fraction.le_iff_toRat _ _).mpr (Rat.le_trans hbound hscaled)) (Fraction.half_lt d hd)
+  refine ⟨indices,fun m => (hindices m).1,hincrease,hselected,
+    fun m => (hfinite m).1,hgap,?_,?_⟩
+  · exact MagnitudeContent.errors_vanish area.magnitudes L U A
+      (fun m => (hfinite m).1.2.2.2.2) hgap
+  · exact staircase_approaches g a b selected eps (fun m => Int.le_of_lt (heps m))
+      hzero hf hselected hvanish
+
 /-- On every sufficiently fine subdivision there are actual enclosing
 rectangle unions whose gap and both assigned-area errors are below the
 given magnitude tolerance. The height tolerance is constructed too.

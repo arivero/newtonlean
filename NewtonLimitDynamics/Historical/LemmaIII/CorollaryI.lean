@@ -122,6 +122,25 @@ theorem corollary1_uniform_graph_staircases (g : Fraction → Fraction) (a b : F
     UniformRectangles.StaircaseApproximation g a b parts eps :=
   UniformRectangles.staircase_approaches g a b parts eps heps hzero hf hmesh hvanish
 
+/-- Project-derived coupling of the nonmonotone area and free-boundary
+constructions: one strictly increasing selection of the supplied subdivisions
+gives enclosure, vanishing area gap/errors and two-sided free-edge approach.
+The continuity/mesh premises are editorial. This alternative finite-rectangle
+construction does not assert a new textual Lemma III dependency. Curved-area
+existence, fixed sides and unrestricted coordinate scope remain separate. -/
+theorem corollary1_uniform_graph_matched {Q : Type}
+    (area : MagnitudeContent.AreaRules Q) (g : Fraction → Fraction)
+    (a b : Fraction) (A : Q) (parts : Nat → MonotoneRectangles.Partition a b)
+    (eps : Nat → Fraction) (heps : ∀ m, 0<(eps m).num) (hab : Fraction.le a b)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m)))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
+    ∃ indices, UniformRectangles.MatchedApproximation area g a b A parts eps indices :=
+  UniformRectangles.matched_approximation area g a b A parts eps heps hab hzero hf hA hmesh hvanish
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -240,5 +259,23 @@ theorem corollary1_uniform_graph_staircases (g : Fraction → Fraction) (a b : F
     (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
     UniformRectangles.StaircaseApproximation g a b parts eps :=
   UniformRectangles.staircase_approaches g a b parts eps heps hzero hf hmesh hvanish
+
+/-- Project-derived coupling of this witness's nonmonotone area and
+free-boundary reconstructions. The selected family and its coupling are
+conclusions, not new convergence premises. Exact project statement/proof
+provenance, without an additional textual dependency or priority claim;
+the same area-existence, fixed-side and coordinate limitations remain. -/
+theorem corollary1_uniform_graph_matched {Q : Type}
+    (area : MagnitudeContent.AreaRules Q) (g : Fraction → Fraction)
+    (a b : Fraction) (A : Q) (parts : Nat → MonotoneRectangles.Partition a b)
+    (eps : Nat → Fraction) (heps : ∀ m, 0<(eps m).num) (hab : Fraction.le a b)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m)))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
+    ∃ indices, UniformRectangles.MatchedApproximation area g a b A parts eps indices :=
+  UniformRectangles.matched_approximation area g a b A parts eps heps hab hzero hf hA hmesh hvanish
 
 end Principia1713.LemmaIII

@@ -381,9 +381,38 @@ unchanged. The two new historical reports use only the three standard Lean
 axioms. Removing two unused simp arguments leaves the three touched proof
 modules and scope harness warning-free; no argument needed restoration.
 
-Remaining Lemma II–III work includes full ratio calculus, fixed boundary
-sides, a matched family coupling the proved area enclosure and free-boundary
-approximation, area/convention existence, non-rational coordinates and patch
+`UniformRectangles.matched_approximation` now closes the coupling obligation.
+For each positive vanishing height error eps m, uniform continuity and the
+supplied vanishing original mesh give a cutoff. Recursive maxima select
+strictly increasing indices at least m and beyond the respective cutoffs.
+The same selected rectangles therefore enclose at every step, their rational
+gap vanishes, their assigned-area errors vanish through the existing X.1
+transfer, and both free edges approach the graph. This selects partitions
+and re-pairs them with eps m; it does not take a subsequence of the original
+partition–tolerance pairs together. Selection is existential via classical
+choice, not an executable algorithm. Nesting is retained only if the supplied
+partitions already refine each other. Both editions have separate P clients;
+no additional textual Lemma III dependency is asserted for this alternative
+finite construction. Curved-area existence is still supplied.
+
+The retained control extracts area and boundary bounds at the same selected
+index beyond a common cutoff. A second control proves that dyadic mesh and
+height error one quarter of its width both vanish, yet the original upper
+rectangle union misses a point of the positive identity graph at every level.
+Constant positive errors are rejected. Astra found no blocker and independently
+compiled mismatched-pair, repaired-point, constant-error and oscillating-cutoff
+controls. These checks share core arithmetic and the Lean kernel. Three new
+named proofs are P; all previous theorem names/types and 234 historical axiom
+reports are unchanged. The new clients use only standard Lean axioms. Both
+touched proof modules and the expanded harness have zero warnings; the global
+census remains 516 unused-simp, zero deprecation and four proposition-as-
+definition warnings. README completion estimates are reassessed and unchanged:
+Corollary I stays 75%, II/III 80%, with the dominant area/patch/coordinate work
+still outstanding.
+
+Remaining Lemma II–III work includes transferring the mutual unit-ratio
+comparisons onto this single matched family, full ratio calculus, fixed
+boundary sides, area/convention existence, non-rational coordinates and patch
 assembly. For the arithmetic foundation, Nine Chapters
 attestations and the still-open Euclid VII.19/additional signed-operation
 audit are in [BARROWLIB_BOUNDARY.md](BARROWLIB_BOUNDARY.md). Source relocation
@@ -901,17 +930,20 @@ controls, now retained in the same harness. The review and controls share
 the rational definitions and Lean kernel; initial convention existence is
 still an explicit input.
 
-Latest verification: 10 October 2026, after the nonmonotone free-staircase
-extension of Corollary I. All six builds, the expanded uniform-rectangle,
-magnitude-content and existing staircase scope harnesses, source hashes and
-whitespace passed. The compiled checker verified the README measurements,
-1,181 unchanged score comments and 6,303 project constants with no project
+Latest verification: 10 October 2026, after the matched-family
+extension of Corollary I. All six builds, the expanded uniform-rectangle
+scope harness, source hashes and whitespace passed. The compiled checker
+verified the README measurements,
+1,181 unchanged score comments and 6,316 project constants with no project
 axioms, sorry or primary modern dependency. The earlier full scope run
 passed all 40 positive harnesses (including the harmonic reference/comparator)
 and rejected its corrupted comparator and upper-height comparison at the
 intended false equalities. The current harness also rejects zero and
 constant 1:2 brackets and fixed positive height error, exercises actual fine
-dyadic partitions, and checks both nonmonotone free-staircase clients.
+dyadic partitions, and checks both nonmonotone free-staircase and matched-family
+clients. Shrinking but unmatched heights/mesh fail enclosure at every level;
+the returned family has simultaneous area and boundary bounds after a common
+cutoff.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
 unchanged. New coordinate statements record their derivations without
