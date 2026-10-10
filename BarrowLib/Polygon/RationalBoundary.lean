@@ -96,7 +96,7 @@ theorem affine_between_either (a u v : Fraction) (ha : UnitInterval a) :
     have hb := affine_between (complement a) v u (complement_interval a ha) hv
     have he : Fraction.equiv (affine a u v) (affine (complement a) v u) := by
       simp only [affine, complement, Fraction.equiv, Fraction.add, Fraction.mul,
-        Int.add_mul, Int.mul_add, Int.sub_mul, Int.mul_sub]
+        Int.add_mul, Int.sub_mul]
       ac_nf
       omega
     exact Or.inr ⟨Fraction.le_equiv_right hb.1 (Fraction.equiv_symm he),
@@ -321,6 +321,90 @@ theorem nodes_approach (f : Fraction → Point) (a b : Fraction)
     obtain ⟨i, hi, he⟩ := hx
     exact ⟨i, hi, Fraction.le_equiv_left
       (pointDistance_equiv he ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩) (endpoint_zero_bound _ _)⟩
+
+/-- Uniformly vanishing perturbations of the sampled nodes preserve
+two-sided boundary approximation. The trace contains the perturbed left
+nodes and lies in their endpoint boxes; no monotonicity, area assignment or
+curve agreement is assumed. This exact finite estimate and derivation are
+project provenance, without an external textual match or priority claim. -/
+theorem perturbed_trace_approaches (f : Fraction → Point) (a b : Fraction)
+    (parts : Nat → Partition a b) (hf : UniformOn f a b)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes (fun m => maxWidth (parts m)))
+    (samples : Nat → Fraction → Point) (errors : Nat → Fraction)
+    (herrors : ∀ m i, i≤(parts m).count → Fraction.le
+      (pointDistance (samples m ((parts m).nodes i)) (f ((parts m).nodes i))) (errors m))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes errors)
+    (traces : Nat → Point → Prop)
+    (hnodes : ∀ m i, i<(parts m).count → traces m (samples m ((parts m).nodes i)))
+    (hboxes : ∀ m x, traces m x → RectangleTrace (samples m) (parts m) x) :
+    Approaches traces (CurveTrace f a b) := by
+  intro eps heps
+  let q := eps.half.half
+  have hq : q.toRat=eps.toRat/4 := by
+    dsimp only [q]
+    rw [Fraction.toRat_half,Fraction.toRat_half]
+    grind
+  obtain ⟨delta,hd,hnear⟩ := hf q heps
+  obtain ⟨N,hN⟩ := hmesh delta hd
+  obtain ⟨M,hM⟩ := hvanish q heps
+  refine ⟨N+M,fun m hm => ?_⟩
+  have hw (i : Nat) (hi : i<(parts m).count) :
+      Fraction.le (durationDifference ((parts m).nodes i) ((parts m).nodes (i+1))).abs delta :=
+    Fraction.magnitudes.le_trans
+      (Fraction.le_equiv_left (Fraction.abs_of_nonnegative _
+        ((difference_nonnegative_iff _ _).mpr ((parts m).ordered i hi)))
+        ((maxWidth_bounds (parts m)).1 i hi))
+      (Fraction.magnitudes.lt_implies_le (hN m (by omega)))
+  have he := (Fraction.lt_iff_toRat _ _).mp (hM m (by omega))
+  have hepsR := (Fraction.positive_iff_toRat eps).mp heps
+  constructor
+  · intro x hx
+    obtain ⟨i,hi,hbox⟩ := hboxes m x hx
+    let s := samples m ((parts m).nodes i)
+    let t := samples m ((parts m).nodes (i+1))
+    let u := f ((parts m).nodes i)
+    let v := f ((parts m).nodes (i+1))
+    have hlo := node_bounds (parts m) i (by omega)
+    have hhi := node_bounds (parts m) (i+1) (by omega)
+    have hc := hnear _ _ hlo.1 hlo.2 hhi.1 hhi.2 (hw i hi)
+    have hreverse := Fraction.magnitudes.lt_of_le_lt
+      (Fraction.le_of_equiv (pointDistance_symm v u)) hc
+    have hs := herrors m i (by omega)
+    have ht := herrors m (i+1) (by omega)
+    have hsu : Fraction.le (pointDistance u s) (errors m) :=
+      Fraction.le_equiv_left (pointDistance_symm u s) hs
+    have hts := Fraction.magnitudes.le_trans (pointDistance_triangle t v s)
+      (Fraction.add_le_add ht (Fraction.magnitudes.le_trans (pointDistance_triangle v u s)
+        (Fraction.add_le_add_left hsu (pointDistance v u))))
+    have hxs := rectangle_distance_bound s x t hbox
+    have htotal := Fraction.magnitudes.le_trans (pointDistance_triangle x s u)
+      (Fraction.add_le_add (Fraction.magnitudes.le_trans hxs hts) hs)
+    refine ⟨u,⟨(parts m).nodes i,hlo.1,hlo.2,Fraction.equiv_refl _,Fraction.equiv_refl _⟩,?_⟩
+    apply (Fraction.lt_iff_toRat _ _).mpr
+    have hb := (Fraction.le_iff_toRat _ _).mp htotal
+    have hcR := (Fraction.lt_iff_toRat _ _).mp hreverse
+    simp only [Fraction.toRat_add] at hb
+    grind only
+  · rintro y ⟨t,hta,htb,hy⟩
+    obtain ⟨i,hi,hl,hr⟩ := partition_cover (parts m) t hta htb
+    have hn := node_bounds (parts m) i (by omega)
+    have ht := Fraction.magnitudes.le_trans
+      (difference_interval_gaps _ _ _ hl hr).1 (hw i hi)
+    have hc := hnear _ _ hn.1 hn.2 hta htb ht
+    have htotal := Fraction.magnitudes.le_trans
+      (pointDistance_triangle (samples m ((parts m).nodes i)) (f ((parts m).nodes i)) (f t))
+      (Fraction.add_le_add_right (herrors m i (by omega)) (pointDistance (f ((parts m).nodes i)) (f t)))
+    have hxy : Fraction.equiv (pointDistance y (samples m ((parts m).nodes i)))
+        (pointDistance (samples m ((parts m).nodes i)) (f t)) :=
+      Fraction.equiv_trans (pointDistance_symm y (samples m ((parts m).nodes i)))
+        (pointDistance_equiv ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩ hy)
+    refine ⟨samples m ((parts m).nodes i),hnodes m i hi,?_⟩
+    apply Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv hxy)
+    apply (Fraction.lt_iff_toRat _ _).mpr
+    have hb := (Fraction.le_iff_toRat _ _).mp htotal
+    have hcR := (Fraction.lt_iff_toRat _ _).mp hc
+    rw [Fraction.toRat_add] at hb
+    grind only
 
 /-- Finite set inclusion transfers the outer trace's forward estimate and
 the inner trace's reverse estimate. This is not an area or arclength rule. -/

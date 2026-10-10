@@ -106,6 +106,30 @@ private theorem height_enclosure (H v eps : Fraction) (hv : 0≤v.num)
         (Fraction.le_equiv_right hHupper (Fraction.add_comm v eps)))
   · simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using hv
 
+private theorem height_distances (t H eps : Fraction) (hH : 0≤H.num) (heps : 0≤eps.num) :
+    Fraction.le (FiniteEstimates.pointDistance (t,lower H eps) (t,H)) eps ∧
+      Fraction.le (FiniteEstimates.pointDistance (t,upper H eps) (t,H)) eps := by
+  have hp := lower_properties H eps hH heps
+  have hlo := (Fraction.le_iff_toRat _ _).mp hp.2.1
+  have hsum := (Fraction.le_iff_toRat _ _).mp hp.2.2
+  rw [Fraction.toRat_add] at hsum
+  have he := (Fraction.nonnegative_iff_toRat eps).mp heps
+  constructor
+  · change Fraction.le (Fraction.add (durationDifference t t).abs
+      (durationDifference H (lower H eps)).abs) eps
+    apply (Fraction.le_iff_toRat _ _).mpr
+    simp only [Fraction.toRat_add,Fraction.toRat_abs,Fraction.toRat_durationDifference,
+      Rat.sub_self,Rat.abs_zero,Rat.zero_add]
+    rw [Rat.abs_of_nonpos (by grind only)]
+    grind only
+  · change Fraction.le (Fraction.add (durationDifference t t).abs
+      (durationDifference H (upper H eps)).abs) eps
+    apply (Fraction.le_iff_toRat _ _).mpr
+    simp only [Fraction.toRat_add,Fraction.toRat_abs,Fraction.toRat_durationDifference,
+      Rat.sub_self,Rat.abs_zero,Rat.zero_add,upper,Fraction.toRat_add]
+    rw [Rat.abs_of_nonneg (by grind only)]
+    grind only
+
 private theorem height_gap (H eps : Fraction) (hH : 0≤H.num) (heps : 0≤eps.num) :
     Fraction.le (durationDifference (lower H eps) (upper H eps))
       (Fraction.add eps eps) := by
@@ -125,6 +149,78 @@ noncomputable def lowerHeights {a b : Fraction} (g : Fraction → Fraction)
 def upperHeights {a b : Fraction} (g : Fraction → Fraction)
     (p : Partition a b) (eps : Fraction) : Nat → Fraction :=
   fun i => upper (g (p.nodes i)) eps
+
+/-- Tops and internal joins belong to their actual rectangle union even
+when adjacent heights fall. A join uses the higher of its adjacent cells.
+This project derivation does not assert graph enclosure or area existence. -/
+theorem staircase_in_strips (h : Fraction → Fraction) {a b : Fraction}
+    (p : Partition a b) (hn : ∀ i, i<p.count → 0≤(h (p.nodes i)).num)
+    (x : Point) (hx : RationalBoundary.LowerStaircase h p x) :
+    RectangleContent.strips p (fun i => h (p.nodes i)) p.count x := by
+  obtain ⟨i,hi,hx⟩ := hx
+  rcases hx with hx | ⟨hnext,he,hbetween⟩
+  · exact ⟨i,hi,hx.1,hx.2.1,Fraction.nonnegative_equiv hx.2.2 (hn i hi),
+      Fraction.le_of_equiv hx.2.2⟩
+  · rcases hbetween with h | h
+    · exact ⟨i+1,hnext,Fraction.le_equiv_right
+        (Fraction.magnitudes.le_refl _) (Fraction.equiv_symm he),
+        Fraction.le_equiv_left he (p.ordered (i+1) hnext),
+        Fraction.nonnegative_of_le (hn i hi) h.1,h.2⟩
+    · exact ⟨i,hi,Fraction.le_equiv_right (p.ordered i hi) (Fraction.equiv_symm he),
+        Fraction.le_of_equiv he,Fraction.nonnegative_of_le (hn (i+1) hnext) h.1,h.2⟩
+
+/-- Two-sided approach and actual-union membership of both free step traces.
+The upper construction also uses left samples, with height g(node)+eps;
+both traces therefore use the internal-join convention of LowerStaircase. -/
+def StaircaseApproximation (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → Partition a b) (eps : Nat → Fraction) : Prop :=
+  RationalBoundary.Approaches
+    (fun m => RationalBoundary.LowerStaircase (fun t => lower (g t) (eps m)) (parts m))
+    (RationalBoundary.CurveTrace (fun t => (t,g t)) a b) ∧
+  RationalBoundary.Approaches
+    (fun m => RationalBoundary.LowerStaircase (fun t => upper (g t) (eps m)) (parts m))
+    (RationalBoundary.CurveTrace (fun t => (t,g t)) a b) ∧
+  ∀ m x, (RationalBoundary.LowerStaircase (fun t => lower (g t) (eps m)) (parts m) x →
+    RectangleContent.strips (parts m) (lowerHeights g (parts m) (eps m)) (parts m).count x) ∧
+    (RationalBoundary.LowerStaircase (fun t => upper (g t) (eps m)) (parts m) x →
+      RectangleContent.strips (parts m) (upperHeights g (parts m) (eps m)) (parts m).count x)
+
+/-- Free edges of the same clipped lower/upper rectangle constructions
+approach a nonnegative uniformly continuous graph in both directions.
+The nonnegative errors and mesh shrink separately; no monotonicity or area
+assignment is required. Enclosure, when needed, additionally uses the fine
+mesh condition of fine_rectangles. Fixed baseline/endpoint sides and
+topological perimeter are not asserted. Exact project derivation. -/
+theorem staircase_approaches (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → Partition a b) (eps : Nat → Fraction)
+    (heps : ∀ m, 0≤(eps m).num)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes (fun m => maxWidth (parts m)))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
+    StaircaseApproximation g a b parts eps := by
+  have hn (m i : Nat) (hi : i≤(parts m).count) : 0≤(g ((parts m).nodes i)).num :=
+    hzero _ (node_bounds (parts m) i hi).1 (node_bounds (parts m) i hi).2
+  refine ⟨?_,?_,fun m x => ⟨?_,?_⟩⟩
+  · apply RationalBoundary.perturbed_trace_approaches (fun t => (t,g t)) a b parts hf hmesh
+      (fun m t => (t,lower (g t) (eps m))) eps
+      (fun m i hi => (height_distances _ _ _ (hn m i hi) (heps m)).1) hvanish
+    · intro m i hi
+      exact RationalBoundary.nodes_in_lower_staircase _ _ _
+        ⟨i,hi,Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+    · exact fun m => RationalBoundary.lower_staircase_in_rectangles _ _
+  · apply RationalBoundary.perturbed_trace_approaches (fun t => (t,g t)) a b parts hf hmesh
+      (fun m t => (t,upper (g t) (eps m))) eps
+      (fun m i hi => (height_distances _ _ _ (hn m i hi) (heps m)).2) hvanish
+    · intro m i hi
+      exact RationalBoundary.nodes_in_lower_staircase _ _ _
+        ⟨i,hi,Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+    · exact fun m => RationalBoundary.lower_staircase_in_rectangles _ _
+  · exact staircase_in_strips (fun t => lower (g t) (eps m)) (parts m)
+      (fun i hi => (lower_properties _ _ (hn m i (by omega)) (heps m)).1) x
+  · exact staircase_in_strips (fun t => upper (g t) (eps m)) (parts m)
+      (fun i hi => Fraction.nonnegative_add (g ((parts m).nodes i)) (eps m)
+        (hn m i (by omega)) (heps m)) x
 
 /-- Finite rectangular sets and gap control for any two cell-height bounds.
 The bounds concern graph ordinates, not areas or convergence conclusions. -/

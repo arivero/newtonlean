@@ -106,6 +106,22 @@ theorem corollary1_uniform_graph_area_exhaustion {Q : Type}
     UniformRectangles.Exhausts area g a b A :=
   uniform_graph_rectangle_exhaustion area g a b A hab hzero hf hA
 
+/-- Project extension of this witness's free-boundary reconstruction to
+nonmonotone graphs, using the actual clipped rectangle height formulas.
+Both tops/internal joins approach the graph and lie in their rectangle unions.
+Area enclosure still needs the separate fine_rectangles mesh condition;
+this theorem derives no area, fixed-side or topological-perimeter claim. -/
+theorem corollary1_uniform_graph_staircases (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b) (eps : Nat → Fraction)
+    (heps : ∀ m, 0≤(eps m).num)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m)))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
+    UniformRectangles.StaircaseApproximation g a b parts eps :=
+  UniformRectangles.staircase_approaches g a b parts eps heps hzero hf hmesh hvanish
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -208,5 +224,21 @@ theorem corollary1_uniform_graph_area_exhaustion {Q : Type}
     (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
     UniformRectangles.Exhausts area g a b A :=
   uniform_graph_rectangle_exhaustion area g a b A hab hzero hf hA
+
+/-- Project extension of this witness's free-boundary reconstruction to
+nonmonotone graphs, using the actual clipped rectangle height formulas.
+Both tops/internal joins approach the graph and lie in their rectangle unions.
+Area enclosure still needs the separate fine_rectangles mesh condition;
+this theorem derives no area, fixed-side or topological-perimeter claim. -/
+theorem corollary1_uniform_graph_staircases (g : Fraction → Fraction) (a b : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition a b) (eps : Nat → Fraction)
+    (heps : ∀ m, 0≤(eps m).num)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m)))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
+    UniformRectangles.StaircaseApproximation g a b parts eps :=
+  UniformRectangles.staircase_approaches g a b parts eps heps hzero hf hmesh hvanish
 
 end Principia1713.LemmaIII

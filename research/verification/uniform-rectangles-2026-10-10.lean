@@ -10,7 +10,10 @@ traversal checks all six edition-local clients and rejects foreign witnesses
 and modern support. Four further clients give all three multiple-ratio
 comparisons for every sufficiently small height tolerance. An actual dyadic
 tail checks that their mesh cutoffs are usable; zero and fixed 1:2 brackets
-are rejected. These controls share the rational arithmetic and kernel;
+are rejected. Nonmonotone free-step traces now approach the graph in both
+directions while remaining in their actual rectangle unions; falling/rising
+joins and a nonvanishing-height falsifier exercise that separate argument.
+These controls share the rational arithmetic and kernel;
 they construct neither general curved areas nor a nonrational area model. -/
 
 namespace NewtonLimitDynamics.Polygon.UniformRectangleControls
@@ -256,6 +259,69 @@ example : ¬ MagnitudeContent.BracketComparisons MagnitudeContent.rational 2 3
     (MagnitudeContent.multiple MagnitudeContent.rational 2 (Fraction.ofInt 2))
     (MagnitudeContent.multiple MagnitudeContent.rational 3 one)) hh.2
 
+private def errors (m : Nat) : Fraction := duration (Fraction.ofInt 8) m
+private theorem errors_vanish : Exhaustion.VanishingDifference Fraction.magnitudes errors := by
+  intro eps heps
+  exact duration_eventually_small (Fraction.ofInt 8) eps (by decide) heps
+
+-- Both witnesses accept actual shrinking partitions and height tolerances;
+-- no area assignment or monotonicity is supplied to the boundary theorem.
+example : StaircaseApproximation valley z one dyadic errors :=
+  Principia1687.LemmaIII.corollary1_uniform_graph_staircases valley z one dyadic errors
+    (fun _ => by change (0 : Int)≤8; decide) (fun t _ _ => valley_nonnegative t)
+    valley_uniform dyadic_mesh errors_vanish
+example : StaircaseApproximation valley z one dyadic errors :=
+  Principia1713.LemmaIII.corollary1_uniform_graph_staircases valley z one dyadic errors
+    (fun _ => by change (0 : Int)≤8; decide) (fun t _ _ => valley_nonnegative t)
+    valley_uniform dyadic_mesh errors_vanish
+
+-- Falling joins must select the taller LEFT rectangle; rising joins select
+-- the taller RIGHT one. The helper handles both without ordering the graph.
+example : RationalBoundary.LowerStaircase valley (dyadic 1) (half,quarter) :=
+  ⟨0,by decide,Or.inr ⟨by decide,by decide,Or.inr (by decide)⟩⟩
+example : RectangleContent.strips (dyadic 1) (fun i => valley ((dyadic 1).nodes i))
+    (dyadic 1).count (half,quarter) :=
+  staircase_in_strips valley (dyadic 1) (fun i _ => valley_nonnegative _) _
+    ⟨0,by decide,Or.inr ⟨by decide,by decide,Or.inr (by decide)⟩⟩
+example : ¬ rectangle ((dyadic 1).nodes 1) ((dyadic 1).nodes 2)
+    (valley ((dyadic 1).nodes 1)) (half,quarter) := by
+  rintro ⟨_,_,_,h⟩
+  exact (by decide : ¬ Fraction.le quarter (valley ((dyadic 1).nodes 1))) h
+example : RectangleContent.strips (dyadic 2) (fun i => valley ((dyadic 2).nodes i))
+    (dyadic 2).count ((⟨3,4,by decide⟩ : Fraction),eighth) :=
+  staircase_in_strips valley (dyadic 2) (fun i _ => valley_nonnegative _) _
+    ⟨2,by decide,Or.inr ⟨by decide,by decide,Or.inl (by decide)⟩⟩
+
+-- A fixed positive height error does not approach even a flat graph.
+example : ¬ RationalBoundary.Approaches
+    (fun m => RationalBoundary.LowerStaircase (fun _ => one) (dyadic m))
+    (RationalBoundary.CurveTrace (fun t => (t,z)) z one) := by
+  intro h
+  obtain ⟨N,hN⟩ := h half (by decide)
+  let s : Point := ((dyadic N).nodes 0,one)
+  have hs : RationalBoundary.LowerStaircase (fun _ => one) (dyadic N) s :=
+    RationalBoundary.nodes_in_lower_staircase _ _ _
+      ⟨0,(dyadic N).positive_count,Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  obtain ⟨y,⟨t,_,_,hy⟩,hsmall⟩ := (hN N (Nat.le_refl _)).1 s hs
+  have hyR := (Fraction.equiv_iff_toRat _ _).mp hy.2
+  change y.2.toRat=z.toRat at hyR
+  rw [z,Fraction.toRat_ofInt,Rat.intCast_zero] at hyR
+  change Fraction.lt (Fraction.add (durationDifference y.1 ((dyadic N).nodes 0)).abs
+    (durationDifference y.2 one).abs) half at hsmall
+  have hb := (Fraction.lt_iff_toRat _ _).mp hsmall
+  simp only [Fraction.toRat_add,Fraction.toRat_abs,Fraction.toRat_durationDifference,
+    one,Fraction.toRat_ofInt,Rat.intCast_one,hyR] at hb
+  have hhalf : half.toRat=(1/2 : Rat) := by decide +kernel
+  have hsub : (1 : Rat)-0=1 := by decide +kernel
+  rw [hhalf,hsub] at hb
+  have hn := Rat.abs_nonneg (x:=((dyadic N).nodes 0).toRat-y.1.toRat)
+  have hunit : (1 : Rat).abs=1 := by decide +kernel
+  rw [hunit] at hb
+  have hbound : (1 : Rat)≤(((dyadic N).nodes 0).toRat-y.1.toRat).abs+1 := by
+    grind only
+  exact Rat.not_lt.mpr
+    (Rat.le_trans (by decide +kernel : (1/2 : Rat)≤1) hbound) hb
+
 end NewtonLimitDynamics.Polygon.UniformRectangleControls
 
 open Lean in
@@ -333,3 +399,35 @@ run_elab do
           if env.header.moduleNames[idx]!.toString.startsWith "ModernLib" then
             throwError "{root} uses modern module through {dependency}"
   logInfo "Checked four nonmonotone multiple-ratio clients: constructed positive rectangle, fine rectangle areas, finite comparison and own-edition II-to-III chain; no foreign witness or modern module."
+  for (root,foreign) in #[(
+      `Principia1687.LemmaIII.corollary1_uniform_graph_staircases,"Principia1713."),
+      (`Principia1713.LemmaIII.corollary1_uniform_graph_staircases,"Principia1687.")] do
+    let mut todo := #[root]
+    let mut used : NameSet := {}
+    while !todo.isEmpty do
+      let name := todo.back!
+      todo := todo.pop
+      unless used.contains name do
+        used := used.insert name
+        if let some info := env.find? name then
+          todo := todo ++ info.type.getUsedConstants ++
+            ((info.value? true).map Expr.getUsedConstants |>.getD #[])
+    for dependency in #[
+        `NewtonLimitDynamics.Polygon.UniformRectangles.staircase_approaches,
+        `NewtonLimitDynamics.Polygon.UniformRectangles.staircase_in_strips,
+        `NewtonLimitDynamics.Polygon.RationalBoundary.perturbed_trace_approaches,
+        `NewtonLimitDynamics.Polygon.RationalBoundary.nodes_in_lower_staircase,
+        `NewtonLimitDynamics.Polygon.RationalBoundary.lower_staircase_in_rectangles,
+        `NewtonLimitDynamics.Polygon.SupportingTangents.rectangle_distance_bound] do
+      unless used.contains dependency do throwError "{root} omits {dependency}"
+    for dependency in used do
+      let name := ((privateToUserName? dependency).getD dependency).toString
+      if #[foreign,"DeMotu1684."].any (fun libraryPrefix => name.startsWith libraryPrefix) then
+        throwError "{root} uses foreign witness {dependency}"
+      if let some idx := env.getModuleIdxFor? dependency then
+        if env.header.moduleNames[idx]!.toString.startsWith "ModernLib" then
+          throwError "{root} uses modern module through {dependency}"
+    unless used.toArray.any (fun n => ((privateToUserName? n).getD n) ==
+        `NewtonLimitDynamics.Polygon.UniformRectangles.height_distances) do
+      throwError "{root} omits the derived height-error bounds"
+  logInfo "Checked two nonmonotone free-staircase clients: shrinking node perturbations, actual rectangle membership and no foreign witness/modern module."

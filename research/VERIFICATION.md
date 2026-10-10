@@ -137,6 +137,14 @@ rationalMultiples proof as a theorem removes one proposition-as-definition
 warning and increases the measured theorem count by one without new mathematics.
 The six-build census is 518 unused-simp, zero deprecation and four
 proposition-as-definition warnings. No removed argument needed restoration.
+The subsequent nonmonotone free-staircase increment removes two flagged
+arguments from RationalBoundary. Its own build, UniformRectangles,
+CorollaryI and the expanded scope harness have zero warnings. The six-build
+census is now 516 unused-simp, zero deprecation and four proposition-as-
+definition warnings; none was suppressed or required argument restoration.
+Existing theorem names/types and all 232 preceding historical axiom reports
+are unchanged; six new proof declarations include two historical clients,
+whose reports use only propext, Classical.choice and Quot.sound.
 For provenance rows, require S + R + P + U to equal the same compiled proof
 tree shown in the measurements; wrapped scratch output must not skip rows.
 
@@ -212,8 +220,7 @@ Compiled traversal requires the edition's own new clients, actual finite
 rectangle areas, the sum gap bound, X.1 halving and the finite magnitude-error
 comparison. Foreign witnesses and ModernLib are rejected. No Lemma I use is
 asserted for this alternative construction. The area convention and arbitrary
-curved-area magnitude remain supplied; there is no nonrational model or
-general boundary-convergence conclusion.
+curved-area magnitude remain supplied; there is no nonrational model.
 
 The same harness now checks four nonmonotone multiple-ratio clients, using
 the valley's positive interior ordinate at c=1/4. The construction gives
@@ -232,6 +239,23 @@ compiled the rectangle/constants, zero/1:2 rejections and tiny-bracket control.
 The review shares the rational arithmetic and kernel; curved-area existence
 is not established. Do not report exact finite ratio equality or mesh-only
 convergence with an arbitrary fixed height tolerance.
+
+The same harness checks both editions' nonmonotone free-staircase clients
+on that valley with actual shrinking dyadic meshes and height errors. Falling
+joins belong to the higher left rectangle (and can lie outside the lower
+right one); rising joins belong to the higher right rectangle. A height-one
+staircase cannot approach the zero graph even with shrinking mesh. Compiled
+traversal requires perturbed-node approximation, derived lower/upper height
+distance bounds, rectangle distance control and actual-union membership;
+foreign editions and ModernLib are rejected. A sequential Astra review
+independently compiled rising/falling/equal-height joins, unreduced join
+coordinates, negative-strip rejection, omitted terminal height and the
+fixed-error rejection for arbitrary partition families. These checks share
+the rational definitions and Lean kernel. The boundary result uses no area
+assignment. Require explicit nonnegative errors, vanishing errors and mesh;
+do not infer area enclosure from independent shrinkage. It also needs the
+mesh–height relation of `fine_rectangles`. Fixed baseline/endpoint sides and
+full topological perimeter remain outside the statement.
 
 `magnitude-content-2026-10-09.lean` checks the enlarged assigned-area domain
 of both editions' Lemmas II/III and Corollary I. Actual dyadic identity-graph

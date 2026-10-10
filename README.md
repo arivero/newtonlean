@@ -213,19 +213,29 @@ height tolerance admits every sufficiently fine partition, giving the
 lower/upper, lower/assigned and upper/assigned comparisons. The assigned
 curved area may be a general magnitude. This is an editorial extension of
 the figure scope, not Newton's printed telescoping argument or exact finite
-ratio equality. Explicit staircase approximation still requires monotonicity.
+ratio equality. Corollary I now also proves two-sided approach of the actual
+clipped lower/upper staircase tops and internal joins for nonmonotone graphs.
+Each trace lies in its own rectangle union; falling joins use the higher
+adjacent rectangle. Shrinking mesh and height errors suffice for this boundary
+result. Enclosing the graph additionally requires the mesh–height coupling
+from `fine_rectangles`; independent shrinking sequences do not supply it.
 General curved-area/convention existence, patch assembly and non-rational
 geometry dominate the remaining work, estimated at roughly one quarter of
 work done; uncertainty in these tasks leaves the rounded estimate at 80%.
 Full Eudoxian ratio calculus and a nonrational magnitude realization remain
-open. Corollary I stays 70%: broader free-boundary approximation and those
-area/patch/coordinate tasks still justify roughly three sevenths of work
-done remaining. Corollaries II–IV and Proposition I keep their estimates;
+open. Corollary I rises from 70% to 75% in both printed editions: the
+nonmonotone free-edge obligation is now proved. Fixed baseline/endpoint sides,
+a matched family for simultaneous enclosure and boundary approximation, and
+the area/patch/coordinate tasks remain; their estimated work is about one
+third of work done. This is a work estimate, not a theorem-count fraction.
+Corollaries II–IV and Proposition I keep their estimates;
 their tangent, force-polygon and general swept-sector obligations are not
 discharged here. Other file/witness estimates are reassessed and unchanged.
-The accompanying cleanup earns no completion credit: six unused simp
-arguments are removed from the two support modules (six-build total
-524 → 518), plus three from the touched scope harness. Converting the
+The accompanying cleanup earns no completion credit: the preceding ratio
+increment removed six unused simp arguments from its support modules and
+three from the scope harness. This boundary increment removes two more from
+RationalBoundary (six-build total 518 → 516); all three touched proof modules
+and the expanded harness are warning-free. Converting the
 existing proposition `rationalMultiples` from def to theorem removes one
 warning (5 → 4) and adds one measured declaration, not new mathematics.
 Deprecations remain zero; no removed simp argument needed restoration.
@@ -261,7 +271,7 @@ work; they do not discharge the remaining primary historical tasks.
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | — / 40% | 100% | 100% | Printed ordered-difference contradiction complete: exclusion of a positive terminal difference, positive time windows before the endpoint and a rational terminal-zero consequence. Approach and terminal comparisons are explicit premises. NATP00090 has only the enclosing-ratio step inside its Lemma 2; tangent-area geometry and its mechanical premises remain open, without attributing a printed Lemma I dependency. |
 | [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | — / — | 80% | 80% | Equal-width gap, actual rectangle areas, exhaustion and the edition's Lemma I. All three mutual unit ratios hold for any assigned area magnitude on monotone interior-positive patches, allowing initial zero lower sums. The separate uniform-continuity construction now gives nonmonotone area exhaustion and all three multiple-ratio comparisons: a positive ordinate constructs the required fixed rectangle, and every sufficiently small height tolerance and sufficiently fine partition is admitted. General area existence, arbitrary patches and non-rational coordinates remain open. |
 | [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | — / — | 80% | 80% | Unequal-width exhaustion and the edition's Lemma II enclosure approximate any supplied area magnitude; its own Lemma I excludes a positive terminal gap. Three mutual unit ratios hold on monotone interior-positive patches. Its own Lemma II now also supplies nonmonotone area exhaustion and all three multiple-ratio comparisons under uniform continuity and a positive ordinate, with a derived positive rectangle. General area existence, arbitrary patches and non-rational coordinates remain open; applications must justify mesh exhaustion. |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | — / — | 70% | 70% | The edition's Lemma III approximates any supplied area magnitude under explicit X.1 halving and area rules, now also for uniformly continuous nonmonotone nonnegative graphs. Its explicit free staircase-edge approximation remains for monotone graphs; fixed sides are omitted. Broader boundary scope, general area existence, arbitrary patches and non-rational coordinates remain open; full ratio calculus is not constructed. |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | — / — | 75% | 75% | The edition's Lemma III approximates any supplied area magnitude under explicit X.1 halving and area rules, also for uniformly continuous nonmonotone nonnegative graphs. Actual clipped lower/upper free staircase edges now approach those graphs and belong to their rectangle unions. Fixed sides, a matched enclosure/boundary family, general area existence, arbitrary patches and non-rational coordinates remain open; full ratio calculus is not constructed. |
 | [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | — / — | 80% | 80% | Two-sided rational chord-boundary approximation through Corollary I. Uniform continuity and shrinking mesh remain explicit; the theorem gives no area or arclength conclusion. |
 | [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | — / — | 80% | 80% | For concave increasing rational patches, supplied contact and concavity derive supporting cells, continuity, the identity of the tangent trace with the polygon's upper boundary, and finite tangent-polygon areas by dissection. Area errors vanish against a supplied curved area. Tangent existence, arbitrary patches and curved-area existence remain open. |
 | [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | — / — | 80% | 80% | The edition's Corollaries II/III give chord and actual tangent-polygon upper-boundary approximation on those patches. General curves and identification with force polygons remain open; boundary approximation supplies no arclength limit. Modern completed-curve results stay below the separator. |
@@ -358,19 +368,19 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2084 | 73 | 880 | 1817 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2084 | 73 | 880 | 1821 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 183 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 111 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 97 |
 | [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 138 |
 | [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 138 |
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 145 | 7 | 18 | 91 |
-| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 585 | 30 | 151 | 391 |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 492 | 22 | 195 | 510 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 212 | 10 | 137 | 520 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 522 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 213 | 656 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 471 | 1386 |
+| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 585 | 30 | 151 | 395 |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 492 | 22 | 195 | 514 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 244 | 12 | 154 | 526 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 528 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 213 | 662 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 471 | 1392 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 81 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 91 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 93 |
@@ -388,7 +398,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 15760 | 980 | 980 | 980 |
+| [BarrowLib](BarrowLib.lean) | 15940 | 984 | 984 | 984 |
 | [ModernLib](ModernLib.lean) | 20113 | 1157 | 1491 | 1679 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
