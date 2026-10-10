@@ -15,6 +15,11 @@
   source-only or alternate Lean files may retain historical statements for
   future verification, without routing existing proofs through them.
 
+- User clarification, 10 October 2026: Python is permitted for scripts.
+  The bookkeeping restriction concerns JSON catalogs/ledgers, not the
+  implementation language. Prefer the existing Lean verification harnesses
+  for mathematical and compiled-dependency checks.
+
 - User rule, 8 October: every commit must modify the README completion-
   percentage information. Reassess the affected file/witness estimates as
   work done / (work done + estimated remaining work), and update their

@@ -14,16 +14,20 @@ project theorem statements and names. The next stages add a temporary
 Fraction/Rat bridge, migrate arithmetic clients bottom-up and remove
 representative transport that equality makes redundant. Completion estimates
 are reassessed and unchanged: this is encoding work, not a historical proof.
-Core availability does not attest historical availability. The requested
-Nine Chapters source/rule file is a separate increment with positive chapter-1
-domains and a separate Liu Hui commentary witness; no existing Newton proof
-will be routed through it. Signed multiplication, general zero arithmetic and
-signed order require their own exact passages before historical attribution.
+Core availability does not attest historical availability. The separate
+[FractionRules](../ClassicsLib/NineChapters/FractionRules.lean) file now checks
+ten Nine Chapters attestations (5 S, 5 R), using only core Rat/Nat/List.
+Positive chapter-1 inputs and a separate Liu Hui commentary witness retain
+the source limits; no existing Newton proof is routed through the file. Signed multiplication, general zero arithmetic and
+signed order require their own exact passages before historical attribution. The open source audit includes Zhu Shijie's
+算學啟蒙 (1299, ClassicsLib by the Chinese exception) and Brahmagupta (628,
+BarrowLib); no exact passage for these additional operations was verified in
+this increment. None is attributed to the Nine Chapters.
 Representative-sensitive statements are a stop condition, not permission to
 change their meaning silently. Frozen baseline outputs remain in scratch only.
-All six builds pass on 4.34.1. The 2,427 source-declared project theorem
-names (including Reverse) and all 31 README own/proof/import counts match the
-4.19 baseline. Rendered type differences concern numeral/let/binder/projection
+The toolchain-only commit 3237ff3 passed all six builds on 4.34.1. Its
+2,427 source-declared project theorem names (including Reverse) and all
+31 README own/proof/import counts matched the 4.19 baseline. Rendered type differences concern numeral/let/binder/projection
 printing and a renamed core proof in a subtype argument. All 228 historical
 axiom reports retain their axiom sets after normalizing generated-helper
 names; 198 are source-declared historical theorems. Fewer compiler-generated

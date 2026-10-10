@@ -22,11 +22,12 @@ approximation estimates. Those project theorems are counted. This is a real
 implementation burden, with an asymmetry in the reported library boundary.
 
 Historical ownership and representation cost require separate decisions.
-The proposed Euclid VII.19/Nine Chapters route in
-[BARROWLIB_BOUNDARY.md](BARROWLIB_BOUNDARY.md) needs exact original-language
-passages before a ClassicsLib migration. An unchanged move leaves the total
-theorem count unchanged, even though per-library counts and classifications
-change. Cross-product equivalence alone does not source all signed arithmetic.
+The [boundary note](BARROWLIB_BOUNDARY.md) now links the independent Nine
+Chapters source-attestation file, with positive-input and signed-whole domains.
+No existing proof is routed through it. Euclid VII.19 and additional signed
+operations still need exact source review. An unchanged move leaves the total
+theorem count unchanged, even though library ownership changes. Cross-product
+equivalence alone does not source all signed arithmetic.
 
 On 10 October the user selected Lean 4.34.1 and its core `Rat`, after a
 scratch check of order, arithmetic, absolute value and `grind`. The approved

@@ -25,34 +25,35 @@ to encode the mathematics, not as evidence for its historical availability.
 
 User decision, 10 October: Lean 4.34.1 core types and lemmas, including
 `Rat`, are encoding infrastructure outside project M/H scores. Rational
-arithmetic will use core Rat; the toolchain-only stage still retains Fraction
-until its clients are migrated. The Nine Chapters attestation will be a
-separate source file, with exact rule domains and commentary kept distinct.
-Core arithmetic's availability does not certify a historical dependency.
+arithmetic belongs to core Rat; the legacy unreduced Fraction and its clients
+remain temporarily during the staged conversion. Moving those existing
+helpers alone would change provenance, not their count or completion.
 
-BarrowLib contains rational arithmetic, ordered ratios, finite sums/products,
-coordinate point/determinant geometry, finite refinement and explicit
-exhaustion arguments. An explicit abstract order/limiting premise must not
-hide its desired conclusion. Coordinate L1 bounds are a chosen estimate,
-not automatically an intrinsic physical magnitude.
+Classical attestation is now recorded separately in
+[ClassicsLib/NineChapters/FractionRules.lean](../ClassicsLib/NineChapters/FractionRules.lean),
+with [chapter-I](../docs/classics/nine-chapters-I.md) and
+[chapter-VIII](../docs/classics/nine-chapters-VIII.md) Chinese witnesses.
+Positive fraction reduction, addition, smaller-from-larger subtraction,
+product and division are source matches. Identifying the subtractive common
+measure with Nat.gcd, extracting a comparison iff, averaging with a list,
+and representing signed-whole addition/subtraction by Rat require stated
+qualifications. Liu Hui's 263 commentary on naming 正/負 is separate from 術.
+These ten theorems are attestation only; no existing proof depends on them.
+Core convenience does not establish historical availability.
 
-The arithmetic placement is provisional, not a claim that signed fraction
-arithmetic began after Hypatia. The user's proposed exact-source route is
-Euclid VII.19 for the positive-number cross-product criterion, and the
-Nine Chapters' fraction and signed-arithmetic passages for the additional
-operations. Exact Greek and Chinese passages and their operation-by-operation
-correspondence must be verified before adding those source claims or moving
-the implementation to ClassicsLib. VII.19 alone would not source zero/negative
-numerators, addition, subtraction or absolute value. The existing abstract
-magnitude-ratio rules are a separate interface.
+The Nine Chapters passages here do not attest signed multiplication,
+general arithmetic with zero or signed order. The explicit 無入 cases encode
+absent entries only. A surviving non-core claim needing those sources must
+receive its own exact original-language passage; the audit remains open in
+[STATE.md](STATE.md). Euclid VII.19 would concern positive cross-products,
+not these additional operations. The abstract Magnitudes/MagnitudeContent
+ratio and halving rules remain a separate interface with their own sources.
 
-Moving the unchanged fraction implementation would change library ownership
-and classification, not the total number of project theorems. The current
-`Fraction` is an unreduced integer pair with a positive denominator, and its
-`equiv` compares cross-products. Representative conversion and congruence
-proofs cost the same in either library. A representation change is separate
-work; see [PROOF_STRATEGY.md](PROOF_STRATEGY.md). Neither source relocation nor
-renaming is mathematical completion progress.
+BarrowLib retains ordered magnitudes, finite sums/products, coordinate
+point/determinant geometry, finite refinement and explicit exhaustion
+arguments while arithmetic clients migrate. An abstract order or limiting
+premise must not hide its desired conclusion. Coordinate L1 bounds are a
+chosen estimate, not automatically an intrinsic physical magnitude.
 
 `Common/Exhaustion` supplies an ordered positive-difference contradiction,
 including a nonempty before-end time window; it constructs no terminal value.

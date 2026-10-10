@@ -12,8 +12,8 @@ keeps the progress estimates and compact measurements; this file explains
 the kinds of result, their sources and the provenance coverage of the
 dependencies actually used.
 
-The Lean 4.34.1 toolchain-only migration preserves the named theorem
-cascades below and their provenance classifications. Core types and lemmas
+The Lean 4.34.1 toolchain-only commit 3237ff3 preserved the named theorem
+cascades of caf90de and their provenance classifications. Core types and lemmas
 are encoding infrastructure, excluded from these project-only counts and
 M/H scores. This exclusion does not certify historical availability. Exact
 source attestations and domain qualifications remain independent obligations.
@@ -32,7 +32,7 @@ There are three different quantities:
   not use, including available library theorems. The proof tree measures
   actual dependencies; the import tree measures availability.
 
-The current compiled cascade (10 October, nonmonotone rectangular-exhaustion increment) is:
+The current compiled cascade (10 October, with isolated Nine Chapters attestation) is:
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
@@ -58,7 +58,8 @@ The current compiled cascade (10 October, nonmonotone rectangular-exhaustion inc
 | `PropositionII.lean` | 0 | 0 | 28 |
 | `PropositionIII.lean` | 0 | 0 | 45 |
 | `PropositionIV.lean` | 0 | 0 | 64 |
-| `ClassicsLib` | 16 | 16 | 26 |
+| `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
+| `ClassicsLib` | 26 | 26 | 36 |
 | `BarrowLib` | 1000 | 1000 | 1000 |
 | `ModernLib` | 1157 | 1496 | 1689 |
 
@@ -129,13 +130,14 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionI38.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/Euclid/PropositionIX20.lean` | 1 | 3 | 2 | 0 | 6 |
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
-| `ClassicsLib` | 1 | 7 | 8 | 0 | 16 |
+| `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
+| `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
 | `BarrowLib` | 0 | 0 | 32 | 968 | 1000 |
 | `ModernLib` | 0 | 2 | 0 | 1494 | 1496 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **111 of 2371
-theorems: 1 S, 44 R and 66 P; 2260 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **121 of 2381
+theorems: 6 S, 49 R and 66 P; 2260 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.
@@ -359,7 +361,41 @@ The existing monotone ratio/staircase results and all exact Latin remain.
 
 Historical relocation of fraction arithmetic is separate from this census.
 The user's proposed Euclid VII.19 and Nine Chapters authorities still need
-exact Greek/Chinese passages and operation-level correspondence; see
-[the boundary note](research/BARROWLIB_BOUNDARY.md). Moving an unchanged
-representation changes ownership, not the total theorem count. No new source
-classification or completion credit is assigned for that pending proposal.
+exact passages and operation-level correspondence; see
+[the boundary note](research/BARROWLIB_BOUNDARY.md). The independent Nine
+Chapters attestation below now supplies its bounded Chinese rules. The Greek
+criterion and additional signed operations remain an open source audit.
+Moving an unchanged representation changes ownership, not the total theorem
+count, and earns no completion credit.
+
+## Nine Chapters attestation, independently available
+
+[FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) imports no
+project module and is imported only by the ClassicsLib entry point. No
+existing historical proof is routed through it. Its ten declarations form
+an independent proof tree, so adding them changes the ClassicsLib aggregate
+and loaded-project total, with no increase in Newton's proof dependencies.
+Core Rat/Nat/List lemmas remain excluded from project M/H and cascade counts.
+
+| Theorem in `ClassicsLib.NineChapters` | Kind | Source and qualification |
+| --- | --- | --- |
+| `commonMeasure_eq_gcd` | R | 約分術: the positive subtraction algorithm's 等數 is identified with Nat.gcd; optional preliminary halving is separate. |
+| `yuefen_value` | S | 約分術: division by the common measure preserves a positive fraction; simultaneous halving is also verified. |
+| `hefen` | S | 合分術: two positive fractions give the sum of cross-products over the product denominator. |
+| `jianfen` | S | 減分術: strictly smaller is subtracted from larger, with positive inputs and positive remainder. |
+| `kefen` | R | 課分術: the text computes the excess; the theorem isolates its cross-product comparison criterion as an iff. |
+| `pingfen` | R | 平分術: a nonempty positive list conserves its total and redistributes to the mean; the common-denominator work array is abstracted. |
+| `chengfen` | S | 乘分術: positive numerators and denominators multiply separately. |
+| `jingfen` | S | 經分術: positive money/people quantities, possibly fractional, give the reciprocal-product share. |
+| `zhengfu_sub` | R | 正負術 subtraction clause: named positive whole magnitudes and absent entries embedded in Rat; cases determine the surviving name. |
+| `zhengfu_add` | R | 正負術 addition clause: the same qualified sign/magnitude encoding. |
+
+Exact Chinese rules and proof correspondence are beside each theorem.
+[Chapter I](docs/classics/nine-chapters-I.md) and
+[chapter VIII](docs/classics/nine-chapters-VIII.md) retain the witness, fixed
+page revision, archived rendered HTML and SHA-256. The latter separately
+quotes Liu Hui's naming commentary, conventionally dated 263. The source
+review does not attest signed multiplication, general zero arithmetic or
+signed order. Source-only/alternate witnesses can be preserved for future
+verification without adding proof dependencies. This attestation earns no
+completion credit and does not imply that Newton used these texts.

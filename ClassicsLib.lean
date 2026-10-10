@@ -17,6 +17,10 @@ assembles their finite model. VII.31 and IX.20 supply prime divisors and primes
 outside any finite collection. Aristotle, Prior Analytics I.23, 41a26-27,
 attests the diagonal's parity contradiction; Aristotle/SquareRootTwo.lean
 states the limits of that source and proves the integer-ratio impossibility.
+NineChapters/FractionRules.lean attests positive fraction operations from
+卷一 方田 and named signed-whole addition/subtraction from 卷八 方程. It keeps
+Liu Hui's commentary separate and uses only core Rat/Nat; it supplies no
+historical proof dependency and attests no general signed multiplication.
 The new arithmetic files use only Lean core and classical arithmetic; their
 comments compare the inspected mathlib routes without importing them.
 These are not full synthetic Elements or diagonal constructions.
@@ -29,3 +33,5 @@ import ClassicsLib.Euclid.FiniteLattice
 import ClassicsLib.Euclid.PropositionVII31
 import ClassicsLib.Euclid.PropositionIX20
 import ClassicsLib.Aristotle.SquareRootTwo
+
+import ClassicsLib.NineChapters.FractionRules

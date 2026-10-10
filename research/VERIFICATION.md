@@ -335,3 +335,12 @@ triangles, noncanonical translation, each minimum-union branch and an
 incorrect empty-set area. These controls share the kernel and rational
 definitions; the countermodel is relative to a supplied initial convention,
 not a construction of one or a theorem that every historical B fails.
+
+## Isolated source attestations
+
+For Nine Chapters/FractionRules, verify each theorem's positive-input or
+signed-whole domain against the separate 術 and commentary witnesses. Check
+archive SHA-256, its ten S/R classifications and compiled dependency isolation.
+The file uses core only; its presence at the ClassicsLib entry point must not
+route existing historical proofs through its theorems. Source availability
+and proof completion are separate, and no percentages increase for this work.

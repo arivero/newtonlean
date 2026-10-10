@@ -83,6 +83,18 @@ Every commit must update this completion-percentage information, reassessing
 the affected files and witnesses and explaining changes to the estimates or
 remaining work. An unchanged rounded estimate must be explicitly justified
 here. Measured counts must also be refreshed whenever they change.
+Nine Chapters reassessment, 10 October: **every file/witness percentage
+remains unchanged**. Ten independently checked source-attestation theorems
+(5 S, 5 R) document positive fraction rules and qualified signed-whole
+addition/subtraction; they close no Newtonian obligation. No existing proof
+is routed through them. Their Chinese witnesses, SHA-256 and separate Liu Hui
+commentary are in [the chapter-I source](docs/classics/nine-chapters-I.md) and
+[the chapter-VIII source](docs/classics/nine-chapters-VIII.md). Core Rat stays
+encoding infrastructure, with the source's domain limits kept explicit.
+The classical files remain 100% only in their stated, restricted scope;
+other remaining-work rationales and percentages retain their justification.
+Measured counts include the separate attestation file below.
+
 Toolchain reassessment, 10 October: **every file/witness percentage remains
 unchanged** after migration from Lean 4.19.0 to 4.34.1. Compatibility repairs
 change proof elaboration only; no theorem is added or removed and no statement
@@ -113,9 +125,10 @@ the new graph construction does not discharge their tangent, force-polygon
 or general swept-sector obligations. Other file/witness estimates, including
 100% for the classical arithmetic comparisons in their stated scope, are
 unchanged. Measured counts and the root provenance report are refreshed.
-The arithmetic-source placement discussed in the boundary/strategy notes is
-pending exact passages; relocation alone earns no completion credit and
-does not reduce the current fraction representation's theorem burden.
+The Nine Chapters source attestation is now separate and checked; the
+Euclid VII.19 and additional signed-operation source audits remain open.
+Relocation alone earns no completion credit and does not reduce the current
+fraction representation's theorem burden.
 
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
@@ -268,7 +281,8 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionI38.lean](ClassicsLib/Euclid/PropositionI38.lean) | 25 | 1 | 1 | 1 |
 | [ClassicsLib/Euclid/PropositionIX20.lean](ClassicsLib/Euclid/PropositionIX20.lean) | 87 | 5 | 6 | 6 |
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
-| [ClassicsLib](ClassicsLib.lean) | 340 | 16 | 16 | 26 |
+| [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
+| [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
 | [BarrowLib](BarrowLib.lean) | 15596 | 1000 | 1000 | 1000 |
 | [ModernLib](ModernLib.lean) | 19707 | 1157 | 1496 | 1689 |
 
