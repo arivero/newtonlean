@@ -350,9 +350,13 @@ theorem density_monotone (g : Fraction → Fraction) (a b : Fraction)
     (hg a s (Fraction.magnitudes.le_refl _) has (Fraction.magnitudes.le_trans hst htb))
   have h := hg s t has hst htb
   have hgt := Fraction.nonnegative_of_le hgs h
-  exact RationalIntervals.half_le (Fraction.magnitudes.le_trans
+  exact ((fun {a b : Fraction} (h : Fraction.le a b) => (show Fraction.le a.half b.half from by
+      apply (Fraction.le_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_half]
+      have hr := (Fraction.le_iff_toRat _ _).mp h
+      grind)) (Fraction.magnitudes.le_trans
     (Fraction.mul_le_mul_nonnegative h (g s) hgs)
-    (Fraction.mul_le_mul_nonnegative_left h (g t) hgt))
+    (Fraction.mul_le_mul_nonnegative_left h (g t) hgt)))
 
 def stripSum {a b : Fraction} (p : Partition a b) (radii : Nat → Fraction) (n : Nat) : Fraction :=
   sum (fun i => Fraction.mul (width p i) (Fraction.mul (radii i) (radii i)).half) n
@@ -360,7 +364,10 @@ def stripSum {a b : Fraction} (p : Partition a b) (radii : Nat → Fraction) (n 
 theorem cap_area_formula (R a b : Fraction) :
     Fraction.equiv (TimeSubdivision.det (ray R a) (ray R b)).half
       (Fraction.mul (durationDifference a b) (Fraction.mul R R).half) := by
-  apply Fraction.equiv_trans (RationalIntervals.half_equiv (ray_det R R a b))
+  apply Fraction.equiv_trans ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_half]
+      exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (ray_det R R a b))))
   simp only [Fraction.equiv,Fraction.half,Fraction.mul]
   ac_nf
 

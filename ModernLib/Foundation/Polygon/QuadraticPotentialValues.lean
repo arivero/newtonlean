@@ -113,7 +113,7 @@ theorem remainderCoefficient_nonnegative (c T P V Z U : Fraction)
       (Fraction.nonnegative_add _ _ (Fraction.nonnegative_mul _ _ hZ hV)
         (Fraction.nonnegative_mul _ _ hT (Fraction.nonnegative_mul _ _ hZ hZ))))
 
--- Modern dependency score: 3/34 (M=3, H=31; transitive project theorems/axioms).
+-- Modern dependency score: 3/36 (M=3, H=33; transitive project theorems/axioms).
 theorem uniform_frame_bound (c h T P V Z U r A : Fraction) (ht : 0 < h.num)
     (s u : Point × Point) (a : Point)
     (hP : 0 ≤ P.num) (hV : 0 ≤ V.num) (hZ : 0 ≤ Z.num)
@@ -127,7 +127,15 @@ theorem uniform_frame_bound (c h T P V Z U r A : Fraction) (ht : 0 < h.num)
         (Fraction.mul r (roundingCoefficient c P A))) := by
   have hb := normalized_remainder_bound c h P V Z _ ht s u a hP hV hZ hp hv hz hd
   have hsq := Fraction.mul_le_mul_nonnegative_left hwindow h (Int.le_of_lt ht)
-  have hquarter := RationalIntervals.half_le (RationalIntervals.half_le hsq)
+  have hquarter := ((fun {a b : Fraction} (h : Fraction.le a b) => (show Fraction.le a.half b.half from by
+      apply (Fraction.le_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_half]
+      have hr := (Fraction.le_iff_toRat _ _).mp h
+      grind)) (((fun {a b : Fraction} (h : Fraction.le a b) => (show Fraction.le a.half b.half from by
+      apply (Fraction.le_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_half]
+      have hr := (Fraction.le_iff_toRat _ _).mp h
+      grind)) hsq)))
   have hlast := Fraction.mul_le_mul_nonnegative hquarter (Fraction.mul Z Z)
     (Fraction.nonnegative_mul _ _ hZ hZ)
   have htotal := Fraction.mul_le_mul_nonnegative_left

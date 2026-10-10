@@ -120,6 +120,24 @@ IntegerSchedule's duration values feed actual state recurrences, so their
 cutover will be coordinated with those callers rather than replacing their
 representative inputs prematurely.
 
+RationalIntervals now defines the midpoint over Rat without project imports,
+named helper theorems or warnings. Six redundant halving/transport/order/gap
+declarations are removed; their call sites use core arithmetic through the
+bridge. BoundedCuts.step and the monotone rectangle positivity witness retain
+the exact original unreduced midpoint expression, so their state inputs do
+not change. Historical theorem names/types and all 228 axiom reports remain
+unchanged. All six builds, the monotone-rectangle harness and the magnitude
+content harness pass. README measurements and proof scores are refreshed;
+completion estimates are unchanged.
+
+GeometricTail.modulus is another representative-sensitive chosen witness:
+at tolerance 1, inputs 1/1 and 2/2 produce cutoff indices 2 and 4 despite equal
+rational values, as checked by a scratch Lean example. Its numerator/denominator formula cannot be preserved as a
+function on Rat. The user has been asked whether to compute the cutoff from
+normalized Rat data and reprove the tail bound, or retain unreduced data
+locally. Leave this definition unchanged pending that decision; the existing
+InertialControl authorization does not cover it.
+
 The user added a deprecation-only cleanup before continuing Rat clients:
 use each replacement named by Lean, edit with the patch tool, preserve
 statements and counts, compare the theorem dump with Stage 0 and require

@@ -28,7 +28,7 @@ theorem D_meshValue_nonnegative (w T : Fraction) (s : Point × Point)
   contentValue_nonnegative _ _
 
 /-- This is a scalar bound, derived from containment of the actual region. -/
--- Modern dependency score: 234/370 (M=234, H=136; transitive project theorems/axioms).
+-- Modern dependency score: 234/367 (M=234, H=133; transitive project theorems/axioms).
 theorem D_meshValue_budget_bound (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
     Within (D_meshValue w T s hT hs m).val (embed (scalarState (Fraction.ofInt 0)))
@@ -36,7 +36,7 @@ theorem D_meshValue_budget_bound (w T : Fraction) (s : Point × Point)
   within_mono _ _ _ _ (Fraction.le_of_equiv (actual_budget_geometric w T s hT hs m))
     (contentValue_within_zero _ _)
 
--- Modern dependency score: 237/374 (M=237, H=137; transitive project theorems/axioms).
+-- Modern dependency score: 237/371 (M=237, H=134; transitive project theorems/axioms).
 theorem D_meshValue_tends_zero (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (eps : Fraction)
     (heps : 0 < eps.num) :
@@ -49,7 +49,7 @@ theorem D_meshValue_tends_zero (w T : Fraction) (s : Point × Point)
 
 /-- The retained instance uses the same geometric-sequence squeeze as the
 general construction; it supplies no separate geometric hypothesis. -/
--- Modern dependency score: 247/384 (M=247, H=137; transitive project theorems/axioms).
+-- Modern dependency score: 247/381 (M=247, H=134; transitive project theorems/axioms).
 theorem polygon_trajectory_enclosure (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     PathDefect.PolygonTrajectoryEnclosure
@@ -58,7 +58,7 @@ theorem polygon_trajectory_enclosure (w T : Fraction) (s : Point × Point)
   PathDefect.geometric_sequence_enclosure _ _ (budgetCoefficient_nonnegative w T s hT)
     (D_meshValue_nonnegative w T s hT hs) (D_meshValue_budget_bound w T s hT hs)
 
--- Modern dependency score: 251/389 (M=251, H=138; transitive project theorems/axioms).
+-- Modern dependency score: 251/386 (M=251, H=135; transitive project theorems/axioms).
 theorem polygon_trajectory_defect_vanishes (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     Vanishes (fun mesh => D_meshValue w T s hT hs (RationalEnclosure.level mesh)) :=
@@ -73,7 +73,7 @@ theorem D_meshValue_independent_cover (w T : Fraction) (s : Point × Point)
     D_meshValue w T s hT hs m = contentValue (Region w T s hT hs m) c :=
   contentValue_independent_cover _ _ c
 
--- Modern dependency score: 237/373 (M=237, H=136; transitive project theorems/axioms).
+-- Modern dependency score: 237/370 (M=237, H=133; transitive project theorems/axioms).
 theorem D_meshValue_zero_window (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) (hz : T.num = 0) :
     (D_meshValue w T s hT hs m).val = embed (scalarState (Fraction.ofInt 0)) := by

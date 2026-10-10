@@ -89,6 +89,14 @@ values through the bridge; their state algorithms and theorem statements are
 unchanged. No theorem is added or deleted in this increment. Its smaller
 imports do not yet imply smaller client cascades because conversions remain.
 
+RationalIntervals now contains only the core Rat midpoint definition. Its six
+old U declarations are removed: half_equiv is redundant equality transport;
+half_le, half_double, midpoint_between and the two midpoint gap identities
+close inline with core arithmetic. No new theorem is added. Legacy state and
+partition callers retain the original unreduced midpoint expression exactly;
+only their comparison proofs use the bridge until their domains migrate.
+The removed declarations had no verified historical provenance classification.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,
@@ -106,19 +114,19 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 885 | 1822 |
+| `AreaLaw.lean` | 73 | 882 | 1816 |
 | `CompositionOfMotions.lean` | 13 | 48 | 183 |
 | `LawI.lean` | 0 | 0 | 111 |
 | `LawII.lean` | 0 | 0 | 97 |
 | `LawsCorollaryV.lean` | 4 | 45 | 138 |
 | `LawsCorollaryVI.lean` | 4 | 33 | 138 |
 | `LemmaI.lean` | 7 | 18 | 91 |
-| `LemmaII.lean` | 28 | 141 | 391 |
-| `LemmaIII.lean` | 20 | 183 | 508 |
-| `LemmaIII/CorollaryI.lean` | 10 | 137 | 518 |
-| `LemmaIII/CorollaryII.lean` | 2 | 70 | 520 |
-| `LemmaIII/CorollaryIII.lean` | 10 | 212 | 654 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 473 | 1391 |
+| `LemmaII.lean` | 28 | 141 | 385 |
+| `LemmaIII.lean` | 20 | 183 | 502 |
+| `LemmaIII/CorollaryI.lean` | 10 | 137 | 512 |
+| `LemmaIII/CorollaryII.lean` | 2 | 70 | 514 |
+| `LemmaIII/CorollaryIII.lean` | 10 | 213 | 648 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 473 | 1385 |
 | `LemmaX.lean` | 4 | 14 | 81 |
 | `LemmaX/CorollaryI.lean` | 2 | 14 | 91 |
 | `LemmaX/CorollaryII.lean` | 4 | 24 | 93 |
@@ -130,8 +138,8 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 989 | 989 | 989 |
-| `ModernLib` | 1157 | 1500 | 1692 |
+| `BarrowLib` | 983 | 983 | 983 |
+| `ModernLib` | 1157 | 1497 | 1686 |
 
 The README additionally lists line counts and the individual classical files.
 Reproduce the compiled measurements and check the README with:
@@ -172,7 +180,7 @@ source. Source witnesses for every historical file remain in the next table.
 
 | File or library | S | R | P | U | Proof tree |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `AreaLaw.lean` | 0 | 6 | 15 | 864 | 885 |
+| `AreaLaw.lean` | 0 | 6 | 18 | 858 | 882 |
 | `CompositionOfMotions.lean` | 0 | 0 | 0 | 48 | 48 |
 | `LawI.lean` | 0 | 0 | 0 | 0 | 0 |
 | `LawII.lean` | 0 | 0 | 0 | 0 | 0 |
@@ -202,12 +210,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 60 | 929 | 989 |
-| `ModernLib` | 0 | 2 | 14 | 1484 | 1500 |
+| `BarrowLib` | 0 | 0 | 60 | 923 | 983 |
+| `ModernLib` | 0 | 2 | 17 | 1478 | 1497 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **149 of 2370
-theorems: 6 S, 49 R and 94 P; 2221 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **149 of 2364
+theorems: 6 S, 49 R and 94 P; 2215 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.

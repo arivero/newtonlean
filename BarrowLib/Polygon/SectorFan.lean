@@ -80,7 +80,10 @@ theorem unsigned_triangle_area (area : AreaRules) (p q : Point) :
     area.HasArea (Triangle p q) (det p q).abs.half := by
   by_cases h : 0 ≤ (det p q).num
   · exact area.congr_value _ _ _
-      (RationalIntervals.half_equiv (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ h)))
+      ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ h)))))
       (area.triangle p q h)
   · let neg : Fraction := ⟨-(det p q).num,(det p q).den,(det p q).den_pos⟩
     have hn : 0 ≤ neg.num := by dsimp [neg]; omega
@@ -93,7 +96,10 @@ theorem unsigned_triangle_area (area : AreaRules) (p q : Point) :
         (Fraction.abs_neg (det p q))
     have hqa := area.triangle q p (Fraction.nonnegative_equiv he hn)
     exact area.congr_set _ _ _ (fun x => (triangle_swap q p x))
-      (area.congr_value _ _ _ (RationalIntervals.half_equiv (Fraction.equiv_trans he habs)) hqa)
+      (area.congr_value _ _ _ ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.equiv_trans he habs)))) hqa)
 
 def slope (p : Point) (hp : 0 < p.1.num) : Fraction :=
   ⟨p.2.num * p.1.den, p.2.den * p.1.num, Int.mul_pos p.2.den_pos hp⟩

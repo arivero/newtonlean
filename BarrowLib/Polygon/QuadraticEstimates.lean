@@ -18,7 +18,10 @@ theorem quadratic_time_congr (t u : Fraction) (s : Point × Point) (a : Point)
     (he : Fraction.equiv t u) : pointEquiv (quadraticPosition t s a) (quadraticPosition u s a) :=
   pointAdd_congr (pointAdd_congr ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
     (pointScale_ratio_congr he ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩))
-    (pointScale_ratio_congr (RationalIntervals.half_equiv (Fraction.mul_equiv he he))
+    (pointScale_ratio_congr ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.mul_equiv he he))))
       ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)
 
 def discreteWeight (h : Fraction) (n : Nat) : Fraction :=

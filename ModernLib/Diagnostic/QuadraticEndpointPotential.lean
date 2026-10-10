@@ -52,7 +52,7 @@ theorem galilean_quadratic_cross_relation (m g h : Fraction) (B v : Point) :
 
 /-- The point in the potential/triangle formulas is the actual completed
 endpoint, rather than a supplied quadratic curve point. -/
--- Modern dependency score: 19/88 (M=19, H=69; transitive project theorems/axioms).
+-- Modern dependency score: 19/89 (M=19, H=70; transitive project theorems/axioms).
 theorem galilean_constructed_endpoint_relation (m g h : Fraction) (B v : Point)
     (hh : 0 ≤ h.num) :
     ∃ C : Point,

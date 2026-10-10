@@ -169,7 +169,10 @@ theorem ramp_area (area : AreaRules) (s W : Fraction) (hs : 0 ≤ s.num) (hW : 0
   have ht := area.triangle (W,Fraction.ofInt 0) (W,Fraction.mul s W)
     (Fraction.nonnegative_equiv he (Fraction.nonnegative_mul _ _ hW
       (Fraction.nonnegative_mul _ _ hs hW)))
-  exact area.congr_value _ _ _ (RationalIntervals.half_equiv he)
+  exact area.congr_value _ _ _ ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_half]
+      exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp he)))
     (area.congr_set _ _ _ (ramp_triangle s W hs hW) ht)
 
 def height (l H s x : Fraction) : Fraction :=

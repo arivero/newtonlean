@@ -30,7 +30,7 @@ theorem D_meshValue_nonnegative (o : ForceClasses.CentralOracle) (E0 T tau L B :
     Below (Fraction.ofInt 0) (D_meshValue o E0 T tau L B s hE d m).val :=
   contentValue_nonnegative _ _
 
--- Modern dependency score: 167/367 (M=167, H=200; transitive project theorems/axioms).
+-- Modern dependency score: 167/364 (M=167, H=197; transitive project theorems/axioms).
 theorem D_meshValue_budget_bound (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -39,7 +39,7 @@ theorem D_meshValue_budget_bound (o : ForceClasses.CentralOracle) (E0 T tau L B 
   within_mono _ _ _ _ (Fraction.le_of_equiv (actual_budget_geometric o E0 T tau L B s hE d m))
     (contentValue_within_zero _ _)
 
--- Modern dependency score: 169/370 (M=169, H=201; transitive project theorems/axioms).
+-- Modern dependency score: 169/367 (M=169, H=198; transitive project theorems/axioms).
 theorem D_meshValue_tends_zero (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) :
@@ -54,7 +54,7 @@ theorem D_meshValue_tends_zero (o : ForceClasses.CentralOracle) (E0 T tau L B : 
 
 /-- The old limiting enclosure is grounded by the constructed curve's actual
 nonnegative between-path content. No geometric enclosure is a hypothesis. -/
--- Modern dependency score: 179/380 (M=179, H=201; transitive project theorems/axioms).
+-- Modern dependency score: 179/377 (M=179, H=198; transitive project theorems/axioms).
 theorem polygon_trajectory_enclosure (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -69,7 +69,7 @@ theorem polygon_trajectory_enclosure (o : ForceClasses.CentralOracle) (E0 T tau 
 
 /-- Strict rational-neighborhood vanishing of the actual completed content,
 using its derived enclosure and an explicit vanishing rational budget. -/
--- Modern dependency score: 183/385 (M=183, H=202; transitive project theorems/axioms).
+-- Modern dependency score: 183/382 (M=183, H=199; transitive project theorems/axioms).
 theorem polygon_trajectory_defect_vanishes (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -87,7 +87,7 @@ theorem D_meshValue_independent_cover (o : ForceClasses.CentralOracle) (E0 T tau
     D_meshValue o E0 T tau L B s hE d m = contentValue (Region o E0 T tau L B s hE d m) c :=
   contentValue_independent_cover _ _ c
 
--- Modern dependency score: 171/371 (M=171, H=200; transitive project theorems/axioms).
+-- Modern dependency score: 171/368 (M=171, H=197; transitive project theorems/axioms).
 theorem D_meshValue_zero_window (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) (hz : T.num=0) :

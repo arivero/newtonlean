@@ -72,3 +72,11 @@ adds declarations rather than deleting transport yet: arbitrary functions on
 unreduced representatives cannot be recovered from normalized samples. Migrate
 the higher-order callers together, then remove the legacy API. Neither this
 temporary increase nor its eventual removal changes completion estimates.
+
+Interval bisection removes six named lemmas: one equivalence transport and
+five identities/order facts that core arithmetic proves inline. Legacy state
+inputs retain their exact midpoint representatives, so deleting arithmetic
+transport does not silently normalize the inputs of arbitrary functions.
+FiniteSequenceGap likewise now abstracts the carrier and needs no coordinate
+imports. These changes remove project overhead without claiming new mathematics
+or historical proof progress.

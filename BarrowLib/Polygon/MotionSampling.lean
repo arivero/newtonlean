@@ -628,8 +628,11 @@ theorem sampled_chord_area (g : Fraction → Fraction) (l r T : Fraction)
   rw [← chart.count j]
   apply sum_congr_bounded
   intro k hk
-  exact RationalIntervals.half_equiv (TimeSubdivision.det_congr
-    (chart.samples j k (by omega)) (chart.samples j (k+1) (by omega)))
+  exact (show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_half]
+      exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (TimeSubdivision.det_congr
+    (chart.samples j k (by omega)) (chart.samples j (k+1) (by omega)))))
 
 /-! Finite mechanical-polygon/sample-chord geometry. Source of these
 coordinate statements: the original English statements and checked proofs

@@ -330,7 +330,8 @@ theorem lower_sum_eventually_positive {a b c : Fraction}
     (hmesh : ∀ delta : Fraction, 0<delta.num →
       ∃ N : Nat, ∀ m, N≤m → Fraction.lt (maxWidth (parts m)) delta) :
     ∃ N, ∀ m, N≤m → 0<(lowerSum g (parts m)).num := by
-  let d : Fraction := midpoint c b
+  -- Keep the original midpoint representative until the partition domain migrates.
+  let d : Fraction := (Fraction.add c b).half
   let delta : Fraction := (durationDifference c b).half
   have hspan : 0<(durationDifference c b).num := by
     unfold durationDifference HarmonicStability.negF Fraction.add at *
@@ -345,7 +346,10 @@ theorem lower_sum_eventually_positive {a b c : Fraction}
   intro m hm
   let p := parts m
   have hcb_le : Fraction.le c b := Fraction.magnitudes.lt_implies_le hcb
-  have hbetween := midpoint_between c b hcb_le
+  have hbetween : Fraction.le c d ∧ Fraction.le d b := by
+    have horder := (Fraction.le_iff_toRat _ _).mp hcb_le
+    constructor <;> apply (Fraction.le_iff_toRat _ _).mpr <;>
+      simp only [d, Fraction.toRat_half, Fraction.toRat_add] <;> grind
   have hacd : Fraction.le a d := Fraction.magnitudes.le_trans hac hbetween.1
   obtain ⟨i,hi,hl,hr⟩ := partition_cover p d hacd hbetween.2
   have hmax : Fraction.lt (maxWidth p) delta := hN m hm
@@ -354,7 +358,12 @@ theorem lower_sum_eventually_positive {a b c : Fraction}
     have hleft := interval_right_gap_le_total (p.nodes i) c d hic hbetween.1
     have hcell := interval_left_gap_le_total (p.nodes i) d (p.nodes (i+1)) hl hr
     have hdc : Fraction.le delta (durationDifference (p.nodes i) d) :=
-      Fraction.le_equiv_left (Fraction.equiv_symm (midpoint_lower_gap c b)) hleft
+      Fraction.le_equiv_left (Fraction.equiv_symm (show
+        Fraction.equiv (durationDifference c d) delta from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [d, delta, Fraction.toRat_durationDifference, Fraction.toRat_half,
+          Fraction.toRat_add]
+        grind)) hleft
     have hwidth : Fraction.le delta (width p i) :=
       Fraction.magnitudes.le_trans hdc hcell
     have hbound := (maxWidth_bounds p).1 i hi
@@ -389,7 +398,12 @@ theorem lower_sum_eventually_positive {a b c : Fraction}
         (Fraction.equiv_iff_mutual_le _ _).mpr ⟨hnext_le,hrev⟩
       have hleft := interval_right_gap_le_total (p.nodes i) d b hl hbetween.2
       have hdb : Fraction.le delta (durationDifference d b) :=
-        Fraction.le_equiv_left (Fraction.equiv_symm (midpoint_upper_gap c b))
+        Fraction.le_equiv_left (Fraction.equiv_symm (show
+          Fraction.equiv (durationDifference d b) delta from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [d, delta, Fraction.toRat_durationDifference, Fraction.toRat_half,
+            Fraction.toRat_add]
+          grind))
           (Fraction.magnitudes.le_refl _)
       have hendpoint : Fraction.equiv (width p i)
           (durationDifference (p.nodes i) b) := by

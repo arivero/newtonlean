@@ -33,7 +33,7 @@ theorem full_elapsed (T : Fraction) (j : Nat) :
   ac_nf
 
 /-- The exact finite error has only the position half-mesh term. -/
--- Modern dependency score: 1/42 (M=1, H=41; transitive project theorems/axioms).
+-- Modern dependency score: 1/43 (M=1, H=42; transitive project theorems/axioms).
 theorem endpoint_error (a : Point) (T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (j : Nat) :
     Fraction.equiv (distance (endpoint a T s j) (quadraticState a T s))
@@ -52,8 +52,10 @@ theorem endpoint_error (a : Point) (T : Fraction) (s : Point × Point)
   apply Fraction.equiv_trans (Fraction.add_equiv hp hzero)
   apply Fraction.equiv_trans (Fraction.add_zero _)
   apply Fraction.equiv_trans
-    (Fraction.mul_equiv (RationalIntervals.half_equiv
-      (Fraction.mul_equiv he (Fraction.equiv_refl _))) (Fraction.equiv_refl _))
+    (Fraction.mul_equiv ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.mul_equiv he (Fraction.equiv_refl _))))) (Fraction.equiv_refl _))
   simp only [coefficient,duration,Fraction.equiv,Fraction.mul,Fraction.half]
   ac_nf
 
@@ -74,7 +76,7 @@ def endpointName (a : Point) (T : Fraction) (s : Point × Point) (hT : 0 ≤ T.n
 def endpointValue (a : Point) (T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) : Value :=
   realize (endpointName a T s hT)
 
--- Modern dependency score: 10/78 (M=10, H=68; transitive project theorems/axioms).
+-- Modern dependency score: 10/79 (M=10, H=69; transitive project theorems/axioms).
 theorem endpointValue_eq (a : Point) (T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) :
     endpointValue a T s hT = embed (quadraticState a T s) := by
   apply Quotient.sound

@@ -20,10 +20,12 @@ structure Cut where
   bound_nonnegative : 0 ≤ bound.num
   bounded : ∀ q, lower q → Fraction.le q bound
 
+/-- Keep the original unreduced midpoint at state inputs until this domain
+migrates; the comparison proofs below use core Rat through the bridge. -/
 noncomputable def step (c : Cut) (p : Fraction × Fraction) : Fraction × Fraction := by
   classical
-  exact if c.lower (midpoint p.1 p.2) then (midpoint p.1 p.2,p.2)
-    else (p.1,midpoint p.1 p.2)
+  exact if c.lower ((Fraction.add (p.1) (p.2)).half) then ((Fraction.add (p.1) (p.2)).half,p.2)
+    else (p.1,(Fraction.add (p.1) (p.2)).half)
 
 noncomputable def interval (c : Cut) : Nat → Fraction × Fraction
   | 0 => (Fraction.ofInt 0,c.bound)
@@ -50,8 +52,8 @@ theorem upper_bound (c : Cut) : ∀ n q, c.lower q → Fraction.le q (interval c
       · rename_i hm
         apply Classical.byContradiction
         intro hn
-        change ¬ Fraction.le q (midpoint (interval c n).1 (interval c n).2) at hn
-        have hmid : Fraction.le (midpoint (interval c n).1 (interval c n).2) q := by
+        change ¬ Fraction.le q ((Fraction.add ((interval c n).1) ((interval c n).2)).half) at hn
+        have hmid : Fraction.le ((Fraction.add ((interval c n).1) ((interval c n).2)).half) q := by
           unfold Fraction.le at hn ⊢
           omega
         exact hm (c.downward _ _ hmid hq)
@@ -67,7 +69,7 @@ theorem half_tail (A : Fraction) (n : Nat) :
   simp only [Fraction.equiv,Fraction.half,GeometricTail.tailCap,Int.pow_succ]
   ac_nf
 
--- Modern dependency score: 1/7 (M=1, H=6; transitive project theorems/axioms).
+-- Modern dependency score: 1/9 (M=1, H=8; transitive project theorems/axioms).
 theorem width_cap (c : Cut) : ∀ n,
     Fraction.equiv (durationDifference (interval c n).1 (interval c n).2)
       (GeometricTail.tailCap c.bound n)
@@ -76,21 +78,39 @@ theorem width_cap (c : Cut) : ∀ n,
         Fraction.equiv,Fraction.add,Fraction.ofInt]
   | n+1 => by
       classical
-      have hh := Fraction.equiv_trans (half_equiv (width_cap c n)) (half_tail c.bound n)
+      have hh := Fraction.equiv_trans ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (width_cap c n)))) (half_tail c.bound n)
       simp only [interval,step]
       split
-      · exact Fraction.equiv_trans (midpoint_upper_gap _ _) hh
-      · exact Fraction.equiv_trans (midpoint_lower_gap _ _) hh
+      · apply (Fraction.equiv_iff_toRat _ _).mpr
+        have hwidth := (Fraction.equiv_iff_toRat _ _).mp hh
+        simp only [Fraction.toRat_durationDifference, Fraction.toRat_half,
+          Fraction.toRat_add] at hwidth ⊢
+        grind
+      · apply (Fraction.equiv_iff_toRat _ _).mpr
+        have hwidth := (Fraction.equiv_iff_toRat _ _).mp hh
+        simp only [Fraction.toRat_durationDifference, Fraction.toRat_half,
+          Fraction.toRat_add] at hwidth ⊢
+        grind
 
--- Modern dependency score: 3/20 (M=3, H=17; transitive project theorems/axioms).
+-- Modern dependency score: 3/22 (M=3, H=19; transitive project theorems/axioms).
 theorem adjacent_bound (c : Cut) (n : Nat) :
     Fraction.le (FiniteEstimates.stateDistance
       (scalarState (interval c (n+1)).1) (scalarState (interval c n).1))
       (GeometricTail.tailCap c.bound (n+1)) := by
   classical
   have hcap : 0 ≤ (GeometricTail.tailCap c.bound (n+1)).num := c.bound_nonnegative
-  have hh := Fraction.equiv_trans (midpoint_lower_gap (interval c n).1 (interval c n).2)
-    (Fraction.equiv_trans (half_equiv (width_cap c n)) (half_tail c.bound n))
+  have hh : Fraction.equiv
+      (durationDifference (interval c n).1 (Fraction.add (interval c n).1 (interval c n).2).half)
+      (GeometricTail.tailCap c.bound (n+1)) := by
+    apply (Fraction.equiv_iff_toRat _ _).mpr
+    have hwidth := (Fraction.equiv_iff_toRat _ _).mp (width_cap c n)
+    have htail := (Fraction.equiv_iff_toRat _ _).mp (half_tail c.bound n)
+    simp only [Fraction.toRat_durationDifference, Fraction.toRat_half,
+      Fraction.toRat_add] at hwidth htail ⊢
+    grind
   simp only [interval,step]
   split
   · exact Fraction.le_of_equiv (Fraction.equiv_trans (scalarState_distance _ _)
@@ -110,7 +130,7 @@ noncomputable def name (c : Cut) : EndpointCauchyName where
         c.bound_nonnegative (adjacent_bound c) (GeometricTail.modulus c.bound eps) m n hm hn)
       (GeometricTail.doubleTail_lt_tolerance c.bound eps c.bound_nonnegative heps)
 
--- Modern dependency score: 6/49 (M=6, H=43; transitive project theorems/axioms).
+-- Modern dependency score: 6/51 (M=6, H=45; transitive project theorems/axioms).
 theorem name_realizes_cut (c : Cut) (q : Fraction) : NameBelow q (name c) ↔ c.lower q := by
   constructor
   · intro h
@@ -131,19 +151,19 @@ theorem name_realizes_cut (c : Cut) (q : Fraction) : NameBelow q (name c) ↔ c.
 
 noncomputable def value (c : Cut) : ScalarValue := ⟨realize (name c),by rfl⟩
 
--- Modern dependency score: 21/74 (M=21, H=53; transitive project theorems/axioms).
+-- Modern dependency score: 21/76 (M=21, H=55; transitive project theorems/axioms).
 theorem value_realizes_cut (c : Cut) (q : Fraction) : Below q (value c).val ↔ c.lower q :=
   name_realizes_cut c q
 
--- Modern dependency score: 22/75 (M=22, H=53; transitive project theorems/axioms).
+-- Modern dependency score: 22/77 (M=22, H=55; transitive project theorems/axioms).
 theorem value_nonnegative (c : Cut) : Below (Fraction.ofInt 0) (value c).val :=
   (value_realizes_cut c _).mpr c.zero_lower
 
--- Modern dependency score: 22/75 (M=22, H=53; transitive project theorems/axioms).
+-- Modern dependency score: 22/77 (M=22, H=55; transitive project theorems/axioms).
 theorem value_bound (c : Cut) (q : Fraction) (hq : Below q (value c).val) :
     Fraction.le q c.bound := c.bounded q ((value_realizes_cut c q).mp hq)
 
--- Modern dependency score: 3/18 (M=3, H=15; transitive project theorems/axioms).
+-- Modern dependency score: 3/8 (M=3, H=5; transitive project theorems/axioms).
 theorem lower_nonnegative (c : Cut) : ∀ n, 0 ≤ (interval c n).1.num
   | 0 => by simp [interval,Fraction.ofInt]
   | n+1 => by
@@ -152,14 +172,20 @@ theorem lower_nonnegative (c : Cut) : ∀ n, 0 ≤ (interval c n).1.num
       have h0 : Fraction.le (Fraction.ofInt 0) (interval c n).1 := by
         simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using hlo
       have hm : Fraction.le (Fraction.ofInt 0)
-          (midpoint (interval c n).1 (interval c n).2) :=
-        Fraction.magnitudes.le_trans h0 (midpoint_between _ _ (interval_order c n)).1
+          ((Fraction.add ((interval c n).1) ((interval c n).2)).half) := by
+        apply (Fraction.le_iff_toRat _ _).mpr
+        have hz := (Fraction.le_iff_toRat _ _).mp h0
+        have horder := (Fraction.le_iff_toRat _ _).mp (interval_order c n)
+        simp only [Fraction.toRat_ofInt, Rat.intCast_zero] at hz
+        simp only [Fraction.toRat_ofInt, Rat.intCast_zero, Fraction.toRat_half,
+          Fraction.toRat_add]
+        grind
       simp only [interval,step]
       split
       · simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using hm
       · exact hlo
 
--- Modern dependency score: 30/83 (M=30, H=53; transitive project theorems/axioms).
+-- Modern dependency score: 30/85 (M=30, H=55; transitive project theorems/axioms).
 theorem value_within_zero (c : Cut) :
     Within (value c).val (embed (scalarState (Fraction.ofInt 0))) c.bound := by
   apply nameBound_of_eventual_le _ _ _ 0
@@ -172,7 +198,7 @@ theorem value_within_zero (c : Cut) :
       (Fraction.abs_of_nonnegative _ (lower_nonnegative c n)))
   exact Fraction.le_equiv_left he (c.bounded _ (lower_mem c n))
 
--- Modern dependency score: 2/10 (M=2, H=8; transitive project theorems/axioms).
+-- Modern dependency score: 2/12 (M=2, H=10; transitive project theorems/axioms).
 theorem abs_width_cap (c : Cut) (n : Nat) :
     Fraction.equiv (durationDifference (interval c n).1 (interval c n).2).abs
       (GeometricTail.tailCap c.bound n) :=
@@ -180,7 +206,7 @@ theorem abs_width_cap (c : Cut) (n : Nat) :
     (Fraction.abs_of_nonnegative _ c.bound_nonnegative)
 
 /-- Different initial upper budgets cannot change the completed content. -/
--- Modern dependency score: 6/35 (M=6, H=29; transitive project theorems/axioms).
+-- Modern dependency score: 6/37 (M=6, H=31; transitive project theorems/axioms).
 theorem names_gap (c d : Cut) (heq : ∀ q, c.lower q ↔ d.lower q) (n : Nat) :
     Fraction.le (FiniteEstimates.stateDistance
       (scalarState (interval c n).1) (scalarState (interval d n).1))
@@ -212,7 +238,7 @@ theorem names_gap (c d : Cut) (heq : ∀ q, c.lower q ↔ d.lower q) (n : Nat) :
       exact Fraction.le_equiv_left (FiniteEstimates.stateDistance_symm _ _) hbound
   exact Fraction.le_equiv_right hsum (GeometricTail.tail_add c.bound d.bound n)
 
--- Modern dependency score: 8/56 (M=8, H=48; transitive project theorems/axioms).
+-- Modern dependency score: 8/58 (M=8, H=50; transitive project theorems/axioms).
 theorem name_equiv_of_lower_iff (c d : Cut) (heq : ∀ q, c.lower q ↔ d.lower q) :
     NameEquiv (name c) (name d) := by
   intro eps heps
@@ -220,11 +246,11 @@ theorem name_equiv_of_lower_iff (c d : Cut) (heq : ∀ q, c.lower q ↔ d.lower 
     (Fraction.nonnegative_add _ _ c.bound_nonnegative d.bound_nonnegative) heps
   exact ⟨N,fun n hn => Fraction.magnitudes.lt_of_le_lt (names_gap c d heq n) (hN n hn)⟩
 
--- Modern dependency score: 20/73 (M=20, H=53; transitive project theorems/axioms).
+-- Modern dependency score: 20/75 (M=20, H=55; transitive project theorems/axioms).
 theorem value_eq_of_lower_iff (c d : Cut) (heq : ∀ q, c.lower q ↔ d.lower q) :
     value c = value d := Subtype.ext (Quotient.sound (name_equiv_of_lower_iff c d heq))
 
--- Modern dependency score: 35/88 (M=35, H=53; transitive project theorems/axioms).
+-- Modern dependency score: 35/90 (M=35, H=55; transitive project theorems/axioms).
 theorem value_zero_of_bound_zero (c : Cut) (hz : c.bound.num = 0) :
     (value c).val = embed (scalarState (Fraction.ofInt 0)) := by
   apply (within_zero_iff _ _).mp
@@ -232,7 +258,7 @@ theorem value_zero_of_bound_zero (c : Cut) (hz : c.bound.num = 0) :
     (Fraction.le_of_equiv (show Fraction.equiv c.bound (Fraction.ofInt 0) by
       simp [Fraction.equiv,Fraction.ofInt,hz])) (value_within_zero c)
 
--- Modern dependency score: 18/70 (M=18, H=52; transitive project theorems/axioms).
+-- Modern dependency score: 18/72 (M=18, H=54; transitive project theorems/axioms).
 theorem value_of_rational_cut (c : Cut) (r : Fraction)
     (hr : ∀ q, c.lower q ↔ Fraction.le q r) :
     (value c).val = embed (scalarState r) := by
@@ -271,7 +297,7 @@ def rationalCut (r B : Fraction) (hr : 0 ≤ r.num) (hB : 0 ≤ B.num)
   bound_nonnegative := hB
   bounded := fun _ hq => Fraction.magnitudes.le_trans hq hrB
 
--- Modern dependency score: 19/77 (M=19, H=58; transitive project theorems/axioms).
+-- Modern dependency score: 19/78 (M=19, H=59; transitive project theorems/axioms).
 theorem rationalCut_value (r B : Fraction) (hr : 0 ≤ r.num) (hB : 0 ≤ B.num)
     (hrB : Fraction.le r B) :
     (value (rationalCut r B hr hB hrB)).val = embed (scalarState r) :=
@@ -284,11 +310,11 @@ private def secondControl : Cut := rationalCut oneThird (Fraction.ofInt 2)
   (by decide) (by decide) (by unfold Fraction.le oneThird Fraction.ofInt; decide)
 
 /-- A known nonzero content cut recovers its rational value with different budgets. -/
--- Modern dependency score: 20/78 (M=20, H=58; transitive project theorems/axioms).
+-- Modern dependency score: 20/79 (M=20, H=59; transitive project theorems/axioms).
 theorem one_third_control_value : (value firstControl).val = embed (scalarState oneThird) :=
   rationalCut_value _ _ _ _ _
 
--- Modern dependency score: 21/80 (M=21, H=59; transitive project theorems/axioms).
+-- Modern dependency score: 21/81 (M=21, H=60; transitive project theorems/axioms).
 theorem one_third_different_budgets : value firstControl = value secondControl :=
   value_eq_of_lower_iff _ _ (fun _ => Iff.rfl)
 

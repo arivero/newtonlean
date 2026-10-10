@@ -27,7 +27,10 @@ def trapezoid (p q : Point) : Fraction :=
 theorem trapezoid_congr {p p' q q' : Point} (hp : pointEquiv p p') (hq : pointEquiv q q') :
     Fraction.equiv (trapezoid p q) (trapezoid p' q') :=
   Fraction.mul_equiv (difference_congr hp.1 hq.1)
-    (RationalIntervals.half_equiv (Fraction.add_equiv hp.2 hq.2))
+    ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.add_equiv hp.2 hq.2))))
 
 def LineRegion (g d : Fraction → Fraction) (t l r : Fraction) (z : Point) : Prop :=
   Fraction.le l z.1 ∧ Fraction.le z.1 r ∧ 0 ≤ z.2.num ∧ Fraction.le z.2 (line g d t z.1)
@@ -46,8 +49,11 @@ theorem line_region_area (area : TriangleContent.AreaRules) (g d : Fraction → 
       (trapezoid (l,line g d t l) (r,line g d t r)) := by
   have hu := underLine_area area l r (line g d t l) (d t) hlr hH hs
   have hv := area.congr_value _ _ _ (Fraction.mul_equiv_left (durationDifference l r)
-    (RationalIntervals.half_equiv (Fraction.add_equiv_left _
-      (Fraction.equiv_symm (line_reanchor g d t l r))))) hu
+    ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.add_equiv_left _
+      (Fraction.equiv_symm (line_reanchor g d t l r))))))) hu
   apply area.congr_set _ _ _ _ hv
   intro z
   constructor

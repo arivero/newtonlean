@@ -103,6 +103,13 @@ four callers convert only scalar distance values. Verify their public types
 and all historical axiom reports unchanged, together with the existing
 harmonic-time scope harness. Actual state representatives must not change as
 a side effect of migrating this estimate.
+RationalIntervals removes six redundant helpers and defines the midpoint over
+Rat. Legacy state inputs keep their original midpoint expressions until those
+domains migrate. The monotone-rectangle and magnitude-content harnesses pass,
+and historical theorem types and axiom reports are unchanged. The finite-gap
+rewrite removed two unused-simp warnings; interval bisection removes seven
+more. The current six-build census is 533 unused-simp, zero deprecation and
+five proposition-as-definition warnings. No simp argument has been restored.
 
 ## Review the conclusion before accepting progress
 

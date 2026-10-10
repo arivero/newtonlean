@@ -628,7 +628,7 @@ theorem sector_area_is_swept (unsigned : Bool) (o : CentralOracle) (E0 T tau L B
 has unsigned swept area proportional to time, and its actual intervening
 polygon-region content vanishes. The area coefficient and enclosure are
 derived, not premises. Regularity/window data remain modern premises. -/
--- Modern dependency score: 234/464 (M=234, H=230; transitive project theorems/axioms).
+-- Modern dependency score: 234/461 (M=234, H=227; transitive project theorems/axioms).
 theorem constructed_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -648,7 +648,7 @@ theorem constructed_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
 derived elapsed-time formula and the existing intervening-content exhaustion.
 This is a modern regional reconstruction; the historical invoked corollaries
 remain separate proof obligations. -/
--- Modern dependency score: 242/474 (M=242, H=232; transitive project theorems/axioms).
+-- Modern dependency score: 242/471 (M=242, H=229; transitive project theorems/axioms).
 theorem constructed_interval_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

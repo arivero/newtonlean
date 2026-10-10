@@ -87,7 +87,7 @@ theorem proportional_swept_area (o : ForceClasses.CentralOracle)
 
 /-- Separately, the actual matched region has covers whose canonical unsigned
 outer contents tend to zero. This is not a subtraction of swept fan areas. -/
--- Modern dependency score: 180/383 (M=180, H=203; transitive project theorems/axioms).
+-- Modern dependency score: 180/380 (M=180, H=200; transitive project theorems/axioms).
 theorem between_path_content_tends_zero (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

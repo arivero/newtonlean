@@ -187,7 +187,10 @@ theorem finite_geometric_sector (area : SectorFan.AreaRules)
     Fraction.nonnegative_equiv (htriangle i) (Fraction.nonnegative_mul _ _ hh hs))
   apply area.congr_value _ _ _ ?_ hregion
   apply Fraction.equiv_trans
-    (PolygonFanArea.sum_congr _ _ (fun i => RationalIntervals.half_equiv (htriangle i)) n)
+    (PolygonFanArea.sum_congr _ _ (fun i => (show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (htriangle i)))) n)
   apply Fraction.equiv_trans (PolygonFanArea.sum_constant (Fraction.mul h (CentralSchedule.momentum s)).half n)
   simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
   ac_nf
@@ -277,7 +280,10 @@ theorem sampled_radial_sector_area (area : SectorFan.AreaRules)
         (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
         (HarmonicDyadic.blocks j)) K :=
     Fraction.equiv_trans (MotionSampling.areaSum_half_fan _ _)
-      (RationalIntervals.half_equiv (canonical_fan_law a ha T d.time_nonnegative _ j))
+      ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (canonical_fan_law a ha T d.time_nonnegative _ j))))
   have hchord (j : Nat) : Fraction.le (HarmonicTimeComparison.durationDifference K (chord j)).abs
       (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs :=
     Fraction.le_equiv_left (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
@@ -433,8 +439,11 @@ theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
     simp only [polygonVertex,canonical_polygon_eq_run]
     exact hN j hj k hk
   exact area.congr_value _ _ _
-    (RationalIntervals.half_equiv (Fraction.mul_equiv_right _
-      (HarmonicDyadic.blocks_duration T j)))
+    ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.mul_equiv_right _
+      (HarmonicDyadic.blocks_duration T j)))))
     (finite_geometric_sector area ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
       (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) hs
       (HarmonicDyadic.blocks j) hp)
@@ -760,7 +769,10 @@ theorem finite_geometric_sector
     Fraction.nonnegative_equiv (htriangle i) (Fraction.nonnegative_mul _ _ hh hs))
   apply area.congr_value _ _ _ ?_ hregion
   apply Fraction.equiv_trans
-    (PolygonFanArea.sum_congr _ _ (fun i => RationalIntervals.half_equiv (htriangle i)) n)
+    (PolygonFanArea.sum_congr _ _ (fun i => (show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (htriangle i)))) n)
   apply Fraction.equiv_trans (PolygonFanArea.sum_constant (Fraction.mul h (CentralSchedule.momentum s)).half n)
   simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
   ac_nf
@@ -890,7 +902,10 @@ theorem sampled_radial_sector_area (area : RadialSector.DifferenceAreaRules)
       (SectorFan.areaSum (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
         (HarmonicDyadic.blocks j)) K :=
     Fraction.equiv_trans (MotionSampling.areaSum_half_fan _ _)
-      (RationalIntervals.half_equiv (canonical_fan_law a ha T _ j))
+      ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (canonical_fan_law a ha T _ j))))
   have hchord (j : Nat) : Fraction.le (HarmonicTimeComparison.durationDifference K (chord j)).abs
       (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs :=
     Fraction.le_equiv_left (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
@@ -1033,8 +1048,11 @@ theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
     simp only [polygonVertex,canonical_polygon_eq_run]
     exact hN j hj k hk
   exact area.congr_value _ _ _
-    (RationalIntervals.half_equiv (Fraction.mul_equiv_right _
-      (HarmonicDyadic.blocks_duration T j)))
+    ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.mul_equiv_right _
+      (HarmonicDyadic.blocks_duration T j)))))
     (finite_geometric_sector area ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
       (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) hs
       (HarmonicDyadic.blocks j) hp)
@@ -1360,7 +1378,10 @@ theorem finite_geometric_sector
     Fraction.nonnegative_equiv (htriangle i) (Fraction.nonnegative_mul _ _ hh hs))
   apply area.congr_value _ _ _ ?_ hregion
   apply Fraction.equiv_trans
-    (PolygonFanArea.sum_congr _ _ (fun i => RationalIntervals.half_equiv (htriangle i)) n)
+    (PolygonFanArea.sum_congr _ _ (fun i => (show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (htriangle i)))) n)
   apply Fraction.equiv_trans (PolygonFanArea.sum_constant (Fraction.mul h (CentralSchedule.momentum s)).half n)
   simp only [BoundedIteration.time,Fraction.equiv,Fraction.half,Fraction.mul,Fraction.ofInt]
   ac_nf
@@ -1490,7 +1511,10 @@ theorem sampled_radial_sector_area (area : RadialSector.DifferenceAreaRules)
       (SectorFan.areaSum (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
         (HarmonicDyadic.blocks j)) K :=
     Fraction.equiv_trans (MotionSampling.areaSum_half_fan _ _)
-      (RationalIntervals.half_equiv (canonical_fan_law a ha T _ j))
+      ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (canonical_fan_law a ha T _ j))))
   have hchord (j : Nat) : Fraction.le (HarmonicTimeComparison.durationDifference K (chord j)).abs
       (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs :=
     Fraction.le_equiv_left (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
@@ -1633,8 +1657,11 @@ theorem eventual_mechanical_sector_area (area : SectorFan.AreaRules)
     simp only [polygonVertex,canonical_polygon_eq_run]
     exact hN j hj k hk
   exact area.congr_value _ _ _
-    (RationalIntervals.half_equiv (Fraction.mul_equiv_right _
-      (HarmonicDyadic.blocks_duration T j)))
+    ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+        apply (Fraction.equiv_iff_toRat _ _).mpr
+        simp only [Fraction.toRat_half]
+        exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (Fraction.mul_equiv_right _
+      (HarmonicDyadic.blocks_duration T j)))))
     (finite_geometric_sector area ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
       (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) hs
       (HarmonicDyadic.blocks j) hp)
@@ -1829,7 +1856,7 @@ theorem natp00089_polygon_trajectory_defect_control
     (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
--- Modern dependency score: 235/465 (M=235, H=230; transitive project theorems/axioms).
+-- Modern dependency score: 235/462 (M=235, H=227; transitive project theorems/axioms).
 theorem natp00089_constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1844,7 +1871,7 @@ theorem natp00089_constructed_central_area_law (o : ForceClasses.CentralOracle) 
     Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
--- Modern dependency score: 243/475 (M=243, H=232; transitive project theorems/axioms).
+-- Modern dependency score: 243/472 (M=243, H=229; transitive project theorems/axioms).
 theorem natp00089_constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1880,7 +1907,7 @@ theorem natp00090_polygon_trajectory_defect_control
     (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
--- Modern dependency score: 235/465 (M=235, H=230; transitive project theorems/axioms).
+-- Modern dependency score: 235/462 (M=235, H=227; transitive project theorems/axioms).
 theorem natp00090_constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1895,7 +1922,7 @@ theorem natp00090_constructed_central_area_law (o : ForceClasses.CentralOracle) 
     Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
--- Modern dependency score: 243/475 (M=243, H=232; transitive project theorems/axioms).
+-- Modern dependency score: 243/472 (M=243, H=229; transitive project theorems/axioms).
 theorem natp00090_constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1930,7 +1957,7 @@ open NewtonLimitDynamics.Polygon NewtonLimitDynamics NewtonLimitDynamics.Polygon
 or polygon agreement. The conclusions are all-interval fan proportionality
 and vanishing nonnegative outer content between paths; ordinary geometric
 sector-union identification remains open. -/
--- Modern dependency score: 241/474 (M=241, H=233; transitive project theorems/axioms).
+-- Modern dependency score: 241/471 (M=241, H=230; transitive project theorems/axioms).
 theorem supplied_trajectory_fan_and_path_content
     (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
@@ -1956,7 +1983,7 @@ theorem polygon_trajectory_defect_control
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
 
--- Modern dependency score: 235/465 (M=235, H=230; transitive project theorems/axioms).
+-- Modern dependency score: 235/462 (M=235, H=227; transitive project theorems/axioms).
 theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1972,7 +1999,7 @@ theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau 
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
 
--- Modern dependency score: 243/475 (M=243, H=232; transitive project theorems/axioms).
+-- Modern dependency score: 243/472 (M=243, H=229; transitive project theorems/axioms).
 theorem constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1996,7 +2023,7 @@ open NewtonLimitDynamics.Polygon NewtonLimitDynamics NewtonLimitDynamics.Polygon
 
 /-- The same modern supplied-motion fan and path-content reconstruction, kept
 separate for the 1713 witness. Its historical limiting step remains open. -/
--- Modern dependency score: 241/474 (M=241, H=233; transitive project theorems/axioms).
+-- Modern dependency score: 241/471 (M=241, H=230; transitive project theorems/axioms).
 theorem supplied_trajectory_fan_and_path_content
     (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
@@ -2022,7 +2049,7 @@ theorem polygon_trajectory_defect_control
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
 
--- Modern dependency score: 235/465 (M=235, H=230; transitive project theorems/axioms).
+-- Modern dependency score: 235/462 (M=235, H=227; transitive project theorems/axioms).
 theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -2038,7 +2065,7 @@ theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau 
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
 
--- Modern dependency score: 243/475 (M=243, H=232; transitive project theorems/axioms).
+-- Modern dependency score: 243/472 (M=243, H=229; transitive project theorems/axioms).
 theorem constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
