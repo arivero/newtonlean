@@ -65,6 +65,11 @@ Keep baseline outputs in scratch, and report representative-sensitive stop
 conditions. Core arithmetic is outside project M/H scores; exact historical
 attestations remain a separate source obligation. No migration or relocation
 earns completion credit. Time the same six warm builds before and after.
+The temporary bridge must prove the Rat roundtrip, equiv/order/positive
+correspondences and operation laws, with durationDifference sigma tau mapping
+to tau - sigma. Relocated negation/time-difference definitions retain their
+bodies and fully qualified names; existing historical statements and axiom
+sets must remain unchanged at this additive stage.
 
 ## Review the conclusion before accepting progress
 

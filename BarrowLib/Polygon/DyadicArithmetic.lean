@@ -1,11 +1,5 @@
 import BarrowLib.Common.RationalMagnitudes
 
-namespace NewtonLimitDynamics.Polygon.HarmonicStability
-open NewtonLimitDynamics
-def negF (w : Fraction) : Fraction := ⟨-w.num, w.den, w.den_pos⟩
-
-end NewtonLimitDynamics.Polygon.HarmonicStability
-
 namespace NewtonLimitDynamics.Polygon.HarmonicDyadic
 open NewtonLimitDynamics
 def blocks (j : Nat) : Nat := 2 ^ j
@@ -87,9 +81,6 @@ end NewtonLimitDynamics.Polygon.HarmonicBinaryPrefix
 namespace NewtonLimitDynamics.Polygon.HarmonicTimeComparison
 open NewtonLimitDynamics
 open HarmonicStability
-def durationDifference (sigma tau : Fraction) : Fraction :=
-  Fraction.add tau (negF sigma)
-
 theorem durationDifference_chain (a b c : Fraction) :
     Fraction.equiv (durationDifference a c)
       (Fraction.add (durationDifference a b) (durationDifference b c)) := by

@@ -83,6 +83,15 @@ Every commit must update this completion-percentage information, reassessing
 the affected files and witnesses and explaining changes to the estimates or
 remaining work. An unchanged rounded estimate must be explicitly justified
 here. Measured counts must also be refreshed whenever they change.
+Bridge reassessment, 10 October: **every file/witness percentage remains
+unchanged**. Thirteen temporary Fraction/Rat conversion theorems establish
+representation correspondence; they discharge no historical obligation.
+The existing negation and time-difference definitions are relocated unchanged
+to avoid an import cycle. Increased import-tree counts measure bridge
+availability, not new dependencies in existing proofs or completion credit.
+Remaining-work rationales are unchanged. The bridge is deleted after client
+migration; measured counts below include it while present.
+
 Nine Chapters reassessment, 10 October: **every file/witness percentage
 remains unchanged**. Ten independently checked source-attestation theorems
 (5 S, 5 R) document positive fraction rules and qualified signed-whole
@@ -253,28 +262,28 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1836 |
-| [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 169 |
-| [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 97 |
-| [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 83 |
-| [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 124 |
-| [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 124 |
-| [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 144 | 7 | 18 | 78 |
-| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 549 | 28 | 137 | 381 |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 456 | 20 | 179 | 498 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 212 | 10 | 133 | 508 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 510 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 644 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1389 |
-| [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 67 |
-| [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 77 |
-| [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 79 |
-| [LemmaX/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIII.lean) | 33 | 1 | 20 | 80 |
-| [LemmaX/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIV.lean) | 56 | 2 | 23 | 82 |
-| [LemmaX/CorollaryV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryV.lean) | 58 | 2 | 23 | 82 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1849 |
+| [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 182 |
+| [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 110 |
+| [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 96 |
+| [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 137 |
+| [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 137 |
+| [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 144 | 7 | 18 | 91 |
+| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 549 | 28 | 137 | 394 |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 456 | 20 | 179 | 511 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 212 | 10 | 133 | 521 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 523 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 657 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1402 |
+| [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 80 |
+| [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 90 |
+| [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 92 |
+| [LemmaX/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIII.lean) | 33 | 1 | 20 | 93 |
+| [LemmaX/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIV.lean) | 56 | 2 | 23 | 95 |
+| [LemmaX/CorollaryV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryV.lean) | 58 | 2 | 23 | 95 |
 | [PropositionII.lean](NewtonLimitDynamics/Historical/PropositionII.lean) | 55 | 0 | 0 | 28 |
 | [PropositionIII.lean](NewtonLimitDynamics/Historical/PropositionIII.lean) | 47 | 0 | 0 | 45 |
-| [PropositionIV.lean](NewtonLimitDynamics/Historical/PropositionIV.lean) | 48 | 0 | 0 | 64 |
+| [PropositionIV.lean](NewtonLimitDynamics/Historical/PropositionIV.lean) | 48 | 0 | 0 | 77 |
 | [ClassicsLib/Aristotle/SquareRootTwo.lean](ClassicsLib/Aristotle/SquareRootTwo.lean) | 86 | 4 | 4 | 4 |
 | [ClassicsLib/Euclid/FiniteLattice.lean](ClassicsLib/Euclid/FiniteLattice.lean) | 43 | 4 | 6 | 16 |
 | [ClassicsLib/Euclid/PropositionI37.lean](ClassicsLib/Euclid/PropositionI37.lean) | 23 | 1 | 1 | 1 |
@@ -283,8 +292,8 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 15596 | 1000 | 1000 | 1000 |
-| [ModernLib](ModernLib.lean) | 19707 | 1157 | 1496 | 1689 |
+| [BarrowLib](BarrowLib.lean) | 15692 | 1013 | 1013 | 1013 |
+| [ModernLib](ModernLib.lean) | 19707 | 1157 | 1496 | 1702 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

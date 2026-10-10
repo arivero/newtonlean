@@ -10,8 +10,12 @@ pushed as `60180f2`; the user released the review hold.
 
 The user selected Lean 4.34.1 on 10 October, retaining core/Std only and no
 external packages. The toolchain-only compatibility stage preserves all
-project theorem statements and names. The next stages add a temporary
-Fraction/Rat bridge, migrate arithmetic clients bottom-up and remove
+project theorem statements and names. The temporary bridge now proves the
+roundtrip, equivalence/order/positivity correspondences and all requested
+operation laws, including durationDifference sigma tau = tau - sigma.
+Negation and time difference retain their definitions and names, relocated
+to the common arithmetic module to avoid an import cycle. Existing proofs
+do not use the new bridge. Next migrate clients bottom-up and remove
 representative transport that equality makes redundant. Completion estimates
 are reassessed and unchanged: this is encoding work, not a historical proof.
 Core availability does not attest historical availability. The separate

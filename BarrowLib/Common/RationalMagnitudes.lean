@@ -513,3 +513,108 @@ theorem add_lt_add {a b c d : Fraction} (hab : lt a b) (hcd : lt c d) :
 
 end Fraction
 end NewtonLimitDynamics
+
+namespace NewtonLimitDynamics.Polygon.HarmonicStability
+open NewtonLimitDynamics
+def negF (w : Fraction) : Fraction := ⟨-w.num, w.den, w.den_pos⟩
+end NewtonLimitDynamics.Polygon.HarmonicStability
+namespace NewtonLimitDynamics.Polygon.HarmonicTimeComparison
+open NewtonLimitDynamics
+open HarmonicStability
+def durationDifference (sigma tau : Fraction) : Fraction :=
+  Fraction.add tau (negF sigma)
+end NewtonLimitDynamics.Polygon.HarmonicTimeComparison
+-- TEMPORARY MIGRATION BRIDGE
+/- Encoding correspondence, derived here (Sol 6.1, 10 October 2026).
+   These are conversion laws for the two representations, not historical
+   claims. Their statements and checked proofs are their provenance. Delete
+   the bridge after migrating clients to Rat. The two definitions above are
+   unchanged relocations from DyadicArithmetic, avoiding an import cycle. -/
+namespace NewtonLimitDynamics.Fraction
+
+def toRat (a : Fraction) : Rat := (a.num : Rat)/(a.den : Rat)
+def ofRat (q : Rat) : Fraction :=
+  ⟨q.num, q.den, Int.natCast_pos.mpr (Nat.pos_of_ne_zero q.den_nz)⟩
+
+theorem toRat_ofRat (q : Rat) : toRat (ofRat q) = q := by
+  simpa only [toRat, ofRat, Rat.divInt_eq_div, Rat.intCast_natCast] using Rat.num_divInt_den q
+
+theorem equiv_iff_toRat (a b : Fraction) : equiv a b ↔ a.toRat = b.toRat := by
+  exact (Rat.divInt_eq_divInt_iff (Int.ne_of_gt a.den_pos) (Int.ne_of_gt b.den_pos)).symm.trans
+    (by rw [Rat.divInt_eq_div, Rat.divInt_eq_div]; rfl)
+
+theorem lt_iff_toRat (a b : Fraction) : lt a b ↔ a.toRat < b.toRat := by
+  have ha : 0 < (a.den : Rat) := Rat.intCast_pos.mpr a.den_pos
+  have hb : 0 < (b.den : Rat) := Rat.intCast_pos.mpr b.den_pos
+  unfold toRat
+  rw [Rat.div_lt_iff ha]
+  have he : (b.num : Rat)/b.den*a.den = (b.num*a.den)/b.den := by grind
+  rw [he, Rat.lt_div_iff hb]
+  simp only [← Rat.intCast_mul, Rat.intCast_lt_intCast, lt]
+
+theorem le_iff_toRat (a b : Fraction) : le a b ↔ a.toRat ≤ b.toRat := by
+  rw [← Rat.not_lt, ← lt_iff_toRat]
+  unfold le lt
+  omega
+
+theorem positive_iff_toRat (a : Fraction) : positive a ↔ 0<a.toRat := by
+  have ha := lt_iff_toRat (ofInt 0) a
+  have hz : (ofInt 0).toRat = 0 := by simp only [toRat, ofInt, Rat.intCast_zero, Rat.intCast_one]; grind
+  rw [hz] at ha
+  simpa only [lt, ofInt, Int.zero_mul, Int.mul_one, positive] using ha
+
+theorem toRat_add (a b : Fraction) : (add a b).toRat = a.toRat+b.toRat := by
+  have ha : (a.den : Rat) ≠ 0 := by simp [Int.ne_of_gt a.den_pos]
+  have hb : (b.den : Rat) ≠ 0 := by simp [Int.ne_of_gt b.den_pos]
+  simp only [toRat, add, Rat.intCast_add, Rat.intCast_mul]
+  grind
+
+theorem toRat_mul (a b : Fraction) : (mul a b).toRat = a.toRat*b.toRat := by
+  simp only [toRat, mul, Rat.intCast_mul]
+  grind
+
+theorem toRat_half (a : Fraction) : a.half.toRat = a.toRat/2 := by
+  simp only [toRat, half, Rat.intCast_mul, Rat.intCast_ofNat]
+  grind
+
+theorem toRat_ofInt (n : Int) : (ofInt n).toRat = (n : Rat) := by
+  simp only [toRat, ofInt, Rat.intCast_one]
+  grind
+
+theorem toRat_quotient (a b : Fraction) (hb : positive b) :
+    (quotient a b hb).toRat = a.toRat/b.toRat := by
+  have ha : (a.den : Rat) ≠ 0 := by simp [Int.ne_of_gt a.den_pos]
+  have hbd : (b.den : Rat) ≠ 0 := by simp [Int.ne_of_gt b.den_pos]
+  have hbn : (b.num : Rat) ≠ 0 := by simp [Int.ne_of_gt hb]
+  simp only [toRat, quotient, Rat.intCast_mul]
+  grind
+
+theorem toRat_abs (a : Fraction) : a.abs.toRat = Rat.abs a.toRat := by
+  by_cases h : 0≤a.num
+  · rw [abs_eq_of_nonnegative a h, Rat.abs_of_nonneg]
+    unfold toRat
+    rw [← Rat.divInt_eq_div]
+    exact (Rat.divInt_nonneg_iff_of_pos_right a.den_pos).mpr h
+  · have hn : a.num≤0 := by omega
+    have he : (a.num.natAbs : Int) = -a.num := by
+      rw [← Int.natAbs_neg a.num, Int.natAbs_of_nonneg (Int.neg_nonneg.mpr hn)]
+    have ha : a.toRat ≤ 0 := by
+      have hl : a.toRat < (ofInt 0).toRat := (lt_iff_toRat a (ofInt 0)).mp
+        (by simpa only [lt, ofInt, Int.mul_one, Int.zero_mul] using (show a.num<0 by omega))
+      simpa only [toRat_ofInt, Rat.intCast_zero] using Rat.le_of_lt hl
+    rw [Rat.abs_of_nonpos ha]
+    simp only [toRat, abs, he, Rat.intCast_neg]
+    grind
+theorem toRat_negF (a : Fraction) :
+    (Polygon.HarmonicStability.negF a).toRat = -a.toRat := by
+  simp only [toRat, Polygon.HarmonicStability.negF, Rat.intCast_neg]
+  grind
+
+theorem toRat_durationDifference (sigma tau : Fraction) :
+    (Polygon.HarmonicTimeComparison.durationDifference sigma tau).toRat =
+      tau.toRat - sigma.toRat := by
+  simp only [Polygon.HarmonicTimeComparison.durationDifference, toRat_add, toRat_negF,
+    Rat.sub_eq_add_neg]
+end NewtonLimitDynamics.Fraction
+
+-- END TEMPORARY MIGRATION BRIDGE

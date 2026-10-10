@@ -19,6 +19,15 @@ M/H scores. This exclusion does not certify historical availability. Exact
 source attestations and domain qualifications remain independent obligations.
 No completion estimate changes for the migration.
 
+The temporary bridge adds thirteen P encoding-correspondence theorems in
+RationalMagnitudes: toRat_ofRat, equiv_iff_toRat, lt_iff_toRat, le_iff_toRat,
+positive_iff_toRat, toRat_add, toRat_mul, toRat_half, toRat_ofInt,
+toRat_quotient, toRat_abs, toRat_negF and toRat_durationDifference.
+Their exact statements and checked derivations are their provenance;
+no historical source or new mathematical priority is claimed. Existing
+proof trees and M/H scores are unchanged. Import trees include this temporary
+availability; migration removes the bridge after clients switch to Rat.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,
@@ -32,36 +41,36 @@ There are three different quantities:
   not use, including available library theorems. The proof tree measures
   actual dependencies; the import tree measures availability.
 
-The current compiled cascade (10 October, with isolated Nine Chapters attestation) is:
+The current compiled cascade (10 October, with Nine Chapters attestation and temporary Rat bridge) is:
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 884 | 1836 |
-| `CompositionOfMotions.lean` | 13 | 48 | 169 |
-| `LawI.lean` | 0 | 0 | 97 |
-| `LawII.lean` | 0 | 0 | 83 |
-| `LawsCorollaryV.lean` | 4 | 45 | 124 |
-| `LawsCorollaryVI.lean` | 4 | 33 | 124 |
-| `LemmaI.lean` | 7 | 18 | 78 |
-| `LemmaII.lean` | 28 | 137 | 381 |
-| `LemmaIII.lean` | 20 | 179 | 498 |
-| `LemmaIII/CorollaryI.lean` | 10 | 133 | 508 |
-| `LemmaIII/CorollaryII.lean` | 2 | 70 | 510 |
-| `LemmaIII/CorollaryIII.lean` | 10 | 208 | 644 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 469 | 1389 |
-| `LemmaX.lean` | 4 | 14 | 67 |
-| `LemmaX/CorollaryI.lean` | 2 | 14 | 77 |
-| `LemmaX/CorollaryII.lean` | 4 | 24 | 79 |
-| `LemmaX/CorollaryIII.lean` | 1 | 20 | 80 |
-| `LemmaX/CorollaryIV.lean` | 2 | 23 | 82 |
-| `LemmaX/CorollaryV.lean` | 2 | 23 | 82 |
+| `AreaLaw.lean` | 73 | 884 | 1849 |
+| `CompositionOfMotions.lean` | 13 | 48 | 182 |
+| `LawI.lean` | 0 | 0 | 110 |
+| `LawII.lean` | 0 | 0 | 96 |
+| `LawsCorollaryV.lean` | 4 | 45 | 137 |
+| `LawsCorollaryVI.lean` | 4 | 33 | 137 |
+| `LemmaI.lean` | 7 | 18 | 91 |
+| `LemmaII.lean` | 28 | 137 | 394 |
+| `LemmaIII.lean` | 20 | 179 | 511 |
+| `LemmaIII/CorollaryI.lean` | 10 | 133 | 521 |
+| `LemmaIII/CorollaryII.lean` | 2 | 70 | 523 |
+| `LemmaIII/CorollaryIII.lean` | 10 | 208 | 657 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 469 | 1402 |
+| `LemmaX.lean` | 4 | 14 | 80 |
+| `LemmaX/CorollaryI.lean` | 2 | 14 | 90 |
+| `LemmaX/CorollaryII.lean` | 4 | 24 | 92 |
+| `LemmaX/CorollaryIII.lean` | 1 | 20 | 93 |
+| `LemmaX/CorollaryIV.lean` | 2 | 23 | 95 |
+| `LemmaX/CorollaryV.lean` | 2 | 23 | 95 |
 | `PropositionII.lean` | 0 | 0 | 28 |
 | `PropositionIII.lean` | 0 | 0 | 45 |
-| `PropositionIV.lean` | 0 | 0 | 64 |
+| `PropositionIV.lean` | 0 | 0 | 77 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 1000 | 1000 | 1000 |
-| `ModernLib` | 1157 | 1496 | 1689 |
+| `BarrowLib` | 1013 | 1013 | 1013 |
+| `ModernLib` | 1157 | 1496 | 1702 |
 
 The README additionally lists line counts and the individual classical files.
 Reproduce the compiled measurements and check the README with:
@@ -132,12 +141,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 32 | 968 | 1000 |
+| `BarrowLib` | 0 | 0 | 45 | 968 | 1013 |
 | `ModernLib` | 0 | 2 | 0 | 1494 | 1496 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **121 of 2381
-theorems: 6 S, 49 R and 66 P; 2260 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **134 of 2394
+theorems: 6 S, 49 R and 79 P; 2260 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.
