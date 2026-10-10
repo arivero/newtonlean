@@ -89,3 +89,13 @@ does not close its uses, and the wider legacy recurrence still needs one
 temporary value correspondence. Final uniform-error statements and actual
 state algorithms are preserved. Enclosing modules still await full migration;
 this reduction in project overhead earns no historical completion credit.
+
+FiniteRecurrence then shrinks from eight named theorems to two core-Rat
+bounds. Its six removed helpers comprise one congruence transport, two core
+power duplicates, two inlined lower/prefix wrappers and one unused induction.
+The already-present power induction and value correspondence are moved,
+without changing the count; one shared temporary bound adapter makes the net
+project reduction five. Core plus one grind does not close the two retained
+inductive/product bounds at their uses. Legacy state modules convert numerical
+bounds only, and a scratch induction verifies the original recurrence value.
+The remaining state machinery and historical obligations are unchanged.

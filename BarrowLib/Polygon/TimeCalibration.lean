@@ -490,16 +490,15 @@ theorem run_distance_le_source (tau : Fraction) (ht : 0 < tau.num)
     (hL : 0 ≤ L.num) (hc : comparisonContract a b L E) :
     (n : Nat) → Fraction.le
       (distance tau (BoundedIteration.run a h s n) (BoundedIteration.run b h s n))
-      (FiniteRecurrence.sourceBudget (amplification tau h L ht)
-        (Fraction.mul (Fraction.mul tau h.abs) E) n)
+      (Fraction.ofRat (FiniteRecurrence.sourceBudget
+        (amplification tau h L ht).toRat
+        (Fraction.mul (Fraction.mul tau h.abs) E).toRat n))
   | 0 => by
       apply Fraction.le_of_equiv
-      simp only [distance,BoundedIteration.run,FiniteRecurrence.sourceBudget]
-      exact Fraction.equiv_trans
-        (Fraction.add_equiv (pointDistance_self_zero s.1)
-          (Fraction.mul_equiv (Fraction.equiv_refl tau) (pointDistance_self_zero s.2)))
-        (by simp [FiniteRecurrence.sourceBudget,Fraction.equiv,Fraction.add,
-          Fraction.mul,Fraction.ofInt])
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simpa only [BoundedIteration.run, Fraction.toRat_ofRat,
+        FiniteRecurrence.sourceBudget, Fraction.toRat_ofInt, Rat.intCast_zero] using
+        (Fraction.equiv_iff_toRat _ _).mp (distance_self_zero tau s)
   | n+1 => by
       have hstep := cell_amplification tau ht a b h L E
         (BoundedIteration.run a h s n) (BoundedIteration.run b h s n) hL hc
@@ -508,7 +507,10 @@ theorem run_distance_le_source (tau : Fraction) (ht : 0 < tau.num)
           (run_distance_le_source tau ht a b h L E s hL hc n)
           (amplification tau h L ht) (amplification_nonnegative tau h L ht hL))
         (Fraction.mul (Fraction.mul tau h.abs) E)
-      exact Fraction.magnitudes.le_trans hstep hnext
+      apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans hstep hnext)
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_add, Fraction.toRat_mul, Fraction.toRat_ofRat,
+        FiniteRecurrence.sourceBudget]
 
 theorem run_uniform_discrepancy (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (h L E : Fraction) (s : Point × Point)
@@ -526,7 +528,7 @@ theorem run_uniform_discrepancy (tau : Fraction) (ht : 0 < tau.num)
   have hp := amplification_power_le_two tau h L ht hL n hs
   exact Fraction.magnitudes.le_trans
     (run_distance_le_source tau ht a b h L E s hL hc n)
-    (FiniteRecurrence.sourceBudget_two_count K S n hK hS
+    (FiniteRecurrence.legacy_sourceBudget_two_count K S n hK hS
       (one_le_amplification tau h L ht hL) hp)
 
 /-- A local force discrepancy and a one-cell candidate residual contribute
@@ -550,8 +552,7 @@ theorem run_sample_distance_le_source (tau : Fraction) (ht : 0 < tau.num)
     (hres : ∀ k, k < N → Fraction.le (distance tau (q (k+1)) (cell a h (q k))) D) :
     (n : Nat) → n ≤ N → Fraction.le
       (distance tau (BoundedIteration.run a h s n) (q n))
-      (FiniteRecurrence.sourceBudget (amplification tau h L ht)
-        (sampleSource tau h E D) n)
+      (Fraction.ofRat (FiniteRecurrence.sourceBudget (amplification tau h L ht).toRat (sampleSource tau h E D).toRat n))
   | 0, _ => by
       rw [BoundedIteration.run, hq0]
       exact Fraction.le_of_equiv (distance_self_zero tau s)
@@ -582,8 +583,11 @@ theorem run_sample_distance_le_source (tau : Fraction) (ht : 0 < tau.num)
           (Fraction.add_equiv (Fraction.equiv_refl _)
             (Fraction.equiv_refl _))
       have ha' := Fraction.le_equiv_right ha he
-      simpa only [BoundedIteration.run, FiniteRecurrence.sourceBudget] using!
+      apply Fraction.le_equiv_right
         (Fraction.magnitudes.le_trans ht' (Fraction.magnitudes.le_trans ha' hb))
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_add, Fraction.toRat_mul, Fraction.toRat_ofRat,
+        FiniteRecurrence.sourceBudget]
 
 theorem run_sample_distance_le_two (tau : Fraction) (ht : 0 < tau.num)
     (a : Point → Point) (h L E D : Fraction) (s : Point × Point)
@@ -605,7 +609,7 @@ theorem run_sample_distance_le_two (tau : Fraction) (ht : 0 < tau.num)
         (Fraction.nonnegative_mul _ _ (Int.le_of_lt ht) (Fraction.abs_num_nonnegative h)) hE) hD
   exact Fraction.magnitudes.le_trans
     (run_sample_distance_le_source tau ht a h L E D s q N hL hq0 hlocal hres n hn)
-    (FiniteRecurrence.sourceBudget_two_count _ _ n
+    (FiniteRecurrence.legacy_sourceBudget_two_count _ _ n
       (amplification_nonnegative tau h L ht hL) hS
       (one_le_amplification tau h L ht hL)
       (amplification_power_le_two tau h L ht hL n hw))

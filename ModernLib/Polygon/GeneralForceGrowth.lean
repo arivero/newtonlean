@@ -94,7 +94,7 @@ theorem field_bound_on_ball (o : CentralOracle) (E0 T tau L : Fraction)
     (Fraction.add_le_add_right (Fraction.mul_le_mul_nonnegative_left hp.2 L d.lipschitz.1) _)
 
 /-- Actual iterates are bounded independently of mesh or level precision. -/
--- Modern dependency score: 22/117 (M=22, H=95; transitive project theorems/axioms).
+-- Modern dependency score: 22/120 (M=22, H=98; transitive project theorems/axioms).
 theorem run_state_bound (o : CentralOracle) (E0 T tau L : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Data o E0 T tau L s)
     (j : Nat) (h : Fraction) (hh : 0 ≤ h.num) (n : Nat)

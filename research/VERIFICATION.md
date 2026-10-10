@@ -118,6 +118,17 @@ uniform-error statements and all historical theorem types/axiom reports are
 unchanged. The regional-accumulation harness passes. Two named helpers are
 deleted (one core duplicate, one redundant transport wrapper); the shared
 lower-bound induction and necessary temporary fpower correspondence remain.
+FiniteRecurrence is subsequently fully migrated to Rat: require zero warnings
+in it and Common/FinitePowers. Six old helpers are removed; the shared power
+induction and fpower correspondence move, and one temporary legacy bound
+adapter is added. Check the old/new recurrence values by a scratch induction
+for arbitrary signed coefficients. Every ofRat output at these call sites
+must remain a numerical bound, never a state/callback/duration/count input.
+All six builds and the regional accumulation, regional construction and
+given-trajectory controls pass. Historical theorem types/axiom reports and
+final uniform-error types remain unchanged. The warning census is now 524
+unused-simp, zero deprecation and five proposition-as-definition warnings.
+No removed simp argument required restoration.
 For provenance rows, require S + R + P + U to equal the same compiled proof
 tree shown in the measurements; wrapped scratch output must not skip rows.
 

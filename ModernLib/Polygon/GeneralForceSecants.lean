@@ -22,7 +22,7 @@ noncomputable def nodeName (o : CentralOracle) (E0 T tau L B : Fraction) (s : Po
   shiftedName (if k=blocks m then endpointName o E0 T tau L B s hE d.toConditions
     else prefixName (finiteAddress m k) o E0 T tau L B s hE d) m
 
--- Modern dependency score: 52/201 (M=52, H=149; transitive project theorems/axioms).
+-- Modern dependency score: 52/204 (M=52, H=152; transitive project theorems/axioms).
 theorem node_approx (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (m k : Nat) (hk : k≤blocks m) (j : Nat) :
@@ -48,7 +48,7 @@ theorem node_value (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × P
   · rw [nodeName,ite_eq_right he,shiftedValue,nodeTime,ite_eq_right he]
     rfl
 
--- Modern dependency score: 51/199 (M=51, H=148; transitive project theorems/axioms).
+-- Modern dependency score: 51/202 (M=51, H=151; transitive project theorems/axioms).
 theorem node_region (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (m k j : Nat) : o.region ((nodeName o E0 T tau L B s hE d m k).approx j).1 := by
@@ -59,7 +59,7 @@ theorem node_region (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × 
   · simp only [nodeName,ite_eq_right he,shiftedName]
     exact prefix_region (finiteAddress m k) o E0 T tau L B s hE d (m+j)
 
--- Modern dependency score: 60/212 (M=60, H=152; transitive project theorems/axioms).
+-- Modern dependency score: 60/215 (M=60, H=155; transitive project theorems/axioms).
 theorem node_admissible (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k : Nat) :
     SampledValues.Admissible (fun q => o.region q.1) (realize (nodeName o E0 T tau L B s hE d m k)) :=

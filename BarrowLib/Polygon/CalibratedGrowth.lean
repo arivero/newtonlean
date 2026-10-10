@@ -49,13 +49,15 @@ theorem run_norm_budget_at (tau : Fraction) (ht : 0 < tau.num)
       (Fraction.add (Fraction.mul L (pointNorm (BoundedIteration.run a h s (k+1)).1)) E)) →
     Fraction.le (norm tau (BoundedIteration.run a h s n))
       (Fraction.add (Fraction.mul (fpower (amplification tau h L ht) n) (norm tau s))
-        (FiniteRecurrence.sourceBudget (amplification tau h L ht)
-          (Fraction.mul (Fraction.mul tau h.abs) E) n))
+        (Fraction.ofRat (FiniteRecurrence.sourceBudget
+          (amplification tau h L ht).toRat
+          (Fraction.mul (Fraction.mul tau h.abs) E).toRat n)))
   | 0, _ => by
       apply Fraction.le_of_equiv
-      simp only [BoundedIteration.run,fpower,FiniteRecurrence.sourceBudget,
-        Fraction.equiv,Fraction.add,Fraction.mul,Fraction.ofInt,
-        Int.zero_mul,Int.mul_zero,Int.one_mul,Int.mul_one,Int.add_zero]
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [BoundedIteration.run, fpower, FiniteRecurrence.sourceBudget,
+        Fraction.toRat_add, Fraction.toRat_mul, Fraction.toRat_ofRat,
+        Fraction.toRat_ofInt, Rat.intCast_one, Rat.one_mul, Rat.add_zero]
   | n+1, hg => by
       have hc := cell_norm_bound_at tau ht a h L E (BoundedIteration.run a h s n) hL (hg n (by omega))
       have hi := Fraction.add_le_add_right
@@ -64,9 +66,10 @@ theorem run_norm_budget_at (tau : Fraction) (ht : 0 < tau.num)
           (amplification tau h L ht) (amplification_nonnegative tau h L ht hL))
         (Fraction.mul (Fraction.mul tau h.abs) E)
       apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans hc hi)
-      simp only [FiniteRecurrence.sourceBudget,fpower,Fraction.equiv,Fraction.add,
-        Fraction.mul,Int.add_mul,Int.mul_add]
-      ac_nf
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_add, Fraction.toRat_mul, Fraction.toRat_ofRat,
+        FiniteRecurrence.sourceBudget, fpower]
+      grind [Fraction.toRat_mul]
 
 
 theorem run_norm_budget (tau : Fraction) (ht : 0 < tau.num)
@@ -74,8 +77,9 @@ theorem run_norm_budget (tau : Fraction) (ht : 0 < tau.num)
     (hL : 0 ≤ L.num) (hg : Growth a L E) :
     (n : Nat) → Fraction.le (norm tau (BoundedIteration.run a h s n))
       (Fraction.add (Fraction.mul (fpower (amplification tau h L ht) n) (norm tau s))
-        (FiniteRecurrence.sourceBudget (amplification tau h L ht)
-          (Fraction.mul (Fraction.mul tau h.abs) E) n)):=
+        (Fraction.ofRat (FiniteRecurrence.sourceBudget
+          (amplification tau h L ht).toRat
+          (Fraction.mul (Fraction.mul tau h.abs) E).toRat n))):=
   fun n => run_norm_budget_at tau ht a h L E s hL n (fun _ _ => hg _)
 
 def cap (tau T E : Fraction) (s : Point × Point) : Fraction :=
@@ -182,7 +186,7 @@ theorem run_norm_le_cap_at (tau : Fraction) (ht : 0 < tau.num)
   have hC : 0 ≤ (Fraction.mul (Fraction.mul tau h.abs) E).num :=
     Fraction.nonnegative_mul _ _
       (Fraction.nonnegative_mul _ _ (Int.le_of_lt ht) (Fraction.abs_num_nonnegative h)) hE
-  have hs := FiniteRecurrence.sourceBudget_two_count _ _ n hK hC
+  have hs := FiniteRecurrence.legacy_sourceBudget_two_count _ _ n hK hC
     (one_le_amplification tau h L ht hL) hp
   have hb := Fraction.add_le_add
     (Fraction.mul_le_mul_nonnegative hp (norm tau s) (norm_nonnegative _ _ (Int.le_of_lt ht))) hs

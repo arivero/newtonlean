@@ -136,8 +136,9 @@ the bridge; actual state recurrences and the final actual_uniform_error and
 cross_actual_uniform_error signatures are unchanged. A core nonnegativity
 duplicate and FiniteRecurrence's redundant value-transport wrapper are removed.
 Shared power induction remains because core plus one tactic does not close it
-at its uses; a temporary fpower value correspondence serves the wider legacy
-recurrence. Astra's bounded read-only review recommended this two-file boundary.
+at its uses; it now lives in Common/FinitePowers. The temporary fpower value
+correspondence now lives in FinitePower, serving the wider legacy power API.
+Astra's bounded read-only review recommended the original two-file boundary.
 All six builds, the regional accumulation control, historical statement dumps
 and all 228 historical axiom reports pass. This partial kernel cutover adds no
 historical completion credit; enclosing legacy sections migrate later. The
@@ -145,6 +146,23 @@ two warnings in the replaced arithmetic disappear, leaving 531 unused-simp,
 zero deprecation and five proposition-as-definition warnings. No removed simp
 argument required restoration. Corrected unwrapped provenance output also
 refreshes two previously stale cascade rows.
+
+FiniteRecurrence is now fully over Rat, with two retained finite bounds and
+no legacy imports or warnings. Six helpers disappear: a redundant congruence
+wrapper, two core-power duplicates, two lower/prefix wrappers inlined at their
+uses, and an unused nonnegativity induction. Shared power induction and its
+value bridge are relocated/renamed rather than duplicated. One temporary
+legacy_sourceBudget_two_count adapter in FinitePower serves the numerical
+bounds in TimeCalibration, EquivalentDuration, CalibratedRefinement,
+CalibratedGrowth and HarmonicIntegerSubdivision. No converted bound enters
+an actual state, force callback, duration or iteration count; Astra approved
+this bounded conversion after a read-only review. A scratch induction checks
+the recurrence's exact rational value for arbitrary signed inputs. All six
+builds, regional-accumulation/construction and given-trajectory controls pass;
+historical theorem types, final uniform-error types and all 228 historical
+axiom reports are unchanged. Counts and scores are refreshed. There are now
+524 unused-simp, zero deprecation and five proposition-as-definition warnings;
+no removed argument needed restoration. This earns no completion credit.
 
 GeometricTail.modulus is another representative-sensitive chosen witness:
 at tolerance 1, inputs 1/1 and 2/2 produce cutoff indices 2 and 4 despite equal

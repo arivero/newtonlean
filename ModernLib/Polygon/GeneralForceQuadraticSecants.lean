@@ -25,7 +25,7 @@ noncomputable def cellSecondSecant (o : CentralOracle) (E0 T tau L B : Fraction)
 /-- The actual finite node approximants retain their sample and half-mesh
 errors. Both the completed second-order bridge and potential calculations use
 this estimate, rather than repeating the restarted-run proof. -/
--- Modern dependency score: 63/232 (M=63, H=169; transitive project theorems/axioms).
+-- Modern dependency score: 63/233 (M=63, H=170; transitive project theorems/axioms).
 theorem node_second_sample_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)

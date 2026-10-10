@@ -114,7 +114,7 @@ theorem force_work_eq_energy (mass w : Fraction) (x : Value) :
           Int.neg_zero] <;> ac_nf <;> omega
     · exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
 
--- Modern dependency score: 109/286 (M=109, H=177; transitive project theorems/axioms).
+-- Modern dependency score: 109/287 (M=109, H=178; transitive project theorems/axioms).
 private theorem node_frame_bounds (w T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num)
     (m k : Nat) (hk : k+1≤blocks m) (j : Nat) :

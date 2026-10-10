@@ -1,6 +1,7 @@
 import BarrowLib.Polygon.BoundedIteration
 import BarrowLib.Polygon.IntegerSchedule
 import BarrowLib.Polygon.FiniteRecurrence
+import BarrowLib.Polygon.FiniteFactorProducts
 import ModernLib.Polygon.HarmonicTimeRealization
 
 /-! Finite unequal subdivision identities for the actual harmonic end-kick cell. -/
@@ -626,7 +627,7 @@ theorem coarseBlocks_norm_bound (w h : Fraction) (k : Nat)
         Fraction.mul]
       ac_nf
 
--- Modern dependency score: 13/55 (M=13, H=42; transitive project theorems/axioms).
+-- Modern dependency score: 13/49 (M=13, H=36; transitive project theorems/axioms).
 theorem coarseBlocks_state_le_two (w h : Fraction) (k : Nat)
     (s : Point × Point) (N : Nat)
     (hpower : Fraction.le
@@ -636,8 +637,19 @@ theorem coarseBlocks_state_le_two (w h : Fraction) (k : Nat)
       (Fraction.mul (Fraction.ofInt 2) (stateNorm s)) := by
   intro i hi
   let r := kappa w (integerDuration h k)
-  have hpref := fpower_prefix_le r (kappa_nonnegative w _) (one_le_kappa w _)
-    i N hi
+  have hpref : Fraction.le (fpower r i) (fpower r N) := by
+    apply (Fraction.le_iff_toRat _ _).mpr
+    simp only [toRat_fpower]
+    have hr : 0 ≤ r.toRat := (Fraction.nonnegative_iff_toRat _).mp
+      (kappa_nonnegative w (integerDuration h k))
+    have hone : 1 ≤ r.toRat := by
+      simpa only [Fraction.toRat_ofInt, Rat.intCast_one] using
+        (Fraction.le_iff_toRat _ _).mp (one_le_kappa w (integerDuration h k))
+    have hm := Rat.mul_le_mul_of_nonneg_left
+      (FinitePowers.one_le_power r.toRat hr hone (N - i))
+      (Rat.pow_nonneg (n := i) hr)
+    have he : i + (N - i) = N := by omega
+    simpa only [Rat.mul_one, ← Lean.Grind.Semiring.pow_add, he] using hm
   have hp := Fraction.magnitudes.le_trans hpref hpower
   have hm := Fraction.mul_le_mul_nonnegative hp (stateNorm s)
     (stateNorm_nonnegative s)
@@ -670,11 +682,14 @@ theorem block_error_le_budget (w h : Fraction) (k : Nat)
       Fraction.le
         (stateNorm (stateSub
           (fineBlocks w h k s i) (coarseBlocks w h k s i)))
-        (sourceBudget (fpower (kappa w h) k) (blockSource w h k s) i)
+        (Fraction.ofRat (sourceBudget (fpower (kappa w h) k).toRat (blockSource w h k s).toRat i))
   | 0, _ => by
       have hz := stateSub_self_norm_zero s
-      exact Fraction.le_of_equiv (by
-        simpa only [fineBlocks, coarseBlocks, sourceBudget] using hz)
+      apply Fraction.le_of_equiv
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simpa only [fineBlocks, coarseBlocks, sourceBudget, Fraction.toRat_ofRat,
+        Fraction.toRat_ofInt, Rat.intCast_zero] using
+        (Fraction.equiv_iff_toRat _ _).mp hz
   | i + 1, hi => by
       have hiprev : i ≤ N := by omega
       have hprev := block_error_le_budget w h k s N hh hb hshort
@@ -691,7 +706,10 @@ theorem block_error_le_budget (w h : Fraction) (k : Nat)
         (fpower_nonnegative _ (kappa_nonnegative w h) k)
       have hsum := Fraction.add_le_add h₁ hlocal
       have hbound := Fraction.magnitudes.le_trans hstep hsum
-      simpa only [sourceBudget, blockSource] using! hbound
+      apply Fraction.le_equiv_right hbound
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_add, Fraction.toRat_mul, Fraction.toRat_ofRat,
+        sourceBudget, blockSource]
 
 def FullSmallTime (w d : Fraction) (N : Nat) : Prop :=
   Fraction.le
@@ -709,7 +727,7 @@ theorem kappa_duration_congr (w a b : Fraction)
     (Fraction.add_equiv (Fraction.equiv_refl _)
       (Fraction.mul_equiv ha (Fraction.equiv_refl _)))
 
--- Modern dependency score: 12/43 (M=12, H=31; transitive project theorems/axioms).
+-- Modern dependency score: 12/42 (M=12, H=30; transitive project theorems/axioms).
 theorem full_power_le_two (w d : Fraction) (N : Nat)
     (hd : 0 ≤ d.num) (hs : FullSmallTime w d N) :
     Fraction.le (fpower (kappa w d) N) (Fraction.ofInt 2) := by
@@ -721,9 +739,9 @@ theorem full_power_le_two (w d : Fraction) (N : Nat)
   have he := kappa_duration_congr w
     (Fraction.add d.half d.half) d (Fraction.half_add_self d)
   exact Fraction.le_equiv_left
-    (Fraction.equiv_symm (fpower_congr he N)) hpower
+    (Fraction.equiv_symm (FiniteFactorProducts.fpower_congr he N)) hpower
 
--- Modern dependency score: 13/48 (M=13, H=35; transitive project theorems/axioms).
+-- Modern dependency score: 13/46 (M=13, H=33; transitive project theorems/axioms).
 theorem block_power_le_two (w h : Fraction) (k N : Nat)
     (hh : 0 ≤ h.num)
     (hs : FullSmallTime w (integerDuration h k) N) :
@@ -734,8 +752,13 @@ theorem block_power_le_two (w h : Fraction) (k N : Nat)
   have hsmall : FullSmallTime w h (k * N) :=
     Fraction.le_equiv_left htime hs
   have hpower := full_power_le_two w h (k * N) hh hsmall
-  exact Fraction.le_equiv_left
-    (fpower_integer_blocks (kappa w h) k N) hpower
+  apply (Fraction.le_iff_toRat _ _).mpr
+  have hp := (Fraction.le_iff_toRat _ _).mp hpower
+  simp only [toRat_fpower] at hp ⊢
+  have he : ((kappa w h).toRat ^ k) ^ N = (kappa w h).toRat ^ (k * N) := by
+    apply Rat.ext <;> simp [Int.pow_mul, Nat.pow_mul]
+  rw [he]
+  exact hp
 
 /-- Accumulated comparison of `N` actual coarse cells of duration `k*h`
 with `k*N` actual fine cells. The finite short-prefix inequalities ensure
@@ -762,21 +785,19 @@ theorem accumulated_integer_error (w h : Fraction) (k N : Nat)
   have h₀ := block_error_le_budget w h k s N hh hb hshort
     hcoarse N (Nat.le_refl N)
   have hr : 0 ≤ r.num := fpower_nonnegative _ (kappa_nonnegative w h) k
-  have hone : Fraction.le (Fraction.ofInt 1) r :=
-    one_le_fpower (kappa w h) (kappa_nonnegative w h)
-      (one_le_kappa w h) k
+  have hone : Fraction.le (Fraction.ofInt 1) r := by
+    apply (Fraction.le_iff_toRat _ _).mpr
+    change (Fraction.ofInt 1).toRat ≤ (fpower (kappa w h) k).toRat
+    rw [Fraction.toRat_ofInt, Rat.intCast_one, toRat_fpower]
+    apply FinitePowers.one_le_power _
+      ((Fraction.nonnegative_iff_toRat _).mp (kappa_nonnegative w h))
+    simpa only [Fraction.toRat_ofInt, Rat.intCast_one] using
+      (Fraction.le_iff_toRat _ _).mp (one_le_kappa w h)
   have hC : 0 ≤ C.num := blockSource_nonnegative w h k s hh
-  have h₁ := sourceBudget_power r C hr hC hone N
-  have hm₁ := Fraction.mul_le_mul_nonnegative hfine C hC
-  have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁
-    (Fraction.ofInt (N : Int)) (Int.natCast_nonneg N)
-  have h₁' := Fraction.le_equiv_right h₁
-    (Fraction.mul_equiv (Fraction.equiv_refl _)
-      (Fraction.mul_comm C (fpower r N)))
   have hbound := Fraction.magnitudes.le_trans h₀
-    (Fraction.magnitudes.le_trans h₁' hm₂)
+    (legacy_sourceBudget_two_count r C N hr hC hone hfine)
   apply Fraction.le_equiv_right hbound
-  simp only [C, r, Fraction.equiv, Fraction.mul, Fraction.ofInt]
+  simp only [C, Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
 -- Modern dependency score: 0/13 (M=0, H=13; transitive project theorems/axioms).

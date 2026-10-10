@@ -1,4 +1,5 @@
 import BarrowLib.Polygon.EquivalentDuration
+import BarrowLib.Polygon.FiniteAccumulation
 
 /-! Calibrated actual coarse/two-half-cell accumulation. All maps are rational
 point maps; sample/arrival bounds are explicit finite premises. -/
@@ -165,8 +166,7 @@ theorem actual_error_le_source_at (tau : Fraction) (ht : 0 < tau.num)
       (pointNorm (b (cell b h (coarseAt b h s k)).1)) B) →
     (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V) →
     Fraction.le (TimeCalibration.distance tau (fineAt a h s n) (coarseAt b h s n))
-      (FiniteRecurrence.sourceBudget (blockFactor tau h L ht)
-        (blockSource tau h L E B V ht) n)
+      (Fraction.ofRat (FiniteRecurrence.sourceBudget (blockFactor tau h L ht).toRat (blockSource tau h L E B V ht).toRat n))
   | 0, _, _, _ => Fraction.le_of_equiv (TimeCalibration.distance_self_zero tau s)
   | n+1, hc, hB, hV => by
       have hs := cross_block_error_at tau ht a b h L E B V
@@ -176,10 +176,13 @@ theorem actual_error_le_source_at (tau : Fraction) (ht : 0 < tau.num)
         (fun k hk => hc k (by omega))
         (fun k hk => hB k (by omega)) (fun k hk => hV k (by omega))
       have hK := TimeCalibration.amplification_nonnegative tau h L ht hL
-      exact Fraction.magnitudes.le_trans hs
+      apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans hs
         (Fraction.add_le_add_right
           (Fraction.mul_le_mul_nonnegative_left hi (blockFactor tau h L ht)
-            (Fraction.nonnegative_mul _ _ hK hK)) (blockSource tau h L E B V ht))
+            (Fraction.nonnegative_mul _ _ hK hK)) (blockSource tau h L E B V ht)))
+      apply (Fraction.equiv_iff_toRat _ _).mpr
+      simp only [Fraction.toRat_add, Fraction.toRat_mul, Fraction.toRat_ofRat,
+        FiniteRecurrence.sourceBudget]
 
 theorem actual_error_le_source (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (h L E B V : Fraction) (s : Point × Point)
@@ -190,8 +193,7 @@ theorem actual_error_le_source (tau : Fraction) (ht : 0 < tau.num)
       (pointNorm (b (cell b h (coarseAt b h s k)).1)) B) →
     (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V) →
     Fraction.le (TimeCalibration.distance tau (fineAt a h s n) (coarseAt b h s n))
-      (FiniteRecurrence.sourceBudget (blockFactor tau h L ht)
-        (blockSource tau h L E B V ht) n) :=
+      (Fraction.ofRat (FiniteRecurrence.sourceBudget (blockFactor tau h L ht).toRat (blockSource tau h L E B V ht).toRat n)) :=
   fun n hB hV => actual_error_le_source_at tau ht a b h L E B V s hL n
     (fun k _ =>
       ⟨hcross (cell a h (fineAt a h s k)).1 (cell b h (coarseAt b h s k)).1,
@@ -230,7 +232,7 @@ theorem actual_uniform_error_at (tau : Fraction) (ht : 0 < tau.num)
     (TimeCalibration.amplification_power_le_two tau h L ht hL (2*n) hs)
   exact Fraction.magnitudes.le_trans
     (actual_error_le_source_at tau ht a b h L E B V s hL n hc hB hV)
-    (FiniteRecurrence.sourceBudget_two_count R S n hR hS hone hp)
+    (FiniteRecurrence.legacy_sourceBudget_two_count R S n hR hS hone hp)
 
 theorem actual_uniform_error (tau : Fraction) (ht : 0 < tau.num)
     (a b : Point → Point) (h L E B V : Fraction) (s : Point × Point)

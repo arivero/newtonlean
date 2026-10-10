@@ -1,6 +1,7 @@
 import BarrowLib.Polygon.FiniteFactorProducts
 import BarrowLib.Polygon.FiniteEstimates
 import BarrowLib.Common.FiniteGrowth
+import BarrowLib.Common.FinitePowers
 
 /-!
 Finite accumulation for actual coarse cells and pairs of half cells. The point
@@ -145,18 +146,6 @@ theorem one_le_blockFactor (h L : Fraction) (hL : 0 ≤ L.num) :
   apply Fraction.le_equiv_left (by
     simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
     decide) hc
-
-/-- Project derivation (Sol 6.1, 10 October 2026): a finite power of a
-scalar at least one is at least one. The statement and induction below are
-its provenance; no historical textual attribution is asserted. -/
-theorem one_le_factorPower (r : Rat) (hr : 0 ≤ r)
-    (h1 : 1 ≤ r) : (n : Nat) → 1 ≤ factorPower r n
-  | 0 => by simp [factorPower]
-  | n + 1 => by
-      have hi := one_le_factorPower r hr h1 n
-      have hm := Rat.mul_le_mul_of_nonneg_left h1 (Rat.pow_nonneg (n := n) hr)
-      simp only [Rat.mul_one] at hm
-      simpa only [factorPower, Rat.pow_succ] using Rat.le_trans hi hm
 
 theorem uniformBlockSource_nonnegative (h L E B V : Fraction)
     (hL : 0 ≤ L.num) (hE : 0 ≤ E.num)
@@ -358,7 +347,7 @@ theorem constant_budget_power_bound (h L E B V : Fraction)
           (Fraction.le_iff_toRat _ _).mp (one_le_blockFactor h L hL)
       have hm := Rat.mul_le_mul_of_nonneg_left hi hr
       have hc := Rat.mul_le_mul_of_nonneg_left
-        (one_le_factorPower r hr h1 (n + 1)) hC
+        (FinitePowers.one_le_power r hr h1 (n + 1)) hC
       simp only [constantErrorBudget, Fraction.toRat_add, Fraction.toRat_mul,
         factorPower, Rat.pow_succ]
       change _ ≤ ((n + 1 : Nat) : Rat) * C * (r ^ n * r)
@@ -419,19 +408,6 @@ def SmallWindow (h L : Fraction) (n : Nat) : Prop :=
     (Fraction.mul (totalTime h n) (Fraction.add (Fraction.ofInt 1) L))
     ⟨1, 2, by decide⟩
 
-/-- TEMPORARY MIGRATION BRIDGE: project encoding correspondence derived here
-(Sol 6.1, 10 October 2026). The wider legacy recurrence still uses fpower;
-this equality only converts its scalar value, never its state inputs. -/
-theorem factorPower_fpower (r : Fraction) :
-    (n : Nat) → factorPower r.toRat n = (HarmonicAccumulation.fpower r n).toRat
-  | 0 => by simp [factorPower, HarmonicAccumulation.fpower, Fraction.toRat_ofInt]
-  | n+1 => by
-      simp only [factorPower, Rat.pow_succ, HarmonicAccumulation.fpower,
-        Fraction.toRat_mul]
-      have ih := factorPower_fpower r n
-      dsimp only [factorPower] at ih
-      grind
-
 /-- The old unit-gauge window is an instance of the shared dimensionless
 pair-factor estimate, with two fine cells in each coarse block. -/
 theorem blockFactor_power_le_two (h L : Fraction) (n : Nat)
@@ -457,7 +433,8 @@ theorem blockFactor_power_le_two (h L : Fraction) (n : Nat)
   have he := (Fraction.equiv_iff_toRat _ _).mp
     (Fraction.equiv_trans (FiniteFactorProducts.fpower_square (amplification L h) n)
       (FiniteFactorProducts.fpower_congr hcoeff (2*n)))
-  rw [factorPower_fpower]
+  change (blockFactor h L).toRat ^ n ≤ 2
+  rw [← HarmonicAccumulation.toRat_fpower]
   change (HarmonicAccumulation.fpower
     (Fraction.mul (amplification L h) (amplification L h)) n).toRat ≤ 2
   rw [he]

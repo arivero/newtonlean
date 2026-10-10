@@ -47,7 +47,7 @@ theorem areal_product_value (o : CentralOracle) (E0 T tau L B : Fraction)
 /-- A determinant triangle uses two actual curve-node approximants. The
 restarted finite drift remainder gives its quadratic error, uniformly in the
 approximant index. It is not a triangle of an assumed trajectory. -/
--- Modern dependency score: 57/224 (M=57, H=167; transitive project theorems/axioms).
+-- Modern dependency score: 57/225 (M=57, H=168; transitive project theorems/axioms).
 theorem node_triangle_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

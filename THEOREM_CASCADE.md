@@ -98,15 +98,31 @@ only their comparison proofs use the bridge until their domains migrate.
 The removed declarations had no verified historical provenance classification.
 
 FiniteAccumulation's active scalar-power kernel now uses core Rat powers.
-Its one_le_factorPower, constant_budget_power_bound and temporary
-factorPower_fpower value correspondence are P: the exact statements and
+Its constant_budget_power_bound, shared power induction and temporary
+finite-power value correspondence are P: the exact statements and
 checked finite derivations give their provenance, without historical textual
 attribution or priority claims. The nonnegativity duplicate is replaced by
 Rat.pow_nonneg; FiniteRecurrence's redundant correspondence wrapper is deleted.
 The final actual_uniform_error and cross_actual_uniform_error statements and
 all historical theorem types remain unchanged. Actual state recurrences still
-use their original representatives. This is a partial kernel migration, not
-a completed migration of either enclosing module.
+use their original representatives. FiniteAccumulation still awaits full
+migration beyond this scalar kernel.
+
+FiniteRecurrence now contains sourceBudget and two P bounds over core Rat,
+without legacy imports or warnings. Their exact statements and finite checked
+derivations give their provenance. The existing shared power induction moves
+from FiniteAccumulation to Common/FinitePowers.one_le_power; the power value
+bridge moves to FinitePower.toRat_fpower. These are relocations/renamings, not
+additional theorem declarations. Six old U helpers disappear: fpower_congr
+is redundant transport, fpower_add and fpower_integer_blocks are core-power
+duplicates, one_le_fpower and fpower_prefix_le close inline with the shared
+power induction and core facts, and sourceBudget_nonnegative is unused.
+FinitePower adds one P temporary legacy_sourceBudget_two_count adapter used
+by the still-legacy state modules. Net named-theorem reduction: five.
+Its normalized Fraction outputs are numerical bounds only. A scratch
+induction verifies their values against the original source-budget recurrence
+for arbitrary signed inputs; positivity/lower-bound premises remain explicit
+in the bounding theorems. No historical completion credit or textual match.
 
 There are three different quantities:
 
@@ -125,7 +141,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 880 | 1814 |
+| `AreaLaw.lean` | 73 | 880 | 1809 |
 | `CompositionOfMotions.lean` | 13 | 48 | 183 |
 | `LawI.lean` | 0 | 0 | 111 |
 | `LawII.lean` | 0 | 0 | 97 |
@@ -137,7 +153,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `LemmaIII/CorollaryI.lean` | 10 | 137 | 512 |
 | `LemmaIII/CorollaryII.lean` | 2 | 70 | 514 |
 | `LemmaIII/CorollaryIII.lean` | 10 | 213 | 648 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 471 | 1383 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 471 | 1378 |
 | `LemmaX.lean` | 4 | 14 | 81 |
 | `LemmaX/CorollaryI.lean` | 2 | 14 | 91 |
 | `LemmaX/CorollaryII.lean` | 4 | 24 | 93 |
@@ -149,8 +165,8 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 981 | 981 | 981 |
-| `ModernLib` | 1157 | 1495 | 1684 |
+| `BarrowLib` | 976 | 976 | 976 |
+| `ModernLib` | 1157 | 1491 | 1679 |
 
 The README additionally lists line counts and the individual classical files.
 Reproduce the compiled measurements and check the README with:
@@ -191,7 +207,7 @@ source. Source witnesses for every historical file remain in the next table.
 
 | File or library | S | R | P | U | Proof tree |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `AreaLaw.lean` | 0 | 6 | 20 | 854 | 880 |
+| `AreaLaw.lean` | 0 | 6 | 23 | 851 | 880 |
 | `CompositionOfMotions.lean` | 0 | 0 | 0 | 48 | 48 |
 | `LawI.lean` | 0 | 0 | 0 | 0 | 0 |
 | `LawII.lean` | 0 | 0 | 0 | 0 | 0 |
@@ -203,7 +219,7 @@ source. Source witnesses for every historical file remain in the next table.
 | `LemmaIII/CorollaryI.lean` | 0 | 12 | 38 | 87 | 137 |
 | `LemmaIII/CorollaryII.lean` | 0 | 2 | 0 | 68 | 70 |
 | `LemmaIII/CorollaryIII.lean` | 0 | 10 | 10 | 193 | 213 |
-| `LemmaIII/CorollaryIV.lean` | 0 | 2 | 16 | 453 | 471 |
+| `LemmaIII/CorollaryIV.lean` | 0 | 2 | 19 | 450 | 471 |
 | `LemmaX.lean` | 0 | 0 | 0 | 14 | 14 |
 | `LemmaX/CorollaryI.lean` | 0 | 0 | 0 | 14 | 14 |
 | `LemmaX/CorollaryII.lean` | 0 | 0 | 0 | 24 | 24 |
@@ -221,12 +237,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 63 | 918 | 981 |
-| `ModernLib` | 0 | 2 | 19 | 1474 | 1495 |
+| `BarrowLib` | 0 | 0 | 66 | 910 | 976 |
+| `ModernLib` | 0 | 2 | 22 | 1467 | 1491 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **152 of 2362
-theorems: 6 S, 49 R and 97 P; 2210 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **155 of 2357
+theorems: 6 S, 49 R and 100 P; 2202 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 Wrapped scratch output had left the Corollary III and IV provenance rows stale;
 they now use unwrapped output and agree with their measured proof-tree totals.

@@ -161,7 +161,7 @@ theorem harmonic_endpoint_eq (w E0 T : Fraction) (s : Point × Point)
   rw [GeneralForceEndpoint.endpoint,harmonic_field,run_eq_schedule]
   rfl
 
--- Modern dependency score: 119/276 (M=119, H=157; transitive project theorems/axioms).
+-- Modern dependency score: 119/279 (M=119, H=160; transitive project theorems/axioms).
 theorem harmonic_name_equiv (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     CauchyValues.NameEquiv
@@ -177,7 +177,7 @@ theorem harmonic_name_equiv (w E0 T : Fraction) (s : Point × Point)
     (Fraction.le_of_equiv (FiniteEstimates.stateDistance_self_zero _))
     ((Fraction.positive_iff_zero_lt eps).mp heps)
 
--- Modern dependency score: 127/286 (M=127, H=159; transitive project theorems/axioms).
+-- Modern dependency score: 127/289 (M=127, H=162; transitive project theorems/axioms).
 theorem harmonic_value_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     GeneralForceEndpoint.endpointValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs

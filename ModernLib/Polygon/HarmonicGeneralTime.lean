@@ -33,7 +33,7 @@ theorem harmonic_prefix_eq (b : Nat → Bool) (w E0 T : Fraction) (s : Point × 
   rw [GeneralForcePrefix.prefixState,GeneralForcePrefix.countState,harmonic_field,run_eq_schedule]
   rfl
 
--- Modern dependency score: 157/324 (M=157, H=167; transitive project theorems/axioms).
+-- Modern dependency score: 157/327 (M=157, H=170; transitive project theorems/axioms).
 theorem harmonic_name_equiv (b : Nat → Bool) (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     CauchyValues.NameEquiv

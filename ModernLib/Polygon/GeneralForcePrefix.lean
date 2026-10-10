@@ -122,7 +122,7 @@ theorem weightedCoefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × 
     (GeneralForceEndpoint.weightedCoefficient_nonnegative E0 T tau L B s hE hT ht hL hB)
     (Fraction.nonnegative_mul _ _ hT (speedCap_nonnegative T tau B s hT ht hB))
 
--- Modern dependency score: 39/178 (M=39, H=139; transitive project theorems/axioms).
+-- Modern dependency score: 39/181 (M=39, H=142; transitive project theorems/axioms).
 theorem adjacent_weighted_tail (b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
@@ -171,7 +171,7 @@ theorem coefficient_nonnegative (E0 T tau L B : Fraction) (s : Point × Point)
     (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt tau.den_pos))
     (weightedCoefficient_nonnegative E0 T tau L B s hE hT ht hL hB)
 
--- Modern dependency score: 40/180 (M=40, H=140; transitive project theorems/axioms).
+-- Modern dependency score: 40/183 (M=40, H=143; transitive project theorems/axioms).
 theorem adjacent_tail (b : Nat → Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : Conditions o E0 T tau L B s hE)
     (j : Nat) :
