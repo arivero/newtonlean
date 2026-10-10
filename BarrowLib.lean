@@ -100,3 +100,4 @@ import BarrowLib.Polygon.ZeroForce
 import BarrowLib.Polygon.ImpulseComposition
 import BarrowLib.Polygon.CommonMotion
 import BarrowLib.Polygon.CurvilinearCoincidence
+import BarrowLib.Polygon.AffineCoincidence

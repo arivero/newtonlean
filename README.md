@@ -63,7 +63,7 @@ authorities and original-language passages belong in the owning files:
 | Library | Authorities and checked scope | Source work remaining |
 | --- | --- | --- |
 | [ClassicsLib](ClassicsLib.lean) | Euclid's *Elements* [I.37](ClassicsLib/Euclid/PropositionI37.lean), [I.38](ClassicsLib/Euclid/PropositionI38.lean), [VII.31](ClassicsLib/Euclid/PropositionVII31.lean) and [IX.20](ClassicsLib/Euclid/PropositionIX20.lean), plus Aristotle, *Prior Analytics* I.23, 41a26–27 in [SquareRootTwo](ClassicsLib/Aristotle/SquareRootTwo.lean). Original Greek and exact URLs are in the files. | I.37/I.38 remain determinant special cases. IX.20 uses a finite product in place of Euclid's least common multiple. Aristotle attests the parity contradiction, not the full reconstructed descent proof or a constructed geometric diagonal. Full synthetic area semantics and exact-result provenance of the older model's helpers remain separate obligations. |
-| [BarrowLib](BarrowLib.lean) | [SectorFan](BarrowLib/Polygon/SectorFan.lean) quotes Greek from Euclid [I.41](https://physics.ntua.gr/mourmouras/euclid/book1/postulate41.html), the triangle/parallelogram area relation, and the [Common Notions](https://physics.ntua.gr/mourmouras/euclid/book1/elements1.html), as background for the supplied area rules. SectorFan, [TriangleContent](BarrowLib/Polygon/TriangleContent.lean), [FanDifference](BarrowLib/Polygon/FanDifference.lean), [BoxCoverArea](BarrowLib/Polygon/BoxCoverArea.lean) and [AreaDomain](BarrowLib/Polygon/AreaDomain.lean) state their own English project derivations without historical textual support or priority claims. [MagnitudeContent](BarrowLib/Polygon/MagnitudeContent.lean) quotes Greek [Euclid X.1](docs/classics/euclid-X1.md) for its supplied unit-halving premise and derives the exact extension here; [V.2, 4, 5](docs/classics/euclid-V.md) provide multiple/comparability/ratio language. [UniformRectangles](BarrowLib/Polygon/UniformRectangles.lean) explicitly derives nonmonotone graph enclosures/exhaustion here, without attributing its uniform-continuity hypothesis to Newton. [CurvilinearCoincidence](BarrowLib/Polygon/CurvilinearCoincidence.lean) gives its own English statements and elementary proofs of whole-figure approximation and exact ultimate point-set equality, independently of area. | The library name does not attribute its contents to Isaac Barrow. Original-language, exact-result attribution for other borrowed helpers remains unverified; the Greek background does not state the new coordinate results. |
+| [BarrowLib](BarrowLib.lean) | [SectorFan](BarrowLib/Polygon/SectorFan.lean) quotes Greek from Euclid [I.41](https://physics.ntua.gr/mourmouras/euclid/book1/postulate41.html), the triangle/parallelogram area relation, and the [Common Notions](https://physics.ntua.gr/mourmouras/euclid/book1/elements1.html), as background for the supplied area rules. SectorFan, [TriangleContent](BarrowLib/Polygon/TriangleContent.lean), [FanDifference](BarrowLib/Polygon/FanDifference.lean), [BoxCoverArea](BarrowLib/Polygon/BoxCoverArea.lean) and [AreaDomain](BarrowLib/Polygon/AreaDomain.lean) state their own English project derivations without historical textual support or priority claims. [MagnitudeContent](BarrowLib/Polygon/MagnitudeContent.lean) quotes Greek [Euclid X.1](docs/classics/euclid-X1.md) for its supplied unit-halving premise and derives the exact extension here; [V.2, 4, 5](docs/classics/euclid-V.md) provide multiple/comparability/ratio language. [UniformRectangles](BarrowLib/Polygon/UniformRectangles.lean) explicitly derives nonmonotone graph enclosures/exhaustion here, without attributing its uniform-continuity hypothesis to Newton. [CurvilinearCoincidence](BarrowLib/Polygon/CurvilinearCoincidence.lean) gives its own English statements and elementary proofs of whole-figure approximation and exact ultimate point-set equality, independently of area. [AffineCoincidence](BarrowLib/Polygon/AffineCoincidence.lean) derives its affine/contact transport and two-straight-side specialization with the same explicit project provenance. | The library name does not attribute its contents to Isaac Barrow. Original-language, exact-result attribution for other borrowed helpers remains unverified; the Greek background does not state the new coordinate results. |
 | [ModernLib](ModernLib.lean) | The exact checked constructions are in their Lean files, including [CauchyValues](ModernLib/Foundation/Polygon/CauchyValues.lean), [EndpointCauchyName](ModernLib/Foundation/Polygon/EndpointCauchyName.lean) and the conditional [given-trajectory area result](ModernLib/Polygon/GivenTrajectoryArea.lean). | Exact original-language sources for standard borrowed modern results remain to be supplied and verified. Names such as “Cauchy” alone establish no exact attribution; known results are not credited to their AI formalizer. |
 
 ## Proof progress
@@ -261,7 +261,7 @@ Euclid VII.19 and additional signed-operation source audits remain open.
 Relocation alone earns no completion credit and does not reduce the current
 fraction representation's theorem burden.
 
-Current whole-figure reassessment, 10 October: **Corollary I rises from 75%
+Whole-figure reassessment, 10 October: **Corollary I rises from 75%
 to 85% in both printed editions**. Each edition's Lemma III now derives
 ordinate control for every original shrinking partition family whose heights
 lie between ordinates attained within each cell, including interior contacts.
@@ -293,6 +293,31 @@ the library census remains 516 unused-simp, zero deprecation and four
 proposition-as-definition warnings. No simp argument required restoration.
 Measured counts and provenance coverage are refreshed below.
 
+Current affine/contact reassessment, 10 October: **Corollary I remains 85%
+in both printed editions**, following Astra's bounded review. Invertible
+affine transport now carries the whole figure, finite rectangle unions and
+complete edge traces to actual oblique parallelograms. The inverse and both
+uniform proximity bounds are derived from independent frame directions;
+exact ultimate membership is transferred, not assumed. Attained finite
+contacts derive the cell-height condition, and the actual inscription/
+circumscription inequalities prove both finite enclosure directions.
+
+Each new historical client identifies the entire supplied curved side and
+requires g(b)=0, so its boundary has Newton's two straight sides rather than
+an extra positive terminal side. What remains is historical admissibility of
+the whole-graph, uniform-ordinate-control and attained-contact interpretation
+for the source's figure class. Affine algebra does not prove every relevant
+curve admits that description. This uncertainty keeps estimated remaining
+effort around 15–20% of completed effort; the rounded 85% remains justified.
+**Lemma II/III remain 80% and all other estimates are reassessed unchanged**:
+their area/ratio/patch and mechanical obligations are unaffected. This proof
+increment earns credit for the discharged affine/contact obligation, but no
+extra rounded percentage; migration, relocation and warning cleanup earn
+none. New and touched proof/harness modules have zero warnings. The census
+stays at 516 unused-simp, zero deprecation and four proposition-as-definition
+warnings, with no suppressed warnings or restored arguments. Measurements
+and provenance counts are refreshed.
+
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
 deriving the physical laws is outside the task. **Lemma I is also 100% for its
@@ -319,7 +344,7 @@ work; they do not discharge the remaining primary historical tasks.
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | — / 40% | 100% | 100% | Printed ordered-difference contradiction complete: exclusion of a positive terminal difference, positive time windows before the endpoint and a rational terminal-zero consequence. Approach and terminal comparisons are explicit premises. NATP00090 has only the enclosing-ratio step inside its Lemma 2; tangent-area geometry and its mechanical premises remain open, without attributing a printed Lemma I dependency. |
 | [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | — / — | 80% | 80% | Equal-width gap, actual rectangle areas, exhaustion and the edition's Lemma I. All three mutual unit ratios hold for any assigned area magnitude on monotone interior-positive patches, allowing initial zero lower sums. The separate uniform-continuity construction gives nonmonotone area exhaustion and multiple-ratio comparisons under a positive ordinate, now also on the single matched family with a derived eventual lower bracket. General area existence, arbitrary patches and non-rational coordinates remain open. |
 | [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | — / — | 80% | 80% | Unequal-width exhaustion and the edition's Lemma II enclosure approximate any supplied area magnitude; its own Lemma I excludes a positive terminal gap. Three mutual unit ratios hold on monotone interior-positive patches. Its own Lemma II also supplies nonmonotone area exhaustion and all three comparisons, including on the same matched family under uniform continuity and a positive ordinate. General area existence, arbitrary patches and non-rational coordinates remain open; applications must justify mesh exhaustion. |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | — / — | 85% | 85% | Area-independent coincidence of the whole filled figure and complete limiting boundary over any supplied ordered coordinate field, for every original shrinking family with cell heights between attained ordinates. Baseline, fixed sides, interior contacts and repeated nodes are included. Each client uses its own Lemma III ordinate control. Affine correspondence with actual parallelograms, derivation of contact/inscription data and source-justified figure/regularity scope remain; the finite edge trace need not be a finite topological boundary. |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | — / — | 85% | 85% | Whole filled-figure and complete limiting-boundary coincidence over any supplied ordered coordinate field. A proved invertible affine map now gives actual oblique parallelogram unions, with contact-derived cell heights. The source-shaped client identifies the entire curved side and sets g(b)=0, recovering Newton’s two straight sides. Historical admissibility of the whole-graph, uniform-ordinate-control and attained-contact interpretation remains open. Finite edge traces may contain interior edges; no finite topological-boundary or arclength equality is claimed. |
 | [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | — / — | 80% | 80% | Two-sided rational chord-boundary approximation through Corollary I. Uniform continuity and shrinking mesh remain explicit; the theorem gives no area or arclength conclusion. |
 | [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | — / — | 80% | 80% | For concave increasing rational patches, supplied contact and concavity derive supporting cells, continuity, the identity of the tangent trace with the polygon's upper boundary, and finite tangent-polygon areas by dissection. Area errors vanish against a supplied curved area. Tangent existence, arbitrary patches and curved-area existence remain open. |
 | [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | — / — | 80% | 80% | The edition's Corollaries II/III give chord and actual tangent-polygon upper-boundary approximation on those patches. General curves and identification with force polygons remain open; boundary approximation supplies no arclength limit. Modern completed-curve results stay below the separator. |
@@ -425,10 +450,10 @@ of the older library helpers remains unverified.
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 145 | 7 | 18 | 91 |
 | [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 635 | 32 | 154 | 399 |
 | [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 577 | 26 | 205 | 538 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 411 | 18 | 193 | 556 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 558 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 213 | 692 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 471 | 1422 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 488 | 20 | 207 | 573 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 575 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 213 | 709 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 471 | 1439 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 81 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 91 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 93 |
@@ -446,7 +471,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 16598 | 1002 | 1002 | 1002 |
+| [BarrowLib](BarrowLib.lean) | 16917 | 1017 | 1017 | 1017 |
 | [ModernLib](ModernLib.lean) | 20113 | 1157 | 1491 | 1679 |
 
 After a build, reproduce or check these rows with the existing compiled checker:

@@ -7,7 +7,9 @@ zero heights, falling joins and interior ordinate contacts; a nonclosed
 predicate falsifies exact ultimate equality without the separation premise.
 Compiled traversal checks the two edition-local chains and rejects modern
 or foreign-witness dependencies. These controls share the Lean kernel and
-core arithmetic; they do not establish the remaining affine/source scope. -/
+core arithmetic; they do not establish the remaining historical figure and
+regularity scope. Affine controls exercise actual oblique and reflected
+frames, inverse transport and contact-derived finite enclosures. -/
 
 namespace CorollaryWholeFigureControls
 open NewtonLimitDynamics.Polygon.CurvilinearCoincidence Lean Elab Command
@@ -61,6 +63,35 @@ example (a : K) :
       Or.inl ⟨Std.le_refl _,Std.le_refl _⟩⟩
 end Generic
 
+open NewtonLimitDynamics.Polygon.AffineCoincidence
+
+private def oblique : Frame Rat where
+  origin := (3,-2)
+  first := (2,1)
+  second := (-1,2)
+  independent := by decide +kernel
+
+private def reflected : Frame Rat where
+  origin := (0,0)
+  first := (0,1)
+  second := (1,0)
+  independent := by decide +kernel
+
+example : oblique.toAffine.apply (1/2,3/2)=(5/2,3/2) := by decide +kernel
+example : oblique.inverse.apply (5/2,3/2)=(1/2,3/2) := by decide +kernel
+example : reflected.toAffine.apply (1,2)=(2,1) := by decide +kernel
+example : reflected.inverse.apply (2,1)=(1,2) := by decide +kernel
+example (f : Frame Rat) (hu : f.first=(1,2)) (hv : f.second=(2,4)) : False := by
+  have h := f.independent
+  dsimp only [Affine.det] at h
+  rw [hu,hv] at h
+  exact h (by decide +kernel)
+
+example (sets : Nat → (Rat × Rat) → Prop) (x : Rat × Rat) :
+    Ultimate (fun k => Image oblique.toAffine (sets k)) (oblique.toAffine.apply x) ↔
+      Ultimate sets x := by
+  simpa only [inverse_apply] using ultimate_image oblique sets (oblique.toAffine.apply x)
+
 private def repeated : Partition (0 : Rat) 1 where
   count := 3
   positive_count := by decide
@@ -91,6 +122,17 @@ example : Rectangles repeated heights (1/2,3/2) :=
     (by exact Or.inr (Or.inr (Or.inr (Or.inr
       ⟨1,by decide,by decide +kernel,Or.inr ⟨by decide +kernel,by decide +kernel⟩⟩))))
 
+example : Parallelograms oblique repeated heights (5/2,3/2) := by
+  apply (parallelograms_image oblique repeated heights _).mpr
+  refine ⟨(1/2,3/2),⟨1,by decide,by decide +kernel,by decide +kernel,
+    by decide +kernel,by decide +kernel⟩,?_⟩
+  decide +kernel
+
+example : Image reflected.toAffine (Perimeter repeated heights) (3/2,1/2) := by
+  refine ⟨(1/2,3/2),?_,by decide +kernel⟩
+  exact Or.inr (Or.inr (Or.inr (Or.inr
+    ⟨1,by decide,by decide +kernel,Or.inr ⟨by decide +kernel,by decide +kernel⟩⟩)))
+
 -- At a valley minimum an inscribed height need not lie between endpoint
 -- ordinates. CellHeight admits contact anywhere inside its own cell.
 private def coarse : Partition (0 : Rat) 1 where
@@ -105,12 +147,71 @@ private def coarse : Partition (0 : Rat) 1 where
     subst i
     decide +kernel
 private def valley (t : Rat) : Rat := (t-1/2).abs
+example : Touches valley coarse 0 0 :=
+  ⟨1/2,by decide +kernel,by decide +kernel,by decide +kernel⟩
 example : CellHeight valley coarse 0 0 :=
   ⟨1/2,1/2,by decide +kernel,by decide +kernel,by decide +kernel,by decide +kernel,
     Or.inl ⟨by decide +kernel,by decide +kernel⟩⟩
 example : ¬ Between (valley (coarse.nodes 0)) 0 (valley (coarse.nodes 1)) := by
   unfold Between
   decide +kernel
+
+example : ¬ Parallelograms oblique coarse (fun _ => 1) (oblique.toAffine.apply (2,0)) := by
+  intro h
+  have hi := (parallelograms_image oblique coarse (fun _ => 1) _).mp h
+  have hx := (image_iff_inverse oblique _ _).mp hi
+  rw [inverse_apply] at hx
+  obtain ⟨i,hi,_,hr,_,_⟩ := hx
+  have : i=0 := by change i<1 at hi; omega
+  subst i
+  exact (by decide +kernel : ¬ ((2 : Rat)≤1)) hr
+
+-- Contact is finite geometry. Both enclosure directions follow from the
+-- actual per-cell inequalities, without an area or limiting premise.
+example (g : Rat → Rat) {a b : Rat} (p : Partition a b) (h : Nat → Rat)
+    (hc : ∀ i, i<p.count → InscribedContact g p i (h i)) (x : Rat × Rat)
+    (hx : Rectangles p h x) : Figure g a b x := inscribed_in_figure g p h hc x hx
+example (g : Rat → Rat) {a b : Rat} (p : Partition a b) (h : Nat → Rat)
+    (hc : ∀ i, i<p.count → CircumscribedContact g p i (h i)) (x : Rat × Rat)
+    (hx : Figure g a b x) : Rectangles p h x := figure_in_circumscribed g p h hc x hx
+
+-- Both editions instantiate a genuine affine frame; arbitrary original
+-- partitions remain supplied rather than being selected/re-paired.
+example (g : Rat → Rat) (a b : Rat) (parts : Nat → Partition a b)
+    (h : Nat → Nat → Rat) (mesh : Nat → Rat)
+    (hzero : ∀ t, a≤t → t≤b → 0≤g t) (hf : UniformOn g a b)
+    (hmesh : Shrinks mesh)
+    (hw : ∀ k i, i<(parts k).count → (parts k).nodes (i+1)-(parts k).nodes i≤mesh k)
+    (hc : ∀ k i, i<(parts k).count → Touches g (parts k) i (h k i))
+    (hend : g b=0) :
+    NewtonLimitDynamics.Polygon.AffineCoincidence.WholeCoincidence oblique g a b parts h ∧
+      ∀ x, Ultimate (fun k => Image oblique.toAffine (Perimeter (parts k) (h k))) x ↔
+        TwoSideBoundary oblique (Image oblique.toAffine (Graph g a b)) g a b x :=
+  Principia1687.LemmaIII.corollary1_parallelogram_coincidence
+    oblique (Image oblique.toAffine (Graph g a b)) g a b parts h mesh hzero hf hmesh hw hc
+    hend (fun _ => Iff.rfl)
+example (g : Rat → Rat) (a b : Rat) (parts : Nat → Partition a b)
+    (h : Nat → Nat → Rat) (mesh : Nat → Rat)
+    (hzero : ∀ t, a≤t → t≤b → 0≤g t) (hf : UniformOn g a b)
+    (hmesh : Shrinks mesh)
+    (hw : ∀ k i, i<(parts k).count → (parts k).nodes (i+1)-(parts k).nodes i≤mesh k)
+    (hc : ∀ k i, i<(parts k).count → Touches g (parts k) i (h k i))
+    (hend : g b=0) :
+    NewtonLimitDynamics.Polygon.AffineCoincidence.WholeCoincidence reflected g a b parts h ∧
+      ∀ x, Ultimate (fun k => Image reflected.toAffine (Perimeter (parts k) (h k))) x ↔
+        TwoSideBoundary reflected (Image reflected.toAffine (Graph g a b)) g a b x :=
+  Principia1713.LemmaIII.corollary1_parallelogram_coincidence
+    reflected (Image reflected.toAffine (Graph g a b)) g a b parts h mesh hzero hf hmesh hw hc
+    hend (fun _ => Iff.rfl)
+
+-- Newton's curved side ends at E on the baseline: no extra positive
+-- terminal side is added to the two straight sides quoted in Lemma II.
+example (x : Rat × Rat) :
+    Image oblique.toAffine (Boundary (fun t => 1-t) 0 1) x ↔
+      TwoSideBoundary oblique (Image oblique.toAffine (Graph (fun t => 1-t) 0 1))
+        (fun t => 1-t) 0 1 x :=
+  two_side_boundary oblique _ _ 0 1 (by decide) (by decide +kernel) (fun _ => Iff.rfl) x
+example : ¬ ((fun _ : Rat => 1) 1=0) := by decide +kernel
 
 -- Positive fixed width is not a shrinking mesh.
 example : ¬ Shrinks (fun _ : Nat => (1 : Rat)) := by
@@ -164,5 +265,39 @@ run_elab do
         if env.header.moduleNames[idx]!.toString.startsWith "ModernLib" then
           throwError "{root} uses modern module through {dependency}"
   logInfo "Checked both whole-figure clients: own Lemma III ordinate control, complete finite edges, separation and exact ultimate membership; no foreign witness or modern module."
+
+run_elab do
+  let env ← getEnv
+  for (edition,foreign) in #[(`Principia1687,"Principia1713."),(`Principia1713,"Principia1687.")] do
+    let root := edition ++ `LemmaIII.corollary1_parallelogram_coincidence
+    let mut todo := #[root]
+    let mut used : NameSet := {}
+    while !todo.isEmpty do
+      let name := todo.back!
+      todo := todo.pop
+      unless used.contains name do
+        used := used.insert name
+        if let some info := env.find? name then
+          todo := todo ++ info.type.getUsedConstants ++
+            ((info.value? true).map Expr.getUsedConstants |>.getD #[])
+    for dependency in #[edition ++ `LemmaIII.corollary1_whole_figure_coincidence,
+        edition ++ `LemmaIII.unequal_width_ordinate_control,
+        `NewtonLimitDynamics.Polygon.AffineCoincidence.inverse_apply,
+        `NewtonLimitDynamics.Polygon.AffineCoincidence.apply_inverse,
+        `NewtonLimitDynamics.Polygon.AffineCoincidence.affine_uniform,
+        `NewtonLimitDynamics.Polygon.AffineCoincidence.ultimate_image,
+        `NewtonLimitDynamics.Polygon.AffineCoincidence.parallelograms_image,
+        `NewtonLimitDynamics.Polygon.AffineCoincidence.cell_height_of_contact,
+        `NewtonLimitDynamics.Polygon.AffineCoincidence.two_side_boundary,
+        `NewtonLimitDynamics.Polygon.AffineCoincidence.two_side_coincidence] do
+      unless used.contains dependency do throwError "{root} omits {dependency}"
+    for dependency in used do
+      let name := ((privateToUserName? dependency).getD dependency).toString
+      if #[foreign,"DeMotu1684."].any (fun p => name.startsWith p) then
+        throwError "{root} uses foreign witness {dependency}"
+      if let some idx := env.getModuleIdxFor? dependency then
+        if env.header.moduleNames[idx]!.toString.startsWith "ModernLib" then
+          throwError "{root} uses modern module through {dependency}"
+  logInfo "Checked both affine clients: own whole-figure/Lemma III chain, derived inverse and proximity, actual parallelogram unions and finite contacts; no foreign witness or modern module."
 
 end CorollaryWholeFigureControls

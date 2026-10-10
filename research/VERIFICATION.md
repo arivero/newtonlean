@@ -170,6 +170,14 @@ modules and new harness have zero warnings. The global census remains 516
 unused-simp, zero deprecation and four proposition-as-definition warnings;
 no warning suppression or simp-argument restoration is used.
 
+The affine/contact increment preserves all 2,457 preceding named statements
+and 246 historical axiom reports. Fifteen shared P proofs and two own-edition
+clients are added; the new historical reports use only standard Lean axioms.
+All six builds and the expanded whole-figure harness pass. All 1,181 scores
+are unchanged. New/touched modules have zero warnings; the global census
+stays at 516 unused-simp, zero deprecation and four proposition-as-definition
+warnings. No simp argument is restored or warning suppressed.
+
 ## Review the conclusion before accepting progress
 
 Read the changed theorem's full statement alongside the previous result and
@@ -335,15 +343,35 @@ finite edge trace can contain interior edges when nodes repeat: for nodes
 [0,1,1,2] and heights [2,1,2], the join at (1,1) is interior to the union.
 This does not affect the proved limiting conclusions. Do not claim finite
 topological-boundary equality, arclength, an area construction or coordinate
-completion. The review shares the Lean kernel and core arithmetic. Remaining
-affine parallelogram correspondence, inscription/contact derivation and
-source-justified whole-figure/regularity scope still prevent 100% completion.
+completion. The review shares the Lean kernel and core arithmetic. The affine
+and finite contact correspondence is checked below; source admissibility of
+the whole-figure/regularity/contact description still prevents 100% completion.
 The Latin geometric corollary does not itself demand a separate area
 construction; those obligations remain in Lemmas II/III and area applications.
 All six build times, in default/Barrow/Classics/Modern/Newton/Reverse order,
 are 1.405/0.323/0.319/0.325/0.314/0.326 seconds, versus
 1.412/0.307/0.305/0.306/0.306/0.306 previously. The default includes changed
 module compilation; these are warm verification timings, not clean benchmarks.
+
+The same whole-figure harness now checks affine transport with oblique and
+reflected frames, rejects parallel frame directions and tests actual union
+membership and outside points. Both source-shaped edition clients compile;
+traversal requires their own whole-figure/Lemma III chain, proved inverse and
+moduli, actual parallelogram identification, contact heights and two-side
+boundary specialization. A curve ending on the baseline has no extra
+positive terminal side; the constant-height alternative fails that endpoint
+premise. Inscribed/circumscribed inequalities give both finite inclusions.
+
+Astra's fresh controls additionally reject an actual parallelogram bounding-box
+false positive and check exact transformed-singleton ultimate membership and
+an independently constructed full-square coincidence under both orientations.
+No defect was found. The checked affine/contact mathematics does not infer
+whole-graph representation, uniform continuity or attained extrema for every
+source figure. Historical admissibility remains open; Corollary I stays 85%.
+The finite-edge versus finite-topological-boundary caveat still applies.
+All six build times are 1.205/0.323/0.308/0.313/0.324/0.327 seconds in the
+usual order, versus 1.405/0.323/0.319/0.325/0.314/0.326 previously; these are
+warm verification timings, including changed-module compilation.
 
 `magnitude-content-2026-10-09.lean` checks the enlarged assigned-area domain
 of both editions' Lemmas II/III and Corollary I. Actual dyadic identity-graph

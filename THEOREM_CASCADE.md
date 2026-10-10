@@ -7,7 +7,7 @@ propositions and they are not additive across rows.
 
 The mathematical snapshot includes the nonmonotone rectangular-exhaustion,
 mutual-ratio, free-staircase, matched-family ratio and whole-figure coincidence
-extensions of 10 October 2026.
+extensions, including affine/contact transport, of 10 October 2026.
 The README records why the reassessed Lemma II/III estimates remain 80% and
 Corollary I rises to 85% after the whole-figure proof. It keeps the progress
 estimates and compact measurements; this file explains
@@ -152,10 +152,10 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `LemmaI.lean` | 7 | 18 | 91 |
 | `LemmaII.lean` | 32 | 154 | 399 |
 | `LemmaIII.lean` | 26 | 205 | 538 |
-| `LemmaIII/CorollaryI.lean` | 18 | 193 | 556 |
-| `LemmaIII/CorollaryII.lean` | 2 | 70 | 558 |
-| `LemmaIII/CorollaryIII.lean` | 10 | 213 | 692 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 471 | 1422 |
+| `LemmaIII/CorollaryI.lean` | 20 | 207 | 573 |
+| `LemmaIII/CorollaryII.lean` | 2 | 70 | 575 |
+| `LemmaIII/CorollaryIII.lean` | 10 | 213 | 709 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 471 | 1439 |
 | `LemmaX.lean` | 4 | 14 | 81 |
 | `LemmaX/CorollaryI.lean` | 2 | 14 | 91 |
 | `LemmaX/CorollaryII.lean` | 4 | 24 | 93 |
@@ -167,7 +167,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 1002 | 1002 | 1002 |
+| `BarrowLib` | 1017 | 1017 | 1017 |
 | `ModernLib` | 1157 | 1491 | 1679 |
 
 The README additionally lists line counts and the individual classical files.
@@ -218,7 +218,7 @@ source. Source witnesses for every historical file remain in the next table.
 | `LemmaI.lean` | 0 | 7 | 0 | 11 | 18 |
 | `LemmaII.lean` | 0 | 20 | 52 | 82 | 154 |
 | `LemmaIII.lean` | 0 | 18 | 63 | 124 | 205 |
-| `LemmaIII/CorollaryI.lean` | 0 | 12 | 85 | 96 | 193 |
+| `LemmaIII/CorollaryI.lean` | 0 | 12 | 99 | 96 | 207 |
 | `LemmaIII/CorollaryII.lean` | 0 | 2 | 0 | 68 | 70 |
 | `LemmaIII/CorollaryIII.lean` | 0 | 10 | 10 | 193 | 213 |
 | `LemmaIII/CorollaryIV.lean` | 0 | 2 | 19 | 450 | 471 |
@@ -239,12 +239,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 92 | 910 | 1002 |
+| `BarrowLib` | 0 | 0 | 107 | 910 | 1017 |
 | `ModernLib` | 0 | 2 | 22 | 1467 | 1491 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **199 of 2401
-theorems: 6 S, 49 R and 144 P; 2202 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **216 of 2418
+theorems: 6 S, 49 R and 161 P; 2202 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 Wrapped scratch output had left the Corollary III and IV provenance rows stale;
 they now use unwrapped output and agree with their measured proof-tree totals.
@@ -275,7 +275,7 @@ they do not inherit the full scope of a historical sentence automatically.
 | [LemmaI](NewtonLimitDynamics/Historical/LemmaI.lean) | Ordered exhaustion contradiction with explicit approach and terminal-comparison premises; manuscript enclosing-ratio step kept separate. | 3: 1687, 1713, NATP00090 |
 | [LemmaII](NewtonLimitDynamics/Historical/LemmaII.lean) | Equal-width rectangle areas, gap exhaustion and all three mutual ultimate unit-ratio comparisons for an arbitrary assigned area magnitude, with a geometrically derived positive interior bracket. Integer multiples use explicit compatibility laws; absolute errors use X.1 halving. A separate uniform-continuity construction gives nonmonotone area exhaustion and all three multiple comparisons for every sufficiently small height tolerance and every fine partition, using a constructed positive rectangle. Coordinates/sums stay rational. | 2: 1687, 1713 |
 | [LemmaIII](NewtonLimitDynamics/Historical/LemmaIII.lean) | Unequal-width counterparts using the same edition's Lemmas I/II, including arbitrary assigned-magnitude errors and all three integer-multiple unit-ratio comparisons; shrinking mesh is supplied and modern completion is separate. Its own Lemma II also supplies nonmonotone graph-area exhaustion and multiple-ratio comparisons. | 2: 1687, 1713 |
-| [LemmaIII Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | Each edition derives area-independent whole-figure and complete limiting-boundary coincidence over an arbitrary supplied ordered coordinate field from its own Lemma III. Original shrinking families, attained interior heights, baseline and endpoint sides are included. Affine parallelogram and source-scope correspondence remain open; finite edge traces may contain interior edges with repeated nodes. Legacy rational area/free-edge/matched-family clients remain separate. | 2: 1687, 1713 |
+| [LemmaIII Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | Whole filled-figure and complete limiting-boundary coincidence, transported to actual oblique parallelograms with derived inverse/proximity and finite contact-height correspondence. Source-shaped clients identify the entire curve and its terminal point on the baseline. Historical whole-graph/regularity/contact admissibility remains open; finite edge traces may contain interior edges. Legacy rational area/free-edge/matched-family clients remain separate. | 2: 1687, 1713 |
 | [LemmaIII Corollary II](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | Two-sided rational chord approximation; no area or arclength conclusion. | 2: 1687, 1713 |
 | [LemmaIII Corollary III](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | Supporting-tangent geometry and actual finite polygon area for concave increasing rational patches, with contact and area premises; tangent existence is not proved. | 2: 1687, 1713 |
 | [LemmaIII Corollary IV](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | Chord and tangent upper-boundary approximation in the stated rational domain; modern completed-curve results are separate. | 2: 1687, 1713 |
@@ -313,6 +313,7 @@ current cascades:
 | Nonmonotone free staircases | Uniform continuity, nonnegative graph and height errors, shrinking mesh and errors | Both clipped left-sample traces approach the graph in both directions and lie in their actual rectangle unions. No area assignment or monotonicity is used. Graph enclosure requires an additional mesh–height relation; fixed sides and full topological perimeter are omitted. |
 | Matched nonmonotone rectangle family | Uniform continuity, nonnegative graph, positive vanishing height errors, any vanishing mesh, explicit area rules and curved-area assignment; a positive ordinate and MultipleRules for the ratio extension | Strictly increasing indices pair selected partitions with `eps m`, deriving enclosure at every step, a vanishing rational gap, assigned-area error decay, free-edge approach and all three unit-ratio comparisons on that same family. The positive lower bracket is derived eventually, allowing zero initial lower sums. Classical choice gives existential indices. Neither nested refinement nor full perimeter is inferred. |
 | Whole-figure Corollary I | Supplied linearly ordered coordinate field, whole nonnegative uniformly continuous graph, original ordered finite partitions with shrinking width bounds, and heights between ordinates attained inside each cell | Finite coverage, whole filled-set and complete-edge approximation, explicit separation and exact ultimate point-set equality. Baseline, sides, interior contacts, repeated nodes and zero heights are included. No area, selected subsequence, completion or extrema-attainment principle is used. Affine parallelogram and source-scope correspondence remain open. |
+| Affine/contact Corollary I | Independent frame directions, whole graph and uniform control, original shrinking families, attained cell contacts, and full supplied-curve identity with g(b)=0 | Derives the inverse and forward/inverse proximity, transports exact ultimate membership to actual oblique parallelogram unions, and identifies the two-straight-side boundary. Inscribed/circumscribed contact inequalities independently give finite enclosures. Historical admissibility of the supplied figure/regularity/contact description remains open; no extrema theorem is inferred. |
 | Assigned-area unit ratios | [MultipleRules](BarrowLib/Polygon/MagnitudeContent.lean): weak addition compatibility in the other addend and strict preservation of rational comparisons; an interior positive ordinate, geometric area rules and a supplied curved-area assignment | Actual integer multiples give both comparisons for each fixed `0<n<m`, for all three pairs of areas. The positive bracket is derived from an actual interior rectangle. No ratio convergence premise is supplied; full V.5 finite equality, general ratio calculus and a separate abstract `positive A` conclusion are outside this statement. |
 | Boundary corollaries | [UniformOn](BarrowLib/Polygon/RationalBoundary.lean), shrinking mesh, and supporting/contact data where needed | Two-sided approximation of the stated traces. Tangent existence and arclength are not inferred. |
 | Motion composition and laws' corollaries | [InertialMotion](NewtonLimitDynamics/Historical/LawI.lean), [AdditiveImpulse / CalibratedChange](NewtonLimitDynamics/Historical/LawII.lean), shared time and the displayed update rules | Endpoint geometry and finite motion consequences under those laws. The physical laws remain premises. |
@@ -338,7 +339,7 @@ own statement and proof are explicitly presented as a project derivation.
 | --- | ---: | ---: |
 | `LemmaII.lean` | 2 edition witness sections (1687, 1713) | 32 formal declarations; 2 nonmonotone exhaustion, 2 nonmonotone multiple-ratio, 2 matched-family ratio, 2 assigned-area ratio, 4 magnitude and 4 interior-rectangle extensions are explicit editorial reconstructions |
 | `LemmaIII.lean` | 2 edition witness sections (1687, 1713) | 26 formal declarations, including 2 separate anachronical results; 2 ordinate-control, 2 nonmonotone exhaustion, 2 nonmonotone multiple-ratio, 2 matched-family ratio, 2 assigned-area ratio, 2 magnitude and 2 interior-rectangle extensions are explicit editorial reconstructions |
-| `LemmaIII/CorollaryI.lean` | 2 edition witness sections (1687, 1713) | 18 formal declarations; 2 whole-figure, 2 nonmonotone exhaustion, 2 nonmonotone free-staircase, 2 matched-family, 2 matched-family ratio, 2 magnitude and 2 monotone staircase clients are explicit editorial coordinate reconstructions |
+| `LemmaIII/CorollaryI.lean` | 2 edition witness sections (1687, 1713) | 20 formal declarations; 2 affine/contact, 2 whole-figure, 2 nonmonotone exhaustion, 2 nonmonotone free-staircase, 2 matched-family, 2 matched-family ratio, 2 magnitude and 2 monotone staircase clients are explicit editorial coordinate reconstructions |
 | `ClassicsLib` | 6 source-linked result files; `FiniteLattice` is support | 26 formal declarations; determinant interpretations, Aristotle's proof reconstruction and the qualified Nine Chapters domains are explicit in their files |
 | Unreviewed `BarrowLib` support | Euclid I.41 is background for supplied area rules | 910 declarations remain U in the current bounded census; exact sourced/authored split is not inferred from the library name |
 | Zero-base/tail-ratio support since `1a20c9d` | 0 exact external result claims | 9 explicit project derivations, 5 public and 4 private; no historical priority claims |
@@ -401,10 +402,11 @@ form a completely inspected, disjoint slice:
 | New matched-family support and clients | 0 | 3 | 0 |
 | New matched-family ratio support and clients | 0 | 7 | 0 |
 | New whole-figure support and edition clients | 0 | 20 | 0 |
-| Total of these additions | 0 | 94 | 0 |
+| New affine/contact support and edition clients | 0 | 17 | 0 |
+| Total of these additions | 0 | 111 | 0 |
 
 “Project derivation” identifies the provenance of the exact statement and
-proof, not mathematical novelty. These 94 declarations are not 94 historical
+proof, not mathematical novelty. These 111 declarations are not 111 historical
 lemmas, and not all are used by every client. Older declarations and their
 transitive source attributions are outside this inspected slice. Future
 cascade censuses must deduplicate actual compiled dependencies and retain an
@@ -431,14 +433,15 @@ locations.
 | [Lemma I](NewtonLimitDynamics/Historical/LemmaI.lean) | 0 | 7 | 0 | Six printed-edition ordered-exhaustion/terminal-zero formulations and one separately qualified NATP00090 enclosing-ratio reconstruction. Explicit interfaces qualify the source correspondence. |
 | [Lemma II](NewtonLimitDynamics/Historical/LemmaII.lean) | 0 | 16 | 16 | Eight source-related rational formulations per printed edition; two interior-rectangle, two assigned-magnitude, one assigned-area ratio, one nonmonotone exhaustion, one nonmonotone multiple-ratio and one matched-family ratio extension per edition are P. |
 | [Lemma III](NewtonLimitDynamics/Historical/LemmaIII.lean) | 0 | 10 | 14 | Five source-related unequal-width reconstructions, one ordinate-control, one interior, one assigned-magnitude, one assigned-area ratio, one nonmonotone exhaustion, one nonmonotone multiple-ratio and one matched-family ratio extension per edition. The two anachronical completed-enclosure theorems remain U in this source census. |
-| [Lemma III Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 0 | 4 | 14 | Area and rectangle-cover reconstructions in each edition are R; two whole-figure, two monotone staircase-edge, two assigned-magnitude, two nonmonotone exhaustion, two nonmonotone free-staircase, two matched-family and two matched-family ratio clients are P. |
+| [Lemma III Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 0 | 4 | 16 | Area and rectangle-cover reconstructions in each edition are R; two affine/contact, two whole-figure, two monotone staircase-edge, two assigned-magnitude, two nonmonotone exhaustion, two nonmonotone free-staircase, two matched-family and two matched-family ratio clients are P. |
 | [MonotoneRectangles](BarrowLib/Polygon/MonotoneRectangles.lean), selected additions | 0 | 0 | 6 | `exists_positive_width_from_aux`, `exists_positive_width_from`, `interval_left_gap_le_total`, `interval_right_gap_le_total`, `lower_sum_eventually_positive`, `upper_sum_eventually_positive`; the first four are private. |
 | [RectangleContent](BarrowLib/Polygon/RectangleContent.lean), selected additions | 0 | 0 | 3 | `varying_ratios_approach_one_eventually`, `rectangle_interior_denominator_bound`, `rectangle_mutual_ratios_interior`. |
 | [RationalBoundary](BarrowLib/Polygon/RationalBoundary.lean), selected additions | 0 | 0 | 7 | The lower/upper pairs `nodes_in_*_staircase`, `*_staircase_in_rectangles` and `*_staircase_in_figure`; `perturbed_trace_approaches` derives the two-sided approximation under vanishing node errors. |
 | [MagnitudeContent](BarrowLib/Polygon/MagnitudeContent.lean) | 0 | 0 | 12 | `enclosure_errors_lt`, `curved_area_enclosure`, `rational_exhaustion`, `errors_vanish`, `multiple_monotone`, `multiple_embed`, `ratios_one_of_enclosure`, `rectangle_magnitude_ratios`, `finite_ratios_of_enclosure`, `rationalMultiples` and private `scale_succ`/`scale_gap_compare`. The existing rational compatibility proof is now declared as a theorem. X.1 and the general compatibility laws remain supplied fields. |
 | [UniformRectangles](BarrowLib/Polygon/UniformRectangles.lean) | 0 | 0 | 14 | `rectangle_enclosure`, `fine_rectangles`, `exhaustion`, `positive_rectangle`, `ratios_exhaustion`, `staircase_in_strips`, `staircase_approaches`, `matched_approximation`, `rectangle_sequence_ratios`; private `lower_properties`, `height_enclosure`, `height_distances`, `height_gap`, `value_gap_bound`. Exact English statements and proofs identify project derivations; uniform continuity is not a quoted Newton hypothesis. |
 | [CurvilinearCoincidence](BarrowLib/Polygon/CurvilinearCoincidence.lean) | 0 | 0 | 16 | Exact English statements and checked finite coverage, ordinate, approximation and separation derivations; no external exact-result match or priority claim. No area assignment or coordinate completion. |
-| Distinct reviewed declarations | 1 | 44 | 110 | 155 theorem declarations; these owning groups are disjoint. |
+| [AffineCoincidence](BarrowLib/Polygon/AffineCoincidence.lean) | 0 | 0 | 15 | Derived inverse and proximity, actual parallelogram unions, exact ultimate transport, finite contact enclosures and two-straight-side boundary identification. Exact English statements/proofs are project provenance, with no external exact-result or priority claim. |
+| Distinct reviewed declarations | 1 | 44 | 127 | 172 theorem declarations; these owning groups are disjoint. |
 
 These classifications were intersected with the actual compiled dependency
 closures to obtain the per-cascade table. Shared dependencies were counted
@@ -559,11 +562,38 @@ neither area nor arclength and uses no coordinate completion.
 
 Astra found no defect in the new conclusions and compiled independent collapsed,
 repeated-node, nonmonotone-contact and separation controls. These share the
-Lean kernel and core arithmetic. The remaining affine correspondence,
-actual inscription/contact derivation and historical figure/regularity scope
-keep the reassessed completion at 85%, rather than 100%. Area existence and
+Lean kernel and core arithmetic. Affine/contact correspondence is checked in
+the following section; historical figure/regularity/contact admissibility
+keeps completion at 85%, rather than 100%. Area existence and
 full ratio calculus remain separate Lemma II/III obligations; Corollary I's
 quoted geometric sentence does not independently assert their construction.
+
+## Affine/contact correspondence, 10 October
+
+[AffineCoincidence](BarrowLib/Polygon/AffineCoincidence.lean) adds fifteen
+P derivations and the two edition clients add two more. No previous named
+statement changes. Independent frame directions give a proved inverse;
+coefficient-derived moduli transfer both approximation and exact ultimate
+membership. Explicit parameter regions identify actual finite parallelogram
+unions, and segment transport proves their straight-edge interpretation.
+Attained contact derives the original cell-height bound; actual cellwise
+inscription/circumscription inequalities imply the finite set inclusions.
+
+The historical clients now identify the full supplied curved side and impose
+g(b)=0. The terminal side is consequently a baseline point, and the complete
+limiting boundary is precisely the baseline, other straight side and given
+curve. Their own Lemma II passages and URLs are recorded separately. The
+generic positive-terminal-height theorem remains an explicit broader project
+extension. None of these statements infers that every source figure admits a
+whole graph, uniform ordinate control or attained contacts.
+
+Astra found no defect and compiled oblique/reflected frames, singular-direction
+exclusion, an actual-union versus bounding-box counterexample, finite contact
+enclosures and exact transformed ultimate membership. Its separately built
+square example exercises both orientations. The checks share the Lean kernel
+and core arithmetic. The completed affine/contact mathematics is recorded,
+while source admissibility remains unresolved; the README explicitly retains
+85% after reassessing that uncertain remaining effort.
 
 ## Nine Chapters attestation, independently available
 

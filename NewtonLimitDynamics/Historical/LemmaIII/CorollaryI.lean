@@ -1,4 +1,5 @@
 import BarrowLib.Polygon.RationalBoundary
+import BarrowLib.Polygon.AffineCoincidence
 import NewtonLimitDynamics.Historical.LemmaIII
 /-! Historical result: lemma_iii_corollary_i.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
@@ -10,7 +11,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7
 Anchor URLs: NATP00077.par7 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7
-Proof-step correspondence: Legacy rational clients derive assigned-area errors through the edition's Lemma III and approximation of free staircase tops/joins, omitting fixed sides. The whole-figure reconstruction now uses this edition's unequal-width ordinate control over an arbitrary ordered coordinate field. It proves two-sided approximation of whole actual rectangle unions and complete finite edge traces (baseline, actual endpoint sides, rising/falling joins), then separation gives exact ultimate-point membership for the supplied whole figure and its complete boundary. It applies to every admissible original shrinking family; cell heights may contact the curve inside cells. No curved-area assignment is needed for this geometric conclusion. Coordinates, uniform ordinate control and the global graph description remain explicit editorial interpretation (confidence high), not an exact coordinate quotation. The affine/parallelogram correspondence and precise source figure/contact/regularity scope remain open. With repeated nodes the finite edge trace need not equal the finite union's topological boundary; no perimeter-length claim is made.
+Proof-step correspondence: Legacy rational clients derive assigned-area errors through the edition's Lemma III and approximation of free staircase tops/joins, omitting fixed sides. The whole-figure reconstruction now uses this edition's unequal-width ordinate control over an arbitrary ordered coordinate field. It proves two-sided approximation of whole actual rectangle unions and complete finite edge traces (baseline, actual endpoint sides, rising/falling joins), then separation gives exact ultimate-point membership for the supplied whole figure and its complete boundary. It applies to every admissible original shrinking family; cell heights may contact the curve inside cells. No curved-area assignment is needed for this geometric conclusion. Coordinates, uniform ordinate control and the global graph description remain explicit editorial interpretation (confidence high), not an exact coordinate quotation. The affine reconstruction below now derives transport to actual parallelograms and contact-height correspondence, with a separate two-straight-side specialization ending the curve on the baseline. The precise source figure/regularity/contact-admissibility scope remains open. With repeated nodes the finite edge trace need not equal the finite union's topological boundary; no perimeter-length claim is made.
 Historical dependency ledger for this exact witness:
 - P1687.L3 → P1687.L3C1; passage NATP00077.par7; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7; status implicit_dependency; confidence high.
 -/
@@ -177,9 +178,9 @@ edge trace has the complete boundary as its ultimate point set. Baseline,
 endpoint sides and falling joins are included at their actual finite heights.
 This uses this edition's Lemma III ordinate control and applies to every
 admissible original shrinking family over the whole ordered coordinate field.
-No curved-area assignment or ratio/length conclusion is needed. A geometric
-affine-coordinate correspondence and the source's figure/regularity scope
-must still be justified before claiming unrestricted historical completion. -/
+No curved-area assignment or ratio/length conclusion is needed. The affine
+correspondence is derived below; the source's whole-figure/contact/regularity
+interpretation still needs justification for historical completion. -/
 theorem corollary1_whole_figure_coincidence {K : Type}
     [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
     [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
@@ -206,6 +207,44 @@ theorem corollary1_whole_figure_coincidence {K : Type}
     fun k x hx => CurvilinearCoincidence.perimeter_in_rectangles (parts k) (heights k)
       (hpositive k) x hx⟩
 
+/-- Geometric transport to actual oblique parallelogram unions, specialized
+to the two straight sides in this edition's Lemma II: "rectis Aa, AE, & curva
+AcE comprehensa". The whole supplied curve is identified, and g(b)=0 puts its
+terminal point E on the baseline, rather than adding a third straight side.
+Finite contact supplies the height condition; inverse/proximity are proved.
+The whole-graph, uniform-control and contact-admissibility interpretation is
+editorial (confidence high), not a theorem that every curve admits it.
+Source: 1687 Lemma II, NATP00077.par3; exact Latin in Historical/LemmaII.lean.
+URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par3
+Status: editorial_interpretation; confidence high. No extrema existence is inferred. -/
+theorem corollary1_parallelogram_coincidence {K : Type}
+    [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
+    [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (frame : AffineCoincidence.Frame K) (curve : (K × K) → Prop)
+    (g : K → K) (a b : K)
+    (parts : Nat → CurvilinearCoincidence.Partition a b)
+    (heights : Nat → Nat → K) (mesh : Nat → K)
+    (hzero : ∀ t, a≤t → t≤b → 0≤g t)
+    (hf : CurvilinearCoincidence.UniformOn g a b)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh)
+    (hwidth : ∀ k i, i<(parts k).count →
+      (parts k).nodes (i+1)-(parts k).nodes i≤mesh k)
+    (hcontact : ∀ k i, i<(parts k).count →
+      AffineCoincidence.Touches g (parts k) i (heights k i))
+    (hend : g b=0)
+    (hcurve : ∀ x, curve x ↔ AffineCoincidence.Image frame.toAffine
+      (CurvilinearCoincidence.Graph g a b) x) :
+    AffineCoincidence.WholeCoincidence frame g a b parts heights ∧
+      ∀ x, CurvilinearCoincidence.Ultimate
+        (fun k => AffineCoincidence.Image frame.toAffine
+          (CurvilinearCoincidence.Perimeter (parts k) (heights k))) x ↔
+        AffineCoincidence.TwoSideBoundary frame curve g a b x := by
+  apply AffineCoincidence.two_side_coincidence frame curve g a b parts heights hend hcurve
+  apply AffineCoincidence.whole_coincidence_image
+  exact corollary1_whole_figure_coincidence g a b parts heights mesh hzero hf hmesh hwidth
+    (fun k i hi => AffineCoincidence.cell_height_of_contact
+      g (parts k) i (heights k i) (hcontact k i hi))
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -214,7 +253,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8
 Anchor URLs: NATP00082.par8 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8
-Proof-step correspondence: Legacy rational clients derive assigned-area errors through the edition's Lemma III and approximation of free staircase tops/joins, omitting fixed sides. The whole-figure reconstruction now uses this edition's unequal-width ordinate control over an arbitrary ordered coordinate field. It proves two-sided approximation of whole actual rectangle unions and complete finite edge traces (baseline, actual endpoint sides, rising/falling joins), then separation gives exact ultimate-point membership for the supplied whole figure and its complete boundary. It applies to every admissible original shrinking family; cell heights may contact the curve inside cells. No curved-area assignment is needed for this geometric conclusion. Coordinates, uniform ordinate control and the global graph description remain explicit editorial interpretation (confidence high), not an exact coordinate quotation. The affine/parallelogram correspondence and precise source figure/contact/regularity scope remain open. With repeated nodes the finite edge trace need not equal the finite union's topological boundary; no perimeter-length claim is made.
+Proof-step correspondence: Legacy rational clients derive assigned-area errors through the edition's Lemma III and approximation of free staircase tops/joins, omitting fixed sides. The whole-figure reconstruction now uses this edition's unequal-width ordinate control over an arbitrary ordered coordinate field. It proves two-sided approximation of whole actual rectangle unions and complete finite edge traces (baseline, actual endpoint sides, rising/falling joins), then separation gives exact ultimate-point membership for the supplied whole figure and its complete boundary. It applies to every admissible original shrinking family; cell heights may contact the curve inside cells. No curved-area assignment is needed for this geometric conclusion. Coordinates, uniform ordinate control and the global graph description remain explicit editorial interpretation (confidence high), not an exact coordinate quotation. The affine reconstruction below now derives transport to actual parallelograms and contact-height correspondence, with a separate two-straight-side specialization ending the curve on the baseline. The precise source figure/regularity/contact-admissibility scope remains open. With repeated nodes the finite edge trace need not equal the finite union's topological boundary; no perimeter-length claim is made.
 Historical dependency ledger for this exact witness:
 - P1713.L3 → P1713.L3C1; passage NATP00082.par8; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8; status implicit_dependency; confidence high.
 -/
@@ -379,9 +418,9 @@ edge trace has the complete boundary as its ultimate point set. Baseline,
 endpoint sides and falling joins are included at their actual finite heights.
 This uses this edition's Lemma III ordinate control and applies to every
 admissible original shrinking family over the whole ordered coordinate field.
-No curved-area assignment or ratio/length conclusion is needed. A geometric
-affine-coordinate correspondence and the source's figure/regularity scope
-must still be justified before claiming unrestricted historical completion. -/
+No curved-area assignment or ratio/length conclusion is needed. The affine
+correspondence is derived below; the source's whole-figure/contact/regularity
+interpretation still needs justification for historical completion. -/
 theorem corollary1_whole_figure_coincidence {K : Type}
     [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
     [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
@@ -407,5 +446,43 @@ theorem corollary1_whole_figure_coincidence {K : Type}
     CurvilinearCoincidence.perimeters_ultimate_eq g a b parts heights mesh hzero hf hmesh hwidth hheight,
     fun k x hx => CurvilinearCoincidence.perimeter_in_rectangles (parts k) (heights k)
       (hpositive k) x hx⟩
+
+/-- Geometric transport to actual oblique parallelogram unions, specialized
+to the two straight sides in this edition's Lemma II: "rectis Aa, AE, & curva
+AcE comprehensa". The whole supplied curve is identified, and g(b)=0 puts its
+terminal point E on the baseline, rather than adding a third straight side.
+Finite contact supplies the height condition; inverse/proximity are proved.
+The whole-graph, uniform-control and contact-admissibility interpretation is
+editorial (confidence high), not a theorem that every curve admits it.
+Source: 1713 Lemma II, NATP00082.par4; exact Latin in Historical/LemmaII.lean.
+URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par4
+Status: editorial_interpretation; confidence high. No extrema existence is inferred. -/
+theorem corollary1_parallelogram_coincidence {K : Type}
+    [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
+    [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (frame : AffineCoincidence.Frame K) (curve : (K × K) → Prop)
+    (g : K → K) (a b : K)
+    (parts : Nat → CurvilinearCoincidence.Partition a b)
+    (heights : Nat → Nat → K) (mesh : Nat → K)
+    (hzero : ∀ t, a≤t → t≤b → 0≤g t)
+    (hf : CurvilinearCoincidence.UniformOn g a b)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh)
+    (hwidth : ∀ k i, i<(parts k).count →
+      (parts k).nodes (i+1)-(parts k).nodes i≤mesh k)
+    (hcontact : ∀ k i, i<(parts k).count →
+      AffineCoincidence.Touches g (parts k) i (heights k i))
+    (hend : g b=0)
+    (hcurve : ∀ x, curve x ↔ AffineCoincidence.Image frame.toAffine
+      (CurvilinearCoincidence.Graph g a b) x) :
+    AffineCoincidence.WholeCoincidence frame g a b parts heights ∧
+      ∀ x, CurvilinearCoincidence.Ultimate
+        (fun k => AffineCoincidence.Image frame.toAffine
+          (CurvilinearCoincidence.Perimeter (parts k) (heights k))) x ↔
+        AffineCoincidence.TwoSideBoundary frame curve g a b x := by
+  apply AffineCoincidence.two_side_coincidence frame curve g a b parts heights hend hcurve
+  apply AffineCoincidence.whole_coincidence_image
+  exact corollary1_whole_figure_coincidence g a b parts heights mesh hzero hf hmesh hwidth
+    (fun k i hi => AffineCoincidence.cell_height_of_contact
+      g (parts k) i (heights k i) (hcontact k i hi))
 
 end Principia1713.LemmaIII
