@@ -129,6 +129,14 @@ given-trajectory controls pass. Historical theorem types/axiom reports and
 final uniform-error types remain unchanged. The warning census is now 524
 unused-simp, zero deprecation and five proposition-as-definition warnings.
 No removed simp argument required restoration.
+The subsequent Lemma II/III nonmonotone ratio increment removes six flagged
+simp arguments from MagnitudeContent/UniformRectangles, plus three from the
+touched uniform-rectangle harness. Require all four touched library/historical
+modules and that harness to be warning-free. Declaring the existing
+rationalMultiples proof as a theorem removes one proposition-as-definition
+warning and increases the measured theorem count by one without new mathematics.
+The six-build census is 518 unused-simp, zero deprecation and four
+proposition-as-definition warnings. No removed argument needed restoration.
 For provenance rows, require S + R + P + U to equal the same compiled proof
 tree shown in the measurements; wrapped scratch output must not skip rows.
 
@@ -204,8 +212,26 @@ Compiled traversal requires the edition's own new clients, actual finite
 rectangle areas, the sum gap bound, X.1 halving and the finite magnitude-error
 comparison. Foreign witnesses and ModernLib are rejected. No Lemma I use is
 asserted for this alternative construction. The area convention and arbitrary
-curved-area magnitude remain supplied; there is no nonrational model, new
-ratio theorem or general boundary-convergence conclusion.
+curved-area magnitude remain supplied; there is no nonrational model or
+general boundary-convergence conclusion.
+
+The same harness now checks four nonmonotone multiple-ratio clients, using
+the valley's positive interior ordinate at c=1/4. The construction gives
+a fixed contained rectangle, not an assumed area lower bound. An independent
+containment calculation checks [1/4,9/32]×[0,1/8], area 1/256 and half-bound
+1/512; the n=2 construction constants are q=1/1536 and cutoff=1/4608.
+For every smaller positive height tolerance, the returned mesh threshold
+has an actual dyadic tail; extracting it yields all six directed comparisons
+for lower/upper, lower/assigned and upper/assigned areas. Zero and constant
+1:2 brackets fail; the existing magnitude harness retains the shrinking-gap
+constant-ratio rejection. Compiled traversal requires the constructed
+positive rectangle, fine enclosing areas, the finite comparison, multiple
+compatibility laws and each edition's own II-to-III chain, rejecting foreign
+witnesses and ModernLib. A bounded sequential Astra review independently
+compiled the rectangle/constants, zero/1:2 rejections and tiny-bracket control.
+The review shares the rational arithmetic and kernel; curved-area existence
+is not established. Do not report exact finite ratio equality or mesh-only
+convergence with an arbitrary fixed height tolerance.
 
 `magnitude-content-2026-10-09.lean` checks the enlarged assigned-area domain
 of both editions' Lemmas II/III and Corollary I. Actual dyadic identity-graph

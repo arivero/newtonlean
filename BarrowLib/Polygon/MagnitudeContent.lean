@@ -207,7 +207,7 @@ structure MultipleRules {Q : Type} (M : Rules Q) where
     M.order.le (M.add c a) (M.add c b)
   embed_lt : ∀ a b, Fraction.lt a b → M.order.lt (M.embed a) (M.embed b)
 
-def rationalMultiples : MultipleRules rational where
+theorem rationalMultiples : MultipleRules rational where
   add_le_add_left := fun _ _ h c => Fraction.add_le_add_left h c
   embed_lt := fun _ _ h => h
 
@@ -222,7 +222,7 @@ private def scale (n : Nat) (a : Fraction) : Fraction :=
 private theorem scale_succ (n : Nat) (a : Fraction) :
     Fraction.equiv (scale (n+1) a) (Fraction.add (scale n a) a) := by
   simp only [scale, Fraction.equiv, Fraction.mul, Fraction.ofInt, Fraction.add,
-    Int.natCast_add, Int.natCast_one, Int.one_mul, Int.mul_one, Int.add_mul, Int.mul_add]
+    Int.natCast_add, Int.natCast_one, Int.one_mul, Int.add_mul]
   ac_nf
 
 theorem multiple_monotone {Q : Type} (M : Rules Q) (R : MultipleRules M)
@@ -240,7 +240,7 @@ theorem multiple_embed {Q : Type} (M : Rules Q) (n : Nat) (a : Fraction) :
   induction n with
   | zero =>
     constructor <;> apply (M.embed_le _ _).mpr <;>
-      simp [multiple, scale, Fraction.le, Fraction.mul, Fraction.ofInt]
+      simp [scale, Fraction.le, Fraction.mul, Fraction.ofInt]
   | succ n ih =>
     have hs := (Fraction.equiv_iff_mutual_le _ _).mp (scale_succ n a)
     exact ⟨M.order.le_trans (M.add_le_add_right _ _ ih.1 (M.embed a))
@@ -277,6 +277,32 @@ private theorem scale_gap_compare (n m : Nat) (hnm : n<m) (B L U : Fraction)
     omega
   exact Fraction.magnitudes.lt_of_lt_le hnext
     (Fraction.mul_le_mul_nonnegative hnm' L (Int.le_of_lt hL))
+
+/-- The two comparisons with each fixed unequal pair of positive multiples
+hold for any two magnitudes between the same finite rational brackets. -/
+def BracketComparisons {Q : Type} (M : Rules Q) (n m : Nat) (L U : Fraction) : Prop :=
+  ∀ X Y, (M.order.le (M.embed L) X ∧ M.order.le X (M.embed U)) →
+    (M.order.le (M.embed L) Y ∧ M.order.le Y (M.embed U)) →
+    M.order.lt (multiple M n X) (multiple M m Y) ∧
+      M.order.lt (multiple M n Y) (multiple M m X)
+
+/-- The finite comparison underlying the limiting argument. A positive
+lower bracket and a sufficiently small scaled gap suffice; no ratio limit
+or rationality of the enclosed magnitudes is assumed. Project derivation. -/
+theorem finite_ratios_of_enclosure {Q : Type} (M : Rules Q) (R : MultipleRules M)
+    (n m : Nat) (hnm : n<m) (B L U : Fraction)
+    (hB : 0<B.num) (hBL : Fraction.le B L)
+    (hsmall : Fraction.lt (Fraction.mul (Fraction.ofInt (n : Int))
+      (durationDifference L U)) B) : BracketComparisons M n m L U := by
+  have hscaled := scale_gap_compare n m hnm B L U hB hBL hsmall
+  have hcross : M.order.lt (multiple M n (M.embed U)) (multiple M m (M.embed L)) :=
+    M.order.lt_of_le_lt (multiple_embed M n U).1
+      (M.order.lt_of_lt_le (R.embed_lt _ _ hscaled) (multiple_embed M m L).2)
+  intro X Y hX hY
+  exact ⟨M.order.lt_of_le_lt (multiple_monotone M R n hX.2)
+      (M.order.lt_of_lt_le hcross (multiple_monotone M R m hY.1)),
+    M.order.lt_of_le_lt (multiple_monotone M R n hY.2)
+      (M.order.lt_of_lt_le hcross (multiple_monotone M R m hX.1))⟩
 
 /-- A positive eventual lower bracket and shrinking rational bracket gap
 force mutual unit-ratio comparisons for any two supplied magnitudes between
@@ -317,18 +343,9 @@ theorem ratios_one_of_enclosure {Q : Type} (M : Rules Q) (R : MultipleRules M)
       rw [Fraction.toRat_ofRat] at hstrict
       (try dsimp only at hcoef hdist hstrict ⊢)
       grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
-  have hscaled : Fraction.lt (scale n (U k)) (scale m (L k)) :=
-    scale_gap_compare n m hnm B _ _ hB (hBL k (by omega))
-      (Fraction.magnitudes.lt_of_le_lt
-        (Fraction.le_of_equiv (Fraction.mul_comm C _)) hsmall)
-  have hcross : M.order.lt (multiple M n (M.embed (U k)))
-      (multiple M m (M.embed (L k))) :=
-    M.order.lt_of_le_lt (multiple_embed M n _).1
-      (M.order.lt_of_lt_le (R.embed_lt _ _ hscaled) (multiple_embed M m _).2)
-  exact ⟨M.order.lt_of_le_lt (multiple_monotone M R n (hX k).2)
-      (M.order.lt_of_lt_le hcross (multiple_monotone M R m (hY k).1)),
-    M.order.lt_of_le_lt (multiple_monotone M R n (hY k).2)
-      (M.order.lt_of_lt_le hcross (multiple_monotone M R m (hX k).1))⟩
+  exact finite_ratios_of_enclosure M R n m hnm B (L k) (U k) hB (hBL k (by omega))
+    (Fraction.magnitudes.lt_of_le_lt
+      (Fraction.le_of_equiv (Fraction.mul_comm C _)) hsmall) (X k) (Y k) (hX k) (hY k)
 
 /-- All three mutual comparisons in Lemmas II–III, without dividing general
 magnitudes. The fixed rectangle used for positivity may start inside the

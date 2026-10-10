@@ -161,8 +161,15 @@ the recurrence's exact rational value for arbitrary signed inputs. All six
 builds, regional-accumulation/construction and given-trajectory controls pass;
 historical theorem types, final uniform-error types and all 228 historical
 axiom reports are unchanged. Counts and scores are refreshed. There are now
-524 unused-simp, zero deprecation and five proposition-as-definition warnings;
-no removed argument needed restoration. This earns no completion credit.
+524 unused-simp, zero deprecation and five proposition-as-definition warnings
+at that migration boundary; no removed argument needed restoration. This
+earns no completion credit. The subsequent Lemma II/III proof increment
+removes six unused simp arguments from its two touched support modules,
+plus three from its scope harness. Declaring the existing rationalMultiples
+proposition as a theorem removes its warning and adds one measured declaration
+without new mathematics. The current six-build census is 518 unused-simp,
+zero deprecation and four proposition-as-definition warnings; the touched
+support/historical modules and harness have no warnings.
 
 GeometricTail.modulus is another representative-sensitive chosen witness:
 at tolerance 1, inputs 1/1 and 2/2 produce cutoff indices 2 and 4 despite equal
@@ -219,8 +226,8 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Result or bridge | Retained checked result | Open historical obligation |
 | --- | --- | --- |
 | Lemma I | Separate 1687/1713 positive-terminal-difference contradictions, including an actual positive before-end time window; rational terminal-zero consequence | Terminal comparisons and approach premises are supplied; terminal values are not constructed. No general equality of objects is inferred from an unspecified difference |
-| Lemma II | Exact equal-width gap, finite rectangle areas and exhaustion; edition-local Lemma I. Any assigned curved-area magnitude is approximated under explicit classical halving and area rules; a separate uniformly continuous graph construction removes monotonicity for absolute area exhaustion. Integer multiples now give all three mutual ultimate unit-ratio comparisons; an interior positive rectangle derives a lower bracket despite initial zero lower sums | General area/convention existence, arbitrary patches and non-rational coordinates remain open. Only the rational magnitude model is constructed; arbitrary-domain area assignments remain conditional. Full Eudoxian ratio calculus is outside the current encoding |
-| Lemma III | Maximum-width exhaustion and the edition's Lemma II enclosure approximate any assigned area magnitude; its own Lemma I excludes a positive terminal gap. Integer multiples now give all three mutual unit-ratio comparisons on monotone graphs, including zero-base interior-positive patches. A separate uniform-continuity construction gives nonmonotone area exhaustion on all fine partitions | Same remaining area/coordinate scope as Lemma II; applications must establish mesh exhaustion for their force polygons. Exact finite ratio equality and full ratio calculus are not claimed |
+| Lemma II | Exact equal-width gap, finite rectangle areas and exhaustion; edition-local Lemma I. Any assigned curved-area magnitude is approximated under explicit classical halving and area rules. Integer multiples give all three mutual ultimate unit-ratio comparisons on monotone interior-positive patches. The separate uniformly continuous graph construction now removes monotonicity for both absolute area exhaustion and all three multiple comparisons; a positive ordinate constructs a fixed rectangle and derives the positive lower bracket | General area/convention existence, arbitrary patches and non-rational coordinates remain open. Only the rational magnitude model is constructed; arbitrary-domain area assignments remain conditional. Full Eudoxian ratio calculus is outside the current encoding |
+| Lemma III | Maximum-width exhaustion and the edition's Lemma II enclosure approximate any assigned area magnitude; its own Lemma I excludes a positive terminal gap. Integer multiples give all three mutual unit-ratio comparisons on monotone graphs, including zero-base interior-positive patches. Its own Lemma II now also gives nonmonotone area exhaustion and all three multiple comparisons for every sufficiently small positive height tolerance and every fine partition | Same remaining area/coordinate scope as Lemma II; applications must establish mesh exhaustion for their force polygons. Exact finite ratio equality and full ratio calculus are not claimed |
 | Lemma III corollaries I–IV | Source-local area and boundary approximation chain. Corollary I now also accepts any supplied area magnitude under explicit X.1 halving and geometric area rules, through its own Lemma III, now also for nonmonotone uniformly continuous nonnegative graphs. On monotone graphs it proves two-sided approach of explicit free staircase tops/vertical joins and their inclusion in the actual lower/upper rectangle unions. For concave increasing rational graph patches, two-sided secant contact and independent secant concavity derive the supporting tangent cells, their meetings, a uniform continuity bound and two-sided chord/contact-tangent boundary approximation. The joined trace equals the filled tangent polygon's vertical top, including shared endpoints, coincident lines and repeated nodes. Rectangle/triangle normalization, cut additivity and translation invariance derive the actual finite polygon's trapezoid-sum area. Its error against an assigned curved area vanishes through the edition's Corollary I; no separate polygon-area assignment is needed in the constructed interface | Arbitrary curves still use the older supplied supporting-cell interface. Tangent existence, other patch orientations and general patch decomposition remain open, as do existence of the geometric area convention and curved area, non-rational coordinates, full ratio calculus and force-polygon correspondence. Staircase traces omit fixed baseline/endpoint sides; no full closed-boundary or arclength claim |
 | Laws' Corollary I / De Motu Lemma 1 | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates. NATP00090 now derives its own two endpoint constraints and independent-line intersection from its Lex 1 inertia and Lex 2 calibrated velocity difference; direct addition also covers degenerate directions and zero time | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites both Laws II/I in this proof; NATP00090 cites Lex 2, and post-impulse inertia is an editorial interpretation of its Lex 1. Its literal M/AC label inconsistency is recorded. NATP00089 retains its own hypothesis/model scope |
 | Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
@@ -327,15 +334,39 @@ uniform continuity and actual shrinking dyadic partitions. An old endpoint
 lower rectangle provably fails to lie below that graph. All six clients and
 the nonvacuous fine-partition error tail compile without ModernLib use.
 
-Remaining Lemma II–III work includes the broader ratio and explicit-boundary
-scope, area/convention existence, non-rational coordinates and patch assembly.
-Do not infer nonmonotone staircase convergence or unit ratios from this area
-theorem. For the arithmetic foundation, the user's Euclid VII.19/Nine Chapters
-source route is recorded in [BARROWLIB_BOUNDARY.md](BARROWLIB_BOUNDARY.md).
-Exact passages are pending. Source relocation alone changes neither the
-representation cost nor historical proof completion; alternatives must first
-be compared on one bounded arithmetic client as described in
-[PROOF_STRATEGY.md](PROOF_STRATEGY.md).
+`UniformRectangles.ratios_exhaustion` now closes the nonmonotone mutual
+unit-ratio extension separately. A positive ordinate at a≤c<b and continuity
+construct a rectangle of positive rational area R inside the graph figure.
+Area monotonicity gives embed R≤A≤embed U; a sufficiently small finite gap
+derives R/2≤L and n*(U-L)<R/2. The extracted finite multiple comparison then
+applies to any two magnitudes between the same brackets, including all
+three lower/upper/assigned-area pairs. For each fixed positive n<m, there
+is a positive cutoff; every smaller positive height tolerance gets a
+positive mesh threshold admitting every finer partition. No ratio limit,
+positive denominator bound or abstract positive A is supplied. Both editions
+have their own II → III clients. Curved-area/convention existence stays
+supplied. This is a two-tolerance family of eventual equimultiple comparisons,
+not exact finite equality or a mesh-only limit with arbitrary fixed heights.
+The valley control checks an actual dyadic tail for all three pairs and
+rejects zero and constant 1:2 brackets. Its explicit interior rectangle
+has area 1/256 and half-bound 1/512; n=2 gives q=1/1536 and height cutoff
+1/4608 in this witness calculation. A bounded sequential Astra review found
+no blocker and independently compiled the rectangle containment, these
+constants, zero/1:2 rejections and a tiny positive-bracket control. The review
+and both sets of controls share rational arithmetic and the Lean kernel.
+Seven additional proof declarations and one def-to-theorem conversion are
+classified P by their exact project statements/derivations, without external
+textual support or priority claims. Existing historical statements and all
+228 previous axiom reports are unchanged; the four new historical clients
+use only propext, Classical.choice and Quot.sound.
+
+Remaining Lemma II–III work includes full ratio calculus, broader explicit
+boundary scope, area/convention existence, non-rational coordinates and
+patch assembly. Nonmonotone staircase convergence is not inferred from the
+area or ratio construction. For the arithmetic foundation, Nine Chapters
+attestations and the still-open Euclid VII.19/additional signed-operation
+audit are in [BARROWLIB_BOUNDARY.md](BARROWLIB_BOUNDARY.md). Source relocation
+alone changes neither representation cost nor historical proof completion.
 
 The user's classical comparison examples now live in ClassicsLib. Euclid
 VII.31 supplies a prime divisor by finite descent; IX.20 proves a prime lies
@@ -849,14 +880,16 @@ controls, now retained in the same harness. The review and controls share
 the rational definitions and Lean kernel; initial convention existence is
 still an explicit input.
 
-Last full verification: 10 October 2026, after the nonmonotone rectangular
-area-exhaustion extension of Lemmas II/III and Corollary I. All five builds,
-all 40 positive scope harnesses
-(including the harmonic reference/comparator), source hashes and whitespace
-passed. The compiled checker verified the README measurements, 1,181 score
-comments and 7,993 project constants with no project axioms, sorry or primary
-modern dependency. The corrupted comparator failed at its intended false equality;
-a corrupted finite upper-height comparison also failed at its intended claim.
+Latest verification: 10 October 2026, after the nonmonotone multiple-ratio
+extension of Lemmas II/III. All six builds, the uniform-rectangle,
+magnitude-content and monotone-rectangle scope harnesses, source hashes and
+whitespace passed. The compiled checker verified the README measurements,
+1,181 unchanged score comments and 6,283 project constants with no project
+axioms, sorry or primary modern dependency. The earlier full scope run
+passed all 40 positive harnesses (including the harmonic reference/comparator)
+and rejected its corrupted comparator and upper-height comparison at the
+intended false equalities. The current harness also rejects zero and
+constant 1:2 brackets and exercises actual fine dyadic partitions.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
 unchanged. New coordinate statements record their derivations without

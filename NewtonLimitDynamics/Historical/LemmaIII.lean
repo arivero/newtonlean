@@ -197,6 +197,24 @@ theorem uniform_graph_rectangle_exhaustion {Q : Type}
   Principia1687.LemmaII.uniform_graph_rectangle_exhaustion
     area g a b A hab hzero hf hA
 
+/-- Project extension of this witness's mutual-ratio conclusion to graphs
+that may rise and fall. A positive ordinate and continuity construct the
+fixed positive rectangle; no denominator bound or ratio limit is supplied.
+For each unequal positive integer pair, every sufficiently fine partition
+gives all three lower/upper/assigned-area comparisons. Exact Latin remains
+above; continuity and the coordinate domain are editorial premises. -/
+theorem uniform_graph_assigned_magnitude_ratios {Q : Type}
+    (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes)
+    (g : Fraction → Fraction) (a b c : Fraction) (A : Q)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
+    UniformRectangles.RatiosExhaust area g a b A :=
+  Principia1687.LemmaII.uniform_graph_assigned_magnitude_ratios
+    area multiples g a b c A hac hcb hgc hzero hf hA
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own unequal-width exhaustion and conditional geometric area approximation. -/
@@ -387,6 +405,24 @@ theorem uniform_graph_rectangle_exhaustion {Q : Type}
     UniformRectangles.Exhausts area g a b A :=
   Principia1713.LemmaII.uniform_graph_rectangle_exhaustion
     area g a b A hab hzero hf hA
+
+/-- Project extension of this witness's mutual-ratio conclusion to graphs
+that may rise and fall. A positive ordinate and continuity construct the
+fixed positive rectangle; no denominator bound or ratio limit is supplied.
+For each unequal positive integer pair, every sufficiently fine partition
+gives all three lower/upper/assigned-area comparisons. Exact Latin remains
+above; continuity and the coordinate domain are editorial premises. -/
+theorem uniform_graph_assigned_magnitude_ratios {Q : Type}
+    (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes)
+    (g : Fraction → Fraction) (a b c : Fraction) (A : Q)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A) :
+    UniformRectangles.RatiosExhaust area g a b A :=
+  Principia1713.LemmaII.uniform_graph_assigned_magnitude_ratios
+    area multiples g a b c A hac hcb hgc hzero hf hA
 
 end Principia1713.LemmaIII
 

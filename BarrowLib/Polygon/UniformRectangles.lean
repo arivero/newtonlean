@@ -26,6 +26,50 @@ noncomputable def lower (H eps : Fraction) : Fraction := by
 
 def upper (H eps : Fraction) : Fraction := Fraction.add H eps
 
+/-- A positive ordinate before the right endpoint and uniform continuity
+construct a nonzero rectangle inside the figure, even when the graph falls
+elsewhere. This exact statement and proof are project provenance; no area
+assignment or historical continuity hypothesis is inferred. -/
+theorem positive_rectangle (g : Fraction → Fraction) (a b c : Fraction)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b) :
+    ∃ r : Fraction, Fraction.lt c r ∧ Fraction.le r b ∧
+      ∀ x, rectangle c r (g c).half x → figure g a b x := by
+  obtain ⟨delta,hdelta,hnear⟩ := hf (g c).half hgc
+  let r := Fraction.ofRat (c.toRat + min ((b.toRat-c.toRat)/2) delta.toRat)
+  have hcbR := (Fraction.lt_iff_toRat c b).mp hcb
+  have hdR := (Fraction.positive_iff_toRat delta).mp hdelta
+  have hr : c.toRat < r.toRat ∧ r.toRat ≤ b.toRat ∧ r.toRat-c.toRat ≤ delta.toRat := by
+    dsimp only [r]
+    rw [Fraction.toRat_ofRat]
+    grind
+  refine ⟨r,(Fraction.lt_iff_toRat c r).mpr hr.1,
+    (Fraction.le_iff_toRat r b).mpr hr.2.1,?_⟩
+  rintro x ⟨hcx,hxr,hyzero,hy⟩
+  have hax := Fraction.magnitudes.le_trans hac hcx
+  have hxb := Fraction.magnitudes.le_trans hxr ((Fraction.le_iff_toRat r b).mpr hr.2.1)
+  have hdist : Fraction.le (durationDifference c x.1).abs delta := by
+    apply (Fraction.le_iff_toRat _ _).mpr
+    rw [Fraction.toRat_abs,Fraction.toRat_durationDifference]
+    have hxR := (Fraction.le_iff_toRat c x.1).mp hcx
+    have hxrR := (Fraction.le_iff_toRat x.1 r).mp hxr
+    rw [Rat.abs_of_nonneg (by grind)]
+    grind
+  have hc := hnear c x.1 hac (Fraction.magnitudes.lt_implies_le hcb) hax hxb hdist
+  have hyabs : Fraction.le (durationDifference (g x.1) (g c)).abs
+      (FiniteEstimates.pointDistance (c,g c) (x.1,g x.1)) :=
+    Fraction.le_equiv_right
+      (Fraction.le_add_nonnegative _ (durationDifference x.1 c).abs
+        (Fraction.abs_num_nonnegative _)) (Fraction.add_comm _ _)
+  have hsum := difference_add_bound (g x.1) (g c) (g c).half
+    (Fraction.magnitudes.le_trans (Fraction.le_abs _)
+      (Fraction.magnitudes.lt_implies_le (Fraction.magnitudes.lt_of_le_lt hyabs hc)))
+  have hheight : Fraction.le (g c).half (g x.1) :=
+    Fraction.le_add_cancel_left (g c).half _ _
+      (Fraction.le_equiv_left (Fraction.half_add_self (g c))
+        (Fraction.le_equiv_right hsum (Fraction.add_comm _ _)))
+  exact ⟨hax,hxb,hyzero,Fraction.magnitudes.le_trans hy hheight⟩
+
 private theorem lower_properties (H eps : Fraction) (hH : 0≤H.num) (heps : 0≤eps.num) :
     0≤(lower H eps).num ∧ Fraction.le (lower H eps) H ∧
       Fraction.le H (Fraction.add (lower H eps) eps) := by
@@ -231,8 +275,8 @@ theorem exhaustion {Q : Type} (area : MagnitudeContent.AreaRules Q)
   have he : Fraction.equiv (Fraction.mul (Fraction.add eps eps) (durationDifference a b))
       (Fraction.mul eps C) := by
     simp only [C,Fraction.equiv,Fraction.mul,Fraction.add,Fraction.ofInt,
-      Int.one_mul,Int.mul_one,Int.add_mul,Int.mul_add]
-    simp only [show (2 : Int) = 1+1 by rfl,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
+      Int.one_mul,Int.add_mul]
+    simp only [show (2 : Int) = 1+1 by rfl,Int.add_mul,Int.mul_add,Int.one_mul]
     ac_nf
   have hsmall := Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hbound he)
     ((show Fraction.lt (Fraction.mul (eps) (C)) (q) from by
@@ -256,5 +300,100 @@ theorem exhaustion {Q : Type} (area : MagnitudeContent.AreaRules Q)
     ((area.magnitudes.embed_le _ _).mpr (Fraction.magnitudes.lt_implies_le hsmall)) hj
   exact ⟨henclose,hgap,MagnitudeContent.enclosure_errors_lt area.magnitudes _ _ A d
     henclose.2.2.2.2 hgap⟩
+
+/-- For each fixed unequal positive integer pair, every sufficiently fine
+partition has actual enclosing rectangle unions giving the unit-ratio
+comparisons for any two magnitudes between their areas. In particular these
+are all three lower/upper/assigned-area comparisons, with no division of Q.
+Every positive height tolerance below the returned cutoff is admitted;
+its required mesh threshold may depend on that tolerance. -/
+def RatiosExhaust {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (g : Fraction → Fraction) (a b : Fraction) (A : Q) : Prop :=
+  ∀ n m : Nat, 0<n → n<m →
+    ∃ cutoff : Fraction, 0<cutoff.num ∧
+      ∀ eps : Fraction, 0<eps.num → Fraction.le eps cutoff →
+        ∃ delta : Fraction, 0<delta.num ∧
+          ∀ p : Partition a b, Fraction.lt (maxWidth p) delta →
+            Encloses area g a b A p (lowerHeights g p eps) (upperHeights g p eps) ∧
+            MagnitudeContent.BracketComparisons area.magnitudes n m
+              (value p (lowerHeights g p eps)) (value p (upperHeights g p eps))
+
+/-- A constructed positive rectangle supplies the denominator control for
+nonmonotone graphs. Finite gap control then gives the comparisons for all
+fine partitions, not just a selected subsequence. Curved area and the area
+and multiple rules remain supplied; no ratio-limit premise is added.
+Provenance: this exact project statement and checked derivation. -/
+theorem ratios_exhaustion {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes)
+    (g : Fraction → Fraction) (a b c : Fraction) (A : Q)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (figure g a b) A) : RatiosExhaust area g a b A := by
+  obtain ⟨r,hcr,hrb,hrect⟩ := positive_rectangle g a b c hac hcb hgc hf
+  let R := Fraction.mul (durationDifference c r) (g c).half
+  have hRR : 0<R.toRat := by
+    dsimp only [R]
+    rw [Fraction.toRat_mul,Fraction.toRat_durationDifference,Fraction.toRat_half]
+    have hcrR := (Fraction.lt_iff_toRat c r).mp hcr
+    have hgcR := (Fraction.positive_iff_toRat (g c)).mp hgc
+    apply Rat.mul_pos <;> grind
+  have hR : 0<R.num := (Fraction.positive_iff_toRat R).mpr hRR
+  have hRA : area.magnitudes.order.le (area.magnitudes.embed R) A :=
+    area.monotone _ _ _ _ hrect
+      (area.rectangle c r (g c).half (Fraction.magnitudes.lt_implies_le hcr)
+        (Int.le_of_lt hgc)) hA
+  have hwidth : 0≤b.toRat-a.toRat := by
+    have hacR := (Fraction.le_iff_toRat a c).mp hac
+    have hcbR := (Fraction.lt_iff_toRat c b).mp hcb
+    grind
+  intro n m _ hnm
+  let q : Rat := R.toRat / (2*(n : Rat)+2)
+  let e : Rat := q / (2*(b.toRat-a.toRat)+1)
+  have hn : 0≤(n : Rat) := Rat.natCast_nonneg
+  have hden : 0<2*(n : Rat)+2 := by grind
+  have hwden : 0<2*(b.toRat-a.toRat)+1 := by grind
+  have hq : 0<q := by
+    dsimp only [q]
+    grind only [Rat.div_def,Rat.inv_pos,Rat.mul_pos]
+  have he : 0<e := by
+    dsimp only [e]
+    grind only [Rat.div_def,Rat.inv_pos,Rat.mul_pos]
+  have hqeq : q*(2*(n : Rat)+2)=R.toRat := Rat.div_mul_cancel (Rat.ne_of_gt hden)
+  have heq : e*(2*(b.toRat-a.toRat)+1)=q := Rat.div_mul_cancel (Rat.ne_of_gt hwden)
+  refine ⟨Fraction.ofRat e,(Fraction.positive_iff_toRat _).mpr
+    (by simpa only [Fraction.toRat_ofRat] using he),fun eps heps hcut => ?_⟩
+  have hcutR := (Fraction.le_iff_toRat _ _).mp hcut
+  rw [Fraction.toRat_ofRat] at hcutR
+  obtain ⟨delta,hdelta,hfine⟩ := fine_rectangles area g a b A hzero hf hA eps heps
+  refine ⟨delta,hdelta,fun p hp => ?_⟩
+  obtain ⟨henclose,hgap⟩ := hfine p hp
+  let L := value p (lowerHeights g p eps)
+  let U := value p (upperHeights g p eps)
+  have hRU : R.toRat≤U.toRat := (Fraction.le_iff_toRat R U).mp
+    ((area.magnitudes.embed_le R U).mp
+      (area.magnitudes.order.le_trans hRA henclose.2.2.2.2.2))
+  have hgapR : U.toRat-L.toRat < q := by
+    have hb := (Fraction.le_iff_toRat _ _).mp hgap
+    rw [Fraction.toRat_durationDifference,Fraction.toRat_mul,Fraction.toRat_add,
+      Fraction.toRat_durationDifference] at hb
+    have hscale := Rat.mul_le_mul_of_nonneg_right
+      (show eps.toRat+eps.toRat≤e+e by grind) hwidth
+    change U.toRat-L.toRat ≤ (eps.toRat+eps.toRat)*(b.toRat-a.toRat) at hb
+    grind
+  have hqn := Rat.mul_nonneg (Rat.le_of_lt hq) hn
+  have hBL : Fraction.le R.half L := by
+    apply (Fraction.le_iff_toRat _ _).mpr
+    rw [Fraction.toRat_half]
+    grind
+  have hsmall : Fraction.lt (Fraction.mul (Fraction.ofInt (n : Int))
+      (durationDifference L U)) R.half := by
+    apply (Fraction.lt_iff_toRat _ _).mpr
+    rw [Fraction.toRat_mul,Fraction.toRat_ofInt,Fraction.toRat_durationDifference,
+      Fraction.toRat_half,Rat.intCast_natCast]
+    have hscaled := Rat.mul_le_mul_of_nonneg_left (Rat.le_of_lt hgapR) hn
+    grind
+  exact ⟨henclose,MagnitudeContent.finite_ratios_of_enclosure area.magnitudes
+    multiples n m hnm R.half L U hR hBL hsmall⟩
 
 end NewtonLimitDynamics.Polygon.UniformRectangles

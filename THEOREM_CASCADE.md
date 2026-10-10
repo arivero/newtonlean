@@ -5,8 +5,8 @@ The counts are produced from the compiled Lean environment by
 `research/CheckReferences.lean`; they are not a count of historical
 propositions and they are not additive across rows.
 
-The mathematical snapshot is the nonmonotone rectangular-exhaustion increment
-of 10 October 2026, based on `e514454`. The README records why the reassessed
+The mathematical snapshot includes the nonmonotone rectangular-exhaustion
+and mutual-ratio extensions of 10 October 2026. The README records why the reassessed
 Lemma II/III estimates remain 80% and Corollary I remains 70%. The README
 keeps the progress estimates and compact measurements; this file explains
 the kinds of result, their sources and the provenance coverage of the
@@ -141,19 +141,19 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 880 | 1809 |
+| `AreaLaw.lean` | 73 | 880 | 1817 |
 | `CompositionOfMotions.lean` | 13 | 48 | 183 |
 | `LawI.lean` | 0 | 0 | 111 |
 | `LawII.lean` | 0 | 0 | 97 |
 | `LawsCorollaryV.lean` | 4 | 45 | 138 |
 | `LawsCorollaryVI.lean` | 4 | 33 | 138 |
 | `LemmaI.lean` | 7 | 18 | 91 |
-| `LemmaII.lean` | 28 | 141 | 385 |
-| `LemmaIII.lean` | 20 | 183 | 502 |
-| `LemmaIII/CorollaryI.lean` | 10 | 137 | 512 |
-| `LemmaIII/CorollaryII.lean` | 2 | 70 | 514 |
-| `LemmaIII/CorollaryIII.lean` | 10 | 213 | 648 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 471 | 1378 |
+| `LemmaII.lean` | 30 | 151 | 391 |
+| `LemmaIII.lean` | 22 | 195 | 510 |
+| `LemmaIII/CorollaryI.lean` | 10 | 137 | 520 |
+| `LemmaIII/CorollaryII.lean` | 2 | 70 | 522 |
+| `LemmaIII/CorollaryIII.lean` | 10 | 213 | 656 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 471 | 1386 |
 | `LemmaX.lean` | 4 | 14 | 81 |
 | `LemmaX/CorollaryI.lean` | 2 | 14 | 91 |
 | `LemmaX/CorollaryII.lean` | 4 | 24 | 93 |
@@ -165,7 +165,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 976 | 976 | 976 |
+| `BarrowLib` | 980 | 980 | 980 |
 | `ModernLib` | 1157 | 1491 | 1679 |
 
 The README additionally lists line counts and the individual classical files.
@@ -214,8 +214,8 @@ source. Source witnesses for every historical file remain in the next table.
 | `LawsCorollaryV.lean` | 0 | 0 | 0 | 45 | 45 |
 | `LawsCorollaryVI.lean` | 0 | 0 | 0 | 33 | 33 |
 | `LemmaI.lean` | 0 | 7 | 0 | 11 | 18 |
-| `LemmaII.lean` | 0 | 20 | 39 | 82 | 141 |
-| `LemmaIII.lean` | 0 | 18 | 41 | 124 | 183 |
+| `LemmaII.lean` | 0 | 20 | 49 | 82 | 151 |
+| `LemmaIII.lean` | 0 | 18 | 53 | 124 | 195 |
 | `LemmaIII/CorollaryI.lean` | 0 | 12 | 38 | 87 | 137 |
 | `LemmaIII/CorollaryII.lean` | 0 | 2 | 0 | 68 | 70 |
 | `LemmaIII/CorollaryIII.lean` | 0 | 10 | 10 | 193 | 213 |
@@ -237,12 +237,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 66 | 910 | 976 |
+| `BarrowLib` | 0 | 0 | 70 | 910 | 980 |
 | `ModernLib` | 0 | 2 | 22 | 1467 | 1491 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **155 of 2357
-theorems: 6 S, 49 R and 100 P; 2202 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **163 of 2365
+theorems: 6 S, 49 R and 108 P; 2202 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 Wrapped scratch output had left the Corollary III and IV provenance rows stale;
 they now use unwrapped output and agree with their measured proof-tree totals.
@@ -271,8 +271,8 @@ they do not inherit the full scope of a historical sentence automatically.
 | [LawsCorollaryV](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | Relative-state preservation at finite cell boundaries under shared time and relative-state impulse rules. The manuscript statement is a supplied law. | 3: NATP00090, 1687, 1713 |
 | [LawsCorollaryVI](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | Common calibrated changes preserve mutual states at cell boundaries; continuous forcing and absolute-state force rules are outside the model. | 2: 1687, 1713 |
 | [LemmaI](NewtonLimitDynamics/Historical/LemmaI.lean) | Ordered exhaustion contradiction with explicit approach and terminal-comparison premises; manuscript enclosing-ratio step kept separate. | 3: 1687, 1713, NATP00090 |
-| [LemmaII](NewtonLimitDynamics/Historical/LemmaII.lean) | Equal-width rectangle areas, gap exhaustion and all three mutual ultimate unit-ratio comparisons for an arbitrary assigned area magnitude, with a geometrically derived positive interior bracket. Integer multiples use explicit compatibility laws; absolute errors use X.1 halving. A separate uniform-continuity construction gives nonmonotone graph-area exhaustion on every fine partition. Coordinates/sums stay rational. | 2: 1687, 1713 |
-| [LemmaIII](NewtonLimitDynamics/Historical/LemmaIII.lean) | Unequal-width counterparts using the same edition's Lemmas I/II, including arbitrary assigned-magnitude errors and all three integer-multiple unit-ratio comparisons; shrinking mesh is supplied and modern completion is separate. Its own Lemma II also supplies nonmonotone graph-area exhaustion. | 2: 1687, 1713 |
+| [LemmaII](NewtonLimitDynamics/Historical/LemmaII.lean) | Equal-width rectangle areas, gap exhaustion and all three mutual ultimate unit-ratio comparisons for an arbitrary assigned area magnitude, with a geometrically derived positive interior bracket. Integer multiples use explicit compatibility laws; absolute errors use X.1 halving. A separate uniform-continuity construction gives nonmonotone area exhaustion and all three multiple comparisons for every sufficiently small height tolerance and every fine partition, using a constructed positive rectangle. Coordinates/sums stay rational. | 2: 1687, 1713 |
+| [LemmaIII](NewtonLimitDynamics/Historical/LemmaIII.lean) | Unequal-width counterparts using the same edition's Lemmas I/II, including arbitrary assigned-magnitude errors and all three integer-multiple unit-ratio comparisons; shrinking mesh is supplied and modern completion is separate. Its own Lemma II also supplies nonmonotone graph-area exhaustion and multiple-ratio comparisons. | 2: 1687, 1713 |
 | [LemmaIII Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | Error decay for any supplied area magnitude under X.1 halving/area rules, and two-sided approximation of explicit free staircase tops/vertical joins under continuity/mesh premises. The traces belong to their actual rectangle unions; fixed sides are omitted. The area conclusion now also covers nonmonotone uniformly continuous nonnegative graphs. | 2: 1687, 1713 |
 | [LemmaIII Corollary II](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | Two-sided rational chord approximation; no area or arclength conclusion. | 2: 1687, 1713 |
 | [LemmaIII Corollary III](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | Supporting-tangent geometry and actual finite polygon area for concave increasing rational patches, with contact and area premises; tangent existence is not proved. | 2: 1687, 1713 |
@@ -418,15 +418,15 @@ locations.
 | [Aristotle comparison](ClassicsLib/Aristotle/SquareRootTwo.lean) | 0 | 2 | 2 | `no_natural_ratio_square_two` and `no_integer_ratio_square_two` reconstruct the attested parity contradiction. `even_of_even_square` and `halve_square_equation` expose the arithmetic steps; the exact descent is not attributed to Aristotle. |
 | [Finite lattice controls](ClassicsLib/Euclid/FiniteLattice.lean) | 0 | 0 | 4 | The four named orientation, degeneracy and repeated-coverage controls are concrete statements checked here; anonymous examples are excluded. |
 | [Lemma I](NewtonLimitDynamics/Historical/LemmaI.lean) | 0 | 7 | 0 | Six printed-edition ordered-exhaustion/terminal-zero formulations and one separately qualified NATP00090 enclosing-ratio reconstruction. Explicit interfaces qualify the source correspondence. |
-| [Lemma II](NewtonLimitDynamics/Historical/LemmaII.lean) | 0 | 16 | 12 | Eight source-related rational formulations per printed edition; two interior-rectangle, two assigned-magnitude, one assigned-area ratio and one nonmonotone exhaustion extension per edition are P. |
-| [Lemma III](NewtonLimitDynamics/Historical/LemmaIII.lean) | 0 | 10 | 8 | Five source-related unequal-width reconstructions, one interior, one assigned-magnitude, one assigned-area ratio and one nonmonotone exhaustion extension per edition. The two anachronical completed-enclosure theorems remain U in this source census. |
+| [Lemma II](NewtonLimitDynamics/Historical/LemmaII.lean) | 0 | 16 | 14 | Eight source-related rational formulations per printed edition; two interior-rectangle, two assigned-magnitude, one assigned-area ratio, one nonmonotone exhaustion and one nonmonotone multiple-ratio extension per edition are P. |
+| [Lemma III](NewtonLimitDynamics/Historical/LemmaIII.lean) | 0 | 10 | 10 | Five source-related unequal-width reconstructions, one interior, one assigned-magnitude, one assigned-area ratio, one nonmonotone exhaustion and one nonmonotone multiple-ratio extension per edition. The two anachronical completed-enclosure theorems remain U in this source census. |
 | [Lemma III Corollary I](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 0 | 4 | 6 | Area and rectangle-cover reconstructions in each edition are R; the two staircase-edge, two assigned-magnitude and two nonmonotone exhaustion clients are P. |
 | [MonotoneRectangles](BarrowLib/Polygon/MonotoneRectangles.lean), selected additions | 0 | 0 | 6 | `exists_positive_width_from_aux`, `exists_positive_width_from`, `interval_left_gap_le_total`, `interval_right_gap_le_total`, `lower_sum_eventually_positive`, `upper_sum_eventually_positive`; the first four are private. |
 | [RectangleContent](BarrowLib/Polygon/RectangleContent.lean), selected additions | 0 | 0 | 3 | `varying_ratios_approach_one_eventually`, `rectangle_interior_denominator_bound`, `rectangle_mutual_ratios_interior`. |
 | [RationalBoundary](BarrowLib/Polygon/RationalBoundary.lean), selected additions | 0 | 0 | 6 | The lower/upper pairs `nodes_in_*_staircase`, `*_staircase_in_rectangles` and `*_staircase_in_figure`. |
-| [MagnitudeContent](BarrowLib/Polygon/MagnitudeContent.lean) | 0 | 0 | 10 | `enclosure_errors_lt`, `curved_area_enclosure`, `rational_exhaustion`, `errors_vanish`, `multiple_monotone`, `multiple_embed`, `ratios_one_of_enclosure`, `rectangle_magnitude_ratios` and private `scale_succ`/`scale_gap_compare`. X.1 and the added compatibility laws are supplied fields, not proved theorem declarations. |
-| [UniformRectangles](BarrowLib/Polygon/UniformRectangles.lean) | 0 | 0 | 7 | `rectangle_enclosure`, `fine_rectangles`, `exhaustion`; private `lower_properties`, `height_enclosure`, `height_gap`, `value_gap_bound`. Exact English statements and proofs identify project derivations; uniform continuity is not a quoted Newton hypothesis. |
-| Distinct reviewed declarations | 1 | 44 | 66 | 111 theorem declarations; these owning groups are disjoint. |
+| [MagnitudeContent](BarrowLib/Polygon/MagnitudeContent.lean) | 0 | 0 | 12 | `enclosure_errors_lt`, `curved_area_enclosure`, `rational_exhaustion`, `errors_vanish`, `multiple_monotone`, `multiple_embed`, `ratios_one_of_enclosure`, `rectangle_magnitude_ratios`, `finite_ratios_of_enclosure`, `rationalMultiples` and private `scale_succ`/`scale_gap_compare`. The existing rational compatibility proof is now declared as a theorem. X.1 and the general compatibility laws remain supplied fields. |
+| [UniformRectangles](BarrowLib/Polygon/UniformRectangles.lean) | 0 | 0 | 9 | `rectangle_enclosure`, `fine_rectangles`, `exhaustion`, `positive_rectangle`, `ratios_exhaustion`; private `lower_properties`, `height_enclosure`, `height_gap`, `value_gap_bound`. Exact English statements and proofs identify project derivations; uniform continuity is not a quoted Newton hypothesis. |
+| Distinct reviewed declarations | 1 | 44 | 74 | 119 theorem declarations; these owning groups are disjoint. |
 
 These classifications were intersected with the actual compiled dependency
 closures to obtain the per-cascade table. Shared dependencies were counted
@@ -435,11 +435,11 @@ partition was checked against the existing compiled proof-tree total. The
 README count checker verifies the totals automatically; the source
 classifications in this Markdown report are a bounded manual review.
 
-The 58 recent project derivations are not added to every cascade. Their
-actual intersections are the P columns above; none occurs in the current
-`AreaLaw` proof tree. The latter's P=0 only concerns the 66 inspected project
-derivations (including the eight classical controls/helpers), while
-older internally derived support can remain among its 878 U entries.
+The reviewed derivations are not added to every cascade. The P columns above
+count their actual intersections, including reviewed encoding helpers.
+`AreaLaw` has 23 P dependencies from that larger reviewed set; the new
+nonmonotone ratio clients add none to its proof tree, which remains 880.
+Older internally derived support can remain among its 851 U entries.
 
 When the mathematical snapshot changes, refresh the compiled totals and
 their intersections with these reviewed groups. Classify further results
@@ -465,7 +465,20 @@ select eps and delta for each magnitude tolerance; the extracted
 extends the printed figure scope but does not reproduce Newton's endpoint
 telescoping proof. Its edition-local clients use Lemma II → III → Corollary I
 within each edition, without inventing a Lemma I dependency for this route.
-The existing monotone ratio/staircase results and all exact Latin remain.
+The original monotone ratio/staircase results and all exact Latin remain.
+The subsequent nonmonotone ratio extension constructs a positive rectangle
+from a positive ordinate and continuity. Its area R lies below the assigned
+area and upper rectangle area. A sufficiently small finite gap derives
+R/2 as a lower bracket, then the shared finite multiple comparison gives
+all three lower/upper/assigned-area comparisons. Each fixed positive n<m
+has a positive height cutoff; every smaller positive height tolerance has
+a positive mesh threshold admitting every finer partition. This is a
+conditional two-tolerance result, not exact finite ratio equality or a
+mesh-only limit at arbitrary fixed height tolerance. Two shared geometric
+proofs, one extracted finite comparison, four edition clients and the
+def-to-theorem conversion add eight named declarations (all P); the last
+conversion adds no mathematics. No area-existence or ratio-limit premise
+is added, and no external textual match or priority is claimed.
 
 Historical relocation of fraction arithmetic is separate from this census.
 The user's proposed Euclid VII.19 and Nine Chapters authorities still need
