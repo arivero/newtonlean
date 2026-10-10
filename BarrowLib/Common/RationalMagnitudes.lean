@@ -581,6 +581,11 @@ theorem toRat_ofInt (n : Int) : (ofInt n).toRat = (n : Rat) := by
   simp only [toRat, ofInt, Rat.intCast_one]
   grind
 
+theorem nonnegative_iff_toRat (a : Fraction) : 0 ≤ a.num ↔ 0 ≤ a.toRat := by
+  have h := le_iff_toRat (ofInt 0) a
+  rw [toRat_ofInt, Rat.intCast_zero] at h
+  simpa only [le, ofInt, Int.zero_mul, Int.mul_one] using h
+
 theorem toRat_quotient (a b : Fraction) (hb : positive b) :
     (quotient a b hb).toRat = a.toRat/b.toRat := by
   have ha : (a.den : Rat) ≠ 0 := by simp [Int.ne_of_gt a.den_pos]

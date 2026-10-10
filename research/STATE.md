@@ -55,6 +55,16 @@ reasoning. These are four deleted helpers, not historical proof progress.
 RationalMagnitudes remains a transitional module with its legacy Fraction
 model; its remaining warnings are handled when that model migrates.
 
+SimplexExit now uses core Rat with no project imports or warnings. Its
+signed-coordinate facet-exit theorem and one shared below-candidate estimate
+replace fourteen theorem declarations. Twelve helpers disappear: the core
+total-order duplicate and eleven helpers handled inline by core arithmetic
+and grind. A single grind with the available core multiplication facts does
+not close the retained estimate, which is used for all three coordinates.
+TriangleExchange converts inputs/results through the bridge; the signed
+inserted coordinates, nonnegative residuals and facet conclusion are retained.
+The bridge gains nonnegative_iff_toRat as its fourteenth temporary theorem.
+
 The user added a deprecation-only cleanup before continuing Rat clients:
 use each replacement named by Lean, edit with the patch tool, preserve
 statements and counts, compare the theorem dump with Stage 0 and require

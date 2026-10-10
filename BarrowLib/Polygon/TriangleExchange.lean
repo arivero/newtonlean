@@ -206,8 +206,27 @@ theorem exchange_of_coordinates (a b p x : Point) (u w : Fraction)
   obtain ⟨s,v,hs,hv,hsv,he⟩ := hx
   let x0 := durationDifference (Fraction.add s v) (Fraction.ofInt 1)
   let p0 := durationDifference (Fraction.add u w) (Fraction.ofInt 1)
-  obtain ⟨t,ht,ht1,h0,h1,h2,hface⟩ := SimplexExit.simplex_exit x0 s v p0 u w
-    ((difference_nonnegative_iff _ _).mpr hsv) hs hv (barycentric_total s v) (barycentric_total u w)
+  obtain ⟨tRat,htRat,_,h0Rat,h1Rat,h2Rat,hfaceRat⟩ :=
+    SimplexExit.simplex_exit x0.toRat s.toRat v.toRat p0.toRat u.toRat w.toRat
+      ((Fraction.nonnegative_iff_toRat _).mp ((difference_nonnegative_iff _ _).mpr hsv))
+      ((Fraction.nonnegative_iff_toRat _).mp hs) ((Fraction.nonnegative_iff_toRat _).mp hv)
+      (by simpa only [Fraction.equiv_iff_toRat, Fraction.toRat_add, Fraction.toRat_ofInt,
+        Rat.intCast_one] using! (barycentric_total s v))
+      (by simpa only [Fraction.equiv_iff_toRat, Fraction.toRat_add, Fraction.toRat_ofInt,
+        Rat.intCast_one] using! (barycentric_total u w))
+  let t := Fraction.ofRat tRat
+  have ht : 0 ≤ t.num := (Fraction.nonnegative_iff_toRat t).mpr
+    (by simpa only [t, Fraction.toRat_ofRat] using htRat)
+  have h0 : Fraction.le (Fraction.mul t p0) x0 := (Fraction.le_iff_toRat _ _).mpr
+    (by simpa only [t, Fraction.toRat_mul, Fraction.toRat_ofRat] using h0Rat)
+  have h1 : Fraction.le (Fraction.mul t u) s := (Fraction.le_iff_toRat _ _).mpr
+    (by simpa only [t, Fraction.toRat_mul, Fraction.toRat_ofRat] using h1Rat)
+  have h2 : Fraction.le (Fraction.mul t w) v := (Fraction.le_iff_toRat _ _).mpr
+    (by simpa only [t, Fraction.toRat_mul, Fraction.toRat_ofRat] using h2Rat)
+  have hface : Fraction.equiv (Fraction.mul t p0) x0 ∨
+      Fraction.equiv (Fraction.mul t u) s ∨ Fraction.equiv (Fraction.mul t w) v := by
+    simpa only [Fraction.equiv_iff_toRat, t, Fraction.toRat_mul, Fraction.toRat_ofRat]
+      using hfaceRat
   let r0 := residual x0 t p0
   let r1 := residual s t u
   let r2 := residual v t w

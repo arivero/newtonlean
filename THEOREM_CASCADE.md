@@ -19,10 +19,11 @@ M/H scores. This exclusion does not certify historical availability. Exact
 source attestations and domain qualifications remain independent obligations.
 No completion estimate changes for the migration.
 
-The temporary bridge adds thirteen P encoding-correspondence theorems in
+The temporary bridge has fourteen P encoding-correspondence theorems in
 RationalMagnitudes: toRat_ofRat, equiv_iff_toRat, lt_iff_toRat, le_iff_toRat,
 positive_iff_toRat, toRat_add, toRat_mul, toRat_half, toRat_ofInt,
-toRat_quotient, toRat_abs, toRat_negF and toRat_durationDifference.
+toRat_quotient, toRat_abs, toRat_negF, toRat_durationDifference and
+nonnegative_iff_toRat.
 Their exact statements and checked derivations are their provenance;
 no historical source or new mathematical priority is claimed. Adding the
 unused bridge left proof trees and M/H scores unchanged; converted callers
@@ -43,6 +44,13 @@ between_split are inlined, and le_total is a removed core-order duplicate.
 Fan geometry retains Fraction temporarily and converts comparison premises
 explicitly, preserving their meaning.
 
+SimplexExit retains two P declarations over core Rat: the signed barycentric
+facet-exit theorem and the below-candidate estimate shared by three
+coordinates. Their exact finite derivation remains their provenance. Twelve
+old helpers are deleted: one core-order duplicate and eleven inlined helpers.
+TriangleExchange uses the temporary bridge without changing its region
+conclusion or excluding signed coordinates of the inserted vertex.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,
@@ -60,32 +68,32 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 886 | 1845 |
-| `CompositionOfMotions.lean` | 13 | 48 | 182 |
-| `LawI.lean` | 0 | 0 | 110 |
-| `LawII.lean` | 0 | 0 | 96 |
-| `LawsCorollaryV.lean` | 4 | 45 | 137 |
-| `LawsCorollaryVI.lean` | 4 | 33 | 137 |
-| `LemmaI.lean` | 7 | 18 | 91 |
-| `LemmaII.lean` | 28 | 137 | 394 |
-| `LemmaIII.lean` | 20 | 179 | 511 |
-| `LemmaIII/CorollaryI.lean` | 10 | 133 | 521 |
-| `LemmaIII/CorollaryII.lean` | 2 | 70 | 523 |
-| `LemmaIII/CorollaryIII.lean` | 10 | 208 | 657 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 474 | 1402 |
-| `LemmaX.lean` | 4 | 14 | 80 |
-| `LemmaX/CorollaryI.lean` | 2 | 14 | 90 |
-| `LemmaX/CorollaryII.lean` | 4 | 24 | 92 |
-| `LemmaX/CorollaryIII.lean` | 1 | 20 | 93 |
-| `LemmaX/CorollaryIV.lean` | 2 | 23 | 95 |
-| `LemmaX/CorollaryV.lean` | 2 | 23 | 95 |
+| `AreaLaw.lean` | 73 | 886 | 1834 |
+| `CompositionOfMotions.lean` | 13 | 48 | 183 |
+| `LawI.lean` | 0 | 0 | 111 |
+| `LawII.lean` | 0 | 0 | 97 |
+| `LawsCorollaryV.lean` | 4 | 45 | 138 |
+| `LawsCorollaryVI.lean` | 4 | 33 | 138 |
+| `LemmaI.lean` | 7 | 18 | 92 |
+| `LemmaII.lean` | 28 | 137 | 395 |
+| `LemmaIII.lean` | 20 | 179 | 512 |
+| `LemmaIII/CorollaryI.lean` | 10 | 133 | 522 |
+| `LemmaIII/CorollaryII.lean` | 2 | 70 | 524 |
+| `LemmaIII/CorollaryIII.lean` | 10 | 208 | 658 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 474 | 1403 |
+| `LemmaX.lean` | 4 | 14 | 81 |
+| `LemmaX/CorollaryI.lean` | 2 | 14 | 91 |
+| `LemmaX/CorollaryII.lean` | 4 | 24 | 93 |
+| `LemmaX/CorollaryIII.lean` | 1 | 20 | 94 |
+| `LemmaX/CorollaryIV.lean` | 2 | 23 | 96 |
+| `LemmaX/CorollaryV.lean` | 2 | 23 | 96 |
 | `PropositionII.lean` | 0 | 0 | 28 |
 | `PropositionIII.lean` | 0 | 0 | 45 |
-| `PropositionIV.lean` | 0 | 0 | 77 |
+| `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 1009 | 1009 | 1009 |
-| `ModernLib` | 1157 | 1501 | 1702 |
+| `BarrowLib` | 998 | 998 | 998 |
+| `ModernLib` | 1157 | 1501 | 1703 |
 
 The README additionally lists line counts and the individual classical files.
 Reproduce the compiled measurements and check the README with:
@@ -156,12 +164,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 49 | 960 | 1009 |
+| `BarrowLib` | 0 | 0 | 52 | 946 | 998 |
 | `ModernLib` | 0 | 2 | 6 | 1493 | 1501 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **138 of 2390
-theorems: 6 S, 49 R and 83 P; 2252 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **141 of 2379
+theorems: 6 S, 49 R and 86 P; 2238 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.

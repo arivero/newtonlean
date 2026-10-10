@@ -95,13 +95,15 @@ remains unchanged**. Core Rat now realizes the ordered-magnitude interface;
 the rational closed-bound exhaustion lemma uses an explicit half-gap and
 `grind`, replacing unreduced cross-multiplication. Finite interval crossings
 now use core Rat directly with no project arithmetic import. Their legacy
-callers convert through the temporary bridge. The migrated exhaustion and
-crossing modules have no warnings. This is representation work: historical
+callers convert through the temporary bridge. Barycentric facet exit now uses
+Rat, retaining its signed-coordinate scope and one shared estimate while
+removing twelve helpers. The migrated exhaustion, crossing and exit modules
+have no warnings. This is representation work: historical
 statements, remaining obligations and their effort estimates are unchanged.
 Measured lines, theorem cascades and dependency scores are refreshed below.
 
 Bridge reassessment, 10 October: **every file/witness percentage remains
-unchanged**. Thirteen temporary Fraction/Rat conversion theorems establish
+unchanged**. Fourteen temporary Fraction/Rat conversion theorems establish
 representation correspondence; they discharge no historical obligation.
 The existing negation and time-difference definitions are relocated unchanged
 to avoid an import cycle. Import-tree increases measure bridge availability;
@@ -280,28 +282,28 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 886 | 1845 |
-| [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 182 |
-| [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 110 |
-| [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 96 |
-| [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 137 |
-| [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 137 |
-| [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 144 | 7 | 18 | 91 |
-| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 549 | 28 | 137 | 394 |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 456 | 20 | 179 | 511 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 212 | 10 | 133 | 521 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 523 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 657 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 474 | 1402 |
-| [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 80 |
-| [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 90 |
-| [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 92 |
-| [LemmaX/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIII.lean) | 33 | 1 | 20 | 93 |
-| [LemmaX/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIV.lean) | 56 | 2 | 23 | 95 |
-| [LemmaX/CorollaryV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryV.lean) | 58 | 2 | 23 | 95 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 886 | 1834 |
+| [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 183 |
+| [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 111 |
+| [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 97 |
+| [LawsCorollaryV.lean](NewtonLimitDynamics/Historical/LawsCorollaryV.lean) | 142 | 4 | 45 | 138 |
+| [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 138 |
+| [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 144 | 7 | 18 | 92 |
+| [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 549 | 28 | 137 | 395 |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 456 | 20 | 179 | 512 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 212 | 10 | 133 | 522 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 524 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 658 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 474 | 1403 |
+| [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 81 |
+| [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 91 |
+| [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 93 |
+| [LemmaX/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIII.lean) | 33 | 1 | 20 | 94 |
+| [LemmaX/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIV.lean) | 56 | 2 | 23 | 96 |
+| [LemmaX/CorollaryV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryV.lean) | 58 | 2 | 23 | 96 |
 | [PropositionII.lean](NewtonLimitDynamics/Historical/PropositionII.lean) | 55 | 0 | 0 | 28 |
 | [PropositionIII.lean](NewtonLimitDynamics/Historical/PropositionIII.lean) | 47 | 0 | 0 | 45 |
-| [PropositionIV.lean](NewtonLimitDynamics/Historical/PropositionIV.lean) | 48 | 0 | 0 | 77 |
+| [PropositionIV.lean](NewtonLimitDynamics/Historical/PropositionIV.lean) | 48 | 0 | 0 | 78 |
 | [ClassicsLib/Aristotle/SquareRootTwo.lean](ClassicsLib/Aristotle/SquareRootTwo.lean) | 86 | 4 | 4 | 4 |
 | [ClassicsLib/Euclid/FiniteLattice.lean](ClassicsLib/Euclid/FiniteLattice.lean) | 43 | 4 | 6 | 16 |
 | [ClassicsLib/Euclid/PropositionI37.lean](ClassicsLib/Euclid/PropositionI37.lean) | 23 | 1 | 1 | 1 |
@@ -310,8 +312,8 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 15664 | 1009 | 1009 | 1009 |
-| [ModernLib](ModernLib.lean) | 19742 | 1157 | 1501 | 1702 |
+| [BarrowLib](BarrowLib.lean) | 15564 | 998 | 998 | 998 |
+| [ModernLib](ModernLib.lean) | 19742 | 1157 | 1501 | 1703 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

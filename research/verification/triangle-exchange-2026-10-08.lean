@@ -28,15 +28,11 @@ private def pt (x y : Int) : Point := (Fraction.ofInt x,Fraction.ofInt y)
 private def h := f 1 2 (by decide)
 private def third := f 1 3 (by decide)
 
-example : ∃ t : Fraction, 0 ≤ t.num ∧ Fraction.le t o ∧
-    Fraction.le (Fraction.mul t (Fraction.ofInt 2)) third ∧
-    Fraction.le (Fraction.mul t (Fraction.ofInt (-1))) third ∧
-    Fraction.le (Fraction.mul t z) third ∧
-    (Fraction.equiv (Fraction.mul t (Fraction.ofInt 2)) third ∨
-      Fraction.equiv (Fraction.mul t (Fraction.ofInt (-1))) third ∨
-      Fraction.equiv (Fraction.mul t z) third) :=
-  SimplexExit.simplex_exit third third third (Fraction.ofInt 2) (Fraction.ofInt (-1)) z
-    (by decide) (by decide) (by decide) (by decide) (by decide)
+example : ∃ t : Rat, 0 ≤ t ∧ t ≤ 1 ∧ t * 2 ≤ 1/3 ∧ t * (-1) ≤ 1/3 ∧ t * 0 ≤ 1/3 ∧
+    (t * 2 = 1/3 ∨ t * (-1) = 1/3 ∨ t * 0 = 1/3) :=
+  SimplexExit.simplex_exit (1/3) (1/3) (1/3) 2 (-1) 0
+    (by decide +kernel) (by decide +kernel) (by decide +kernel)
+    (by decide +kernel) (by decide +kernel)
 example : Fraction.equiv (Fraction.mul (f 1 6 (by decide)) (Fraction.ofInt 2)) third := by decide
 example : ¬ Fraction.le (Fraction.mul (f 1 5 (by decide)) (Fraction.ofInt 2)) third := by decide
 example : ¬ Fraction.equiv (Fraction.add (Fraction.add z z) z) o := by decide
