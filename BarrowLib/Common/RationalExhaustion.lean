@@ -1,4 +1,4 @@
-import BarrowLib.Common.RationalMagnitudes
+import BarrowLib.Common.RatMagnitudes
 
 /-! Rational exhaustion of a closed order bound, proved by the explicit
 half-gap witness. No completeness, real order or calculus theorem is imported.

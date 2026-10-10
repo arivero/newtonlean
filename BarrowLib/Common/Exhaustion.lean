@@ -4,8 +4,8 @@ import BarrowLib.Common.RationalExhaustion
 /-! Elementary exhaustion along a succession of refinements. No terminal
 value is constructed. `TerminalLower` states only the lower comparisons that
 a supplied terminal difference must respect; it does not assert its value.
-The contradiction works for arbitrary ordered magnitudes. Rational equality
-below is a concrete instance, respecting equivalence of fraction displays. -/
+The contradiction works for arbitrary ordered magnitudes. Core Rat equality
+below is a concrete instance. -/
 namespace NewtonLimitDynamics.Exhaustion
 
 def Eventually (P : Nat → Prop) : Prop := ∃ N, ∀ n, N ≤ n → P n
@@ -34,13 +34,12 @@ theorem no_positive_terminal {Q : Type} (g : Magnitudes Q) (gap : Nat → Q) (D 
   have h := hN N (Nat.le_refl _)
   exact g.lt_irrefl d (g.lt_of_lt_le h.2 (g.lt_implies_le h.1))
 
-theorem rational_terminal_zero (gap : Nat → Fraction) (D : Fraction)
-    (hD : 0 ≤ D.num) (hsmall : VanishingDifference Fraction.magnitudes gap)
-    (hterminal : TerminalLower Fraction.magnitudes gap D) :
-    Fraction.equiv D (Fraction.ofInt 0) := by
-  have hn := no_positive_terminal Fraction.magnitudes gap D hsmall hterminal
-  have hz : D.num = 0 := by change ¬ 0 < D.num at hn; omega
-  simp only [Fraction.equiv, Fraction.ofInt, Int.mul_one, Int.zero_mul, hz]
+theorem rational_terminal_zero (gap : Nat → Rat) (D : Rat)
+    (hD : 0 ≤ D) (hsmall : VanishingDifference Rational.magnitudes gap)
+    (hterminal : TerminalLower Rational.magnitudes gap D) : D = 0 := by
+  have hn := no_positive_terminal Rational.magnitudes gap D hsmall hterminal
+  change ¬ 0 < D at hn
+  grind
 
 /-- `h` is the remaining time before the supplied endpoint `T`, so
 `0 < h < T` describes an actual before-end sample. Positivity of `T` is
@@ -73,15 +72,5 @@ theorem no_positive_terminal_before_end {Q : Type} (g : Magnitudes Q)
   obtain ⟨_, _, _, hlo, hhi⟩ := before_end_has_witness g T _ hT
     (before_end_and g T _ _ (hsmall d hd) (hterminal d hd hdD))
   exact g.lt_irrefl d (g.lt_of_lt_le hhi (g.lt_implies_le hlo))
-
-/-- The terminal comparison premise is inhabited: an identically zero
-difference has zero as a terminal lower value. -/
-theorem zero_terminal_lower : TerminalLower Fraction.magnitudes
-    (fun _ => Fraction.ofInt 0) (Fraction.ofInt 0) := by
-  intro d hd hlt
-  change 0 < d.num at hd
-  change d.num * 1 < 0 * d.den at hlt
-  simp only [Int.mul_one, Int.zero_mul] at hlt
-  omega
 
 end NewtonLimitDynamics.Exhaustion

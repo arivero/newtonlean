@@ -296,8 +296,19 @@ theorem sampled_radial_sector_area (area : SectorFan.AreaRules)
     intro eps heps
     obtain ⟨N,hN⟩ := hsmall eps heps
     exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hbound j) (hN j hj)⟩
-  have hzero := Exhaustion.rational_terminal_zero (fun _ => D) D
-    (Fraction.abs_num_nonnegative _) hDsmall (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
+  have hzeroRat := Exhaustion.rational_terminal_zero (fun _ => D.toRat) D.toRat
+    ((Fraction.nonnegative_iff_toRat _).mp (Fraction.abs_num_nonnegative _))
+    (by
+      intro eps heps
+      change 0 < eps at heps
+      obtain ⟨N,hN⟩ := hDsmall (Fraction.ofRat eps)
+        ((Fraction.positive_iff_toRat _).mpr (by simpa only [Fraction.toRat_ofRat] using heps))
+      exact ⟨N,fun j hj => by
+        have h := (Fraction.lt_iff_toRat _ _).mp (hN j hj)
+        simpa only [Fraction.toRat_ofRat] using! h⟩)
+    (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
+  have hzero : Fraction.equiv D (Fraction.ofInt 0) := (Fraction.equiv_iff_toRat _ _).mpr
+    (by simpa only [Fraction.toRat_ofInt, Rat.intCast_zero] using hzeroRat)
   exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
 
 /-- Swept areas for two admissible windows of one given curve sharing

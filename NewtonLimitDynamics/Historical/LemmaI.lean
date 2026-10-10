@@ -1,4 +1,5 @@
 import BarrowLib.Common.Exhaustion
+import BarrowLib.Common.RationalMagnitudes
 /-! Historical result: lemma_i.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/

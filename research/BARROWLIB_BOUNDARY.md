@@ -25,8 +25,9 @@ to encode the mathematics, not as evidence for its historical availability.
 
 User decision, 10 October: Lean 4.34.1 core types and lemmas, including
 `Rat`, are encoding infrastructure outside project M/H scores. Rational
-arithmetic belongs to core Rat. Rational.magnitudes now realizes the ordered
-interface over Rat, and rational closed-bound exhaustion uses its half-gap
+arithmetic belongs to core Rat. Rational.magnitudes in Common/RatMagnitudes
+now realizes the ordered interface over Rat independently of legacy Fraction,
+and rational closed-bound exhaustion uses its half-gap
 witness directly over Rat. The legacy unreduced Fraction and its other clients
 remain temporarily during the staged conversion. Moving those existing
 helpers alone would change provenance, not their count or completion.

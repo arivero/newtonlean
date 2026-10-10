@@ -65,6 +65,17 @@ TriangleExchange converts inputs/results through the bridge; the signed
 inserted coordinates, nonnegative residuals and facet conclusion are retained.
 The bridge gains nonnegative_iff_toRat as its fourteenth temporary theorem.
 
+Exhaustion's rational terminal-zero theorem now takes Rat, retaining its
+nonnegative terminal value, vanishing-gap and terminal-comparison premises.
+The unused zero_terminal_lower example is deleted; the scoped positive
+controls still check inhabited terminal comparisons. The NATP00090 AreaLaw
+caller converts its constant gap through the bridge without changing its
+statement. RatMagnitudes contains the unchanged core model separately from
+legacy Fraction; RationalExhaustion and Exhaustion therefore have no legacy
+arithmetic import. LemmaI imports that legacy arithmetic explicitly until
+its own migration. All five migrated common modules and their imports build
+without any warnings; relocation earns no proof progress.
+
 The user added a deprecation-only cleanup before continuing Rat clients:
 use each replacement named by Lean, edit with the patch tool, preserve
 statements and counts, compare the theorem dump with Stage 0 and require

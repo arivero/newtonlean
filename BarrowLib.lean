@@ -37,6 +37,7 @@ import BarrowLib.Common.FiniteCrossing
 import BarrowLib.Common.Exhaustion
 import BarrowLib.Common.Quadratic
 import BarrowLib.Common.RationalExhaustion
+import BarrowLib.Common.RatMagnitudes
 import BarrowLib.Common.RationalMagnitudes
 import BarrowLib.Common.RationalTolerance
 import BarrowLib.Common.SimplexExit
