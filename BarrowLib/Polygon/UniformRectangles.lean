@@ -215,8 +215,16 @@ theorem exhaustion {Q : Type} (area : MagnitudeContent.AreaRules Q)
   let C := Fraction.mul (Fraction.ofInt 2) (durationDifference a b)
   have hC : 0≤C.num := Fraction.nonnegative_mul _ _ (by decide)
     ((difference_nonnegative_iff _ _).mpr hab)
-  let eps := (factorDelta C q hC).half
-  have heps : 0<eps.num := factorDelta_positive C q hC hq
+  let eps := (Fraction.ofRat (factorDelta (C).toRat (q).toRat ((Fraction.nonnegative_iff_toRat C).mp hC))).half
+  have heps : 0<eps.num := (by
+      change 0 < (Fraction.ofRat (factorDelta C.toRat q.toRat ((Fraction.nonnegative_iff_toRat C).mp hC))).num
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0 < (Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hepsRat : 0 < (q).toRat := (Fraction.positive_iff_toRat (q)).mp hq
+      (try dsimp only at hcoef hepsRat ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos])
   obtain ⟨delta,hdelta,hfine⟩ := fine_rectangles area g a b A hzero hf hA eps heps
   refine ⟨eps,delta,heps,hdelta,fun p hp => ?_⟩
   obtain ⟨henclose,hbound⟩ := hfine p hp
@@ -227,8 +235,23 @@ theorem exhaustion {Q : Type} (area : MagnitudeContent.AreaRules Q)
     simp only [show (2 : Int) = 1+1 by rfl,Int.add_mul,Int.mul_add,Int.one_mul,Int.mul_one]
     ac_nf
   have hsmall := Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hbound he)
-    (factor_control C q eps hC (Int.le_of_lt heps)
-      (Fraction.half_lt (factorDelta C q hC) (factorDelta_positive C q hC hq)))
+    ((show Fraction.lt (Fraction.mul (eps) (C)) (q) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hdist := ((Fraction.nonnegative_iff_toRat eps).mp (Int.le_of_lt heps))
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (Fraction.half_lt (Fraction.ofRat (factorDelta (C).toRat (q).toRat ((Fraction.nonnegative_iff_toRat C).mp hC))) ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hepsRat : 0 < (q).toRat := (Fraction.positive_iff_toRat (q)).mp hq
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos])))
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff]))
   have hgap := area.magnitudes.order.lt_of_le_lt
     ((area.magnitudes.embed_le _ _).mpr (Fraction.magnitudes.lt_implies_le hsmall)) hj
   exact ⟨henclose,hgap,MagnitudeContent.enclosure_errors_lt area.magnitudes _ _ A d

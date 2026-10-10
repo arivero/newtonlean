@@ -322,8 +322,15 @@ theorem graph_uniform {g d : Fraction → Fraction} {a b : Fraction}
   have hK : 0 ≤ K.num := Fraction.nonnegative_add _ _ (by decide)
     (C.increasing_tangents a (Fraction.magnitudes.le_refl _) hab)
   intro eps heps
-  refine ⟨HarmonicTimeRealization.factorDelta K eps.half hK,
-    HarmonicTimeRealization.factorDelta_positive K eps.half hK heps, ?_⟩
+  refine ⟨Fraction.ofRat (HarmonicTimeRealization.factorDelta (K).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat K).mp hK)),
+    (by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat K).mp hK)
+        have hepsRat : 0 < (eps.half).toRat := (Fraction.positive_iff_toRat (eps.half)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]), ?_⟩
   intro x y hax hxb hay hyb hdist
   have hcontrol : Fraction.lt
       (Fraction.mul (durationDifference x y).abs K) eps := by
@@ -331,7 +338,11 @@ theorem graph_uniform {g d : Fraction → Fraction} {a b : Fraction}
     -- a strict output at the boundary of the chosen neighborhood.
     exact Fraction.magnitudes.lt_of_le_lt
       (Fraction.magnitudes.le_trans (Fraction.mul_le_mul_nonnegative hdist K hK)
-        (HarmonicTimeRealization.factor_delta_weak K eps.half hK (Int.le_of_lt heps)))
+        ((by
+            apply (Fraction.le_iff_toRat _ _).mpr
+            change (Fraction.mul (Fraction.ofRat _) _).toRat ≤ Fraction.toRat _
+            rw [Fraction.toRat_mul, Fraction.toRat_ofRat]
+            exact HarmonicTimeRealization.factor_delta_weak _ _ ((Fraction.nonnegative_iff_toRat K).mp hK) ((Fraction.nonnegative_iff_toRat eps.half).mp (Int.le_of_lt heps)))))
       (Fraction.half_lt eps heps)
   by_cases hxy : Fraction.le x y
   · exact Fraction.magnitudes.lt_of_le_lt

@@ -195,14 +195,28 @@ theorem address_state_equiv (b c : Nat → Bool) (w T : Fraction)
   intro eps heps
   let C := stateTimeFactor w s
   have hC := stateTimeFactor_nonnegative w s
-  let delta := factorDelta C eps hC
-  obtain ⟨N, hN⟩ := hbc delta (factorDelta_positive C eps hC heps)
+  let delta := Fraction.ofRat (factorDelta (C).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat C).mp hC))
+  obtain ⟨N, hN⟩ := hbc delta ((by
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0 < (Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+      (try dsimp only at hcoef hepsRat ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N, ?_⟩
   intro j hj
   have hb := prefix_time_bound b c w T s j hT hs
-  have hsmall := factor_control C eps
-    (distance (timeState b T j) (timeState c T j)) hC
-    (stateNorm_nonnegative _) (hN j hj)
+  have hsmall := (show Fraction.lt (Fraction.mul ((distance (timeState b T j) (timeState c T j))) (C)) (eps) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hdist := ((Fraction.nonnegative_iff_toRat (distance (timeState b T j) (timeState c T j))).mp (stateNorm_nonnegative _))
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN j hj)
+      change (distance (timeState b T j) (timeState c T j)).toRat < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
   exact Fraction.magnitudes.lt_of_le_lt hb hsmall
 
 def gammaValue (w T : Fraction) (s : Point × Point)
@@ -247,14 +261,20 @@ theorem gamma_within (w T : Fraction) (s : Point × Point)
 
 def timeTolerance (w : Fraction) (s : Point × Point)
     (eps : Fraction) : Fraction :=
-  factorDelta (stateTimeFactor w s) eps.half
-    (stateTimeFactor_nonnegative w s)
+  Fraction.ofRat (factorDelta ((stateTimeFactor w s)).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat (stateTimeFactor w s)).mp (stateTimeFactor_nonnegative w s)))
 
--- Modern dependency score: 1/6 (M=1, H=5; transitive project theorems/axioms).
+-- Modern dependency score: 1/10 (M=1, H=9; transitive project theorems/axioms).
 theorem timeTolerance_positive (w : Fraction) (s : Point × Point)
     (eps : Fraction) (heps : 0 < eps.num) :
     0 < (timeTolerance w s eps).num :=
-  factorDelta_positive _ _ _ heps
+  (by
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0 < (Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      have hcoef := ((Fraction.nonnegative_iff_toRat (stateTimeFactor w s)).mp (stateTimeFactor_nonnegative w s))
+      have hepsRat : 0 < (eps.half).toRat := (Fraction.positive_iff_toRat (eps.half)).mp heps
+      (try dsimp only at hcoef hepsRat ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos])
 
 -- Modern dependency score: 144/251 (M=144, H=107; transitive project theorems/axioms).
 theorem gamma_uniform_continuity (w T : Fraction) (s : Point × Point)
@@ -268,10 +288,13 @@ theorem gamma_uniform_continuity (w T : Fraction) (s : Point × Point)
     (timeTolerance w s eps)
     (Int.le_of_lt (timeTolerance_positive w s eps heps)) hxy
   exact within_mono _ _ _ _
-    (factor_delta_weak _ _ (stateTimeFactor_nonnegative w s)
-      (by simpa only [Fraction.half] using Int.le_of_lt heps)) hb
+    ((by
+        apply (Fraction.le_iff_toRat _ _).mpr
+        change (Fraction.mul (Fraction.ofRat _) _).toRat ≤ Fraction.toRat _
+        rw [Fraction.toRat_mul, Fraction.toRat_ofRat]
+        exact HarmonicTimeRealization.factor_delta_weak _ _ ((Fraction.nonnegative_iff_toRat _).mp (stateTimeFactor_nonnegative w s)) ((Fraction.nonnegative_iff_toRat _).mp (by simpa only [Fraction.half] using Int.le_of_lt heps)))) hb
 
--- Modern dependency score: 1/20 (M=1, H=19; transitive project theorems/axioms).
+-- Modern dependency score: 1/13 (M=1, H=12; transitive project theorems/axioms).
 theorem duration_factor_eventually_small (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (eps : Fraction) (heps : 0 < eps.num) :
@@ -279,13 +302,28 @@ theorem duration_factor_eventually_small (w T : Fraction)
       Fraction.lt (Fraction.mul (duration T j) (stateTimeFactor w s))
         eps := by
   let C := stateTimeFactor w s
-  let delta := factorDelta C eps (stateTimeFactor_nonnegative w s)
+  let delta := Fraction.ofRat (factorDelta (C).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat C).mp (stateTimeFactor_nonnegative w s)))
   obtain ⟨N, hN⟩ := duration_eventually_small T delta hT
-    (factorDelta_positive C eps (stateTimeFactor_nonnegative w s) heps)
+    ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp (stateTimeFactor_nonnegative w s))
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N, ?_⟩
   intro j hj
-  exact factor_control C eps (duration T j)
-    (stateTimeFactor_nonnegative w s) hT (hN j hj)
+  exact (show Fraction.lt (Fraction.mul ((duration T j)) (C)) (eps) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp (stateTimeFactor_nonnegative w s))
+      have hdist := ((Fraction.nonnegative_iff_toRat (duration T j)).mp hT)
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN j hj)
+      change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
 
 -- Modern dependency score: 132/236 (M=132, H=104; transitive project theorems/axioms).
 theorem left_endpoint_value (w T : Fraction) (s : Point × Point)

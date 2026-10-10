@@ -294,14 +294,29 @@ theorem ratios_one_of_enclosure {Q : Type} (M : Rules Q) (R : MultipleRules M)
   intro n m _ hnm
   let C := Fraction.ofInt (n : Int)
   have hC : 0≤C.num := by change 0≤(n : Int); omega
-  obtain ⟨K,hK⟩ := hgap (HarmonicTimeRealization.factorDelta C B hC)
-    (HarmonicTimeRealization.factorDelta_positive C B hC hB)
+  obtain ⟨K,hK⟩ := hgap (Fraction.ofRat (HarmonicTimeRealization.factorDelta (C).toRat (B).toRat ((Fraction.nonnegative_iff_toRat C).mp hC)))
+    ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hepsRat : 0 < (B).toRat := (Fraction.positive_iff_toRat (B)).mp hB
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N+K,fun k hk => ?_⟩
   have hLU : Fraction.le (L k) (U k) :=
     (M.embed_le _ _).mp (M.order.le_trans (hX k).1 (hX k).2)
   have hnon := (difference_nonnegative_iff _ _).mpr hLU
-  have hsmall := HarmonicTimeRealization.factor_control C B
-    (durationDifference (L k) (U k)) hC hnon (hK k (by omega))
+  have hsmall := (show Fraction.lt (Fraction.mul ((durationDifference (L k) (U k))) (C)) (B) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hdist := ((Fraction.nonnegative_iff_toRat (durationDifference (L k) (U k))).mp hnon)
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp (hK k (by omega))
+      change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
   have hscaled : Fraction.lt (scale n (U k)) (scale m (L k)) :=
     scale_gap_compare n m hnm B _ _ hB (hBL k (by omega))
       (Fraction.magnitudes.lt_of_le_lt

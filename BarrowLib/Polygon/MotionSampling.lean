@@ -114,11 +114,27 @@ theorem dyadic_sample_bound (a : Point → Point) (C T L : Fraction)
 theorem dyadic_scaled_vanishes (K T : Fraction) (hK : 0 ≤ K.num) (hT : 0 ≤ T.num) :
     Exhaustion.VanishingDifference Fraction.magnitudes (fun j => Fraction.mul K (duration T j)) := by
   intro eps heps
-  obtain ⟨N,hN⟩ := duration_eventually_small T (factorDelta K eps hK) hT
-    (factorDelta_positive K eps hK heps)
+  obtain ⟨N,hN⟩ := duration_eventually_small T (Fraction.ofRat (factorDelta (K).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat K).mp hK))) hT
+    ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat K).mp hK)
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N,fun j hj => ?_⟩
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv (Fraction.mul_comm _ _))
-    (factor_control K eps (duration T j) hK hT (hN j hj))
+    ((show Fraction.lt (Fraction.mul ((duration T j)) (K)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat K).mp hK)
+        have hdist := ((Fraction.nonnegative_iff_toRat (duration T j)).mp hT)
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN j hj)
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff]))
 
 theorem state_budgets_vanish (C T : Fraction) (hC : 0 ≤ C.num) (hT : 0 ≤ T.num) :
     Exhaustion.VanishingDifference Fraction.magnitudes (stateBudget C T) :=

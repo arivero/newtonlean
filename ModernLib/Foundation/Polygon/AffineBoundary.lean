@@ -9,7 +9,7 @@ open TimeSubdivision PointBounds HarmonicComparison HarmonicDyadic
 open HarmonicAccumulation HarmonicTimeComparison HarmonicTimeRealization
 open BinaryTime CauchyValues
 
--- Modern dependency score: 18/94 (M=18, H=76; transitive project theorems/axioms).
+-- Modern dependency score: 18/97 (M=18, H=79; transitive project theorems/axioms).
 theorem edge_boundary_names (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (x v y u : Point) (m : Nat)
     (hbase : Fraction.equiv (timeApprox c T m)
@@ -21,8 +21,15 @@ theorem edge_boundary_names (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.nu
   have hV : 0 ≤ V.num := Fraction.nonnegative_add _ _
     (pointNorm_nonnegative v) (pointNorm_nonnegative u)
   intro eps heps
-  obtain ⟨N,hN⟩ := addressEquiv_symm T hT htime (factorDelta V eps hV)
-    (factorDelta_positive V eps hV heps)
+  obtain ⟨N,hN⟩ := addressEquiv_symm T hT htime (Fraction.ofRat (factorDelta (V).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat V).mp hV)))
+    ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat V).mp hV)
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N, ?_⟩
   intro j hj
   let tb := timeApprox b T (m+j)
@@ -70,6 +77,15 @@ theorem edge_boundary_names (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.nu
     (Fraction.le_of_equiv (Fraction.equiv_symm (timeState_distance c b T (m+j))))
     (hN (m+j) (by omega))
   exact Fraction.magnitudes.lt_of_le_lt hscaled
-    (factor_control V eps gap hV (Fraction.abs_num_nonnegative _) htimegap)
+    ((show Fraction.lt (Fraction.mul (gap) (V)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat V).mp hV)
+        have hdist := ((Fraction.nonnegative_iff_toRat gap).mp (Fraction.abs_num_nonnegative _))
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp htimegap
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff]))
 
 end NewtonLimitDynamics.Polygon.AffineValues

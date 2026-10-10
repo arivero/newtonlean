@@ -159,7 +159,7 @@ theorem geometric_sequence_enclosure {A : Type} [RationalEnclosure.Magnitude A]
   exact ⟨hnonnegative _,RationalEnclosure.Magnitude.bounded_mono _ _ _
     (hbound _) (RationalEnclosure.selected_duration_bound C mesh hC hm)⟩
 
--- Modern dependency score: 5/22 (M=5, H=17; transitive project theorems/axioms).
+-- Modern dependency score: 5/23 (M=5, H=18; transitive project theorems/axioms).
 theorem geometric_sequence_vanishes {A : Type} [RationalEnclosure.Magnitude A]
     (area : Nat → A) (C : Fraction) (hC : 0 ≤ C.num)
     (hnonnegative : ∀ m, RationalEnclosure.Magnitude.nonnegative (area m))

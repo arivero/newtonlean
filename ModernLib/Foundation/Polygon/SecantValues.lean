@@ -60,11 +60,29 @@ def secantOperation (q : Fraction) : BinaryLift.Operation where
 -- Modern dependency score: 1/22 (M=1, H=21; transitive project theorems/axioms).
 theorem two_scaled_small (q eps r s : Fraction) (_heps : 0 < eps.num)
     (hr : 0 ≤ r.num) (hs : 0 ≤ s.num)
-    (h1 : Fraction.lt r (factorDelta q.abs eps.half (Fraction.abs_num_nonnegative q)))
-    (h2 : Fraction.lt s (factorDelta q.abs eps.half (Fraction.abs_num_nonnegative q))) :
+    (h1 : Fraction.lt r (Fraction.ofRat (factorDelta (q.abs).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat q.abs).mp (Fraction.abs_num_nonnegative q)))))
+    (h2 : Fraction.lt s (Fraction.ofRat (factorDelta (q.abs).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat q.abs).mp (Fraction.abs_num_nonnegative q))))) :
     Fraction.lt (Fraction.mul q.abs (Fraction.add r s)) eps := by
-  have ha := factor_control q.abs eps.half r (Fraction.abs_num_nonnegative q) hr h1
-  have hb := factor_control q.abs eps.half s (Fraction.abs_num_nonnegative q) hs h2
+  have ha := (show Fraction.lt (Fraction.mul (r) (q.abs)) (eps.half) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat q.abs).mp (Fraction.abs_num_nonnegative q))
+      have hdist := ((Fraction.nonnegative_iff_toRat r).mp hr)
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp h1
+      change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
+  have hb := (show Fraction.lt (Fraction.mul (s) (q.abs)) (eps.half) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat q.abs).mp (Fraction.abs_num_nonnegative q))
+      have hdist := ((Fraction.nonnegative_iff_toRat s).mp hs)
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp h2
+      change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
   have hc := Fraction.add_lt_add ha hb
   have he := Fraction.half_add_self eps
   have hd := lt_equiv_right hc he
@@ -74,7 +92,7 @@ theorem two_scaled_small (q eps r s : Fraction) (_heps : 0 < eps.num)
 def secantName (q : Fraction) (a b : EndpointCauchyName) : EndpointCauchyName :=
   BinaryLift.name (secantOperation q) a b
 
--- Modern dependency score: 6/56 (M=6, H=50; transitive project theorems/axioms).
+-- Modern dependency score: 6/60 (M=6, H=54; transitive project theorems/axioms).
 theorem secantName_equiv (q : Fraction) (a b a' b' : EndpointCauchyName)
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
     NameEquiv (secantName q a b) (secantName q a' b') :=
@@ -83,11 +101,11 @@ theorem secantName_equiv (q : Fraction) (a b a' b' : EndpointCauchyName)
 def secantValue (q : Fraction) (x y : Value) : Value :=
   BinaryLift.value (secantOperation q) x y
 
--- Modern dependency score: 13/73 (M=13, H=60; transitive project theorems/axioms).
+-- Modern dependency score: 13/77 (M=13, H=64; transitive project theorems/axioms).
 theorem secantValue_realize (q : Fraction) (a b : EndpointCauchyName) :
     secantValue q (realize a) (realize b) = realize (secantName q a b) := rfl
 
--- Modern dependency score: 13/73 (M=13, H=60; transitive project theorems/axioms).
+-- Modern dependency score: 13/77 (M=13, H=64; transitive project theorems/axioms).
 theorem secantValue_embed (q : Fraction) (s t : Point × Point) :
     secantValue q (embed s) (embed t) = embed (secantState q s t) := rfl
 

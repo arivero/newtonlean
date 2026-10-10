@@ -85,6 +85,13 @@ adapt their direct calls through the bridge. The latter splits its four-factor
 identity into two repeated blocks, avoiding grind's polynomial-step limit.
 The migrated module builds without warnings. This earns no completion credit.
 
+RationalTolerance now uses Rat, retaining the weak tolerance bound and
+removing three named positivity/strict-control wrappers. Call sites convert
+through the bridge and use core division order inline. A scratch proof checks
+that eps / (C + 1) equals the old tolerance's rational value; normalized
+representatives therefore change no bound. The module has no project imports
+or warnings. Historical statements and completion estimates are unchanged.
+
 The user added a deprecation-only cleanup before continuing Rat clients:
 use each replacement named by Lean, edit with the patch tool, preserve
 statements and counts, compare the theorem dump with Stage 0 and require

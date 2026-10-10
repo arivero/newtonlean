@@ -21,7 +21,7 @@ def quadraticName (c : Fraction) (a : EndpointCauchyName) : EndpointCauchyName :
 def quadraticValue (c : Fraction) (x : Value) : Value :=
   secantValue c (pairingValue dotForm x x) (embed (PositionValues.zeroPoint,PositionValues.zeroPoint))
 
--- Modern dependency score: 19/90 (M=19, H=71; transitive project theorems/axioms).
+-- Modern dependency score: 19/94 (M=19, H=75; transitive project theorems/axioms).
 theorem quadraticValue_embed (c : Fraction) (s : Point × Point) :
     quadraticValue c (embed s) = embed (scalarState (quadratic c s.1)) := by
   apply Quotient.sound
@@ -141,7 +141,7 @@ theorem uniform_frame_bound (c h T P V Z U r A : Fraction) (ht : 0 < h.num)
 
 /-- The constructed scalar increment has the expected finite approximant.
 This identity connects completed potential values to the polynomial estimate. -/
--- Modern dependency score: 12/73 (M=12, H=61; transitive project theorems/axioms).
+-- Modern dependency score: 12/77 (M=12, H=65; transitive project theorems/axioms).
 theorem normalized_step_approximant (c h : Fraction) (ht : 0 < h.num)
     (a b : EndpointCauchyName) (j : Nat) :
     stateEquiv ((normalizedStepName c h ht a b).approx j)

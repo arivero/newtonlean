@@ -28,7 +28,7 @@ theorem within_mono (x y : Value) (R S : Fraction)
     induction y using Quotient.inductionOn with
     | _ b => exact nameBound_mono a b R S hRS h
 
--- Modern dependency score: 1/20 (M=1, H=19; transitive project theorems/axioms).
+-- Modern dependency score: 1/23 (M=1, H=22; transitive project theorems/axioms).
 theorem nameBound_scale (a b ta tb : EndpointCauchyName)
     (C R : Fraction) (hC : 0 ≤ C.num)
     (hlevel : ∀ n : Nat,
@@ -38,16 +38,26 @@ theorem nameBound_scale (a b ta tb : EndpointCauchyName)
     NameBound a b (Fraction.mul R C) := by
   intro eps heps
   let q := eps.half
-  let delta := factorDelta C q hC
+  let delta := Fraction.ofRat (factorDelta (C).toRat (q).toRat ((Fraction.nonnegative_iff_toRat C).mp hC))
   obtain ⟨N, hN⟩ := hnear delta
-    (factorDelta_positive C q hC heps)
+    ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hepsRat : 0 < (q).toRat := (Fraction.positive_iff_toRat (q)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N, ?_⟩
   intro n hn
   have hmul := Fraction.mul_le_mul_nonnegative
     (Fraction.magnitudes.lt_implies_le (hN n hn)) C hC
   have hsum := Fraction.le_equiv_right hmul (Fraction.add_mul R delta C)
-  have hdelta := factor_delta_weak C q hC
-    (by simpa only [q, Fraction.half] using Int.le_of_lt heps)
+  have hdelta : Fraction.le (Fraction.mul delta C) q := (by
+      apply (Fraction.le_iff_toRat _ _).mpr
+      change (Fraction.mul (Fraction.ofRat _) _).toRat ≤ Fraction.toRat _
+      rw [Fraction.toRat_mul, Fraction.toRat_ofRat]
+      exact HarmonicTimeRealization.factor_delta_weak _ _ ((Fraction.nonnegative_iff_toRat C).mp hC) ((Fraction.nonnegative_iff_toRat q).mp (by simpa only [q, Fraction.half] using Int.le_of_lt heps)))
   have htotal := Fraction.add_le_add_left hdelta (Fraction.mul R C)
   have hsmall : Fraction.lt
       (Fraction.add (Fraction.mul R C) q)

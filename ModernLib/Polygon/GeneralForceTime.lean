@@ -104,11 +104,26 @@ theorem address_state_equiv (b c : Nat → Bool) (o : ForceClasses.CentralOracle
   intro eps heps
   let C := stateTimeFactor T tau B s d.calibration_positive
   have hC := stateTimeFactor_nonnegative T tau B s d.time_nonnegative d.calibration_positive d.bound_nonnegative
-  obtain ⟨N,hN⟩ := hbc (factorDelta C eps hC) (factorDelta_positive C eps hC heps)
+  obtain ⟨N,hN⟩ := hbc (Fraction.ofRat (factorDelta (C).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat C).mp hC))) ((by
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0 < (Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+      (try dsimp only at hcoef hepsRat ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N,fun j hj => ?_⟩
   exact Fraction.magnitudes.lt_of_le_lt (prefix_time_bound b c o E0 T tau L B s hE d j)
-    (factor_control C eps (distance (timeState b T j) (timeState c T j)) hC
-      (stateNorm_nonnegative _) (hN j hj))
+    ((show Fraction.lt (Fraction.mul ((distance (timeState b T j) (timeState c T j))) (C)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hdist := ((Fraction.nonnegative_iff_toRat (distance (timeState b T j) (timeState c T j))).mp (stateNorm_nonnegative _))
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN j hj)
+        change (distance (timeState b T j) (timeState c T j)).toRat < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff]))
 
 noncomputable def gammaValue (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -147,7 +162,7 @@ theorem gamma_admissible (o : ForceClasses.CentralOracle) (E0 T tau L B : Fracti
 /-- Every constructed curve position lies in the closed coordinate band.
 The lower radius is stated by exclusion of smaller closed balls, without a
 new completed magnitude or a supplied confinement hypothesis. -/
--- Modern dependency score: 86/255 (M=86, H=169; transitive project theorems/axioms).
+-- Modern dependency score: 86/253 (M=86, H=167; transitive project theorems/axioms).
 theorem gamma_band (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -237,12 +252,19 @@ theorem gamma_within (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
 
 noncomputable def timeTolerance (T tau B : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hB : 0 ≤ B.num) (eps : Fraction) : Fraction :=
-  factorDelta (stateTimeFactor T tau B s ht) eps.half (stateTimeFactor_nonnegative T tau B s hT ht hB)
+  Fraction.ofRat (factorDelta ((stateTimeFactor T tau B s ht)).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat (stateTimeFactor T tau B s ht)).mp (stateTimeFactor_nonnegative T tau B s hT ht hB)))
 
--- Modern dependency score: 3/9 (M=3, H=6; transitive project theorems/axioms).
+-- Modern dependency score: 3/13 (M=3, H=10; transitive project theorems/axioms).
 theorem timeTolerance_positive (T tau B : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (ht : 0 < tau.num) (hB : 0 ≤ B.num) (eps : Fraction) (heps : 0 < eps.num) :
-    0 < (timeTolerance T tau B s hT ht hB eps).num := factorDelta_positive _ _ _ heps
+    0 < (timeTolerance T tau B s hT ht hB eps).num := (by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat (stateTimeFactor T tau B s ht)).mp (stateTimeFactor_nonnegative T tau B s hT ht hB))
+        have hepsRat : 0 < (eps.half).toRat := (Fraction.positive_iff_toRat (eps.half)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos])
 
 -- Modern dependency score: 79/246 (M=79, H=167; transitive project theorems/axioms).
 theorem gamma_uniform_continuity (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
@@ -251,9 +273,11 @@ theorem gamma_uniform_continuity (o : ForceClasses.CentralOracle) (E0 T tau L B 
     (hxy : TimeWithin T d.time_nonnegative x y
       (timeTolerance T tau B s d.time_nonnegative d.calibration_positive d.bound_nonnegative eps)) :
     Within (gammaValue o E0 T tau L B s hE d x) (gammaValue o E0 T tau L B s hE d y) eps.half :=
-  within_mono _ _ _ _ (factor_delta_weak _ _
-    (stateTimeFactor_nonnegative T tau B s d.time_nonnegative d.calibration_positive d.bound_nonnegative)
-    (by simpa only [Fraction.half] using Int.le_of_lt heps))
+  within_mono _ _ _ _ ((by
+      apply (Fraction.le_iff_toRat _ _).mpr
+      change (Fraction.mul (Fraction.ofRat _) _).toRat ≤ Fraction.toRat _
+      rw [Fraction.toRat_mul, Fraction.toRat_ofRat]
+      exact HarmonicTimeRealization.factor_delta_weak _ _ ((Fraction.nonnegative_iff_toRat _).mp (stateTimeFactor_nonnegative T tau B s d.time_nonnegative d.calibration_positive d.bound_nonnegative)) ((Fraction.nonnegative_iff_toRat _).mp (by simpa only [Fraction.half] using Int.le_of_lt heps))))
     (gamma_within o E0 T tau L B s hE d x y _ hxy)
 
 noncomputable def gammaPosition (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
@@ -308,8 +332,15 @@ theorem right_endpoint_value (o : ForceClasses.CentralOracle) (E0 T tau L B : Fr
   intro eps heps
   let C := stateTimeFactor T tau B s d.calibration_positive
   have hC := stateTimeFactor_nonnegative T tau B s d.time_nonnegative d.calibration_positive d.bound_nonnegative
-  obtain ⟨N,hN⟩ := duration_eventually_small T (factorDelta C eps hC)
-    d.time_nonnegative (factorDelta_positive C eps hC heps)
+  obtain ⟨N,hN⟩ := duration_eventually_small T (Fraction.ofRat (factorDelta (C).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat C).mp hC)))
+    d.time_nonnegative ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N,fun j hj => ?_⟩
   have hop := count_step_bound o E0 T tau L B s hE d j (ticks rightAddress j) (ticks_lt_blocks rightAddress j)
   rw [right_ticks] at hop
@@ -324,6 +355,15 @@ theorem right_endpoint_value (o : ForceClasses.CentralOracle) (E0 T tau L B : Fr
     simp only [C,stateTimeFactor,Fraction.equiv,Fraction.mul]
     ac_nf)
   exact Fraction.magnitudes.lt_of_le_lt hb
-    (factor_control C eps (duration T j) hC d.time_nonnegative (hN j hj))
+    ((show Fraction.lt (Fraction.mul ((duration T j)) (C)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hdist := ((Fraction.nonnegative_iff_toRat (duration T j)).mp d.time_nonnegative)
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN j hj)
+        change (duration T j).toRat < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff]))
 
 end NewtonLimitDynamics.Polygon.GeneralForceTime

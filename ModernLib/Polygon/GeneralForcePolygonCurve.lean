@@ -44,7 +44,7 @@ theorem edgeRadius_geometric (E0 T tau L B : Fraction) (s : Point × Point)
     Fraction.mul,Int.add_mul,Int.mul_add]
   ac_nf
 
--- Modern dependency score: 81/183 (M=81, H=102; transitive project theorems/axioms).
+-- Modern dependency score: 81/187 (M=81, H=106; transitive project theorems/axioms).
 theorem polygon_vertex_bound (b : Nat → Bool) (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -94,7 +94,7 @@ theorem polygonMap_uniform_convergence (o : ForceClasses.CentralOracle)
   exact ⟨N,fun m hm t => within_mono _ _ _ _ (Fraction.magnitudes.lt_implies_le (hN m hm))
     (polygonMap_whole_edge_bound o E0 T tau L B s hE d m t)⟩
 
--- Modern dependency score: 48/130 (M=48, H=82; transitive project theorems/axioms).
+-- Modern dependency score: 48/133 (M=48, H=85; transitive project theorems/axioms).
 theorem polygonMap_left (o : ForceClasses.CentralOracle) (E0 T : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (m : Nat) :
     polygonMap o E0 T s hE hT m (leftTime T hT) = embedPosition s.1 :=
@@ -133,7 +133,7 @@ theorem constructed_uniform_curve (o : ForceClasses.CentralOracle)
 /-- The closed chords of the actual constructed curve have its entire trace
 as their two-sided boundary limit. This is the given-curve chord case of
 Lemma III Corollary 4, instantiated without a supplied curve modulus. -/
--- Modern dependency score: 138/327 (M=138, H=189; transitive project theorems/axioms).
+-- Modern dependency score: 138/325 (M=138, H=187; transitive project theorems/axioms).
 theorem constructed_chord_boundary_limit (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :

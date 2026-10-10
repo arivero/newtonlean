@@ -10,7 +10,7 @@ open NewtonLimitDynamics
 open TimeSubdivision PointBounds HarmonicDyadic HarmonicBinaryPrefix HarmonicStability ForceClasses
 open CauchyValues PositionValues
 
--- Modern dependency score: 51/134 (M=51, H=83; transitive project theorems/axioms).
+-- Modern dependency score: 51/137 (M=51, H=86; transitive project theorems/axioms).
 theorem harmonic_polygonMap_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (m : Nat)
     (t : BinaryTime.BinaryTime T hT) :

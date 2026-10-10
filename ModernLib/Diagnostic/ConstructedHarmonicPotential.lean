@@ -79,7 +79,7 @@ private def workName (mass w : Fraction) (a : EndpointCauchyName) : EndpointCauc
     (pairingName dotForm (secantName (negF w) a (constantName (zeroPoint,zeroPoint))) a)
     (constantName (zeroPoint,zeroPoint))
 
--- Modern dependency score: 13/75 (M=13, H=62; transitive project theorems/axioms).
+-- Modern dependency score: 13/79 (M=13, H=66; transitive project theorems/axioms).
 private theorem work_approximant (mass w : Fraction) (a : EndpointCauchyName) (j : Nat) :
     stateEquiv ((workName mass w a).approx j)
       (scalarState (Fraction.mul (Fraction.mul mass w).half
@@ -91,7 +91,7 @@ private theorem work_approximant (mass w : Fraction) (a : EndpointCauchyName) (j
   exact ⟨⟨Fraction.equiv_trans he.1.1 (Fraction.mul_equiv_left _
     (dot_congr hg ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)),he.1.2⟩,he.2⟩
 
--- Modern dependency score: 18/89 (M=18, H=71; transitive project theorems/axioms).
+-- Modern dependency score: 18/93 (M=18, H=75; transitive project theorems/axioms).
 theorem force_work_eq_energy (mass w : Fraction) (x : Value) :
     secantValue (Fraction.mul mass w).half
       (pairingValue dotForm (HarmonicCompletedForce.linearValue w x) x) (embed (zeroPoint,zeroPoint)) =

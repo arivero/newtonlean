@@ -65,14 +65,30 @@ theorem enclosed_gap_vanishes {A : Type} [RationalEnclosure.Magnitude A]
 
 /-- An explicit unconditional rational budget instance, including zero
 coefficient. This is the squeeze used by constructed geometric content. -/
--- Modern dependency score: 0/14 (M=0, H=14; transitive project theorems/axioms).
+-- Modern dependency score: 0/11 (M=0, H=11; transitive project theorems/axioms).
 theorem linear_budget_vanishes (A : Fraction) (hA : 0 ≤ A.num) :
     Vanishes (fun mesh => Fraction.mul mesh A) := by
   intro eps heps
-  refine ⟨Polygon.HarmonicTimeRealization.factorDelta A eps hA,
-    Polygon.HarmonicTimeRealization.factorDelta_positive A eps hA heps,?_⟩
+  refine ⟨Fraction.ofRat (Polygon.HarmonicTimeRealization.factorDelta (A).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat A).mp hA)),
+    (by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat A).mp hA)
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]),?_⟩
   intro mesh hm hmd
-  exact Polygon.HarmonicTimeRealization.factor_control A eps mesh hA (Int.le_of_lt hm) hmd
+  exact (show Fraction.lt (Fraction.mul (mesh) (A)) (eps) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat A).mp hA)
+      have hdist := ((Fraction.nonnegative_iff_toRat mesh).mp (Int.le_of_lt hm))
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp hmd
+      change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
 
 /-- Conditional transfer of polygon area ratios to enclosed sector area ratios.
     Lower and upper limits are geometric premises. No trajectory existence or

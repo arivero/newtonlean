@@ -121,7 +121,7 @@ theorem fixed_left_bound (f : Form) (s t u : Point × Point) :
 def pairingName (f : Form) (a b : EndpointCauchyName) : EndpointCauchyName :=
   BinaryLift.name (pairingOperation f) a b
 
--- Modern dependency score: 7/53 (M=7, H=46; transitive project theorems/axioms).
+-- Modern dependency score: 7/57 (M=7, H=50; transitive project theorems/axioms).
 theorem pairingName_equiv (f : Form) (a b a' b' : EndpointCauchyName)
     (ha : NameEquiv a a') (hb : NameEquiv b b') :
     NameEquiv (pairingName f a b) (pairingName f a' b') :=
@@ -130,11 +130,11 @@ theorem pairingName_equiv (f : Form) (a b a' b' : EndpointCauchyName)
 def pairingValue (f : Form) (x y : Value) : Value :=
   BinaryLift.value (pairingOperation f) x y
 
--- Modern dependency score: 14/69 (M=14, H=55; transitive project theorems/axioms).
+-- Modern dependency score: 14/73 (M=14, H=59; transitive project theorems/axioms).
 theorem pairingValue_embed (f : Form) (s t : Point × Point) :
     pairingValue f (embed s) (embed t) = embed (pairingState f s t) := rfl
 
--- Modern dependency score: 18/73 (M=18, H=55; transitive project theorems/axioms).
+-- Modern dependency score: 18/77 (M=18, H=59; transitive project theorems/axioms).
 theorem pairingValue_scalar (f : Form) (x y : Value) :
     PositionValues.firstValue (pairingValue f x y) = pairingValue f x y := by
   induction x using Quotient.inductionOn with
@@ -142,7 +142,7 @@ theorem pairingValue_scalar (f : Form) (x y : Value) :
     induction y using Quotient.inductionOn with
     | _ b => rfl
 
--- Modern dependency score: 10/68 (M=10, H=58; transitive project theorems/axioms).
+-- Modern dependency score: 10/72 (M=10, H=62; transitive project theorems/axioms).
 theorem scaled_pairing_approximant (f : Form) (c : Fraction) (a b : EndpointCauchyName) (j : Nat) :
     stateEquiv ((secantName c (pairingName f a b)
       (constantName (PositionValues.zeroPoint,PositionValues.zeroPoint))).approx j)
@@ -161,7 +161,7 @@ theorem scaled_pairing_approximant (f : Form) (c : Fraction) (a b : EndpointCauc
 /-- A proved bound on the fixed input tail transfers a completed bound in
 the other input. The client supplies actual name estimates, not a bilinear
 continuity premise on completed values. -/
--- Modern dependency score: 10/60 (M=10, H=50; transitive project theorems/axioms).
+-- Modern dependency score: 10/64 (M=10, H=54; transitive project theorems/axioms).
 theorem pairing_name_bound_right (f : Form) (a b c : EndpointCauchyName)
     (R S : Fraction) (hR : 0 ≤ R.num) (M : Nat)
     (ha : ∀ j, M≤j → Fraction.le (pointNorm (a.approx j).1) R)

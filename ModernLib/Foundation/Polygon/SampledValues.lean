@@ -55,22 +55,38 @@ theorem admissibleName_realize (region : (Point × Point) → Prop)
     (x : Value) (hx : Admissible region x) :
     realize (admissibleName region x hx) = x := hx.choose_spec.1
 
--- Modern dependency score: 1/19 (M=1, H=18; transitive project theorems/axioms).
+-- Modern dependency score: 1/18 (M=1, H=17; transitive project theorems/axioms).
 theorem scaled_add_small (C eps d e : Fraction) (hC : 0 ≤ C.num)
     (hd : 0 ≤ d.num)
-    (hdelta : Fraction.lt d (factorDelta C eps.half hC))
+    (hdelta : Fraction.lt d (Fraction.ofRat (factorDelta (C).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat C).mp hC))))
     (he : Fraction.lt e eps.half) :
     Fraction.lt (Fraction.add (Fraction.mul d C) e) eps :=
   lt_equiv_right (Fraction.add_lt_add
-    (factor_control C eps.half d hC hd hdelta) he) (Fraction.half_add_self eps)
+    ((show Fraction.lt (Fraction.mul (d) (C)) (eps.half) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hdist := ((Fraction.nonnegative_iff_toRat d).mp hd)
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp hdelta
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])) he) (Fraction.half_add_self eps)
 
 def sampledName (f : Family) (a : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) : EndpointCauchyName where
   approx := fun n => f.sample n (a.approx n)
   cauchy := by
     intro eps heps
-    let delta := factorDelta f.coefficient eps.half f.coefficient_nonnegative
-    obtain ⟨N,hN⟩ := a.cauchy delta (factorDelta_positive _ _ _ heps)
+    let delta := Fraction.ofRat (factorDelta (f.coefficient).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat f.coefficient).mp f.coefficient_nonnegative))
+    obtain ⟨N,hN⟩ := a.cauchy delta ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat f.coefficient).mp f.coefficient_nonnegative)
+        have hepsRat : 0 < (eps.half).toRat := (Fraction.positive_iff_toRat (eps.half)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
     obtain ⟨M,hM⟩ := f.error_vanishes eps.half heps
     refine ⟨max N M,fun i j hi hj => ?_⟩
     by_cases hij : i ≤ j
@@ -88,8 +104,15 @@ theorem sampledName_equiv (f : Family) (a b : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) (hb : ∀ n, f.region (b.approx n))
     (hab : NameEquiv a b) : NameEquiv (sampledName f a ha) (sampledName f b hb) := by
   intro eps heps
-  let delta := factorDelta f.coefficient eps.half f.coefficient_nonnegative
-  obtain ⟨N,hN⟩ := hab delta (factorDelta_positive _ _ _ heps)
+  let delta := Fraction.ofRat (factorDelta (f.coefficient).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat f.coefficient).mp f.coefficient_nonnegative))
+  obtain ⟨N,hN⟩ := hab delta ((by
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0 < (Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      have hcoef := ((Fraction.nonnegative_iff_toRat f.coefficient).mp f.coefficient_nonnegative)
+      have hepsRat : 0 < (eps.half).toRat := (Fraction.positive_iff_toRat (eps.half)).mp heps
+      (try dsimp only at hcoef hepsRat ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   obtain ⟨M,hM⟩ := f.error_vanishes eps.half heps
   refine ⟨max N M,fun n hn => ?_⟩
   exact Fraction.magnitudes.lt_of_le_lt (f.ordered_bound n n (Nat.le_refl _) _ _ (ha n) (hb n))
@@ -103,7 +126,7 @@ noncomputable def sampledValue (f : Family) (x : Value)
     (hx : Admissible f.region x) : Value :=
   realize (sampledName f (admissibleName f.region x hx) (admissibleName_mem f.region x hx))
 
--- Modern dependency score: 12/58 (M=12, H=46; transitive project theorems/axioms).
+-- Modern dependency score: 12/59 (M=12, H=47; transitive project theorems/axioms).
 theorem sampledValue_realize (f : Family) (a : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) (hx : Admissible f.region (realize a)) :
     sampledValue f (realize a) hx = realize (sampledName f a ha) := by
@@ -111,7 +134,7 @@ theorem sampledValue_realize (f : Family) (a : EndpointCauchyName)
   exact sampledName_equiv f _ a (admissibleName_mem _ _ hx) ha
     (Quotient.exact (admissibleName_realize _ _ hx))
 
--- Modern dependency score: 10/56 (M=10, H=46; transitive project theorems/axioms).
+-- Modern dependency score: 10/57 (M=10, H=47; transitive project theorems/axioms).
 theorem sampledValue_congr (f : Family) (x y : Value)
     (hx : Admissible f.region x) (hy : Admissible f.region y) (hxy : x=y) :
     sampledValue f x hx = sampledValue f y hy := by
@@ -131,7 +154,7 @@ def offsetFamily (f : Family) (m : Nat) : Family where
     exact ⟨N,fun j hj => hN (m+j) (by omega)⟩
   ordered_bound := fun i j hij => f.ordered_bound (m+i) (m+j) (by omega)
 
--- Modern dependency score: 2/42 (M=2, H=40; transitive project theorems/axioms).
+-- Modern dependency score: 2/44 (M=2, H=42; transitive project theorems/axioms).
 theorem sampledName_offset_equiv (f : Family) (a : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) (m : Nat) :
     NameEquiv (sampledName f a ha) (sampledName (offsetFamily f m) a ha) := by
@@ -150,7 +173,7 @@ theorem sampledName_offset_equiv (f : Family) (a : EndpointCauchyName)
     ac_nf
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hc hz) (hN j hj)
 
--- Modern dependency score: 11/60 (M=11, H=49; transitive project theorems/axioms).
+-- Modern dependency score: 11/62 (M=11, H=51; transitive project theorems/axioms).
 theorem sampledValue_offset (f : Family) (x : Value)
     (hx : Admissible f.region x) (m : Nat) :
     sampledValue (offsetFamily f m) x hx = sampledValue f x hx :=
@@ -168,7 +191,7 @@ theorem nameBound_of_vanishing_error (a b : EndpointCauchyName) (R : Fraction)
   exact ⟨N,fun n hn => Fraction.magnitudes.lt_of_le_lt (hlevel n)
     (CauchyValues.add_lt_add_left (hN n hn) R)⟩
 
--- Modern dependency score: 1/27 (M=1, H=26; transitive project theorems/axioms).
+-- Modern dependency score: 1/30 (M=1, H=29; transitive project theorems/axioms).
 theorem nameBound_scale_error (a b ta tb : EndpointCauchyName)
     (C R : Fraction) (hC : 0 ≤ C.num) (e : Nat → Fraction)
     (he : ∀ eps : Fraction, 0 < eps.num →
@@ -178,14 +201,25 @@ theorem nameBound_scale_error (a b ta tb : EndpointCauchyName)
     (hnear : NameBound ta tb R) : NameBound a b (Fraction.mul R C) := by
   intro eps heps
   let q := eps.half.half
-  let delta := factorDelta C q hC
-  obtain ⟨N,hN⟩ := hnear delta (factorDelta_positive _ _ _ heps)
+  let delta := Fraction.ofRat (factorDelta (C).toRat (q).toRat ((Fraction.nonnegative_iff_toRat C).mp hC))
+  obtain ⟨N,hN⟩ := hnear delta ((by
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0 < (Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hepsRat : 0 < (q).toRat := (Fraction.positive_iff_toRat (q)).mp heps
+      (try dsimp only at hcoef hepsRat ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   obtain ⟨M,hM⟩ := he q heps
   refine ⟨max N M,fun n hn => ?_⟩
   have hm := Fraction.mul_le_mul_nonnegative
     (Fraction.magnitudes.lt_implies_le (hN n (by omega))) C hC
   have hs := Fraction.le_equiv_right hm (Fraction.add_mul R delta C)
-  have hd := factor_delta_weak C q hC (Int.le_of_lt heps)
+  have hd : Fraction.le (Fraction.mul delta C) q := (by
+      apply (Fraction.le_iff_toRat _ _).mpr
+      change (Fraction.mul (Fraction.ofRat _) _).toRat ≤ Fraction.toRat _
+      rw [Fraction.toRat_mul, Fraction.toRat_ofRat]
+      exact HarmonicTimeRealization.factor_delta_weak _ _ ((Fraction.nonnegative_iff_toRat C).mp hC) ((Fraction.nonnegative_iff_toRat q).mp (Int.le_of_lt heps)))
   have hb := Fraction.magnitudes.le_trans (hlevel n)
     (Fraction.add_le_add (Fraction.magnitudes.le_trans hs
       (Fraction.add_le_add_left hd (Fraction.mul R C)))
@@ -198,7 +232,7 @@ theorem nameBound_scale_error (a b ta tb : EndpointCauchyName)
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hb hc)
     (CauchyValues.add_lt_add_left (Fraction.half_lt eps heps) _)
 
--- Modern dependency score: 19/69 (M=19, H=50; transitive project theorems/axioms).
+-- Modern dependency score: 19/71 (M=19, H=52; transitive project theorems/axioms).
 theorem sampledValue_within (f : Family) (x y : Value)
     (hx : Admissible f.region x) (hy : Admissible f.region y)
     (R : Fraction) (hxy : Within x y R) :
@@ -212,7 +246,7 @@ theorem sampledValue_within (f : Family) (x y : Value)
     f.error_vanishes (fun n => f.ordered_bound n n (Nat.le_refl _) _ _
       (admissibleName_mem _ _ hx n) (admissibleName_mem _ _ hy n)) hab
 
--- Modern dependency score: 1/20 (M=1, H=19; transitive project theorems/axioms).
+-- Modern dependency score: 1/23 (M=1, H=22; transitive project theorems/axioms).
 theorem nameBound_affine (a b ta tb : EndpointCauchyName)
     (C R E : Fraction) (hC : 0 ≤ C.num) (M : Nat)
     (hlevel : ∀ n, M ≤ n → Fraction.le (distance (a.approx n) (b.approx n))
@@ -220,13 +254,24 @@ theorem nameBound_affine (a b ta tb : EndpointCauchyName)
     (hnear : NameBound ta tb R) :
     NameBound a b (Fraction.add (Fraction.mul R C) E) := by
   intro eps heps
-  let delta := factorDelta C eps.half hC
-  obtain ⟨N,hN⟩ := hnear delta (factorDelta_positive _ _ _ heps)
+  let delta := Fraction.ofRat (factorDelta (C).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat C).mp hC))
+  obtain ⟨N,hN⟩ := hnear delta ((by
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0 < (Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hepsRat : 0 < (eps.half).toRat := (Fraction.positive_iff_toRat (eps.half)).mp heps
+      (try dsimp only at hcoef hepsRat ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨max N M,fun n hn => ?_⟩
   have hm := Fraction.mul_le_mul_nonnegative
     (Fraction.magnitudes.lt_implies_le (hN n (by omega))) C hC
   have hs := Fraction.le_equiv_right hm (Fraction.add_mul R delta C)
-  have hd := factor_delta_weak C eps.half hC (Int.le_of_lt heps)
+  have hd : Fraction.le (Fraction.mul delta C) eps.half := (by
+      apply (Fraction.le_iff_toRat _ _).mpr
+      change (Fraction.mul (Fraction.ofRat _) _).toRat ≤ Fraction.toRat _
+      rw [Fraction.toRat_mul, Fraction.toRat_ofRat]
+      exact HarmonicTimeRealization.factor_delta_weak _ _ ((Fraction.nonnegative_iff_toRat C).mp hC) ((Fraction.nonnegative_iff_toRat eps.half).mp (Int.le_of_lt heps)))
   have hb := Fraction.magnitudes.le_trans (hlevel n (by omega))
     (Fraction.add_le_add_right (Fraction.magnitudes.le_trans hs
       (Fraction.add_le_add_left hd (Fraction.mul R C))) E)
@@ -238,7 +283,7 @@ theorem nameBound_affine (a b ta tb : EndpointCauchyName)
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_equiv_right hb hc)
     (CauchyValues.add_lt_add_left (Fraction.half_lt eps heps) _)
 
--- Modern dependency score: 21/71 (M=21, H=50; transitive project theorems/axioms).
+-- Modern dependency score: 21/73 (M=21, H=52; transitive project theorems/axioms).
 theorem sampled_approximant_bound (f : Family) (a : EndpointCauchyName)
     (ha : ∀ n, f.region (a.approx n)) (hx : Admissible f.region (realize a))
     (m : Nat) (R : Fraction) (hnear : Within (embed (a.approx m)) (realize a) R) :

@@ -234,7 +234,7 @@ def intervalReferenceName (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
   secantName (areaMomentum true s).half (intervalElapsedName b c T hT)
     (constantName FanValues.zeroState)
 
--- Modern dependency score: 21/103 (M=21, H=82; transitive project theorems/axioms).
+-- Modern dependency score: 21/107 (M=21, H=86; transitive project theorems/axioms).
 theorem interval_reference_approx (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (s : Point × Point) (m : Nat) :
     stateEquiv ((intervalReferenceName b c T hT s).approx m)
@@ -628,7 +628,7 @@ theorem sector_area_is_swept (unsigned : Bool) (o : CentralOracle) (E0 T tau L B
 has unsigned swept area proportional to time, and its actual intervening
 polygon-region content vanishes. The area coefficient and enclosure are
 derived, not premises. Regularity/window data remain modern premises. -/
--- Modern dependency score: 234/465 (M=234, H=231; transitive project theorems/axioms).
+-- Modern dependency score: 234/463 (M=234, H=229; transitive project theorems/axioms).
 theorem constructed_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -648,7 +648,7 @@ theorem constructed_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
 derived elapsed-time formula and the existing intervening-content exhaustion.
 This is a modern regional reconstruction; the historical invoked corollaries
 remain separate proof obligations. -/
--- Modern dependency score: 242/475 (M=242, H=233; transitive project theorems/axioms).
+-- Modern dependency score: 242/473 (M=242, H=231; transitive project theorems/axioms).
 theorem constructed_interval_area_law (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

@@ -347,13 +347,20 @@ theorem uncalibrated_le_distance (tau : Fraction) (ht : 0 < tau.num)
 theorem calibrated_tolerance (tau eps : Fraction) (ht : 0 < tau.num)
     (s t : Point × Point)
     (hd : Fraction.lt (stateDistance s t)
-      (HarmonicTimeRealization.factorDelta (Fraction.add (Fraction.ofInt 1) tau) eps
-        (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt ht)))) :
+      (Fraction.ofRat (HarmonicTimeRealization.factorDelta ((Fraction.add (Fraction.ofInt 1) tau)).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat (Fraction.add (Fraction.ofInt 1) tau)).mp (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt ht)))))) :
     Fraction.lt (distance tau s t) eps := by
   let C := Fraction.add (Fraction.ofInt 1) tau
   have hC : 0 ≤ C.num := Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt ht)
-  have hs := HarmonicTimeRealization.factor_control C eps (stateDistance s t) hC
-    (Fraction.nonnegative_add _ _ (pointNorm_nonnegative _) (pointNorm_nonnegative _)) hd
+  have hs := (show Fraction.lt (Fraction.mul ((stateDistance s t)) (C)) (eps) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hdist := ((Fraction.nonnegative_iff_toRat (stateDistance s t)).mp (Fraction.nonnegative_add _ _ (pointNorm_nonnegative _) (pointNorm_nonnegative _)))
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp hd
+      change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
   exact Fraction.magnitudes.lt_of_le_lt (distance_le_uncalibrated tau ht s t)
     (Fraction.magnitudes.lt_of_le_lt
       (Fraction.le_of_equiv (Fraction.equiv_symm (Fraction.mul_comm (stateDistance s t) C))) hs)
@@ -361,15 +368,20 @@ theorem calibrated_tolerance (tau eps : Fraction) (ht : 0 < tau.num)
 theorem unit_tolerance (tau eps : Fraction) (ht : 0 < tau.num)
     (s t : Point × Point)
     (hd : Fraction.lt (distance tau s t)
-      (HarmonicTimeRealization.factorDelta
-        (Fraction.add (Fraction.ofInt 1) (inverse tau ht)) eps
-        (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt tau.den_pos)))) :
+      (Fraction.ofRat (HarmonicTimeRealization.factorDelta ((Fraction.add (Fraction.ofInt 1) (inverse tau ht))).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat (Fraction.add (Fraction.ofInt 1) (inverse tau ht))).mp (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt tau.den_pos)))))) :
     Fraction.lt (stateDistance s t) eps := by
   let C := Fraction.add (Fraction.ofInt 1) (inverse tau ht)
   have hC : 0 ≤ C.num := Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt tau.den_pos)
-  have hs := HarmonicTimeRealization.factor_control C eps (distance tau s t) hC
-    (Fraction.nonnegative_add _ _ (pointNorm_nonnegative _)
-      (Fraction.nonnegative_mul _ _ (Int.le_of_lt ht) (pointNorm_nonnegative _))) hd
+  have hs := (show Fraction.lt (Fraction.mul ((distance tau s t)) (C)) (eps) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+      have hdist := ((Fraction.nonnegative_iff_toRat (distance tau s t)).mp (Fraction.nonnegative_add _ _ (pointNorm_nonnegative _) (Fraction.nonnegative_mul _ _ (Int.le_of_lt ht) (pointNorm_nonnegative _))))
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp hd
+      change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
   exact Fraction.magnitudes.lt_of_le_lt (uncalibrated_le_distance tau ht s t)
     (Fraction.magnitudes.lt_of_le_lt
       (Fraction.le_of_equiv (Fraction.equiv_symm (Fraction.mul_comm (distance tau s t) C))) hs)

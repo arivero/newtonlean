@@ -20,7 +20,7 @@ def normalizedTriangleValue (h : Fraction) (ht : 0 < h.num) (x y : Value) : Valu
   let q := TimeCalibration.inverse h ht
   secantValue (Fraction.mul q (Fraction.mul q q)) (triangleValue h x y) (embed (zeroPoint,zeroPoint))
 
--- Modern dependency score: 19/91 (M=19, H=72; transitive project theorems/axioms).
+-- Modern dependency score: 19/95 (M=19, H=76; transitive project theorems/axioms).
 theorem triangleValue_embed (h : Fraction) (s u : Point × Point) :
     triangleValue h (embed s) (embed u) =
       embed (scalarState (TriangleBounds.triangleTwice s.1 (pointAdd s.1 (pointScale h s.2)) u.1)) := by
@@ -43,7 +43,7 @@ theorem triangleValue_embed (h : Fraction) (s u : Point × Point) :
 
 /-- Exact completed identity for the signed doubled tangent-deflection
 triangle. The next point is arbitrary; no curve expansion is assumed. -/
--- Modern dependency score: 19/91 (M=19, H=72; transitive project theorems/axioms).
+-- Modern dependency score: 19/95 (M=19, H=76; transitive project theorems/axioms).
 theorem normalized_triangle_identity (h : Fraction) (ht : 0 < h.num) (x y : Value) :
     normalizedTriangleValue h ht x y =
       secantValue (Fraction.ofInt 1).half

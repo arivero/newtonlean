@@ -1829,7 +1829,7 @@ theorem natp00089_polygon_trajectory_defect_control
     (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
--- Modern dependency score: 235/466 (M=235, H=231; transitive project theorems/axioms).
+-- Modern dependency score: 235/464 (M=235, H=229; transitive project theorems/axioms).
 theorem natp00089_constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1844,7 +1844,7 @@ theorem natp00089_constructed_central_area_law (o : ForceClasses.CentralOracle) 
     Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
--- Modern dependency score: 243/476 (M=243, H=233; transitive project theorems/axioms).
+-- Modern dependency score: 243/474 (M=243, H=231; transitive project theorems/axioms).
 theorem natp00089_constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1880,7 +1880,7 @@ theorem natp00090_polygon_trajectory_defect_control
     (hgeometry : PolygonTrajectoryEnclosure polygonTrajectoryArea budget) :
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
--- Modern dependency score: 235/466 (M=235, H=231; transitive project theorems/axioms).
+-- Modern dependency score: 235/464 (M=235, H=229; transitive project theorems/axioms).
 theorem natp00090_constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1895,7 +1895,7 @@ theorem natp00090_constructed_central_area_law (o : ForceClasses.CentralOracle) 
     Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
--- Modern dependency score: 243/476 (M=243, H=233; transitive project theorems/axioms).
+-- Modern dependency score: 243/474 (M=243, H=231; transitive project theorems/axioms).
 theorem natp00090_constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1930,7 +1930,7 @@ open NewtonLimitDynamics.Polygon NewtonLimitDynamics NewtonLimitDynamics.Polygon
 or polygon agreement. The conclusions are all-interval fan proportionality
 and vanishing nonnegative outer content between paths; ordinary geometric
 sector-union identification remains open. -/
--- Modern dependency score: 241/475 (M=241, H=234; transitive project theorems/axioms).
+-- Modern dependency score: 241/473 (M=241, H=232; transitive project theorems/axioms).
 theorem supplied_trajectory_fan_and_path_content
     (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
@@ -1956,7 +1956,7 @@ theorem polygon_trajectory_defect_control
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
 
--- Modern dependency score: 235/466 (M=235, H=231; transitive project theorems/axioms).
+-- Modern dependency score: 235/464 (M=235, H=229; transitive project theorems/axioms).
 theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1972,7 +1972,7 @@ theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau 
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
 
--- Modern dependency score: 243/476 (M=243, H=233; transitive project theorems/axioms).
+-- Modern dependency score: 243/474 (M=243, H=231; transitive project theorems/axioms).
 theorem constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -1996,7 +1996,7 @@ open NewtonLimitDynamics.Polygon NewtonLimitDynamics NewtonLimitDynamics.Polygon
 
 /-- The same modern supplied-motion fan and path-content reconstruction, kept
 separate for the 1713 witness. Its historical limiting step remains open. -/
--- Modern dependency score: 241/475 (M=241, H=234; transitive project theorems/axioms).
+-- Modern dependency score: 241/473 (M=241, H=232; transitive project theorems/axioms).
 theorem supplied_trajectory_fan_and_path_content
     (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
@@ -2022,7 +2022,7 @@ theorem polygon_trajectory_defect_control
     Vanishes polygonTrajectoryArea :=
   polygon_trajectory_defect_vanishes polygonTrajectoryArea budget hbudget hgeometry
 
--- Modern dependency score: 235/466 (M=235, H=231; transitive project theorems/axioms).
+-- Modern dependency score: 235/464 (M=235, H=229; transitive project theorems/axioms).
 theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -2038,7 +2038,7 @@ theorem constructed_central_area_law (o : ForceClasses.CentralOracle) (E0 T tau 
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_area_law o E0 T tau L B s hE d t
 
--- Modern dependency score: 243/476 (M=243, H=233; transitive project theorems/axioms).
+-- Modern dependency score: 243/474 (M=243, H=231; transitive project theorems/axioms).
 theorem constructed_central_interval_area_law (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : TimeSubdivision.Point × TimeSubdivision.Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

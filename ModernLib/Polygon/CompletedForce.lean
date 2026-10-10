@@ -77,7 +77,7 @@ noncomputable def forceValue (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.
     (hx : SampledValues.Admissible (fun q => o.region q.1) x) : Value :=
   SampledValues.sampledValue (family o E0 L hE hL) x hx
 
--- Modern dependency score: 25/79 (M=25, H=54; transitive project theorems/axioms).
+-- Modern dependency score: 25/83 (M=25, H=58; transitive project theorems/axioms).
 theorem forceValue_realize (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
     (hL : LipschitzOn o.toOracle L) (a : EndpointCauchyName)
     (ha : ∀ n, o.region (a.approx n).1)
@@ -85,7 +85,7 @@ theorem forceValue_realize (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.nu
     forceValue o E0 L hE hL (realize a) hx = realize (forceName o E0 L hE hL a ha) :=
   SampledValues.sampledValue_realize (family o E0 L hE hL) a ha hx
 
--- Modern dependency score: 32/89 (M=32, H=57; transitive project theorems/axioms).
+-- Modern dependency score: 32/93 (M=32, H=61; transitive project theorems/axioms).
 theorem forceValue_within (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
     (hL : LipschitzOn o.toOracle L) (x y : Value)
     (hx : SampledValues.Admissible (fun q => o.region q.1) x)
@@ -103,7 +103,7 @@ theorem position_admissible (o : CentralOracle) (x : Value)
   exact ⟨PositionValues.mapName PositionValues.positionState PositionValues.position_nonexpansive a,
     rfl,ha⟩
 
--- Modern dependency score: 31/85 (M=31, H=54; transitive project theorems/axioms).
+-- Modern dependency score: 31/89 (M=31, H=58; transitive project theorems/axioms).
 theorem force_input_position (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
     (hL : LipschitzOn o.toOracle L) (x : Value)
     (hx : SampledValues.Admissible (fun q => o.region q.1) x) :
@@ -117,7 +117,7 @@ theorem force_input_position (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.
     (fun n => ha n),forceValue_realize o E0 L hE hL a ha]
   rfl
 
--- Modern dependency score: 30/84 (M=30, H=54; transitive project theorems/axioms).
+-- Modern dependency score: 30/88 (M=30, H=58; transitive project theorems/axioms).
 theorem force_output_position (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E0.num)
     (hL : LipschitzOn o.toOracle L) (x : Value)
     (hx : SampledValues.Admissible (fun q => o.region q.1) x) :
@@ -134,7 +134,7 @@ noncomputable def acceleration (o : CentralOracle) (E0 L : Fraction) (hE : 0 < E
 
 /-- Agreement with the retained force value at every rational point. The mesh
 precision may remain constant; no premise that precision(j) >= j is used. -/
--- Modern dependency score: 28/82 (M=28, H=54; transitive project theorems/axioms).
+-- Modern dependency score: 28/86 (M=28, H=58; transitive project theorems/axioms).
 theorem force_rational_agreement (o : CentralOracle) (E0 L : Fraction)
     (hE : 0 < E0.num) (hL : LipschitzOn o.toOracle L)
     (s : Point × Point) (hs : o.region s.1) :
@@ -158,7 +158,7 @@ theorem force_rational_agreement (o : CentralOracle) (E0 L : Fraction)
 
 /-- Precision scales and valid Lipschitz bounds do not change the completed
 force. Independence of the motion from these choices is a separate theorem. -/
--- Modern dependency score: 27/81 (M=27, H=54; transitive project theorems/axioms).
+-- Modern dependency score: 27/85 (M=27, H=58; transitive project theorems/axioms).
 theorem force_precision_independent (o : CentralOracle) (E0 E1 L L' : Fraction)
     (hE : 0 < E0.num) (hE' : 0 < E1.num)
     (hL : LipschitzOn o.toOracle L) (hL' : LipschitzOn o.toOracle L')

@@ -115,7 +115,7 @@ theorem uniform_whole_edge_convergence (w T : Fraction) (s : Point × Point)
     (Fraction.magnitudes.lt_implies_le (hN m hm))
     (whole_edge_bound b w T s hT hs m)⟩
 
--- Modern dependency score: 25/85 (M=25, H=60; transitive project theorems/axioms).
+-- Modern dependency score: 25/88 (M=25, H=63; transitive project theorems/axioms).
 theorem polygon_same_cell_address_independent (b c : Nat → Bool)
     (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat)
     (hcell : ticks b m = ticks c m)
@@ -123,7 +123,7 @@ theorem polygon_same_cell_address_independent (b c : Nat → Bool)
     polygonPosition b w T s hT m = polygonPosition c w T s hT m := by
   exact PolygonValues.polygon_same_cell b c T hT m (vertices w T s m) hcell htime
 
--- Modern dependency score: 33/111 (M=33, H=78; transitive project theorems/axioms).
+-- Modern dependency score: 33/114 (M=33, H=81; transitive project theorems/axioms).
 theorem polygon_adjacent_address_independent (b c : Nat → Bool)
     (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat)
     (hcell : ticks b m + 1 = ticks c m)
@@ -131,14 +131,14 @@ theorem polygon_adjacent_address_independent (b c : Nat → Bool)
     polygonPosition b w T s hT m = polygonPosition c w T s hT m := by
   exact PolygonValues.polygon_adjacent_cells b c T hT m (vertices w T s m) hcell htime
 
--- Modern dependency score: 26/92 (M=26, H=66; transitive project theorems/axioms).
+-- Modern dependency score: 26/95 (M=26, H=69; transitive project theorems/axioms).
 theorem polygon_zero_window (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat) (hz : T.num = 0) :
     polygonPosition b w T s hT m =
       asPosition (embed (s.1,AffineValues.zeroPoint)) := by
   exact PolygonValues.polygon_zero_window b T hT m (vertices w T s m) hz
 
--- Modern dependency score: 45/126 (M=45, H=81; transitive project theorems/axioms).
+-- Modern dependency score: 45/129 (M=45, H=84; transitive project theorems/axioms).
 theorem polygon_address_independent (b c : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (m : Nat)
     (htime : AddressEquiv T hT b c) :
@@ -176,7 +176,7 @@ theorem polygonMap_uniform_convergence (w T : Fraction) (s : Point × Point)
 
 /-- The standard terminating/nonterminating half-time addresses occupy
 different coarse cells and nevertheless give the same polygon point. -/
--- Modern dependency score: 49/134 (M=49, H=85; transitive project theorems/axioms).
+-- Modern dependency score: 49/137 (M=49, H=88; transitive project theorems/axioms).
 theorem half_time_polygon_alias (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (m : Nat) :
     polygonPosition firstAlias w T s hT m =
@@ -188,7 +188,7 @@ theorem half_time_polygon_alias (w T : Fraction) (s : Point × Point)
 theorem half_time_distinct_coarse_cells :
     ticks firstAlias 1 = 1 ∧ ticks secondAlias 1 = 0 := by decide
 
--- Modern dependency score: 49/131 (M=49, H=82; transitive project theorems/axioms).
+-- Modern dependency score: 49/134 (M=49, H=85; transitive project theorems/axioms).
 theorem polygonMap_left (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (m : Nat) :
     polygonMap w T s hT m (leftTime T hT) = embedPosition s.1 := by

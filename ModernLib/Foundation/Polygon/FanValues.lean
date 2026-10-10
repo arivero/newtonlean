@@ -45,11 +45,11 @@ def sumName (a b : EndpointCauchyName) : EndpointCauchyName :=
 
 def sumValue (x y : Value) : Value := BinaryLift.value sumOperation x y
 
--- Modern dependency score: 17/69 (M=17, H=52; transitive project theorems/axioms).
+-- Modern dependency score: 17/70 (M=17, H=53; transitive project theorems/axioms).
 theorem sumValue_realize (a b : EndpointCauchyName) :
     sumValue (realize a) (realize b) = realize (sumName a b) := rfl
 
--- Modern dependency score: 18/70 (M=18, H=52; transitive project theorems/axioms).
+-- Modern dependency score: 18/71 (M=18, H=53; transitive project theorems/axioms).
 theorem sumValue_scalar (x y : Value) : firstValue (sumValue x y) = sumValue x y := by
   induction x using Quotient.inductionOn with
   | _ a =>
@@ -78,7 +78,7 @@ def sumValues (a : Nat → Value) : Nat → Value
   | 0 => embed (scalarState (Fraction.ofInt 0))
   | n+1 => sumValue (sumValues a n) (a n)
 
--- Modern dependency score: 17/69 (M=17, H=52; transitive project theorems/axioms).
+-- Modern dependency score: 17/70 (M=17, H=53; transitive project theorems/axioms).
 theorem sumValues_realize (a : Nat → EndpointCauchyName) (n : Nat) :
     sumValues (fun i => realize (a i)) n = realize (sumNames a n) := by
   induction n with
@@ -88,7 +88,7 @@ theorem sumValues_realize (a : Nat → EndpointCauchyName) (n : Nat) :
     rw [ih]
     rfl
 
--- Modern dependency score: 11/53 (M=11, H=42; transitive project theorems/axioms).
+-- Modern dependency score: 11/54 (M=11, H=43; transitive project theorems/axioms).
 theorem sumNames_approx (a : Nat → EndpointCauchyName) (n j : Nat) :
     (sumNames a n).approx j =
       scalarState (PolygonFanArea.sum (fun i => (a i).approx j |>.1.1) n) := by
@@ -119,13 +119,13 @@ def intervalName (unsigned : Bool) (p : Nat → EndpointCauchyName)
 def intervalValue (unsigned : Bool) (p : Nat → Value)
     (lo count : Nat) : Value := fanValue unsigned (fun i => p (lo+i)) count
 
--- Modern dependency score: 22/81 (M=22, H=59; transitive project theorems/axioms).
+-- Modern dependency score: 22/85 (M=22, H=63; transitive project theorems/axioms).
 theorem fanValue_realize (unsigned : Bool) (p : Nat → EndpointCauchyName) (n : Nat) :
     fanValue unsigned (fun i => realize (p i)) n = realize (fanName unsigned p n) := by
   cases unsigned <;> exact sumValues_realize _ _
 
 /-- Triangle fans use positions only, irrespective of other state data. -/
--- Modern dependency score: 23/82 (M=23, H=59; transitive project theorems/axioms).
+-- Modern dependency score: 23/86 (M=23, H=63; transitive project theorems/axioms).
 theorem fanValue_positions (unsigned : Bool) (p : Nat → Value) (n : Nat) :
     fanValue unsigned (fun i => positionValue (p i)) n = fanValue unsigned p n := by
   have hp : ∀ i, pairingValue detForm (positionValue (p i)) (positionValue (p (i+1))) =
@@ -139,26 +139,26 @@ theorem fanValue_positions (unsigned : Bool) (p : Nat → Value) (n : Nat) :
   unfold fanValue
   rw [hf]
 
--- Modern dependency score: 24/83 (M=24, H=59; transitive project theorems/axioms).
+-- Modern dependency score: 24/87 (M=24, H=63; transitive project theorems/axioms).
 theorem intervalValue_positions (unsigned : Bool) (p : Nat → Value)
     (lo count : Nat) :
     intervalValue unsigned (fun i => positionValue (p i)) lo count =
       intervalValue unsigned p lo count :=
   fanValue_positions unsigned (fun i => p (lo+i)) count
 
--- Modern dependency score: 15/69 (M=15, H=54; transitive project theorems/axioms).
+-- Modern dependency score: 15/73 (M=15, H=58; transitive project theorems/axioms).
 theorem fanName_approx (unsigned : Bool) (p : Nat → EndpointCauchyName) (n j : Nat) :
     (fanName unsigned p n).approx j = scalarState (finiteFan unsigned (fun i => (p i).approx j |>.1) n) := by
   cases unsigned <;> exact sumNames_approx _ _ _
 
--- Modern dependency score: 23/82 (M=23, H=59; transitive project theorems/axioms).
+-- Modern dependency score: 23/86 (M=23, H=63; transitive project theorems/axioms).
 theorem intervalValue_realize (unsigned : Bool) (p : Nat → EndpointCauchyName)
     (lo count : Nat) :
     intervalValue unsigned (fun i => realize (p i)) lo count =
       realize (intervalName unsigned p lo count) :=
   fanValue_realize unsigned (fun i => p (lo+i)) count
 
--- Modern dependency score: 16/70 (M=16, H=54; transitive project theorems/axioms).
+-- Modern dependency score: 16/74 (M=16, H=58; transitive project theorems/axioms).
 theorem intervalName_approx (unsigned : Bool) (p : Nat → EndpointCauchyName)
     (lo count j : Nat) :
     (intervalName unsigned p lo count).approx j =
@@ -172,7 +172,7 @@ theorem intervalName_approx (unsigned : Bool) (p : Nat → EndpointCauchyName)
 def zeroState : Point × Point := scalarState (Fraction.ofInt 0)
 
 /-- Adjacent blocks of actual completed triangle fans compose by addition. -/
--- Modern dependency score: 29/96 (M=29, H=67; transitive project theorems/axioms).
+-- Modern dependency score: 29/100 (M=29, H=71; transitive project theorems/axioms).
 theorem intervalValue_compose (unsigned : Bool) (p : Nat → Value) (lo n k : Nat) :
     intervalValue unsigned p lo (n+k) =
       sumValue (intervalValue unsigned p lo n) (intervalValue unsigned p (lo+n) k) := by

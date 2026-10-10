@@ -111,13 +111,28 @@ theorem cell_second_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     Fraction.add (Fraction.mul (sampleError o E0 hE (m+j)) (Fraction.ofInt 2))
       (Fraction.mul (duration (Fraction.ofInt 1) j) (pointNorm (g.approx j).1)))
   · intro eps heps
-    let delta := factorDelta (Fraction.ofInt 2) eps.half (by decide)
-    have hd : 0 < delta.num := factorDelta_positive _ _ _ heps
+    let delta := Fraction.ofRat (factorDelta ((Fraction.ofInt 2)).toRat (eps.half).toRat ((Fraction.nonnegative_iff_toRat (Fraction.ofInt 2)).mp (by decide)))
+    have hd : 0 < delta.num := (by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat (Fraction.ofInt 2)).mp (by decide))
+        have hepsRat : 0 < (eps.half).toRat := (Fraction.positive_iff_toRat (eps.half)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos])
     obtain ⟨N,hN⟩ := CompletedForce.sampleError_vanishes o E0 hE delta hd
     obtain ⟨M,hM⟩ := mesh_position_product_vanishes g eps.half heps
     refine ⟨max N M,fun j hj => ?_⟩
-    have h1 := factor_control (Fraction.ofInt 2) eps.half (sampleError o E0 hE (m+j))
-      (by decide) (sampleError_nonnegative o E0 hE (m+j)) (hN (m+j) (by omega))
+    have h1 := (show Fraction.lt (Fraction.mul ((sampleError o E0 hE (m+j))) ((Fraction.ofInt 2))) (eps.half) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat (Fraction.ofInt 2)).mp (by decide))
+        have hdist := ((Fraction.nonnegative_iff_toRat (sampleError o E0 hE (m+j))).mp (sampleError_nonnegative o E0 hE (m+j)))
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN (m+j) (by omega))
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
     exact CauchyValues.lt_equiv_right (Fraction.add_lt_add h1 (hM j (by omega))) (Fraction.half_add_self eps)
   · intro j
     change Fraction.le

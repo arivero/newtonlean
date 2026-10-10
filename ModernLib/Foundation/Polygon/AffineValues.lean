@@ -62,8 +62,15 @@ def edgeName (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
   cauchy := by
     intro eps heps
     let V := pointNorm v
-    let delta := factorDelta V eps (pointNorm_nonnegative v)
-    have hdelta := factorDelta_positive V eps (pointNorm_nonnegative v) heps
+    let delta := Fraction.ofRat (factorDelta (V).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat V).mp (pointNorm_nonnegative v)))
+    have hdelta : 0 < delta.num := (by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat V).mp (pointNorm_nonnegative v))
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos])
     obtain ⟨N,hN⟩ := (BinaryTime.timeName b T hT).cauchy delta hdelta
     refine ⟨N, ?_⟩
     intro i j hi hj
@@ -71,9 +78,16 @@ def edgeName (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     have hd := scalarState_distance (timeApprox b T (m+i)) (timeApprox b T (m+j))
     have hg := Fraction.magnitudes.lt_of_le_lt
       (Fraction.le_of_equiv (Fraction.equiv_symm hd)) ht
-    have hc := factor_control V eps
-      (durationDifference (timeApprox b T (m+j)) (timeApprox b T (m+i))).abs
-      (pointNorm_nonnegative v) (Fraction.abs_num_nonnegative _) hg
+    have hc := (show Fraction.lt (Fraction.mul ((durationDifference (timeApprox b T (m+j)) (timeApprox b T (m+i))).abs) (V)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat V).mp (pointNorm_nonnegative v))
+        have hdist := ((Fraction.nonnegative_iff_toRat (durationDifference (timeApprox b T (m+j)) (timeApprox b T (m+i))).abs).mp (Fraction.abs_num_nonnegative _))
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp hg
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
     have ha := Fraction.equiv_trans
       (affine_distance x v
         (durationDifference (timeApprox b T m) (timeApprox b T (m+i)))
@@ -132,7 +146,7 @@ theorem phase_interval (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ hn))
     (phase_abs_bound b T hT m j)⟩
 
--- Modern dependency score: 30/92 (M=30, H=62; transitive project theorems/axioms).
+-- Modern dependency score: 30/95 (M=30, H=65; transitive project theorems/axioms).
 theorem edge_vertex_bound (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (x v : Point) (m : Nat) :
     Within (realize (edgeName b T hT x v m)) (embed (x, zeroPoint))
@@ -143,7 +157,7 @@ theorem edge_vertex_bound (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (Fraction.mul_le_mul_nonnegative (phase_abs_bound b T hT m j)
       (pointNorm v) (pointNorm_nonnegative v))
 
--- Modern dependency score: 10/65 (M=10, H=55; transitive project theorems/axioms).
+-- Modern dependency score: 10/68 (M=10, H=58; transitive project theorems/axioms).
 theorem edgeName_same_start (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
     (x v : Point) (m : Nat)
     (hbase : timeApprox b T m = timeApprox c T m)
@@ -151,18 +165,32 @@ theorem edgeName_same_start (b c : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.nu
     NameEquiv (edgeName b T hT x v m) (edgeName c T hT x v m) := by
   intro eps heps
   let V := pointNorm v
-  let delta := factorDelta V eps (pointNorm_nonnegative v)
+  let delta := Fraction.ofRat (factorDelta (V).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat V).mp (pointNorm_nonnegative v)))
   obtain ⟨N,hN⟩ := htime delta
-    (factorDelta_positive V eps (pointNorm_nonnegative v) heps)
+    ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat V).mp (pointNorm_nonnegative v))
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N, ?_⟩
   intro j hj
   have ht := hN (m+j) (by omega)
   have hd := timeState_distance b c T (m+j)
   have hg := Fraction.magnitudes.lt_of_le_lt
     (Fraction.le_of_equiv (Fraction.equiv_symm hd)) ht
-  have hc := factor_control V eps
-    (durationDifference (timeApprox c T (m+j)) (timeApprox b T (m+j))).abs
-    (pointNorm_nonnegative v) (Fraction.abs_num_nonnegative _) hg
+  have hc := (show Fraction.lt (Fraction.mul ((durationDifference (timeApprox c T (m+j)) (timeApprox b T (m+j))).abs) (V)) (eps) from by
+      apply (Fraction.lt_iff_toRat _ _).mpr
+      rw [Fraction.toRat_mul]
+      have hcoef := ((Fraction.nonnegative_iff_toRat V).mp (pointNorm_nonnegative v))
+      have hdist := ((Fraction.nonnegative_iff_toRat (durationDifference (timeApprox c T (m+j)) (timeApprox b T (m+j))).abs).mp (Fraction.abs_num_nonnegative _))
+      have hstrict := (Fraction.lt_iff_toRat _ _).mp hg
+      change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+      rw [Fraction.toRat_ofRat] at hstrict
+      (try dsimp only at hcoef hdist hstrict ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
   have ha : Fraction.equiv
       (distance ((edgeName b T hT x v m).approx j)
         ((edgeName c T hT x v m).approx j))

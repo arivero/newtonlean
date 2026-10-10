@@ -521,7 +521,14 @@ theorem gaps_vanish {a b : Fraction} (g : Fraction → Fraction)
   have hH : 0≤H.num := (difference_nonnegative_iff _ _).mpr
     (hg a b (Fraction.magnitudes.le_refl _) hab (Fraction.magnitudes.le_refl _))
   intro eps heps
-  obtain ⟨N,hN⟩ := hmesh (factorDelta H eps hH) (factorDelta_positive H eps hH heps)
+  obtain ⟨N,hN⟩ := hmesh (Fraction.ofRat (factorDelta (H).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat H).mp hH))) ((by
+      apply (Fraction.positive_iff_toRat _).mpr
+      change 0 < (Fraction.ofRat _).toRat
+      rw [Fraction.toRat_ofRat]
+      have hcoef := ((Fraction.nonnegative_iff_toRat H).mp hH)
+      have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+      (try dsimp only at hcoef hepsRat ⊢)
+      grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N,?_⟩
   intro m hm
   have hn : 0≤(maxWidth (parts m)).num := Fraction.nonnegative_of_le
@@ -529,6 +536,15 @@ theorem gaps_vanish {a b : Fraction} (g : Fraction → Fraction)
     ((maxWidth_bounds (parts m)).1 0 (parts m).positive_count)
   exact Fraction.magnitudes.lt_of_le_lt
     (gap_bound g (parts m) hg (maxWidth (parts m)) (maxWidth_bounds (parts m)).1).2
-    (factor_control H eps (maxWidth (parts m)) hH hn (hN m hm))
+    ((show Fraction.lt (Fraction.mul ((maxWidth (parts m))) (H)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat H).mp hH)
+        have hdist := ((Fraction.nonnegative_iff_toRat (maxWidth (parts m))).mp hn)
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN m hm)
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff]))
 
 end NewtonLimitDynamics.Polygon.MonotoneRectangles

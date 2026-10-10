@@ -5,7 +5,7 @@ import ModernLib.Foundation.Polygon.MonotoneRectangles
 namespace ModernLib.Reconstruction.Principia1687.LemmaIIIII
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon
 
--- Modern dependency score: 22/97 (M=22, H=75; transitive project theorems/axioms).
+-- Modern dependency score: 22/101 (M=22, H=79; transitive project theorems/axioms).
 theorem lemmas2_3_monotone_rectangle_reconstruction (g : Fraction → Fraction) (a b : Fraction)
     (parts : Nat → MonotoneRectangles.Partition a b)
     (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)
@@ -34,7 +34,7 @@ end ModernLib.Reconstruction.Principia1687.LemmaIIIII
 namespace ModernLib.Reconstruction.Principia1713.LemmaIIIII
 open NewtonLimitDynamics NewtonLimitDynamics.Polygon
 
--- Modern dependency score: 22/97 (M=22, H=75; transitive project theorems/axioms).
+-- Modern dependency score: 22/101 (M=22, H=79; transitive project theorems/axioms).
 theorem lemmas2_3_monotone_rectangle_reconstruction (g : Fraction → Fraction) (a b : Fraction)
     (parts : Nat → MonotoneRectangles.Partition a b)
     (hg : MonotoneRectangles.MonotoneOn g a b) (hbase : 0≤(g a).num)

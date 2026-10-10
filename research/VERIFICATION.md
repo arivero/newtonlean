@@ -88,6 +88,9 @@ rewrite removed two before the deprecation cleanup.
 FiniteGrowth's migration removes one more unused-simp warning. Its uniform
 bound and numeric counterexample remain checked, with the controls stated as
 anonymous examples. No removed simp argument has needed restoration so far.
+RationalTolerance retains one shared weak bound over Rat; positivity and
+strict control close inline. Verify equality of the old and new tolerance
+values in scratch as well as the theorem/axiom dumps and all six builds.
 
 ## Review the conclusion before accepting progress
 

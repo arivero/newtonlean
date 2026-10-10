@@ -104,15 +104,31 @@ theorem equal_width_exhaustion (g : Fraction → Fraction) (a b : Fraction)
   have hH : 0 ≤ H.num := (HarmonicTimeComparison.difference_nonnegative_iff _ _).mpr
     (hg a b (Fraction.magnitudes.le_refl _) hab (Fraction.magnitudes.le_refl _))
   intro eps heps
-  obtain ⟨N, hN⟩ := hmesh (HarmonicTimeRealization.factorDelta H eps hH)
-    (HarmonicTimeRealization.factorDelta_positive H eps hH heps)
+  obtain ⟨N, hN⟩ := hmesh (Fraction.ofRat (HarmonicTimeRealization.factorDelta (H).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat H).mp hH)))
+    ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat H).mp hH)
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N, fun m hm => ?_⟩
   have hn : 0 ≤ (mesh m).num := Fraction.nonnegative_equiv
     (Fraction.equiv_symm (hwidth m 0 (parts m).positive_count))
     ((HarmonicTimeComparison.difference_nonnegative_iff _ _).mpr
       ((parts m).ordered 0 (parts m).positive_count))
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv (hidentity m))
-    (HarmonicTimeRealization.factor_control H eps (mesh m) hH hn (hN m hm))
+    ((show Fraction.lt (Fraction.mul ((mesh m)) (H)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat H).mp hH)
+        have hdist := ((Fraction.nonnegative_iff_toRat (mesh m)).mp hn)
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN m hm)
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff]))
 
 /-- Numeric area errors shrink because the represented sets enclose the
 given figure. Neither an area-error bound nor its vanishing is a premise. -/
@@ -167,12 +183,27 @@ theorem ratios_approach_one (A : Fraction) (hA : 0 < A.num) (X : Nat → Fractio
   let C : Fraction := ⟨A.den,A.num,hA⟩
   have hC : 0 ≤ C.num := Int.le_of_lt A.den_pos
   intro eps heps
-  obtain ⟨N,hN⟩ := hx (HarmonicTimeRealization.factorDelta C eps hC)
-    (HarmonicTimeRealization.factorDelta_positive C eps hC heps)
+  obtain ⟨N,hN⟩ := hx (Fraction.ofRat (HarmonicTimeRealization.factorDelta (C).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat C).mp hC)))
+    ((by
+        apply (Fraction.positive_iff_toRat _).mpr
+        change 0 < (Fraction.ofRat _).toRat
+        rw [Fraction.toRat_ofRat]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+        (try dsimp only at hcoef hepsRat ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
   refine ⟨N, fun m hm => ?_⟩
   exact Fraction.magnitudes.lt_of_le_lt (Fraction.le_of_equiv (ratio_error A hA (X m)))
-    (HarmonicTimeRealization.factor_control C eps _ hC
-      (Fraction.abs_num_nonnegative _) (hN m hm))
+    ((show Fraction.lt (Fraction.mul ((HarmonicTimeComparison.durationDifference (X m) A).abs) (C)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hdist := ((Fraction.nonnegative_iff_toRat (HarmonicTimeComparison.durationDifference (X m) A).abs).mp (Fraction.abs_num_nonnegative (HarmonicTimeComparison.durationDifference (X m) A)))
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN m hm)
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff]))
 
 theorem area_ratios_approach_one (A : Fraction) (hA : 0 < A.num)
     (L U : Nat → Fraction)
@@ -251,11 +282,26 @@ theorem varying_ratios_approach_one (B : Fraction) (hB : 0 < B.num)
   refine ⟨hL, hU, ?_, ?_⟩
   all_goals
     intro eps heps
-    obtain ⟨N, hN⟩ := hgap (HarmonicTimeRealization.factorDelta C eps hC)
-      (HarmonicTimeRealization.factorDelta_positive C eps hC heps)
+    obtain ⟨N, hN⟩ := hgap (Fraction.ofRat (HarmonicTimeRealization.factorDelta (C).toRat (eps).toRat ((Fraction.nonnegative_iff_toRat C).mp hC)))
+      ((by
+          apply (Fraction.positive_iff_toRat _).mpr
+          change 0 < (Fraction.ofRat _).toRat
+          rw [Fraction.toRat_ofRat]
+          have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+          have hepsRat : 0 < (eps).toRat := (Fraction.positive_iff_toRat (eps)).mp heps
+          (try dsimp only at hcoef hepsRat ⊢)
+          grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos]))
     refine ⟨N, fun m hm => ?_⟩
-    have hc := HarmonicTimeRealization.factor_control C eps _ hC
-      (Fraction.abs_num_nonnegative _) (hN m hm)
+    have hc := (show Fraction.lt (Fraction.mul ((HarmonicTimeComparison.durationDifference (L m) (U m)).abs) (C)) (eps) from by
+        apply (Fraction.lt_iff_toRat _ _).mpr
+        rw [Fraction.toRat_mul]
+        have hcoef := ((Fraction.nonnegative_iff_toRat C).mp hC)
+        have hdist := ((Fraction.nonnegative_iff_toRat (HarmonicTimeComparison.durationDifference (L m) (U m)).abs).mp (Fraction.abs_num_nonnegative (HarmonicTimeComparison.durationDifference (L m) (U m))))
+        have hstrict := (Fraction.lt_iff_toRat _ _).mp (hN m hm)
+        change Fraction.toRat _ < (Fraction.ofRat _).toRat at hstrict
+        rw [Fraction.toRat_ofRat] at hstrict
+        (try dsimp only at hcoef hdist hstrict ⊢)
+        grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
   · exact Fraction.magnitudes.lt_of_le_lt (boundL m) hc
   · exact Fraction.magnitudes.lt_of_le_lt (boundU m) hc
 

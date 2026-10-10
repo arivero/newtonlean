@@ -58,3 +58,11 @@ Thus an intermediate cascade can grow despite the simpler arithmetic.
 InertialControl's numerator-based radius demonstrates a separate semantic
 limit: equal rational values can produce different representative-based
 witnesses. That choice is reported rather than silently normalized.
+
+FiniteGrowth and RationalTolerance now retain twelve named theorems between
+them, down from twenty-three. Their arithmetic uses core Rat; numeric controls
+still compile as examples. During the bridge stage, callers gain explicit
+conversion proofs, so lines and some proof trees grow temporarily. Judge the
+net reduction after those callers migrate and the bridge is deleted. A scratch
+proof verifies that the normalized tolerance has exactly its previous rational
+value. InertialControl's changed radius has separate explicit user authorization.
