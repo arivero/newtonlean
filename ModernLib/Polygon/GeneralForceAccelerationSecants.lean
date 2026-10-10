@@ -18,7 +18,7 @@ open GeneralForceEndpoint GeneralForcePrefix GeneralForceTime GeneralForceSecant
 
 /-- Replace a curve input by its certified node representative as a whole
 force value, so dependent region certificates are transported together. -/
--- Modern dependency score: 90/256 (M=90, H=166; transitive project theorems/axioms).
+-- Modern dependency score: 90/258 (M=90, H=168; transitive project theorems/axioms).
 theorem node_force_value (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k : Nat) :
@@ -40,7 +40,7 @@ noncomputable def cellAccelerationSecant (o : CentralOracle) (E0 T tau L B : Fra
     (velocityValue (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m (k+1))))
     (velocityValue (gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)))
 
--- Modern dependency score: 121/306 (M=121, H=185; transitive project theorems/axioms).
+-- Modern dependency score: 121/308 (M=121, H=187; transitive project theorems/axioms).
 theorem cell_acceleration_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
@@ -117,7 +117,7 @@ theorem accelerationCoefficient_nonnegative (T tau L B : Fraction) (s : Point ×
   Fraction.nonnegative_mul _ _ hL (Fraction.nonnegative_add _ _
     (velocityCap_nonnegative T B s hT hB) (stateTimeFactor_nonnegative T tau B s hT ht hB))
 
--- Modern dependency score: 143/334 (M=143, H=191; transitive project theorems/axioms).
+-- Modern dependency score: 143/336 (M=143, H=193; transitive project theorems/axioms).
 theorem bracketing_acceleration_secant_bound (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) :
@@ -141,7 +141,7 @@ theorem bracketing_acceleration_secant_bound (b : Nat → Bool) (o : CentralOrac
 
 /-- The force at the constructed position is the uniform limit of completed
 bracketing dyadic velocity secants. No acceleration is supplied as data. -/
--- Modern dependency score: 145/336 (M=145, H=191; transitive project theorems/axioms).
+-- Modern dependency score: 145/338 (M=145, H=193; transitive project theorems/axioms).
 theorem dyadic_acceleration_uniform_identification (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)

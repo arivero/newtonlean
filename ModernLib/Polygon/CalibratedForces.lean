@@ -11,7 +11,7 @@ open NewtonLimitDynamics
 open TimeSubdivision PointBounds CentralSchedule HarmonicStability ForceClasses
 
 /-- Actual two-precision sampled polygons retain the weighted sampling budget. -/
--- Modern dependency score: 4/88 (M=4, H=84; transitive project theorems/axioms).
+-- Modern dependency score: 4/90 (M=4, H=86; transitive project theorems/axioms).
 theorem sampled_calibrated_discrepancy (o : Oracle) (tau h L : Fraction)
     (ht : 0 < tau.num) (hL : LipschitzOn o L)
     (i j : Nat) (hij : i ≤ j) (s : Point × Point) (n : Nat)

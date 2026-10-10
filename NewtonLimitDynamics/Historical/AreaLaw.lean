@@ -1859,7 +1859,7 @@ theorem natp00089_constructed_central_interval_area_law (o : ForceClasses.Centra
     Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_interval_area_law o E0 T tau L B s hE d t₀ t₁
--- Modern dependency score: 129/311 (M=129, H=182; transitive project theorems/axioms).
+-- Modern dependency score: 129/313 (M=129, H=184; transitive project theorems/axioms).
 theorem natp00089_constructed_boundary_limit (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point)
     (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -1910,7 +1910,7 @@ theorem natp00090_constructed_central_interval_area_law (o : ForceClasses.Centra
     Vanishes (fun mesh => GeneralForcePathContent.D_meshValue o E0 T tau L B s hE d
       (RationalEnclosure.level mesh)) :=
   GeneralForceArea.constructed_interval_area_law o E0 T tau L B s hE d t₀ t₁
--- Modern dependency score: 129/311 (M=129, H=182; transitive project theorems/axioms).
+-- Modern dependency score: 129/313 (M=129, H=184; transitive project theorems/axioms).
 theorem natp00090_constructed_boundary_limit (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : TimeSubdivision.Point × TimeSubdivision.Point)
     (hE : 0<E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :

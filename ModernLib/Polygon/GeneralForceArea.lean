@@ -26,7 +26,7 @@ theorem count_areal_product (o : CentralOracle) (E0 T : Fraction)
 /-- Supporting differential content. This is not the swept-area theorem:
 the determinant of the constructed position and its identified velocity is
 constant because every actual finite prefix has that determinant. -/
--- Modern dependency score: 79/254 (M=79, H=175; transitive project theorems/axioms).
+-- Modern dependency score: 79/256 (M=79, H=177; transitive project theorems/axioms).
 theorem areal_product_value (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -47,7 +47,7 @@ theorem areal_product_value (o : CentralOracle) (E0 T tau L B : Fraction)
 /-- A determinant triangle uses two actual curve-node approximants. The
 restarted finite drift remainder gives its quadratic error, uniformly in the
 approximant index. It is not a triangle of an assumed trajectory. -/
--- Modern dependency score: 57/221 (M=57, H=164; transitive project theorems/axioms).
+-- Modern dependency score: 57/223 (M=57, H=166; transitive project theorems/axioms).
 theorem node_triangle_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -111,7 +111,7 @@ noncomputable def curveFanValue (unsigned : Bool) (o : CentralOracle) (E0 T tau 
   FanValues.fanValue unsigned
     (fun k => gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k)) n
 
--- Modern dependency score: 90/260 (M=90, H=170; transitive project theorems/axioms).
+-- Modern dependency score: 90/262 (M=90, H=172; transitive project theorems/axioms).
 theorem curveFanValue_realize (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) :
@@ -123,7 +123,7 @@ theorem curveFanValue_realize (unsigned : Bool) (o : CentralOracle) (E0 T tau L 
 
 /-- Unsigned and oriented fans share the same cell-error proof. Absolute
 values are taken cell by cell, so opposite lobes cannot cancel in the former. -/
--- Modern dependency score: 74/259 (M=74, H=185; transitive project theorems/axioms).
+-- Modern dependency score: 74/261 (M=74, H=187; transitive project theorems/axioms).
 theorem fan_approximant_bound (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n j : Nat) (hn : n≤blocks m) :
@@ -178,7 +178,7 @@ noncomputable def curveIntervalValue (o : CentralOracle) (E0 T tau L B : Fractio
     (fun k => gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
     (intervalStart b c m) (intervalCount b c m)
 
--- Modern dependency score: 91/261 (M=91, H=170; transitive project theorems/axioms).
+-- Modern dependency score: 91/263 (M=91, H=172; transitive project theorems/axioms).
 theorem curveIntervalValue_realize (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -189,7 +189,7 @@ theorem curveIntervalValue_realize (o : CentralOracle) (E0 T tau L B : Fraction)
   rw [← funext (node_value o E0 T tau L B s hE d m)]
   exact FanValues.intervalValue_realize true _ _ _
 
--- Modern dependency score: 76/262 (M=76, H=186; transitive project theorems/axioms).
+-- Modern dependency score: 76/264 (M=76, H=188; transitive project theorems/axioms).
 theorem interval_fan_approximant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -272,7 +272,7 @@ theorem fanErrorCoefficient_nonnegative (T B R : Fraction)
 
 /-- Uniform geometric decay for a fan on actual curve nodes. No curve-area
 law or convergence premise is supplied. The sum has at most 2^m cells. -/
--- Modern dependency score: 77/263 (M=77, H=186; transitive project theorems/axioms).
+-- Modern dependency score: 77/265 (M=77, H=188; transitive project theorems/axioms).
 theorem fan_approximant_geometric (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n j : Nat) (hn : n≤blocks m) :
@@ -293,7 +293,7 @@ theorem fan_approximant_geometric (unsigned : Bool) (o : CentralOracle) (E0 T ta
   simp only [e,fanErrorCoefficient,duration,blocks,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
   ac_nf
 
--- Modern dependency score: 118/312 (M=118, H=194; transitive project theorems/axioms).
+-- Modern dependency score: 118/314 (M=118, H=196; transitive project theorems/axioms).
 theorem curve_fan_polygon_bound (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m n : Nat) (hn : n≤blocks m) :
@@ -311,7 +311,7 @@ def areaReferenceName (unsigned : Bool) (b : Nat → Bool) (T : Fraction)
 
 /-- The fan's completed half-area is close to its level-m polygon area.
 This estimate uses genuine curve-node fan approximants for every j. -/
--- Modern dependency score: 87/281 (M=87, H=194; transitive project theorems/axioms).
+-- Modern dependency score: 87/283 (M=87, H=196; transitive project theorems/axioms).
 theorem area_fan_reference_bound (unsigned : Bool) (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m j : Nat) :
@@ -330,7 +330,7 @@ theorem area_fan_reference_bound (unsigned : Bool) (b : Nat → Bool) (o : Centr
     ⟨pointEquiv_symm hp.1,pointEquiv_symm hp.2⟩)
   exact Fraction.le_equiv_left hd hb
 
--- Modern dependency score: 79/266 (M=79, H=187; transitive project theorems/axioms).
+-- Modern dependency score: 79/268 (M=79, H=189; transitive project theorems/axioms).
 theorem interval_fan_approximant_geometric (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -357,7 +357,7 @@ theorem interval_fan_approximant_geometric (o : CentralOracle) (E0 T tau L B : F
   simp only [e,fanErrorCoefficient,duration,blocks,Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.natCast_pow]
   ac_nf
 
--- Modern dependency score: 92/292 (M=92, H=200; transitive project theorems/axioms).
+-- Modern dependency score: 92/294 (M=92, H=202; transitive project theorems/axioms).
 theorem interval_fan_reference_bound (b c : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m j : Nat) :
@@ -389,7 +389,7 @@ noncomputable def intervalName (b c : Nat → Bool) (o : CentralOracle)
       (outer_radius_nonnegative o E0 T tau L B s hE d))
     (fun m => interval_fan_reference_bound b c o E0 T tau L B s hE d m m)
 
--- Modern dependency score: 95/297 (M=95, H=202; transitive project theorems/axioms).
+-- Modern dependency score: 95/299 (M=95, H=204; transitive project theorems/axioms).
 theorem intervalName_equiv_reference (b c : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -397,7 +397,7 @@ theorem intervalName_equiv_reference (b c : Nat → Bool) (o : CentralOracle)
       (intervalReferenceName b c T d.time_nonnegative s) :=
   GeometricApproximation.name_equiv _ _ _ _ _
 
--- Modern dependency score: 104/306 (M=104, H=202; transitive project theorems/axioms).
+-- Modern dependency score: 104/308 (M=104, H=204; transitive project theorems/axioms).
 theorem intervalName_address_equiv (b c b' c' : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -426,7 +426,7 @@ noncomputable def intervalAreaValue (o : CentralOracle) (E0 T tau L B : Fraction
     (fun b c b' c' hb hc => Quotient.sound
       (intervalName_address_equiv b c b' c' o E0 T tau L B s hE d hb hc))
 
--- Modern dependency score: 108/310 (M=108, H=202; transitive project theorems/axioms).
+-- Modern dependency score: 108/312 (M=108, H=204; transitive project theorems/axioms).
 theorem intervalAreaValue_reference (b c : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -435,7 +435,7 @@ theorem intervalAreaValue_reference (b c : Nat → Bool) (o : CentralOracle)
   Quotient.sound (intervalName_equiv_reference b c o E0 T tau L B s hE d)
 
 /-- The elapsed-time formula is a consequence of the actual fan construction. -/
--- Modern dependency score: 109/311 (M=109, H=202; transitive project theorems/axioms).
+-- Modern dependency score: 109/313 (M=109, H=204; transitive project theorems/axioms).
 theorem interval_area_time_formula (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -451,7 +451,7 @@ theorem interval_area_time_formula (o : CentralOracle) (E0 T tau L B : Fraction)
 
 /-- The unsigned fan on the actual curve-node interval converges to the
 absolute elapsed-time area. Both addresses are quantified in `AreaBetween`. -/
--- Modern dependency score: 147/351 (M=147, H=204; transitive project theorems/axioms).
+-- Modern dependency score: 147/353 (M=147, H=206; transitive project theorems/axioms).
 theorem interval_area_is_swept (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -488,7 +488,7 @@ theorem interval_area_is_swept (o : CentralOracle) (E0 T tau L B : Fraction)
   rw [FanValues.intervalValue_positions]
   exact ht
 
--- Modern dependency score: 152/356 (M=152, H=204; transitive project theorems/axioms).
+-- Modern dependency score: 152/358 (M=152, H=206; transitive project theorems/axioms).
 theorem interval_area_reverse (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -500,7 +500,7 @@ theorem interval_area_reverse (o : CentralOracle) (E0 T tau L B : Fraction)
     (SweptArea.areaBetween_reverse T d.time_nonnegative _ _ _ _
       (interval_area_is_swept o E0 T tau L B s hE d t₁ t₀))
 
--- Modern dependency score: 110/312 (M=110, H=202; transitive project theorems/axioms).
+-- Modern dependency score: 110/314 (M=110, H=204; transitive project theorems/axioms).
 theorem interval_areas_equal_of_equal_elapsed (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -513,7 +513,7 @@ theorem interval_areas_equal_of_equal_elapsed (o : CentralOracle) (E0 T tau L B 
     interval_area_time_formula o E0 T tau L B s hE d u₀ u₁,h]
 
 /-- A zero-length interval is empty even when the time has several addresses. -/
--- Modern dependency score: 109/311 (M=109, H=202; transitive project theorems/axioms).
+-- Modern dependency score: 109/313 (M=109, H=204; transitive project theorems/axioms).
 theorem interval_area_zero (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -545,7 +545,7 @@ noncomputable def sectorName (unsigned : Bool) (b : Nat → Bool) (o : CentralOr
       (outer_radius_nonnegative o E0 T tau L B s hE d))
     (fun m => area_fan_reference_bound unsigned b o E0 T tau L B s hE d m m)
 
--- Modern dependency score: 90/286 (M=90, H=196; transitive project theorems/axioms).
+-- Modern dependency score: 90/288 (M=90, H=198; transitive project theorems/axioms).
 theorem sectorName_equiv_reference (unsigned : Bool) (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -553,7 +553,7 @@ theorem sectorName_equiv_reference (unsigned : Bool) (b : Nat → Bool) (o : Cen
       (areaReferenceName unsigned b T d.time_nonnegative s) :=
   GeometricApproximation.name_equiv _ _ _ _ _
 
--- Modern dependency score: 98/294 (M=98, H=196; transitive project theorems/axioms).
+-- Modern dependency score: 98/296 (M=98, H=198; transitive project theorems/axioms).
 theorem sectorName_address_equiv (unsigned : Bool) (b c : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -576,7 +576,7 @@ noncomputable def sectorAreaValue (unsigned : Bool) (o : CentralOracle) (E0 T ta
 
 /-- The area law, in the constructed time/value spaces: area = ell*t/2 for
 oriented area and |ell|*t/2 for unsigned swept area. No area limit premise. -/
--- Modern dependency score: 102/298 (M=102, H=196; transitive project theorems/axioms).
+-- Modern dependency score: 102/300 (M=102, H=198; transitive project theorems/axioms).
 theorem sector_area_time_formula (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -590,7 +590,7 @@ theorem sector_area_time_formula (unsigned : Bool) (o : CentralOracle) (E0 T tau
 /-- This is the geometric identification: the constructed area is the limit
 of triangle fans whose vertices lie on the actual constructed position map.
 No polygon-sector enclosure or assumed area-convergence premise occurs. -/
--- Modern dependency score: 139/340 (M=139, H=201; transitive project theorems/axioms).
+-- Modern dependency score: 139/342 (M=139, H=203; transitive project theorems/axioms).
 theorem sector_area_is_swept (unsigned : Bool) (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -670,7 +670,7 @@ theorem constructed_interval_area_law (o : CentralOracle) (E0 T tau L B : Fracti
 the given-trajectory swept-area target. Construction is supporting work;
 `SweptArea.Proportional` itself requires only an existing curve as data.
 The between-path content theorem is separate and is not a field of this law. -/
--- Modern dependency score: 149/353 (M=149, H=204; transitive project theorems/axioms).
+-- Modern dependency score: 149/355 (M=149, H=206; transitive project theorems/axioms).
 theorem proportional_swept_area (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :

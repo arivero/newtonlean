@@ -120,7 +120,7 @@ theorem supportingTrace_limit (T : Fraction) (hT : 0≤T.num)
 /-- Actual dyadic time cells supply their own spans and coverage. Only the
 given geometric line data and convergence of their finite endpoint samples
 remain premises. -/
--- Modern dependency score: 78/181 (M=78, H=103; transitive project theorems/axioms).
+-- Modern dependency score: 78/180 (M=78, H=102; transitive project theorems/axioms).
 theorem dyadic_supportingTrace_limit (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (points : Nat → Nat → Point)

@@ -42,7 +42,7 @@ def coverRadius (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num)
     (m : Nat) : NonnegativeRadius :=
   ⟨edgeRadius w T s m,edgeRadius_nonnegative w T s hT m⟩
 
--- Modern dependency score: 194/311 (M=194, H=117; transitive project theorems/axioms).
+-- Modern dependency score: 194/313 (M=194, H=119; transitive project theorems/axioms).
 theorem simultaneous_endpoints_square (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
     CoordinateSquare (cellStart w T s m (ticks b m)) (coverRadius w T s hT m)
@@ -64,7 +64,7 @@ theorem simultaneous_endpoints_square (b : Nat → Bool) (w T : Fraction)
       (Fraction.add_comm _ _)) hcurve
   exact ⟨square_of_ball_bound _ _ _ hp,square_of_ball_bound _ _ _ hg⟩
 
--- Modern dependency score: 208/333 (M=208, H=125; transitive project theorems/axioms).
+-- Modern dependency score: 208/335 (M=208, H=127; transitive project theorems/axioms).
 theorem cellPatch_square (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m k : Nat)
     (x : PositionValue) (hx : cellPatch w T s hT hs m k x) :
@@ -72,7 +72,7 @@ theorem cellPatch_square (w T : Fraction) (s : Point × Point)
   exact MatchedRegion.cellPatch_square T hT _ _ m (cellStart w T s m)
     (coverRadius w T s hT m) (fun b => simultaneous_endpoints_square b w T s hT hs m) k x hx
 
--- Modern dependency score: 215/340 (M=215, H=125; transitive project theorems/axioms).
+-- Modern dependency score: 215/342 (M=215, H=127; transitive project theorems/axioms).
 theorem closed_cell_square (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m k : Nat)
     (x : PositionValue) (hx : Closure (cellPatch w T s hT hs m k) x) :
@@ -86,7 +86,7 @@ def actualCover (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num)
   MatchedRegion.actualCover T hT _ _ m (cellStart w T s m) (coverRadius w T s hT m)
     (fun b => simultaneous_endpoints_square b w T s hT hs m)
 
--- Modern dependency score: 180/303 (M=180, H=123; transitive project theorems/axioms).
+-- Modern dependency score: 180/305 (M=180, H=125; transitive project theorems/axioms).
 theorem connector_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (t : BinaryTime T hT) (a : Fraction) (ha : UnitInterval a) :
@@ -95,7 +95,7 @@ theorem connector_in_region (w T : Fraction) (s : Point × Point)
   MatchedRegion.connector_in_region T hT _ _ m t a ha
 
 /-- Reversing a connector changes no unsigned region point. -/
--- Modern dependency score: 183/308 (M=183, H=125; transitive project theorems/axioms).
+-- Modern dependency score: 183/310 (M=183, H=127; transitive project theorems/axioms).
 theorem reversed_connector_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (t : BinaryTime T hT) (a : Fraction) (ha : UnitInterval a) :
@@ -103,26 +103,26 @@ theorem reversed_connector_in_region (w T : Fraction) (s : Point × Point)
       (gammaPosition w T s hT hs t) (polygonMap w T s hT m t)) :=
   MatchedRegion.reversed_connector_in_region T hT _ _ m t a ha
 
--- Modern dependency score: 183/307 (M=183, H=124; transitive project theorems/axioms).
+-- Modern dependency score: 183/309 (M=183, H=126; transitive project theorems/axioms).
 theorem polygon_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (t : BinaryTime T hT) : Region w T s hT hs m (polygonMap w T s hT m t) :=
   MatchedRegion.polygon_in_region T hT _ _ m t
 
--- Modern dependency score: 183/307 (M=183, H=124; transitive project theorems/axioms).
+-- Modern dependency score: 183/309 (M=183, H=126; transitive project theorems/axioms).
 theorem curve_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (t : BinaryTime T hT) : Region w T s hT hs m (gammaPosition w T s hT hs t) :=
   MatchedRegion.curve_in_region T hT _ _ m t
 
--- Modern dependency score: 169/285 (M=169, H=116; transitive project theorems/axioms).
+-- Modern dependency score: 169/287 (M=169, H=118; transitive project theorems/axioms).
 theorem shared_initial_endpoint (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
     polygonMap w T s hT m (leftTime T hT) = gammaPosition w T s hT hs (leftTime T hT) :=
   (polygonMap_left w T s hT m).trans (gammaPosition_left w T s hT hs).symm
 
 /-- The last-cell connector is explicitly present even when endpoints differ. -/
--- Modern dependency score: 194/318 (M=194, H=124; transitive project theorems/axioms).
+-- Modern dependency score: 194/320 (M=194, H=126; transitive project theorems/axioms).
 theorem final_connector_in_region (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (a : Fraction) (ha : UnitInterval a) :
@@ -141,7 +141,7 @@ theorem budgetCoefficient_nonnegative (w T : Fraction) (s : Point × Point)
   squareArea_nonnegative _ (edgeCoefficient_nonnegative w T s hT)
 
 /-- The actual region cover has budget 4*C²/2^m, with C the edge coefficient. -/
--- Modern dependency score: 218/343 (M=218, H=125; transitive project theorems/axioms).
+-- Modern dependency score: 218/345 (M=218, H=127; transitive project theorems/axioms).
 theorem actual_budget_geometric (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
     Fraction.equiv (actualCover w T s hT hs m).budget
@@ -155,12 +155,12 @@ def D_mesh (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) (m : Nat) : Fraction → Prop :=
   LowerContent (Region w T s hT hs m)
 
--- Modern dependency score: 178/300 (M=178, H=122; transitive project theorems/axioms).
+-- Modern dependency score: 178/302 (M=178, H=124; transitive project theorems/axioms).
 theorem D_mesh_nonnegative (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
     D_mesh w T s hT hs m (Fraction.ofInt 0) := content_zero_lower _
 
--- Modern dependency score: 219/344 (M=219, H=125; transitive project theorems/axioms).
+-- Modern dependency score: 219/346 (M=219, H=127; transitive project theorems/axioms).
 theorem D_mesh_bound (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (q : Fraction) (hq : D_mesh w T s hT hs m q) :
@@ -170,7 +170,7 @@ theorem D_mesh_bound (w T : Fraction) (s : Point × Point)
 
 /-- Nonnegative outer contents tend to zero: every positive rational test bound
 fails to be a lower bound from one explicit mesh onward. -/
--- Modern dependency score: 223/349 (M=223, H=126; transitive project theorems/axioms).
+-- Modern dependency score: 223/351 (M=223, H=128; transitive project theorems/axioms).
 theorem D_mesh_tends_zero (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (eps : Fraction) (heps : 0 < eps.num) :
@@ -180,7 +180,7 @@ theorem D_mesh_tends_zero (w T : Fraction) (s : Point × Point)
   exact ⟨N,fun m hm q hq => Fraction.magnitudes.lt_of_le_lt
     (D_mesh_bound w T s hT hs m q hq) (hN m hm)⟩
 
--- Modern dependency score: 225/350 (M=225, H=125; transitive project theorems/axioms).
+-- Modern dependency score: 225/352 (M=225, H=127; transitive project theorems/axioms).
 theorem D_mesh_zero_window (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (hz : T.num = 0) (q : Fraction) :

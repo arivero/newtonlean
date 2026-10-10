@@ -29,7 +29,7 @@ open NewtonLimitDynamics
 /-- Dividing a dyadic duration twice adds the exponents. -/
 theorem duration_nested (T : Fraction) (m j : Nat) :
     Fraction.equiv (duration (duration T m) j) (duration T (m + j)) := by
-  simp only [duration, Fraction.equiv, FiniteGrowth.denominator_power_add]
+  simp only [duration, Fraction.equiv, Int.pow_add]
   ac_nf
 
 end NewtonLimitDynamics.Polygon.HarmonicDyadic

@@ -8,17 +8,17 @@ are compatibility names; no harmonic field or mechanical premise occurs. -/
 
 namespace NewtonLimitDynamics.Polygon.HarmonicIntegerSubdivision
 open NewtonLimitDynamics HarmonicDyadic HarmonicBinaryPrefix BinaryTime IntegerSchedule
--- Modern dependency score: 0/10 (M=0, H=10; transitive project theorems/axioms).
+-- Modern dependency score: 0/9 (M=0, H=9; transitive project theorems/axioms).
 theorem dyadic_integer_duration (b : Nat → Bool) (T : Fraction) (m j : Nat) :
     Fraction.equiv (integerDuration (duration T (m+j)) (ticks b m))
       (duration (timeApprox b T m) j) := by
   have he := integerDuration_closed (duration T (m+j)) (ticks b m)
   apply Fraction.equiv_trans he
   simp only [timeApprox, duration, Fraction.equiv, Fraction.mul, Fraction.ofInt,
-    FiniteGrowth.denominator_power_add]
+    Int.pow_add]
   ac_nf
 
--- Modern dependency score: 1/14 (M=1, H=13; transitive project theorems/axioms).
+-- Modern dependency score: 1/13 (M=1, H=12; transitive project theorems/axioms).
 theorem dyadic_fullTime (b : Nat → Bool) (T : Fraction) (m j : Nat) :
     Fraction.equiv
       (fullTime (integerDuration (duration T (m+j)) (ticks b m)) (blocks j))

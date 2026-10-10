@@ -1,9 +1,10 @@
-import BarrowLib.Common.RationalMagnitudes
-
 /-!
 Elementary finite growth estimates with a common positive denominator.
 These rational arithmetic bounds supply no completion, limiting trajectory,
 geometric area or historical analytic theorem.
+Source: the exact statements and finite checked derivations below. This is
+proof provenance for this formulation, without historical attribution or
+mathematical priority. Rat arithmetic is encoding infrastructure.
 -/
 
 namespace NewtonLimitDynamics.FiniteGrowth
@@ -40,7 +41,7 @@ theorem cofactor_step (D a S : Int) (ha : 0 ≤ a) (hS : 0 ≤ S) :
     Int.add_nonneg (Int.mul_nonneg ha ha) (Int.mul_nonneg ha hS)
   have he : (D + a) * (D - (a + S)) + (a * a + a * S) =
       D * (D - S) := by
-    simp only [Int.mul_sub, Int.sub_mul, Int.add_mul, Int.mul_add]
+    simp only [Int.mul_sub, Int.add_mul, Int.mul_add]
     ac_nf <;> omega
   omega
 
@@ -84,37 +85,18 @@ theorem uniform_product_bound (D : Int) (hD : 0 < D)
       _ = (2 * D ^ xs.length) * D := by rw [Int.pow_succ, Int.mul_assoc]
   exact Int.le_of_mul_le_mul_right hchain hD
 
-def factor (D : Int) (hD : 0 < D) (a : Int) : Fraction := ⟨D + a, D, hD⟩
-
-def amplification (D : Int) (hD : 0 < D) (xs : List Int) : Fraction :=
-  ⟨factorProduct D xs, D ^ xs.length, Int.pow_pos hD⟩
-
-theorem factor_eq_one_add (D : Int) (hD : 0 < D) (a : Int) :
-    Fraction.equiv (factor D hD a)
-      (Fraction.add (Fraction.ofInt 1) ⟨a, D, hD⟩) := by
-  simp only [factor, Fraction.equiv, Fraction.add, Fraction.ofInt,
-    Int.one_mul, Int.mul_one]
-
-theorem amplification_empty (D : Int) (hD : 0 < D) :
-    Fraction.equiv (amplification D hD []) (Fraction.ofInt 1) := by
-  simp [amplification, factorProduct, Fraction.equiv, Fraction.ofInt]
-
-theorem amplification_cons (D : Int) (hD : 0 < D) (a : Int) (xs : List Int) :
-    Fraction.equiv (amplification D hD (a :: xs))
-      (Fraction.mul (factor D hD a) (amplification D hD xs)) := by
-  simp only [amplification, factor, factorProduct, List.length_cons,
-    Fraction.equiv, Fraction.mul, Int.pow_succ']
-
-theorem amplification_nonnegative (D : Int) (hD : 0 < D)
-    (xs : List Int) (hx : Nonnegative xs) :
-    0 ≤ (amplification D hD xs).num :=
-  factorProduct_nonnegative D (Int.le_of_lt hD) xs hx
+def amplification (D : Int) (_hD : 0 < D) (xs : List Int) : Rat :=
+  (factorProduct D xs : Rat) / ((D ^ xs.length : Int) : Rat)
 
 theorem uniform_amplification (D : Int) (hD : 0 < D)
     (xs : List Int) (hx : Nonnegative xs) (hsmall : 2 * weightSum xs ≤ D) :
-    Fraction.le (amplification D hD xs) (Fraction.ofInt 2) := by
-  simpa only [amplification, Fraction.le, Fraction.ofInt, Int.mul_one] using
-    uniform_product_bound D hD xs hx hsmall
+    amplification D hD xs ≤ 2 := by
+  have hden : 0 < ((D ^ xs.length : Int) : Rat) := Rat.intCast_pos.mpr (Int.pow_pos hD)
+  unfold amplification
+  rw [← Rat.not_lt, Rat.lt_div_iff hden]
+  have h := Rat.intCast_le_intCast.mpr (uniform_product_bound D hD xs hx hsmall)
+  simp only [Rat.intCast_mul, Rat.intCast_ofNat] at h
+  grind
 
 theorem weightSum_append (xs ys : List Int) :
     weightSum (xs ++ ys) = weightSum xs + weightSum ys := by
@@ -128,17 +110,11 @@ theorem factorProduct_append (D : Int) (xs ys : List Int) :
   | nil => simp [factorProduct]
   | cons a xs ih => simp only [List.cons_append, factorProduct, ih, Int.mul_assoc]
 
-theorem denominator_power_add (D : Int) (m n : Nat) :
-    D ^ (m + n) = D ^ m * D ^ n := by
-  induction n with
-  | zero => simp
-  | succ n ih => simp only [← Nat.add_assoc, Int.pow_succ, ih, Int.mul_assoc]
-
 theorem amplification_append (D : Int) (hD : 0 < D) (xs ys : List Int) :
-    Fraction.equiv (amplification D hD (xs ++ ys))
-      (Fraction.mul (amplification D hD xs) (amplification D hD ys)) := by
-  simp only [amplification, factorProduct_append, List.length_append,
-    denominator_power_add, Fraction.equiv, Fraction.mul]
+    amplification D hD (xs ++ ys) = amplification D hD xs * amplification D hD ys := by
+  simp only [amplification, factorProduct_append, List.length_append, Int.pow_add,
+    Rat.intCast_mul]
+  grind
 
 theorem weightSum_replicate (a : Int) (n : Nat) :
     weightSum (List.replicate n a) = (n : Int) * a := by
@@ -155,19 +131,7 @@ theorem factorProduct_replicate (D a : Int) (n : Nat) :
   | zero => simp [factorProduct]
   | succ n ih => simp only [List.replicate_succ, factorProduct, ih, Int.pow_succ']
 
-theorem zero_increments (D : Int) (hD : 0 < D) (n : Nat) :
-    Fraction.equiv (amplification D hD (List.replicate n 0)) (Fraction.ofInt 1) := by
-  simp only [amplification, factorProduct_replicate, List.length_replicate,
-    Fraction.equiv, Fraction.ofInt, Int.add_zero, Int.mul_one, Int.one_mul]
-
-theorem boundary_sample :
-    Fraction.equiv (amplification 4 (by decide) [1, 1]) ⟨25, 16, by decide⟩ := by
-  unfold Fraction.equiv
-  decide
-
-theorem missing_smallness_counterexample :
-    ¬ Fraction.le (amplification 1 (by decide) [1, 1]) (Fraction.ofInt 2) := by
-  unfold Fraction.le amplification factorProduct
-  decide
+example : amplification 4 (by decide) [1, 1] = 25/16 := by decide +kernel
+example : ¬ amplification 1 (by decide) [1, 1] ≤ 2 := by decide +kernel
 
 end NewtonLimitDynamics.FiniteGrowth

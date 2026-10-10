@@ -209,7 +209,7 @@ theorem coarse_parameter_step (w sigma tau : Fraction) (a b : Point × Point)
   have h₂ := cell_parameter_bound w sigma tau b hσ hτ hsum
   exact Fraction.magnitudes.le_trans htri (Fraction.add_le_add h₁ h₂)
 
--- Modern dependency score: 35/103 (M=35, H=68; transitive project theorems/axioms).
+-- Modern dependency score: 34/104 (M=34, H=70; transitive project theorems/axioms).
 theorem actual_coarse_parameter_error (w hσ hτ : Fraction) (s : Point × Point)
     (n : Nat) (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)
     (hsum : Fraction.le
@@ -284,7 +284,7 @@ theorem parameter_budget_power (w hσ hτ : Fraction) (s : Point × Point) :
         Int.one_mul, Int.mul_one]
       ac_nf
 
--- Modern dependency score: 41/110 (M=41, H=69; transitive project theorems/axioms).
+-- Modern dependency score: 40/111 (M=40, H=71; transitive project theorems/axioms).
 theorem actual_coarse_parameter_uniform (w hσ hτ : Fraction)
     (s : Point × Point) (n : Nat)
     (hhσ : 0 ≤ hσ.num) (hhτ : 0 ≤ hτ.num)
@@ -438,7 +438,7 @@ def timeLipschitz (w : Fraction) (s : Point × Point) : Fraction :=
 
 /-- Uniform rational-time variation of the actual dyadic endpoint schedules.
 The same level has the same count and two different cell durations. -/
--- Modern dependency score: 55/132 (M=55, H=77; transitive project theorems/axioms).
+-- Modern dependency score: 54/133 (M=54, H=79; transitive project theorems/axioms).
 theorem endpoint_time_bound (w T U : Fraction) (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
     (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
@@ -566,7 +566,7 @@ def timeName (w : Fraction) (s : Point × Point)
   endpointName w T.val s T.property.1 T.property.2
 
 /-- One explicit delta controls every approximant level at once. -/
--- Modern dependency score: 104/192 (M=104, H=88; transitive project theorems/axioms).
+-- Modern dependency score: 104/194 (M=104, H=90; transitive project theorems/axioms).
 theorem timeName_uniform_continuity (w : Fraction) (s : Point × Point)
     (eps : Fraction) (heps : 0 < eps.num) :
     ∃ delta : Fraction, 0 < delta.num ∧
@@ -596,7 +596,7 @@ private def zeroFraction : Fraction := ⟨0, 1, by decide⟩
 private def zeroState : Point × Point :=
   ((zeroFraction, zeroFraction), (zeroFraction, zeroFraction))
 
--- Modern dependency score: 56/133 (M=56, H=77; transitive project theorems/axioms).
+-- Modern dependency score: 55/134 (M=55, H=79; transitive project theorems/axioms).
 theorem zero_state_error_zero (w T U : Fraction) (j : Nat)
     (hT : 0 ≤ T.num) (hU : 0 ≤ U.num)
     (hsT : DyadicSmallTime w T) (hsU : DyadicSmallTime w U) :
@@ -654,7 +654,7 @@ theorem sample_time_budget :
         (durationDifference sampleQuarter sampleEighth).abs)
       (Fraction.ofInt 3) := by decide
 
--- Modern dependency score: 57/134 (M=57, H=77; transitive project theorems/axioms).
+-- Modern dependency score: 56/135 (M=56, H=79; transitive project theorems/axioms).
 theorem sample_parameter_bound :
     Fraction.le
       (stateNorm (stateSub

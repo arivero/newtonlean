@@ -25,7 +25,7 @@ def gammaPosition (w T : Fraction) (s : Point × Point)
     (t : BinaryTime T hT) : PositionValue :=
   asPosition (gammaValue w T s hT hs t)
 
--- Modern dependency score: 149/254 (M=149, H=105; transitive project theorems/axioms).
+-- Modern dependency score: 149/256 (M=149, H=107; transitive project theorems/axioms).
 theorem gammaPosition_within (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (x y : BinaryTime T hT) (R : Fraction)
@@ -36,7 +36,7 @@ theorem gammaPosition_within (w T : Fraction) (s : Point × Point)
   positionValue_within _ _ _
     (gamma_within w T s hT hs x y R hR hxy)
 
--- Modern dependency score: 153/258 (M=153, H=105; transitive project theorems/axioms).
+-- Modern dependency score: 153/260 (M=153, H=107; transitive project theorems/axioms).
 theorem gammaPosition_uniform_continuity (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) (eps : Fraction)
@@ -47,14 +47,14 @@ theorem gammaPosition_uniform_continuity (w T : Fraction)
   positionValue_within _ _ _
     (gamma_uniform_continuity w T s hT hs eps heps x y hxy)
 
--- Modern dependency score: 140/242 (M=140, H=102; transitive project theorems/axioms).
+-- Modern dependency score: 140/244 (M=140, H=104; transitive project theorems/axioms).
 theorem gammaPosition_alias (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     gammaPosition w T s hT hs (Quotient.mk _ firstAlias) =
       gammaPosition w T s hT hs (Quotient.mk _ secondAlias) := by
   exact congrArg (gammaPosition w T s hT hs) (alias_time_eq T hT)
 
--- Modern dependency score: 140/242 (M=140, H=102; transitive project theorems/axioms).
+-- Modern dependency score: 140/244 (M=140, H=104; transitive project theorems/axioms).
 theorem gammaPosition_left (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     gammaPosition w T s hT hs (leftTime T hT) = embedPosition s.1 := by
@@ -64,14 +64,14 @@ theorem gammaPosition_left (w T : Fraction) (s : Point × Point)
   rw [left_endpoint_value w T s hT hs, positionValue_embed]
   rfl
 
--- Modern dependency score: 148/250 (M=148, H=102; transitive project theorems/axioms).
+-- Modern dependency score: 148/252 (M=148, H=104; transitive project theorems/axioms).
 theorem gammaPosition_right (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     gammaPosition w T s hT hs (rightTime T hT) =
       asPosition (endpointValue w T s hT hs) := by
   exact congrArg asPosition (right_endpoint_value w T s hT hs)
 
--- Modern dependency score: 148/249 (M=148, H=101; transitive project theorems/axioms).
+-- Modern dependency score: 148/251 (M=148, H=103; transitive project theorems/axioms).
 theorem gammaPosition_zero_time (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) (hzero : T.num = 0) :
@@ -83,7 +83,7 @@ theorem gammaPosition_zero_time (b : Nat → Bool) (w T : Fraction)
   rw [zero_time_value b w T s hT hs hzero, positionValue_embed]
   rfl
 
--- Modern dependency score: 141/243 (M=141, H=102; transitive project theorems/axioms).
+-- Modern dependency score: 141/245 (M=141, H=104; transitive project theorems/axioms).
 theorem gammaPosition_zero_state_norm (b : Nat → Bool)
     (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -135,7 +135,7 @@ theorem sample_tail_one :
     Fraction.equiv (HarmonicDyadic.tailCap
       sampleOne sampleQuarter sampleState 1) sampleTail := by decide
 
--- Modern dependency score: 78/162 (M=78, H=84; transitive project theorems/axioms).
+-- Modern dependency score: 78/164 (M=78, H=86; transitive project theorems/axioms).
 theorem sample_position_lower_all_levels (j : Nat) (hj : 1 ≤ j) :
     Fraction.le sampleLower
       (distance (positionState (endpoint sampleOne sampleQuarter sampleState j))
@@ -175,7 +175,7 @@ theorem sample_position_lower_all_levels (j : Nat) (hj : 1 ≤ j) :
   exact le_add_cancel_left sampleTail sampleLower
     (distance (positionState eⱼ) (positionState sampleState)) hfull
 
--- Modern dependency score: 90/179 (M=90, H=89; transitive project theorems/axioms).
+-- Modern dependency score: 90/181 (M=90, H=91; transitive project theorems/axioms).
 theorem sample_endpoint_position_ne_initial :
     positionValue (endpointValue sampleOne sampleQuarter sampleState
       (by decide) (by unfold DyadicSmallTime Fraction.le; decide)) ≠
@@ -200,7 +200,7 @@ theorem sample_endpoint_position_ne_initial :
     (Fraction.magnitudes.lt_implies_le hhalf)
   exact (Fraction.magnitudes.lt_irrefl sampleLower) hloop'
 
--- Modern dependency score: 160/264 (M=160, H=104; transitive project theorems/axioms).
+-- Modern dependency score: 160/266 (M=160, H=106; transitive project theorems/axioms).
 theorem sample_gammaPosition_right_ne_left :
     gammaPosition sampleOne sampleQuarter sampleState
       (by decide) (by unfold DyadicSmallTime Fraction.le; decide)

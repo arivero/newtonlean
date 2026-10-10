@@ -709,7 +709,7 @@ theorem kappa_duration_congr (w a b : Fraction)
     (Fraction.add_equiv (Fraction.equiv_refl _)
       (Fraction.mul_equiv ha (Fraction.equiv_refl _)))
 
--- Modern dependency score: 13/42 (M=13, H=29; transitive project theorems/axioms).
+-- Modern dependency score: 12/43 (M=12, H=31; transitive project theorems/axioms).
 theorem full_power_le_two (w d : Fraction) (N : Nat)
     (hd : 0 ≤ d.num) (hs : FullSmallTime w d N) :
     Fraction.le (fpower (kappa w d) N) (Fraction.ofInt 2) := by
@@ -723,7 +723,7 @@ theorem full_power_le_two (w d : Fraction) (N : Nat)
   exact Fraction.le_equiv_left
     (Fraction.equiv_symm (fpower_congr he N)) hpower
 
--- Modern dependency score: 14/47 (M=14, H=33; transitive project theorems/axioms).
+-- Modern dependency score: 13/48 (M=13, H=35; transitive project theorems/axioms).
 theorem block_power_le_two (w h : Fraction) (k N : Nat)
     (hh : 0 ≤ h.num)
     (hs : FullSmallTime w (integerDuration h k) N) :
@@ -740,7 +740,7 @@ theorem block_power_le_two (w h : Fraction) (k N : Nat)
 /-- Accumulated comparison of `N` actual coarse cells of duration `k*h`
 with `k*N` actual fine cells. The finite short-prefix inequalities ensure
 each local split is inside the calibrated unit window. -/
--- Modern dependency score: 57/155 (M=57, H=98; transitive project theorems/axioms).
+-- Modern dependency score: 56/156 (M=56, H=100; transitive project theorems/axioms).
 theorem accumulated_integer_error (w h : Fraction) (k N : Nat)
     (s : Point × Point)
     (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
@@ -846,7 +846,7 @@ theorem integer_window_short (w h : Fraction) (k N : Nat)
 
 /-- The positive-count small-window form needs no separate local
 shortness assumptions. -/
--- Modern dependency score: 60/159 (M=60, H=99; transitive project theorems/axioms).
+-- Modern dependency score: 59/160 (M=59, H=101; transitive project theorems/axioms).
 theorem accumulated_integer_error_positive (w h : Fraction) (k N : Nat)
     (s : Point × Point)
     (hh : 0 ≤ h.num) (hk : 0 < k) (hN : 0 < N)

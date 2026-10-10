@@ -56,7 +56,7 @@ theorem polygon_vertex_bound (b : Nat → Bool) (o : ForceClasses.CentralOracle)
 
 /-- Every point of every coarse edge is controlled against the constructed
 curve, with an explicit geometric mesh bound. No area is supplied. -/
--- Modern dependency score: 121/302 (M=121, H=181; transitive project theorems/axioms).
+-- Modern dependency score: 121/304 (M=121, H=183; transitive project theorems/axioms).
 theorem whole_edge_bound (b : Nat → Bool) (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -69,7 +69,7 @@ theorem whole_edge_bound (b : Nat → Bool) (o : ForceClasses.CentralOracle)
   exact within_mono _ _ _ _
     (Fraction.le_of_equiv (edgeRadius_geometric E0 T tau L B s d.calibration_positive m)) hb
 
--- Modern dependency score: 122/303 (M=122, H=181; transitive project theorems/axioms).
+-- Modern dependency score: 122/305 (M=122, H=183; transitive project theorems/axioms).
 theorem polygonMap_whole_edge_bound (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat)
@@ -80,7 +80,7 @@ theorem polygonMap_whole_edge_bound (o : ForceClasses.CentralOracle)
   induction t using Quotient.inductionOn with
   | _ b => exact whole_edge_bound b o E0 T tau L B s hE d m
 
--- Modern dependency score: 124/306 (M=124, H=182; transitive project theorems/axioms).
+-- Modern dependency score: 124/308 (M=124, H=184; transitive project theorems/axioms).
 theorem polygonMap_uniform_convergence (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (eps : Fraction) (heps : 0 < eps.num) :
@@ -100,7 +100,7 @@ theorem polygonMap_left (o : ForceClasses.CentralOracle) (E0 T : Fraction)
     polygonMap o E0 T s hE hT m (leftTime T hT) = embedPosition s.1 :=
   PolygonValues.polygonMap_left T hT m (vertices o E0 T s hE m)
 
--- Modern dependency score: 99/279 (M=99, H=180; transitive project theorems/axioms).
+-- Modern dependency score: 99/281 (M=99, H=182; transitive project theorems/axioms).
 theorem shared_initial_endpoint (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -115,7 +115,7 @@ theorem shared_initial_endpoint (o : ForceClasses.CentralOracle)
 
 /-- The given-curve modulus needed by the chord-boundary argument is derived
 for the actual constructed general curve, rather than supplied as a limit. -/
--- Modern dependency score: 89/254 (M=89, H=165; transitive project theorems/axioms).
+-- Modern dependency score: 89/256 (M=89, H=167; transitive project theorems/axioms).
 theorem constructed_uniform_curve (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -148,7 +148,7 @@ theorem constructed_chord_boundary_limit (o : ForceClasses.CentralOracle)
 of the constructed curve's inscribed chord family. The whole-edge comparison
 provides both directions; scalar area convergence is not used as a premise.
 No tangent-polygon or arclength assertion is made. -/
--- Modern dependency score: 128/310 (M=128, H=182; transitive project theorems/axioms).
+-- Modern dependency score: 128/312 (M=128, H=184; transitive project theorems/axioms).
 theorem constructed_polygon_boundary_limit (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :

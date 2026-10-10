@@ -108,7 +108,7 @@ private theorem totalTime_le (h : Fraction) (i n : Nat)
         _ = _ := by ac_rfl
 
 /-- Every earlier actual endpoint error is bounded by the final-count cap. -/
--- Modern dependency score: 58/128 (M=58, H=70; transitive project theorems/axioms).
+-- Modern dependency score: 58/130 (M=58, H=72; transitive project theorems/axioms).
 private theorem prefix_error_le_max (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -204,7 +204,7 @@ def coarseEnd (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
 def fineEnd (w h : Fraction) (s : Point × Point) (i : Nat) : Point :=
   (fineAt w h s (i + 1)).1
 
--- Modern dependency score: 28/75 (M=28, H=47; transitive project theorems/axioms).
+-- Modern dependency score: 27/76 (M=27, H=49; transitive project theorems/axioms).
 private theorem coarse_mid_le_half (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -213,7 +213,7 @@ private theorem coarse_mid_le_half (w h : Fraction) (s : Point × Point)
   half_drift_le h s (coarseAt w h s i) hh
     (coarse_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
 
--- Modern dependency score: 27/74 (M=27, H=47; transitive project theorems/axioms).
+-- Modern dependency score: 27/76 (M=27, H=49; transitive project theorems/axioms).
 private theorem fine_mid_own_le_half (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -222,7 +222,7 @@ private theorem fine_mid_own_le_half (w h : Fraction) (s : Point × Point)
   half_drift_le h s (fineAt w h s i) hh
     (fine_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
 
--- Modern dependency score: 28/75 (M=28, H=47; transitive project theorems/axioms).
+-- Modern dependency score: 27/76 (M=27, H=49; transitive project theorems/axioms).
 private theorem coarse_end_le_full (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -231,7 +231,7 @@ private theorem coarse_end_le_full (w h : Fraction) (s : Point × Point)
   full_drift_le h s (coarseAt w h s i) hh
     (coarse_state_le_two w h s i hh (smallTime_prefix w h i n hh hin hs))
 
--- Modern dependency score: 59/129 (M=59, H=70; transitive project theorems/axioms).
+-- Modern dependency score: 59/131 (M=59, H=72; transitive project theorems/axioms).
 private theorem fine_start_error_le (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -241,7 +241,7 @@ private theorem fine_start_error_le (w h : Fraction) (s : Point × Point)
     (point_le_state (stateSub (fineAt w h s i) (coarseAt w h s i)))
     (prefix_error_le_max w h s i n hh hin hs)
 
--- Modern dependency score: 66/138 (M=66, H=72; transitive project theorems/axioms).
+-- Modern dependency score: 66/140 (M=66, H=74; transitive project theorems/axioms).
 private theorem fine_mid_le (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i ≤ n)
     (hs : SmallTime w h n) :
@@ -255,7 +255,7 @@ private theorem fine_mid_le (w h : Fraction) (s : Point × Point)
   exact Fraction.le_equiv_right hc
     (Fraction.add_comm (halfDriftBudget h s) (maxError w h s n))
 
--- Modern dependency score: 68/140 (M=68, H=72; transitive project theorems/axioms).
+-- Modern dependency score: 68/142 (M=68, H=74; transitive project theorems/axioms).
 private theorem fine_end_le (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
     (hs : SmallTime w h n) :
@@ -277,7 +277,7 @@ private theorem zero_le (R : Fraction) (hR : 0 ≤ R.num) :
 /-- Six actual vertices, each measured from the coarse block start, fit in
 the same coordinate L1 ball of radius `4hM + Emax`. The midpoint is only a
 subdivision of the coarse drift; it receives no impulse. -/
--- Modern dependency score: 82/154 (M=82, H=72; transitive project theorems/axioms).
+-- Modern dependency score: 82/156 (M=82, H=74; transitive project theorems/axioms).
 theorem actual_corners_in_ball (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
     (hs : SmallTime w h n) :
@@ -331,7 +331,7 @@ def secondPatch (w h : Fraction) (s : Point × Point) (i : Nat)
   matchedPatch theta lambda (coarseMid w h s i) (coarseEnd w h s i)
     (fineMid w h s i) (fineEnd w h s i)
 
--- Modern dependency score: 83/164 (M=83, H=81; transitive project theorems/axioms).
+-- Modern dependency score: 83/166 (M=83, H=83; transitive project theorems/axioms).
 theorem firstPatch_square (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
     (hs : SmallTime w h n) (theta lambda : Fraction)
@@ -341,7 +341,7 @@ theorem firstPatch_square (w h : Fraction) (s : Point × Point)
   obtain ⟨hc0, hc1, _, hf0, hf1, _⟩ := actual_corners_in_ball w h s i n hh hin hs
   exact matchedPatch_square theta lambda ht hl _ _ _ _ _ _ hc0 hc1 hf0 hf1
 
--- Modern dependency score: 83/164 (M=83, H=81; transitive project theorems/axioms).
+-- Modern dependency score: 83/166 (M=83, H=83; transitive project theorems/axioms).
 theorem secondPatch_square (w h : Fraction) (s : Point × Point)
     (i n : Nat) (hh : 0 ≤ h.num) (hin : i < n)
     (hs : SmallTime w h n) (theta lambda : Fraction)
@@ -413,7 +413,7 @@ theorem sample_cover_budget :
     Fraction.equiv (coverBudget one eighth sample 1)
       ⟨361, 64, by decide⟩ := by decide
 
--- Modern dependency score: 84/156 (M=84, H=72; transitive project theorems/axioms).
+-- Modern dependency score: 84/158 (M=84, H=74; transitive project theorems/axioms).
 theorem sample_all_corners :
     let x := coarseStart one eighth sample 0
     let R := radius one eighth sample 1
@@ -425,7 +425,7 @@ theorem sample_all_corners :
     Fraction.le (pointNorm (pointSub (fineEnd one eighth sample 0) x)) R :=
   actual_corners_in_ball one eighth sample 0 1 (by decide) (by decide) sample_small_time
 
--- Modern dependency score: 85/166 (M=85, H=81; transitive project theorems/axioms).
+-- Modern dependency score: 85/168 (M=85, H=83; transitive project theorems/axioms).
 theorem sample_first_patch_square (theta lambda : Fraction)
     (ht : UnitInterval theta) (hl : UnitInterval lambda) :
     SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)
@@ -433,7 +433,7 @@ theorem sample_first_patch_square (theta lambda : Fraction)
   firstPatch_square one eighth sample 0 1 (by decide) (by decide)
     sample_small_time theta lambda ht hl
 
--- Modern dependency score: 85/166 (M=85, H=81; transitive project theorems/axioms).
+-- Modern dependency score: 85/168 (M=85, H=83; transitive project theorems/axioms).
 theorem sample_second_patch_square (theta lambda : Fraction)
     (ht : UnitInterval theta) (hl : UnitInterval lambda) :
     SquareContains (coarseStart one eighth sample 0) (radius one eighth sample 1)

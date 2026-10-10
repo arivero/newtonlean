@@ -351,7 +351,7 @@ theorem continuous_local_refinement (o : Oracle) (hC : ContinuousOn o)
 /-- Successive oracle precisions instantiate the actual mesh comparison.
 Only the five actual and shadow arrivals need regional certificates. The
 central construction derives those certificates from its finite invariant. -/
--- Modern dependency score: 3/98 (M=3, H=95; transitive project theorems/axioms).
+-- Modern dependency score: 3/100 (M=3, H=97; transitive project theorems/axioms).
 theorem sampled_uniform_refinement (o : Oracle) (j : Nat)
     (h L B V : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hL : LipschitzOn o L)

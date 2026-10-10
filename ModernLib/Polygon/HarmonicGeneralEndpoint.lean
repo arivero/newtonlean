@@ -36,7 +36,7 @@ theorem linear_sample_bound (w : Fraction) (s : Point × Point) (p : Point)
   Fraction.le_equiv_left (linear_sample_norm w p)
     (Fraction.mul_le_mul_nonnegative_left hp w.abs (Fraction.abs_num_nonnegative w))
 
--- Modern dependency score: 31/73 (M=31, H=42; transitive project theorems/axioms).
+-- Modern dependency score: 30/74 (M=30, H=44; transitive project theorems/axioms).
 theorem full_run_state_bound (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (j k : Nat) (hk : k ≤ blocks j) :
     Fraction.le
@@ -69,7 +69,7 @@ theorem time_le_one (w T : Fraction) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w 
     unfold Fraction.le Fraction.ofInt
     decide)
 
--- Modern dependency score: 34/83 (M=34, H=49; transitive project theorems/axioms).
+-- Modern dependency score: 33/84 (M=33, H=51; transitive project theorems/axioms).
 theorem shadow_position_bound (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (j k : Nat) (hk : k < blocks j) :
     Fraction.le
@@ -161,7 +161,7 @@ theorem harmonic_endpoint_eq (w E0 T : Fraction) (s : Point × Point)
   rw [GeneralForceEndpoint.endpoint,harmonic_field,run_eq_schedule]
   rfl
 
--- Modern dependency score: 119/275 (M=119, H=156; transitive project theorems/axioms).
+-- Modern dependency score: 119/277 (M=119, H=158; transitive project theorems/axioms).
 theorem harmonic_name_equiv (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     CauchyValues.NameEquiv
@@ -177,7 +177,7 @@ theorem harmonic_name_equiv (w E0 T : Fraction) (s : Point × Point)
     (Fraction.le_of_equiv (FiniteEstimates.stateDistance_self_zero _))
     ((Fraction.positive_iff_zero_lt eps).mp heps)
 
--- Modern dependency score: 127/285 (M=127, H=158; transitive project theorems/axioms).
+-- Modern dependency score: 127/287 (M=127, H=160; transitive project theorems/axioms).
 theorem harmonic_value_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     GeneralForceEndpoint.endpointValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs

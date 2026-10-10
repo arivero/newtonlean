@@ -105,6 +105,15 @@ imports. This migration and relocation earn no completion credit: historical
 statements, remaining obligations and their effort estimates are unchanged.
 Measured lines, theorem cascades and dependency scores are refreshed below.
 
+Finite-growth reassessment, 10 October: **every file/witness percentage
+remains unchanged**. Finite product amplification now takes values in core
+Rat. Eight helper declarations disappear: a core power identity, three
+inlined cases or controls, and four unused wrappers. The numeric boundary
+and missing-smallness controls remain checked as anonymous examples.
+Direct callers use the temporary bridge; the migrated module has no warnings.
+This is encoding cleanup, with the same historical obligations and estimated
+remaining work. Measured theorem counts and dependency sizes are refreshed.
+
 Bridge reassessment, 10 October: **every file/witness percentage remains
 unchanged**. Fourteen temporary Fraction/Rat conversion theorems establish
 representation correspondence; they discharge no historical obligation.
@@ -285,7 +294,7 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2057 | 73 | 889 | 1833 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2057 | 73 | 888 | 1825 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 183 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 111 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 97 |
@@ -297,7 +306,7 @@ of the older library helpers remains unverified.
 | [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 212 | 10 | 133 | 521 |
 | [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 523 |
 | [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 657 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 474 | 1402 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 474 | 1394 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 81 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 91 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 93 |
@@ -315,8 +324,8 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 15555 | 997 | 997 | 997 |
-| [ModernLib](ModernLib.lean) | 19742 | 1157 | 1501 | 1703 |
+| [BarrowLib](BarrowLib.lean) | 15525 | 989 | 989 | 989 |
+| [ModernLib](ModernLib.lean) | 19750 | 1157 | 1501 | 1695 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

@@ -173,7 +173,7 @@ open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveT
 
 /-- Modern supporting-line perimeter limit under explicit supporting cells and
 uniform endpoint agreement. The cells are not identified with force polygons. -/
--- Modern dependency score: 80/183 (M=80, H=103; transitive project theorems/axioms).
+-- Modern dependency score: 80/182 (M=80, H=102; transitive project theorems/axioms).
 theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤ T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (points : Nat → Nat → Point)
@@ -186,13 +186,13 @@ theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤
   ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
     T hT f hf points cells hpoints
 
--- Modern dependency score: 78/169 (M=78, H=91; transitive project theorems/axioms).
+-- Modern dependency score: 78/168 (M=78, H=90; transitive project theorems/axioms).
 theorem corollary4_chord_reconstruction (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) :
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) :=
   dyadic_chordTrace_limit T hT f hf
 
--- Modern dependency score: 129/311 (M=129, H=182; transitive project theorems/axioms).
+-- Modern dependency score: 129/313 (M=129, H=184; transitive project theorems/axioms).
 theorem corollary4_constructed_polygon_boundary (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -209,7 +209,7 @@ open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveT
 
 /-- The 1713 witness has the same conditional supporting-line perimeter
 model; its area statement and tangent identification remain open. -/
--- Modern dependency score: 80/183 (M=80, H=103; transitive project theorems/axioms).
+-- Modern dependency score: 80/182 (M=80, H=102; transitive project theorems/axioms).
 theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤ T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (points : Nat → Nat → Point)
@@ -222,13 +222,13 @@ theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤
   ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
     T hT f hf points cells hpoints
 
--- Modern dependency score: 78/169 (M=78, H=91; transitive project theorems/axioms).
+-- Modern dependency score: 78/168 (M=78, H=90; transitive project theorems/axioms).
 theorem corollary4_chord_reconstruction (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) :
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) :=
   dyadic_chordTrace_limit T hT f hf
 
--- Modern dependency score: 129/311 (M=129, H=182; transitive project theorems/axioms).
+-- Modern dependency score: 129/313 (M=129, H=184; transitive project theorems/axioms).
 theorem corollary4_constructed_polygon_boundary (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :

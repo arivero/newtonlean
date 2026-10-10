@@ -144,7 +144,7 @@ def adjacentCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
       (Fraction.mul (duration T (j + 1))
         (Fraction.mul w.abs (stateNorm s))))
 
--- Modern dependency score: 68/145 (M=68, H=77; transitive project theorems/axioms).
+-- Modern dependency score: 68/147 (M=68, H=79; transitive project theorems/axioms).
 theorem adjacent_error_le (w T : Fraction) (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     Fraction.le
@@ -210,7 +210,7 @@ theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
 
 /-- Any finite separation of dyadic levels has error within the tail at its
 coarser endpoint. The proof uses actual neighboring schedules. -/
--- Modern dependency score: 71/150 (M=71, H=79; transitive project theorems/axioms).
+-- Modern dependency score: 71/152 (M=71, H=81; transitive project theorems/axioms).
 theorem finite_gap_error (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     (k j : Nat) → Fraction.le
@@ -223,7 +223,7 @@ theorem finite_gap_error (w T : Fraction) (s : Point × Point)
       (adjacentCap_tail w T s i)) k j
 
 /-- Both later endpoints are compared to the same earlier actual endpoint. -/
--- Modern dependency score: 71/155 (M=71, H=84; transitive project theorems/axioms).
+-- Modern dependency score: 71/157 (M=71, H=86; transitive project theorems/axioms).
 theorem two_sided_error (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
@@ -248,7 +248,7 @@ theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
 
 /-- A Cauchy name stores finite rational endpoint approximants and a proved
 positive-tolerance condition. It does not supply a limit point. -/
--- Modern dependency score: 73/159 (M=73, H=86; transitive project theorems/axioms).
+-- Modern dependency score: 73/161 (M=73, H=88; transitive project theorems/axioms).
 theorem endpoint_cauchy (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     ∀ eps : Fraction, 0 < eps.num →

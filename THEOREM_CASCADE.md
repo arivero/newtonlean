@@ -57,6 +57,14 @@ The unused zero_terminal_lower instance is deleted. The core Magnitudes Rat
 model moves unchanged to RatMagnitudes, separating migrated clients from
 legacy Fraction imports without adding a theorem or changing provenance.
 
+FiniteGrowth's uniform_amplification and amplification_append are now P
+derivations over core Rat. Their exact finite statements and checked proofs
+are in the module; no historical attribution or priority is claimed. Eight
+named helpers disappear: denominator_power_add is a core duplicate,
+amplification_empty is inlined, the two numeric controls remain anonymous
+examples, and four unused wrappers are removed. Its direct legacy callers
+convert with the bridge. Historical theorem statements remain unchanged.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,
@@ -74,7 +82,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 889 | 1833 |
+| `AreaLaw.lean` | 73 | 888 | 1825 |
 | `CompositionOfMotions.lean` | 13 | 48 | 183 |
 | `LawI.lean` | 0 | 0 | 111 |
 | `LawII.lean` | 0 | 0 | 97 |
@@ -86,7 +94,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `LemmaIII/CorollaryI.lean` | 10 | 133 | 521 |
 | `LemmaIII/CorollaryII.lean` | 2 | 70 | 523 |
 | `LemmaIII/CorollaryIII.lean` | 10 | 208 | 657 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 474 | 1402 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 474 | 1394 |
 | `LemmaX.lean` | 4 | 14 | 81 |
 | `LemmaX/CorollaryI.lean` | 2 | 14 | 91 |
 | `LemmaX/CorollaryII.lean` | 4 | 24 | 93 |
@@ -98,8 +106,8 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 997 | 997 | 997 |
-| `ModernLib` | 1157 | 1501 | 1703 |
+| `BarrowLib` | 989 | 989 | 989 |
+| `ModernLib` | 1157 | 1501 | 1695 |
 
 The README additionally lists line counts and the individual classical files.
 Reproduce the compiled measurements and check the README with:
@@ -140,7 +148,7 @@ source. Source witnesses for every historical file remain in the next table.
 
 | File or library | S | R | P | U | Proof tree |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `AreaLaw.lean` | 0 | 6 | 11 | 872 | 889 |
+| `AreaLaw.lean` | 0 | 6 | 14 | 868 | 888 |
 | `CompositionOfMotions.lean` | 0 | 0 | 0 | 48 | 48 |
 | `LawI.lean` | 0 | 0 | 0 | 0 | 0 |
 | `LawII.lean` | 0 | 0 | 0 | 0 | 0 |
@@ -170,12 +178,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 53 | 944 | 997 |
-| `ModernLib` | 0 | 2 | 6 | 1493 | 1501 |
+| `BarrowLib` | 0 | 0 | 55 | 934 | 989 |
+| `ModernLib` | 0 | 2 | 10 | 1489 | 1501 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **142 of 2378
-theorems: 6 S, 49 R and 87 P; 2236 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **144 of 2370
+theorems: 6 S, 49 R and 89 P; 2226 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.

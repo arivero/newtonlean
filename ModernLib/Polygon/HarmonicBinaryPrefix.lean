@@ -39,7 +39,7 @@ theorem prefix_coarse (b : Nat → Bool) (w T : Fraction)
       ⟨Fraction.equiv_refl _, Fraction.equiv_refl _⟩⟩
   simpa only [prefixState, coarseAt_schedule] using hc
 
--- Modern dependency score: 34/84 (M=34, H=50; transitive project theorems/axioms).
+-- Modern dependency score: 33/85 (M=33, H=52; transitive project theorems/axioms).
 theorem prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -216,7 +216,7 @@ theorem cell_increment_bound (w h : Fraction) (s : Point × Point)
     Int.natAbs_zero, Int.ofNat_zero, Int.mul_one, Int.one_mul,
     Int.neg_zero]
 
--- Modern dependency score: 27/72 (M=27, H=45; transitive project theorems/axioms).
+-- Modern dependency score: 27/74 (M=27, H=47; transitive project theorems/axioms).
 theorem fine_prefix_state_le_two (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -241,7 +241,7 @@ theorem prefix_totalTime_le (b : Nat → Bool) (T : Fraction) (j : Nat)
         (Fraction.equiv_symm (duration_halving T j)) (ticks b j))
   exact Fraction.le_equiv_left he (prefix_elapsed_le_time b T j hT)
 
--- Modern dependency score: 37/92 (M=37, H=55; transitive project theorems/axioms).
+-- Modern dependency score: 37/94 (M=37, H=57; transitive project theorems/axioms).
 theorem fine_optional_increment (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -296,7 +296,7 @@ def optionalCap (w T : Fraction) (s : Point × Point) (j : Nat) : Fraction :=
       (Fraction.mul (Fraction.add (Fraction.ofInt 1) w.abs)
         (stateNorm s)))
 
--- Modern dependency score: 72/152 (M=72, H=80; transitive project theorems/axioms).
+-- Modern dependency score: 72/154 (M=72, H=82; transitive project theorems/axioms).
 theorem prefix_refinement_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -364,7 +364,7 @@ private theorem le_add_optional (a c : Fraction) (hc : 0 ≤ c.num) :
     (Fraction.le_equiv_left (Fraction.equiv_symm he) h)
     (Fraction.add_comm a c)
 
--- Modern dependency score: 94/177 (M=94, H=83; transitive project theorems/axioms).
+-- Modern dependency score: 94/179 (M=94, H=85; transitive project theorems/axioms).
 theorem adjacent_error_le_add (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -416,7 +416,7 @@ theorem adjacentCap_tail (w T : Fraction) (s : Point × Point) (j : Nat) :
   simp only [Int.add_mul, Int.mul_add, Int.mul_one, Int.one_mul]
   ac_nf
 
--- Modern dependency score: 96/179 (M=96, H=83; transitive project theorems/axioms).
+-- Modern dependency score: 96/181 (M=96, H=85; transitive project theorems/axioms).
 theorem adjacent_error_le (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
@@ -461,7 +461,7 @@ theorem tail_double (w T : Fraction) (s : Point × Point) (j : Nat) :
       (doubleTail w T s j) := by
   exact GeometricTail.tail_double (coefficient w T s) j
 
--- Modern dependency score: 98/183 (M=98, H=85; transitive project theorems/axioms).
+-- Modern dependency score: 98/185 (M=98, H=87; transitive project theorems/axioms).
 theorem finite_gap_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     (k j : Nat) → Fraction.le
@@ -472,7 +472,7 @@ theorem finite_gap_error (b : Nat → Bool) (w T : Fraction)
     (coefficient_nonnegative w T s hT)
     (fun i => adjacent_error_le b w T s i hT hs) k j
 
--- Modern dependency score: 98/188 (M=98, H=90; transitive project theorems/axioms).
+-- Modern dependency score: 98/190 (M=98, H=92; transitive project theorems/axioms).
 theorem two_sided_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (N m n : Nat) (hm : N ≤ m) (hn : N ≤ n) :
@@ -493,7 +493,7 @@ theorem doubleTail_lt_tolerance (w T : Fraction) (s : Point × Point)
   exact GeometricTail.doubleTail_lt_tolerance (coefficient w T s) eps
     (coefficient_nonnegative w T s hT) heps
 
--- Modern dependency score: 100/191 (M=100, H=91; transitive project theorems/axioms).
+-- Modern dependency score: 100/193 (M=100, H=93; transitive project theorems/axioms).
 theorem prefix_cauchy (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     ∀ eps : Fraction, 0 < eps.num →

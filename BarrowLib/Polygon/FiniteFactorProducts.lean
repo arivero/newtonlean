@@ -37,28 +37,33 @@ theorem pairWeights_sum (P Q : Fraction) :
       omega
 
 theorem pair_product (P Q : Fraction) :
-    Fraction.equiv
-      (FiniteGrowth.amplification (P.den * Q.den)
-        (Int.mul_pos P.den_pos Q.den_pos) [P.num * Q.den,Q.num * P.den])
+    FiniteGrowth.amplification (P.den * Q.den)
+      (Int.mul_pos P.den_pos Q.den_pos) [P.num * Q.den,Q.num * P.den] =
       (Fraction.mul (Fraction.add (Fraction.ofInt 1) P)
-        (Fraction.add (Fraction.ofInt 1) Q)) := by
+        (Fraction.add (Fraction.ofInt 1) Q)).toRat := by
+  have hp : (P.den : Rat) ≠ 0 := by simp [Int.ne_of_gt P.den_pos]
+  have hq : (Q.den : Rat) ≠ 0 := by simp [Int.ne_of_gt Q.den_pos]
   simp only [FiniteGrowth.amplification,FiniteGrowth.factorProduct,
-    List.length_cons,List.length_nil,Fraction.equiv,Fraction.mul,Fraction.add,
-    Fraction.ofInt,Int.pow_succ,Int.pow_zero,Int.one_mul,Int.mul_one]
-  simp only [Int.add_mul,Int.mul_add]
-  ac_nf
+    List.length_cons,List.length_nil,Fraction.toRat,Fraction.mul,Fraction.add,
+    Fraction.ofInt,Int.pow_succ,Int.pow_zero,Int.one_mul,Int.mul_one,
+    Rat.intCast_mul,Rat.intCast_add]
+  grind
 
 theorem repeated_pair_product (P Q : Fraction) :
-    (n : Nat) → Fraction.equiv
-      (FiniteGrowth.amplification (P.den * Q.den)
-        (Int.mul_pos P.den_pos Q.den_pos) (pairWeights P Q n))
+    (n : Nat) → FiniteGrowth.amplification (P.den * Q.den)
+        (Int.mul_pos P.den_pos Q.den_pos) (pairWeights P Q n) =
       (fpower (Fraction.mul (Fraction.add (Fraction.ofInt 1) P)
-        (Fraction.add (Fraction.ofInt 1) Q)) n)
-  | 0 => FiniteGrowth.amplification_empty _ _
-  | n+1 => Fraction.equiv_trans
-      (FiniteGrowth.amplification_append _ _
-        [P.num * Q.den,Q.num * P.den] (pairWeights P Q n))
-      (Fraction.mul_equiv (pair_product P Q) (repeated_pair_product P Q n))
+        (Fraction.add (Fraction.ofInt 1) Q)) n).toRat
+  | 0 => by
+      simp only [pairWeights,FiniteGrowth.amplification,FiniteGrowth.factorProduct,
+        List.length_nil,Int.pow_zero,fpower,Fraction.toRat_ofInt,Rat.intCast_one]
+      grind
+  | n+1 => by
+      change FiniteGrowth.amplification _ _
+        ([P.num * Q.den,Q.num * P.den] ++ pairWeights P Q n) =
+        (Fraction.mul _ (fpower _ n)).toRat
+      rw [FiniteGrowth.amplification_append,Fraction.toRat_mul,pair_product,
+        repeated_pair_product]
 
 /-- The sum of increments, rather than a dimensioned expression `1+L`,
 controls the shared finite product. -/
@@ -75,9 +80,10 @@ theorem repeated_pair_le_two (P Q : Fraction) (n : Nat)
     dsimp at hs
     simp only [Int.one_mul,Int.mul_one] at hs
     simpa only [Int.mul_comm,Int.mul_left_comm,Int.mul_assoc] using hs
-  exact Fraction.le_equiv_left (Fraction.equiv_symm (repeated_pair_product P Q n))
-    (FiniteGrowth.uniform_amplification _ _ (pairWeights P Q n)
-      (pairWeights_nonnegative P Q hP hQ n) hsmall)
+  apply (Fraction.le_iff_toRat _ _).mpr
+  rw [Fraction.toRat_ofInt,Rat.intCast_ofNat,← repeated_pair_product P Q n]
+  exact FiniteGrowth.uniform_amplification _ _ (pairWeights P Q n)
+    (pairWeights_nonnegative P Q hP hQ n) hsmall
 
 theorem fpower_congr {r q : Fraction} (hrq : Fraction.equiv r q) :
     (n : Nat) → Fraction.equiv (fpower r n) (fpower q n)

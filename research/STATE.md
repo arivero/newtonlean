@@ -76,6 +76,15 @@ arithmetic import. LemmaI imports that legacy arithmetic explicitly until
 its own migration. All five migrated common modules and their imports build
 without any warnings; relocation earns no proof progress.
 
+FiniteGrowth now represents finite product amplification by core Rat. Its
+uniform bound and concatenation identity retain their meanings; eleven
+named theorems replace nineteen. A core power duplicate, three inlined
+cases/controls and four unused wrappers are removed. Both numeric controls
+remain checked anonymous examples. FiniteFactorProducts and HarmonicUniform
+adapt their direct calls through the bridge. The latter splits its four-factor
+identity into two repeated blocks, avoiding grind's polynomial-step limit.
+The migrated module builds without warnings. This earns no completion credit.
+
 The user added a deprecation-only cleanup before continuing Rat clients:
 use each replacement named by Lean, edit with the patch tool, preserve
 statements and counts, compare the theorem dump with Stage 0 and require

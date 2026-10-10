@@ -11,7 +11,7 @@ open NewtonLimitDynamics
 open TimeSubdivision HarmonicDyadic ForceClasses HarmonicGeneralEndpoint HarmonicGeneralTime
 open PositionValues SquareContentValues
 
--- Modern dependency score: 238/434 (M=238, H=196; transitive project theorems/axioms).
+-- Modern dependency score: 238/436 (M=238, H=198; transitive project theorems/axioms).
 theorem harmonic_region_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (m : Nat) (x : PositionValue) :

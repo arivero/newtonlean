@@ -207,101 +207,108 @@ private theorem coarseWeights_small (w h : Fraction) (n : Nat)
 -- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 theorem two_mul (x : Int) : 2 * x = x + x := by omega
 
--- Modern dependency score: 2/2 (M=2, H=0; transitive project theorems/axioms).
+-- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
 private theorem coarse_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.equiv
-      (amplification (denom w h) (denom_pos w h)
-        [2 * driftIncrement w h, 2 * kickIncrement w h])
-      (coarseFactor w h) := by
+    amplification (denom w h) (denom_pos w h)
+      [2 * driftIncrement w h, 2 * kickIncrement w h] =
+      (coarseFactor w h).toRat := by
   have hsum : 0 ≤ (Fraction.add h h).num := by
     unfold Fraction.add
     exact Int.add_nonneg
       (Int.mul_nonneg hh (Int.le_of_lt h.den_pos))
       (Int.mul_nonneg hh (Int.le_of_lt h.den_pos))
+  have hd : (h.den : Rat) ≠ 0 := by simp [Int.ne_of_gt h.den_pos]
+  have wd : (w.den : Rat) ≠ 0 := by simp [Int.ne_of_gt w.den_pos]
   simp only [amplification, factorProduct, denom, driftIncrement,
-    kickIncrement, coarseFactor, kappa, Fraction.equiv, Fraction.abs,
+    kickIncrement, coarseFactor, kappa, Fraction.toRat, Fraction.abs,
     Fraction.add, Fraction.mul, Fraction.ofInt,
     List.length_cons, List.length_nil, Int.pow_succ,
     Int.pow_zero, Int.mul_one, Int.one_mul]
   change 0 ≤ h.num * h.den + h.num * h.den at hsum
   rw [Int.natAbs_of_nonneg hsum]
-  simp only [two_mul, Int.add_mul, Int.mul_add]
-  ac_nf
+  simp only [Rat.intCast_mul, Rat.intCast_add, Rat.intCast_ofNat]
+  grind
 
--- Modern dependency score: 1/1 (M=1, H=0; transitive project theorems/axioms).
+-- Modern dependency score: 1/4 (M=1, H=3; transitive project theorems/axioms).
 private theorem fine_block_equiv (w h : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.equiv
-      (amplification (denom w h) (denom_pos w h)
-        [driftIncrement w h, kickIncrement w h,
-          driftIncrement w h, kickIncrement w h])
-      (fineFactor w h) := by
-  simp only [amplification, factorProduct, denom, driftIncrement,
-    kickIncrement, fineFactor, kappa, Fraction.equiv, Fraction.abs,
-    Fraction.add, Fraction.mul, Fraction.ofInt,
-    List.length_cons, List.length_nil, Int.pow_succ,
-    Int.pow_zero, Int.mul_one, Int.one_mul,
-    Int.natAbs_of_nonneg hh]
-  simp only [Int.add_mul, Int.mul_add]
-  ac_nf
+    amplification (denom w h) (denom_pos w h)
+      [driftIncrement w h, kickIncrement w h,
+        driftIncrement w h, kickIncrement w h] =
+      (fineFactor w h).toRat := by
+  have hblock : amplification (denom w h) (denom_pos w h)
+      [driftIncrement w h, kickIncrement w h] = (kappa w h).toRat := by
+    have hd : (h.den : Rat) ≠ 0 := by simp [Int.ne_of_gt h.den_pos]
+    have wd : (w.den : Rat) ≠ 0 := by simp [Int.ne_of_gt w.den_pos]
+    simp only [amplification, factorProduct, denom, driftIncrement,
+      kickIncrement, kappa, Fraction.toRat, Fraction.abs,
+      Fraction.add, Fraction.mul, Fraction.ofInt,
+      List.length_cons, List.length_nil, Int.pow_succ,
+      Int.pow_zero, Int.mul_one, Int.one_mul,
+      Int.natAbs_of_nonneg hh, Rat.intCast_mul, Rat.intCast_add]
+    grind
+  change amplification (denom w h) (denom_pos w h)
+    ([driftIncrement w h, kickIncrement w h] ++
+      [driftIncrement w h, kickIncrement w h]) =
+    (Fraction.mul (kappa w h) (kappa w h)).toRat
+  rw [amplification_append, Fraction.toRat_mul, hblock]
 
--- Modern dependency score: 3/13 (M=3, H=10; transitive project theorems/axioms).
+-- Modern dependency score: 2/6 (M=2, H=4; transitive project theorems/axioms).
 private theorem coarse_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
     (n : Nat) →
-      Fraction.equiv
-        (amplification (denom w h) (denom_pos w h) (coarseWeights w h n))
-        (fpower (coarseFactor w h) n)
-  | 0 => amplification_empty _ _
+      amplification (denom w h) (denom_pos w h) (coarseWeights w h n) =
+        (fpower (coarseFactor w h) n).toRat
+  | 0 => by
+      simp only [coarseWeights, amplification, factorProduct,
+        List.length_nil, Int.pow_zero, fpower, Fraction.toRat_ofInt,
+        Rat.intCast_one]
+      grind
   | n + 1 => by
-      have ha := amplification_append (denom w h) (denom_pos w h)
-        [2 * driftIncrement w h, 2 * kickIncrement w h] (coarseWeights w h n)
-      have hb := coarse_block_equiv w h hh
-      have hi := coarse_power_amplification w h hh n
-      change Fraction.equiv
-        (amplification (denom w h) (denom_pos w h)
-          ([2 * driftIncrement w h, 2 * kickIncrement w h] ++ coarseWeights w h n))
-        (Fraction.mul (coarseFactor w h) (fpower (coarseFactor w h) n))
-      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
+      change amplification (denom w h) (denom_pos w h)
+        ([2 * driftIncrement w h, 2 * kickIncrement w h] ++ coarseWeights w h n) =
+        (Fraction.mul (coarseFactor w h) (fpower (coarseFactor w h) n)).toRat
+      rw [amplification_append, Fraction.toRat_mul, coarse_block_equiv w h hh,
+        coarse_power_amplification w h hh n]
 
--- Modern dependency score: 2/12 (M=2, H=10; transitive project theorems/axioms).
+-- Modern dependency score: 2/6 (M=2, H=4; transitive project theorems/axioms).
 private theorem fine_power_amplification (w h : Fraction) (hh : 0 ≤ h.num) :
     (n : Nat) →
-      Fraction.equiv
-        (amplification (denom w h) (denom_pos w h) (fineWeights w h n))
-        (fpower (fineFactor w h) n)
-  | 0 => amplification_empty _ _
+      amplification (denom w h) (denom_pos w h) (fineWeights w h n) =
+        (fpower (fineFactor w h) n).toRat
+  | 0 => by
+      simp only [fineWeights, amplification, factorProduct,
+        List.length_nil, Int.pow_zero, fpower, Fraction.toRat_ofInt,
+        Rat.intCast_one]
+      grind
   | n + 1 => by
-      have ha := amplification_append (denom w h) (denom_pos w h)
-        [driftIncrement w h, kickIncrement w h,
-          driftIncrement w h, kickIncrement w h] (fineWeights w h n)
-      have hb := fine_block_equiv w h hh
-      have hi := fine_power_amplification w h hh n
-      change Fraction.equiv
-        (amplification (denom w h) (denom_pos w h)
-          ([driftIncrement w h, kickIncrement w h,
-            driftIncrement w h, kickIncrement w h] ++ fineWeights w h n))
-        (Fraction.mul (fineFactor w h) (fpower (fineFactor w h) n))
-      exact Fraction.equiv_trans ha (Fraction.mul_equiv hb hi)
+      change amplification (denom w h) (denom_pos w h)
+        ([driftIncrement w h, kickIncrement w h,
+          driftIncrement w h, kickIncrement w h] ++ fineWeights w h n) =
+        (Fraction.mul (fineFactor w h) (fpower (fineFactor w h) n)).toRat
+      rw [amplification_append, Fraction.toRat_mul, fine_block_equiv w h hh,
+        fine_power_amplification w h hh n]
 
 /-- Uniform finite growth of the actual coarse amplification power. -/
--- Modern dependency score: 11/30 (M=11, H=19; transitive project theorems/axioms).
+-- Modern dependency score: 10/22 (M=10, H=12; transitive project theorems/axioms).
 theorem coarse_power_le_two (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
-    Fraction.le (fpower (coarseFactor w h) n) (Fraction.ofInt 2) :=
-  Fraction.le_equiv_left (Fraction.equiv_symm (coarse_power_amplification w h hh n))
-    (uniform_amplification (denom w h) (denom_pos w h) (coarseWeights w h n)
-      (coarseWeights_nonnegative w h hh n) (coarseWeights_small w h n hs))
+    Fraction.le (fpower (coarseFactor w h) n) (Fraction.ofInt 2) := by
+  apply (Fraction.le_iff_toRat _ _).mpr
+  rw [Fraction.toRat_ofInt, Rat.intCast_ofNat, ← coarse_power_amplification w h hh n]
+  exact uniform_amplification (denom w h) (denom_pos w h) (coarseWeights w h n)
+    (coarseWeights_nonnegative w h hh n) (coarseWeights_small w h n hs)
 
 /-- Uniform finite growth of the actual two-cell perturbation power. -/
--- Modern dependency score: 9/28 (M=9, H=19; transitive project theorems/axioms).
+-- Modern dependency score: 9/21 (M=9, H=12; transitive project theorems/axioms).
 theorem fine_power_le_two (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
-    Fraction.le (fpower (fineFactor w h) n) (Fraction.ofInt 2) :=
-  Fraction.le_equiv_left (Fraction.equiv_symm (fine_power_amplification w h hh n))
-    (uniform_amplification (denom w h) (denom_pos w h) (fineWeights w h n)
-      (fineWeights_nonnegative w h hh n) (fineWeights_small w h n hs))
+    Fraction.le (fpower (fineFactor w h) n) (Fraction.ofInt 2) := by
+  apply (Fraction.le_iff_toRat _ _).mpr
+  rw [Fraction.toRat_ofInt, Rat.intCast_ofNat, ← fine_power_amplification w h hh n]
+  exact uniform_amplification (denom w h) (denom_pos w h) (fineWeights w h n)
+    (fineWeights_nonnegative w h hh n) (fineWeights_small w h n hs)
 
 /-- Actual coarse states stay inside twice the initial coordinate magnitude. -/
--- Modern dependency score: 24/65 (M=24, H=41; transitive project theorems/axioms).
+-- Modern dependency score: 23/64 (M=23, H=41; transitive project theorems/axioms).
 theorem coarse_state_le_two (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le (stateNorm (coarseAt w h s n))
@@ -383,40 +390,41 @@ private theorem block_product_order (D A B : Int) (hD : 0 < D)
 
 -- Modern dependency score: 6/6 (M=6, H=0; transitive project theorems/axioms).
 private theorem block_amplification_order (w h : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.le
-      (amplification (denom w h) (denom_pos w h)
-        [2 * driftIncrement w h, 2 * kickIncrement w h])
-      (amplification (denom w h) (denom_pos w h)
+    amplification (denom w h) (denom_pos w h)
+      [2 * driftIncrement w h, 2 * kickIncrement w h] ≤
+      amplification (denom w h) (denom_pos w h)
         [driftIncrement w h, kickIncrement w h,
-          driftIncrement w h, kickIncrement w h]) := by
+          driftIncrement w h, kickIncrement w h] := by
   have ho := block_product_order (denom w h) (driftIncrement w h)
     (kickIncrement w h) (denom_pos w h)
     (driftIncrement_nonnegative w h hh) (kickIncrement_nonnegative w h hh)
-  unfold Fraction.le amplification
+  have hd : (0 : Rat) < denom w h := Rat.intCast_pos.mpr (denom_pos w h)
+  have hor := Rat.intCast_le_intCast.mpr ho
+  unfold amplification
   simp only [factorProduct, List.length_cons, List.length_nil,
     Int.pow_succ, Int.pow_zero, Int.mul_one, Int.one_mul]
-  have hd : 0 ≤ denom w h * denom w h :=
-    Int.mul_nonneg (Int.le_of_lt (denom_pos w h)) (Int.le_of_lt (denom_pos w h))
-  have hm := Int.mul_le_mul_of_nonneg_right ho hd
-  calc
-    _ =
-        ((denom w h + 2 * driftIncrement w h) *
-          (denom w h + 2 * kickIncrement w h) *
-          (denom w h * denom w h)) * (denom w h * denom w h) := by ac_rfl
-    _ ≤ ((denom w h + driftIncrement w h) *
-          (denom w h + driftIncrement w h) *
-          ((denom w h + kickIncrement w h) *
-            (denom w h + kickIncrement w h))) *
-          (denom w h * denom w h) := hm
-    _ = _ := by ac_rfl
+  simp only [Rat.intCast_mul, Rat.intCast_add, Rat.intCast_ofNat] at hor ⊢
+  have h2 := Rat.mul_pos hd hd
+  have h4 := Rat.mul_pos (Rat.mul_pos h2 hd) hd
+  rw [← Rat.not_lt, Rat.div_lt_iff h4]
+  have hc (x : Rat) : x / ((denom w h : Rat) * (denom w h : Rat)) *
+      ((denom w h : Rat) * (denom w h : Rat) *
+        (denom w h : Rat) * (denom w h : Rat)) =
+      x * ((denom w h : Rat) * (denom w h : Rat)) := by
+    calc
+      _ = (x / ((denom w h : Rat) * (denom w h : Rat)) *
+          ((denom w h : Rat) * (denom w h : Rat))) *
+          ((denom w h : Rat) * (denom w h : Rat)) := by simp only [Rat.mul_assoc]
+      _ = _ := by rw [Rat.div_mul_cancel (by grind)]
+  rw [hc]
+  grind only
 
--- Modern dependency score: 9/15 (M=9, H=6; transitive project theorems/axioms).
+-- Modern dependency score: 9/14 (M=9, H=5; transitive project theorems/axioms).
 theorem coarseFactor_le_fineFactor (w h : Fraction) (hh : 0 ≤ h.num) :
-    Fraction.le (coarseFactor w h) (fineFactor w h) :=
-  Fraction.le_equiv_right
-    (Fraction.le_equiv_left (Fraction.equiv_symm (coarse_block_equiv w h hh))
-      (block_amplification_order w h hh))
-    (fine_block_equiv w h hh)
+    Fraction.le (coarseFactor w h) (fineFactor w h) := by
+  apply (Fraction.le_iff_toRat _ _).mpr
+  rw [← coarse_block_equiv w h hh, ← fine_block_equiv w h hh]
+  exact block_amplification_order w h hh
 
 -- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem one_le_one_add (a : Fraction) (ha : 0 ≤ a.num) :
@@ -470,7 +478,7 @@ private theorem fpower_monotone (a b : Fraction) (ha : 0 ≤ a.num)
         (fpower_monotone a b ha hb hab n) b hb
       exact Fraction.magnitudes.le_trans h₁ h₂
 
--- Modern dependency score: 14/30 (M=14, H=16; transitive project theorems/axioms).
+-- Modern dependency score: 14/34 (M=14, H=20; transitive project theorems/axioms).
 private theorem coarse_power_le_fine_power (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) :
     Fraction.le (fpower (coarseFactor w h) n) (fpower (fineFactor w h) n) :=
@@ -484,7 +492,7 @@ private def budgetCap (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction
     (Fraction.mul (localFactor w h)
       (Fraction.mul (fpower (fineFactor w h) n) (stateNorm s)))
 
--- Modern dependency score: 20/42 (M=20, H=22; transitive project theorems/axioms).
+-- Modern dependency score: 20/46 (M=20, H=26; transitive project theorems/axioms).
 private theorem budget_power_bound (w h : Fraction) (s : Point × Point)
     (hh : 0 ≤ h.num) :
     (n : Nat) → Fraction.le (errorBudget w h s n) (budgetCap w h s n)
@@ -527,7 +535,7 @@ private theorem budget_power_bound (w h : Fraction) (s : Point × Point)
         Int.one_mul, Int.mul_one]
       ac_nf
 
--- Modern dependency score: 27/62 (M=27, H=35; transitive project theorems/axioms).
+-- Modern dependency score: 27/60 (M=27, H=33; transitive project theorems/axioms).
 private theorem budget_two_bound (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le (errorBudget w h s n)
@@ -581,7 +589,7 @@ private theorem kappa_le_fineFactor (w h : Fraction) :
     simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
     simp) hm
 
--- Modern dependency score: 19/48 (M=19, H=29; transitive project theorems/axioms).
+-- Modern dependency score: 19/46 (M=19, H=27; transitive project theorems/axioms).
 private theorem kappa_le_two_of_positive_blocks (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :
     Fraction.le (kappa w h) (Fraction.ofInt 2) := by
@@ -601,7 +609,7 @@ private theorem meshAmplitude_nonnegative (w h : Fraction) :
     (Int.mul_nonneg (Fraction.abs_num_nonnegative h) (Fraction.abs_num_nonnegative h))
     (Fraction.abs_num_nonnegative w)
 
--- Modern dependency score: 21/51 (M=21, H=30; transitive project theorems/axioms).
+-- Modern dependency score: 21/49 (M=21, H=28; transitive project theorems/axioms).
 private theorem localFactor_le_three_amplitude (w h : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h (n + 1)) :
     Fraction.le (localFactor w h)
@@ -628,7 +636,7 @@ private theorem localFactor_le_three_amplitude (w h : Fraction) (n : Nat)
 endpoints differ in coordinate L1 magnitude by at most `3*T*h*|w|*M`.
 The hypothesis includes `h≥0` and `T*(1+|w|)≤1/2`. This is an endpoint
 estimate, with no limiting curve or intervening-area assertion. -/
--- Modern dependency score: 55/125 (M=55, H=70; transitive project theorems/axioms).
+-- Modern dependency score: 55/127 (M=55, H=72; transitive project theorems/axioms).
 theorem actual_uniform_error (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) (hs : SmallTime w h n) :
     Fraction.le
@@ -675,7 +683,7 @@ theorem sample_small_time : SmallTime one eighth 1 := by
 theorem sample_total_time : Fraction.equiv (totalTime eighth 1) ⟨1, 4, by decide⟩ := by
   decide
 
--- Modern dependency score: 17/36 (M=17, H=19; transitive project theorems/axioms).
+-- Modern dependency score: 16/28 (M=16, H=12; transitive project theorems/axioms).
 theorem sample_power_bounds :
     Fraction.le (fpower (coarseFactor one eighth) 1) (Fraction.ofInt 2) ∧
       Fraction.le (fpower (fineFactor one eighth) 1) (Fraction.ofInt 2) :=
@@ -696,7 +704,7 @@ theorem sample_uniform_rhs :
           (Fraction.mul eighth (Fraction.mul one.abs (stateNorm sample)))))
       ⟨3, 16, by decide⟩ := by decide
 
--- Modern dependency score: 57/127 (M=57, H=70; transitive project theorems/axioms).
+-- Modern dependency score: 57/129 (M=57, H=72; transitive project theorems/axioms).
 theorem sample_uniform_error :
     Fraction.le
       (stateNorm (stateSub (fineAt one eighth sample 1) (coarseAt one eighth sample 1)))

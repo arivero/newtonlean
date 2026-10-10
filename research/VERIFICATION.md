@@ -85,6 +85,9 @@ counts unchanged. Its six-build warning census changes deprecations from
 warnings for their authorized migration/sweep stages. The initial 4.34.1
 census was 545 unused-simp warnings in 107 files; RationalExhaustion's Rat
 rewrite removed two before the deprecation cleanup.
+FiniteGrowth's migration removes one more unused-simp warning. Its uniform
+bound and numeric counterexample remain checked, with the controls stated as
+anonymous examples. No removed simp argument has needed restoration so far.
 
 ## Review the conclusion before accepting progress
 

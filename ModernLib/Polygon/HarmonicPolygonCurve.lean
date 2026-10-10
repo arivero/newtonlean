@@ -78,7 +78,7 @@ theorem polygon_phase_interval (b : Nat → Bool) (T : Fraction)
       (timeApprox b T (m+j))) (duration T m) :=
   AffineValues.phase_interval b T hT m j
 
--- Modern dependency score: 78/160 (M=78, H=82; transitive project theorems/axioms).
+-- Modern dependency score: 77/161 (M=77, H=84; transitive project theorems/axioms).
 theorem polygon_vertex_bound (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (m : Nat) :
@@ -91,7 +91,7 @@ theorem polygon_vertex_bound (b : Nat → Bool) (w T : Fraction)
 
 /-- Whole-cell polygon/curve bound, including every interior binary time.
 Its radius is an explicit sum of two geometric mesh terms. -/
--- Modern dependency score: 167/271 (M=167, H=104; transitive project theorems/axioms).
+-- Modern dependency score: 167/273 (M=167, H=106; transitive project theorems/axioms).
 theorem whole_edge_bound (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (m : Nat) :
@@ -103,7 +103,7 @@ theorem whole_edge_bound (b : Nat → Bool) (w T : Fraction)
     (binaryValue_prefix_bound b w T s hT hs m)
   exact within_triangle _ _ _ _ _ hv hg
 
--- Modern dependency score: 171/276 (M=171, H=105; transitive project theorems/axioms).
+-- Modern dependency score: 171/278 (M=171, H=107; transitive project theorems/axioms).
 theorem uniform_whole_edge_convergence (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (eps : Fraction) (heps : 0 < eps.num) :
@@ -152,7 +152,7 @@ def polygonMap (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.num)
   Quotient.lift (fun b => polygonPosition b w T s hT m)
     (fun b c h => polygon_address_independent b c w T s hT m h)
 
--- Modern dependency score: 188/305 (M=188, H=117; transitive project theorems/axioms).
+-- Modern dependency score: 188/307 (M=188, H=119; transitive project theorems/axioms).
 theorem polygonMap_whole_edge_bound (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat)
     (t : BinaryTime T hT) :
@@ -161,7 +161,7 @@ theorem polygonMap_whole_edge_bound (w T : Fraction) (s : Point × Point)
   induction t using Quotient.inductionOn with
   | _ b => exact whole_edge_bound b w T s hT hs m
 
--- Modern dependency score: 192/310 (M=192, H=118; transitive project theorems/axioms).
+-- Modern dependency score: 192/312 (M=192, H=120; transitive project theorems/axioms).
 theorem polygonMap_uniform_convergence (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (eps : Fraction) (heps : 0 < eps.num) :
