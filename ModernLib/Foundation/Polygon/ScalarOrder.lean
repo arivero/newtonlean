@@ -50,13 +50,20 @@ def Below (q : Fraction) (v : Value) : Prop :=
 theorem below_realize (q : Fraction) (a : EndpointCauchyName) :
     Below q (realize a) ↔ NameBelow q a := Iff.rfl
 
--- Modern dependency score: 14/57 (M=14, H=43; transitive project theorems/axioms).
+-- Modern dependency score: 14/62 (M=14, H=48; transitive project theorems/axioms).
 theorem below_embed_iff (q : Fraction) (s : Point × Point) :
     Below q (embed s) ↔ Fraction.le q s.1.1 := by
   constructor
   · intro h
-    apply Fraction.le_of_enlargements
-    intro eps heps
+    apply (Fraction.le_iff_toRat _ _).mpr
+    apply Rational.le_of_enlargements
+    intro epsR hepsR
+    let eps := Fraction.ofRat epsR
+    have heps : 0 < eps.num := (Fraction.positive_iff_toRat eps).mpr
+      (by simpa only [eps, Fraction.toRat_ofRat] using hepsR)
+    rw [← Fraction.toRat_ofRat epsR, ← Fraction.toRat_add]
+    apply (Fraction.le_iff_toRat _ _).mp
+    change Fraction.le _ (Fraction.add _ eps)
     obtain ⟨N,hN⟩ := h eps heps
     exact hN N (Nat.le_refl _)
   · intro h eps heps

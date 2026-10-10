@@ -76,7 +76,7 @@ theorem truncation_time_within (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.n
     (fun j => adjacent_time_bound b T j hT) m
 
 /-- The actual times of consecutive grid nodes differ by one mesh cell. -/
--- Modern dependency score: 42/109 (M=42, H=67; transitive project theorems/axioms).
+-- Modern dependency score: 42/114 (M=42, H=72; transitive project theorems/axioms).
 theorem adjacent_node_time_within (T : Fraction) (hT : 0 ≤ T.num)
     (m k : Nat) (hk : k<blocks m) :
     TimeWithin T hT (nodeTime T hT m k) (nodeTime T hT m (k+1)) (duration T m) := by

@@ -15,6 +15,11 @@
   source-only or alternate Lean files may retain historical statements for
   future verification, without routing existing proofs through them.
 
+- User decision, 10 October 2026: InertialControl's numerator-based radius
+  may change to a bound computed from normalized core Rat numerators.
+  Reprove the drift estimate. This explicitly authorizes the changed chosen
+  radius; it does not authorize other representative-sensitive meaning changes.
+
 - User clarification, 10 October 2026: Python is permitted for scripts.
   The bookkeeping restriction concerns JSON catalogs/ledgers, not the
   implementation language. Prefer the existing Lean verification harnesses

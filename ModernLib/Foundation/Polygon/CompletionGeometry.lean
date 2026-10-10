@@ -27,20 +27,27 @@ theorem within_of_thickenings (x y : Value) (R : Fraction)
         (Fraction.add_equiv (Fraction.equiv_refl _) (Fraction.half_add_self eps)))
 
 /-- Rational closed distance bounds are exact after completion. -/
--- Modern dependency score: 18/57 (M=18, H=39; transitive project theorems/axioms).
+-- Modern dependency score: 18/62 (M=18, H=44; transitive project theorems/axioms).
 theorem within_embedded_iff (a b : Point × Point) (R : Fraction) :
     Within (embed a) (embed b) R ↔ Fraction.le (distance a b) R := by
   constructor
   · intro h
-    apply Fraction.le_of_enlargements
-    intro eps heps
+    apply (Fraction.le_iff_toRat _ _).mpr
+    apply Rational.le_of_enlargements
+    intro epsR hepsR
+    let eps := Fraction.ofRat epsR
+    have heps : 0 < eps.num := (Fraction.positive_iff_toRat eps).mpr
+      (by simpa only [eps, Fraction.toRat_ofRat] using hepsR)
+    rw [← Fraction.toRat_ofRat epsR, ← Fraction.toRat_add]
+    apply (Fraction.le_iff_toRat _ _).mp
+    change Fraction.le _ (Fraction.add _ eps)
     obtain ⟨N,hN⟩ := h eps heps
     exact Fraction.magnitudes.lt_implies_le (hN N (Nat.le_refl _))
   · intro h
     exact nameBound_of_eventual_le _ _ R 0 (fun _ _ => h)
 
 /-- Exact closed bounds for finite points embedded in the completed plane. -/
--- Modern dependency score: 24/66 (M=24, H=42; transitive project theorems/axioms).
+-- Modern dependency score: 24/71 (M=24, H=47; transitive project theorems/axioms).
 theorem within_embedPosition_iff (p q : Point) (R : Fraction) :
     Within (embedPosition p).val (embedPosition q).val R ↔
       Fraction.le (FiniteEstimates.pointDistance p q) R := by
@@ -68,7 +75,7 @@ theorem position_distance_zero (s : Point × Point) :
 
 /-- A finite coordinate band is closed under Cauchy realization. The inner
 bound excludes every smaller closed ball, without adding a completed norm. -/
--- Modern dependency score: 23/64 (M=23, H=41; transitive project theorems/axioms).
+-- Modern dependency score: 23/69 (M=23, H=46; transitive project theorems/axioms).
 theorem position_band_realize (a : EndpointCauchyName) (r R : Fraction)
     (h : ∀ n, Fraction.le r (pointNorm (a.approx n).1) ∧
       Fraction.le (pointNorm (a.approx n).1) R) :
@@ -80,8 +87,15 @@ theorem position_band_realize (a : EndpointCauchyName) (r R : Fraction)
       (mapName positionState position_nonexpansive a) (constantName (zeroPoint,zeroPoint)) R 0
       (fun n _ => Fraction.le_equiv_left (position_distance_zero _) (h n).2)
   · intro D hD
-    apply Fraction.le_of_enlargements
-    intro eps heps
+    apply (Fraction.le_iff_toRat _ _).mpr
+    apply Rational.le_of_enlargements
+    intro epsR hepsR
+    let eps := Fraction.ofRat epsR
+    have heps : 0 < eps.num := (Fraction.positive_iff_toRat eps).mpr
+      (by simpa only [eps, Fraction.toRat_ofRat] using hepsR)
+    rw [← Fraction.toRat_ofRat epsR, ← Fraction.toRat_add]
+    apply (Fraction.le_iff_toRat _ _).mp
+    change Fraction.le _ (Fraction.add _ eps)
     obtain ⟨N,hN⟩ := hD eps heps
     have hd := Fraction.le_equiv_left (Fraction.equiv_symm (position_distance_zero (a.approx N)))
       (Fraction.magnitudes.lt_implies_le (hN N (Nat.le_refl _)))

@@ -147,7 +147,7 @@ theorem gamma_admissible (o : ForceClasses.CentralOracle) (E0 T tau L B : Fracti
 /-- Every constructed curve position lies in the closed coordinate band.
 The lower radius is stated by exclusion of smaller closed balls, without a
 new completed magnitude or a supplied confinement hypothesis. -/
--- Modern dependency score: 86/250 (M=86, H=164; transitive project theorems/axioms).
+-- Modern dependency score: 86/255 (M=86, H=169; transitive project theorems/axioms).
 theorem gamma_band (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

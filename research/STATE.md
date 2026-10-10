@@ -28,7 +28,22 @@ signed order require their own exact passages before historical attribution. The
 BarrowLib); no exact passage for these additional operations was verified in
 this increment. None is attributed to the Nine Chapters.
 Representative-sensitive statements are a stop condition, not permission to
-change their meaning silently. Frozen baseline outputs remain in scratch only.
+change their meaning silently. InertialControl.velocityBound/radius is a
+confirmed instance: velocities (1/1,0) and (2/2,0) have the same rational value,
+but at tolerance 1 their radii have values 1/2 and 1/3. Core Rat identifies
+these velocities. A scratch Lean counterexample verifies the differing
+radii. The user authorized normalized Rat numerators and a reproof of the
+drift estimate on 10 October. Apply that choice when the ModernLib client
+migrates; it changes the chosen witness explicitly, not the estimate's
+conclusion. No local unreduced representation is required for this bound.
+Frozen baseline outputs remain in scratch only.
+
+The first Rat foundation increment supplies Rational.magnitudes and migrates
+RationalExhaustion.le_of_enlargements to Rat. Its half-gap witness is still
+necessary: a bare grind call does not instantiate the arbitrary positive
+tolerance. Five call sites in CompletionGeometry, ScalarOrder, BoundedCuts
+and SquareOuterContent convert explicitly through the bridge. No historical
+statement or edition-local proof is changed.
 The toolchain-only commit 3237ff3 passed all six builds on 4.34.1. Its
 2,427 source-declared project theorem names (including Reverse) and all
 31 README own/proof/import counts matched the 4.19 baseline. Rendered type differences concern numeral/let/binder/projection

@@ -118,7 +118,7 @@ theorem chordTrace_limit (T : Fraction) (hT : 0≤T.num)
 
 /-- An actual dyadic chord family on the given curve, with no supplied
 boundary convergence field. Right endpoints, aliases and T=0 are included. -/
--- Modern dependency score: 77/163 (M=77, H=86; transitive project theorems/axioms).
+-- Modern dependency score: 77/168 (M=77, H=91; transitive project theorems/axioms).
 theorem dyadic_chordTrace_limit (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) :
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) := by

@@ -256,15 +256,22 @@ def rationalCut (r B : Fraction) (hr : 0 ≤ r.num) (hB : 0 ≤ B.num)
   downward := fun _ _ hpq hq => Fraction.magnitudes.le_trans hpq hq
   closed := by
     intro q h
-    apply Fraction.le_of_enlargements
-    intro eps heps
+    apply (Fraction.le_iff_toRat _ _).mpr
+    apply Rational.le_of_enlargements
+    intro epsR hepsR
+    let eps := Fraction.ofRat epsR
+    have heps : 0 < eps.num := (Fraction.positive_iff_toRat eps).mpr
+      (by simpa only [eps, Fraction.toRat_ofRat] using hepsR)
+    rw [← Fraction.toRat_ofRat epsR, ← Fraction.toRat_add]
+    apply (Fraction.le_iff_toRat _ _).mp
+    change Fraction.le _ (Fraction.add _ eps)
     obtain ⟨p,hp,hqp⟩ := h eps heps
     exact Fraction.magnitudes.le_trans hqp (Fraction.add_le_add_right hp eps)
   bound := B
   bound_nonnegative := hB
   bounded := fun _ hq => Fraction.magnitudes.le_trans hq hrB
 
--- Modern dependency score: 19/72 (M=19, H=53; transitive project theorems/axioms).
+-- Modern dependency score: 19/77 (M=19, H=58; transitive project theorems/axioms).
 theorem rationalCut_value (r B : Fraction) (hr : 0 ≤ r.num) (hB : 0 ≤ B.num)
     (hrB : Fraction.le r B) :
     (value (rationalCut r B hr hB hrB)).val = embed (scalarState r) :=
@@ -277,11 +284,11 @@ private def secondControl : Cut := rationalCut oneThird (Fraction.ofInt 2)
   (by decide) (by decide) (by unfold Fraction.le oneThird Fraction.ofInt; decide)
 
 /-- A known nonzero content cut recovers its rational value with different budgets. -/
--- Modern dependency score: 20/73 (M=20, H=53; transitive project theorems/axioms).
+-- Modern dependency score: 20/78 (M=20, H=58; transitive project theorems/axioms).
 theorem one_third_control_value : (value firstControl).val = embed (scalarState oneThird) :=
   rationalCut_value _ _ _ _ _
 
--- Modern dependency score: 21/75 (M=21, H=54; transitive project theorems/axioms).
+-- Modern dependency score: 21/80 (M=21, H=59; transitive project theorems/axioms).
 theorem one_third_different_budgets : value firstControl = value secondControl :=
   value_eq_of_lower_iff _ _ (fun _ => Iff.rfl)
 

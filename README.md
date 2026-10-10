@@ -83,12 +83,21 @@ Every commit must update this completion-percentage information, reassessing
 the affected files and witnesses and explaining changes to the estimates or
 remaining work. An unchanged rounded estimate must be explicitly justified
 here. Measured counts must also be refreshed whenever they change.
+Rat-foundation reassessment, 10 October: **every file/witness percentage
+remains unchanged**. Core Rat now realizes the ordered-magnitude interface;
+the rational closed-bound exhaustion lemma uses an explicit half-gap and
+`grind`, replacing unreduced cross-multiplication. Its five existing callers
+convert through the temporary bridge. This is representation work: historical
+statements, remaining obligations and their effort estimates are unchanged.
+Measured lines, theorem cascades and dependency scores are refreshed below.
+
 Bridge reassessment, 10 October: **every file/witness percentage remains
 unchanged**. Thirteen temporary Fraction/Rat conversion theorems establish
 representation correspondence; they discharge no historical obligation.
 The existing negation and time-difference definitions are relocated unchanged
-to avoid an import cycle. Increased import-tree counts measure bridge
-availability, not new dependencies in existing proofs or completion credit.
+to avoid an import cycle. Import-tree increases measure bridge availability;
+actual proof trees also include conversions where callers now use the bridge.
+Neither change earns completion credit.
 Remaining-work rationales are unchanged. The bridge is deleted after client
 migration; measured counts below include it while present.
 
@@ -262,7 +271,7 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 884 | 1849 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 889 | 1849 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 182 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 110 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 96 |
@@ -274,7 +283,7 @@ of the older library helpers remains unverified.
 | [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 212 | 10 | 133 | 521 |
 | [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 523 |
 | [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 208 | 657 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 469 | 1402 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 474 | 1402 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 80 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 90 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 92 |
@@ -292,8 +301,8 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 15692 | 1013 | 1013 | 1013 |
-| [ModernLib](ModernLib.lean) | 19707 | 1157 | 1496 | 1702 |
+| [BarrowLib](BarrowLib.lean) | 15699 | 1013 | 1013 | 1013 |
+| [ModernLib](ModernLib.lean) | 19742 | 1157 | 1501 | 1702 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

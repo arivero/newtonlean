@@ -133,7 +133,7 @@ theorem constructed_uniform_curve (o : ForceClasses.CentralOracle)
 /-- The closed chords of the actual constructed curve have its entire trace
 as their two-sided boundary limit. This is the given-curve chord case of
 Lemma III Corollary 4, instantiated without a supplied curve modulus. -/
--- Modern dependency score: 138/322 (M=138, H=184; transitive project theorems/axioms).
+-- Modern dependency score: 138/327 (M=138, H=189; transitive project theorems/axioms).
 theorem constructed_chord_boundary_limit (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :

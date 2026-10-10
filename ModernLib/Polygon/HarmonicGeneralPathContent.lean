@@ -25,7 +25,7 @@ theorem harmonic_region_eq (w E0 T : Fraction) (s : Point × Point)
   change MatchedRegion.Region T hT _ _ m x ↔ MatchedRegion.Region T hT _ _ m x
   rw [hp,hg]
 
--- Modern dependency score: 302/506 (M=302, H=204; transitive project theorems/axioms).
+-- Modern dependency score: 302/511 (M=302, H=209; transitive project theorems/axioms).
 theorem harmonic_content_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
     GeneralForcePathContent.D_meshValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs

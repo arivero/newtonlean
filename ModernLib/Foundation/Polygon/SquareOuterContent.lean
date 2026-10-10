@@ -86,14 +86,21 @@ theorem content_downward (A : PositionValue → Prop) (p q : Fraction)
   exact Fraction.magnitudes.le_trans hpq (hq c)
 
 /-- The infimum cut is closed under exhaustion from its lower bounds. -/
--- Modern dependency score: 11/48 (M=11, H=37; transitive project theorems/axioms).
+-- Modern dependency score: 11/53 (M=11, H=42; transitive project theorems/axioms).
 theorem content_closed (A : PositionValue → Prop) (q : Fraction)
     (h : ∀ eps : Fraction, 0 < eps.num →
       ∃ p, LowerContent A p ∧ Fraction.le q (Fraction.add p eps)) :
     LowerContent A q := by
   intro c
-  apply Fraction.le_of_enlargements
-  intro eps heps
+  apply (Fraction.le_iff_toRat _ _).mpr
+  apply Rational.le_of_enlargements
+  intro epsR hepsR
+  let eps := Fraction.ofRat epsR
+  have heps : 0 < eps.num := (Fraction.positive_iff_toRat eps).mpr
+    (by simpa only [eps, Fraction.toRat_ofRat] using hepsR)
+  rw [← Fraction.toRat_ofRat epsR, ← Fraction.toRat_add]
+  apply (Fraction.le_iff_toRat _ _).mp
+  change Fraction.le _ (Fraction.add _ eps)
   obtain ⟨p,hp,hqp⟩ := h eps heps
   exact Fraction.magnitudes.le_trans hqp (Fraction.add_le_add_right (hp c) eps)
 

@@ -173,7 +173,7 @@ open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveT
 
 /-- Modern supporting-line perimeter limit under explicit supporting cells and
 uniform endpoint agreement. The cells are not identified with force polygons. -/
--- Modern dependency score: 80/178 (M=80, H=98; transitive project theorems/axioms).
+-- Modern dependency score: 80/183 (M=80, H=103; transitive project theorems/axioms).
 theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤ T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (points : Nat → Nat → Point)
@@ -186,7 +186,7 @@ theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤
   ModernLib.Reconstruction.Principia1687.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
     T hT f hf points cells hpoints
 
--- Modern dependency score: 78/164 (M=78, H=86; transitive project theorems/axioms).
+-- Modern dependency score: 78/169 (M=78, H=91; transitive project theorems/axioms).
 theorem corollary4_chord_reconstruction (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) :
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) :=
@@ -209,7 +209,7 @@ open TimeSubdivision PositionValues BinaryTime HarmonicDyadic DyadicNodes CurveT
 
 /-- The 1713 witness has the same conditional supporting-line perimeter
 model; its area statement and tangent identification remain open. -/
--- Modern dependency score: 80/178 (M=80, H=98; transitive project theorems/axioms).
+-- Modern dependency score: 80/183 (M=80, H=103; transitive project theorems/axioms).
 theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤ T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f)
     (points : Nat → Nat → Point)
@@ -222,7 +222,7 @@ theorem corollary4_supporting_boundary_reconstruction (T : Fraction) (hT : 0 ≤
   ModernLib.Reconstruction.Principia1713.LemmaIIICorollaries.corollary3_4_supporting_boundary_reconstruction
     T hT f hf points cells hpoints
 
--- Modern dependency score: 78/164 (M=78, H=86; transitive project theorems/axioms).
+-- Modern dependency score: 78/169 (M=78, H=91; transitive project theorems/axioms).
 theorem corollary4_chord_reconstruction (T : Fraction) (hT : 0≤T.num)
     (f : BinaryTime T hT → PositionValue) (hf : UniformCurve T hT f) :
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) :=

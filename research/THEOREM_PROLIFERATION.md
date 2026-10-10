@@ -49,3 +49,12 @@ transport burden. Core Rat lemmas remain outside project dependency counts,
 so a reduced cascade measures less project code, not less supporting
 mathematics. Neither this migration nor classical source attestation closes
 a Newtonian proof obligation; all completion estimates stay unchanged.
+
+The first Rat foundation increment replaces the rational closed-bound
+exhaustion lemma's denominator argument by a half-gap instantiation
+and grind. Its five legacy call sites temporarily grow because conversion
+is explicit; their bridge dependencies disappear when those callers migrate.
+Thus an intermediate cascade can grow despite the simpler arithmetic.
+InertialControl's numerator-based radius demonstrates a separate semantic
+limit: equal rational values can produce different representative-based
+witnesses. That choice is reported rather than silently normalized.
