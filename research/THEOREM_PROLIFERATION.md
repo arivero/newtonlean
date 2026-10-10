@@ -66,3 +66,9 @@ conversion proofs, so lines and some proof trees grow temporarily. Judge the
 net reduction after those callers migrate and the bridge is deleted. A scratch
 proof verifies that the normalized tolerance has exactly its previous rational
 value. InertialControl's changed radius has separate explicit user authorization.
+
+The three Rat scaling proofs temporarily coexist with the legacy API. This
+adds declarations rather than deleting transport yet: arbitrary functions on
+unreduced representatives cannot be recovered from normalized samples. Migrate
+the higher-order callers together, then remove the legacy API. Neither this
+temporary increase nor its eventual removal changes completion estimates.

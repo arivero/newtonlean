@@ -92,6 +92,21 @@ that eps / (C + 1) equals the old tolerance's rational value; normalized
 representatives therefore change no bound. The module has no project imports
 or warnings. Historical statements and completion estimates are unchanged.
 
+RatUltimateScaling now proves positive output multiplication/division and
+positive argument rescaling directly for Rat → Rat functions. A bounded,
+sequential Astra review identified why the legacy higher-order API must remain
+until its historical callers migrate together: normalized sampling loses
+values at unreduced representatives. A scratch Lean example is zero on every
+normalized Rat representative but one on 2/(2N) for every positive N; it also
+distinguishes 1/2 from 2/4. These are checked representative computations;
+the arbitrarily-small-input argument is the review's mathematical explanation,
+not a claimed compiled limit countertheorem. Do not infer reverse transport of
+arbitrary Fraction functions or add equivariance to historical premises.
+The authorized coordinated domain change to Rat is still available. The three
+new project derivations have no historical clients yet, add no historical
+completion credit, and build without warnings. All six builds pass; existing
+historical statements and axiom sets are unchanged.
+
 The user added a deprecation-only cleanup before continuing Rat clients:
 use each replacement named by Lean, edit with the patch tool, preserve
 statements and counts, compare the theorem dump with Stage 0 and require

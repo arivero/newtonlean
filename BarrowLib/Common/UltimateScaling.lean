@@ -10,6 +10,11 @@ Source of these statements and derivations: the original English statements
 and Lean proofs below, using the named finite library results. This records
 project formalization authorship, not discovery or priority. No post-Principia
 theorem or completion is used.
+
+Temporary migration boundary: RatUltimateScaling proves the corresponding
+Rat API directly. Retain this legacy API until its historical callers migrate
+together. Arbitrary Fraction → Fraction functions may distinguish equivalent
+representatives; normalized sampling is not a bidirectional Ultimate bridge.
 -/
 namespace NewtonLimitDynamics.Fraction
 

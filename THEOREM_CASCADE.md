@@ -72,6 +72,15 @@ their uses close inline with core arithmetic. A scratch proof checks that
 the new tolerance has exactly the old rational value. No historical textual
 match or mathematical priority is claimed for this reconstruction.
 
+RatUltimateScaling adds three P derivations: positive multiplication, division
+and rescaling of the vanishing argument for arbitrary Rat-valued functions.
+Their exact statements and checked proofs are their provenance, without a
+historical attribution or priority claim. The legacy Fraction API is retained
+until its historical callers migrate together: normalized sampling forgets
+values at unreduced representatives, so there is no reverse bridge for an
+arbitrary Fraction-valued function. Existing proof trees and M/H scores are
+unchanged by this additive API; import trees include its three declarations.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,
@@ -113,7 +122,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 986 | 986 | 986 |
+| `BarrowLib` | 989 | 989 | 989 |
 | `ModernLib` | 1157 | 1499 | 1692 |
 
 The README additionally lists line counts and the individual classical files.
@@ -185,12 +194,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 56 | 930 | 986 |
+| `BarrowLib` | 0 | 0 | 59 | 930 | 989 |
 | `ModernLib` | 0 | 2 | 12 | 1485 | 1499 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **145 of 2367
-theorems: 6 S, 49 R and 90 P; 2222 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **148 of 2370
+theorems: 6 S, 49 R and 93 P; 2222 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.

@@ -122,6 +122,14 @@ the same rational value, checked in scratch. The migrated module has no
 warnings. This is representation cleanup: historical statements, remaining
 obligations and their effort estimates are unchanged. Measurements are refreshed.
 
+Rat scaling reassessment, 10 October: **every file/witness percentage remains
+unchanged**. Three directly proved scaling results supply the core Rat API;
+the legacy API remains until its callers migrate together. Arbitrary functions
+on unreduced Fraction representatives cannot be transported backward from
+normalized samples. No historical obligation is discharged, so the existing
+remaining-work rationales and estimates still apply. Measurements include
+both APIs during this transition.
+
 Bridge reassessment, 10 October: **every file/witness percentage remains
 unchanged**. Fourteen temporary Fraction/Rat conversion theorems establish
 representation correspondence; they discharge no historical obligation.
@@ -332,7 +340,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 15594 | 986 | 986 | 986 |
+| [BarrowLib](BarrowLib.lean) | 15662 | 989 | 989 | 989 |
 | [ModernLib](ModernLib.lean) | 20034 | 1157 | 1499 | 1692 |
 
 After a build, reproduce or check these rows with the existing compiled checker:

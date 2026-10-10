@@ -91,6 +91,13 @@ anonymous examples. No removed simp argument has needed restoration so far.
 RationalTolerance retains one shared weak bound over Rat; positivity and
 strict control close inline. Verify equality of the old and new tolerance
 values in scratch as well as the theorem/axiom dumps and all six builds.
+RatUltimateScaling is proved directly over Rat. Retain the legacy higher-order
+API until its callers can change domains together; normalized sampling is not
+a reverse bridge for arbitrary representative-sensitive Fraction functions.
+Scratch checks distinguish equivalent representatives and verify that the
+example vanishes on every normalized representative. They do not by themselves
+formalize a full limit countertheorem. No equivariance premise may be silently
+added to a historical statement.
 
 ## Review the conclusion before accepting progress
 
