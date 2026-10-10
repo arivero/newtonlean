@@ -32,7 +32,7 @@ private theorem grid_width (m i : Nat) :
     Fraction.equiv (durationDifference (countTime one m i) (countTime one m (i+1)))
       (duration one m) :=
   Fraction.equiv_trans (countTime_difference one m i 1)
-    (by simp only [Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.one_mul,Int.mul_one,Int.natCast_one])
+    (by simp only [Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.one_mul,Int.natCast_one])
 
 private def dyadic (m : Nat) : Partition z one where
   count := blocks m
@@ -190,7 +190,7 @@ example : Exhaustion.VanishingDifference Fraction.magnitudes
   apply Fraction.le_of_equiv
   simp only [durationDifference, HarmonicStability.negF, duration, one,
     Fraction.equiv, Fraction.add, Fraction.ofInt, Int.neg_mul,
-    Int.one_mul, Int.mul_one, Int.add_mul, Int.mul_add]
+    Int.one_mul, Int.add_mul]
   ac_nf
   omega
 example : ¬ RatiosOne rational (duration one) (duration (Fraction.ofInt 2)) := by
@@ -199,10 +199,10 @@ example : ¬ RatiosOne rational (duration one) (duration (Fraction.ofInt 2)) := 
   have hbad := (hN N (Nat.le_refl _)).2
   change Fraction.lt _ _ at hbad
   simp only [multiple, rational, duration, Fraction.lt, Fraction.add, Fraction.ofInt,
-    one, id_eq, Int.zero_mul, Int.mul_zero, Int.one_mul, Int.mul_one] at hbad
+    one, id_eq, Int.zero_mul, Int.one_mul, Int.mul_one] at hbad
   have hp : 0 < (2 : Int)^N := Int.pow_pos (by decide)
   have hp4 := Int.mul_pos (Int.mul_pos (Int.mul_pos hp hp) hp) hp
-  simp only [show (2 : Int) = 1+1 by rfl, Int.add_mul, Int.mul_add] at hbad
+  simp only [show (2 : Int) = 1+1 by rfl, Int.add_mul] at hbad
   ac_nf at hbad hp4
   simp only [show (1+1 : Int) = 2 by rfl] at hbad
   omega

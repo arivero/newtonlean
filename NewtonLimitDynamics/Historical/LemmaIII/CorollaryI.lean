@@ -141,6 +141,36 @@ theorem corollary1_uniform_graph_matched {Q : Type}
     ∃ indices, UniformRectangles.MatchedApproximation area g a b A parts eps indices :=
   UniformRectangles.matched_approximation area g a b A parts eps heps hab hzero hf hA hmesh hvanish
 
+/-- One selected family now supplies enclosure, area-error decay, free-edge
+approach and all three unit-ratio comparisons. This witness's matched-family
+construction and its own Lemma III → II ratio reduction are used together.
+Positivity is derived from a contained rectangle, not supplied as an area
+bound. Project reconstruction within the stated rational graph domain;
+curved-area existence, fixed sides and full ratio calculus remain separate. -/
+theorem corollary1_uniform_graph_matched_ratios {Q : Type}
+    (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes)
+    (g : Fraction → Fraction) (a b c : Fraction) (A : Q)
+    (parts : Nat → MonotoneRectangles.Partition a b) (eps : Nat → Fraction)
+    (heps : ∀ m, 0<(eps m).num) (hac : Fraction.le a c) (hcb : Fraction.lt c b)
+    (hgc : 0<(g c).num)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m)))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
+    ∃ indices, UniformRectangles.MatchedApproximation area g a b A parts eps indices ∧
+      let selected := fun k => parts (indices k)
+      MagnitudeContent.AreaRatiosOne area.magnitudes
+        (fun k => UniformRectangles.value (selected k) (UniformRectangles.lowerHeights g (selected k) (eps k)))
+        (fun k => UniformRectangles.value (selected k) (UniformRectangles.upperHeights g (selected k) (eps k))) A := by
+  obtain ⟨indices,hmatched⟩ := corollary1_uniform_graph_matched area g a b A parts eps heps
+    (Fraction.magnitudes.le_trans hac (Fraction.magnitudes.lt_implies_le hcb))
+    hzero hf hA hmesh hvanish
+  exact ⟨indices,hmatched,uniform_graph_matched_area_ratios area multiples g a b c A
+    parts eps indices hac hcb hgc hf hmatched⟩
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -277,5 +307,35 @@ theorem corollary1_uniform_graph_matched {Q : Type}
     (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
     ∃ indices, UniformRectangles.MatchedApproximation area g a b A parts eps indices :=
   UniformRectangles.matched_approximation area g a b A parts eps heps hab hzero hf hA hmesh hvanish
+
+/-- One selected family now supplies enclosure, area-error decay, free-edge
+approach and all three unit-ratio comparisons. This witness's matched-family
+construction and its own Lemma III → II ratio reduction are used together.
+Positivity is derived from a contained rectangle, not supplied as an area
+bound. Project reconstruction within the stated rational graph domain;
+curved-area existence, fixed sides and full ratio calculus remain separate. -/
+theorem corollary1_uniform_graph_matched_ratios {Q : Type}
+    (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes)
+    (g : Fraction → Fraction) (a b c : Fraction) (A : Q)
+    (parts : Nat → MonotoneRectangles.Partition a b) (eps : Nat → Fraction)
+    (heps : ∀ m, 0<(eps m).num) (hac : Fraction.le a c) (hcb : Fraction.lt c b)
+    (hgc : 0<(g c).num)
+    (hzero : ∀ t, Fraction.le a t → Fraction.le t b → 0≤(g t).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hA : area.HasArea (MonotoneRectangles.figure g a b) A)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun m => MonotoneRectangles.maxWidth (parts m)))
+    (hvanish : Exhaustion.VanishingDifference Fraction.magnitudes eps) :
+    ∃ indices, UniformRectangles.MatchedApproximation area g a b A parts eps indices ∧
+      let selected := fun k => parts (indices k)
+      MagnitudeContent.AreaRatiosOne area.magnitudes
+        (fun k => UniformRectangles.value (selected k) (UniformRectangles.lowerHeights g (selected k) (eps k)))
+        (fun k => UniformRectangles.value (selected k) (UniformRectangles.upperHeights g (selected k) (eps k))) A := by
+  obtain ⟨indices,hmatched⟩ := corollary1_uniform_graph_matched area g a b A parts eps heps
+    (Fraction.magnitudes.le_trans hac (Fraction.magnitudes.lt_implies_le hcb))
+    hzero hf hA hmesh hvanish
+  exact ⟨indices,hmatched,uniform_graph_matched_area_ratios area multiples g a b c A
+    parts eps indices hac hcb hgc hf hmatched⟩
 
 end Principia1713.LemmaIII

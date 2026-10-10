@@ -153,6 +153,14 @@ historical axiom reports remain unchanged, with only the standard Lean axioms
 in the two new reports. No warning options were added or simp arguments restored.
 For provenance rows, require S + R + P + U to equal the same compiled proof
 tree shown in the measurements; wrapped scratch output must not skip rows.
+The matched-family ratio increment preserves all 2,430 existing theorem
+names/types and 236 historical axiom reports. Seven named proofs are added,
+six historical, using only the standard Lean axioms. All four touched proof
+modules and the uniform-rectangle harness have zero warnings. Removing five
+flagged simp arguments makes the reused magnitude-content harness warning-free
+too, with no restoration or warning suppression. The six-build library census
+remains 516 unused-simp, zero deprecation and four proposition-as-definition
+warnings. All 1,181 dependency score comments remain unchanged.
 
 ## Review the conclusion before accepting progress
 
@@ -280,6 +288,27 @@ review shares core arithmetic and the kernel. State the selected pairing
 as parts (indices m) with eps m, not eps (indices m). Classical choice gives
 existence, not an executable selector. Do not infer nested refinement, fixed
 sides or area existence.
+
+The matched-family ratio controls instantiate both final edition clients on
+the same valley and retain their exact returned indices. An anonymous proof
+shows that the first lower sum is zero for any partition because eps(0)=8;
+another combines all six directed 2:3 comparisons beyond one common cutoff.
+Traverse all six new historical clients through types and proof bodies:
+require the contained positive rectangle, rectangle-area monotonicity,
+derived finite multiple comparisons, each edition's own II → III →
+Corollary I chain, and the original matched enclosure/error/boundary proof.
+Reject foreign witnesses and ModernLib. Astra's fresh compiled controls
+allow an initially zero lower sum and reject unit ratios for positive
+shrinking 1:2 sequences whose gap vanishes. The review shares core arithmetic
+and the Lean kernel. The fixed positive lower bracket must be derived from
+the geometric enclosure; a vanishing gap alone is insufficient. The shared
+sequence theorem does not require curved HasArea, but the final clients do.
+Do not infer exact finite ratio equality, full ratio calculus, abstract
+positive A, fixed sides or area existence. All six builds pass; measured
+times in order default/Barrow/Classics/Modern/Newton/Reverse are
+1.412/0.307/0.305/0.306/0.306/0.306 seconds, versus
+3.323/0.336/0.312/0.322/0.322/0.334 for the preceding increment; default
+includes the changed-module rebuild, so this is not a clean-build benchmark.
 
 `magnitude-content-2026-10-09.lean` checks the enlarged assigned-area domain
 of both editions' Lemmas II/III and Corollary I. Actual dyadic identity-graph

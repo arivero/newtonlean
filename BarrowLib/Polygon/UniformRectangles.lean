@@ -600,4 +600,61 @@ theorem ratios_exhaustion {Q : Type} (area : MagnitudeContent.AreaRules Q)
   exact ⟨henclose,MagnitudeContent.finite_ratios_of_enclosure area.magnitudes
     multiples n m hnm R.half L U hR hBL hsmall⟩
 
+/-- A succession of actual enclosing rectangle unions with vanishing gaps
+has all three ultimate unit-ratio comparisons. Continuity at one positive
+ordinate constructs a fixed rectangle; its inclusion in every upper union
+and the shrinking gap derive an eventual positive lower bracket. No positive
+area bound or ratio limit is assumed, and initial lower sums may be zero.
+This exact statement and checked derivation are project provenance. The
+comparison language and supplied compatibility rules retain the qualifications
+in MagnitudeContent; exact finite ratio equality is not asserted. -/
+theorem rectangle_sequence_ratios {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes)
+    (g : Fraction → Fraction) (a b c : Fraction) (A : Q)
+    (parts : Nat → Partition a b) (lo hi : Nat → Nat → Fraction)
+    (hac : Fraction.le a c) (hcb : Fraction.lt c b) (hgc : 0<(g c).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (henclose : ∀ k, Encloses area g a b A (parts k) (lo k) (hi k))
+    (hgap : Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun k => durationDifference (value (parts k) (lo k)) (value (parts k) (hi k)))) :
+    MagnitudeContent.AreaRatiosOne area.magnitudes
+      (fun k => value (parts k) (lo k)) (fun k => value (parts k) (hi k)) A := by
+  obtain ⟨r,hcr,_,hrect⟩ := positive_rectangle g a b c hac hcb hgc hf
+  let R := Fraction.mul (durationDifference c r) (g c).half
+  have hR : 0<R.num := by
+    apply (Fraction.positive_iff_toRat R).mpr
+    dsimp only [R]
+    rw [Fraction.toRat_mul,Fraction.toRat_durationDifference,Fraction.toRat_half]
+    have hcrR := (Fraction.lt_iff_toRat c r).mp hcr
+    have hgcR := (Fraction.positive_iff_toRat (g c)).mp hgc
+    apply Rat.mul_pos <;> grind only
+  let L := fun k => value (parts k) (lo k)
+  let U := fun k => value (parts k) (hi k)
+  have hRU (k : Nat) : Fraction.le R (U k) :=
+    (area.magnitudes.embed_le _ _).mp (area.monotone _ _ _ _
+      (fun x hx => (henclose k).2.1 x (hrect x hx))
+      (area.rectangle c r (g c).half (Fraction.magnitudes.lt_implies_le hcr)
+        (Int.le_of_lt hgc)) (henclose k).2.2.2.1)
+  obtain ⟨N,hN⟩ := hgap R.half hR
+  have hBL (k : Nat) (hk : N≤k) : Fraction.le R.half (L k) := by
+    have hupper := (Fraction.le_iff_toRat _ _).mp (hRU k)
+    have hsmall := (Fraction.lt_iff_toRat _ _).mp (hN k hk)
+    rw [Fraction.toRat_durationDifference,Fraction.toRat_half] at hsmall
+    apply (Fraction.le_iff_toRat _ _).mpr
+    rw [Fraction.toRat_half]
+    change (U k).toRat-(L k).toRat<R.toRat/2 at hsmall
+    grind only
+  have hA (k : Nat) := (henclose k).2.2.2.2
+  have hLU (k : Nat) := area.magnitudes.order.le_trans (hA k).1 (hA k).2
+  have hL (k : Nat) := And.intro
+    (area.magnitudes.order.le_refl (area.magnitudes.embed (L k))) (hLU k)
+  have hU (k : Nat) := And.intro (hLU k)
+    (area.magnitudes.order.le_refl (area.magnitudes.embed (U k)))
+  exact ⟨MagnitudeContent.ratios_one_of_enclosure area.magnitudes multiples L U _ _
+      hL hU R.half hR N hBL hgap,
+    MagnitudeContent.ratios_one_of_enclosure area.magnitudes multiples L U _ _
+      hL hA R.half hR N hBL hgap,
+    MagnitudeContent.ratios_one_of_enclosure area.magnitudes multiples L U _ _
+      hU hA R.half hR N hBL hgap⟩
+
 end NewtonLimitDynamics.Polygon.UniformRectangles

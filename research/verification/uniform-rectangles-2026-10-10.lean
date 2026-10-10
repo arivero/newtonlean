@@ -13,8 +13,9 @@ tail checks that their mesh cutoffs are usable; zero and fixed 1:2 brackets
 are rejected. Nonmonotone free-step traces now approach the graph in both
 directions while remaining in their actual rectangle unions; falling/rising
 joins and a nonvanishing-height falsifier exercise that separate argument.
-One increasing selection now couples these boundary and area conclusions;
-shrinking but unselected mesh/height pairs can fail graph enclosure.
+One increasing selection now couples these boundary and area conclusions
+with all three unit-ratio comparisons, even when its first lower area is
+zero; shrinking but unselected mesh/height pairs can fail graph enclosure.
 These controls share the rational arithmetic and kernel;
 they construct neither general curved areas nor a nonrational area model. -/
 
@@ -316,6 +317,96 @@ example {Q : Type} (area : MagnitudeContent.AreaRules Q) (A d : Q)
   exact ⟨indices,hincrease,N+M,fun m hm =>
     ⟨henclose m,(hN m (by omega)).1,(hM m (by omega)).1⟩⟩
 
+-- Both ratio conclusions retain the matched family's exact same indices.
+example {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes) (A : Q)
+    (hA : area.HasArea (figure valley z one) A) :
+    ∃ indices, MatchedApproximation area valley z one A dyadic errors indices ∧
+      let selected := fun k => dyadic (indices k)
+      MagnitudeContent.AreaRatiosOne area.magnitudes
+        (fun k => value (selected k) (lowerHeights valley (selected k) (errors k)))
+        (fun k => value (selected k) (upperHeights valley (selected k) (errors k))) A :=
+  Principia1687.LemmaIII.corollary1_uniform_graph_matched_ratios
+    area multiples valley z one quarter A dyadic errors
+    (fun _ => by change (0 : Int)<8; decide) (by decide) (by decide) (by decide)
+    (fun t _ _ => valley_nonnegative t) valley_uniform hA dyadic_mesh errors_vanish
+example {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes) (A : Q)
+    (hA : area.HasArea (figure valley z one) A) :
+    ∃ indices, MatchedApproximation area valley z one A dyadic errors indices ∧
+      let selected := fun k => dyadic (indices k)
+      MagnitudeContent.AreaRatiosOne area.magnitudes
+        (fun k => value (selected k) (lowerHeights valley (selected k) (errors k)))
+        (fun k => value (selected k) (upperHeights valley (selected k) (errors k))) A :=
+  Principia1713.LemmaIII.corollary1_uniform_graph_matched_ratios
+    area multiples valley z one quarter A dyadic errors
+    (fun _ => by change (0 : Int)<8; decide) (by decide) (by decide) (by decide)
+    (fun t _ _ => valley_nonnegative t) valley_uniform hA dyadic_mesh errors_vanish
+
+-- All six directed 2:3 comparisons hold after ONE common returned cutoff.
+example {Q : Type} (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes) (A : Q)
+    (hA : area.HasArea (figure valley z one) A) :
+    ∃ indices, MatchedApproximation area valley z one A dyadic errors indices ∧
+      let M := area.magnitudes
+      let L := fun k => M.embed (value (dyadic (indices k))
+        (lowerHeights valley (dyadic (indices k)) (errors k)))
+      let U := fun k => M.embed (value (dyadic (indices k))
+        (upperHeights valley (dyadic (indices k)) (errors k)))
+      let compare := fun X Y =>
+        M.order.lt (MagnitudeContent.multiple M 2 X) (MagnitudeContent.multiple M 3 Y) ∧
+        M.order.lt (MagnitudeContent.multiple M 2 Y) (MagnitudeContent.multiple M 3 X)
+      ∃ N, ∀ k, N≤k → compare (L k) (U k) ∧ compare (L k) A ∧ compare (U k) A := by
+  obtain ⟨indices,hmatched,hLU,hLA,hUA⟩ :=
+    Principia1713.LemmaIII.corollary1_uniform_graph_matched_ratios
+      area multiples valley z one quarter A dyadic errors
+      (fun _ => by change (0 : Int)<8; decide) (by decide) (by decide) (by decide)
+      (fun t _ _ => valley_nonnegative t) valley_uniform hA dyadic_mesh errors_vanish
+  obtain ⟨N,hN⟩ := hLU 2 3 (by decide) (by decide)
+  obtain ⟨M,hM⟩ := hLA 2 3 (by decide) (by decide)
+  obtain ⟨K,hK⟩ := hUA 2 3 (by decide) (by decide)
+  exact ⟨indices,hmatched,N+M+K,fun k hk =>
+    ⟨hN k (by omega),hM k (by omega),hK k (by omega)⟩⟩
+
+-- Initial lower areas can be zero for ANY selected partition: eps(0)=8.
+example (p : Partition z one) :
+    Fraction.equiv (value p (lowerHeights valley p (errors 0))) z := by
+  classical
+  have hheight (i : Nat) (hi : i<p.count) :
+      lowerHeights valley p (errors 0) i=z := by
+    have hnode := node_bounds p i (by omega)
+    have ha := (Fraction.le_iff_toRat _ _).mp hnode.1
+    have hb := (Fraction.le_iff_toRat _ _).mp hnode.2
+    simp only [z,one,Fraction.toRat_ofInt,Rat.intCast_zero,Rat.intCast_one] at ha hb
+    have hnot : ¬ Fraction.le (errors 0) (valley (p.nodes i)) := by
+      intro h
+      have hR := (Fraction.le_iff_toRat _ _).mp h
+      have he : (errors 0).toRat=8 := by decide +kernel
+      have hhalf : half.toRat=(1/2 : Rat) := by decide +kernel
+      simp only [valley,Fraction.toRat_abs,Fraction.toRat_durationDifference,he,hhalf] at hR
+      have hbound : ∀ x : Rat, 0≤x → x≤1 → (x-(1/2 : Rat)).abs<8 := by
+        intro x hx0 hx1
+        rw [Rat.abs]
+        split <;> grind
+      exact Rat.not_lt.mpr hR (hbound _ ha hb)
+    simp only [lowerHeights,lower,hnot,ite_false]
+    rfl
+  let f := fun i => Fraction.mul (width p i) (lowerHeights valley p (errors 0) i)
+  have hsum (n : Nat) (hn : n≤p.count) : (sum f n).num=0 := by
+    induction n with
+    | zero => rfl
+    | succ n ih =>
+      have hterm : (f n).num=0 := by
+        dsimp only [f]
+        rw [hheight n (by omega)]
+        exact Int.mul_zero _
+      change (sum f n).num*(f n).den+(f n).num*(sum f n).den=0
+      rw [ih (by omega),hterm]
+      simp only [Int.zero_mul,Int.add_zero]
+  change (sum f p.count).num*1=0*(sum f p.count).den
+  rw [hsum p.count (Nat.le_refl _)]
+  simp only [Int.zero_mul]
+
 private def tooSmall (m : Nat) : Fraction := duration quarter m
 example : Exhaustion.VanishingDifference Fraction.magnitudes tooSmall := by
   intro q hq
@@ -533,3 +624,46 @@ run_elab do
           `NewtonLimitDynamics.Polygon.HarmonicTimeRealization.factor_delta_weak] do
         unless used.contains dependency do throwError "{root} omits matched-family step {dependency}"
   logInfo "Checked two free-staircase and two matched-family clients: shrinking perturbations, actual rectangle membership and simultaneous derived area/error/boundary limits; no foreign witness/modern module."
+  for (edition,foreign) in #[(`Principia1687,"Principia1713."),(`Principia1713,"Principia1687.")] do
+    for root in #[edition ++ `LemmaII.uniform_graph_matched_area_ratios,
+        edition ++ `LemmaIII.uniform_graph_matched_area_ratios,
+        edition ++ `LemmaIII.corollary1_uniform_graph_matched_ratios] do
+      let mut todo := #[root]
+      let mut used : NameSet := {}
+      while !todo.isEmpty do
+        let name := todo.back!
+        todo := todo.pop
+        unless used.contains name do
+          used := used.insert name
+          if let some info := env.find? name then
+            todo := todo ++ info.type.getUsedConstants ++
+              ((info.value? true).map Expr.getUsedConstants |>.getD #[])
+      for dependency in #[
+          `NewtonLimitDynamics.Polygon.UniformRectangles.rectangle_sequence_ratios,
+          `NewtonLimitDynamics.Polygon.UniformRectangles.positive_rectangle,
+          `NewtonLimitDynamics.Polygon.MagnitudeContent.AreaRules.monotone,
+          `NewtonLimitDynamics.Polygon.MagnitudeContent.ratios_one_of_enclosure,
+          `NewtonLimitDynamics.Polygon.MagnitudeContent.finite_ratios_of_enclosure,
+          `NewtonLimitDynamics.Polygon.MagnitudeContent.multiple_monotone,
+          `NewtonLimitDynamics.Polygon.MagnitudeContent.MultipleRules.embed_lt] do
+        unless used.contains dependency do throwError "{root} omits {dependency}"
+      if root.toString.startsWith (edition.toString ++ ".LemmaIII.") then
+        unless used.contains (edition ++ `LemmaII.uniform_graph_matched_area_ratios) do
+          throwError "{root} omits its own Lemma II"
+      if root.getString! == "corollary1_uniform_graph_matched_ratios" then
+        for dependency in #[edition ++ `LemmaIII.uniform_graph_matched_area_ratios,
+            edition ++ `LemmaIII.corollary1_uniform_graph_matched,
+            `NewtonLimitDynamics.Polygon.UniformRectangles.matched_approximation,
+            `NewtonLimitDynamics.Polygon.UniformRectangles.fine_rectangles,
+            `NewtonLimitDynamics.Polygon.RectangleContent.strips_area,
+            `NewtonLimitDynamics.Polygon.UniformRectangles.staircase_approaches,
+            `NewtonLimitDynamics.Polygon.MagnitudeContent.errors_vanish] do
+          unless used.contains dependency do throwError "{root} omits matched-family step {dependency}"
+      for dependency in used do
+        let name := ((privateToUserName? dependency).getD dependency).toString
+        if #[foreign,"DeMotu1684."].any (fun libraryPrefix => name.startsWith libraryPrefix) then
+          throwError "{root} uses foreign witness {dependency}"
+        if let some idx := env.getModuleIdxFor? dependency then
+          if env.header.moduleNames[idx]!.toString.startsWith "ModernLib" then
+            throwError "{root} uses modern module through {dependency}"
+  logInfo "Checked six matched-family ratio clients: contained positive rectangle, eventual lower bracket, finite multiple comparisons and own-edition II-to-III-to-Corollary-I chains; no foreign witness or modern module."

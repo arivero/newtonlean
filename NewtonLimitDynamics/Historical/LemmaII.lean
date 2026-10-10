@@ -294,6 +294,31 @@ theorem uniform_graph_assigned_magnitude_ratios {Q : Type}
   UniformRectangles.ratios_exhaustion
     area multiples g a b c A hac hcb hgc hzero hf hA
 
+/-- Project extension: all three unit-ratio comparisons hold along the
+same matched nonmonotone rectangle family. The fixed positive lower bracket
+is derived from an interior ordinate and actual upper-union containment;
+initial lower sums may vanish. No ratio limit is supplied. The coordinate
+and continuity scope is editorial; the exact Latin remains above. -/
+theorem uniform_graph_matched_area_ratios {Q : Type}
+    (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes)
+    (g : Fraction → Fraction) (a b c : Fraction) (A : Q)
+    (parts : Nat → MonotoneRectangles.Partition a b) (eps : Nat → Fraction)
+    (indices : Nat → Nat) (hac : Fraction.le a c) (hcb : Fraction.lt c b)
+    (hgc : 0<(g c).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hmatched : UniformRectangles.MatchedApproximation area g a b A parts eps indices) :
+    let selected := fun k => parts (indices k)
+    MagnitudeContent.AreaRatiosOne area.magnitudes
+      (fun k => UniformRectangles.value (selected k) (UniformRectangles.lowerHeights g (selected k) (eps k)))
+      (fun k => UniformRectangles.value (selected k) (UniformRectangles.upperHeights g (selected k) (eps k))) A := by
+  obtain ⟨_,_,_,henclose,hgap,_,_⟩ := hmatched
+  exact UniformRectangles.rectangle_sequence_ratios area multiples g a b c A
+    (fun k => parts (indices k))
+    (fun k => UniformRectangles.lowerHeights g (parts (indices k)) (eps k))
+    (fun k => UniformRectangles.upperHeights g (parts (indices k)) (eps k))
+    hac hcb hgc hf henclose hgap
+
 end Principia1687.LemmaII
 
 /-! 1713. Equal-width gap identity in an explicit rational monotone graph model. -/
@@ -581,5 +606,30 @@ theorem uniform_graph_assigned_magnitude_ratios {Q : Type}
     UniformRectangles.RatiosExhaust area g a b A :=
   UniformRectangles.ratios_exhaustion
     area multiples g a b c A hac hcb hgc hzero hf hA
+
+/-- Project extension: all three unit-ratio comparisons hold along the
+same matched nonmonotone rectangle family. The fixed positive lower bracket
+is derived from an interior ordinate and actual upper-union containment;
+initial lower sums may vanish. No ratio limit is supplied. The coordinate
+and continuity scope is editorial; the exact Latin remains above. -/
+theorem uniform_graph_matched_area_ratios {Q : Type}
+    (area : MagnitudeContent.AreaRules Q)
+    (multiples : MagnitudeContent.MultipleRules area.magnitudes)
+    (g : Fraction → Fraction) (a b c : Fraction) (A : Q)
+    (parts : Nat → MonotoneRectangles.Partition a b) (eps : Nat → Fraction)
+    (indices : Nat → Nat) (hac : Fraction.le a c) (hcb : Fraction.lt c b)
+    (hgc : 0<(g c).num)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (hmatched : UniformRectangles.MatchedApproximation area g a b A parts eps indices) :
+    let selected := fun k => parts (indices k)
+    MagnitudeContent.AreaRatiosOne area.magnitudes
+      (fun k => UniformRectangles.value (selected k) (UniformRectangles.lowerHeights g (selected k) (eps k)))
+      (fun k => UniformRectangles.value (selected k) (UniformRectangles.upperHeights g (selected k) (eps k))) A := by
+  obtain ⟨_,_,_,henclose,hgap,_,_⟩ := hmatched
+  exact UniformRectangles.rectangle_sequence_ratios area multiples g a b c A
+    (fun k => parts (indices k))
+    (fun k => UniformRectangles.lowerHeights g (parts (indices k)) (eps k))
+    (fun k => UniformRectangles.upperHeights g (parts (indices k)) (eps k))
+    hac hcb hgc hf henclose hgap
 
 end Principia1713.LemmaII

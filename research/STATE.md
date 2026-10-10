@@ -410,8 +410,38 @@ definition warnings. README completion estimates are reassessed and unchanged:
 Corollary I stays 75%, II/III 80%, with the dominant area/patch/coordinate work
 still outstanding.
 
-Remaining Lemma II–III work includes transferring the mutual unit-ratio
-comparisons onto this single matched family, full ratio calculus, fixed
+`UniformRectangles.rectangle_sequence_ratios` now transfers all three mutual
+unit-ratio comparisons to that same matched family. A positive ordinate and
+continuity construct a rectangle of area R>0 inside the graph figure. Its
+inclusion in every upper union gives R≤U_k; the vanishing gap then gives
+R/2≤L_k eventually, permitting zero initial lower sums. The existing finite
+multiple-comparison theorem proves lower/upper, lower/assigned and
+upper/assigned comparisons for every fixed 0<n<m. No ratio limit is supplied.
+The shared theorem only needs actual rectangle enclosures and a shrinking
+gap; the final historical clients separately require the curved HasArea
+assignment. Each edition uses its own II → III → Corollary I chain and
+retains the exact indices of its matched enclosure/area/boundary family.
+Seven named proofs are explicit project derivations (P), with no new
+historical textual attribution or priority claim.
+
+The retained valley controls instantiate both final clients, prove the first
+lower sum zero for any selected partition, and combine all six directed 2:3
+comparisons after one common cutoff on the returned family. Compiled traversal
+requires the constructed positive rectangle, finite comparisons and each
+edition's own chain, rejecting foreign witnesses and ModernLib. Astra found
+no defect and independently compiled a zero-initial-lower-sum example and
+a positive shrinking 1:2 pair whose vanishing gap does not give unit ratios.
+These checks share core arithmetic and the Lean kernel. All 2,430 previous
+theorem names/types and 236 historical axiom reports are unchanged; the six
+new historical reports use only standard Lean axioms. All six builds pass.
+The four proof modules and uniform-rectangle harness have no warnings. Five
+unused simp arguments are removed from the reused magnitude-control harness,
+which now has no warnings; no argument required restoration. The library
+census stays at 516 unused-simp, zero deprecation and four proposition-as-
+definition warnings. README estimates are explicitly reassessed and unchanged:
+II/III 80%, Corollary I 75%; the area/patch/coordinate work still dominates.
+
+Remaining Lemma II–III work includes full ratio calculus, fixed
 boundary sides, area/convention existence, non-rational coordinates and patch
 assembly. For the arithmetic foundation, Nine Chapters
 attestations and the still-open Euclid VII.19/additional signed-operation
@@ -931,10 +961,11 @@ the rational definitions and Lean kernel; initial convention existence is
 still an explicit input.
 
 Latest verification: 10 October 2026, after the matched-family
-extension of Corollary I. All six builds, the expanded uniform-rectangle
-scope harness, source hashes and whitespace passed. The compiled checker
+ratio extension through Lemmas II/III and Corollary I. All six builds, the
+uniform-rectangle and magnitude-content scope harnesses, source hashes and
+whitespace passed. The compiled checker
 verified the README measurements,
-1,181 unchanged score comments and 6,316 project constants with no project
+1,181 unchanged score comments and 6,326 project constants with no project
 axioms, sorry or primary modern dependency. The earlier full scope run
 passed all 40 positive harnesses (including the harmonic reference/comparator)
 and rejected its corrupted comparator and upper-height comparison at the
@@ -943,7 +974,8 @@ constant 1:2 brackets and fixed positive height error, exercises actual fine
 dyadic partitions, and checks both nonmonotone free-staircase and matched-family
 clients. Shrinking but unmatched heights/mesh fail enclosure at every level;
 the returned family has simultaneous area and boundary bounds after a common
-cutoff.
+cutoff, and all three unit-ratio comparisons on the same indices. Its first
+lower sum can be zero; all six directed 2:3 comparisons share a returned tail.
 The diagrams recover 80 source edges and 27 formal cross-file uses across 22
 historical files. Archived Newton sources and the transcribed Latin are
 unchanged. New coordinate statements record their derivations without
