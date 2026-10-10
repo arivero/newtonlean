@@ -99,3 +99,4 @@ import BarrowLib.Polygon.CentralSchedule
 import BarrowLib.Polygon.ZeroForce
 import BarrowLib.Polygon.ImpulseComposition
 import BarrowLib.Polygon.CommonMotion
+import BarrowLib.Polygon.CurvilinearCoincidence

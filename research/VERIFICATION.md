@@ -162,6 +162,14 @@ too, with no restoration or warning suppression. The six-build library census
 remains 516 unused-simp, zero deprecation and four proposition-as-definition
 warnings. All 1,181 dependency score comments remain unchanged.
 
+The subsequent whole-figure increment preserves all 2,437 existing named
+statements and 242 historical axiom reports, adding twenty P proofs and four
+historical reports with only standard Lean axioms. All six builds pass;
+1,181 score comments remain unchanged. The touched shared and historical
+modules and new harness have zero warnings. The global census remains 516
+unused-simp, zero deprecation and four proposition-as-definition warnings;
+no warning suppression or simp-argument restoration is used.
+
 ## Review the conclusion before accepting progress
 
 Read the changed theorem's full statement alongside the previous result and
@@ -309,6 +317,33 @@ times in order default/Barrow/Classics/Modern/Newton/Reverse are
 1.412/0.307/0.305/0.306/0.306/0.306 seconds, versus
 3.323/0.336/0.312/0.322/0.322/0.334 for the preceding increment; default
 includes the changed-module rebuild, so this is not a clean-build benchmark.
+
+`corollary1-whole-figure-2026-10-10.lean` checks the area-independent
+whole-figure clients over an arbitrary supplied ordered coordinate field.
+Controls include collapsed intervals, zero heights, repeated nodes, actual
+baseline/endpoint sides, falling joins and an interior contact that fails
+endpoint-only height bounds. Fixed-width meshes fail the shrinking premise.
+A nonclosed line segment approaches itself but acquires an extra ultimate
+point, checking the need for the derived separation theorem. Compiled traversal
+requires each client's own Lemma III ordinate control, finite partition
+coverage, rectangle and complete-edge approximation, separation and exact
+ultimate equality, excluding foreign editions, De Motu and ModernLib.
+
+Astra's fresh review found no defect and compiled independent repeated-node,
+zero-height, nonmonotone-contact and outside-separation controls. It found a
+finite edge trace can contain interior edges when nodes repeat: for nodes
+[0,1,1,2] and heights [2,1,2], the join at (1,1) is interior to the union.
+This does not affect the proved limiting conclusions. Do not claim finite
+topological-boundary equality, arclength, an area construction or coordinate
+completion. The review shares the Lean kernel and core arithmetic. Remaining
+affine parallelogram correspondence, inscription/contact derivation and
+source-justified whole-figure/regularity scope still prevent 100% completion.
+The Latin geometric corollary does not itself demand a separate area
+construction; those obligations remain in Lemmas II/III and area applications.
+All six build times, in default/Barrow/Classics/Modern/Newton/Reverse order,
+are 1.405/0.323/0.319/0.325/0.314/0.326 seconds, versus
+1.412/0.307/0.305/0.306/0.306/0.306 previously. The default includes changed
+module compilation; these are warm verification timings, not clean benchmarks.
 
 `magnitude-content-2026-10-09.lean` checks the enlarged assigned-area domain
 of both editions' Lemmas II/III and Corollary I. Actual dyadic identity-graph

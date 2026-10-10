@@ -1,5 +1,6 @@
 import ModernLib.Reconstruction.MonotoneRectangles
 import NewtonLimitDynamics.Historical.LemmaII
+import BarrowLib.Polygon.CurvilinearCoincidence
 
 /-! Historical result: lemma_iii.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
@@ -236,6 +237,27 @@ theorem uniform_graph_matched_area_ratios {Q : Type}
   Principia1687.LemmaII.uniform_graph_matched_area_ratios
     area multiples g a b c A parts eps indices hac hcb hgc hf hmatched
 
+/-- Project geometric extension over an arbitrary ordered coordinate field.
+Shrinking unequal widths and independently stated ordinate continuity derive
+uniform cell-height control for every original partition family. Heights may
+contact the curve inside cells; no area assignment, selected subsequence or
+figure-coincidence conclusion is assumed. This supports the same edition's
+Corollary I. The coordinate/regularity interpretation remains editorial. -/
+theorem unequal_width_ordinate_control {K : Type} [Lean.Grind.Field K] [LE K] [LT K]
+    [Std.IsLinearOrder K] [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (g : K → K) (a b : K) (parts : Nat → CurvilinearCoincidence.Partition a b)
+    (heights : Nat → Nat → K) (mesh : Nat → K)
+    (hf : CurvilinearCoincidence.UniformOn g a b)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh)
+    (hwidth : ∀ k i, i<(parts k).count →
+      (parts k).nodes (i+1)-(parts k).nodes i≤mesh k)
+    (hheight : ∀ k i, i<(parts k).count →
+      CurvilinearCoincidence.CellHeight g (parts k) i (heights k i)) :
+    ∀ eps, 0<eps → ∃ N, ∀ k, N≤k → ∀ i, i<(parts k).count → ∀ t,
+      (parts k).nodes i≤t → t≤(parts k).nodes (i+1) →
+      -eps<heights k i-g t ∧ heights k i-g t<eps :=
+  CurvilinearCoincidence.heights_near g a b parts heights mesh hf hmesh hwidth hheight
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own unequal-width exhaustion and conditional geometric area approximation. -/
@@ -465,6 +487,27 @@ theorem uniform_graph_matched_area_ratios {Q : Type}
       (fun k => UniformRectangles.value (selected k) (UniformRectangles.upperHeights g (selected k) (eps k))) A :=
   Principia1713.LemmaII.uniform_graph_matched_area_ratios
     area multiples g a b c A parts eps indices hac hcb hgc hf hmatched
+
+/-- Project geometric extension over an arbitrary ordered coordinate field.
+Shrinking unequal widths and independently stated ordinate continuity derive
+uniform cell-height control for every original partition family. Heights may
+contact the curve inside cells; no area assignment, selected subsequence or
+figure-coincidence conclusion is assumed. This supports the same edition's
+Corollary I. The coordinate/regularity interpretation remains editorial. -/
+theorem unequal_width_ordinate_control {K : Type} [Lean.Grind.Field K] [LE K] [LT K]
+    [Std.IsLinearOrder K] [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (g : K → K) (a b : K) (parts : Nat → CurvilinearCoincidence.Partition a b)
+    (heights : Nat → Nat → K) (mesh : Nat → K)
+    (hf : CurvilinearCoincidence.UniformOn g a b)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh)
+    (hwidth : ∀ k i, i<(parts k).count →
+      (parts k).nodes (i+1)-(parts k).nodes i≤mesh k)
+    (hheight : ∀ k i, i<(parts k).count →
+      CurvilinearCoincidence.CellHeight g (parts k) i (heights k i)) :
+    ∀ eps, 0<eps → ∃ N, ∀ k, N≤k → ∀ i, i<(parts k).count → ∀ t,
+      (parts k).nodes i≤t → t≤(parts k).nodes (i+1) →
+      -eps<heights k i-g t ∧ heights k i-g t<eps :=
+  CurvilinearCoincidence.heights_near g a b parts heights mesh hf hmesh hwidth hheight
 
 end Principia1713.LemmaIII
 

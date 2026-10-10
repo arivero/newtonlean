@@ -10,7 +10,7 @@ Source: docs/m1/NATP00077.xml
 SHA-256: 57a8eb4ae7307faed09e2ae572a4975ea2011e679ce52e6ad2413028c424dffa
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7
 Anchor URLs: NATP00077.par7 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7
-Proof-step correspondence: The edition's Lemma III derives lower/upper area errors for a separately assigned rational curved area under explicit area rules. Its rectangle-endpoint-cover approximation now bounds explicit horizontal tops and vertical joins of the left/right-ordinate rectangle constructions. The lower trace excludes the spurious final rise above its last rectangle. Both free step-edge traces belong to their actual rectangle unions and approach the given rational graph in both directions under supplied uniform continuity and shrinking mesh. Fixed baseline and endpoint sides are omitted. This graph-patch and regularity interpretation is editorial (confidence high), not an exact coordinate quotation; general curved-area existence and unrestricted coordinate/ratio scope remain open. A separately labeled project extension below uses this edition’s Lemma III to approximate any supplied area magnitude through addition and comparison under explicit X.1 halving and geometric area rules.
+Proof-step correspondence: Legacy rational clients derive assigned-area errors through the edition's Lemma III and approximation of free staircase tops/joins, omitting fixed sides. The whole-figure reconstruction now uses this edition's unequal-width ordinate control over an arbitrary ordered coordinate field. It proves two-sided approximation of whole actual rectangle unions and complete finite edge traces (baseline, actual endpoint sides, rising/falling joins), then separation gives exact ultimate-point membership for the supplied whole figure and its complete boundary. It applies to every admissible original shrinking family; cell heights may contact the curve inside cells. No curved-area assignment is needed for this geometric conclusion. Coordinates, uniform ordinate control and the global graph description remain explicit editorial interpretation (confidence high), not an exact coordinate quotation. The affine/parallelogram correspondence and precise source figure/contact/regularity scope remain open. With repeated nodes the finite edge trace need not equal the finite union's topological boundary; no perimeter-length claim is made.
 Historical dependency ledger for this exact witness:
 - P1687.L3 → P1687.L3C1; passage NATP00077.par7; witness De Motu Corporum (Liber Primus) (1687); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00077#par7; status implicit_dependency; confidence high.
 -/
@@ -171,6 +171,41 @@ theorem corollary1_uniform_graph_matched_ratios {Q : Type}
   exact ⟨indices,hmatched,uniform_graph_matched_area_ratios area multiples g a b c A
     parts eps indices hac hcb hgc hf hmatched⟩
 
+/-- Whole-figure geometric reconstruction of "coincidit omni ex parte":
+the ultimate point predicate equals the supplied figure, and the complete
+edge trace has the complete boundary as its ultimate point set. Baseline,
+endpoint sides and falling joins are included at their actual finite heights.
+This uses this edition's Lemma III ordinate control and applies to every
+admissible original shrinking family over the whole ordered coordinate field.
+No curved-area assignment or ratio/length conclusion is needed. A geometric
+affine-coordinate correspondence and the source's figure/regularity scope
+must still be justified before claiming unrestricted historical completion. -/
+theorem corollary1_whole_figure_coincidence {K : Type}
+    [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
+    [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (g : K → K) (a b : K) (parts : Nat → CurvilinearCoincidence.Partition a b)
+    (heights : Nat → Nat → K) (mesh : Nat → K)
+    (hzero : ∀ t, a≤t → t≤b → 0≤g t)
+    (hf : CurvilinearCoincidence.UniformOn g a b)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh)
+    (hwidth : ∀ k i, i<(parts k).count →
+      (parts k).nodes (i+1)-(parts k).nodes i≤mesh k)
+    (hheight : ∀ k i, i<(parts k).count →
+      CurvilinearCoincidence.CellHeight g (parts k) i (heights k i)) :
+    CurvilinearCoincidence.WholeCoincidence g a b parts heights := by
+  have hcontrol := unequal_width_ordinate_control g a b parts heights mesh hf hmesh hwidth hheight
+  have hpositive := fun k i hi => CurvilinearCoincidence.height_nonnegative
+    g (parts k) i hi (heights k i) (hheight k i hi) hzero
+  have happrox := CurvilinearCoincidence.rectangles_approach_of_ordinate_control
+    g a b parts heights hzero hpositive hcontrol
+  exact ⟨happrox,
+    CurvilinearCoincidence.perimeters_approach g a b parts heights mesh hzero hf hmesh hwidth hheight,
+    CurvilinearCoincidence.ultimate_eq_of_approaches _ _ happrox
+      (CurvilinearCoincidence.figure_separated g a b hf),
+    CurvilinearCoincidence.perimeters_ultimate_eq g a b parts heights mesh hzero hf hmesh hwidth hheight,
+    fun k x hx => CurvilinearCoincidence.perimeter_in_rectangles (parts k) (heights k)
+      (hpositive k) x hx⟩
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -179,7 +214,7 @@ Source: docs/m1/NATP00082.xml
 SHA-256: 4a288b47da21c70b46f02e74092c8c16b3f1e7d301a2f04169439a767b949d0c
 URL: https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8
 Anchor URLs: NATP00082.par8 = https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8
-Proof-step correspondence: The edition's Lemma III derives lower/upper area errors for a separately assigned rational curved area under explicit area rules. Its rectangle-endpoint-cover approximation now bounds explicit horizontal tops and vertical joins of the left/right-ordinate rectangle constructions. The lower trace excludes the spurious final rise above its last rectangle. Both free step-edge traces belong to their actual rectangle unions and approach the given rational graph in both directions under supplied uniform continuity and shrinking mesh. Fixed baseline and endpoint sides are omitted. This graph-patch and regularity interpretation is editorial (confidence high), not an exact coordinate quotation; general curved-area existence and unrestricted coordinate/ratio scope remain open. A separately labeled project extension below uses this edition’s Lemma III to approximate any supplied area magnitude through addition and comparison under explicit X.1 halving and geometric area rules.
+Proof-step correspondence: Legacy rational clients derive assigned-area errors through the edition's Lemma III and approximation of free staircase tops/joins, omitting fixed sides. The whole-figure reconstruction now uses this edition's unequal-width ordinate control over an arbitrary ordered coordinate field. It proves two-sided approximation of whole actual rectangle unions and complete finite edge traces (baseline, actual endpoint sides, rising/falling joins), then separation gives exact ultimate-point membership for the supplied whole figure and its complete boundary. It applies to every admissible original shrinking family; cell heights may contact the curve inside cells. No curved-area assignment is needed for this geometric conclusion. Coordinates, uniform ordinate control and the global graph description remain explicit editorial interpretation (confidence high), not an exact coordinate quotation. The affine/parallelogram correspondence and precise source figure/contact/regularity scope remain open. With repeated nodes the finite edge trace need not equal the finite union's topological boundary; no perimeter-length claim is made.
 Historical dependency ledger for this exact witness:
 - P1713.L3 → P1713.L3C1; passage NATP00082.par8; witness De Motu Corporum (Liber Primus) (1713); URL https://www.newtonproject.ox.ac.uk/view/texts/diplomatic/NATP00082#par8; status implicit_dependency; confidence high.
 -/
@@ -337,5 +372,40 @@ theorem corollary1_uniform_graph_matched_ratios {Q : Type}
     hzero hf hA hmesh hvanish
   exact ⟨indices,hmatched,uniform_graph_matched_area_ratios area multiples g a b c A
     parts eps indices hac hcb hgc hf hmatched⟩
+
+/-- Whole-figure geometric reconstruction of "coincidit omni ex parte":
+the ultimate point predicate equals the supplied figure, and the complete
+edge trace has the complete boundary as its ultimate point set. Baseline,
+endpoint sides and falling joins are included at their actual finite heights.
+This uses this edition's Lemma III ordinate control and applies to every
+admissible original shrinking family over the whole ordered coordinate field.
+No curved-area assignment or ratio/length conclusion is needed. A geometric
+affine-coordinate correspondence and the source's figure/regularity scope
+must still be justified before claiming unrestricted historical completion. -/
+theorem corollary1_whole_figure_coincidence {K : Type}
+    [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
+    [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (g : K → K) (a b : K) (parts : Nat → CurvilinearCoincidence.Partition a b)
+    (heights : Nat → Nat → K) (mesh : Nat → K)
+    (hzero : ∀ t, a≤t → t≤b → 0≤g t)
+    (hf : CurvilinearCoincidence.UniformOn g a b)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh)
+    (hwidth : ∀ k i, i<(parts k).count →
+      (parts k).nodes (i+1)-(parts k).nodes i≤mesh k)
+    (hheight : ∀ k i, i<(parts k).count →
+      CurvilinearCoincidence.CellHeight g (parts k) i (heights k i)) :
+    CurvilinearCoincidence.WholeCoincidence g a b parts heights := by
+  have hcontrol := unequal_width_ordinate_control g a b parts heights mesh hf hmesh hwidth hheight
+  have hpositive := fun k i hi => CurvilinearCoincidence.height_nonnegative
+    g (parts k) i hi (heights k i) (hheight k i hi) hzero
+  have happrox := CurvilinearCoincidence.rectangles_approach_of_ordinate_control
+    g a b parts heights hzero hpositive hcontrol
+  exact ⟨happrox,
+    CurvilinearCoincidence.perimeters_approach g a b parts heights mesh hzero hf hmesh hwidth hheight,
+    CurvilinearCoincidence.ultimate_eq_of_approaches _ _ happrox
+      (CurvilinearCoincidence.figure_separated g a b hf),
+    CurvilinearCoincidence.perimeters_ultimate_eq g a b parts heights mesh hzero hf hmesh hwidth hheight,
+    fun k x hx => CurvilinearCoincidence.perimeter_in_rectangles (parts k) (heights k)
+      (hpositive k) x hx⟩
 
 end Principia1713.LemmaIII
