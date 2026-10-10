@@ -37,6 +37,6 @@ open NewtonLimitDynamics HarmonicDyadic
 -- Modern dependency score: 0/1 (M=0, H=1; transitive project theorems/axioms).
 theorem timeApprox_nonnegative (b : Nat → Bool) (T : Fraction) (m : Nat)
     (hT : 0 ≤ T.num) : 0 ≤ (timeApprox b T m).num :=
-  Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _) hT
+  Fraction.nonnegative_mul _ _ (Int.natCast_nonneg _) hT
 
 end NewtonLimitDynamics.Polygon.BinaryTime

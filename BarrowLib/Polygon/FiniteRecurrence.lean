@@ -130,7 +130,7 @@ theorem sourceBudget_two_count (r C : Fraction) (n : Nat)
   have hb := sourceBudget_power r C hr hC hone n
   have hm := Fraction.mul_le_mul_nonnegative_left
     (Fraction.mul_le_mul_nonnegative_left hp C hC)
-    (Fraction.ofInt (n : Int)) (Int.ofNat_nonneg n)
+    (Fraction.ofInt (n : Int)) (Int.natCast_nonneg n)
   apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans hb hm)
   simp only [Fraction.equiv,Fraction.mul,Fraction.ofInt]
   ac_nf

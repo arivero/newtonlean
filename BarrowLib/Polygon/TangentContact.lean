@@ -131,13 +131,13 @@ theorem left_above {g d : Fraction → Fraction} {a b : Fraction}
 theorem right_reconstruct (g : Fraction → Fraction) (x h : Fraction) (hh : Fraction.positive h) :
     Fraction.equiv (Fraction.mul (rightSlope g x h) h)
       (durationDifference (g x) (g (Fraction.add x h))) := by
-  simp only [rightSlope, dif_pos hh, Fraction.quotient, Fraction.mul, Fraction.equiv]
+  simp only [rightSlope, dite_eq_left hh, Fraction.quotient, Fraction.mul, Fraction.equiv]
   ac_rfl
 
 theorem left_reconstruct (g : Fraction → Fraction) (x h : Fraction) (hh : Fraction.positive h) :
     Fraction.equiv (Fraction.mul (leftSlope g x h) h)
       (durationDifference (g (durationDifference h x)) (g x)) := by
-  simp only [leftSlope, dif_pos hh, Fraction.quotient, Fraction.mul, Fraction.equiv]
+  simp only [leftSlope, dite_eq_left hh, Fraction.quotient, Fraction.mul, Fraction.equiv]
   ac_rfl
 
 theorem line_self (g d : Fraction → Fraction) (x : Fraction) :
@@ -411,7 +411,7 @@ theorem trace_on_tangents {g d : Fraction → Fraction} {a b : Fraction}
     ∃ i, i < p.count ∧ (OnTangent g d (p.nodes i) z ∨ OnTangent g d (p.nodes (i+1)) z) := by
   obtain ⟨i, hi, r, hr, hz⟩ := hz
   have hr' := hr
-  simp only [partitionCells, dif_pos hi] at hr'
+  simp only [partitionCells, dite_eq_left hi] at hr'
   have ht := meeting_on_tangents C (p.nodes i) (p.nodes (i+1))
     (MonotoneRectangles.node_bounds p i (by omega)).1 (p.ordered i hi)
     (MonotoneRectangles.node_bounds p (i+1) (by omega)).2 r hr'

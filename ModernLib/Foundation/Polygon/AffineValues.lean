@@ -114,7 +114,7 @@ theorem phase_nonnegative (b : Nat → Bool) (T : Fraction) (hT : 0 ≤ T.num)
   | j+1 => by
       have hp := phase_nonnegative b T hT m j
       have hs := Fraction.nonnegative_equiv (time_step_difference b T (m+j))
-        (Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _) hT)
+        (Fraction.nonnegative_mul _ _ (Int.natCast_nonneg _) hT)
       have hc := durationDifference_chain (timeApprox b T m)
         (timeApprox b T (m+j)) (timeApprox b T (m+(j+1)))
       exact Fraction.nonnegative_equiv hc (Fraction.nonnegative_add _ _ hp

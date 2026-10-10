@@ -56,7 +56,7 @@ private theorem candidate_nonneg (x p : Fraction) (hx : 0 ≤ x.num) :
 
 private theorem candidate_pos_eq (x p : Fraction) (hp : Fraction.positive p) :
     Fraction.equiv (Fraction.mul (candidate x p) p) x := by
-  simp only [candidate, dif_pos hp]
+  simp only [candidate, dite_eq_left hp]
   unfold Fraction.equiv Fraction.mul Fraction.quotient
   dsimp
   ac_nf
@@ -66,8 +66,8 @@ private theorem below_candidate (t x p : Fraction) (ht : 0 ≤ t.num)
     Fraction.le (Fraction.mul t p) x := by
   by_cases hp : Fraction.positive p
   · exact Fraction.le_equiv_right
-      (Fraction.mul_le_mul_positive (by simpa only [candidate, dif_pos hp] using h) p hp)
-      (by simpa only [candidate, dif_pos hp] using candidate_pos_eq x p hp)
+      (Fraction.mul_le_mul_positive (by simpa only [candidate, dite_eq_left hp] using h) p hp)
+      (by simpa only [candidate, dite_eq_left hp] using candidate_pos_eq x p hp)
   · have hpn : p.num ≤ 0 := by unfold Fraction.positive at hp; omega
     have hmul : t.num * p.num ≤ 0 := Int.mul_nonpos_of_nonneg_of_nonpos ht hpn
     have hright : 0 ≤ x.num * (t.den * p.den) :=
@@ -120,7 +120,7 @@ private theorem chosen_positive_or_contra (t x p : Fraction)
     Fraction.positive p := by
   by_cases hp : Fraction.positive p
   · exact hp
-  · have he : candidate x p = two := by simp only [candidate, dif_neg hp]
+  · have he : candidate x p = two := by simp only [candidate, dite_eq_right hp]
     apply False.elim (two_not_le_one ?_)
     rw [h, he] at ht
     exact ht

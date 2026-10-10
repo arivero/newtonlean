@@ -80,7 +80,7 @@ theorem countState_step_bound (w T : Fraction) (s : Point × Point)
   have hfac : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
     unfold Fraction.add Fraction.ofInt Fraction.abs
     dsimp
-    have hw := Int.ofNat_nonneg w.num.natAbs
+    have hw := Int.natCast_nonneg w.num.natAbs
     have hd := w.den_pos
     omega
   have hm₁ := Fraction.mul_le_mul_nonnegative_left hq
@@ -119,7 +119,7 @@ theorem stateTimeFactor_nonnegative (w : Fraction) (s : Point × Point) :
     0 ≤ (stateTimeFactor w s).num := by
   unfold stateTimeFactor Fraction.mul Fraction.add Fraction.ofInt Fraction.abs
   dsimp
-  have hw := Int.ofNat_nonneg w.num.natAbs
+  have hw := Int.natCast_nonneg w.num.natAbs
   have hd := w.den_pos
   have hm := stateNorm_nonnegative s
   exact Int.mul_nonneg (by decide)

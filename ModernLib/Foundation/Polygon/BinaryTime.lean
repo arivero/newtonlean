@@ -74,7 +74,7 @@ theorem adjacent_time_bound (b : Nat → Bool) (T : Fraction) (j : Nat)
     (timeApprox b T j)
   have h₂ := Fraction.abs_equiv (time_step_difference b T j)
   have h₃ := Fraction.abs_mul k h
-  have hk : 0 ≤ k.num := Int.ofNat_nonneg _
+  have hk : 0 ≤ k.num := Int.natCast_nonneg _
   have hkab := Fraction.abs_of_nonnegative k hk
   have hhab := Fraction.abs_of_nonnegative h hT
   have h₄ := Fraction.mul_equiv hkab hhab

@@ -162,7 +162,7 @@ theorem prefix_area (area : TriangleContent.AreaRules)
     have hi : n < p.count := by omega
     have hprev := ih (by omega)
     have hr := meeting_spec C p n
-    simp only [partitionCells, dif_pos hi] at hr
+    simp only [partitionCells, dite_eq_left hi] at hr
     have hcell := cell_area area C (p.nodes n) (p.nodes (n+1))
       (MonotoneRectangles.node_bounds p n (by omega)).1 (p.ordered n hi)
       (MonotoneRectangles.node_bounds p (n+1) (by omega)).2

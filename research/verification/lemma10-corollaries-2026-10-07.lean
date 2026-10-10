@@ -20,7 +20,7 @@ def cubic (c : Fraction) : Fraction → Fraction :=
 
 theorem cubic_ratio (c t : Fraction) (ht : positive t) :
     equiv (ratio (cubic c) t) (add c t) := by
-  simp only [ratio, dif_pos ht, cubic, deflectionRatio, add, mul, equiv,
+  simp only [ratio, dite_eq_left ht, cubic, deflectionRatio, add, mul, equiv,
     Int.add_mul, Int.mul_add] <;> ac_nf <;> omega
 
 theorem cubic_upper (c : Fraction) : Ultimate magnitudes (fun t => add c t) c := by
@@ -53,7 +53,7 @@ def quadraticPremises (c : Fraction) :
   enclosure := ⟨ofInt 1, (show (0 : Int) < 1 by decide), fun h hh _ => by
     have hh' : positive h := hh
     have he : equiv (ratio (quadratic c) h) c := by
-      simp only [ratio, dif_pos hh', quadratic]; exact square_ratio c h hh'
+      simp only [ratio, dite_eq_left hh', quadratic]; exact square_ratio c h hh'
     exact ⟨le_of_equiv (equiv_symm he), le_of_equiv he⟩⟩
 
 /-- Lemma X premises for the perturbed space, with triangles `c` and `c + t`. -/
@@ -114,7 +114,7 @@ example : ¬ Ultimate magnitudes
   have hh' : positive h := hh
   have hx : equiv (quotient (ratio (quadratic (mul (ofInt 1) (ofInt 2))) h) (ofInt 1)
       (show (0 : Int) < 1 by decide)) (ofInt 2) := by
-    simp only [ratio, dif_pos hh', quadratic, deflectionRatio, quotient, mul, ofInt, equiv] <;>
+    simp only [ratio, dite_eq_left hh', quadratic, deflectionRatio, quotient, mul, ofInt, equiv] <;>
       ac_nf <;> omega
   have hlt := magnitudes.lt_of_le_lt (le_of_equiv (equiv_symm hx)) (hp h hh hhd).2
   exact absurd hlt (by change ¬ lt _ _; unfold lt; decide)

@@ -187,7 +187,7 @@ run_elab do
                 sources := sources.insert module lines
                 pure lines
             let line := ranges.selectionRange.pos.line
-            if line > 0 && Verification.declaredProof name (lines[line-1]!.trim) then
+            if line > 0 && Verification.declaredProof name (lines[line-1]!.trimAscii.toString) then
               proofLocations := proofLocations.push (name, module, line-1)
         -- Compiler-generated unsafe implementations may carry local proof
         -- placeholders. They cannot be used by safe mathematical proofs.
@@ -206,7 +206,7 @@ run_elab do
               let lines := text.splitOn "\n" |>.toArray
               let mut found : Option Nat := none
               for i in [:lines.size] do
-                if lines[i]!.trim == "ANACHRONICAL PROOFS" then
+                if lines[i]!.trimAscii.toString == "ANACHRONICAL PROOFS" then
                   if found.isSome || i < 5 then throwError "invalid anachronical header in {path}"
                   for j in [i-5:i] do
                     let line := lines[j]!

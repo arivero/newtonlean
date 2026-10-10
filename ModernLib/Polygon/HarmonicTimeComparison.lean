@@ -307,7 +307,7 @@ theorem actual_coarse_parameter_uniform (w hσ hτ : Fraction)
     (Fraction.add hσ hσ) (Fraction.add hτ hτ) s
   have hm := Fraction.mul_le_mul_nonnegative_left hp d hd
   have hn := Fraction.mul_le_mul_nonnegative_left hm
-    (Fraction.ofInt (n : Int)) (Int.ofNat_nonneg n)
+    (Fraction.ofInt (n : Int)) (Int.natCast_nonneg n)
   have hchain := Fraction.magnitudes.le_trans
     (Fraction.magnitudes.le_trans h₁ h₂) hn
   apply Fraction.le_equiv_right hchain
@@ -321,7 +321,7 @@ private def half : Fraction := ⟨1, 2, by decide⟩
 theorem dyadic_time_le_half (w T : Fraction)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     Fraction.le T half := by
-  have hw : 0 ≤ (w.num.natAbs : Int) := Int.ofNat_nonneg _
+  have hw : 0 ≤ (w.num.natAbs : Int) := Int.natCast_nonneg _
   have hnon : 0 ≤ 2 * T.num * (w.num.natAbs : Int) :=
     Int.mul_nonneg (Int.mul_nonneg (by decide) hT) hw
   have hraw :
@@ -423,7 +423,7 @@ theorem count_abs_duration_difference (T U : Fraction) (j : Nat) :
       (Fraction.add (duration U (j + 1)) (duration U (j + 1))))
   have hcount : Fraction.equiv (Fraction.ofInt (blocks j : Int)).abs
       (Fraction.ofInt (blocks j : Int)) :=
-    Fraction.abs_of_nonnegative _ (Int.ofNat_nonneg _)
+    Fraction.abs_of_nonnegative _ (Int.natCast_nonneg _)
   have hmul := Fraction.mul_equiv hcount
     (Fraction.equiv_refl
       (durationDifference

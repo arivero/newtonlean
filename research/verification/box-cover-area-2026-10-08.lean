@@ -170,7 +170,7 @@ theorem reversed_box_area_zero (area : TriangleContent.AreaRules) :
   have h := box_area area reversedBox
   apply area.congr_value _ _ _ ?_ h
   unfold value
-  rw [if_neg (by
+  rw [ite_eq_right (by
     intro h
     have hl := h.1
     change (1 : Int) ≤ 0 at hl

@@ -230,7 +230,7 @@ theorem trace_iff_upperBoundary {g d : Fraction → Fraction} {a b : Fraction}
     Trace C p z ↔ UpperBoundary g d p z := by
   constructor
   · rintro ⟨i, hi, r, hr, hz⟩
-    simp only [partitionCells, dif_pos hi] at hr
+    simp only [partitionCells, dite_eq_left hi] at hr
     exact ⟨i, hi, joined_upper C _ _
       (MonotoneRectangles.node_bounds p i (by omega)).1 (p.ordered i hi)
       (MonotoneRectangles.node_bounds p (i+1) (by omega)).2 z ⟨r, hr, hz⟩⟩
@@ -239,7 +239,7 @@ theorem trace_iff_upperBoundary {g d : Fraction → Fraction} {a b : Fraction}
       (MonotoneRectangles.node_bounds p i (by omega)).1 (p.ordered i hi)
       (MonotoneRectangles.node_bounds p (i+1) (by omega)).2 z hz
     refine ⟨i, hi, r, ?_, hs⟩
-    simpa only [partitionCells, dif_pos hi] using hr
+    simpa only [partitionCells, dite_eq_left hi] using hr
 
 /-- The upper boundary belongs to the filled tangent polygon when the
 patch starts on or above the baseline. -/

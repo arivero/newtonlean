@@ -64,7 +64,7 @@ example : Fraction.lt threeHalves sevenFourths := by unfold Fraction.lt threeHal
 private theorem right_formula (x h : Fraction) (hh : Fraction.positive h) :
     Fraction.equiv (rightSlope g x h)
       (Fraction.add (d x) (negF h)) := by
-  simp only [rightSlope, dif_pos hh, g, d, durationDifference, negF,
+  simp only [rightSlope, dite_eq_left hh, g, d, durationDifference, negF,
     Fraction.equiv, Fraction.quotient, Fraction.add, Fraction.mul, Fraction.ofInt]
   simp only [Int.add_mul, Int.mul_add, Int.sub_mul, Int.mul_sub, Int.neg_mul, Int.mul_neg]
   ac_nf
@@ -75,7 +75,7 @@ private theorem right_formula (x h : Fraction) (hh : Fraction.positive h) :
 private theorem left_formula (x h : Fraction) (hh : Fraction.positive h) :
     Fraction.equiv (leftSlope g x h)
       (Fraction.add (d x) h) := by
-  simp only [leftSlope, dif_pos hh, g, d, durationDifference, negF,
+  simp only [leftSlope, dite_eq_left hh, g, d, durationDifference, negF,
     Fraction.equiv, Fraction.quotient, Fraction.add, Fraction.mul, Fraction.ofInt]
   simp only [Int.add_mul, Int.mul_add, Int.sub_mul, Int.mul_sub, Int.neg_mul, Int.mul_neg]
   ac_nf

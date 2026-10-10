@@ -179,13 +179,13 @@ private def flatSlope (_ : Fraction) : Fraction := Fraction.ofInt 0
 
 private theorem flat_right (x h : Fraction) (hh : Fraction.positive h) :
     Fraction.equiv (rightSlope flat x h) (Fraction.ofInt 0) := by
-  simp only [rightSlope, dif_pos hh, flat, durationDifference, negF,
+  simp only [rightSlope, dite_eq_left hh, flat, durationDifference, negF,
     Fraction.quotient, Fraction.add, Fraction.ofInt, Fraction.equiv]
   simp
 
 private theorem flat_left (x h : Fraction) (hh : Fraction.positive h) :
     Fraction.equiv (leftSlope flat x h) (Fraction.ofInt 0) := by
-  simp only [leftSlope, dif_pos hh, flat, durationDifference, negF,
+  simp only [leftSlope, dite_eq_left hh, flat, durationDifference, negF,
     Fraction.quotient, Fraction.add, Fraction.ofInt, Fraction.equiv]
   simp
 

@@ -38,7 +38,7 @@ private theorem scalar_bound (eps h x : Fraction) (K : Nat)
     have := x.den_pos
     omega
   have hleft : 0 ≤ (h.num.natAbs : Int) * eps.den :=
-    Int.mul_nonneg (Int.ofNat_zero_le _) (Int.le_of_lt eps.den_pos)
+    Int.mul_nonneg (Int.natCast_nonneg _) (Int.le_of_lt eps.den_pos)
   have hmul := Int.mul_le_mul_of_nonneg_left hK' hleft
   have hright : 0 ≤ eps.num * h.den :=
     Int.mul_nonneg (Int.le_of_lt heps) (Int.le_of_lt h.den_pos)

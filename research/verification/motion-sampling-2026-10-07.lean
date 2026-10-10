@@ -49,9 +49,9 @@ private def timeAt (j k : Nat) : Fraction := if k=0 then z else countTime T j k
 private theorem time_equiv (j k : Nat) : Fraction.equiv (timeAt j k) (countTime T j k) := by
   by_cases h : k=0
   · subst k
-    simp only [timeAt,if_pos,z,countTime,Fraction.equiv,Fraction.mul,Fraction.ofInt,
+    simp only [timeAt,ite_eq_left,z,countTime,Fraction.equiv,Fraction.mul,Fraction.ofInt,
       Int.natCast_zero,Int.zero_mul,Int.mul_zero]
-  · simp only [timeAt,if_neg h]; exact Fraction.equiv_refl _
+  · simp only [timeAt,ite_eq_right h]; exact Fraction.equiv_refl _
 private theorem time_next (j k : Nat) :
     Fraction.equiv (timeAt j (k+1)) (Fraction.add (timeAt j k) (duration T j)) := by
   apply Fraction.equiv_trans (time_equiv j (k+1))
@@ -87,7 +87,7 @@ private theorem times_bounds (j k : Nat) (hk : k ≤ blocks j) :
       k (blocks j) hk) (blocks_duration T j)
   constructor
   · exact Fraction.nonnegative_equiv (time_equiv j k)
-      (Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _) (by change (0 : Int) ≤ 1; decide))
+      (Fraction.nonnegative_mul _ _ (Int.natCast_nonneg _) (by change (0 : Int) ≤ 1; decide))
   · exact Fraction.le_equiv_left (time_equiv j k) ht
 private theorem curve_norms (t : Fraction) (ht : 0 ≤ t.num) :
     Fraction.equiv (pointNorm (curve t).1) (Fraction.add (Fraction.mul t t) t) ∧

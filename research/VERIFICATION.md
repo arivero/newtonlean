@@ -71,6 +71,21 @@ to tau - sigma. Relocated negation/time-difference definitions retain their
 bodies and fully qualified names; existing historical statements and axiom
 sets must remain unchanged at this additive stage.
 
+Replace deprecated names with the names in Lean's messages using the patch
+tool. Require zero deprecation warnings across all six builds. Compare the
+cleanup's theorem names/types and counts with its immediate predecessor and
+the frozen Stage 0 baseline, identifying previously authorized Rat changes
+separately. Do not suppress warnings. Remove unused simp arguments as each
+module migrates, requiring no warnings in migrated modules; restore any
+argument whose removal breaks a proof and report its location. After Stage 3,
+sweep the remaining files in one commit and report warning counts by kind.
+The deprecation-only increment leaves the current README theorem/dependency
+counts unchanged. Its six-build warning census changes deprecations from
+70 to zero, while retaining 543 unused-simp and five proposition-as-definition
+warnings for their authorized migration/sweep stages. The initial 4.34.1
+census was 545 unused-simp warnings in 107 files; RationalExhaustion's Rat
+rewrite removed two before the deprecation cleanup.
+
 ## Review the conclusion before accepting progress
 
 Read the changed theorem's full statement alongside the previous result and

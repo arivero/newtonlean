@@ -40,7 +40,7 @@ private theorem driftIncrement_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
 -- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
 private theorem kickIncrement_nonnegative (w h : Fraction) (hh : 0 ≤ h.num) :
     0 ≤ kickIncrement w h :=
-  Int.mul_nonneg hh (Int.ofNat_nonneg _)
+  Int.mul_nonneg hh (Int.natCast_nonneg _)
 
 /-- `n` full cells have factors `(D+2A)/D` and `(D+2B)/D`. -/
 def coarseWeights (w h : Fraction) : Nat → List Int
@@ -159,7 +159,7 @@ theorem smallTime_prefix (w h : Fraction) (i n : Nat)
   have hcoef : 0 ≤ 4 * h.num * (w.den + (w.num.natAbs : Int)) := by
     exact Int.mul_nonneg
       (Int.mul_nonneg (by decide) hh)
-      (Int.add_nonneg (Int.le_of_lt w.den_pos) (Int.ofNat_nonneg _))
+      (Int.add_nonneg (Int.le_of_lt w.den_pos) (Int.natCast_nonneg _))
   have hcast : (i : Int) ≤ (n : Int) := Int.ofNat_le.mpr hi
   have hm := Int.mul_le_mul_of_nonneg_right hcast hcoef
   have hpref :
@@ -540,7 +540,7 @@ private theorem budget_two_bound (w h : Fraction) (s : Point × Point) (n : Nat)
     (localFactor_nonnegative w h)
   have h₃ := Fraction.mul_le_mul_nonnegative_left h₂ (count n) (by
     unfold count Fraction.ofInt
-    exact Int.ofNat_nonneg n)
+    exact Int.natCast_nonneg n)
   have hc := Fraction.magnitudes.le_trans h₀ h₃
   apply Fraction.le_equiv_right hc
   simp only [budgetCap, count, Fraction.equiv, Fraction.mul, Fraction.ofInt]
@@ -651,7 +651,7 @@ theorem actual_uniform_error (w h : Fraction) (s : Point × Point) (n : Nat)
         (stateNorm_nonnegative s)
       have h₃ := Fraction.mul_le_mul_nonnegative_left h₂ (count (m + 1)) (by
         unfold count Fraction.ofInt
-        exact Int.ofNat_nonneg _)
+        exact Int.natCast_nonneg _)
       have h₄ := Fraction.mul_le_mul_nonnegative_left h₃ (Fraction.ofInt 2) (by decide)
       have hchain := Fraction.magnitudes.le_trans
         (Fraction.magnitudes.le_trans h₀ h₁) h₄

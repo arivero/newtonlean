@@ -70,7 +70,7 @@ theorem box_area (area : TriangleContent.AreaRules) (B : Box) :
       (Fraction.ofInt 0,B.bottom)
       (area.rectangle B.left B.right (durationDifference B.bottom B.top) h.1 hH)
     unfold value
-    rw [if_pos h]
+    rw [ite_eq_left h]
     apply area.congr_set _ _ _ _ ha
     intro x
     have hx : Fraction.equiv (pointSub x (Fraction.ofInt 0,B.bottom)).1 x.1 := by
@@ -101,7 +101,7 @@ theorem box_area (area : TriangleContent.AreaRules) (B : Box) :
       exact Fraction.le_equiv_left (add_difference_cancel B.bottom x.2)
         (Fraction.le_equiv_right ht (Fraction.equiv_symm (add_difference_cancel B.bottom B.top)))
   · apply area.congr_set (fun _ => False) _ _ _
-      (area.congr_value _ _ _ (by simp only [value,if_neg h]; exact Fraction.equiv_refl _) area.empty)
+      (area.congr_value _ _ _ (by simp only [value,ite_eq_right h]; exact Fraction.equiv_refl _) area.empty)
     intro x
     exact ⟨False.elim,fun hx => False.elim (region_empty B h x hx)⟩
 
@@ -111,19 +111,19 @@ private def maxF (a b : Fraction) : Fraction := if Fraction.le a b then b else a
 private theorem le_minF (x a b : Fraction) :
     Fraction.le x (minF a b) ↔ Fraction.le x a ∧ Fraction.le x b := by
   by_cases h : Fraction.le a b
-  · simp only [minF,if_pos h]
+  · simp only [minF,ite_eq_left h]
     exact ⟨fun hx => ⟨hx,Fraction.magnitudes.le_trans hx h⟩,fun hx => hx.1⟩
   · have h' : Fraction.le b a := by unfold Fraction.le at *; omega
-    simp only [minF,if_neg h]
+    simp only [minF,ite_eq_right h]
     exact ⟨fun hx => ⟨Fraction.magnitudes.le_trans hx h',hx⟩,fun hx => hx.2⟩
 
 private theorem maxF_le (a b x : Fraction) :
     Fraction.le (maxF a b) x ↔ Fraction.le a x ∧ Fraction.le b x := by
   by_cases h : Fraction.le a b
-  · simp only [maxF,if_pos h]
+  · simp only [maxF,ite_eq_left h]
     exact ⟨fun hx => ⟨Fraction.magnitudes.le_trans h hx,hx⟩,fun hx => hx.2⟩
   · have h' : Fraction.le b a := by unfold Fraction.le at *; omega
-    simp only [maxF,if_neg h]
+    simp only [maxF,ite_eq_right h]
     exact ⟨fun hx => ⟨hx,Fraction.magnitudes.le_trans h' hx⟩,fun hx => hx.1⟩
 
 def clipLeft (c : Fraction) (B : Box) : Box := {B with right := minF B.right c}
@@ -427,7 +427,7 @@ theorem cover_area (area : TriangleContent.AreaRules) :
         exact ⟨Or.inl,fun h => h.elim id (fun hx => False.elim (region_empty _ hB x hx))⟩
       refine ⟨A,area.congr_set _ _ _ he hA,hA0,?_⟩
       exact Fraction.le_equiv_right hAbound (Fraction.equiv_symm (by
-        simp only [sum,value,if_neg hB]
+        simp only [sum,value,ite_eq_right hB]
         exact Fraction.add_zero _))
 
 private theorem abs_le_iff (a R : Fraction) :
@@ -495,7 +495,7 @@ theorem square_ordered (q : Point) (R : Fraction) (hR : 0 ≤ R.num) : ordered (
 theorem square_value (q : Point) (R : Fraction) (hR : 0 ≤ R.num) :
     Fraction.equiv (value (square q R)) (Fraction.mul (Fraction.ofInt 4) (Fraction.mul R R)) := by
   unfold value
-  rw [if_pos (square_ordered q R hR)]
+  rw [ite_eq_left (square_ordered q R hR)]
   simp only [square]
   have hwidth (a : Fraction) : Fraction.equiv
       (durationDifference (durationDifference R a) (Fraction.add a R))

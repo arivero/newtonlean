@@ -184,7 +184,7 @@ private def oneCell : MonotoneRectangles.Partition a b where
 private theorem chosen_meeting (C : Patch g d a b) :
     pointEquiv r (meeting C oneCell 0) := by
   have hm := meeting_spec C oneCell 0
-  simp only [partitionCells, dif_pos (show 0 < oneCell.count by decide)] at hm
+  simp only [partitionCells, dite_eq_left (show 0 < oneCell.count by decide)] at hm
   have hd :
       (TimeSubdivision.det (pointSub (cell C a b ha hab hb).leftEnd (graph g a))
         (pointSub (graph g b) (cell C a b ha hab hb).rightStart)).num ≠ 0 := by
@@ -218,7 +218,7 @@ private theorem chosen_value (C : Patch g d a b) :
   have hraw : Fraction.equiv (value C oneCell)
       (Fraction.add (Fraction.ofInt 0)
         (Fraction.add (trapezoid (graph g a) r) (trapezoid r (graph g b)))) := by
-    simpa only [value, oneCell, PolygonFanArea.sum, cellValue, dif_pos (show 0 = 0 by rfl)]
+    simpa only [value, oneCell, PolygonFanArea.sum, cellValue, dite_eq_left (show 0 = 0 by rfl)]
       using! Fraction.add_equiv_left (Fraction.ofInt 0) hsum
   exact Fraction.equiv_trans hraw hnumeric
 

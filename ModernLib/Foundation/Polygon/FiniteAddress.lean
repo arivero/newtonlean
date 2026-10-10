@@ -15,7 +15,7 @@ theorem finiteAddress_tail : (m k j : Nat) → m ≤ j → finiteAddress m k j =
   | 0,_,_,_ => rfl
   | m+1,k,j,hj => by
       have hn : j ≠ m := by omega
-      simp only [finiteAddress,hn,if_false]
+      simp only [finiteAddress,hn,ite_false]
       exact finiteAddress_tail m (k/2) j (by omega)
 
 -- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).
@@ -40,11 +40,11 @@ theorem finiteAddress_ticks : (m k : Nat) → k<blocks m → ticks (finiteAddres
       have hp := ticks_congr_before (finiteAddress (m+1) k) (finiteAddress m (k/2)) m
         (fun i hi => by
           have hn : i ≠ m := by omega
-          simp only [finiteAddress,hn,if_false])
+          simp only [finiteAddress,hn,ite_false])
       have hbit : bit (finiteAddress (m+1) k) m=k%2 := by
         have hmod := Nat.mod_lt k (by decide : 0<2)
         by_cases hm : k%2=1
-        · simp only [bit,finiteAddress,if_pos rfl,hm,decide_true,if_true]
+        · simp only [bit,finiteAddress,ite_eq_left rfl,hm,decide_true,ite_true]
         · have hz : k%2=0 := by omega
           simp [bit,finiteAddress,hz]
       change 2*ticks (finiteAddress (m+1) k) m+bit (finiteAddress (m+1) k) m=k

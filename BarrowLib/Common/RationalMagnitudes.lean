@@ -29,7 +29,7 @@ def half (a : Fraction) : Fraction := ⟨a.num, 2 * a.den, Int.mul_pos (by decid
     geometric region between paths or erase the need to sum separate lobes. -/
 def abs (a : Fraction) : Fraction := ⟨a.num.natAbs, a.den, a.den_pos⟩
 
-theorem abs_num_nonnegative (a : Fraction) : 0 ≤ a.abs.num := Int.ofNat_nonneg _
+theorem abs_num_nonnegative (a : Fraction) : 0 ≤ a.abs.num := Int.natCast_nonneg _
 
 /-- Every signed rational value is at most its unsigned magnitude. -/
 theorem le_abs (a : Fraction) : le a a.abs := by
@@ -324,7 +324,7 @@ theorem triangle_normalized_limit (slope : Fraction → Fraction) (c : Fraction)
     Ultimate magnitudes (ratio (fun t => mul (slope t) (mul t t))) c := by
   apply ultimate_congr _ slope c
   · intro t ht
-    simp only [ratio, dif_pos ht]
+    simp only [ratio, dite_eq_left ht]
     exact square_ratio (slope t) t ht
   · exact hs
 
@@ -344,7 +344,7 @@ theorem constructed_triangle_limit (slope : Fraction → Fraction) (c : Fraction
     Ultimate magnitudes (ratio (fun t => triangleArea t (mul (slope t) t))) c := by
   apply ultimate_congr _ (fun t => half (slope t)) c
   · intro t ht
-    simp only [ratio, dif_pos ht]
+    simp only [ratio, dite_eq_left ht]
     exact triangle_area_ratio (slope t) t ht
   · exact hs
 

@@ -412,7 +412,7 @@ theorem cross_actual_error_le_two_count_source (a b : Point → Point)
     (uniformBlockSource_nonnegative h L E B V hL hE hBnonneg hVnonneg)
   have h₃ := Fraction.mul_le_mul_nonnegative_left h₂ (count n) (by
     unfold count Fraction.ofInt
-    exact Int.ofNat_nonneg n)
+    exact Int.natCast_nonneg n)
   have hc' := Fraction.magnitudes.le_trans h₀
     (Fraction.magnitudes.le_trans h₁ h₃)
   apply Fraction.le_equiv_right hc'

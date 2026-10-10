@@ -163,10 +163,10 @@ private theorem delayed_ratios : RectangleContent.EventuallyMutualRatiosOne dela
     (B := Fraction.ofInt 1) (hB := by decide)
     (L := delayed) (U := delayed) (N := 5)
   · intro m hm
-    simp only [delayed, if_neg (show ¬ m<5 by omega)]
+    simp only [delayed, ite_eq_right (show ¬ m<5 by omega)]
     exact Fraction.magnitudes.le_refl _
   · intro m hm
-    simp only [delayed, if_neg (show ¬ m<5 by omega)]
+    simp only [delayed, ite_eq_right (show ¬ m<5 by omega)]
     exact Fraction.magnitudes.le_refl _
   · intro d hd
     refine ⟨0, fun m hm => ?_⟩

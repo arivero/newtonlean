@@ -141,7 +141,7 @@ theorem adjacent_weighted_tail (b : Nat → Bool) (o : CentralOracle) (E0 T tau 
     ac_nf
   rw [prefix_next]
   by_cases hb : b j
-  · rw [if_pos hb]
+  · rw [ite_eq_left hb]
     have ht := TimeCalibration.distance_triangle tau d.calibration_positive
       (countState o E0 T s hE (j+1) (2*ticks b j+1))
       (countState o E0 T s hE (j+1) (2*ticks b j)) (prefixState b o E0 T s hE j)
@@ -149,7 +149,7 @@ theorem adjacent_weighted_tail (b : Nat → Bool) (o : CentralOracle) (E0 T tau 
       (Fraction.magnitudes.le_trans ht
         (Fraction.add_le_add (Fraction.le_equiv_right hop he) href))
       (Fraction.equiv_trans (Fraction.add_comm _ _) (GeometricTail.tail_add _ _ (j+1)))
-  · rw [if_neg hb]
+  · rw [ite_eq_right hb]
     have hnon : 0 ≤ (GeometricTail.tailCap (Fraction.mul T (speedCap T tau B s)) (j+1)).num :=
       Fraction.nonnegative_mul _ _ d.time_nonnegative
         (speedCap_nonnegative T tau B s d.time_nonnegative d.calibration_positive d.bound_nonnegative)

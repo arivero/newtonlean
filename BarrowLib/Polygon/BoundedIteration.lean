@@ -38,7 +38,7 @@ def BoundedSamples (a : Point → Point) (h : Fraction) (s : Point × Point)
   ∀ i : Nat, i < n → Fraction.le (pointNorm (a (run a h s (i+1)).1)) B
 
 theorem time_nonnegative (h : Fraction) (hh : 0 ≤ h.num) (n : Nat) :
-    0 ≤ (time h n).num := Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _) hh
+    0 ≤ (time h n).num := Fraction.nonnegative_mul _ _ (Int.natCast_nonneg _) hh
 
 theorem time_monotone (h : Fraction) (hh : 0 ≤ h.num) (i n : Nat) (hin : i ≤ n) :
     Fraction.le (time h i) (time h n) := by

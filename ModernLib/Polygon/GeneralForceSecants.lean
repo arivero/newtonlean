@@ -29,10 +29,10 @@ theorem node_approx (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × 
     (nodeName o E0 T tau L B s hE d m k).approx j =
       GeneralForcePrefix.countState o E0 T s hE (m+j) (k*blocks j) := by
   by_cases he : k=blocks m
-  · rw [nodeName,if_pos he]
+  · rw [nodeName,ite_eq_left he]
     change GeneralForcePrefix.countState o E0 T s hE (m+j) (blocks (m+j)) = _
     rw [blocks_add,he]
-  · rw [nodeName,if_neg he]
+  · rw [nodeName,ite_eq_right he]
     change GeneralForcePrefix.countState o E0 T s hE (m+j)
       (ticks (finiteAddress m k) (m+j)) = _
     rw [finiteAddress_later_ticks m k j (by omega)]
@@ -43,9 +43,9 @@ theorem node_value (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × P
     realize (nodeName o E0 T tau L B s hE d m k) =
       GeneralForceTime.gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k) := by
   by_cases he : k=blocks m
-  · rw [nodeName,if_pos he,shiftedValue,nodeTime,if_pos he]
+  · rw [nodeName,ite_eq_left he,shiftedValue,nodeTime,ite_eq_left he]
     exact (GeneralForceTime.right_endpoint_value o E0 T tau L B s hE d).symm
-  · rw [nodeName,if_neg he,shiftedValue,nodeTime,if_neg he]
+  · rw [nodeName,ite_eq_right he,shiftedValue,nodeTime,ite_eq_right he]
     rfl
 
 -- Modern dependency score: 51/198 (M=51, H=147; transitive project theorems/axioms).
@@ -53,10 +53,10 @@ theorem node_region (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × 
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (m k j : Nat) : o.region ((nodeName o E0 T tau L B s hE d m k).approx j).1 := by
   by_cases he : k=blocks m
-  · simp only [nodeName,if_pos he,shiftedName]
+  · simp only [nodeName,ite_eq_left he,shiftedName]
     exact d.toConditions.run_region (m+j) (duration T (m+j)) d.time_nonnegative
       (blocks (m+j)) (Fraction.le_of_equiv (blocks_duration T (m+j)))
-  · simp only [nodeName,if_neg he,shiftedName]
+  · simp only [nodeName,ite_eq_right he,shiftedName]
     exact prefix_region (finiteAddress m k) o E0 T tau L B s hE d (m+j)
 
 -- Modern dependency score: 60/211 (M=60, H=151; transitive project theorems/axioms).

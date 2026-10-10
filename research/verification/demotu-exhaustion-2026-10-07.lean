@@ -123,9 +123,9 @@ private def timeAt (j k : Nat) : Fraction := if k=0 then z else countTime T j k
 private theorem time_equiv (j k : Nat) : Fraction.equiv (timeAt j k) (countTime T j k) := by
   by_cases h : k=0
   · subst k
-    simp only [timeAt,if_pos,z,countTime,Fraction.equiv,Fraction.mul,Fraction.ofInt,
+    simp only [timeAt,ite_eq_left,z,countTime,Fraction.equiv,Fraction.mul,Fraction.ofInt,
       Int.natCast_zero,Int.zero_mul,Int.mul_zero]
-  · simp only [timeAt,if_neg h]; exact Fraction.equiv_refl _
+  · simp only [timeAt,ite_eq_right h]; exact Fraction.equiv_refl _
 private theorem time_next (j k : Nat) :
     Fraction.equiv (timeAt j (k+1)) (Fraction.add (timeAt j k) (duration T j)) := by
   apply Fraction.equiv_trans (time_equiv j (k+1))
@@ -165,7 +165,7 @@ private theorem conditions : Conditions force z T z z two o curve := by
       (Fraction.le_equiv_right (BoundedIteration.time_monotone (duration T j) (by change (0 : Int) ≤ 1; decide)
         k (blocks j) (by omega)) (blocks_duration T j))
     have htn : 0 ≤ (timeAt j k).num := Fraction.nonnegative_equiv (time_equiv j k)
-      (Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _) (by change (0 : Int) ≤ 1; decide))
+      (Fraction.nonnegative_mul _ _ (Int.natCast_nonneg _) (by change (0 : Int) ≤ 1; decide))
     have he : Fraction.equiv (pointNorm (curve (timeAt j k)).1) (Fraction.add o (timeAt j k)) :=
       Fraction.add_equiv (Fraction.abs_of_nonnegative _ (by change (0 : Int) ≤ 1; decide)) (Fraction.abs_of_nonnegative _ htn)
     exact Fraction.le_equiv_left he (Fraction.magnitudes.le_trans (Fraction.add_le_add_left ht o)

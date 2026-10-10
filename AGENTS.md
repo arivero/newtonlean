@@ -20,6 +20,17 @@
   Reprove the drift estimate. This explicitly authorizes the changed chosen
   radius; it does not authorize other representative-sensitive meaning changes.
 
+- User addenda, 10 October 2026: replace deprecated names with the replacements
+  in Lean's messages, using the patch tool. This cleanup changes no statements
+  or theorem counts; compare theorem dumps with the frozen Stage 0 baseline
+  and distinguish the already authorized migration changes. All six builds
+  must report zero deprecation warnings. Do not suppress warnings with options
+  or attributes. Remove unused simp arguments when each module migrates to Rat,
+  so migrated modules build without warnings of any kind; do not run a separate
+  pre-migration simp cleanup. If removing a flagged argument breaks a proof,
+  restore it and report its location. After Stage 3, sweep remaining warnings
+  in one commit. Report before/after warning counts by kind.
+
 - User clarification, 10 October 2026: Python is permitted for scripts.
   The bookkeeping restriction concerns JSON catalogs/ledgers, not the
   implementation language. Prefer the existing Lean verification harnesses

@@ -44,6 +44,18 @@ necessary: a bare grind call does not instantiate the arbitrary positive
 tolerance. Five call sites in CompletionGeometry, ScalarOrder, BoundedCuts
 and SquareOuterContent convert explicitly through the bridge. No historical
 statement or edition-local proof is changed.
+
+The user added a deprecation-only cleanup before continuing Rat clients:
+use each replacement named by Lean, edit with the patch tool, preserve
+statements and counts, compare the theorem dump with Stage 0 and require
+zero deprecation warnings in all six builds. All six builds now pass with
+zero deprecations, down from 70. The 543 unused-simp warnings in 106 files
+and five proposition-as-definition warnings are unchanged by this cleanup.
+CheckReferences and the scope/graph harnesses also use the replacement names.
+The original 4.34.1
+snapshot's two additional unused-simp warnings disappeared with the migrated
+RationalExhaustion proof. Remaining simp cleanup accompanies each module's
+Rat migration, then one post-Stage-3 sweep; no warning suppression is allowed.
 The toolchain-only commit 3237ff3 passed all six builds on 4.34.1. Its
 2,427 source-declared project theorem names (including Reverse) and all
 31 README own/proof/import counts matched the 4.19 baseline. Rendered type differences concern numeral/let/binder/projection

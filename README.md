@@ -83,6 +83,13 @@ Every commit must update this completion-percentage information, reassessing
 the affected files and witnesses and explaining changes to the estimates or
 remaining work. An unchanged rounded estimate must be explicitly justified
 here. Measured counts must also be refreshed whenever they change.
+Deprecation-cleanup reassessment, 10 October: **every file/witness percentage
+remains unchanged**. Deprecated core names are replaced by Lean's recommended
+names, with no statement, theorem-count or dependency-count change from the
+current migration state. This is cleanup and earns no completion credit;
+remaining-work rationales remain justified. Unused simp arguments are left
+for each module's Rat migration, followed by the authorized final sweep.
+
 Rat-foundation reassessment, 10 October: **every file/witness percentage
 remains unchanged**. Core Rat now realizes the ordered-magnitude interface;
 the rational closed-bound exhaustion lemma uses an explicit half-gap and

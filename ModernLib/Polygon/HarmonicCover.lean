@@ -52,7 +52,7 @@ def coverBudget (w h : Fraction) (s : Point × Point) (n : Nat) : Fraction :=
 private theorem totalTime_nonnegative (h : Fraction) (n : Nat) (hh : 0 ≤ h.num) :
     0 ≤ (totalTime h n).num := by
   unfold totalTime Fraction.mul Fraction.ofInt
-  exact Int.mul_nonneg (Int.mul_nonneg (by decide) (Int.ofNat_nonneg _)) hh
+  exact Int.mul_nonneg (Int.mul_nonneg (by decide) (Int.natCast_nonneg _)) hh
 
 -- Modern dependency score: 1/5 (M=1, H=4; transitive project theorems/axioms).
 private theorem maxError_nonnegative (w h : Fraction) (s : Point × Point)
@@ -85,7 +85,7 @@ theorem squareArea_nonnegative (R : Fraction) (hR : 0 ≤ R.num) :
 -- Modern dependency score: 6/11 (M=6, H=5; transitive project theorems/axioms).
 theorem coverBudget_nonnegative (w h : Fraction) (s : Point × Point) (n : Nat)
     (hh : 0 ≤ h.num) : 0 ≤ (coverBudget w h s n).num :=
-  Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg _)
+  Fraction.nonnegative_mul _ _ (Int.natCast_nonneg _)
     (squareArea_nonnegative _ (radius_nonnegative w h s n hh))
 
 -- Modern dependency score: 0 (M=0, H=0; transitive project theorems/axioms).

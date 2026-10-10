@@ -284,7 +284,7 @@ theorem integer_duration_product_abs (h : Fraction) (k : Nat)
     (Fraction.abs_of_nonnegative h hh)
   have h₄ := Fraction.mul_equiv
     (Fraction.mul_equiv
-      (Fraction.abs_of_nonnegative (Fraction.ofInt (k : Int)) (Int.ofNat_nonneg k))
+      (Fraction.abs_of_nonnegative (Fraction.ofInt (k : Int)) (Int.natCast_nonneg k))
       (Fraction.abs_of_nonnegative h hh)) (Fraction.equiv_refl h)
   exact Fraction.equiv_trans h₁
     (Fraction.equiv_trans h₂ (Fraction.equiv_trans h₃
@@ -441,7 +441,7 @@ theorem quadraticCap_nonnegative (w : Fraction) (s : Point × Point) :
   | k + 1 => Fraction.nonnegative_add _ _
       (Fraction.nonnegative_mul _ _ (kappaCap_nonnegative w)
         (quadraticCap_nonnegative w s k))
-      (Fraction.nonnegative_mul _ _ (Int.ofNat_nonneg k)
+      (Fraction.nonnegative_mul _ _ (Int.natCast_nonneg k)
         (splitFactor_nonnegative w s))
 
 /-- For each fixed integer `k`, the discrepancy between one `k*h` cell
@@ -594,7 +594,7 @@ theorem quadraticCap_double (w : Fraction) (s t : Point × Point)
       have h₁ := Fraction.mul_le_mul_nonnegative_left hi (kappaCap w)
         (kappaCap_nonnegative w)
       have h₂ := Fraction.mul_le_mul_nonnegative_left hs
-        (Fraction.ofInt (k : Int)) (Int.ofNat_nonneg k)
+        (Fraction.ofInt (k : Int)) (Int.natCast_nonneg k)
       have hsum := Fraction.add_le_add h₁ h₂
       apply Fraction.le_equiv_right hsum
       simp only [quadraticCap, Fraction.equiv, Fraction.add,
@@ -769,7 +769,7 @@ theorem accumulated_integer_error (w h : Fraction) (k N : Nat)
   have h₁ := sourceBudget_power r C hr hC hone N
   have hm₁ := Fraction.mul_le_mul_nonnegative hfine C hC
   have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁
-    (Fraction.ofInt (N : Int)) (Int.ofNat_nonneg N)
+    (Fraction.ofInt (N : Int)) (Int.natCast_nonneg N)
   have h₁' := Fraction.le_equiv_right h₁
     (Fraction.mul_equiv (Fraction.equiv_refl _)
       (Fraction.mul_comm C (fpower r N)))
@@ -799,7 +799,7 @@ theorem full_window_duration_le_one (w d : Fraction) (N : Nat)
       (Fraction.add (Fraction.ofInt 1) w.abs) :=
     Fraction.le_add_nonnegative _ _ (Fraction.abs_num_nonnegative w)
   have htime : 0 ≤ (fullTime d N).num :=
-    Int.mul_nonneg (Int.ofNat_nonneg N) hd
+    Int.mul_nonneg (Int.natCast_nonneg N) hd
   have hfactorTime := Fraction.mul_le_mul_nonnegative_left hfactor
     (fullTime d N) htime
   have htimeWeighted : Fraction.le (fullTime d N)

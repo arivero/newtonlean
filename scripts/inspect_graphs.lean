@@ -115,7 +115,7 @@ run_elab do
     let file := InspectGraphs.path m
     let lines := (← liftM (IO.FS.readFile file)).splitOn "\n" |>.toArray
     for i in [:lines.size] do
-      let s := lines[i]!.trim
+      let s := lines[i]!.trimAscii.toString
       if InspectGraphs.historical m && s.startsWith "- " && (s.splitOn " → ").length == 2 then
         let some e := InspectGraphs.parseEdge s file (i + 1)
           | throwError "Malformed historical edge at {file}:{i + 1}"
@@ -123,7 +123,7 @@ run_elab do
           throwError "Unclassified historical witness at {file}:{i + 1}"
         edges := edges.push e
       if s.startsWith "import " then
-        let imported := (s.drop 7).trim.toString
+        let imported := (s.drop 7).trimAscii.toString
         let importedRoot := InspectGraphs.root imported
         if #["BarrowLib", "ClassicsLib", "ModernLib", "NewtonLimitDynamics"].contains importedRoot &&
             InspectGraphs.root m.toString != importedRoot then

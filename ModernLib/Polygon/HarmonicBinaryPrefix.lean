@@ -269,7 +269,7 @@ theorem fine_optional_increment (b : Nat → Bool) (w T : Fraction)
     (Fraction.add (Fraction.ofInt 1) w.abs) (by
       unfold Fraction.add Fraction.ofInt Fraction.abs
       dsimp
-      have hw := Int.ofNat_nonneg w.num.natAbs
+      have hw := Int.natCast_nonneg w.num.natAbs
       have hd := w.den_pos
       omega)
   have hm₂ := Fraction.mul_le_mul_nonnegative_left hm₁ h hT
@@ -340,7 +340,7 @@ private theorem optionalCap_nonnegative (w T : Fraction) (s : Point × Point)
   have hfactor : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
     unfold Fraction.add Fraction.ofInt Fraction.abs
     dsimp
-    have hw := Int.ofNat_nonneg w.num.natAbs
+    have hw := Int.natCast_nonneg w.num.natAbs
     have hd := w.den_pos
     omega
   exact Int.mul_nonneg (by decide)
@@ -375,7 +375,7 @@ theorem adjacent_error_le_add (b : Nat → Bool) (w T : Fraction)
   have hnext := prefix_next b w T s j
   have href := prefix_refinement_error b w T s j hT hs
   by_cases hb : b j
-  · rw [hnext, if_pos hb]
+  · rw [hnext, ite_eq_left hb]
     have htri := stateSub_triangle
       (cell (linearField w) (duration T (j + 1))
         (fineAt w (duration T (j + 1)) s (ticks b j)))
@@ -383,7 +383,7 @@ theorem adjacent_error_le_add (b : Nat → Bool) (w T : Fraction)
       (prefixState b w T s j)
     exact Fraction.magnitudes.le_trans htri
       (Fraction.add_le_add (fine_optional_increment b w T s j hT hs) href)
-  · rw [hnext, if_neg hb]
+  · rw [hnext, ite_eq_right hb]
     exact Fraction.magnitudes.le_trans href
       (le_add_optional _ _ (optionalCap_nonnegative w T s j hT))
 
@@ -433,7 +433,7 @@ theorem coefficient_nonnegative (w T : Fraction) (s : Point × Point)
   have hOneW : 0 ≤ (Fraction.add (Fraction.ofInt 1) w.abs).num := by
     unfold Fraction.add Fraction.ofInt Fraction.abs
     dsimp
-    have hw := Int.ofNat_nonneg w.num.natAbs
+    have hw := Int.natCast_nonneg w.num.natAbs
     have hd := w.den_pos
     omega
   have h₁ : 0 ≤ (Fraction.mul (Fraction.ofInt 2)

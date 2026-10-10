@@ -50,14 +50,14 @@ def nodeTime (T : Fraction) (hT : 0 ≤ T.num) (m k : Nat) : BinaryTime T hT :=
 theorem node_time_coordinate (T : Fraction) (hT : 0 ≤ T.num) (m k : Nat) (hk : k≤blocks m) :
     timeCoordinate T hT (nodeTime T hT m k) = embed (scalarState (countTime T m k)) := by
   by_cases he : k=blocks m
-  · rw [nodeTime,if_pos he,right_time_coordinate]
+  · rw [nodeTime,ite_eq_left he,right_time_coordinate]
     subst k
     apply Quotient.sound
     apply nameEquiv_of_levelwise_stateEquiv
     intro j
     exact ⟨⟨Fraction.equiv_symm (blocks_duration T m),Fraction.equiv_refl _⟩,
       ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
-  · rw [nodeTime,if_neg he]
+  · rw [nodeTime,ite_eq_right he]
     change realize (BinaryTime.timeName (finiteAddress m k) T hT) = _
     rw [← shiftedValue (BinaryTime.timeName (finiteAddress m k) T hT) m]
     apply Quotient.sound

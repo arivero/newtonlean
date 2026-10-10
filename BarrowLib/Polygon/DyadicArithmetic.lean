@@ -170,7 +170,7 @@ theorem countTime_abs_difference (T : Fraction) (j n k : Nat)
       (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j)) := by
   have hs := Fraction.abs_equiv (countTime_difference T j n k)
   have hnon : 0 ≤ (Fraction.mul (Fraction.ofInt (k : Int)) (duration T j)).num :=
-    Int.mul_nonneg (Int.ofNat_nonneg _) hT
+    Int.mul_nonneg (Int.natCast_nonneg _) hT
   exact Fraction.equiv_trans hs
     (Fraction.abs_of_nonnegative _ hnon)
 

@@ -25,7 +25,7 @@ theorem duration_le_window (T : Fraction) (hT : 0 ≤ T.num) (j : Nat) :
     Fraction.le (duration T j) T := by
   have hp : (1 : Int) ≤ (2 : Int)^j := by
     have hj := two_pow_ge_succ j
-    have hn : (0 : Int) ≤ (j : Int) := Int.ofNat_nonneg j
+    have hn : (0 : Int) ≤ (j : Int) := Int.natCast_nonneg j
     omega
   have hm := Int.mul_le_mul_of_nonneg_left hp
     (Int.mul_nonneg hT (Int.le_of_lt T.den_pos))

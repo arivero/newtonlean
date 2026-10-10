@@ -24,12 +24,12 @@ theorem joined_cover (q r : Nat → Point) (R : Fraction) (n : Nat) (x : Point) 
   constructor
   · rintro ⟨k,hk,hx⟩
     by_cases h : k<n
-    · exact Or.inl ⟨k,h,by simpa only [joinedCentres,if_pos h] using hx⟩
-    · exact Or.inr ⟨k-n,by omega,by simpa only [joinedCentres,if_neg h] using hx⟩
+    · exact Or.inl ⟨k,h,by simpa only [joinedCentres,ite_eq_left h] using hx⟩
+    · exact Or.inr ⟨k-n,by omega,by simpa only [joinedCentres,ite_eq_right h] using hx⟩
   · rintro (⟨k,hk,hx⟩ | ⟨k,hk,hx⟩)
-    · exact ⟨k,by omega,by simpa only [joinedCentres,if_pos hk] using hx⟩
+    · exact ⟨k,by omega,by simpa only [joinedCentres,ite_eq_left hk] using hx⟩
     · refine ⟨n+k,by omega,?_⟩
-      simpa only [joinedCentres,if_neg (by omega : ¬ n+k<n),Nat.add_sub_cancel_left] using hx
+      simpa only [joinedCentres,ite_eq_right (by omega : ¬ n+k<n),Nat.add_sub_cancel_left] using hx
 
 theorem square_radius_mono (q x : Point) {R S : Fraction} (h : Fraction.le R S)
     (hx : ConvexCover.SquareContains q R x) : ConvexCover.SquareContains q S x :=
