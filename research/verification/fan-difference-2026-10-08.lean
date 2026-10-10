@@ -248,12 +248,12 @@ example : FilledRegion qf pf 2 xf := by
 
 -- Intermediate radii may reverse their direction. Finite crossings need
 -- no monotonicity premise for those radii.
-private def radii (k : Nat) : Fraction :=
-  Fraction.ofInt (if k=0 then 1 else if k=1 then 4 else if k=2 then 2 else 5)
-example : ¬ Fraction.le (radii 1) (radii 2) := by decide
-example : ∃ k, k<3 ∧ FanIntervalChain.Between (radii k) (Fraction.ofInt 3) (radii (k+1)) :=
-  FanIntervalChain.finite_crossing radii (Fraction.ofInt 3) 3 (by decide)
-    (Or.inl ⟨by decide,by decide⟩)
+private def radii (k : Nat) : Rat :=
+  if k=0 then 1 else if k=1 then 4 else if k=2 then 2 else 5
+example : ¬ radii 1 ≤ radii 2 := by decide +kernel
+example : ∃ k, k<3 ∧ FanIntervalChain.Between (radii k) 3 (radii (k+1)) :=
+  FanIntervalChain.finite_crossing radii 3 3 (by decide)
+    (Or.inl ⟨by decide +kernel,by decide +kernel⟩)
 
 -- Interpolating at either endpoint makes one entire group weight zero.
 -- Repeated vertices are allowed by the same convexity proof.

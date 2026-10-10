@@ -93,8 +93,10 @@ for each module's Rat migration, followed by the authorized final sweep.
 Rat-foundation reassessment, 10 October: **every file/witness percentage
 remains unchanged**. Core Rat now realizes the ordered-magnitude interface;
 the rational closed-bound exhaustion lemma uses an explicit half-gap and
-`grind`, replacing unreduced cross-multiplication. Its five existing callers
-convert through the temporary bridge. This is representation work: historical
+`grind`, replacing unreduced cross-multiplication. Finite interval crossings
+now use core Rat directly with no project arithmetic import. Their legacy
+callers convert through the temporary bridge. The migrated exhaustion and
+crossing modules have no warnings. This is representation work: historical
 statements, remaining obligations and their effort estimates are unchanged.
 Measured lines, theorem cascades and dependency scores are refreshed below.
 
@@ -278,7 +280,7 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 889 | 1849 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2046 | 73 | 886 | 1845 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 182 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 110 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 96 |
@@ -308,7 +310,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 15699 | 1013 | 1013 | 1013 |
+| [BarrowLib](BarrowLib.lean) | 15664 | 1009 | 1009 | 1009 |
 | [ModernLib](ModernLib.lean) | 19742 | 1157 | 1501 | 1702 |
 
 After a build, reproduce or check these rows with the existing compiled checker:

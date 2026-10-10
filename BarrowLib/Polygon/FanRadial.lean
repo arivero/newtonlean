@@ -76,13 +76,15 @@ theorem ray_between (s : Fraction) (a x b : Point)
     (ha : Fraction.equiv (height s a) (Fraction.ofInt 0))
     (hx : Fraction.equiv (height s x) (Fraction.ofInt 0))
     (hb : Fraction.equiv (height s b) (Fraction.ofInt 0))
-    (h : FanIntervalChain.Between a.1 x.1 b.1) :
+    (h : FanIntervalChain.Between a.1.toRat x.1.toRat b.1.toRat) :
     ∃ u, UnitInterval u ∧ pointEquiv x (lerp u a b) := by
   have hc : (Fraction.le a.1 x.1 ∧ Fraction.le x.1 b.1) ∨
       (Fraction.le x.1 a.1 ∧ Fraction.le b.1 x.1) := by
     rcases h with h | h
-    · exact Or.inl h
-    · exact Or.inr ⟨h.2,h.1⟩
+    · exact Or.inl ⟨(Fraction.le_iff_toRat _ _).mpr h.1,
+        (Fraction.le_iff_toRat _ _).mpr h.2⟩
+    · exact Or.inr ⟨(Fraction.le_iff_toRat _ _).mpr h.2,
+        (Fraction.le_iff_toRat _ _).mpr h.1⟩
   obtain ⟨u,hu,he⟩ := affine_crossing a.1 b.1 x.1 x.1 hc
   refine ⟨u,hu,pointEquiv_trans (height_zero_ray s x hx) (pointEquiv_symm ?_)⟩
   have hs := Fraction.equiv_trans he (affine_constant u x.1)
@@ -197,7 +199,10 @@ theorem fan_boundary_crossing (p : Nat → Point) (n : Nat)
       Fraction.le (fanSlope p n hp k) s ∧
       Fraction.le s (fanSlope p n hp (k+1)) := by
   obtain ⟨k,hk,hleft,hright⟩ := FanIntervalChain.rising_crossing
-    (fanSlope p n hp) s n hn h0 hN
+    (fun k => (fanSlope p n hp k).toRat) s.toRat n hn
+    ((Fraction.le_iff_toRat _ _).mp h0) ((Fraction.le_iff_toRat _ _).mp hN)
+  have hleft := (Fraction.le_iff_toRat _ _).mpr hleft
+  have hright := (Fraction.le_iff_toRat _ _).mpr hright
   have ha := (slope_le_height s (p k) (hp k (by omega))).mp
     (by simpa only [fanSlope_vertex p n hp k (by omega)] using hleft)
   have hb := (height_le_slope s (p (k+1)) (hp (k+1) (by omega))).mp

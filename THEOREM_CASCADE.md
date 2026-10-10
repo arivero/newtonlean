@@ -35,6 +35,14 @@ statement and half-gap derivation in RationalExhaustion. Core Rat realizes
 Magnitudes without additional named theorems. Five legacy callers use bridge
 conversions, temporarily increasing their actual project dependencies.
 
+FiniteCrossing's three retained induction theorems now use core Rat without
+project arithmetic imports. They are P: their original finite derivations
+are in the file and claim no historical textual match or priority. The
+unused chain_cover wrapper is deleted; ordered_connector_bracket and
+between_split are inlined, and le_total is a removed core-order duplicate.
+Fan geometry retains Fraction temporarily and converts comparison premises
+explicitly, preserving their meaning.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,
@@ -52,7 +60,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 889 | 1849 |
+| `AreaLaw.lean` | 73 | 886 | 1845 |
 | `CompositionOfMotions.lean` | 13 | 48 | 182 |
 | `LawI.lean` | 0 | 0 | 110 |
 | `LawII.lean` | 0 | 0 | 96 |
@@ -76,7 +84,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 77 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 1013 | 1013 | 1013 |
+| `BarrowLib` | 1009 | 1009 | 1009 |
 | `ModernLib` | 1157 | 1501 | 1702 |
 
 The README additionally lists line counts and the individual classical files.
@@ -118,7 +126,7 @@ source. Source witnesses for every historical file remain in the next table.
 
 | File or library | S | R | P | U | Proof tree |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `AreaLaw.lean` | 0 | 6 | 6 | 877 | 889 |
+| `AreaLaw.lean` | 0 | 6 | 7 | 873 | 886 |
 | `CompositionOfMotions.lean` | 0 | 0 | 0 | 48 | 48 |
 | `LawI.lean` | 0 | 0 | 0 | 0 | 0 |
 | `LawII.lean` | 0 | 0 | 0 | 0 | 0 |
@@ -148,12 +156,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 46 | 967 | 1013 |
+| `BarrowLib` | 0 | 0 | 49 | 960 | 1009 |
 | `ModernLib` | 0 | 2 | 6 | 1493 | 1501 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **135 of 2394
-theorems: 6 S, 49 R and 80 P; 2259 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **138 of 2390
+theorems: 6 S, 49 R and 83 P; 2252 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.

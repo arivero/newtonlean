@@ -33,7 +33,11 @@ private theorem dyadic_crossing (j : Nat) (s : Fraction)
       (by simpa only [Fraction.le,Fraction.ofInt,Int.zero_mul,Int.mul_one] using hs0)
   have hend : Fraction.le s (countTime (Fraction.ofInt 1) j (blocks j)) :=
     Fraction.le_equiv_right hs1 (Fraction.equiv_symm (last_count j))
-  exact FanIntervalChain.rising_crossing _ s (blocks j) hpos hstart hend
+  obtain ⟨k,hk,hleft,hright⟩ := FanIntervalChain.rising_crossing
+    (fun k => (countTime (Fraction.ofInt 1) j k).toRat) s.toRat (blocks j) hpos
+    ((Fraction.le_iff_toRat _ _).mp hstart) ((Fraction.le_iff_toRat _ _).mp hend)
+  exact ⟨k,hk,(Fraction.le_iff_toRat _ _).mpr hleft,
+    (Fraction.le_iff_toRat _ _).mpr hright⟩
 
 private theorem cell_gap (j k : Nat) (s : Fraction)
     (hlo : Fraction.le (countTime (Fraction.ofInt 1) j k) s)

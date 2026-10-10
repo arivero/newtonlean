@@ -45,6 +45,16 @@ tolerance. Five call sites in CompletionGeometry, ScalarOrder, BoundedCuts
 and SquareOuterContent convert explicitly through the bridge. No historical
 statement or edition-local proof is changed.
 
+FiniteCrossing now uses core Rat with no project imports and no warnings.
+The rising, falling and unoriented finite crossing theorems retain their
+mathematical meanings. FanRadial, RadialTriangleCover, FanCorridor and
+FanDifference convert comparisons through the temporary bridge. The unused
+chain_cover wrapper is removed; ordered_connector_bracket and between_split
+are inlined, and the private le_total duplicate is replaced by core order
+reasoning. These are four deleted helpers, not historical proof progress.
+RationalMagnitudes remains a transitional module with its legacy Fraction
+model; its remaining warnings are handled when that model migrates.
+
 The user added a deprecation-only cleanup before continuing Rat clients:
 use each replacement named by Lean, edit with the patch tool, preserve
 statements and counts, compare the theorem dump with Stage 0 and require

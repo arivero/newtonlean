@@ -59,9 +59,9 @@ theorem connector_signs (p q : Nat → Point) (n : Nat)
     (hsq : Fraction.le (fanSlope q n hq iq) s) :
     Fraction.le (Fraction.ofInt 0) (height s (p k)) ∧
       Fraction.le (height s (q k)) (Fraction.ofInt 0) := by
-  have h := FanIntervalChain.ordered_connector_bracket (fanSlope p n hp)
-    (fanSlope q n hq) s ip iq k (fanSlope_monotone p n hp hcp)
-    (fanSlope_monotone q n hq hcq) (by omega) hright hsp hsq
+  have h : Fraction.le s (fanSlope p n hp k) ∧ Fraction.le (fanSlope q n hq k) s := And.intro
+    (Fraction.magnitudes.le_trans hsp (fanSlope_monotone p n hp hcp (ip+1) k (by omega)))
+    (Fraction.magnitudes.le_trans (fanSlope_monotone q n hq hcq k iq hright) hsq)
   exact ⟨(height_le_slope s (p k) (hp k (by omega))).mp
       (by simpa only [fanSlope_vertex p n hp k (by omega)] using h.1),
     (slope_le_height s (q k) (hq k (by omega))).mp
@@ -91,7 +91,7 @@ theorem between_boundaries (p q : Nat → Point) (n : Nat)
     (hrq : Fraction.equiv (height s (lerp uq (q iq) (q (iq+1)))) (Fraction.ofInt 0))
     (x : Point) (hrx : Fraction.equiv (height s x) (Fraction.ofInt 0))
     (hbetween : FanIntervalChain.Between
-      (lerp up (p ip) (p (ip+1))).1 x.1 (lerp uq (q iq) (q (iq+1))).1) :
+      (lerp up (p ip) (p (ip+1))).1.toRat x.1.toRat (lerp uq (q iq) (q (iq+1))).1.toRat) :
     FilledRegion p q n x := by
   by_cases horder : ip ≤ iq
   · apply FanCorridor.corridor p q n ip iq horder hiq s _ _ x
@@ -104,7 +104,8 @@ theorem between_boundaries (p q : Nat → Point) (n : Nat)
   · apply filled_region_swap q p n x
     have horder' : iq ≤ ip := by omega
     have hbetween' : FanIntervalChain.Between
-        (lerp uq (q iq) (q (iq+1))).1 x.1 (lerp up (p ip) (p (ip+1))).1 := by
+        (lerp uq (q iq) (q (iq+1))).1.toRat x.1.toRat
+          (lerp up (p ip) (p (ip+1))).1.toRat := by
       rcases hbetween with h | h
       · exact Or.inr h
       · exact Or.inl h
@@ -162,7 +163,8 @@ theorem difference_cover (p q : Nat → Point) (n : Nat)
       · unfold Fraction.le at *
         omega
     exact Or.inl (between_boundaries p q n hp hq hcp hcq s ip iq hip hiq up uq hup huq
-      hpleft hpright hqleft hqright hcpRay hcqRay x hxRay (Or.inl ⟨hpx,hxq⟩))
+      hpleft hpright hqleft hqright hcpRay hcqRay x hxRay
+      (Or.inl ⟨(Fraction.le_iff_toRat _ _).mp hpx,(Fraction.le_iff_toRat _ _).mp hxq⟩))
   · have hpn' : Fraction.le (fanSlope p n hp n) s := by unfold Fraction.le at *; omega
     have hpheight : Fraction.le (height s (p n)) (Fraction.ofInt 0) :=
       (slope_le_height s (p n) (hp n (by omega))).mp
@@ -182,7 +184,8 @@ theorem difference_cover (p q : Nat → Point) (n : Nat)
         simpa only [hlast] using end_connector (p (n-1)) (p n) (q (n-1)) (q n) ell hell
       apply Or.inl
       apply FanCorridor.corridor p q n iq (n-1) (by omega) (by omega) s cq ce x
-        (q_edge _ _ _ _ uq huq) hcend hcqRay hendRay hxRay (Or.inr ⟨hex,hxq⟩)
+        (q_edge _ _ _ _ uq huq) hcend hcqRay hendRay hxRay
+        (Or.inr ⟨(Fraction.le_iff_toRat _ _).mp hex,(Fraction.le_iff_toRat _ _).mp hxq⟩)
       intro k hleft hright
       have hpk : Fraction.le (fanSlope p n hp k) s := Fraction.magnitudes.le_trans
         (fanSlope_monotone p n hp hcp k n (by omega)) hpn'
