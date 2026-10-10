@@ -107,6 +107,19 @@ new project derivations have no historical clients yet, add no historical
 completion credit, and build without warnings. All six builds pass; existing
 historical statements and axiom sets are unchanged.
 
+FiniteSequenceGap now proves the telescoping estimate directly for Rat-valued
+distances, without project imports or warnings. Its state carrier is a type
+parameter because the induction uses only zero-diagonal, triangle and step
+bounds. KinematicEstimates, AccelerationEstimates, GeneralForceTime and
+HarmonicTimeRealization convert their distance values through the bridge;
+their actual states, recurrences and public statements are unchanged.
+No theorem is added or deleted; the retained induction is classified P by its
+exact statement and checked derivation. All six builds and the existing
+harmonic-time scope harness pass. Completion estimates remain unchanged.
+IntegerSchedule's duration values feed actual state recurrences, so their
+cutover will be coordinated with those callers rather than replacing their
+representative inputs prematurely.
+
 The user added a deprecation-only cleanup before continuing Rat clients:
 use each replacement named by Lean, edit with the patch tool, preserve
 statements and counts, compare the theorem dump with Stage 0 and require

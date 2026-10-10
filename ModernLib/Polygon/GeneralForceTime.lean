@@ -30,20 +30,31 @@ theorem stateTimeFactor_nonnegative (T tau B : Fraction) (s : Point × Point)
     (Fraction.nonnegative_add _ _ (by decide) (Int.le_of_lt tau.den_pos))
     (speedCap_nonnegative T tau B s hT ht hB)
 
--- Modern dependency score: 18/82 (M=18, H=64; transitive project theorems/axioms).
+-- Modern dependency score: 18/88 (M=18, H=70; transitive project theorems/axioms).
 theorem count_gap (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (j n k : Nat) (hnk : n+k ≤ blocks j) :
     Fraction.le (TimeCalibration.distance tau (countState o E0 T s hE j (n+k))
       (countState o E0 T s hE j n))
       (Fraction.mul (Fraction.ofInt (k : Int))
-        (Fraction.mul (duration T j) (speedCap T tau B s))) :=
-  FiniteSequenceGap.finite_gap (TimeCalibration.distance tau) (TimeCalibration.distance_self_zero tau)
-    (TimeCalibration.distance_triangle tau d.calibration_positive)
-    (countState o E0 T s hE j) (blocks j) (Fraction.mul (duration T j) (speedCap T tau B s))
-    (fun i hi => count_step_bound o E0 T tau L B s hE d j i hi) n k hnk
+        (Fraction.mul (duration T j) (speedCap T tau B s))) := by
+  have hg := FiniteSequenceGap.finite_gap
+    (fun x y => (TimeCalibration.distance tau x y).toRat)
+    (fun x => by
+      have hx := (Fraction.equiv_iff_toRat _ _).mp (TimeCalibration.distance_self_zero tau x)
+      simpa only [Fraction.toRat_ofInt, Rat.intCast_zero] using hx)
+    (fun x y z => by
+      have ht := (Fraction.le_iff_toRat _ _).mp
+        (TimeCalibration.distance_triangle tau d.calibration_positive x y z)
+      simpa only [Fraction.toRat_add] using ht)
+    (countState o E0 T s hE j) (blocks j)
+    (Fraction.mul (duration T j) (speedCap T tau B s)).toRat
+    (fun i hi => (Fraction.le_iff_toRat _ _).mp
+      (count_step_bound o E0 T tau L B s hE d j i hi)) n k hnk
+  apply (Fraction.le_iff_toRat _ _).mpr
+  simpa only [Fraction.toRat_mul, Fraction.toRat_ofInt, Rat.intCast_ofNat] using! hg
 
--- Modern dependency score: 19/86 (M=19, H=67; transitive project theorems/axioms).
+-- Modern dependency score: 19/92 (M=19, H=73; transitive project theorems/axioms).
 theorem count_ordered_bound (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (j n k : Nat) (hnk : n+k ≤ blocks j) :
@@ -56,7 +67,7 @@ theorem count_ordered_bound (o : ForceClasses.CentralOracle) (E0 T tau L B : Fra
     (Fraction.mul_equiv (Fraction.equiv_symm (countTime_abs_difference T j n k d.time_nonnegative))
       (Fraction.equiv_refl _))
 
--- Modern dependency score: 20/91 (M=20, H=71; transitive project theorems/axioms).
+-- Modern dependency score: 20/97 (M=20, H=77; transitive project theorems/axioms).
 theorem count_same_grid_bound (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (j m n : Nat) (hm : m ≤ blocks j) (hn : n ≤ blocks j) :
@@ -76,7 +87,7 @@ theorem count_same_grid_bound (o : ForceClasses.CentralOracle) (E0 T tau L B : F
       (Fraction.mul_equiv (durationDifference_abs_symm _ _) (Fraction.equiv_refl _))
 
 /-- Actual same-family prefixes are Lipschitz in their actual grid times. -/
--- Modern dependency score: 23/99 (M=23, H=76; transitive project theorems/axioms).
+-- Modern dependency score: 23/105 (M=23, H=82; transitive project theorems/axioms).
 theorem prefix_time_bound (b c : Nat → Bool) (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j : Nat) :
@@ -95,7 +106,7 @@ theorem prefix_time_bound (b c : Nat → Bool) (o : ForceClasses.CentralOracle)
     ac_nf) (Fraction.mul_equiv
       (Fraction.equiv_symm (timeState_distance b c T j)) (Fraction.equiv_refl _))
 
--- Modern dependency score: 56/215 (M=56, H=159; transitive project theorems/axioms).
+-- Modern dependency score: 56/217 (M=56, H=161; transitive project theorems/axioms).
 theorem address_state_equiv (b c : Nat → Bool) (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -149,7 +160,7 @@ theorem prefix_region (b : Nat → Bool) (o : ForceClasses.CentralOracle) (E0 T 
   d.frame.contains_band _ (prefix_band b o E0 T tau L B s hE d j)
 
 /-- The constructed curve has a regional representative at every time. -/
--- Modern dependency score: 70/233 (M=70, H=163; transitive project theorems/axioms).
+-- Modern dependency score: 70/235 (M=70, H=165; transitive project theorems/axioms).
 theorem gamma_admissible (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -162,7 +173,7 @@ theorem gamma_admissible (o : ForceClasses.CentralOracle) (E0 T tau L B : Fracti
 /-- Every constructed curve position lies in the closed coordinate band.
 The lower radius is stated by exclusion of smaller closed balls, without a
 new completed magnitude or a supplied confinement hypothesis. -/
--- Modern dependency score: 86/253 (M=86, H=167; transitive project theorems/axioms).
+-- Modern dependency score: 86/254 (M=86, H=168; transitive project theorems/axioms).
 theorem gamma_band (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -179,7 +190,7 @@ theorem gamma_band (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
       (prefix_band b o E0 T tau L B s hE d)
 
 /-- Changing the calibration or verified bounds keeps the same actual family. -/
--- Modern dependency score: 67/230 (M=67, H=163; transitive project theorems/axioms).
+-- Modern dependency score: 67/232 (M=67, H=165; transitive project theorems/axioms).
 theorem gamma_conditions_independent (o : ForceClasses.CentralOracle)
     (E0 T tau L B tau' L' B' : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
@@ -193,7 +204,7 @@ theorem gamma_conditions_independent (o : ForceClasses.CentralOracle)
     refine ⟨0,fun j _ => ?_⟩
     exact distance_self_lt (prefixState b o E0 T s hE j) eps heps
 
--- Modern dependency score: 67/230 (M=67, H=163; transitive project theorems/axioms).
+-- Modern dependency score: 67/232 (M=67, H=165; transitive project theorems/axioms).
 theorem gammaValue_address (b : Nat → Bool) (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -201,7 +212,7 @@ theorem gammaValue_address (b : Nat → Bool) (o : ForceClasses.CentralOracle)
       realize (prefixName b o E0 T tau L B s hE d) := rfl
 
 /-- A uniform-in-address geometric bound on actual prefix vertices. -/
--- Modern dependency score: 79/244 (M=79, H=165; transitive project theorems/axioms).
+-- Modern dependency score: 79/246 (M=79, H=167; transitive project theorems/axioms).
 theorem prefix_value_bound (b : Nat → Bool) (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m : Nat) :
@@ -214,7 +225,7 @@ theorem prefix_value_bound (b : Nat → Bool) (o : ForceClasses.CentralOracle)
       d.calibration_positive d.lipschitz.1 d.bound_nonnegative)
     (GeneralForcePrefix.adjacent_tail b o E0 T tau L B s hE d) m
 
--- Modern dependency score: 82/248 (M=82, H=166; transitive project theorems/axioms).
+-- Modern dependency score: 82/250 (M=82, H=168; transitive project theorems/axioms).
 theorem prefix_uniform_convergence (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (eps : Fraction) (heps : 0 < eps.num) :
@@ -229,7 +240,7 @@ theorem prefix_uniform_convergence (o : ForceClasses.CentralOracle) (E0 T tau L 
   exact within_mono _ _ _ _ (Fraction.magnitudes.lt_implies_le (hN m hm))
     (prefix_value_bound b o E0 T tau L B s hE d m)
 
--- Modern dependency score: 76/243 (M=76, H=167; transitive project theorems/axioms).
+-- Modern dependency score: 76/245 (M=76, H=169; transitive project theorems/axioms).
 theorem gamma_within (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (x y : BinaryTime T d.time_nonnegative) (R : Fraction)
@@ -266,7 +277,7 @@ theorem timeTolerance_positive (T tau B : Fraction) (s : Point × Point)
         (try dsimp only at hcoef hepsRat ⊢)
         grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos])
 
--- Modern dependency score: 79/246 (M=79, H=167; transitive project theorems/axioms).
+-- Modern dependency score: 79/248 (M=79, H=169; transitive project theorems/axioms).
 theorem gamma_uniform_continuity (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (eps : Fraction) (heps : 0 < eps.num) (x y : BinaryTime T d.time_nonnegative)
@@ -285,7 +296,7 @@ noncomputable def gammaPosition (o : ForceClasses.CentralOracle) (E0 T tau L B :
     (x : BinaryTime T d.time_nonnegative) : PositionValues.PositionValue :=
   PositionValues.asPosition (gammaValue o E0 T tau L B s hE d x)
 
--- Modern dependency score: 85/252 (M=85, H=167; transitive project theorems/axioms).
+-- Modern dependency score: 85/254 (M=85, H=169; transitive project theorems/axioms).
 theorem gammaPosition_within (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (x y : BinaryTime T d.time_nonnegative) (R : Fraction)
@@ -295,7 +306,7 @@ theorem gammaPosition_within (o : ForceClasses.CentralOracle) (E0 T tau L B : Fr
       (Fraction.mul R (stateTimeFactor T tau B s d.calibration_positive)) :=
   PositionValues.positionValue_within _ _ _ (gamma_within o E0 T tau L B s hE d x y R hxy)
 
--- Modern dependency score: 67/231 (M=67, H=164; transitive project theorems/axioms).
+-- Modern dependency score: 67/233 (M=67, H=166; transitive project theorems/axioms).
 theorem left_endpoint_value (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
     gammaValue o E0 T tau L B s hE d (leftTime T d.time_nonnegative) = embed s := by
@@ -308,7 +319,7 @@ theorem left_endpoint_value (o : ForceClasses.CentralOracle) (E0 T tau L B : Fra
   rw [show ticks leftAddress j = 0 from all_zero_ticks j]
   exact distance_self_lt s eps heps
 
--- Modern dependency score: 72/244 (M=72, H=172; transitive project theorems/axioms).
+-- Modern dependency score: 72/246 (M=72, H=174; transitive project theorems/axioms).
 theorem zero_time_value (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (hT : T.num = 0) (x : BinaryTime T d.time_nonnegative) :
@@ -323,7 +334,7 @@ theorem zero_time_value (o : ForceClasses.CentralOracle) (E0 T tau L B : Fractio
         (zero_time_prefix b o E0 T s hE hT j))) ((Fraction.positive_iff_zero_lt eps).mp heps)
 
 /-- General E/G agreement at the end of the constructed window. -/
--- Modern dependency score: 71/235 (M=71, H=164; transitive project theorems/axioms).
+-- Modern dependency score: 71/237 (M=71, H=166; transitive project theorems/axioms).
 theorem right_endpoint_value (o : ForceClasses.CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
     gammaValue o E0 T tau L B s hE d (rightTime T d.time_nonnegative) =

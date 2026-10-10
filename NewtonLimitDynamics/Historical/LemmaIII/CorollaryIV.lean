@@ -192,7 +192,7 @@ theorem corollary4_chord_reconstruction (T : Fraction) (hT : 0≤T.num)
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) :=
   dyadic_chordTrace_limit T hT f hf
 
--- Modern dependency score: 129/313 (M=129, H=184; transitive project theorems/axioms).
+-- Modern dependency score: 129/315 (M=129, H=186; transitive project theorems/axioms).
 theorem corollary4_constructed_polygon_boundary (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :
@@ -228,7 +228,7 @@ theorem corollary4_chord_reconstruction (T : Fraction) (hT : 0≤T.num)
     BoundaryLimit (fun m => chordTrace f (nodeTime T hT m) (blocks m)) (ImageTrace f) :=
   dyadic_chordTrace_limit T hT f hf
 
--- Modern dependency score: 129/313 (M=129, H=184; transitive project theorems/axioms).
+-- Modern dependency score: 129/315 (M=129, H=186; transitive project theorems/axioms).
 theorem corollary4_constructed_polygon_boundary (o : ForceClasses.CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0<E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) :

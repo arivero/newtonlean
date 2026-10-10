@@ -98,6 +98,11 @@ Scratch checks distinguish equivalent representatives and verify that the
 example vanishes on every normalized representative. They do not by themselves
 formalize a full limit countertheorem. No equivariance premise may be silently
 added to a historical statement.
+FiniteSequenceGap's carrier parameter removes unused coordinate imports; its
+four callers convert only scalar distance values. Verify their public types
+and all historical axiom reports unchanged, together with the existing
+harmonic-time scope harness. Actual state representatives must not change as
+a side effect of migrating this estimate.
 
 ## Review the conclusion before accepting progress
 

@@ -48,7 +48,7 @@ theorem harmonic_name_equiv (b : Nat → Bool) (w E0 T : Fraction) (s : Point ×
   rw [harmonic_prefix_eq]
   exact CauchyValues.distance_self_lt _ eps heps
 
--- Modern dependency score: 193/371 (M=193, H=178; transitive project theorems/axioms).
+-- Modern dependency score: 193/373 (M=193, H=180; transitive project theorems/axioms).
 theorem harmonic_value_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (x : BinaryTime.BinaryTime T hT) :
@@ -58,7 +58,7 @@ theorem harmonic_value_eq (w E0 T : Fraction) (s : Point × Point)
   induction x using Quotient.inductionOn with
   | _ b => exact Quotient.sound (harmonic_name_equiv b w E0 T s hw hE hT hs)
 
--- Modern dependency score: 199/377 (M=199, H=178; transitive project theorems/axioms).
+-- Modern dependency score: 199/379 (M=199, H=180; transitive project theorems/axioms).
 theorem harmonic_position_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (x : BinaryTime.BinaryTime T hT) :

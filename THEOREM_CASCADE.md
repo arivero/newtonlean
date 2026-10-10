@@ -81,6 +81,14 @@ values at unreduced representatives, so there is no reverse bridge for an
 arbitrary Fraction-valued function. Existing proof trees and M/H scores are
 unchanged by this additive API; import trees include its three declarations.
 
+FiniteSequenceGap.finite_gap is now a P finite induction over Rat distances,
+parameterized by the state carrier rather than importing coordinate geometry.
+Its exact statement and proof give project provenance, without a historical
+attribution or priority claim. All four legacy callers convert their distance
+values through the bridge; their state algorithms and theorem statements are
+unchanged. No theorem is added or deleted in this increment. Its smaller
+imports do not yet imply smaller client cascades because conversions remain.
+
 There are three different quantities:
 
 - **Own theorems** are named theorem declarations in the file or library,
@@ -110,7 +118,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `LemmaIII/CorollaryI.lean` | 10 | 137 | 518 |
 | `LemmaIII/CorollaryII.lean` | 2 | 70 | 520 |
 | `LemmaIII/CorollaryIII.lean` | 10 | 212 | 654 |
-| `LemmaIII/CorollaryIV.lean` | 12 | 472 | 1391 |
+| `LemmaIII/CorollaryIV.lean` | 12 | 473 | 1391 |
 | `LemmaX.lean` | 4 | 14 | 81 |
 | `LemmaX/CorollaryI.lean` | 2 | 14 | 91 |
 | `LemmaX/CorollaryII.lean` | 4 | 24 | 93 |
@@ -123,7 +131,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
 | `BarrowLib` | 989 | 989 | 989 |
-| `ModernLib` | 1157 | 1499 | 1692 |
+| `ModernLib` | 1157 | 1500 | 1692 |
 
 The README additionally lists line counts and the individual classical files.
 Reproduce the compiled measurements and check the README with:
@@ -164,7 +172,7 @@ source. Source witnesses for every historical file remain in the next table.
 
 | File or library | S | R | P | U | Proof tree |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `AreaLaw.lean` | 0 | 6 | 14 | 865 | 885 |
+| `AreaLaw.lean` | 0 | 6 | 15 | 864 | 885 |
 | `CompositionOfMotions.lean` | 0 | 0 | 0 | 48 | 48 |
 | `LawI.lean` | 0 | 0 | 0 | 0 | 0 |
 | `LawII.lean` | 0 | 0 | 0 | 0 | 0 |
@@ -194,12 +202,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 59 | 930 | 989 |
-| `ModernLib` | 0 | 2 | 12 | 1485 | 1499 |
+| `BarrowLib` | 0 | 0 | 60 | 929 | 989 |
+| `ModernLib` | 0 | 2 | 14 | 1484 | 1500 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **148 of 2370
-theorems: 6 S, 49 R and 93 P; 2222 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **149 of 2370
+theorems: 6 S, 49 R and 94 P; 2221 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 The large U counts expose the remaining attribution work. They do not
 invalidate the compiled proofs.

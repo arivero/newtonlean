@@ -122,6 +122,15 @@ the same rational value, checked in scratch. The migrated module has no
 warnings. This is representation cleanup: historical statements, remaining
 obligations and their effort estimates are unchanged. Measurements are refreshed.
 
+Finite-gap reassessment, 10 October: **every file/witness percentage remains
+unchanged**. The finite telescoping estimate now uses Rat-valued distances
+and an arbitrary state carrier, because its induction uses no coordinates.
+Four existing callers convert their distance values through the temporary
+bridge; their states and historical conclusions retain their meanings.
+This encoding change closes no historical obligation, so all remaining-work
+rationales and estimates still apply. Measured cascades and dependency scores
+are refreshed; bridge conversions can temporarily increase them.
+
 Rat scaling reassessment, 10 October: **every file/witness percentage remains
 unchanged**. Three directly proved scaling results supply the core Rat API;
 the legacy API remains until its callers migrate together. Arbitrary functions
@@ -322,7 +331,7 @@ of the older library helpers remains unverified.
 | [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 212 | 10 | 137 | 518 |
 | [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 520 |
 | [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 212 | 654 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 472 | 1391 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 473 | 1391 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 81 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 91 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 93 |
@@ -340,8 +349,8 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 15662 | 989 | 989 | 989 |
-| [ModernLib](ModernLib.lean) | 20034 | 1157 | 1499 | 1692 |
+| [BarrowLib](BarrowLib.lean) | 15673 | 989 | 989 | 989 |
+| [ModernLib](ModernLib.lean) | 20056 | 1157 | 1500 | 1692 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

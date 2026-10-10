@@ -43,11 +43,19 @@ theorem velocity_displacement (a : Point → Point) (h : Fraction) (s : Point ×
       (Fraction.le_equiv_right
         (Fraction.mul_le_mul_nonnegative_left (hb i hi) h.abs (Fraction.abs_num_nonnegative h))
         (Fraction.mul_equiv (Fraction.abs_of_nonnegative h hh) (Fraction.equiv_refl B)))
-  have hg := FiniteSequenceGap.finite_gap (fun x y => pointDistance x.2 y.2)
-    (fun x => pointDistance_self_zero x.2) (fun x y z => pointDistance_triangle x.2 y.2 z.2)
-    (run a h s) n (Fraction.mul h B) hs 0 n (by omega)
-  simpa only [Nat.zero_add,run] using!
-    Fraction.le_equiv_right hg (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+  have hg := FiniteSequenceGap.finite_gap
+    (fun (x y : Point × Point) => (pointDistance x.2 y.2).toRat)
+    (fun x => by
+      have hx := (Fraction.equiv_iff_toRat _ _).mp (pointDistance_self_zero x.2)
+      simpa only [Fraction.toRat_ofInt, Rat.intCast_zero] using hx)
+    (fun x y z => by
+      have ht := (Fraction.le_iff_toRat _ _).mp (pointDistance_triangle x.2 y.2 z.2)
+      simpa only [Fraction.toRat_add] using ht)
+    (run a h s) n (Fraction.mul h B).toRat
+    (fun i hi => (Fraction.le_iff_toRat _ _).mp (hs i hi)) 0 n (by omega)
+  apply (Fraction.le_iff_toRat _ _).mpr
+  simpa only [Nat.zero_add, run, time, Fraction.toRat_mul, Fraction.toRat_ofInt,
+    Rat.intCast_ofNat, Rat.mul_assoc] using! hg
 
 theorem quadratic_step (h B : Fraction) (hh : 0 ≤ h.num) (hB : 0 ≤ B.num) (n : Nat) :
     Fraction.le

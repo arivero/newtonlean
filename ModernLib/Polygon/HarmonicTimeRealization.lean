@@ -101,7 +101,7 @@ theorem countState_step_bound (w T : Fraction) (s : Point × Point)
   simp only [stateTimeFactor, Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
--- Modern dependency score: 45/109 (M=45, H=64; transitive project theorems/axioms).
+-- Modern dependency score: 45/111 (M=45, H=66; transitive project theorems/axioms).
 theorem countState_gap (w T : Fraction) (s : Point × Point)
     (j : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     (n k : Nat) → n + k ≤ blocks j →
@@ -109,10 +109,21 @@ theorem countState_gap (w T : Fraction) (s : Point × Point)
         (countState w T s j n))
         (Fraction.mul (Fraction.ofInt (k : Int))
           (Fraction.mul (duration T j) (stateTimeFactor w s)))
-  | n, k, hnk => FiniteSequenceGap.finite_gap distance stateSub_self_norm_zero
-      stateSub_triangle (countState w T s j) (blocks j)
-      (Fraction.mul (duration T j) (stateTimeFactor w s))
-      (fun i hi => countState_step_bound w T s j i hT hs (Nat.le_of_lt hi)) n k hnk
+  | n, k, hnk => by
+      have hg := FiniteSequenceGap.finite_gap
+        (fun x y => (distance x y).toRat)
+        (fun x => by
+          have hx := (Fraction.equiv_iff_toRat _ _).mp (stateSub_self_norm_zero x)
+          simpa only [Fraction.toRat_ofInt, Rat.intCast_zero] using! hx)
+        (fun x y z => by
+          have ht := (Fraction.le_iff_toRat _ _).mp (stateSub_triangle x y z)
+          simpa only [Fraction.toRat_add] using! ht)
+        (countState w T s j) (blocks j)
+        (Fraction.mul (duration T j) (stateTimeFactor w s)).toRat
+        (fun i hi => (Fraction.le_iff_toRat _ _).mp
+          (countState_step_bound w T s j i hT hs (Nat.le_of_lt hi))) n k hnk
+      apply (Fraction.le_iff_toRat _ _).mpr
+      simpa only [Fraction.toRat_mul, Fraction.toRat_ofInt, Rat.intCast_ofNat] using! hg
 
 -- Modern dependency score: 0/3 (M=0, H=3; transitive project theorems/axioms).
 theorem stateTimeFactor_nonnegative (w : Fraction) (s : Point × Point) :
@@ -125,7 +136,7 @@ theorem stateTimeFactor_nonnegative (w : Fraction) (s : Point × Point) :
   exact Int.mul_nonneg (by decide)
     (Int.mul_nonneg (by omega) hm)
 
--- Modern dependency score: 46/112 (M=46, H=66; transitive project theorems/axioms).
+-- Modern dependency score: 46/114 (M=46, H=68; transitive project theorems/axioms).
 theorem countState_ordered_bound (w T : Fraction) (s : Point × Point)
     (j n k : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (hnk : n + k ≤ blocks j) :
@@ -143,7 +154,7 @@ theorem countState_ordered_bound (w T : Fraction) (s : Point × Point)
   simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
   ac_nf
 
--- Modern dependency score: 47/119 (M=47, H=72; transitive project theorems/axioms).
+-- Modern dependency score: 47/121 (M=47, H=74; transitive project theorems/axioms).
 theorem countState_same_grid_bound (w T : Fraction) (s : Point × Point)
     (j m n : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (hm : m ≤ blocks j) (hn : n ≤ blocks j) :
@@ -169,7 +180,7 @@ theorem countState_same_grid_bound (w T : Fraction) (s : Point × Point)
       (Fraction.le_equiv_left hd hb)
       (Fraction.mul_equiv ht (Fraction.equiv_refl _))
 
--- Modern dependency score: 49/125 (M=49, H=76; transitive project theorems/axioms).
+-- Modern dependency score: 49/127 (M=49, H=78; transitive project theorems/axioms).
 theorem prefix_time_bound (b c : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) :
@@ -185,7 +196,7 @@ theorem prefix_time_bound (b c : Nat → Bool) (w T : Fraction)
       (timeApprox b T j) (timeApprox c T j)))
     (Fraction.equiv_refl _)
 
--- Modern dependency score: 120/222 (M=120, H=102; transitive project theorems/axioms).
+-- Modern dependency score: 120/224 (M=120, H=104; transitive project theorems/axioms).
 theorem address_state_equiv (b c : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T)
@@ -227,14 +238,14 @@ def gammaValue (w T : Fraction) (s : Point × Point)
     (fun b c hbc => Quotient.sound
       (address_state_equiv b c w T s hT hs hbc))
 
--- Modern dependency score: 131/234 (M=131, H=103; transitive project theorems/axioms).
+-- Modern dependency score: 131/236 (M=131, H=105; transitive project theorems/axioms).
 theorem gammaValue_address (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) :
     gammaValue w T s hT hs (Quotient.mk _ b) =
       binaryValue b w T s hT hs := rfl
 
--- Modern dependency score: 140/247 (M=140, H=107; transitive project theorems/axioms).
+-- Modern dependency score: 140/249 (M=140, H=109; transitive project theorems/axioms).
 theorem gamma_within (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (x y : BinaryTime T hT) (R : Fraction)
@@ -276,7 +287,7 @@ theorem timeTolerance_positive (w : Fraction) (s : Point × Point)
       (try dsimp only at hcoef hepsRat ⊢)
       grind only [HarmonicTimeRealization.factorDelta, Rat.div_def, Rat.inv_pos, Rat.mul_pos])
 
--- Modern dependency score: 144/251 (M=144, H=107; transitive project theorems/axioms).
+-- Modern dependency score: 144/253 (M=144, H=109; transitive project theorems/axioms).
 theorem gamma_uniform_continuity (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (eps : Fraction) (heps : 0 < eps.num)
@@ -325,7 +336,7 @@ theorem duration_factor_eventually_small (w T : Fraction)
       (try dsimp only at hcoef hdist hstrict ⊢)
       grind only [HarmonicTimeRealization.factorDelta, Rat.lt_div_iff])
 
--- Modern dependency score: 132/236 (M=132, H=104; transitive project theorems/axioms).
+-- Modern dependency score: 132/238 (M=132, H=106; transitive project theorems/axioms).
 theorem left_endpoint_value (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     gammaValue w T s hT hs (leftTime T hT) = embed s := by
@@ -338,7 +349,7 @@ theorem left_endpoint_value (w T : Fraction) (s : Point × Point)
     all_zero_prefix w T s j]
   exact distance_self_lt s eps heps
 
--- Modern dependency score: 47/112 (M=47, H=65; transitive project theorems/axioms).
+-- Modern dependency score: 47/114 (M=47, H=67; transitive project theorems/axioms).
 theorem right_prefix_endpoint_bound (w T : Fraction)
     (s : Point × Point) (j : Nat) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) :
@@ -356,7 +367,7 @@ theorem right_prefix_endpoint_bound (w T : Fraction)
     Int.natCast_one,
     Int.one_mul, Int.mul_one]
 
--- Modern dependency score: 142/246 (M=142, H=104; transitive project theorems/axioms).
+-- Modern dependency score: 142/248 (M=142, H=106; transitive project theorems/axioms).
 theorem right_endpoint_value (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     gammaValue w T s hT hs (rightTime T hT) =
@@ -440,14 +451,14 @@ theorem alias_time_eq (T : Fraction) (hT : 0 ≤ T.num) :
       Quotient.mk (addressSetoid T hT) secondAlias :=
   Quotient.sound (alias_address_equiv T hT)
 
--- Modern dependency score: 135/239 (M=135, H=104; transitive project theorems/axioms).
+-- Modern dependency score: 135/241 (M=135, H=106; transitive project theorems/axioms).
 theorem alias_value_eq (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     binaryValue firstAlias w T s hT hs =
       binaryValue secondAlias w T s hT hs := by
   exact congrArg (gammaValue w T s hT hs) (alias_time_eq T hT)
 
--- Modern dependency score: 140/243 (M=140, H=103; transitive project theorems/axioms).
+-- Modern dependency score: 140/245 (M=140, H=105; transitive project theorems/axioms).
 theorem zero_time_value (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) (hzero : T.num = 0) :
@@ -466,7 +477,7 @@ theorem zero_time_value (b : Nat → Bool) (w T : Fraction)
   exact Fraction.magnitudes.lt_of_le_lt hle
     (distance_self_lt s eps heps)
 
--- Modern dependency score: 133/237 (M=133, H=104; transitive project theorems/axioms).
+-- Modern dependency score: 133/239 (M=133, H=106; transitive project theorems/axioms).
 theorem zero_state_norm_value (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (hT : 0 ≤ T.num)
     (hs : DyadicSmallTime w T) (hzero : (stateNorm s).num = 0) :
@@ -541,7 +552,7 @@ theorem sample_alias_actual_error :
         (prefixState secondAlias sampleOne sampleQuarter sampleState 2))
       ⟨8927, 65536, by decide⟩ := by decide
 
--- Modern dependency score: 151/257 (M=151, H=106; transitive project theorems/axioms).
+-- Modern dependency score: 151/259 (M=151, H=108; transitive project theorems/axioms).
 theorem sample_right_ne_left :
     gammaValue sampleOne sampleQuarter sampleState
       (by decide) (by unfold DyadicSmallTime Fraction.le; decide)

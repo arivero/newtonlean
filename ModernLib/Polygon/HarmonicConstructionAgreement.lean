@@ -73,7 +73,7 @@ theorem unit_tail_names (b : Nat → Bool) (w T : Fraction)
     (hN (m + j) j hshift hj)
 
 /-- Equality of the two completed state values at reciprocal dyadic times. -/
--- Modern dependency score: 143/248 (M=143, H=105; transitive project theorems/axioms).
+-- Modern dependency score: 143/250 (M=143, H=107; transitive project theorems/axioms).
 theorem unit_tail_value (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (m : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -82,13 +82,13 @@ theorem unit_tail_value (b : Nat → Bool) (w T : Fraction)
       gammaValue w T s hT hs (Quotient.mk _ b) := by
   exact Quotient.sound (unit_tail_names b w T s m hT hs htick hz)
 
--- Modern dependency score: 143/247 (M=143, H=104; transitive project theorems/axioms).
+-- Modern dependency score: 143/249 (M=143, H=106; transitive project theorems/axioms).
 theorem full_window_value (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     timeValue w s ⟨T,hT,hs⟩ = gammaValue w T s hT hs (rightTime T hT) :=
   (right_endpoint_value w T s hT hs).symm
 
--- Modern dependency score: 151/254 (M=151, H=103; transitive project theorems/axioms).
+-- Modern dependency score: 151/256 (M=151, H=105; transitive project theorems/axioms).
 theorem zero_window_value (b : Nat → Bool) (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hz : T.num = 0) :
     timeValue w s ⟨T,hT,hs⟩ = gammaValue w T s hT hs (Quotient.mk _ b) := by

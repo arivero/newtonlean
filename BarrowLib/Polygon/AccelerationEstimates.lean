@@ -25,11 +25,19 @@ theorem position_displacement (a : Point → Point) (h : Fraction) (s : Point ×
       (Fraction.le_equiv_right
         (Fraction.mul_le_mul_nonnegative_left (hv i hi) h.abs (Fraction.abs_num_nonnegative h))
         (Fraction.mul_equiv (Fraction.abs_of_nonnegative h hh) (Fraction.equiv_refl V)))
-  have hg := FiniteSequenceGap.finite_gap (fun x y => pointDistance x.1 y.1)
-    (fun x => pointDistance_self_zero x.1) (fun x y z => pointDistance_triangle x.1 y.1 z.1)
-    (run a h s) N (Fraction.mul h V) hs 0 n (by omega)
-  simpa only [Nat.zero_add,run] using!
-    Fraction.le_equiv_right hg (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+  have hg := FiniteSequenceGap.finite_gap
+    (fun (x y : Point × Point) => (pointDistance x.1 y.1).toRat)
+    (fun x => by
+      have hx := (Fraction.equiv_iff_toRat _ _).mp (pointDistance_self_zero x.1)
+      simpa only [Fraction.toRat_ofInt, Rat.intCast_zero] using hx)
+    (fun x y z => by
+      have ht := (Fraction.le_iff_toRat _ _).mp (pointDistance_triangle x.1 y.1 z.1)
+      simpa only [Fraction.toRat_add] using ht)
+    (run a h s) N (Fraction.mul h V).toRat
+    (fun i hi => (Fraction.le_iff_toRat _ _).mp (hs i hi)) 0 n (by omega)
+  apply (Fraction.le_iff_toRat _ _).mpr
+  simpa only [Nat.zero_add, run, time, Fraction.toRat_mul, Fraction.toRat_ofInt,
+    Rat.intCast_ofNat, Rat.mul_assoc] using! hg
 
 def predictedVelocity (a : Point → Point) (h : Fraction) (s : Point × Point) (n : Nat) : Point :=
   inertialPosition h (s.2,a s.1) n

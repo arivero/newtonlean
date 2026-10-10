@@ -43,7 +43,7 @@ theorem second_state_time_congr (t u : Fraction) (ht : 0 < t.num) (hu : 0 < u.nu
     (show pointEquiv s.2 s.2 from ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩)
   exact pointScale_ratio_congr (Fraction.mul_equiv (Fraction.equiv_refl _) hi) hd
 
--- Modern dependency score: 1/68 (M=1, H=67; transitive project theorems/axioms).
+-- Modern dependency score: 1/72 (M=1, H=71; transitive project theorems/axioms).
 theorem finite_second_bound_at (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
     (n : Nat) (ht : 0 < (time h n).num)
@@ -70,7 +70,7 @@ theorem finite_second_bound_at (a : Point → Point) (h : Fraction) (s : Point �
   ac_nf
 
 
--- Modern dependency score: 2/69 (M=2, H=67; transitive project theorems/axioms).
+-- Modern dependency score: 2/73 (M=2, H=71; transitive project theorems/axioms).
 theorem finite_second_bound (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
     (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num)
@@ -80,7 +80,7 @@ theorem finite_second_bound (a : Point → Point) (h : Fraction) (s : Point × P
         (Fraction.mul (Fraction.mul h (TimeCalibration.inverse (time h n) ht)) (pointNorm (a s.1)))) :=
   finite_second_bound_at a h s L E V hh hL hE hV n ht (fun _ _ => hc _ _) hv
 
--- Modern dependency score: 3/72 (M=3, H=69; transitive project theorems/axioms).
+-- Modern dependency score: 3/77 (M=3, H=74; transitive project theorems/axioms).
 theorem finite_second_equivalent_time_at (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
     (n : Nat) (ht : 0 < (time h n).num)
@@ -104,7 +104,7 @@ theorem finite_second_equivalent_time_at (a : Point → Point) (h : Fraction) (s
       (TimeCalibration.inverse_congr ht hu (Fraction.equiv_symm he))) (Fraction.equiv_refl _))
 
 
--- Modern dependency score: 4/73 (M=4, H=69; transitive project theorems/axioms).
+-- Modern dependency score: 4/78 (M=4, H=74; transitive project theorems/axioms).
 theorem finite_second_equivalent_time (a : Point → Point) (h : Fraction) (s : Point × Point)
     (L E V u : Fraction) (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hE : 0 ≤ E.num) (hV : 0 ≤ V.num)
     (hc : comparisonContract a a L E) (n : Nat) (ht : 0 < (time h n).num) (hu : 0 < u.num)

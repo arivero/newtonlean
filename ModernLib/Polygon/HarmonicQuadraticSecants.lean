@@ -11,7 +11,7 @@ namespace NewtonLimitDynamics.Polygon.HarmonicQuadraticSecants
 open NewtonLimitDynamics
 open TimeSubdivision HarmonicDyadic HarmonicBinaryPrefix ForceClasses CauchyValues DyadicNodes
 
--- Modern dependency score: 281/490 (M=281, H=209; transitive project theorems/axioms).
+-- Modern dependency score: 281/492 (M=281, H=211; transitive project theorems/axioms).
 theorem second_secants_converge (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (ht : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) :

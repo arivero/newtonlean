@@ -11,7 +11,7 @@ open NewtonLimitDynamics
 open TimeSubdivision HarmonicDyadic ForceClasses HarmonicGeneralEndpoint HarmonicGeneralTime
 open PositionValues SquareContentValues
 
--- Modern dependency score: 238/436 (M=238, H=198; transitive project theorems/axioms).
+-- Modern dependency score: 238/438 (M=238, H=200; transitive project theorems/axioms).
 theorem harmonic_region_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (m : Nat) (x : PositionValue) :
@@ -25,7 +25,7 @@ theorem harmonic_region_eq (w E0 T : Fraction) (s : Point × Point)
   change MatchedRegion.Region T hT _ _ m x ↔ MatchedRegion.Region T hT _ _ m x
   rw [hp,hg]
 
--- Modern dependency score: 302/509 (M=302, H=207; transitive project theorems/axioms).
+-- Modern dependency score: 302/510 (M=302, H=208; transitive project theorems/axioms).
 theorem harmonic_content_eq (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (m : Nat) :
     GeneralForcePathContent.D_meshValue (harmonicOracle w hw) E0 T (Fraction.ofInt 1) w.abs
