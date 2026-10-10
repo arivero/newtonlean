@@ -178,6 +178,26 @@ are unchanged. New/touched modules have zero warnings; the global census
 stays at 516 unused-simp, zero deprecation and four proposition-as-definition
 warnings. No simp argument is restored or warning suppressed.
 
+The graph-free increment adds eleven shared P proofs and four edition-local
+P clients. Require the new module, both historical modules and
+`corollary1-solid-figure-2026-10-10.lean` to compile without warnings. The
+control constructs actual non-graph inner/outer unions, finite dissection and
+content assignments from the explicit convention, positive local rectangles,
+outside separation and shrinking reciprocal widths. Isolated-point,
+outer-spike and shrinking-hole controls qualify the conclusions. Compiled
+traversal requires each own Lemma III, finite addition, maximum-width bound,
+exhaustion and missed-rectangle comparison, rejecting foreign/modern use.
+Historical construction of those certificates remains open; the bounded
+Astra code inspection was interrupted by its usage limit after reporting that
+obligation, so do not describe it as a completed final audit or certify 100%.
+All six builds and both whole-figure harnesses pass. The 2,474 preceding
+named theorem statements and 248 historical axiom reports are unchanged;
+fifteen named proofs and eight historical reports (four generated helpers)
+are added, with only standard Lean axioms. CheckReferences checks 6,723
+project constants and the refreshed README rows. All 1,181 scores are
+unchanged. The warning census remains 516 unused-simp, zero deprecation and
+four proposition-as-definition warnings; touched modules/controls have none.
+
 ## Review the conclusion before accepting progress
 
 Read the changed theorem's full statement alongside the previous result and

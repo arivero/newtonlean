@@ -228,7 +228,7 @@ work. Neither A, B nor polygon/curve agreement is part of trajectory existence.
 | Lemma I | Separate 1687/1713 positive-terminal-difference contradictions, including an actual positive before-end time window; rational terminal-zero consequence | Terminal comparisons and approach premises are supplied; terminal values are not constructed. No general equality of objects is inferred from an unspecified difference |
 | Lemma II | Exact equal-width gap, finite rectangle areas and exhaustion; edition-local Lemma I. Any assigned curved-area magnitude is approximated under explicit classical halving and area rules. Integer multiples give all three mutual ultimate unit-ratio comparisons on monotone interior-positive patches. The separate uniformly continuous graph construction now removes monotonicity for both absolute area exhaustion and all three multiple comparisons; a positive ordinate constructs a fixed rectangle and derives the positive lower bracket | General area/convention existence, arbitrary patches and non-rational coordinates remain open. Only the rational magnitude model is constructed; arbitrary-domain area assignments remain conditional. Full Eudoxian ratio calculus is outside the current encoding |
 | Lemma III | Maximum-width exhaustion and the edition's Lemma II enclosure approximate any assigned area magnitude; its own Lemma I excludes a positive terminal gap. Integer multiples give all three mutual unit-ratio comparisons on monotone graphs, including zero-base interior-positive patches. Its own Lemma II now also gives nonmonotone area exhaustion and all three multiple comparisons for every sufficiently small positive height tolerance and every fine partition | Same remaining area/coordinate scope as Lemma II; applications must establish mesh exhaustion for their force polygons. Exact finite ratio equality and full ratio calculus are not claimed |
-| Lemma III corollaries I–IV | Corollary I proves whole filled-figure and complete limiting-boundary coincidence over any supplied ordered coordinate field, through its own Lemma III. Derived affine inverse/proximity transfers this to actual oblique parallelogram unions; finite contacts derive the height condition. Source-shaped clients identify the entire curve and g(b)=0, recovering two straight sides. Legacy rational clients also couple enclosure, area errors, free-edge approach and ratios on one selected family. Corollaries III/IV retain their checked contact-tangent geometry and finite polygon areas on concave increasing rational patches | Corollary I still needs historical admissibility of its whole-graph, uniform-ordinate-control and attained-contact interpretation. Finite edge traces may contain interior edges; no finite topological-boundary or arclength equality. Corollaries II–IV retain their broader-curve, tangent-existence and force-polygon obligations. General area/convention existence, patch assembly and full ratio calculus remain separate area obligations |
+| Lemma III corollaries I–IV | Corollary I now proves graph-free exact filled-inner-sum coincidence for separated solid figures through its own III and actual finite gap dissections, without a curved-area assignment. Separate graph/affine clients give whole filled/edge coincidence and actual oblique parallelogram/contact transport. Legacy rational clients couple enclosure, area errors, free-edge approach and ratios on one selected family. Corollaries III/IV retain contact-tangent geometry and finite polygon areas on concave increasing rational patches | Construct the graph-free dissection certificates for Newton's historical families and justify the solid-figure scope. Separate graph/edge clients retain their continuity/contact domain; no general perimeter or arclength equality follows. Corollaries II–IV retain broader-curve, tangent-existence and force-polygon obligations. General area/convention existence, patch assembly and full ratio calculus remain separate area obligations |
 | Laws' Corollary I / De Motu Lemma 1 | Endpoint constraints, unique intersection and central-cell composition; separate printed-edition derivations from supplied Law I inertia and calibrated Law II additive-change predicates. NATP00090 now derives its own two endpoint constraints and independent-line intersection from its Lex 1 inertia and Lex 2 calibrated velocity difference; direct addition also covers degenerate directions and zero time | Mechanical laws are premises, not geometry theorems. Only 1713 explicitly cites both Laws II/I in this proof; NATP00090 cites Lex 2, and post-impulse inertia is an editorial interpretation of its Lex 1. Its literal M/AC label inconsistency is recorded. NATP00089 retains its own hypothesis/model scope |
 | Laws' Corollaries V and VI | Separate 1687/1713 derivations from each edition's supplied Law I inertia and calibrated Law II predicates, for any family of bodies whose impulses depend only on their relative states. V: relative to a uniformly translated space every body has its resting-space state at each cell boundary. VI: common velocity changes add one shared motion to every body and leave all mutual states unchanged. NATP00090 states V as Lex 3, a law without proof | Vector addition of velocities and a shared time are explicit Galilean premises. Impulses at cell boundaries stand for collisions; contact geometry and continuous trajectories are not derived. Proposition II's second case and Proposition III do not yet use these theorems formally |
 | Proposition I / De Motu Theorem 1 | NATP00090's finite recurrence uses its own Lemma 1 and Lex 1/2; the printed editions use their own Laws' Corollary I. All three now have conditional given-motion results assigning the actual local swept sector area `T * det(initial position, initial velocity) / 2`, with proportionality for two windows sharing their initial time. NATP00090 uses direct elementary exhaustion for its unnumbered passage; the printed editions use their own Lemmas III/I. Polygon/sample agreement and slope-mesh exhaustion are derived from explicit quadratic mechanical remainders, force comparison, a short window and finite bounds. A positive monotone rational radial chart describes the full curve image. Its chord/curve symmetric difference has shrinking finite covers. The NATP00090 area-law interface needs only triangle/cut area rules, without a rule for subtracting regions | Extend beyond the rational local chart and stated mechanical/regularity premises. NATP00089's hypothesis and limiting assertion remain separate from NATP00090's laws and reconstruction. Whole-edge/arbitrary-time force-polygon agreement and existence of the actual between-region area for those mechanical polygons remain open. Rational curved areas and the partial area convention are supplied. No unrestricted historical Proposition I is certified |
@@ -517,6 +517,45 @@ source admissibility of the whole-figure graph, uniform ordinate control and
 attained-contact interpretation. Affine mathematics and finite contact-height
 correspondence are no longer open obligations. II/III remain 80%; their
 area/ratio/patch obligations and other witnesses' estimates are unchanged.
+
+The 11 October graph-free increment proves a stronger filled-inner-sum
+implication in SolidFigureExhaustion over any supplied ordered coordinate
+field. Partial finite-content rules normalize rectangles, add finite unions
+across shared straight edges and compare contained finite figures. They
+assign no content to the curved figure. A finite gap dissection identifies
+the actual outer union geometrically; repeated addition derives its content,
+and summed heights with maximum widths derive the gap bound and exhaustion.
+Each edition's new Corollary I client uses its own new Lemma III client.
+The missed-positive-rectangle comparison is proved from addition and
+containment, not postulated as a convergence oracle.
+
+The explicit separated-solid domain gives outside separation and a positive
+rectangle in every neighborhood of each figure point. It needs no global
+graph, uniform ordinate control or attained contact. The new harness proves
+the geometry, content and dissection certificates for an actual non-subgraph
+two-band family with reciprocal shrinking widths. Isolated-point, persistent
+outer-spike and shrinking-hole controls prevent stronger unjustified claims.
+Compiled traversal requires both own-edition chains and all finite-content
+steps, and rejects foreign-witness/modern dependencies.
+
+Astra's bounded code inspection found no hidden coincidence premise and
+identified the remaining source application: construct the finite dissection
+certificates for Newton's historical families and justify the admitted solid
+figure scope. The review then hit its usage limit; no completed final audit
+is claimed. Corollary I remains 85%, II/III 80%, other estimates unchanged.
+This is a proved implication with a concrete non-graph application, not a
+source-wide construction or 100% historical completion.
+
+All 2,474 preceding named theorem statements and 248 historical axiom reports
+are unchanged. Fifteen named P proofs are added; eight new historical axiom
+reports include four generated helpers and use only standard Lean axioms.
+All six builds, both whole-figure harnesses, README measurements, provenance,
+source hashes and whitespace checks pass. All 1,181 proof scores are unchanged;
+6,723 compiled project constants have no project axioms, sorry or primary
+modern dependency. The warning census remains 516 unused-simp, zero
+deprecation and four proposition-as-definition warnings; touched modules and
+controls have none. Warm timings in default/Barrow/Classics/Modern/Newton/
+Reverse order are 1.514/0.331/0.310/0.327/0.323/0.324 seconds.
 
 Remaining Lemma II–III work includes full ratio calculus,
 area/convention existence, non-rational area scope and patch assembly. The
@@ -1040,12 +1079,12 @@ controls, now retained in the same harness. The review and controls share
 the rational definitions and Lean kernel; initial convention existence is
 still an explicit input.
 
-Latest verification: 10 October 2026, after whole-figure affine/contact coincidence through
-each edition's Lemma III and Corollary I. All six builds, the whole-figure and
-uniform-rectangle scope harnesses, source hashes and
+Latest verification: 11 October 2026, after graph-free filled-sum coincidence
+through each edition's Lemma III and Corollary I. All six builds, the new
+solid-figure and reused whole-figure scope harnesses, source hashes and
 whitespace passed. The compiled checker
 verified the README measurements,
-1,181 unchanged score comments and 6,574 project constants with no project
+1,181 unchanged score comments and 6,723 project constants with no project
 axioms, sorry or primary modern dependency. The earlier full scope run
 passed all 40 positive harnesses (including the harmonic reference/comparator)
 and rejected its corrupted comparator and upper-height comparison at the

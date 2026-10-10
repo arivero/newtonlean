@@ -5,6 +5,14 @@ import NewtonLimitDynamics.Historical.LemmaIII
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
 -/
 
+/-! The graph-free extension below concerns the filled inscribed sum in
+"summa ultima", not an ultimate outer figure or general perimeter theorem.
+Finite dissection derives the content gap through the same edition's III;
+a positive rectangle in a missed neighborhood contradicts that gap.
+Separated-solid figure geometry and finite content conventions are explicit
+editorial premises. Historical construction of these certificates remains
+open; the two-band verification control is not a source-wide construction. -/
+
 /-! 1687. Primary rational approximation with explicit geometric and regularity premises. -/
 /-! Witness: 1687.
 Source: docs/m1/NATP00077.xml
@@ -245,6 +253,41 @@ theorem corollary1_parallelogram_coincidence {K : Type}
     (fun k i hi => AffineCoincidence.cell_height_of_contact
       g (parts k) i (heights k i) (hcontact k i hi))
 
+/-- Graph-free filled-sum reconstruction of "coincidit omni ex parte".
+Finite inner/outer containment and a checked rectangular dissection give
+the content gap through this edition's Lemma III. A fixed positive rectangle
+in any missed neighborhood then contradicts that gap. No area of the curved
+figure, global graph, uniform ordinate control or attained contact is used.
+The separated-solid figure domain and finite-coordinate interpretation are
+explicit editorial premises (confidence high), not a Newton quotation.
+This concerns the inscribed filled sum; perimeter claims belong to the
+separate graph clients and the later corollaries. -/
+theorem corollary1_solid_figure_coincidence {K : Type}
+    [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
+    [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (area : SolidFigureExhaustion.ContentRules K)
+    (inner outer : Nat → (K × K) → Prop) (figure : (K × K) → Prop)
+    (A mesh : Nat → K) (height : K) (hheight : 0≤height)
+    (hA : ∀ k, area.HasContent (inner k) (A k))
+    (hinner : ∀ k x, inner k x → figure x)
+    (houter : ∀ k x, figure x → outer k x)
+    (hsolid : SolidFigureExhaustion.Solid figure)
+    (hseparated : SolidFigureExhaustion.Separated figure)
+    (d : ∀ k, SolidFigureExhaustion.GapDissection (inner k) (outer k) (mesh k) height)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh) :
+    ∀ x, CurvilinearCoincidence.Ultimate inner x ↔ figure x := by
+  let C := fun k => A k+((d k).boxes.map SolidFigureExhaustion.Box.value).sum
+  have hg := unequal_width_dissection_gap inner outer mesh height hheight d hmesh
+  apply SolidFigureExhaustion.ultimate_eq_of_content_gap area inner outer figure A C hA
+    (fun k => SolidFigureExhaustion.enclosing_content area (hA k) (d k))
+    hinner houter hsolid hseparated
+  intro eps heps
+  obtain ⟨N,hN⟩ := hg eps heps
+  refine ⟨N,fun k hk => ?_⟩
+  have h := hN k hk
+  dsimp only [C]
+  grind
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own primary rational approximation with explicit premises. -/
@@ -484,5 +527,40 @@ theorem corollary1_parallelogram_coincidence {K : Type}
   exact corollary1_whole_figure_coincidence g a b parts heights mesh hzero hf hmesh hwidth
     (fun k i hi => AffineCoincidence.cell_height_of_contact
       g (parts k) i (heights k i) (hcontact k i hi))
+
+/-- Graph-free filled-sum reconstruction of "coincidit omni ex parte".
+Finite inner/outer containment and a checked rectangular dissection give
+the content gap through this edition's Lemma III. A fixed positive rectangle
+in any missed neighborhood then contradicts that gap. No area of the curved
+figure, global graph, uniform ordinate control or attained contact is used.
+The separated-solid figure domain and finite-coordinate interpretation are
+explicit editorial premises (confidence high), not a Newton quotation.
+This concerns the inscribed filled sum; perimeter claims belong to the
+separate graph clients and the later corollaries. -/
+theorem corollary1_solid_figure_coincidence {K : Type}
+    [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
+    [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (area : SolidFigureExhaustion.ContentRules K)
+    (inner outer : Nat → (K × K) → Prop) (figure : (K × K) → Prop)
+    (A mesh : Nat → K) (height : K) (hheight : 0≤height)
+    (hA : ∀ k, area.HasContent (inner k) (A k))
+    (hinner : ∀ k x, inner k x → figure x)
+    (houter : ∀ k x, figure x → outer k x)
+    (hsolid : SolidFigureExhaustion.Solid figure)
+    (hseparated : SolidFigureExhaustion.Separated figure)
+    (d : ∀ k, SolidFigureExhaustion.GapDissection (inner k) (outer k) (mesh k) height)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh) :
+    ∀ x, CurvilinearCoincidence.Ultimate inner x ↔ figure x := by
+  let C := fun k => A k+((d k).boxes.map SolidFigureExhaustion.Box.value).sum
+  have hg := unequal_width_dissection_gap inner outer mesh height hheight d hmesh
+  apply SolidFigureExhaustion.ultimate_eq_of_content_gap area inner outer figure A C hA
+    (fun k => SolidFigureExhaustion.enclosing_content area (hA k) (d k))
+    hinner houter hsolid hseparated
+  intro eps heps
+  obtain ⟨N,hN⟩ := hg eps heps
+  refine ⟨N,fun k hk => ?_⟩
+  have h := hN k hk
+  dsimp only [C]
+  grind
 
 end Principia1713.LemmaIII

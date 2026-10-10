@@ -32,6 +32,11 @@ continuity hypothesis or construction to Newton's printed proof.
 Exact original-language attributions for other borrowed results remain to be verified individually;
 successful compilation alone does not establish that source coverage. -/
 
+/- Polygon/SolidFigureExhaustion.lean states its own English finite-dissection
+and graph-free filled-sum derivations. Its partial content convention and
+separated-solid figure domain are explicit editorial geometry; no historical
+source is claimed to state these coordinate formulations. -/
+
 import BarrowLib.Common.FiniteGrowth
 import BarrowLib.Common.FiniteCrossing
 import BarrowLib.Common.Exhaustion
@@ -101,3 +106,4 @@ import BarrowLib.Polygon.ImpulseComposition
 import BarrowLib.Polygon.CommonMotion
 import BarrowLib.Polygon.CurvilinearCoincidence
 import BarrowLib.Polygon.AffineCoincidence
+import BarrowLib.Polygon.SolidFigureExhaustion

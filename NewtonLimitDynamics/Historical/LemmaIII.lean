@@ -1,6 +1,7 @@
 import ModernLib.Reconstruction.MonotoneRectangles
 import NewtonLimitDynamics.Historical.LemmaII
 import BarrowLib.Polygon.CurvilinearCoincidence
+import BarrowLib.Polygon.SolidFigureExhaustion
 
 /-! Historical result: lemma_iii.
 Diplomatic TEI rendering follows orig spelling; whitespace is collapsed; additions, deletions, notes and unclear readings are retained; fw forme-work is omitted.
@@ -258,6 +259,23 @@ theorem unequal_width_ordinate_control {K : Type} [Lean.Grind.Field K] [LE K] [L
       -eps<heights k i-g t ∧ heights k i-g t<eps :=
   CurvilinearCoincidence.heights_near g a b parts heights mesh hf hmesh hwidth hheight
 
+/-- Finite-dissection reconstruction of this edition's maximum-width
+argument (NATP00077.par6, Latin above): actual gap rectangles have width at
+most the shrinking mesh and bounded total height. Their union and content
+are derived by finite addition, rather than supplied as a vanishing gap.
+Coordinates and the finite certificate are editorial interpretation,
+confidence high; this does not construct a dissection for every curve. -/
+theorem unequal_width_dissection_gap {K : Type}
+    [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
+    [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (inner outer : Nat → (K × K) → Prop) (mesh : Nat → K) (height : K)
+    (hheight : 0≤height)
+    (d : ∀ k, SolidFigureExhaustion.GapDissection (inner k) (outer k) (mesh k) height)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh) :
+    CurvilinearCoincidence.Shrinks
+      (fun k => ((d k).boxes.map SolidFigureExhaustion.Box.value).sum) :=
+  SolidFigureExhaustion.dissection_gap_shrinks inner outer mesh height hheight d hmesh
+
 end Principia1687.LemmaIII
 
 /-! 1713. Its own unequal-width exhaustion and conditional geometric area approximation. -/
@@ -508,6 +526,23 @@ theorem unequal_width_ordinate_control {K : Type} [Lean.Grind.Field K] [LE K] [L
       (parts k).nodes i≤t → t≤(parts k).nodes (i+1) →
       -eps<heights k i-g t ∧ heights k i-g t<eps :=
   CurvilinearCoincidence.heights_near g a b parts heights mesh hf hmesh hwidth hheight
+
+/-- Finite-dissection reconstruction of this edition's maximum-width
+argument (NATP00082.par7, Latin above): actual gap rectangles have width at
+most the shrinking mesh and bounded total height. Their union and content
+are derived by finite addition, rather than supplied as a vanishing gap.
+Coordinates and the finite certificate are editorial interpretation,
+confidence high; this does not construct a dissection for every curve. -/
+theorem unequal_width_dissection_gap {K : Type}
+    [Lean.Grind.Field K] [LE K] [LT K] [Std.IsLinearOrder K]
+    [Std.LawfulOrderLT K] [Lean.Grind.OrderedRing K]
+    (inner outer : Nat → (K × K) → Prop) (mesh : Nat → K) (height : K)
+    (hheight : 0≤height)
+    (d : ∀ k, SolidFigureExhaustion.GapDissection (inner k) (outer k) (mesh k) height)
+    (hmesh : CurvilinearCoincidence.Shrinks mesh) :
+    CurvilinearCoincidence.Shrinks
+      (fun k => ((d k).boxes.map SolidFigureExhaustion.Box.value).sum) :=
+  SolidFigureExhaustion.dissection_gap_shrinks inner outer mesh height hheight d hmesh
 
 end Principia1713.LemmaIII
 

@@ -318,6 +318,28 @@ stays at 516 unused-simp, zero deprecation and four proposition-as-definition
 warnings, with no suppressed warnings or restored arguments. Measurements
 and provenance counts are refreshed.
 
+Graph-free reassessment, 11 October: **Corollary I remains 85% in both
+printed editions; Lemmas II/III remain 80%; other estimates are reassessed
+unchanged.** [SolidFigureExhaustion](BarrowLib/Polygon/SolidFigureExhaustion.lean)
+now proves exact ultimate membership of the filled inscribed sum without a
+global graph, uniform ordinate control, attained contact or curved-area
+assignment. Finite addition and containment derive the missed-rectangle
+comparison; actual finite gap dissections and shrinking maximum widths
+derive exhaustion through each edition's own Lemma III. A separated solid
+figure supplies a positive rectangle in every neighborhood of every point.
+This domain is explicit editorial geometry, not a Newton quotation.
+
+The remaining work is constructing those finite dissection certificates for
+Newton's historical parallelogram families and justifying the admitted
+solid-figure scope, rather than proving another abstract convergence wrapper.
+The non-graph two-band control proves its own certificates, but does not
+discharge that source-wide application. Estimated remaining effort is still
+about 15–20% of completed effort, so the rounded 85% is unchanged. An isolated
+point and an outer spike show why the solid domain and filled-inner-sum scope
+matter; a shrinking hole separates filled convergence from perimeter claims.
+New/touched proofs and controls are warning-free. No progress is credited to
+migration, relocation or cleanup; the global warning census is unchanged.
+
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
 deriving the physical laws is outside the task. **Lemma I is also 100% for its
@@ -344,7 +366,7 @@ work; they do not discharge the remaining primary historical tasks.
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | — / 40% | 100% | 100% | Printed ordered-difference contradiction complete: exclusion of a positive terminal difference, positive time windows before the endpoint and a rational terminal-zero consequence. Approach and terminal comparisons are explicit premises. NATP00090 has only the enclosing-ratio step inside its Lemma 2; tangent-area geometry and its mechanical premises remain open, without attributing a printed Lemma I dependency. |
 | [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | — / — | 80% | 80% | Equal-width gap, actual rectangle areas, exhaustion and the edition's Lemma I. All three mutual unit ratios hold for any assigned area magnitude on monotone interior-positive patches, allowing initial zero lower sums. The separate uniform-continuity construction gives nonmonotone area exhaustion and multiple-ratio comparisons under a positive ordinate, now also on the single matched family with a derived eventual lower bracket. General area existence, arbitrary patches and non-rational coordinates remain open. |
 | [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | — / — | 80% | 80% | Unequal-width exhaustion and the edition's Lemma II enclosure approximate any supplied area magnitude; its own Lemma I excludes a positive terminal gap. Three mutual unit ratios hold on monotone interior-positive patches. Its own Lemma II also supplies nonmonotone area exhaustion and all three comparisons, including on the same matched family under uniform continuity and a positive ordinate. General area existence, arbitrary patches and non-rational coordinates remain open; applications must justify mesh exhaustion. |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | — / — | 85% | 85% | Whole filled-figure and complete limiting-boundary coincidence over any supplied ordered coordinate field. A proved invertible affine map now gives actual oblique parallelogram unions, with contact-derived cell heights. The source-shaped client identifies the entire curved side and sets g(b)=0, recovering Newton’s two straight sides. Historical admissibility of the whole-graph, uniform-ordinate-control and attained-contact interpretation remains open. Finite edge traces may contain interior edges; no finite topological-boundary or arclength equality is claimed. |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | — / — | 85% | 85% | Graph-free exact ultimate coincidence of the filled inner sum with a separated solid figure, from finite containment and actual gap dissections through its own Lemma III; no curved-area assignment or global graph is needed. Constructing the certificates for Newton's historical families and justifying the solid-figure scope remain open. Separate graph/affine clients retain their continuity/contact premises and complete limiting edge traces; no general perimeter or arclength equality follows from the graph-free result. |
 | [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | — / — | 80% | 80% | Two-sided rational chord-boundary approximation through Corollary I. Uniform continuity and shrinking mesh remain explicit; the theorem gives no area or arclength conclusion. |
 | [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | — / — | 80% | 80% | For concave increasing rational patches, supplied contact and concavity derive supporting cells, continuity, the identity of the tangent trace with the polygon's upper boundary, and finite tangent-polygon areas by dissection. Area errors vanish against a supplied curved area. Tangent existence, arbitrary patches and curved-area existence remain open. |
 | [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | — / — | 80% | 80% | The edition's Corollaries II/III give chord and actual tangent-polygon upper-boundary approximation on those patches. General curves and identification with force polygons remain open; boundary approximation supplies no arclength limit. Modern completed-curve results stay below the separator. |
@@ -441,7 +463,7 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2084 | 73 | 880 | 1845 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2084 | 73 | 880 | 1858 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 183 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 111 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 97 |
@@ -449,11 +471,11 @@ of the older library helpers remains unverified.
 | [LawsCorollaryVI.lean](NewtonLimitDynamics/Historical/LawsCorollaryVI.lean) | 118 | 4 | 33 | 138 |
 | [LemmaI.lean](NewtonLimitDynamics/Historical/LemmaI.lean) | 145 | 7 | 18 | 91 |
 | [LemmaII.lean](NewtonLimitDynamics/Historical/LemmaII.lean) | 635 | 32 | 154 | 399 |
-| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 577 | 26 | 205 | 538 |
-| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 488 | 20 | 207 | 573 |
-| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 575 |
-| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 213 | 709 |
-| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 471 | 1439 |
+| [LemmaIII.lean](NewtonLimitDynamics/Historical/LemmaIII.lean) | 612 | 28 | 209 | 551 |
+| [LemmaIII/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryI.lean) | 566 | 22 | 217 | 588 |
+| [LemmaIII/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryII.lean) | 75 | 2 | 70 | 590 |
+| [LemmaIII/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIII.lean) | 244 | 10 | 213 | 724 |
+| [LemmaIII/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaIII/CorollaryIV.lean) | 240 | 12 | 471 | 1454 |
 | [LemmaX.lean](NewtonLimitDynamics/Historical/LemmaX.lean) | 100 | 4 | 14 | 81 |
 | [LemmaX/CorollaryI.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryI.lean) | 70 | 2 | 14 | 91 |
 | [LemmaX/CorollaryII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryII.lean) | 95 | 4 | 24 | 93 |
@@ -471,7 +493,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 16917 | 1017 | 1017 | 1017 |
+| [BarrowLib](BarrowLib.lean) | 17255 | 1028 | 1028 | 1028 |
 | [ModernLib](ModernLib.lean) | 20113 | 1157 | 1491 | 1679 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
