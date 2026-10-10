@@ -114,7 +114,7 @@ theorem force_work_eq_energy (mass w : Fraction) (x : Value) :
           Int.neg_zero] <;> ac_nf <;> omega
     · exact ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
 
--- Modern dependency score: 109/287 (M=109, H=178; transitive project theorems/axioms).
+-- Modern dependency score: 109/286 (M=109, H=177; transitive project theorems/axioms).
 private theorem node_frame_bounds (w T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num)
     (m k : Nat) (hk : k+1≤blocks m) (j : Nat) :
@@ -190,7 +190,7 @@ private theorem node_frame_bounds (w T : Fraction) (s : Point × Point)
 
 /-- The potential difference is evaluated on the actual constructed endpoint
 and the tangent continuation. Its normalized drop has an explicit O(H) bound. -/
--- Modern dependency score: 250/460 (M=250, H=210; transitive project theorems/axioms).
+-- Modern dependency score: 250/458 (M=250, H=208; transitive project theorems/axioms).
 theorem normalized_potential_cell_bound (mass w T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num)
     (m k : Nat) (hk : k+1≤blocks m) :
@@ -236,7 +236,7 @@ theorem normalized_potential_cell_bound (mass w T : Fraction) (s : Point × Poin
 
 /-- Uniform leading-order potential drop on all constructed dyadic cells,
 including the last cell: Delta V/H² tends to -mass*dot(a_left,a_left)/2. -/
--- Modern dependency score: 255/465 (M=255, H=210; transitive project theorems/axioms).
+-- Modern dependency score: 255/463 (M=255, H=208; transitive project theorems/axioms).
 theorem normalized_potential_steps_converge (mass w T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (ht : 0 < T.num)
     (eps : Fraction) (heps : 0 < eps.num) :

@@ -18,7 +18,7 @@ def cellAccelerationSecant (w T : Fraction) (s : Point × Point) (hT : 0 ≤ T.n
     (velocityValue (HarmonicTimeRealization.gammaValue w T s hT hs (nodeTime T hT m (k+1))))
     (velocityValue (HarmonicTimeRealization.gammaValue w T s hT hs (nodeTime T hT m k)))
 
--- Modern dependency score: 202/389 (M=202, H=187; transitive project theorems/axioms).
+-- Modern dependency score: 202/387 (M=202, H=185; transitive project theorems/axioms).
 theorem cellAccelerationSecant_eq (w E0 T : Fraction) (s : Point × Point) (hw : 0 ≤ w.num)
     (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (ht : 0 < T.num) (m k : Nat) :
@@ -29,7 +29,7 @@ theorem cellAccelerationSecant_eq (w E0 T : Fraction) (s : Point × Point) (hw :
   rw [GeneralForceAccelerationSecants.cellAccelerationSecant,cellAccelerationSecant,
     HarmonicGeneralTime.harmonic_value_eq,HarmonicGeneralTime.harmonic_value_eq]
 
--- Modern dependency score: 276/482 (M=276, H=206; transitive project theorems/axioms).
+-- Modern dependency score: 276/480 (M=276, H=204; transitive project theorems/axioms).
 theorem acceleration_secants_converge (w E0 T : Fraction) (s : Point × Point)
     (hw : 0 ≤ w.num) (hE : 0 < E0.num) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (ht : 0 < T.num) (eps : Fraction) (heps : 0 < eps.num) :

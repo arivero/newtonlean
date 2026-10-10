@@ -91,9 +91,8 @@ def constantErrorBudget (h L E B V : Fraction) : Nat → Fraction
 def blockFactor (h L : Fraction) : Fraction :=
   Fraction.mul (amplification L h) (amplification L h)
 
-def factorPower (r : Fraction) : Nat → Fraction
-  | 0 => Fraction.ofInt 1
-  | n + 1 => Fraction.mul r (factorPower r n)
+/-- Core scalar powers; no representative enters an actual state recurrence. -/
+def factorPower (r : Rat) (n : Nat) : Rat := r ^ n
 
 def count (n : Nat) : Fraction := Fraction.ofInt (n : Int)
 
@@ -147,24 +146,17 @@ theorem one_le_blockFactor (h L : Fraction) (hL : 0 ≤ L.num) :
     simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
     decide) hc
 
-theorem factorPower_nonnegative (r : Fraction) (hr : 0 ≤ r.num) :
-    (n : Nat) → 0 ≤ (factorPower r n).num
-  | 0 => by simp [factorPower, Fraction.ofInt]
-  | n + 1 => Fraction.nonnegative_mul _ _ hr (factorPower_nonnegative r hr n)
-
-theorem one_le_factorPower (r : Fraction) (hr : 0 ≤ r.num)
-    (h1 : Fraction.le (Fraction.ofInt 1) r) :
-    (n : Nat) → Fraction.le (Fraction.ofInt 1) (factorPower r n)
-  | 0 => Fraction.magnitudes.le_refl _
+/-- Project derivation (Sol 6.1, 10 October 2026): a finite power of a
+scalar at least one is at least one. The statement and induction below are
+its provenance; no historical textual attribution is asserted. -/
+theorem one_le_factorPower (r : Rat) (hr : 0 ≤ r)
+    (h1 : 1 ≤ r) : (n : Nat) → 1 ≤ factorPower r n
+  | 0 => by simp [factorPower]
   | n + 1 => by
       have hi := one_le_factorPower r hr h1 n
-      have hm := Fraction.mul_le_mul_nonnegative h1 (factorPower r n)
-        (factorPower_nonnegative r hr n)
-      have he : Fraction.equiv (factorPower r n)
-          (Fraction.mul (Fraction.ofInt 1) (factorPower r n)) := by
-        simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-        simp
-      exact Fraction.magnitudes.le_trans hi (Fraction.le_equiv_left he hm)
+      have hm := Rat.mul_le_mul_of_nonneg_left h1 (Rat.pow_nonneg (n := n) hr)
+      simp only [Rat.mul_one] at hm
+      simpa only [factorPower, Rat.pow_succ] using Rat.le_trans hi hm
 
 theorem uniformBlockSource_nonnegative (h L E B V : Fraction)
     (hL : 0 ≤ L.num) (hE : 0 ≤ E.num)
@@ -341,53 +333,40 @@ theorem actual_error_le_constant_budget (a : Point → Point)
   cross_actual_error_le_constant_budget a a h L E B V s hL hc hc n hB hV
 
 /-- A constant-source recurrence is bounded by its finite amplification
-power. This is pure finite arithmetic and assumes no limit object. -/
+power. Project derivation (Sol 6.1, 10 October 2026), with its exact statement
+and finite induction as provenance; no historical textual attribution.
+Only scalar bounds cross the temporary bridge. Actual states are unchanged. -/
 theorem constant_budget_power_bound (h L E B V : Fraction)
     (hL : 0 ≤ L.num) (hE : 0 ≤ E.num)
     (hB : 0 ≤ B.num) (hV : 0 ≤ V.num) :
     (n : Nat) →
-      Fraction.le (constantErrorBudget h L E B V n)
-        (Fraction.mul (count n)
-          (Fraction.mul (uniformBlockSource h L E B V)
-            (factorPower (blockFactor h L) n)))
+      (constantErrorBudget h L E B V n).toRat ≤
+        (n : Rat) * (uniformBlockSource h L E B V).toRat *
+          factorPower (blockFactor h L).toRat n
   | 0 => by
-      apply Fraction.le_of_equiv
-      simp only [constantErrorBudget, count, factorPower, Fraction.equiv,
-        Fraction.ofInt, Fraction.mul]
-      simp
+      simp [constantErrorBudget, Fraction.toRat_ofInt]
   | n + 1 => by
-      let r := blockFactor h L
-      let C := uniformBlockSource h L E B V
+      let r := (blockFactor h L).toRat
+      let C := (uniformBlockSource h L E B V).toRat
       have hi := constant_budget_power_bound h L E B V hL hE hB hV n
-      have hr := blockFactor_nonnegative h L hL
-      have hC := uniformBlockSource_nonnegative h L E B V hL hE hB hV
-      have h₁ := Fraction.mul_le_mul_nonnegative_left hi r hr
-      have h₁' : Fraction.le
-          (Fraction.mul r (constantErrorBudget h L E B V n))
-          (Fraction.mul (count n)
-            (Fraction.mul C (factorPower r (n + 1)))) := by
-        apply Fraction.le_equiv_right h₁
-        simp only [r, C, blockFactor, factorPower, Fraction.equiv, Fraction.mul]
-        ac_nf
-      have hp := one_le_factorPower r hr (one_le_blockFactor h L hL) (n + 1)
-      have h₂a := Fraction.mul_le_mul_nonnegative hp C hC
-      have h₂ : Fraction.le C (Fraction.mul C (factorPower r (n + 1))) :=
-        Fraction.le_equiv_left (by
-          simp only [Fraction.equiv, Fraction.mul, Fraction.ofInt]
-          simp) (Fraction.le_equiv_right h₂a (Fraction.mul_comm _ _))
-      have hs := Fraction.add_le_add h₁' h₂
-      have hleft : Fraction.equiv
-          (constantErrorBudget h L E B V (n + 1))
-          (Fraction.add (Fraction.mul r (constantErrorBudget h L E B V n)) C) := by
-        simp only [constantErrorBudget, C, r, blockFactor,
-          Fraction.equiv, Fraction.add, Fraction.mul]
-        ac_nf
-      apply Fraction.le_equiv_right (Fraction.le_equiv_left hleft hs)
-      simp only [count, C, r, blockFactor,
-        Fraction.equiv, Fraction.add, Fraction.mul, Fraction.ofInt,
-        Int.natCast_add, Int.natCast_one]
-      simp only [Int.add_mul, Int.mul_add, Int.one_mul, Int.mul_one]
-      ac_nf
+      have hr : 0 ≤ r := (Fraction.nonnegative_iff_toRat _).mp
+        (blockFactor_nonnegative h L hL)
+      have hC : 0 ≤ C := (Fraction.nonnegative_iff_toRat _).mp
+        (uniformBlockSource_nonnegative h L E B V hL hE hB hV)
+      have h1 : 1 ≤ r := by
+        simpa only [Fraction.toRat_ofInt, Rat.intCast_one] using
+          (Fraction.le_iff_toRat _ _).mp (one_le_blockFactor h L hL)
+      have hm := Rat.mul_le_mul_of_nonneg_left hi hr
+      have hc := Rat.mul_le_mul_of_nonneg_left
+        (one_le_factorPower r hr h1 (n + 1)) hC
+      simp only [constantErrorBudget, Fraction.toRat_add, Fraction.toRat_mul,
+        factorPower, Rat.pow_succ]
+      change _ ≤ ((n + 1 : Nat) : Rat) * C * (r ^ n * r)
+      change r * (constantErrorBudget h L E B V n).toRat ≤
+        r * ((n : Rat) * C * r ^ n) at hm
+      simp only [factorPower, Rat.pow_succ] at hc
+      simp only [r, C, blockFactor, Fraction.toRat_mul] at hm hc ⊢
+      grind
 
 /-- Cross-map mesh-uniform form conditional on the finite power bound. -/
 theorem cross_actual_error_le_two_count_source (a b : Point → Point)
@@ -399,25 +378,22 @@ theorem cross_actual_error_le_two_count_source (a b : Point → Point)
     (hB : ∀ k, k < n → Fraction.le
       (pointNorm (b (cell b h (coarseAt b h s k)).1)) B)
     (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt b h s k).2) V)
-    (hpower : Fraction.le (factorPower (blockFactor h L) n)
-      (Fraction.ofInt 2)) :
+    (hpower : factorPower (blockFactor h L).toRat n ≤ 2) :
     Fraction.le (stateDistance (fineAt a h s n) (coarseAt b h s n))
       (Fraction.mul (Fraction.ofInt 2)
         (Fraction.mul (count n) (uniformBlockSource h L E B V))) := by
   have h₀ := cross_actual_error_le_constant_budget a b h L E B V s hL
     hcross hlocal n hB hV
   have h₁ := constant_budget_power_bound h L E B V hL hE hBnonneg hVnonneg n
-  have h₂ := Fraction.mul_le_mul_nonnegative_left hpower
-    (uniformBlockSource h L E B V)
+  have hC := (Fraction.nonnegative_iff_toRat _).mp
     (uniformBlockSource_nonnegative h L E B V hL hE hBnonneg hVnonneg)
-  have h₃ := Fraction.mul_le_mul_nonnegative_left h₂ (count n) (by
-    unfold count Fraction.ofInt
-    exact Int.natCast_nonneg n)
-  have hc' := Fraction.magnitudes.le_trans h₀
-    (Fraction.magnitudes.le_trans h₁ h₃)
-  apply Fraction.le_equiv_right hc'
-  simp only [count, Fraction.equiv, Fraction.mul, Fraction.ofInt]
-  ac_nf
+  have h₂ := Rat.mul_le_mul_of_nonneg_left hpower hC
+  have h₃ := Rat.mul_le_mul_of_nonneg_left h₂ (Rat.natCast_nonneg (a := n))
+  apply (Fraction.le_iff_toRat _ _).mpr
+  have h₀' := (Fraction.le_iff_toRat _ _).mp h₀
+  simp only [Fraction.toRat_mul, Fraction.toRat_ofInt, count,
+    Rat.intCast_natCast, Rat.intCast_ofNat]
+  grind
 
 theorem actual_error_le_two_count_source (a : Point → Point)
     (h L E B V : Fraction) (s : Point × Point) (n : Nat)
@@ -427,8 +403,7 @@ theorem actual_error_le_two_count_source (a : Point → Point)
     (hB : ∀ k, k < n → Fraction.le
       (pointNorm (a (cell a h (coarseAt a h s k)).1)) B)
     (hV : ∀ k, k < n → Fraction.le (pointNorm (coarseAt a h s k).2) V)
-    (hpower : Fraction.le (factorPower (blockFactor h L) n)
-      (Fraction.ofInt 2)) :
+    (hpower : factorPower (blockFactor h L).toRat n ≤ 2) :
     Fraction.le (stateDistance (fineAt a h s n) (coarseAt a h s n))
       (Fraction.mul (Fraction.ofInt 2)
         (Fraction.mul (count n) (uniformBlockSource h L E B V))) :=
@@ -444,17 +419,24 @@ def SmallWindow (h L : Fraction) (n : Nat) : Prop :=
     (Fraction.mul (totalTime h n) (Fraction.add (Fraction.ofInt 1) L))
     ⟨1, 2, by decide⟩
 
-/-- Compatibility of the retained finite-power name with the shared power. -/
+/-- TEMPORARY MIGRATION BRIDGE: project encoding correspondence derived here
+(Sol 6.1, 10 October 2026). The wider legacy recurrence still uses fpower;
+this equality only converts its scalar value, never its state inputs. -/
 theorem factorPower_fpower (r : Fraction) :
-    (n : Nat) → Fraction.equiv (factorPower r n) (HarmonicAccumulation.fpower r n)
-  | 0 => Fraction.equiv_refl _
-  | n+1 => Fraction.mul_equiv (Fraction.equiv_refl r) (factorPower_fpower r n)
+    (n : Nat) → factorPower r.toRat n = (HarmonicAccumulation.fpower r n).toRat
+  | 0 => by simp [factorPower, HarmonicAccumulation.fpower, Fraction.toRat_ofInt]
+  | n+1 => by
+      simp only [factorPower, Rat.pow_succ, HarmonicAccumulation.fpower,
+        Fraction.toRat_mul]
+      have ih := factorPower_fpower r n
+      dsimp only [factorPower] at ih
+      grind
 
 /-- The old unit-gauge window is an instance of the shared dimensionless
 pair-factor estimate, with two fine cells in each coarse block. -/
 theorem blockFactor_power_le_two (h L : Fraction) (n : Nat)
     (hh : 0 ≤ h.num) (hL : 0 ≤ L.num) (hs : SmallWindow h L n) :
-    Fraction.le (factorPower (blockFactor h L) n) (Fraction.ofInt 2) := by
+    factorPower (blockFactor h L).toRat n ≤ 2 := by
   have hsmall : Fraction.le
       (Fraction.mul (Fraction.ofInt ((2*n : Nat) : Int))
         (Fraction.add h (Fraction.mul h L))) ⟨1,2,by decide⟩ := by
@@ -472,10 +454,15 @@ theorem blockFactor_power_le_two (h L : Fraction) (n : Nat)
       (Fraction.add_equiv (Fraction.equiv_refl _) (Fraction.abs_of_nonnegative h hh))
       (Fraction.add_equiv (Fraction.equiv_refl _)
         (Fraction.mul_equiv (Fraction.abs_of_nonnegative h hh) (Fraction.equiv_refl L)))
-  have he := Fraction.equiv_trans (factorPower_fpower (blockFactor h L) n)
+  have he := (Fraction.equiv_iff_toRat _ _).mp
     (Fraction.equiv_trans (FiniteFactorProducts.fpower_square (amplification L h) n)
       (FiniteFactorProducts.fpower_congr hcoeff (2*n)))
-  exact Fraction.le_equiv_left he hb
+  rw [factorPower_fpower]
+  change (HarmonicAccumulation.fpower
+    (Fraction.mul (amplification L h) (amplification L h)) n).toRat ≤ 2
+  rw [he]
+  simpa only [Fraction.toRat_ofInt, Rat.intCast_ofNat] using
+    (Fraction.le_iff_toRat _ _).mp hb
 
 /-- Uniform finite cross-map comparison of actual polygon endpoints on a
 small window. `B` and `V` refer to the coarse map `b` on the finite prefix;

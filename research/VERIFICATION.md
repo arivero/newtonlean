@@ -110,6 +110,16 @@ and historical theorem types and axiom reports are unchanged. The finite-gap
 rewrite removed two unused-simp warnings; interval bisection removes seven
 more. The current six-build census is 533 unused-simp, zero deprecation and
 five proposition-as-definition warnings. No simp argument has been restored.
+The subsequent active scalar-power cutover removes two more unused-simp
+warnings, leaving 531. FiniteAccumulation and FiniteRecurrence retain legacy
+sections and are not yet fully migrated modules. Check that factorPower is
+core Rat, that only scalar bounds cross the bridge, and that both final
+uniform-error statements and all historical theorem types/axiom reports are
+unchanged. The regional-accumulation harness passes. Two named helpers are
+deleted (one core duplicate, one redundant transport wrapper); the shared
+lower-bound induction and necessary temporary fpower correspondence remain.
+For provenance rows, require S + R + P + U to equal the same compiled proof
+tree shown in the measurements; wrapped scratch output must not skip rows.
 
 ## Review the conclusion before accepting progress
 

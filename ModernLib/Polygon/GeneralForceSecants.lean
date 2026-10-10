@@ -22,7 +22,7 @@ noncomputable def nodeName (o : CentralOracle) (E0 T tau L B : Fraction) (s : Po
   shiftedName (if k=blocks m then endpointName o E0 T tau L B s hE d.toConditions
     else prefixName (finiteAddress m k) o E0 T tau L B s hE d) m
 
--- Modern dependency score: 52/202 (M=52, H=150; transitive project theorems/axioms).
+-- Modern dependency score: 52/201 (M=52, H=149; transitive project theorems/axioms).
 theorem node_approx (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (m k : Nat) (hk : k≤blocks m) (j : Nat) :
@@ -37,7 +37,7 @@ theorem node_approx (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × 
       (ticks (finiteAddress m k) (m+j)) = _
     rw [finiteAddress_later_ticks m k j (by omega)]
 
--- Modern dependency score: 74/240 (M=74, H=166; transitive project theorems/axioms).
+-- Modern dependency score: 74/238 (M=74, H=164; transitive project theorems/axioms).
 theorem node_value (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k : Nat) :
     realize (nodeName o E0 T tau L B s hE d m k) =
@@ -48,7 +48,7 @@ theorem node_value (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × P
   · rw [nodeName,ite_eq_right he,shiftedValue,nodeTime,ite_eq_right he]
     rfl
 
--- Modern dependency score: 51/200 (M=51, H=149; transitive project theorems/axioms).
+-- Modern dependency score: 51/199 (M=51, H=148; transitive project theorems/axioms).
 theorem node_region (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (m k j : Nat) : o.region ((nodeName o E0 T tau L B s hE d m k).approx j).1 := by
@@ -59,7 +59,7 @@ theorem node_region (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × 
   · simp only [nodeName,ite_eq_right he,shiftedName]
     exact prefix_region (finiteAddress m k) o E0 T tau L B s hE d (m+j)
 
--- Modern dependency score: 60/213 (M=60, H=153; transitive project theorems/axioms).
+-- Modern dependency score: 60/212 (M=60, H=152; transitive project theorems/axioms).
 theorem node_admissible (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (m k : Nat) :
     SampledValues.Admissible (fun q => o.region q.1) (realize (nodeName o E0 T tau L B s hE d m k)) :=
@@ -74,7 +74,7 @@ noncomputable def cellSecant (o : CentralOracle) (E0 T tau L B : Fraction) (s : 
     (GeneralForceTime.gammaValue o E0 T tau L B s hE d (nodeTime T d.time_nonnegative m k))
 
 /-- Actual finite drift remainders pass to the secant of the completed curve. -/
--- Modern dependency score: 100/290 (M=100, H=190; transitive project theorems/axioms).
+-- Modern dependency score: 100/288 (M=100, H=188; transitive project theorems/axioms).
 theorem cell_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction) (s : Point × Point)
     (hE : 0 < E0.num) (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)
     (hT : 0 < T.num) (m k : Nat) (hk : k+1≤blocks m) :
@@ -130,7 +130,7 @@ theorem rateCoefficient_nonnegative (T tau B : Fraction) (s : Point × Point)
   Fraction.nonnegative_add _ _ hB (GeneralForceTime.stateTimeFactor_nonnegative T tau B s hT ht hB)
 
 /-- This secant uses both actual completed cell endpoints, including the right edge. -/
--- Modern dependency score: 119/316 (M=119, H=197; transitive project theorems/axioms).
+-- Modern dependency score: 119/314 (M=119, H=195; transitive project theorems/axioms).
 theorem bracketing_secant_bound (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) :
@@ -147,7 +147,7 @@ theorem bracketing_secant_bound (b : Nat → Bool) (o : CentralOracle)
   exact within_mono _ _ _ _ (Fraction.le_of_equiv (Fraction.equiv_symm (Fraction.mul_add _ _ _))) hb
 
 /-- Constructed velocity is the limit of the completed bracketing position secants. -/
--- Modern dependency score: 121/318 (M=121, H=197; transitive project theorems/axioms).
+-- Modern dependency score: 121/316 (M=121, H=195; transitive project theorems/axioms).
 theorem dyadic_velocity_uniform_identification (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
@@ -166,7 +166,7 @@ theorem dyadic_velocity_uniform_identification (o : CentralOracle)
   exact within_mono _ _ _ _ (Fraction.le_equiv_left he (Fraction.magnitudes.lt_implies_le (hN m hm)))
     (bracketing_secant_bound b o E0 T tau L B s hE d hT m)
 
--- Modern dependency score: 122/319 (M=122, H=197; transitive project theorems/axioms).
+-- Modern dependency score: 122/317 (M=122, H=195; transitive project theorems/axioms).
 theorem dyadic_velocity_identification (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)

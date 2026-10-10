@@ -25,7 +25,7 @@ noncomputable def cellSecondSecant (o : CentralOracle) (E0 T tau L B : Fraction)
 /-- The actual finite node approximants retain their sample and half-mesh
 errors. Both the completed second-order bridge and potential calculations use
 this estimate, rather than repeating the restarted-run proof. -/
--- Modern dependency score: 63/233 (M=63, H=170; transitive project theorems/axioms).
+-- Modern dependency score: 63/232 (M=63, H=169; transitive project theorems/axioms).
 theorem node_second_sample_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
@@ -82,7 +82,7 @@ theorem node_second_sample_bound (o : CentralOracle) (E0 T tau L B : Fraction)
   simp only [AccelerationEstimates.source,Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul,Int.mul_add]
   ac_nf
 
--- Modern dependency score: 127/321 (M=127, H=194; transitive project theorems/axioms).
+-- Modern dependency score: 127/319 (M=127, H=192; transitive project theorems/axioms).
 theorem cell_second_secant_bound (o : CentralOracle) (E0 T tau L B : Fraction)
     (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)
@@ -159,7 +159,7 @@ theorem secondCoefficient_nonnegative (T tau L B : Fraction) (s : Point × Point
     (Fraction.nonnegative_mul _ _ (by decide) (velocityCap_nonnegative T B s hT hB))
     (stateTimeFactor_nonnegative T tau B s hT ht hB))
 
--- Modern dependency score: 149/349 (M=149, H=200; transitive project theorems/axioms).
+-- Modern dependency score: 149/347 (M=149, H=198; transitive project theorems/axioms).
 theorem bracketing_second_secant_bound (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num) (m : Nat) :
@@ -183,7 +183,7 @@ theorem bracketing_second_secant_bound (b : Nat → Bool) (o : CentralOracle)
 
 /-- The half-coefficient position departure is derived on the actual
 completed curve at every bracketing dyadic cell, including the final boundary. -/
--- Modern dependency score: 151/351 (M=151, H=200; transitive project theorems/axioms).
+-- Modern dependency score: 151/349 (M=151, H=198; transitive project theorems/axioms).
 theorem dyadic_second_uniform_identification (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (hT : 0 < T.num)

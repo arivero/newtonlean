@@ -316,7 +316,7 @@ theorem sampled_cell_comparison (o : CentralOracle) (T B r R : Fraction)
 /-- Actual paired refinement on a certified band. Both fine arrivals, both
 coarse-field shadow arrivals and the full coarse arrival are certified before
 any of the four local force comparisons is used. -/
--- Modern dependency score: 17/131 (M=17, H=114; transitive project theorems/axioms).
+-- Modern dependency score: 17/130 (M=17, H=113; transitive project theorems/axioms).
 theorem sampled_refinement_bound (o : CentralOracle) (T B r R : Fraction)
     (s0 : Point × Point) (d : Frame o.region T B r R s0)
     (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num)
@@ -403,7 +403,7 @@ theorem sampled_refinement_bound (o : CentralOracle) (T B r R : Fraction)
 
 /-- Equivalent represented durations retain their own actual force samples.
 Membership of both arrival families is derived from the same regional frame. -/
--- Modern dependency score: 14/114 (M=14, H=100; transitive project theorems/axioms).
+-- Modern dependency score: 14/113 (M=14, H=99; transitive project theorems/axioms).
 theorem sampled_equivalent_duration_bound (o : CentralOracle) (T B r R : Fraction)
     (s0 : Point × Point) (f : Frame o.region T B r R s0)
     (L tau : Fraction) (hL : LipschitzOn o.toOracle L) (htau : 0 < tau.num)

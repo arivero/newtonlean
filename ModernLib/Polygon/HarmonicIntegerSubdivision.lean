@@ -626,7 +626,7 @@ theorem coarseBlocks_norm_bound (w h : Fraction) (k : Nat)
         Fraction.mul]
       ac_nf
 
--- Modern dependency score: 13/52 (M=13, H=39; transitive project theorems/axioms).
+-- Modern dependency score: 13/55 (M=13, H=42; transitive project theorems/axioms).
 theorem coarseBlocks_state_le_two (w h : Fraction) (k : Nat)
     (s : Point × Point) (N : Nat)
     (hpower : Fraction.le
@@ -658,7 +658,7 @@ theorem blockSource_nonnegative (w h : Fraction) (k : Nat)
 
 /-- Finite accumulation with a measured coarse-state confinement and an
 explicit short-prefix premise. No Cauchy or partition-independence field. -/
--- Modern dependency score: 40/120 (M=40, H=80; transitive project theorems/axioms).
+-- Modern dependency score: 40/123 (M=40, H=83; transitive project theorems/axioms).
 theorem block_error_le_budget (w h : Fraction) (k : Nat)
     (s : Point × Point) (N : Nat)
     (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
@@ -740,7 +740,7 @@ theorem block_power_le_two (w h : Fraction) (k N : Nat)
 /-- Accumulated comparison of `N` actual coarse cells of duration `k*h`
 with `k*N` actual fine cells. The finite short-prefix inequalities ensure
 each local split is inside the calibrated unit window. -/
--- Modern dependency score: 56/156 (M=56, H=100; transitive project theorems/axioms).
+-- Modern dependency score: 56/155 (M=56, H=99; transitive project theorems/axioms).
 theorem accumulated_integer_error (w h : Fraction) (k N : Nat)
     (s : Point × Point)
     (hh : 0 ≤ h.num) (hb : Fraction.le h.abs (Fraction.ofInt 1))
@@ -846,7 +846,7 @@ theorem integer_window_short (w h : Fraction) (k N : Nat)
 
 /-- The positive-count small-window form needs no separate local
 shortness assumptions. -/
--- Modern dependency score: 59/160 (M=59, H=101; transitive project theorems/axioms).
+-- Modern dependency score: 59/159 (M=59, H=100; transitive project theorems/axioms).
 theorem accumulated_integer_error_positive (w h : Fraction) (k N : Nat)
     (s : Point × Point)
     (hh : 0 ≤ h.num) (hk : 0 < k) (hN : 0 < N)

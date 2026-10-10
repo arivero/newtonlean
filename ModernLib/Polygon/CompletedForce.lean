@@ -186,7 +186,7 @@ theorem force_precision_independent (o : CentralOracle) (E0 E1 L L' : Fraction)
 def curveErrorCoefficient (A E0 L : Fraction) : Fraction :=
   Fraction.add (Fraction.mul A L) (errorCoefficient E0)
 
--- Modern dependency score: 96/269 (M=96, H=173; transitive project theorems/axioms).
+-- Modern dependency score: 96/267 (M=96, H=171; transitive project theorems/axioms).
 theorem prefix_force_bound (b : Nat → Bool) (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE) (j : Nat) :
@@ -213,7 +213,7 @@ theorem prefix_force_bound (b : Nat → Bool) (o : CentralOracle)
 
 /-- Uniform convergence of actual polygon force samples to the force at the
 constructed completed positions. This is not yet the acceleration equation. -/
--- Modern dependency score: 97/270 (M=97, H=173; transitive project theorems/axioms).
+-- Modern dependency score: 97/268 (M=97, H=171; transitive project theorems/axioms).
 theorem prefix_force_uniform_convergence (o : CentralOracle)
     (E0 T tau L B : Fraction) (s : Point × Point) (hE : 0 < E0.num)
     (d : GeneralForcePrefix.Conditions o E0 T tau L B s hE)

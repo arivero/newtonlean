@@ -80,3 +80,12 @@ transport does not silently normalize the inputs of arbitrary functions.
 FiniteSequenceGap likewise now abstracts the carrier and needs no coordinate
 imports. These changes remove project overhead without claiming new mathematics
 or historical proof progress.
+
+The active FiniteAccumulation power kernel now uses core Rat powers rather
+than another unreduced power recurrence. Two named helpers disappear, one
+core nonnegativity duplicate and one redundant compatibility wrapper. The
+shared power lower-bound induction remains because core plus one tactic
+does not close its uses, and the wider legacy recurrence still needs one
+temporary value correspondence. Final uniform-error statements and actual
+state algorithms are preserved. Enclosing modules still await full migration;
+this reduction in project overhead earns no historical completion credit.

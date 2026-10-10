@@ -12,17 +12,17 @@ def sourceBudget (r C : Fraction) : Nat → Fraction
   | 0 => Fraction.ofInt 0
   | n + 1 => Fraction.add (Fraction.mul r (sourceBudget r C n)) C
 
-/-- Compatibility between the two pre-existing public finite-power names. -/
-theorem factorPower_fpower (r : Fraction) :
-    (n : Nat) → Fraction.equiv (FiniteAccumulation.factorPower r n) (fpower r n)
-  | n => FiniteAccumulation.factorPower_fpower r n
-
-/-- Reuse the pre-existing generic power lower bound. -/
+/-- Transfer the finite core power bound to the remaining legacy recurrence. -/
 theorem one_le_fpower (r : Fraction) (hr : 0 ≤ r.num)
     (hone : Fraction.le (Fraction.ofInt 1) r) (n : Nat) :
-    Fraction.le (Fraction.ofInt 1) (fpower r n) :=
-  Fraction.le_equiv_right (FiniteAccumulation.one_le_factorPower r hr hone n)
-    (factorPower_fpower r n)
+    Fraction.le (Fraction.ofInt 1) (fpower r n) := by
+  apply (Fraction.le_iff_toRat _ _).mpr
+  rw [Fraction.toRat_ofInt, Rat.intCast_one,
+    ← FiniteAccumulation.factorPower_fpower]
+  apply FiniteAccumulation.one_le_factorPower _
+    ((Fraction.nonnegative_iff_toRat _).mp hr)
+  simpa only [Fraction.toRat_ofInt, Rat.intCast_one] using
+    (Fraction.le_iff_toRat _ _).mp hone
 
 theorem fpower_add (r : Fraction) (m : Nat) :
     (n : Nat) → Fraction.equiv (fpower r (m + n))

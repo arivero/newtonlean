@@ -80,7 +80,7 @@ theorem dyadic_coarse_endpoint (b : Nat → Bool) (w T : Fraction)
     (blocks j) s s ⟨⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩,
       ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩⟩
 
--- Modern dependency score: 80/188 (M=80, H=108; transitive project theorems/axioms).
+-- Modern dependency score: 80/187 (M=80, H=107; transitive project theorems/axioms).
 theorem finite_tail_level_error (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (m j : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -105,7 +105,7 @@ theorem finite_tail_level_error (b : Nat → Bool) (w T : Fraction)
       (Fraction.le_equiv_left (Fraction.equiv_symm he) hi)
       (dyadic_integer_error_cap b w T s m j))
 
--- Modern dependency score: 166/283 (M=166, H=117; transitive project theorems/axioms).
+-- Modern dependency score: 166/282 (M=166, H=116; transitive project theorems/axioms).
 theorem finite_tail_names (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (m : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -154,7 +154,7 @@ theorem finite_tail_names (b : Nat → Bool) (w T : Fraction)
 
 /-- Every finite binary dyadic time has the same completed state under the
 endpoint and one-global-family prefix constructions. -/
--- Modern dependency score: 191/317 (M=191, H=126; transitive project theorems/axioms).
+-- Modern dependency score: 191/315 (M=191, H=124; transitive project theorems/axioms).
 theorem finite_tail_value (b : Nat → Bool) (w T : Fraction)
     (s : Point × Point) (m : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
@@ -180,7 +180,7 @@ theorem dyadicTime_exact (w T : Fraction) (k m : Nat) (hT : 0 ≤ T.num)
 /-- Every numerator below 2^m has an explicitly constructed address;
 agreement does not assume a representation exists. The full endpoint uses
 full_window_value. -/
--- Modern dependency score: 193/319 (M=193, H=126; transitive project theorems/axioms).
+-- Modern dependency score: 193/317 (M=193, H=124; transitive project theorems/axioms).
 theorem dyadic_value (w T : Fraction) (s : Point × Point) (k m : Nat)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) (hk : k<blocks m) :
     CauchyValues.timeValue w s (dyadicTime w T k m hT hs hk) =
@@ -209,7 +209,7 @@ theorem full_dyadic_value_at_represented_time (w T : Fraction) (s : Point × Poi
     (Fraction.equiv_trans ht (blocks_duration T m))).trans
     (full_window_value w T s hT hs)
 
--- Modern dependency score: 199/326 (M=199, H=127; transitive project theorems/axioms).
+-- Modern dependency score: 199/324 (M=199, H=125; transitive project theorems/axioms).
 theorem dyadic_value_at_represented_time (w T : Fraction) (s : Point × Point)
     (k m : Nat) (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T)
     (hk : k<blocks m) (t : ShortRationalTime w)
@@ -225,7 +225,7 @@ theorem dyadic_value_at_represented_time (w T : Fraction) (s : Point × Point)
 
 /-- A three-tick time has equal completed values even though the earlier
 exact control proves its finite endpoint and prefix schedules unequal. -/
--- Modern dependency score: 194/320 (M=194, H=126; transitive project theorems/axioms).
+-- Modern dependency score: 194/318 (M=194, H=124; transitive project theorems/axioms).
 theorem three_tick_value_agreement (w T : Fraction) (s : Point × Point)
     (hT : 0 ≤ T.num) (hs : DyadicSmallTime w T) :
     CauchyValues.timeValue w s (dyadicTime w T 3 2 hT hs (by decide)) =
