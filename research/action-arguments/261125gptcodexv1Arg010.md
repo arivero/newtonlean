@@ -99,8 +99,9 @@ note's "one unit of Planck area in one unit of Planck time" is `Ȧ = ℓ_P²/t_P
 The matched quantity `r v` equals `λ ħ/m_P` and is an areal velocity. The test
 body's angular momentum is `L = λ ħ m/m_P` (`test_body_action`), an action that
 equals `ħ` at `λ = 1` exactly when `m = m_P` (`action_is_hbar_iff`). The
-phase-space area is `2π L`. At the matched radius the orbital speed obeys
-`(v/c)² = (M/m_P)²` (`matched_speed`, in the form `v² ħ = G M² c`).
+phase-space area is `2π L`. At the matched radius with `λ = 1` the orbital speed obeys
+`(v/c)² = (M/m_P)²` (`matched_speed`, in the form `v² ħ = G M² c`); for general
+`λ` it is `(M/(λ m_P))²`.
 
 ### Examples for the proposed bound `r ≥ ħ/(M c)`
 

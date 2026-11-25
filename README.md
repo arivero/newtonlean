@@ -405,7 +405,9 @@ Planck matching of a Kepler areal velocity gives `M c r = λ² ħ` with `G`
 cancelled and `ħ` imported through `ℓ_P`. Arg002 step 3 is now checked and
 Arg003 step 3 is refined at `L² = m k`. This is diagnostic-layer work and
 earns no historical credit; the new module is warning-free, the ModernLib
-measurements are refreshed and the global warning census is unchanged.
+measurements are refreshed and the global warning census is unchanged. After
+the issue 5 verification the Arg010 note states the matched speed for general
+`λ`; percentages are reassessed again and unchanged.
 
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
