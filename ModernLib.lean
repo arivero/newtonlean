@@ -21,6 +21,7 @@ constructions must identify their own statement/proof provenance separately. -/
 
 import ModernLib.Comparison.CircleCompare
 import ModernLib.Diagnostic.ConstructedHarmonicPotential
+import ModernLib.Diagnostic.CoupledPolygons
 import ModernLib.Diagnostic.DeflectionPotential
 import ModernLib.Diagnostic.InverseCubeAreal
 import ModernLib.Diagnostic.PhaseArea

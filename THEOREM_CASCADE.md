@@ -169,7 +169,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
 | `BarrowLib` | 1028 | 1028 | 1028 |
-| `ModernLib` | 1157 | 1491 | 1679 |
+| `ModernLib` | 1184 | 1518 | 1706 |
 
 The README additionally lists line counts and the individual classical files.
 Reproduce the compiled measurements and check the README with:
@@ -241,7 +241,7 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
 | `BarrowLib` | 0 | 0 | 118 | 910 | 1028 |
-| `ModernLib` | 0 | 2 | 22 | 1467 | 1491 |
+| `ModernLib` | 0 | 2 | 22 | 1494 | 1518 |
 
 Across the whole loaded project environment, deduplicating rather than
 adding these overlapping rows, this bounded review classifies **231 of 2433
@@ -361,7 +361,7 @@ own statement and proof are explicitly presented as a project derivation.
 | Nonmonotone rectangular-exhaustion support | 0 exact external result claims; X.1 halving remains a separately sourced premise | 7 new shared graph theorems (4 private), 1 extracted finite comparison and 6 edition-local clients, all explicit project derivations |
 | Nonmonotone free-staircase support | 0 exact external result claims | 4 shared project proofs, including 1 private height-distance proof, and 2 edition clients; no area assignment or enclosure premise is used |
 | Matched-family support | 0 exact external result claims | 1 shared project proof and 2 edition clients align the mesh/height quantifiers and derive simultaneous enclosure, area and boundary approximation |
-| `ModernLib` | No exact original-language result is established by this aggregate row | 1157 formal declarations; exact sourced/authored split remains unverified |
+| `ModernLib` | No exact original-language result is established by this aggregate row | 1184 formal declarations, including the 27 coupled-polygon diagnostics (14 public, 13 private) of issue 2, which remain U; exact sourced/authored split remains unverified |
 
 The two Lemma II and two Lemma III witness sections preserve their separate
 Latin passages and edition-local proof interfaces. Their theorem declarations

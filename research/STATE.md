@@ -311,6 +311,18 @@ layer. Positivity, finiteness, partition stability, system independence and
 action rescaling are distinct tests. No universal constant or quantum premise
 closes a historical proof.
 
+[CoupledPolygons](../ModernLib/Diagnostic/CoupledPolygons.lean) (issue 2) is a
+finite rational benchmark for coupled `SU(2)` matrix mechanics: torque
+cancellation, Gauss-generator preservation over any finite schedule, the
+triangle sum `(h/2m) G`, an exact cancelling example and the quartic scaling
+conjugacy. Its obligations stay open. The finite identities give no continuum
+identification of the polygons with a trajectory. Convergence on the growing
+physical interval `T/s` that the scaling produces needs a stated stability or
+residual bound on the reference interval, which is not proved. The quantum
+well scale `s = (ħ/S₀)^{1/3}` remains prose: no operator, phase-space action or
+quantum action parameter is formalized, and the configuration areas
+`triangle`/`swept` are kept distinct from them.
+
 ## Current increment and next work
 
 `UniformRectangles.exhaustion` removes monotonicity from conditional rectangular

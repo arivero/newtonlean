@@ -340,6 +340,20 @@ matter; a shrinking hole separates filled convergence from perimeter claims.
 New/touched proofs and controls are warning-free. No progress is credited to
 migration, relocation or cleanup; the global warning census is unchanged.
 
+Coupled-polygon reassessment, 25 November 2026 (issue 2): **every file and
+witness percentage is reassessed and unchanged.** The new modern diagnostic
+[CoupledPolygons](ModernLib/Diagnostic/CoupledPolygons.lean) checks, over
+core `Rat`, the drift/impulse cell of bosonic `SU(2)` matrix mechanics:
+pairwise torque cancellation, preservation of the Gauss-law generator by one
+cell and by every finite schedule of unequal durations, the vector triangle
+sum `(h/2m) G`, an exact example with nonzero cancelling triangles
+`±(3/100) e₃`, and the quartic scaling `Φ_h ∘ D_s = D_s ∘ Φ_{sh}` with
+`G ∘ D_s = s³ G`. These are known facts in a project-specific packaging; their
+exact sources remain unverified. A ModernLib diagnostic earns no historical
+credit and no historical proof imports it. The new module is warning-free; the
+ModernLib measurement row is refreshed (27 new declarations, all score
+comments regenerated) and the global warning census is unchanged.
+
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
 deriving the physical laws is outside the task. **Lemma I is also 100% for its
@@ -494,7 +508,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
 | [BarrowLib](BarrowLib.lean) | 17255 | 1028 | 1028 | 1028 |
-| [ModernLib](ModernLib.lean) | 20113 | 1157 | 1491 | 1679 |
+| [ModernLib](ModernLib.lean) | 20477 | 1184 | 1518 | 1706 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 
