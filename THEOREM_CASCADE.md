@@ -144,7 +144,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 73 | 880 | 1858 |
+| `AreaLaw.lean` | 73 | 880 | 1860 |
 | `CompositionOfMotions.lean` | 13 | 48 | 183 |
 | `LawI.lean` | 0 | 0 | 111 |
 | `LawII.lean` | 0 | 0 | 97 |
@@ -168,7 +168,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 1028 | 1028 | 1028 |
+| `BarrowLib` | 1061 | 1061 | 1061 |
 | `ModernLib` | 1184 | 1518 | 1706 |
 
 The README additionally lists line counts and the individual classical files.
@@ -240,12 +240,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 118 | 910 | 1028 |
+| `BarrowLib` | 0 | 0 | 151 | 910 | 1061 |
 | `ModernLib` | 0 | 2 | 49 | 1467 | 1518 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **258 of 2460
-theorems: 6 S, 49 R and 203 P; 2202 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **291 of 2493
+theorems: 6 S, 49 R and 236 P; 2202 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 Wrapped scratch output had left the Corollary III and IV provenance rows stale;
 they now use unwrapped output and agree with their measured proof-tree totals.
@@ -360,6 +360,7 @@ own statement and proof are explicitly presented as a project derivation.
 | Assigned-area unit-ratio support | Euclid V.2/V.5 supply comparison language, not this limit theorem | 6 shared project theorems, including 2 private, and 4 edition-local clients; all are internally derived formulations, without priority claims |
 | Nonmonotone rectangular-exhaustion support | 0 exact external result claims; X.1 halving remains a separately sourced premise | 7 new shared graph theorems (4 private), 1 extracted finite comparison and 6 edition-local clients, all explicit project derivations |
 | Nonmonotone free-staircase support | 0 exact external result claims | 4 shared project proofs, including 1 private height-distance proof, and 2 edition clients; no area assignment or enclosure premise is used |
+| Nonmonotone radial-sector support (issue 3) | 0 exact external result claims; the lower/upper-sum squeeze and power sums are known, with sources unverified | 33 project derivations: `UniformRadialSector` and `QuadraticSector` (31, including the three controls) and the two positive-lower-bound mesh theorems in `MotionSampling`; no historical client uses them yet |
 | Coupled-polygon diagnostics (issue 2) | 0 exact external result claims; the underlying facts are known, with sources unverified | 27 project derivations in `ModernLib/Diagnostic/CoupledPolygons.lean`, 14 public and 13 private; no historical proof imports them and no priority is claimed |
 | Matched-family support | 0 exact external result claims | 1 shared project proof and 2 edition clients align the mesh/height quantifiers and derive simultaneous enclosure, area and boundary approximation |
 | `ModernLib` | No exact original-language result is established by this aggregate row | 1184 formal declarations, including the 27 coupled-polygon diagnostics (14 public, 13 private) of issue 2, classified P; exact sourced/authored split remains unverified |

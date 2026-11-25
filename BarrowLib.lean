@@ -29,6 +29,11 @@ Polygon/UniformRectangles.lean gives explicit project derivations of clipped
 rectangle enclosures and exhaustion for uniformly continuous nonnegative
 rational graphs. This extends the figure scope without attributing its
 continuity hypothesis or construction to Newton's printed proof.
+Polygon/UniformRadialSector.lean gives the radial counterpart: cap enclosures
+and exhaustion for a positive, bounded, uniformly continuous slope chart that
+may rise and fall, and Polygon/QuadraticSector.lean an exact nonmonotone
+example with chord-fan area 41/60 - 1/(4n^2) + 1/(15n^4). Both are project
+derivations without external exact-result or priority claims (issue 3).
 Exact original-language attributions for other borrowed results remain to be verified individually;
 successful compilation alone does not establish that source coverage. -/
 
@@ -74,6 +79,8 @@ import BarrowLib.Polygon.LatticeGeometry
 import BarrowLib.Polygon.MonotoneRectangles
 import BarrowLib.Polygon.MagnitudeContent
 import BarrowLib.Polygon.UniformRectangles
+import BarrowLib.Polygon.UniformRadialSector
+import BarrowLib.Polygon.QuadraticSector
 import BarrowLib.Polygon.MotionSampling
 import BarrowLib.Polygon.MotionSectorCover
 import BarrowLib.Polygon.MotionCurveCover

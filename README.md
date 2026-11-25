@@ -357,6 +357,24 @@ issue 2 verification the 27 declarations are classified P in the provenance
 census, the tactic macro is local to the module and the docstring names the
 bilinear-invariant case; percentages are reassessed again and unchanged.
 
+Nonmonotone radial-sector reassessment, 25 November 2026 (issue 3): **every
+file and witness percentage is reassessed and unchanged.**
+[UniformRadialSector](BarrowLib/Polygon/UniformRadialSector.lean) removes
+radial monotonicity from the finite sector enclosure: for a positive, bounded,
+uniformly continuous rational slope chart and every sufficiently fine ordered
+partition, actual lower and upper cap unions enclose both the sector and its
+chord fan, with exact gap `Σ Δθᵢ · 2ε g(θᵢ) ≤ 2Mε(b-a)`, the assigned-area
+error bound and the between-region collar. [QuadraticSector](BarrowLib/Polygon/QuadraticSector.lean)
+proves the exact nonmonotone example `g = 1 + θ(1-θ)`: chord-fan area
+`41/60 - 1/(4n²) + 1/(15n⁴)`, uniqueness of any assigned sector area `41/60`,
+and the constructed between-area `(15n² - 4)/(60n⁴) > 0`, with falling-scale,
+repeated-node and coarse-partition controls. `MotionSampling` gains slope-mesh
+bounds from a supplied positive lower scale. No historical client changes: the
+local Proposition I sector results still use the monotone `RadialChart`, and a
+uniform chart with its NATP00090, 1687 and 1713 clients remains open, so no
+percentage moves. The new modules are warning-free; BarrowLib and AreaLaw
+measurements are refreshed and the global warning census is unchanged.
+
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
 deriving the physical laws is outside the task. **Lemma I is also 100% for its
@@ -480,7 +498,7 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2084 | 73 | 880 | 1858 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2084 | 73 | 880 | 1860 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 183 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 111 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 97 |
@@ -510,7 +528,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 17255 | 1028 | 1028 | 1028 |
+| [BarrowLib](BarrowLib.lean) | 18266 | 1061 | 1061 | 1061 |
 | [ModernLib](ModernLib.lean) | 20477 | 1184 | 1518 | 1706 |
 
 After a build, reproduce or check these rows with the existing compiled checker:

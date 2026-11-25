@@ -453,6 +453,93 @@ theorem radial_mesh_vanishes (a : Point → Point) (C T P V : Fraction)
   obtain ⟨N,hN⟩ := hs eps heps
   exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hb j) (hN j hj)⟩
 
+/-- The slope width bound of `radial_width_bound` with a supplied positive
+lower bound `m` on the node scales in place of monotonicity (issue 3). The
+determinant of consecutive samples is at least `m² Δθ`; the mechanical
+premises are unchanged. This is a project derivation. -/
+theorem radial_width_bound_lower (a : Point → Point) (C T P V : Fraction)
+    (g : Fraction → Fraction) {l r : Fraction} (p : MonotoneRectangles.Partition l r)
+    (q : Nat → Point × Point) (j k : Nat) (hk : k < p.count)
+    (m : Fraction) (hm : 0 < m.num)
+    (hlow : ∀ i, i ≤ p.count → Fraction.le m (g (p.nodes i)))
+    (hC : 0 ≤ C.num) (hT : 0 ≤ T.num) (hP : 0 ≤ P.num)
+    (hp : Fraction.le (pointNorm (q k).1) P) (hv : Fraction.le (pointNorm (q k).2) V)
+    (hchart : ∀ i, i ≤ p.count → pointEquiv (q i).1 (RadialSector.ray (g (p.nodes i)) (p.nodes i)))
+    (hres : Fraction.le (stateDistance (q (k+1)) (cell a (duration T j) (q k))) (remainder C T j)) :
+    Fraction.le (MonotoneRectangles.width p k)
+      (Fraction.mul (slopeCoefficient m P V C T hm) (duration T j)) := by
+  let R := m
+  let W := MonotoneRectangles.width p k
+  let M := Fraction.mul R R
+  have hM : 0 < M.num := Int.mul_pos hm hm
+  have hnode (i : Nat) (hi : i ≤ p.count) : 0 < (g (p.nodes i)).num :=
+    RadialSector.positive_of_le _ _ hm (hlow i hi)
+  have hW : 0 ≤ W.num := (difference_nonnegative_iff _ _).mpr (p.ordered k hk)
+  have hleft := hlow k (by omega)
+  have hright := hlow (k+1) (by omega)
+  have hrad : Fraction.le M (Fraction.mul (g (p.nodes k)) (g (p.nodes (k+1)))) :=
+    Fraction.magnitudes.le_trans
+      (Fraction.mul_le_mul_nonnegative hleft R (Int.le_of_lt hm))
+      (Fraction.mul_le_mul_nonnegative_left hright (g (p.nodes k))
+        (Int.le_of_lt (hnode k (by omega))))
+  have hdet := Fraction.equiv_trans (TimeSubdivision.det_congr (hchart k (by omega)) (hchart (k+1) (by omega)))
+    (RadialSector.ray_det _ _ _ _)
+  have hdet0 : 0 ≤ (TimeSubdivision.det (q k).1 (q (k+1)).1).num :=
+    Fraction.nonnegative_equiv hdet (Fraction.nonnegative_mul _ _
+      (Fraction.nonnegative_mul _ _
+        (Int.le_of_lt (hnode k (by omega)))
+        (Int.le_of_lt (hnode (k+1) (by omega)))) hW)
+  have hlow : Fraction.le (Fraction.mul M W) (TimeSubdivision.det (q k).1 (q (k+1)).1).abs :=
+    Fraction.le_equiv_right (Fraction.le_equiv_right (Fraction.mul_le_mul_nonnegative hrad W hW)
+      (Fraction.equiv_symm hdet)) (Fraction.equiv_symm (Fraction.abs_of_nonnegative _ hdet0))
+  have hstep := position_step_bound a (duration T j) V (remainder C T j) (q k) (q (k+1)) hv hres
+  have hstep' : Fraction.le (pointDistance (q (k+1)).1 (q k).1)
+      (Fraction.mul (Fraction.add V (Fraction.mul C T)) (duration T j)) := by
+    apply Fraction.le_equiv_right (Fraction.magnitudes.le_trans hstep
+      (Fraction.add_le_add (remainder_le_width C T j hC hT)
+        (Fraction.le_of_equiv (Fraction.mul_equiv_right V (Fraction.abs_of_nonnegative _ hT)))))
+    simp only [Fraction.equiv,Fraction.add,Fraction.mul,Int.add_mul]
+    ac_nf
+  have hhigh := det_chord_bound _ _ P _ hP hp hstep'
+  have hi := Fraction.mul_le_mul_nonnegative_left (Fraction.magnitudes.le_trans hlow hhigh)
+    (TimeCalibration.inverse M hM) (Int.le_of_lt M.den_pos)
+  have hcancel : Fraction.equiv (Fraction.mul (TimeCalibration.inverse M hM) (Fraction.mul M W)) W :=
+    Fraction.equiv_trans (Fraction.equiv_symm (Fraction.mul_assoc _ _ _))
+      (Fraction.equiv_trans (Fraction.mul_equiv_right W
+        (Fraction.equiv_trans (Fraction.mul_comm _ _) (TimeCalibration.inverse_product M hM)))
+        (by simp only [Fraction.equiv,Fraction.mul,Fraction.ofInt,Int.one_mul]))
+  apply Fraction.le_equiv_right (Fraction.le_equiv_left (Fraction.equiv_symm hcancel) hi)
+  simp only [slopeCoefficient,M,R,Fraction.equiv,Fraction.mul]
+  ac_nf
+
+/-- Slope-mesh exhaustion of the sampled curve from a supplied positive lower
+bound `m` on the node scales, without monotonicity (issue 3). The mechanical
+premises are those of `radial_mesh_vanishes`; no chart for an arbitrary
+trajectory is constructed. This is a project derivation. -/
+theorem radial_mesh_vanishes_lower (a : Point → Point) (C T P V : Fraction)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r) (q : Nat → Nat → Point × Point)
+    (m : Fraction) (hm : 0 < m.num)
+    (hlow : ∀ j i, i ≤ (parts j).count → Fraction.le m (g ((parts j).nodes i)))
+    (hC : 0 ≤ C.num) (hT : 0 ≤ T.num) (hP : 0 ≤ P.num) (hV : 0 ≤ V.num)
+    (hcount : ∀ j, (parts j).count = blocks j)
+    (hp : ∀ j k, k < blocks j → Fraction.le (pointNorm (q j k).1) P)
+    (hv : ∀ j k, k < blocks j → Fraction.le (pointNorm (q j k).2) V)
+    (hchart : ∀ j k, k ≤ (parts j).count → pointEquiv (q j k).1
+      (RadialSector.ray (g ((parts j).nodes k)) ((parts j).nodes k)))
+    (hres : ∀ j k, k < blocks j → Fraction.le
+      (stateDistance (q j (k+1)) (cell a (duration T j) (q j k))) (remainder C T j)) :
+    Exhaustion.VanishingDifference Fraction.magnitudes (fun j => MonotoneRectangles.maxWidth (parts j)) := by
+  have hb (j : Nat) := (MonotoneRectangles.maxWidth_bounds (parts j)).2
+    (Fraction.mul (slopeCoefficient m P V C T hm) (duration T j))
+    (fun k hk => radial_width_bound_lower a C T P V g (parts j) (q j) j k hk m hm (hlow j) hC hT hP
+      (hp j k (by simpa only [hcount j] using hk)) (hv j k (by simpa only [hcount j] using hk))
+      (hchart j) (hres j k (by simpa only [hcount j] using hk)))
+  have hs := dyadic_scaled_vanishes _ T (slopeCoefficient_nonnegative m P V C T hm hP hV hC hT) hT
+  intro eps heps
+  obtain ⟨N,hN⟩ := hs eps heps
+  exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hb j) (hN j hj)⟩
+
 /-- Samples of one independently supplied rational-time state curve. The
 initial time uses the displayed zero so all refinements share the same state;
 other grid times are `k*T/2^j`. These are the given curve's own samples;
