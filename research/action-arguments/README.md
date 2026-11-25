@@ -36,6 +36,7 @@ and action-rescaling freedom.
 | [260922opus5.5v1Arg006.md](260922opus5.5v1Arg006.md) | Claude Opus 5.5 | supports that the scale is an action | 1713 *Vi finita* (Lemma X) and *curvaturam finitam* (Lemma XI) bound one local action `p·ρ_F`; Newton compares with circles, without a unit; the quasi-classical condition is `p·ρ_F ≫ ħ` |
 | [261004gpt6.1solv1Arg007.md](261004gpt6.1solv1Arg007.md) | Sol 6.1 | supports action dimension; system-dependent scale | Exact finite Galilean area/potential proportionality and harmonic correction terms; polygon–curve identification remains separate |
 | [261005opus5.5v1Arg008.md](261005opus5.5v1Arg008.md) | Claude Opus 5.5 | supports the location and kind; value external | In Newton's cell `Δt·ΔV` (actual point against inertial continuation) is impulse × sagitta, `F²Δt³/m`; `ħ` meets it at Arg005's `t_* = (mħ/F²)^{1/3}`, matching the neutron gravitational quantum scale; classical scales stay free |
+| [261125gptcodexv1Arg009.md](261125gptcodexv1Arg009.md) | GPT (Codex), written up by Claude Opus 5.5 | supports a common unit across an interacting pair; value undetermined | Two calibrated bodies with a non-constant reciprocal force and one stationary phase functional must share one action constant; the constant force is the exact boundary case; one Lean counterexample per dropped premise |
 
 ## Background reading
 

@@ -26,6 +26,7 @@ import ModernLib.Diagnostic.DeflectionPotential
 import ModernLib.Diagnostic.InverseCubeAreal
 import ModernLib.Diagnostic.PhaseArea
 import ModernLib.Diagnostic.QuadraticEndpointPotential
+import ModernLib.Diagnostic.ReciprocalPhase
 import ModernLib.Foundation.Polygon.AffineBoundary
 import ModernLib.Foundation.Polygon.AffineValues
 import ModernLib.Foundation.Polygon.BinaryCells

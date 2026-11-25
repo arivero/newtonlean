@@ -323,6 +323,12 @@ well scale `s = (ħ/S₀)^{1/3}` remains prose: no operator, phase-space action 
 quantum action parameter is formalized, and the configuration areas
 `triangle`/`swept` are kept distinct from them.
 
+[ReciprocalPhase](../ModernLib/Diagnostic/ReciprocalPhase.lean) with
+[Arg009](action-arguments/261125gptcodexv1Arg009.md) (issue 4) shows that one
+phase functional for two bodies with a non-constant reciprocal force forces a
+common action constant of undetermined value; the many-body extension through a
+connected interaction graph is not treated.
+
 ## Current increment and next work
 
 `UniformRectangles.exhaustion` removes monotonicity from conditional rectangular

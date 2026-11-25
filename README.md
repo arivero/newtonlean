@@ -375,6 +375,22 @@ uniform chart with its NATP00090, 1687 and 1713 clients remains open, so no
 percentage moves. The new modules are warning-free; BarrowLib and AreaLaw
 measurements are refreshed and the global warning census is unchanged.
 
+Reciprocal-phase reassessment, 25 November 2026 (issue 4): **every file and
+witness percentage is reassessed and unchanged.** The new action diagnostic
+[ReciprocalPhase](ModernLib/Diagnostic/ReciprocalPhase.lean) and its note
+[Arg009](research/action-arguments/261125gptcodexv1Arg009.md) test the
+recovered two-mass spring calibration: one stationary phase functional for two
+bodies with a non-constant reciprocal force must share one action constant,
+the constant force is the exact boundary case, and each dropped premise has a
+checked counterexample. Every common value remains admissible, so the result
+supports a common unit of undetermined value and identifies nothing with
+Planck's constant. It is diagnostic-layer work and earns no historical credit.
+The same commit strengthens the issue 3 control: `quadraticChart_not_monotone`
+now refutes `MonotoneOn` in both directions, and the three chart values move
+to `quadraticChart_values`. Both changed modules are warning-free; BarrowLib
+and ModernLib measurements are refreshed and the global warning census is
+unchanged.
+
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
 deriving the physical laws is outside the task. **Lemma I is also 100% for its
@@ -528,8 +544,8 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 18266 | 1061 | 1061 | 1061 |
-| [ModernLib](ModernLib.lean) | 20477 | 1184 | 1518 | 1706 |
+| [BarrowLib](BarrowLib.lean) | 18286 | 1062 | 1062 | 1062 |
+| [ModernLib](ModernLib.lean) | 20764 | 1201 | 1535 | 1723 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

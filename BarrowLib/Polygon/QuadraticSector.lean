@@ -43,11 +43,31 @@ def oneCell : Partition (Fraction.ofInt 0) (Fraction.ofInt 1) where
     decide
 
 /-- Control: the chart rises and falls, `g(0) = g(1) = 1 < 5/4 = g(1/2)`. -/
-theorem quadraticChart_not_monotone :
+theorem quadraticChart_values :
     Fraction.equiv (quadraticChart (Fraction.ofInt 0)) (Fraction.ofInt 1) ∧
     Fraction.equiv (quadraticChart (Fraction.ofInt 1)) (Fraction.ofInt 1) ∧
     Fraction.equiv (quadraticChart ⟨1,2,by decide⟩) ⟨5,4,by decide⟩ := by
   decide
+
+/-- Control: the monotone API does not apply to the quadratic chart in either
+direction, from the pairs `(1/2, 1)` and `(0, 1/2)`. -/
+theorem quadraticChart_not_monotone :
+    ¬ MonotoneOn quadraticChart (Fraction.ofInt 0) (Fraction.ofInt 1) ∧
+    ¬ (∀ x y, Fraction.le (Fraction.ofInt 0) x → Fraction.le x y →
+        Fraction.le y (Fraction.ofInt 1) → Fraction.le (quadraticChart y) (quadraticChart x)) := by
+  constructor
+  · intro h
+    have := h ⟨1,2,by decide⟩ (Fraction.ofInt 1) (by unfold Fraction.le; decide)
+      (by unfold Fraction.le; decide) (by unfold Fraction.le; decide)
+    revert this
+    unfold Fraction.le
+    decide
+  · intro h
+    have := h (Fraction.ofInt 0) ⟨1,2,by decide⟩ (by unfold Fraction.le; decide)
+      (by unfold Fraction.le; decide) (by unfold Fraction.le; decide)
+    revert this
+    unfold Fraction.le
+    decide
 
 /-- Control: a partition violating the mesh/modulus relation fails to enclose. With one cell
 and `ε = 1/10` the upper cap has scale `11/10`, below `g(1/2) = 5/4`. -/
