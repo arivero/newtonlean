@@ -23,8 +23,8 @@ Provenance.  The statements and their packaging follow the written derivation
 recorded in issue 2; the Lean statements and proofs are new to this
 repository and carry no priority claim.  The underlying facts are known:
 torque cancellation is the rotation invariance of `V`; preservation of `G` by
-the drift/impulse cell is the conservation of quadratic invariants by the
-symplectic Euler method; the triangle sum is the many-vector form of the
+the drift/impulse cell is the conservation of bilinear invariants of the form
+`pᵀ D q` by the symplectic Euler method; the triangle sum is the many-vector form of the
 equal-area polygon, whose planar one-centre case is
 `NewtonLimitDynamics.Polygon.CentralSchedule`; and the scaling is mechanical
 similarity for a potential homogeneous of degree four.  Exact sources for these
@@ -60,7 +60,7 @@ end Vec3
 open Vec3
 
 /-- Unfold the vector operations and close the three component goals. -/
-macro "coupled_vec3_ring" : tactic =>
+local macro "coupled_vec3_ring" : tactic =>
   `(tactic| (simp only [Vec3.add, Vec3.smul, Vec3.dot, Vec3.cross, Vec3.zero, Vec3.mk.injEq]; refine ⟨?_, ?_, ?_⟩ <;> grind))
 
 /-- Sum of a list of vectors. -/

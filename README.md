@@ -352,7 +352,10 @@ sum `(h/2m) G`, an exact example with nonzero cancelling triangles
 exact sources remain unverified. A ModernLib diagnostic earns no historical
 credit and no historical proof imports it. The new module is warning-free; the
 ModernLib measurement row is refreshed (27 new declarations, all score
-comments regenerated) and the global warning census is unchanged.
+comments regenerated) and the global warning census is unchanged. After the
+issue 2 verification the 27 declarations are classified P in the provenance
+census, the tactic macro is local to the module and the docstring names the
+bilinear-invariant case; percentages are reassessed again and unchanged.
 
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
