@@ -169,7 +169,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
 | `BarrowLib` | 1062 | 1062 | 1062 |
-| `ModernLib` | 1201 | 1535 | 1723 |
+| `ModernLib` | 1222 | 1556 | 1744 |
 
 The README additionally lists line counts and the individual classical files.
 Reproduce the compiled measurements and check the README with:
@@ -241,11 +241,11 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
 | `BarrowLib` | 0 | 0 | 152 | 910 | 1062 |
-| `ModernLib` | 0 | 2 | 66 | 1467 | 1535 |
+| `ModernLib` | 0 | 2 | 87 | 1467 | 1556 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **309 of 2511
-theorems: 6 S, 49 R and 254 P; 2202 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **330 of 2532
+theorems: 6 S, 49 R and 275 P; 2202 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 Wrapped scratch output had left the Corollary III and IV provenance rows stale;
 they now use unwrapped output and agree with their measured proof-tree totals.
@@ -361,10 +361,11 @@ own statement and proof are explicitly presented as a project derivation.
 | Nonmonotone rectangular-exhaustion support | 0 exact external result claims; X.1 halving remains a separately sourced premise | 7 new shared graph theorems (4 private), 1 extracted finite comparison and 6 edition-local clients, all explicit project derivations |
 | Nonmonotone free-staircase support | 0 exact external result claims | 4 shared project proofs, including 1 private height-distance proof, and 2 edition clients; no area assignment or enclosure premise is used |
 | Nonmonotone radial-sector support (issue 3) | 0 exact external result claims; the lower/upper-sum squeeze and power sums are known, with sources unverified | 34 project derivations: `UniformRadialSector` and `QuadraticSector` (32, including the controls and `quadraticChart_values`) and the two positive-lower-bound mesh theorems in `MotionSampling`; no historical client uses them yet |
+| Areal-bound diagnostics (issue 5) | 0 exact external result claims; the effective-potential analysis and dimensional bookkeeping are known | 21 project derivations in `ModernLib/Diagnostic/ArealBounds.lean`, 19 public and 2 private; action diagnostic layer, no historical proof imports them |
 | Reciprocal-phase diagnostics (issue 4) | The teaching note's Spanish spring passage supplies the calibration; the Helmholtz condition, Landau–Lifshitz §2 and Mach's mass ratio are known, with passages unverified | 17 project derivations in `ModernLib/Diagnostic/ReciprocalPhase.lean`; action diagnostic layer, no historical proof imports them |
 | Coupled-polygon diagnostics (issue 2) | 0 exact external result claims; the underlying facts are known, with sources unverified | 27 project derivations in `ModernLib/Diagnostic/CoupledPolygons.lean`, 14 public and 13 private; no historical proof imports them and no priority is claimed |
 | Matched-family support | 0 exact external result claims | 1 shared project proof and 2 edition clients align the mesh/height quantifiers and derive simultaneous enclosure, area and boundary approximation |
-| `ModernLib` | No exact original-language result is established by this aggregate row | 1201 formal declarations, including the 27 coupled-polygon diagnostics (14 public, 13 private) of issue 2 and the 17 reciprocal-phase diagnostics of issue 4, classified P; exact sourced/authored split remains unverified |
+| `ModernLib` | No exact original-language result is established by this aggregate row | 1222 formal declarations, including the 27 coupled-polygon diagnostics (14 public, 13 private) of issue 2, the 17 reciprocal-phase diagnostics of issue 4 and the 21 areal-bound diagnostics of issue 5, classified P; exact sourced/authored split remains unverified |
 
 The two Lemma II and two Lemma III witness sections preserve their separate
 Latin passages and edition-local proof interfaces. Their theorem declarations

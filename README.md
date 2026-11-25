@@ -391,6 +391,22 @@ to `quadraticChart_values`. Both changed modules are warning-free; BarrowLib
 and ModernLib measurements are refreshed and the global warning census is
 unchanged.
 
+Areal-bound reassessment, 25 November 2026 (issue 5): **every file and witness
+percentage is reassessed and unchanged.** The new action diagnostic
+[ArealBounds](ModernLib/Diagnostic/ArealBounds.lean) and its note
+[Arg010](research/action-arguments/261125gptcodexv1Arg010.md) test when the
+equal-area law yields an action bound. From one initial state two central
+fields sweep equal areas over every schedule with different polygons, so the
+same-force premise of `MotionSampling.Conditions` is what compares a polygon
+with its limit. For the inverse cube the energy relation separates the orbit
+classes: `√(mk)` bounds `|L|` only for collision-free or apsis-released
+orbits, with no bound over all orbits and a reversed bound at zero energy. The
+Planck matching of a Kepler areal velocity gives `M c r = λ² ħ` with `G`
+cancelled and `ħ` imported through `ℓ_P`. Arg002 step 3 is now checked and
+Arg003 step 3 is refined at `L² = m k`. This is diagnostic-layer work and
+earns no historical credit; the new module is warning-free, the ModernLib
+measurements are refreshed and the global warning census is unchanged.
+
 For laws, completion concerns their representation as supplied mechanical
 premises. Law I and calibrated Law II are complete in that stated role;
 deriving the physical laws is outside the task. **Lemma I is also 100% for its
@@ -545,7 +561,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
 | [BarrowLib](BarrowLib.lean) | 18286 | 1062 | 1062 | 1062 |
-| [ModernLib](ModernLib.lean) | 20764 | 1201 | 1535 | 1723 |
+| [ModernLib](ModernLib.lean) | 21156 | 1222 | 1556 | 1744 |
 
 After a build, reproduce or check these rows with the existing compiled checker:
 

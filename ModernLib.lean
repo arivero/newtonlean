@@ -20,6 +20,7 @@ Known mathematics is not attributed to its AI formalizer. Project-specific
 constructions must identify their own statement/proof provenance separately. -/
 
 import ModernLib.Comparison.CircleCompare
+import ModernLib.Diagnostic.ArealBounds
 import ModernLib.Diagnostic.ConstructedHarmonicPotential
 import ModernLib.Diagnostic.CoupledPolygons
 import ModernLib.Diagnostic.DeflectionPotential

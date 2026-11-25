@@ -37,6 +37,7 @@ and action-rescaling freedom.
 | [261004gpt6.1solv1Arg007.md](261004gpt6.1solv1Arg007.md) | Sol 6.1 | supports action dimension; system-dependent scale | Exact finite Galilean area/potential proportionality and harmonic correction terms; polygon–curve identification remains separate |
 | [261005opus5.5v1Arg008.md](261005opus5.5v1Arg008.md) | Claude Opus 5.5 | supports the location and kind; value external | In Newton's cell `Δt·ΔV` (actual point against inertial continuation) is impulse × sagitta, `F²Δt³/m`; `ħ` meets it at Arg005's `t_* = (mħ/F²)^{1/3}`, matching the neutron gravitational quantum scale; classical scales stay free |
 | [261125gptcodexv1Arg009.md](261125gptcodexv1Arg009.md) | GPT (Codex), written up by Claude Opus 5.5 | supports a common unit across an interacting pair; value undetermined | Two calibrated bodies with a non-constant reciprocal force and one stationary phase functional must share one action constant; the constant force is the exact boundary case; one Lean counterexample per dropped premise |
+| [261125gptcodexv1Arg010.md](261125gptcodexv1Arg010.md) | GPT (Codex), written up by Claude Opus 5.5 | inconclusive; a bound only under orbit restrictions, value system-dependent or imported | Equal swept areas compare no polygons without a common force; the inverse-cube `√(mk)` bounds `\|L\|` only for collision-free or apsis-released orbits; the Planck matching imports `ħ` through `ℓ_P` and bounds an areal velocity |
 
 ## Background reading
 

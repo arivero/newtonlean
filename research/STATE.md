@@ -328,6 +328,11 @@ quantum action parameter is formalized, and the configuration areas
 phase functional for two bodies with a non-constant reciprocal force forces a
 common action constant of undetermined value; the many-body extension through a
 connected interaction graph is not treated.
+[ArealBounds](../ModernLib/Diagnostic/ArealBounds.lean) with
+[Arg010](action-arguments/261125gptcodexv1Arg010.md) (issue 5) shows that equal
+swept areas compare no polygons without a common force, and that the
+inverse-cube action `√(mk)` bounds `|L|` only under an orbit restriction; the
+Planck matching imports `ħ`.
 
 ## Current increment and next work
 
