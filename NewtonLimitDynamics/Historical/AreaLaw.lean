@@ -5,6 +5,7 @@ import BarrowLib.Polygon.MotionSampling
 import BarrowLib.Polygon.MotionSectorCover
 import BarrowLib.Polygon.MotionCurveCover
 import BarrowLib.Polygon.UniformMotionChart
+import BarrowLib.Polygon.LipschitzCurveCover
 import NewtonLimitDynamics.Historical.CompositionOfMotions
 import NewtonLimitDynamics.Historical.LemmaIII
 import ModernLib.Polygon.PathDefect
@@ -689,6 +690,41 @@ theorem sampled_uniform_sector_area (area : SectorFan.AreaRules)
     (by simpa only [Fraction.toRat_ofInt, Rat.intCast_zero] using hzeroRat)
   exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
 
+/-- Mechanical between-region approximation for a nonmonotone radial chart with a
+supplied Lipschitz bound `K` (issue 3). This witness's its own Lemma 1/Lex 1–2 triangle chain derives the
+mechanical orientation; the chart's lower bound `m`, upper bound `M`, Lipschitz bound and
+two-way curve/graph correspondence replace the monotone chart. The finite square cover of
+the actual mechanical/given-curve sector difference and its vanishing constructed area are
+derived under the explicit translation-and-cut convention; any separately assigned
+between-region areas are then nonnegative and vanish. Their existence remains an explicit
+premise, as do the mechanical conditions and the chart. No monotonicity is used. -/
+theorem lipschitz_between_area_approximation
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r m M K : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : LipschitzCurveCover.LipschitzRadialChart g l r T parts u m M K)
+    (D : Nat → Fraction) (hD : ∀ j, area.HasArea (MotionCurveCover.between a T u j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D := by
+  have hI : DeMotu1684.NATP00090.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : DeMotu1684.NATP00090.Laws.CalibratedChange TimeSubdivision.pointAdd :=
+    TimeSubdivision.pointSub_add_self_left_equiv
+  have hdet : ∀ j k, k < HarmonicDyadic.blocks j → 0 ≤ (TimeSubdivision.det
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) (k+1)).1).num := by
+    intro j k _
+    have he := polygon_triangle_equal ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) d.time_nonnegative (u (Fraction.ofInt 0)) k
+    have he' := he
+    simp only [polygonVertex,canonical_polygon_eq_run] at he'
+    exact Fraction.nonnegative_equiv he'
+      (Fraction.nonnegative_mul _ _ d.time_nonnegative hs)
+  exact LipschitzCurveCover.assigned_between_areas_vanish area a C L B P V d chart hdet D hD
+
 end DeMotu1684.NATP00090.AreaLaw
 
 /-! 1687. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -1355,6 +1391,41 @@ theorem sampled_uniform_sector_area (area : RadialSector.DifferenceAreaRules)
     (Fraction.abs_num_nonnegative _) hDsmall (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
   exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
 
+/-- Mechanical between-region approximation for a nonmonotone radial chart with a
+supplied Lipschitz bound `K` (issue 3). This witness's its own Laws' Corollary I triangle chain derives the
+mechanical orientation; the chart's lower bound `m`, upper bound `M`, Lipschitz bound and
+two-way curve/graph correspondence replace the monotone chart. The finite square cover of
+the actual mechanical/given-curve sector difference and its vanishing constructed area are
+derived under the explicit translation-and-cut convention; any separately assigned
+between-region areas are then nonnegative and vanish. Their existence remains an explicit
+premise, as do the mechanical conditions and the chart. No monotonicity is used. -/
+theorem lipschitz_between_area_approximation
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r m M K : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : LipschitzCurveCover.LipschitzRadialChart g l r T parts u m M K)
+    (D : Nat → Fraction) (hD : ∀ j, area.HasArea (MotionCurveCover.between a T u j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D := by
+  have hI : Principia1687.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : Principia1687.Laws.AdditiveImpulse TimeSubdivision.pointAdd :=
+    fun _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hdet : ∀ j k, k < HarmonicDyadic.blocks j → 0 ≤ (TimeSubdivision.det
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) (k+1)).1).num := by
+    intro j k _
+    have he := polygon_triangle_equal ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k
+    have he' := he
+    simp only [polygonVertex,canonical_polygon_eq_run] at he'
+    exact Fraction.nonnegative_equiv he'
+      (Fraction.nonnegative_mul _ _ d.time_nonnegative hs)
+  exact LipschitzCurveCover.assigned_between_areas_vanish area a C L B P V d chart hdet D hD
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -2020,6 +2091,41 @@ theorem sampled_uniform_sector_area (area : RadialSector.DifferenceAreaRules)
   have hzero := Principia1713.LemmaI.ultimate_difference_zero (fun _ => D) D
     (Fraction.abs_num_nonnegative _) hDsmall (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
   exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
+
+/-- Mechanical between-region approximation for a nonmonotone radial chart with a
+supplied Lipschitz bound `K` (issue 3). This witness's its own Laws' Corollary I triangle chain derives the
+mechanical orientation; the chart's lower bound `m`, upper bound `M`, Lipschitz bound and
+two-way curve/graph correspondence replace the monotone chart. The finite square cover of
+the actual mechanical/given-curve sector difference and its vanishing constructed area are
+derived under the explicit translation-and-cut convention; any separately assigned
+between-region areas are then nonnegative and vanish. Their existence remains an explicit
+premise, as do the mechanical conditions and the chart. No monotonicity is used. -/
+theorem lipschitz_between_area_approximation
+    (area : TriangleContent.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (hs : 0 ≤ (CentralSchedule.momentum (u (Fraction.ofInt 0))).num)
+    (g : Fraction → Fraction) (l r m M K : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (chart : LipschitzCurveCover.LipschitzRadialChart g l r T parts u m M K)
+    (D : Nat → Fraction) (hD : ∀ j, area.HasArea (MotionCurveCover.between a T u j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D := by
+  have hI : Principia1713.Laws.InertialMotion ZeroForce.inertialAt :=
+    fun _ _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hII : Principia1713.Laws.AdditiveImpulse TimeSubdivision.pointAdd :=
+    fun _ _ => ⟨Fraction.equiv_refl _,Fraction.equiv_refl _⟩
+  have hdet : ∀ j k, k < HarmonicDyadic.blocks j → 0 ≤ (TimeSubdivision.det
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1
+      (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) (k+1)).1).num := by
+    intro j k _
+    have he := polygon_triangle_equal ZeroForce.inertialAt TimeSubdivision.pointAdd hI hII a ha
+      (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k
+    have he' := he
+    simp only [polygonVertex,canonical_polygon_eq_run] at he'
+    exact Fraction.nonnegative_equiv he'
+      (Fraction.nonnegative_mul _ _ d.time_nonnegative hs)
+  exact LipschitzCurveCover.assigned_between_areas_vanish area a C L B P V d chart hdet D hD
 
 end Principia1713.PropositionI
 

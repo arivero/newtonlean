@@ -144,7 +144,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 
 | Entry | Own | Proof tree | Import tree |
 | --- | ---: | ---: | ---: |
-| `AreaLaw.lean` | 76 | 903 | 1885 |
+| `AreaLaw.lean` | 79 | 937 | 1939 |
 | `CompositionOfMotions.lean` | 13 | 48 | 183 |
 | `LawI.lean` | 0 | 0 | 111 |
 | `LawII.lean` | 0 | 0 | 97 |
@@ -168,7 +168,7 @@ The current compiled cascade (10 October, with Nine Chapters attestation and tem
 | `PropositionIV.lean` | 0 | 0 | 78 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 10 | 10 | 10 |
 | `ClassicsLib` | 26 | 26 | 36 |
-| `BarrowLib` | 1071 | 1071 | 1071 |
+| `BarrowLib` | 1103 | 1103 | 1103 |
 | `ModernLib` | 1222 | 1556 | 1744 |
 
 The README additionally lists line counts and the individual classical files.
@@ -210,7 +210,7 @@ source. Source witnesses for every historical file remain in the next table.
 
 | File or library | S | R | P | U | Proof tree |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| `AreaLaw.lean` | 0 | 6 | 45 | 852 | 903 |
+| `AreaLaw.lean` | 0 | 6 | 79 | 852 | 937 |
 | `CompositionOfMotions.lean` | 0 | 0 | 0 | 48 | 48 |
 | `LawI.lean` | 0 | 0 | 0 | 0 | 0 |
 | `LawII.lean` | 0 | 0 | 0 | 0 | 0 |
@@ -240,12 +240,12 @@ source. Source witnesses for every historical file remain in the next table.
 | `ClassicsLib/Euclid/PropositionVII31.lean` | 0 | 1 | 0 | 0 | 1 |
 | `ClassicsLib/NineChapters/FractionRules.lean` | 5 | 5 | 0 | 0 | 10 |
 | `ClassicsLib` | 6 | 12 | 8 | 0 | 26 |
-| `BarrowLib` | 0 | 0 | 161 | 910 | 1071 |
+| `BarrowLib` | 0 | 0 | 193 | 910 | 1103 |
 | `ModernLib` | 0 | 2 | 87 | 1467 | 1556 |
 
 Across the whole loaded project environment, deduplicating rather than
-adding these overlapping rows, this bounded review classifies **342 of 2544
-theorems: 6 S, 49 R and 287 P; 2202 remain U**. This measures provenance-review
+adding these overlapping rows, this bounded review classifies **377 of 2579
+theorems: 6 S, 49 R and 322 P; 2202 remain U**. This measures provenance-review
 coverage, not proof completeness, novelty or a library's historical class.
 Wrapped scratch output had left the Corollary III and IV provenance rows stale;
 they now use unwrapped output and agree with their measured proof-tree totals.
@@ -362,6 +362,7 @@ own statement and proof are explicitly presented as a project derivation.
 | Nonmonotone free-staircase support | 0 exact external result claims | 4 shared project proofs, including 1 private height-distance proof, and 2 edition clients; no area assignment or enclosure premise is used |
 | Nonmonotone radial-sector support (issue 3) | 0 exact external result claims; the lower/upper-sum squeeze and power sums are known, with sources unverified | 34 project derivations: `UniformRadialSector` and `QuadraticSector` (32, including the controls and `quadraticChart_values`) and the two positive-lower-bound mesh theorems in `MotionSampling`; the three uniform-chart AreaLaw clients below now use them |
 | Uniform radial-chart support and clients (issue 3, 26 November) | 0 exact external result claims | 12 project derivations: 7 in `UniformMotionChart` (chart order, sector identification, sampled chord area, mesh, chord-error and between-area exhaustion, monotone-chart conversion), 2 sequence corollaries in `UniformRadialSector`, and 3 edition-local `sampled_uniform_sector_area` clients (NATP00090, 1687, 1713); explicit editorial reconstructions without historical textual support |
+| Lipschitz-chart between-region covers (issue 3, 26 November) | 0 exact external result claims | 35 project derivations: 27 in `LipschitzCurveCover` (22 public, 5 private, including `quadratic_lipschitz`), 5 positivity/orientation/sector-difference proofs in `UniformMotionChart`, and 3 edition-local `lipschitz_between_area_approximation` clients; the Lipschitz bound is an explicit premise |
 | Areal-bound diagnostics (issue 5) | 0 exact external result claims; the effective-potential analysis and dimensional bookkeeping are known | 21 project derivations in `ModernLib/Diagnostic/ArealBounds.lean`, 19 public and 2 private; action diagnostic layer, no historical proof imports them |
 | Reciprocal-phase diagnostics (issue 4) | The teaching note's Spanish spring passage supplies the calibration; the Helmholtz condition, Landau–Lifshitz §2 and Mach's mass ratio are known, with passages unverified | 17 project derivations in `ModernLib/Diagnostic/ReciprocalPhase.lean`; action diagnostic layer, no historical proof imports them |
 | Coupled-polygon diagnostics (issue 2) | 0 exact external result claims; the underlying facts are known, with sources unverified | 27 project derivations in `ModernLib/Diagnostic/CoupledPolygons.lean`, 14 public and 13 private; no historical proof imports them and no priority is claimed |
@@ -471,11 +472,13 @@ classifications in this Markdown report are a bounded manual review.
 
 The reviewed derivations are not added to every cascade. The P columns above
 count their actual intersections, including reviewed encoding helpers.
-`AreaLaw` has 45 P dependencies from that larger reviewed set. The three
+`AreaLaw` has 79 P dependencies from that larger reviewed set. The three
 uniform-chart clients of 26 November add 22 P declarations to its proof tree
 (the clients, five `UniformMotionChart` proofs, twelve `UniformRadialSector`
 proofs and the two positive-lower-bound mesh theorems) and one previously
-unreviewed U helper, `Fraction.toRat_abs`, so the tree is now 903.
+unreviewed U helper, `Fraction.toRat_abs`. The three Lipschitz between-area
+clients add 34 more P declarations (26 `LipschitzCurveCover` proofs, five
+`UniformMotionChart` proofs and the clients), so the tree is now 937.
 Older internally derived support can remain among its 852 U entries.
 
 When the mathematical snapshot changes, refresh the compiled totals and

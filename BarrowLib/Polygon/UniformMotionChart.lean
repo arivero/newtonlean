@@ -1,4 +1,4 @@
-import BarrowLib.Polygon.MotionSampling
+import BarrowLib.Polygon.MotionSectorCover
 import BarrowLib.Polygon.UniformRadialSector
 
 /-! Bounded uniformly continuous radial charts of a given rational-time curve
@@ -123,5 +123,85 @@ theorem of_radialChart (chart : RadialChart g l r T parts u)
     curve_points := chart.curve_points
     graph_points := chart.graph_points
     samples := chart.samples }
+
+/-! Positivity and orientation from the lower bound (issue 3). The positive
+half-plane of the samples and of the eventual mechanical polygon, and the
+orientation of the sample fan, follow from `m ≤ g` at the chart nodes; no
+monotonicity is used. These feed the existing finite fan-difference covers. -/
+
+/-- Every sample has first coordinate at least `m`. -/
+theorem sampled_first_lower (chart : UniformRadialChart g l r T parts u m M) (j k : Nat)
+    (hk : k ≤ blocks j) : Fraction.le m (samples u T j k).1.1 := by
+  have hk' : k ≤ (parts j).count := by rw [chart.count]; exact hk
+  have hb := MonotoneRectangles.node_bounds (parts j) k hk'
+  exact Fraction.le_equiv_right (chart.bounds _ hb.1 hb.2).1
+    (Fraction.equiv_symm (chart.samples j k hk').1)
+
+/-- The mechanical polygon vertices eventually lie in the open right half-plane. -/
+theorem polygon_eventually_positive (a : Point → Point) (C L B P V : Fraction)
+    (d : Conditions a C T L B P V u) (chart : UniformRadialChart g l r T parts u m M) :
+    ∃ N, ∀ j, N ≤ j → ∀ k, k ≤ blocks j →
+      0 < (BoundedIteration.run a (duration T j) (u (Fraction.ofInt 0)) k).1.1.num := by
+  obtain ⟨N,hN⟩ := state_budgets_vanish C T d.remainder_nonnegative d.time_nonnegative
+    m chart.lower_positive
+  exact ⟨N,fun j hj k hk => positive_first_of_near_lower _ _ m
+    (sampled_first_lower chart j k hk)
+    (Fraction.magnitudes.lt_of_le_lt (sampled_position_error a C T L B P V u d j k hk) (hN j hj))⟩
+
+/-- The samples lie in the open right half-plane and their fan is positively oriented,
+including coincident chart nodes. -/
+theorem sampled_positive_oriented (chart : UniformRadialChart g l r T parts u m M) (j : Nat) :
+    (∀ k, k ≤ blocks j → 0 < (samples u T j k).1.1.num) ∧
+    (∀ k, k < blocks j → 0 ≤ (det (samples u T j k).1 (samples u T j (k+1)).1).num) := by
+  have hnode (i : Nat) (hi : i ≤ (parts j).count) : 0 < (g ((parts j).nodes i)).num :=
+    RadialSector.positive_of_le _ _ chart.lower_positive
+      (chart.bounds _ (MonotoneRectangles.node_bounds (parts j) i hi).1
+        (MonotoneRectangles.node_bounds (parts j) i hi).2).1
+  refine ⟨fun k hk => RadialSector.positive_of_le _ _ chart.lower_positive
+    (sampled_first_lower chart j k hk),?_⟩
+  intro k hk
+  have hk' : k < (parts j).count := by rw [chart.count]; exact hk
+  have he := TimeSubdivision.det_congr (chart.samples j k (by omega)) (chart.samples j (k+1) (by omega))
+  exact Fraction.nonnegative_equiv he (RadialSector.ray_orientation _ _ _ _
+    (Int.le_of_lt (hnode k (by omega))) (Int.le_of_lt (hnode (k+1) (by omega)))
+    ((parts j).ordered k hk'))
+
+/-- The mechanical/sample sector-union symmetric difference is eventually inside the
+shrinking sample squares or the terminal connector; only the mechanical fan's
+orientation is supplied (historical clients derive it from their own triangle chains). -/
+theorem eventual_sampled_sector_difference_cover (a : Point → Point) (C L B P V : Fraction)
+    (d : Conditions a C T L B P V u) (chart : UniformRadialChart g l r T parts u m M)
+    (hdp : ∀ j k, k < blocks j → 0 ≤ (det
+      (BoundedIteration.run a (duration T j) (u (Fraction.ofInt 0)) k).1
+      (BoundedIteration.run a (duration T j) (u (Fraction.ofInt 0)) (k+1)).1).num) :
+    ∃ N, ∀ j, N ≤ j → ∀ x,
+      ((SectorFan.Region
+          (fun k => (BoundedIteration.run a (duration T j) (u (Fraction.ofInt 0)) k).1) (blocks j) x ∧
+          ¬ SectorFan.Region (fun k => (samples u T j k).1) (blocks j) x) ∨
+        (SectorFan.Region (fun k => (samples u T j k).1) (blocks j) x ∧
+          ¬ SectorFan.Region
+            (fun k => (BoundedIteration.run a (duration T j) (u (Fraction.ofInt 0)) k).1) (blocks j) x)) →
+      ConvexCover.SquareCover (fun k => (samples u T j k).1) (chordRadius C T V j) (blocks j) x ∨
+        terminalConnector a T u j x := by
+  obtain ⟨N,hN⟩ := polygon_eventually_positive a C L B P V d chart
+  refine ⟨N,fun j hj x hx => ?_⟩
+  obtain ⟨hq,hdq⟩ := sampled_positive_oriented chart j
+  exact sampled_sector_difference_cover a C T L B P V u d j (hN j hj) hq (hdp j) hdq x hx
+
+/-- The mechanical/sample sector difference is eventually inside the existing
+`MotionSectorCover` square union. -/
+theorem eventual_sector_difference_cover (a : Point → Point) (C L B P V : Fraction)
+    (d : Conditions a C T L B P V u) (chart : UniformRadialChart g l r T parts u m M)
+    (hdp : ∀ j k, k < blocks j → 0 ≤ (det
+      (BoundedIteration.run a (duration T j) (u (Fraction.ofInt 0)) k).1
+      (BoundedIteration.run a (duration T j) (u (Fraction.ofInt 0)) (k+1)).1).num) :
+    ∃ N, ∀ j, N ≤ j → ∀ x, MotionSectorCover.sectorDifference a T u j x →
+      MotionSectorCover.cover a C T B V u j x := by
+  obtain ⟨N,hN⟩ := eventual_sampled_sector_difference_cover a C L B P V d chart hdp
+  refine ⟨N,fun j hj x hx => ?_⟩
+  rcases hN j hj x hx with h | h
+  · exact MotionSectorCover.edge_cover_inside a C T B V u j d.remainder_nonnegative
+      d.time_nonnegative d.force_nonnegative x h
+  · exact MotionSectorCover.terminal_cover_inside a C T L B P V u d j x h
 
 end NewtonLimitDynamics.Polygon.UniformMotionChart

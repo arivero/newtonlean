@@ -81,6 +81,7 @@ import BarrowLib.Polygon.MagnitudeContent
 import BarrowLib.Polygon.UniformRectangles
 import BarrowLib.Polygon.UniformRadialSector
 import BarrowLib.Polygon.UniformMotionChart
+import BarrowLib.Polygon.LipschitzCurveCover
 import BarrowLib.Polygon.QuadraticSector
 import BarrowLib.Polygon.MotionSampling
 import BarrowLib.Polygon.MotionSectorCover

@@ -223,6 +223,23 @@ uniform partitions with a proved vanishing mesh, and proves that no
 with a constructed uniform chart is exercised, and the mechanical between-region
 B for nonmonotone charts is not addressed by these clients.
 
+The Lipschitz-chart increment (issue 3, 26 November) adds
+`BarrowLib/Polygon/LipschitzCurveCover.lean` (27 P proofs, 5 private), five P
+positivity/orientation/sector-difference proofs in `UniformMotionChart` and three
+P edition clients `lipschitz_between_area_approximation`. Existing statements are
+unchanged and the frozen module, now with 168 statements, builds. The clients'
+axiom reports contain only the standard axioms; compiled traversal finds no
+`MonotoneOn`, no ModernLib module, each client's own `polygon_triangle_equal` and
+`LipschitzCurveCover.collar_cell_square`. `lipschitz-curve-cover-2026-11-26.lean`
+proves the quadratic chart Lipschitz with `K = 1`, recovers its uniform modulus
+from the Lipschitz bound, applies `cell_bounds` to the rising, repeated-node and
+falling cells of the partition `0, 1/2, 1/2, 1`, and shows that the one-cell
+partition with tolerance `1/10` violates the tolerance premise and the upper cell
+bound at `θ = 1/2`. `historical-motion-area-2026-10-07.lean` instantiates the three
+clients on the satisfiable central motion with its constant chart (`K = 0`). The
+between-region area stays supplied, and no nonmonotone motion with a constructed
+Lipschitz chart is exercised. Touched modules are warning-free.
+
 ## Kernel replay, frozen statements and checker controls
 
 Added 26 November 2026 (issue 6). These checks verify existing proofs and the
@@ -242,7 +259,8 @@ every public theorem of `CoupledPolygons`, `UniformRadialSector`,
 `QuadraticSector`, `ReciprocalPhase` and `ArealBounds`; the two lower-bound
 mesh lemmas of `MotionSampling`; and `RationalTimeSlope.common_seven`. The
 three uniform-chart `sampled_uniform_sector_area` clients of issue 3 were
-added on 26 November, so 163 statements are now frozen. Seven
+added on 26 November, so 163 statements are now frozen (168 with the later
+Lipschitz additions). Seven
 `rfl`/`Iff.rfl` checks fix `Vec3.cross`, `pairTerm`, `gauss`, `CapsEnclose`,
 `Reproduces`, `EnergyRelation` and `ArealBounds.start`. The types were printed
 from the compiled environment (`pp.fullNames`, `pp.numericTypes`) and compiled

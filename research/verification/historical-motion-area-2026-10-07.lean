@@ -241,4 +241,45 @@ example (area : DifferenceAreaRules) :
 #print axioms Principia1687.PropositionI.sampled_uniform_sector_area
 #print axioms Principia1713.PropositionI.sampled_uniform_sector_area
 
+/- Lipschitz between-area clients (issue 3): the constant chart is Lipschitz with `K = 0`,
+so the three new mechanical between-area clients apply to the same satisfiable motion.
+The between-region area `hD` stays supplied. -/
+private theorem g_lipschitz : LipschitzCurveCover.LipschitzOn g z T (Fraction.ofInt 0) := by
+  intro s t _ _ _ _
+  apply (Fraction.le_iff_toRat _ _).mpr
+  simp only [g, o, Fraction.toRat_abs, Fraction.toRat_durationDifference, Fraction.toRat_mul,
+    Fraction.toRat_ofInt]
+  simp only [Rat.abs]
+  split <;> grind
+private theorem lchart : LipschitzCurveCover.LipschitzRadialChart g z T T parts curve o o
+    (Fraction.ofInt 0) where
+  lower_positive := by decide
+  bounds := fun _ _ _ => ⟨Fraction.magnitudes.le_refl _, Fraction.magnitudes.le_refl _⟩
+  lipschitz_nonnegative := by decide
+  lipschitz := g_lipschitz
+  count := chart.count
+  curve_points := chart.curve_points
+  graph_points := chart.graph_points
+  samples := chart.samples
+
+example (area : TriangleContent.AreaRules) (D : Nat → Fraction)
+    (hD : ∀ j, area.HasArea (MotionCurveCover.between force T curve j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D :=
+  DeMotu1684.NATP00090.AreaLaw.lipschitz_between_area_approximation
+    area force central z T z z two o curve conditions (by decide) g z T o o _ parts lchart D hD
+example (area : TriangleContent.AreaRules) (D : Nat → Fraction)
+    (hD : ∀ j, area.HasArea (MotionCurveCover.between force T curve j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D :=
+  Principia1687.PropositionI.lipschitz_between_area_approximation
+    area force central z T z z two o curve conditions (by decide) g z T o o _ parts lchart D hD
+example (area : TriangleContent.AreaRules) (D : Nat → Fraction)
+    (hD : ∀ j, area.HasArea (MotionCurveCover.between force T curve j) (D j)) :
+    (∀ j, 0 ≤ (D j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes D :=
+  Principia1713.PropositionI.lipschitz_between_area_approximation
+    area force central z T z z two o curve conditions (by decide) g z T o o _ parts lchart D hD
+
+#print axioms DeMotu1684.NATP00090.AreaLaw.lipschitz_between_area_approximation
+#print axioms Principia1687.PropositionI.lipschitz_between_area_approximation
+#print axioms Principia1713.PropositionI.lipschitz_between_area_approximation
+
 end NewtonLimitDynamics.Polygon.HistoricalMotionAreaControls

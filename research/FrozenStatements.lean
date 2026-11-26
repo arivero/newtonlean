@@ -7,7 +7,7 @@ proves nothing new, earns no completion credit and is imported by no library.
 `lake build` compiles it as part of the default `Verification` target.
 
 Each `example` writes out the complete type of a named theorem as it stood at
-`623afe6` (the three uniform-chart clients: as added for issue 3) and closes
+`623afe6` (the issue 3 uniform and Lipschitz additions: as added) and closes
 it with `@` and the fully qualified name, so a later change of statement,
 hypothesis or binder type fails this build. The types were printed from the
 compiled environment with fully qualified names and explicit numeral types,
@@ -2221,6 +2221,103 @@ example :
                           (NewtonLimitDynamics.Polygon.CentralSchedule.momentum
                             (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int))))).half :=
   @Principia1713.PropositionI.sampled_uniform_sector_area
+
+/-! Lipschitz-chart between-area clients and support, added 26 November 2026 (issue 3) -/
+example :
+    ∀ (area : NewtonLimitDynamics.Polygon.TriangleContent.AreaRules)
+      (a : NewtonLimitDynamics.Polygon.CentralSchedule.Field),
+      NewtonLimitDynamics.Polygon.CentralSchedule.central a →
+        ∀ (C T L B P V : NewtonLimitDynamics.Fraction)
+          (u :
+            NewtonLimitDynamics.Fraction →
+              NewtonLimitDynamics.Polygon.TimeSubdivision.Point × NewtonLimitDynamics.Polygon.TimeSubdivision.Point),
+          NewtonLimitDynamics.Polygon.MotionSampling.Conditions a C T L B P V u →
+            (0 : Int) ≤
+                (NewtonLimitDynamics.Polygon.CentralSchedule.momentum
+                    (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int)))).num →
+              ∀ (g : NewtonLimitDynamics.Fraction → NewtonLimitDynamics.Fraction) (l r m M K : NewtonLimitDynamics.Fraction)
+                (parts : Nat → NewtonLimitDynamics.Polygon.MonotoneRectangles.Partition l r),
+                NewtonLimitDynamics.Polygon.LipschitzCurveCover.LipschitzRadialChart g l r T parts u m M K →
+                  ∀ (D : Nat → NewtonLimitDynamics.Fraction),
+                    (∀ (j : Nat), area.HasArea (NewtonLimitDynamics.Polygon.MotionCurveCover.between a T u j) (D j)) →
+                      (∀ (j : Nat), (0 : Int) ≤ (D j).num) ∧
+                        NewtonLimitDynamics.Exhaustion.VanishingDifference NewtonLimitDynamics.Fraction.magnitudes D :=
+  @DeMotu1684.NATP00090.AreaLaw.lipschitz_between_area_approximation
+
+example :
+    ∀ (area : NewtonLimitDynamics.Polygon.TriangleContent.AreaRules)
+      (a : NewtonLimitDynamics.Polygon.CentralSchedule.Field),
+      NewtonLimitDynamics.Polygon.CentralSchedule.central a →
+        ∀ (C T L B P V : NewtonLimitDynamics.Fraction)
+          (u :
+            NewtonLimitDynamics.Fraction →
+              NewtonLimitDynamics.Polygon.TimeSubdivision.Point × NewtonLimitDynamics.Polygon.TimeSubdivision.Point),
+          NewtonLimitDynamics.Polygon.MotionSampling.Conditions a C T L B P V u →
+            (0 : Int) ≤
+                (NewtonLimitDynamics.Polygon.CentralSchedule.momentum
+                    (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int)))).num →
+              ∀ (g : NewtonLimitDynamics.Fraction → NewtonLimitDynamics.Fraction) (l r m M K : NewtonLimitDynamics.Fraction)
+                (parts : Nat → NewtonLimitDynamics.Polygon.MonotoneRectangles.Partition l r),
+                NewtonLimitDynamics.Polygon.LipschitzCurveCover.LipschitzRadialChart g l r T parts u m M K →
+                  ∀ (D : Nat → NewtonLimitDynamics.Fraction),
+                    (∀ (j : Nat), area.HasArea (NewtonLimitDynamics.Polygon.MotionCurveCover.between a T u j) (D j)) →
+                      (∀ (j : Nat), (0 : Int) ≤ (D j).num) ∧
+                        NewtonLimitDynamics.Exhaustion.VanishingDifference NewtonLimitDynamics.Fraction.magnitudes D :=
+  @Principia1687.PropositionI.lipschitz_between_area_approximation
+
+example :
+    ∀ (area : NewtonLimitDynamics.Polygon.TriangleContent.AreaRules)
+      (a : NewtonLimitDynamics.Polygon.CentralSchedule.Field),
+      NewtonLimitDynamics.Polygon.CentralSchedule.central a →
+        ∀ (C T L B P V : NewtonLimitDynamics.Fraction)
+          (u :
+            NewtonLimitDynamics.Fraction →
+              NewtonLimitDynamics.Polygon.TimeSubdivision.Point × NewtonLimitDynamics.Polygon.TimeSubdivision.Point),
+          NewtonLimitDynamics.Polygon.MotionSampling.Conditions a C T L B P V u →
+            (0 : Int) ≤
+                (NewtonLimitDynamics.Polygon.CentralSchedule.momentum
+                    (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int)))).num →
+              ∀ (g : NewtonLimitDynamics.Fraction → NewtonLimitDynamics.Fraction) (l r m M K : NewtonLimitDynamics.Fraction)
+                (parts : Nat → NewtonLimitDynamics.Polygon.MonotoneRectangles.Partition l r),
+                NewtonLimitDynamics.Polygon.LipschitzCurveCover.LipschitzRadialChart g l r T parts u m M K →
+                  ∀ (D : Nat → NewtonLimitDynamics.Fraction),
+                    (∀ (j : Nat), area.HasArea (NewtonLimitDynamics.Polygon.MotionCurveCover.between a T u j) (D j)) →
+                      (∀ (j : Nat), (0 : Int) ≤ (D j).num) ∧
+                        NewtonLimitDynamics.Exhaustion.VanishingDifference NewtonLimitDynamics.Fraction.magnitudes D :=
+  @Principia1713.PropositionI.lipschitz_between_area_approximation
+
+example :
+    ∀ {g : NewtonLimitDynamics.Fraction → NewtonLimitDynamics.Fraction} {l r T m M K : NewtonLimitDynamics.Fraction}
+      {parts : Nat → NewtonLimitDynamics.Polygon.MonotoneRectangles.Partition l r}
+      {u :
+        NewtonLimitDynamics.Fraction →
+          NewtonLimitDynamics.Polygon.TimeSubdivision.Point × NewtonLimitDynamics.Polygon.TimeSubdivision.Point}
+      (area : NewtonLimitDynamics.Polygon.TriangleContent.AreaRules)
+      (a : NewtonLimitDynamics.Polygon.TimeSubdivision.Point → NewtonLimitDynamics.Polygon.TimeSubdivision.Point)
+      (C L B P V : NewtonLimitDynamics.Fraction),
+      NewtonLimitDynamics.Polygon.MotionSampling.Conditions a C T L B P V u →
+        NewtonLimitDynamics.Polygon.LipschitzCurveCover.LipschitzRadialChart g l r T parts u m M K →
+          (∀ (j k : Nat),
+              k < NewtonLimitDynamics.Polygon.HarmonicDyadic.blocks j →
+                (0 : Int) ≤
+                  (NewtonLimitDynamics.Polygon.TimeSubdivision.det
+                      (NewtonLimitDynamics.Polygon.BoundedIteration.run a
+                          (NewtonLimitDynamics.Polygon.HarmonicDyadic.duration T j)
+                          (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int))) k).fst
+                      (NewtonLimitDynamics.Polygon.BoundedIteration.run a
+                          (NewtonLimitDynamics.Polygon.HarmonicDyadic.duration T j)
+                          (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int))) (k + (1 : Nat))).fst).num) →
+            ∀ (D : Nat → NewtonLimitDynamics.Fraction),
+              (∀ (j : Nat), area.HasArea (NewtonLimitDynamics.Polygon.MotionCurveCover.between a T u j) (D j)) →
+                (∀ (j : Nat), (0 : Int) ≤ (D j).num) ∧
+                  NewtonLimitDynamics.Exhaustion.VanishingDifference NewtonLimitDynamics.Fraction.magnitudes D :=
+  @NewtonLimitDynamics.Polygon.LipschitzCurveCover.assigned_between_areas_vanish
+
+example :
+    NewtonLimitDynamics.Polygon.LipschitzCurveCover.LipschitzOn NewtonLimitDynamics.Polygon.QuadraticSector.quadraticChart
+      (NewtonLimitDynamics.Fraction.ofInt (0 : Int)) (NewtonLimitDynamics.Fraction.ofInt (1 : Int))
+      (NewtonLimitDynamics.Fraction.ofInt (1 : Int)) :=
+  @NewtonLimitDynamics.Polygon.LipschitzCurveCover.quadratic_lipschitz
 
 /-! research.RationalTimeSlope -/
 example :
