@@ -353,7 +353,9 @@ fresh axiom and an anachronical use (details in
 [verification](research/VERIFICATION.md#kernel-replay-frozen-statements-and-checker-controls)).
 No independent external kernel is installed, so no second-kernel replay is
 recorded. Theorem counts, dependency sizes and the warning census are
-unchanged; the two verification modules build without warnings.
+unchanged; the two verification modules build without warnings. A follow-up
+replay of the pushed commit and the path dependence of the `.olean` digest
+are recorded too; the percentages are reassessed again and remain unchanged.
 
 Rational-time chart reassessment, 26 November 2026 (issue 3). Every historical file and witness retains its recorded percentage. The new [divisibility certificate](research/RationalTimeSlope.lean) supplies a diagnostic for the exact-image premise. The [area comparison](research/PROP_I_PATH_DEFECT.md#rational-times-and-the-image-of-a-slope-chart) explains why a client for a larger class of motions must specify the filled figure. The existing edition-specific obligations and library declaration counts are unchanged.
 

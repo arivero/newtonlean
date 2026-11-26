@@ -281,6 +281,16 @@ Recorded on Linux 7.0.0-44-generic x86_64 with elan 4.2.4 and Lean 4.34.1
 The build writes no `.olean.private` or `.olean.server` parts, and no external
 export is produced, so there are no export byte counts to record.
 
+The `.olean` digest depends on the checkout path. A clean build of the pushed
+commit `3183562` in a directory of the same name reproduces the digest above
+exactly; a clean build in a sibling directory whose name has the same length
+gives `4464b33f72fb1323ed2fbfa7c186dfd930a6a988fa3a64f52beb4c7ace6cdcf0`. The
+two trees differ in 99 of the 236 files, each by 6 bytes at equal file size:
+`cmp` and `xxd` show the embedded absolute source path. Equal byte counts with
+different hashes therefore have a mundane cause here. Compare `.olean` digests
+only between builds at the same absolute path. The replay of that second tree
+(the pushed `3183562`) also exits 0 with 236 modules (wall 38.03 s).
+
 **Checker controls.** `scripts/check_verification_controls.sh` copies the
 checkout (tracked and untracked non-ignored files plus `.lake`) into a fresh
 temporary directory for each control, applies one mutation, requires the
