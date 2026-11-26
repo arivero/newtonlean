@@ -203,6 +203,26 @@ project constants and the refreshed README rows. All 1,181 scores are
 unchanged. The warning census remains 516 unused-simp, zero deprecation and
 four proposition-as-definition warnings; touched modules/controls have none.
 
+The uniform radial-chart increment (issue 3, 26 November) adds
+`BarrowLib/Polygon/UniformMotionChart.lean` (seven P proofs), two P sequence
+corollaries in `UniformRadialSector` and three P edition clients
+`sampled_uniform_sector_area` in `AreaLaw`. All existing theorem statements are
+unchanged (the frozen-statement module still builds); the new clients' axiom
+reports contain only propext, Classical.choice and Quot.sound. A compiled
+traversal of each client finds no `MonotoneRectangles.MonotoneOn`, no ModernLib
+module, its own canonical fan law, `UniformRadialSector.caps_exhaust`, and for
+1687 and 1713 its own `LemmaI.ultimate_difference_zero`. The touched modules
+compile without warnings; the global census is unchanged. Controls:
+`historical-motion-area-2026-10-07.lean` instantiates all three clients on the
+satisfiable central motion through `UniformMotionChart.of_radialChart` and a
+proved uniform modulus of its constant chart, including the 1687 client with the
+actual difference-rule swept area; `historical-radial-sector-2026-10-07.lean`
+applies the two sequence corollaries to the nonmonotone quadratic chart on
+uniform partitions with a proved vanishing mesh, and proves that no
+`MotionSampling.RadialChart` can describe that chart. No nonmonotone motion
+with a constructed uniform chart is exercised, and the mechanical between-region
+B for nonmonotone charts is not addressed by these clients.
+
 ## Kernel replay, frozen statements and checker controls
 
 Added 26 November 2026 (issue 6). These checks verify existing proofs and the
@@ -220,7 +240,9 @@ hypothesis; NATP00089's finite equal-area and block statements; every public the
 (including `given_time_exhaustion` and `finite_time_before_end_exhaustion`);
 every public theorem of `CoupledPolygons`, `UniformRadialSector`,
 `QuadraticSector`, `ReciprocalPhase` and `ArealBounds`; the two lower-bound
-mesh lemmas of `MotionSampling`; and `RationalTimeSlope.common_seven`. Seven
+mesh lemmas of `MotionSampling`; and `RationalTimeSlope.common_seven`. The
+three uniform-chart `sampled_uniform_sector_area` clients of issue 3 were
+added on 26 November, so 163 statements are now frozen. Seven
 `rfl`/`Iff.rfl` checks fix `Vec3.cross`, `pairTerm`, `gauss`, `CapsEnclose`,
 `Reproduces`, `EnergyRelation` and `ArealBounds.start`. The types were printed
 from the compiled environment (`pp.fullNames`, `pp.numericTypes`) and compiled

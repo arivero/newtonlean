@@ -63,7 +63,7 @@ authorities and original-language passages belong in the owning files:
 | Library | Authorities and checked scope | Source work remaining |
 | --- | --- | --- |
 | [ClassicsLib](ClassicsLib.lean) | Euclid's *Elements* [I.37](ClassicsLib/Euclid/PropositionI37.lean), [I.38](ClassicsLib/Euclid/PropositionI38.lean), [VII.31](ClassicsLib/Euclid/PropositionVII31.lean) and [IX.20](ClassicsLib/Euclid/PropositionIX20.lean), plus Aristotle, *Prior Analytics* I.23, 41a26–27 in [SquareRootTwo](ClassicsLib/Aristotle/SquareRootTwo.lean). Original Greek and exact URLs are in the files. | I.37/I.38 remain determinant special cases. IX.20 uses a finite product in place of Euclid's least common multiple. Aristotle attests the parity contradiction, not the full reconstructed descent proof or a constructed geometric diagonal. Full synthetic area semantics and exact-result provenance of the older model's helpers remain separate obligations. |
-| [BarrowLib](BarrowLib.lean) | [SectorFan](BarrowLib/Polygon/SectorFan.lean) quotes Greek from Euclid [I.41](https://physics.ntua.gr/mourmouras/euclid/book1/postulate41.html), the triangle/parallelogram area relation, and the [Common Notions](https://physics.ntua.gr/mourmouras/euclid/book1/elements1.html), as background for the supplied area rules. SectorFan, [TriangleContent](BarrowLib/Polygon/TriangleContent.lean), [FanDifference](BarrowLib/Polygon/FanDifference.lean), [BoxCoverArea](BarrowLib/Polygon/BoxCoverArea.lean) and [AreaDomain](BarrowLib/Polygon/AreaDomain.lean) state their own English project derivations without historical textual support or priority claims. [MagnitudeContent](BarrowLib/Polygon/MagnitudeContent.lean) quotes Greek [Euclid X.1](docs/classics/euclid-X1.md) for its supplied unit-halving premise and derives the exact extension here; [V.2, 4, 5](docs/classics/euclid-V.md) provide multiple/comparability/ratio language. [UniformRectangles](BarrowLib/Polygon/UniformRectangles.lean) explicitly derives nonmonotone graph enclosures/exhaustion here, without attributing its uniform-continuity hypothesis to Newton. [CurvilinearCoincidence](BarrowLib/Polygon/CurvilinearCoincidence.lean) gives its own English statements and elementary proofs of whole-figure approximation and exact ultimate point-set equality, independently of area. [AffineCoincidence](BarrowLib/Polygon/AffineCoincidence.lean) derives its affine/contact transport and two-straight-side specialization with the same explicit project provenance. | The library name does not attribute its contents to Isaac Barrow. Original-language, exact-result attribution for other borrowed helpers remains unverified; the Greek background does not state the new coordinate results. |
+| [BarrowLib](BarrowLib.lean) | [SectorFan](BarrowLib/Polygon/SectorFan.lean) quotes Greek from Euclid [I.41](https://physics.ntua.gr/mourmouras/euclid/book1/postulate41.html), the triangle/parallelogram area relation, and the [Common Notions](https://physics.ntua.gr/mourmouras/euclid/book1/elements1.html), as background for the supplied area rules. SectorFan, [TriangleContent](BarrowLib/Polygon/TriangleContent.lean), [FanDifference](BarrowLib/Polygon/FanDifference.lean), [BoxCoverArea](BarrowLib/Polygon/BoxCoverArea.lean) and [AreaDomain](BarrowLib/Polygon/AreaDomain.lean) state their own English project derivations without historical textual support or priority claims. [MagnitudeContent](BarrowLib/Polygon/MagnitudeContent.lean) quotes Greek [Euclid X.1](docs/classics/euclid-X1.md) for its supplied unit-halving premise and derives the exact extension here; [V.2, 4, 5](docs/classics/euclid-V.md) provide multiple/comparability/ratio language. [UniformRectangles](BarrowLib/Polygon/UniformRectangles.lean) explicitly derives nonmonotone graph enclosures/exhaustion here, without attributing its uniform-continuity hypothesis to Newton. [UniformRadialSector](BarrowLib/Polygon/UniformRadialSector.lean) and [UniformMotionChart](BarrowLib/Polygon/UniformMotionChart.lean) derive the radial counterpart and the bounded uniformly continuous motion chart with the same explicit project provenance. [CurvilinearCoincidence](BarrowLib/Polygon/CurvilinearCoincidence.lean) gives its own English statements and elementary proofs of whole-figure approximation and exact ultimate point-set equality, independently of area. [AffineCoincidence](BarrowLib/Polygon/AffineCoincidence.lean) derives its affine/contact transport and two-straight-side specialization with the same explicit project provenance. | The library name does not attribute its contents to Isaac Barrow. Original-language, exact-result attribution for other borrowed helpers remains unverified; the Greek background does not state the new coordinate results. |
 | [ModernLib](ModernLib.lean) | The exact checked constructions are in their Lean files, including [CauchyValues](ModernLib/Foundation/Polygon/CauchyValues.lean), [EndpointCauchyName](ModernLib/Foundation/Polygon/EndpointCauchyName.lean) and the conditional [given-trajectory area result](ModernLib/Polygon/GivenTrajectoryArea.lean). | Exact original-language sources for standard borrowed modern results remain to be supplied and verified. Names such as “Cauchy” alone establish no exact attribution; known results are not credited to their AI formalizer. |
 
 ## Proof progress
@@ -376,6 +376,26 @@ issue 2 verification the 27 declarations are classified P in the provenance
 census, the tactic macro is local to the module and the docstring names the
 bilinear-invariant case; percentages are reassessed again and unchanged.
 
+Uniform radial-chart reassessment, 26 November 2026 (issue 3): **every file
+and witness percentage is reassessed and unchanged.** The bounded uniformly
+continuous chart [UniformMotionChart](BarrowLib/Polygon/UniformMotionChart.lean)
+keeps the full two-way curve/graph and sample correspondence of `RadialChart`
+and replaces its monotone and positive fields by `m ≤ g ≤ M`, `0 < m` and the
+rational uniform modulus. Slope-mesh exhaustion comes from the positive lower
+bound, and the chord errors vanish along the chart's partitions by the cap
+exhaustion, with the gap exhaustion derived. Three separate clients
+`sampled_uniform_sector_area` (NATP00090 by direct exhaustion; 1687 and 1713
+through their own finite laws and Lemma I) assign the actual swept-sector area
+`T · det / 2` without any monotonicity hypothesis; the monotone clients are
+unchanged and every monotone, uniformly continuous chart converts to the new
+one. The AreaLaw percentages stay at 60% because the dominant obligations are
+unchanged: a chart for an arbitrary trajectory (the exact graph-image clause
+already fails for some smooth central motions), the mechanical between-region
+B for nonmonotone charts, whose square covers need a variation or Lipschitz
+bound beyond uniform continuity, non-rational scope and area existence. The
+new module and clients are warning-free; BarrowLib and AreaLaw measurements are
+refreshed and the global warning census is unchanged.
+
 Nonmonotone radial-sector reassessment, 25 November 2026 (issue 3): **every
 file and witness percentage is reassessed and unchanged.**
 [UniformRadialSector](BarrowLib/Polygon/UniformRadialSector.lean) removes
@@ -464,7 +484,7 @@ work; they do not discharge the remaining primary historical tasks.
 | [LemmaX/CorollaryIII.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIII.lean) | — / — | — | 60% | Extends Corollary II's normalization to a supplied described-space function. The underlying Lemma X and force-calibration premises remain. |
 | [LemmaX/CorollaryIV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryIV.lean) | — / — | — | 60% | Exact coefficient algebra and an ultimate force normalization derived from Corollary III. The mechanical space/force relation remains supplied through Lemma X. |
 | [LemmaX/CorollaryV.lean](NewtonLimitDynamics/Historical/LemmaX/CorollaryV.lean) | — / — | — | 60% | Exact coefficient algebra and the ultimate squared-time normalization derived from Corollary III. Positive calibration/force and the mechanical premises remain explicit. |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 60% / 60% | 60% | 60% | Finite equal-area arguments and, for NATP00090 and both printed editions, a conditional local law for the actual swept sector of a given motion. The full mechanical/curve sector difference has shrinking covers with constructed cover areas; any separately assigned difference areas vanish. Actual difference-area existence, general patch assembly, non-rational scope and arbitrary-time polygon/curve agreement remain open. NATP00089 retains its own finite hypothesis/model scope. |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 60% / 60% | 60% | 60% | Finite equal-area arguments and, for NATP00090 and both printed editions, a conditional local law for the actual swept sector of a given motion, now also for bounded uniformly continuous nonmonotone radial charts. The full mechanical/curve sector difference has shrinking covers with constructed cover areas; any separately assigned difference areas vanish. Actual difference-area existence, general patch assembly, non-rational scope and arbitrary-time polygon/curve agreement remain open. NATP00089 retains its own finite hypothesis/model scope. |
 | [PropositionII.lean](NewtonLimitDynamics/Historical/PropositionII.lean) | — / — | 10% | 10% | Source and proof route recorded; the historical file declares no theorem. ModernLib supplies finite signed-area converse support. The historical continuous-curve/force-direction passage and application of Laws' Corollary V remain open. |
 | [PropositionIII.lean](NewtonLimitDynamics/Historical/PropositionIII.lean) | — / — | 10% | 10% | Source and proof route recorded; the historical file declares no theorem. ModernLib supplies finite relative-motion support. The edition's Laws' Corollary VI and Proposition II still need to be applied in a historical continuous argument. |
 | [PropositionIV.lean](NewtonLimitDynamics/Historical/PropositionIV.lean) | — / — | 10% | 10% | Source and proof route recorded; the historical file declares no theorem. ModernLib supplies a conditional finite sagitta comparison. Circle/force interpretation and the distinct limiting routes remain open: Lemmas V/XI in 1687; Proposition I's Corollaries II/IV and Lemma VII in 1713. |
@@ -551,7 +571,7 @@ of the older library helpers remains unverified.
 
 | File or library | Lines | Own theorems | Proof tree | Import tree |
 | --- | ---: | ---: | ---: | ---: |
-| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2084 | 73 | 880 | 1860 |
+| [AreaLaw.lean](NewtonLimitDynamics/Historical/AreaLaw.lean) | 2270 | 76 | 903 | 1885 |
 | [CompositionOfMotions.lean](NewtonLimitDynamics/Historical/CompositionOfMotions.lean) | 233 | 13 | 48 | 183 |
 | [LawI.lean](NewtonLimitDynamics/Historical/LawI.lean) | 70 | 0 | 0 | 111 |
 | [LawII.lean](NewtonLimitDynamics/Historical/LawII.lean) | 76 | 0 | 0 | 97 |
@@ -581,7 +601,7 @@ of the older library helpers remains unverified.
 | [ClassicsLib/Euclid/PropositionVII31.lean](ClassicsLib/Euclid/PropositionVII31.lean) | 45 | 1 | 1 | 1 |
 | [ClassicsLib/NineChapters/FractionRules.lean](ClassicsLib/NineChapters/FractionRules.lean) | 222 | 10 | 10 | 10 |
 | [ClassicsLib](ClassicsLib.lean) | 568 | 26 | 26 | 36 |
-| [BarrowLib](BarrowLib.lean) | 18286 | 1062 | 1062 | 1062 |
+| [BarrowLib](BarrowLib.lean) | 18459 | 1071 | 1071 | 1071 |
 | [ModernLib](ModernLib.lean) | 21156 | 1222 | 1556 | 1744 |
 
 After a build, reproduce or check these rows with the existing compiled checker:

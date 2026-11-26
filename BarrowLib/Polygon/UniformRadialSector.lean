@@ -354,4 +354,49 @@ theorem caps_exhaust (area : SectorFan.AreaRules) (g : Fraction → Fraction) (a
   have hKdef : K = (M.toRat + M.toRat) * (b.toRat - a.toRat) := rfl
   grind
 
+/-! Sequence exhaustion (issue 3). Along partitions whose mesh vanishes, the chord-area
+error of an assigned sector area and any assigned curve/chord between-areas vanish. The
+cap-gap exhaustion is derived from the uniform modulus through `caps_exhaust`; only the
+vanishing mesh is supplied. Project derivations, parallel to the monotone
+`RadialSector.chord_errors_vanish` and `between_areas_vanish`, which supply the gap
+exhaustion instead. -/
+
+/-- Chord-area errors vanish along every partition sequence with vanishing mesh. -/
+theorem uniform_chord_errors_vanish (area : SectorFan.AreaRules) (g : Fraction → Fraction)
+    (a b m M : Fraction) (hab : Fraction.le a b) (hm : 0 < m.num)
+    (hbounds : ∀ t, Fraction.le a t → Fraction.le t b → Fraction.le m (g t) ∧ Fraction.le (g t) M)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (parts : Nat → Partition a b)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes (fun j => maxWidth (parts j)))
+    (A : Fraction) (hA : area.HasArea (sector g a b) A) :
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun j => (durationDifference A (chordArea g (parts j))).abs) := by
+  intro eta heta
+  obtain ⟨eps,delta,_,_,hdelta,hfine⟩ := caps_exhaust area g a b m M hab hm hbounds hf eta heta
+  obtain ⟨N,hN⟩ := hmesh delta hdelta
+  refine ⟨N,fun j hj => ?_⟩
+  have hc := hfine (parts j) (Fraction.magnitudes.lt_implies_le (hN j hj))
+  exact Fraction.magnitudes.lt_of_le_lt (chord_error_caps area g (parts j) eps M A hc.1 hA) hc.2
+
+/-- Under the subtraction rule, any assigned areas of the actual curve/chord symmetric
+differences are nonnegative and vanish along every partition sequence with vanishing mesh.
+Existence of those between-areas stays a premise. -/
+theorem uniform_between_areas_vanish (area : DifferenceAreaRules) (g : Fraction → Fraction)
+    (a b m M : Fraction) (hab : Fraction.le a b) (hm : 0 < m.num)
+    (hbounds : ∀ t, Fraction.le a t → Fraction.le t b → Fraction.le m (g t) ∧ Fraction.le (g t) M)
+    (hf : RationalBoundary.UniformOn (fun t => (t,g t)) a b)
+    (parts : Nat → Partition a b)
+    (hmesh : Exhaustion.VanishingDifference Fraction.magnitudes (fun j => maxWidth (parts j)))
+    (B : Nat → Fraction) (hB : ∀ j, area.HasArea (between g (parts j)) (B j)) :
+    (∀ j, 0 ≤ (B j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes B := by
+  refine ⟨fun j => assigned_area_nonnegative area.toSectorAreaRules _ (B j) (hB j),?_⟩
+  intro eta heta
+  obtain ⟨eps,delta,_,_,hdelta,hfine⟩ :=
+    caps_exhaust area.toSectorAreaRules g a b m M hab hm hbounds hf eta heta
+  obtain ⟨N,hN⟩ := hmesh delta hdelta
+  refine ⟨N,fun j hj => ?_⟩
+  have hc := hfine (parts j) (Fraction.magnitudes.lt_implies_le (hN j hj))
+  exact Fraction.magnitudes.lt_of_le_lt
+    ((between_caps area g (parts j) eps M hc.1).2.2 (B j) (hB j)).2 hc.2
+
 end NewtonLimitDynamics.Polygon.UniformRadialSector

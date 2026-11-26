@@ -57,4 +57,43 @@ example (area : DifferenceAreaRules) (B : Nat → Fraction)
 #print axioms Principia1713.PropositionI.radial_sector_approximation
 #print axioms Principia1687.PropositionI.radial_ultimate_chord_difference_zero
 #print axioms Principia1713.PropositionI.radial_ultimate_chord_difference_zero
+/- Nonmonotone controls for the uniform route (issue 3), on the quadratic chart
+`g(θ) = 1 + θ - θ²` with uniform partitions of `n = j + 1` cells. The monotone chart
+interface cannot describe this graph; the uniform sequence corollaries apply with the
+bounds `1 ≤ g ≤ 5/4` and the proved modulus. Sector and between-area existence stay
+supplied. -/
+private def qparts (j : Nat) : Partition (Fraction.ofInt 0) (Fraction.ofInt 1) :=
+  QuadraticSector.uniformPartition (j+1) (Nat.succ_pos j)
+private theorem qmesh : Exhaustion.VanishingDifference Fraction.magnitudes
+    (fun j => maxWidth (qparts j)) := by
+  intro d hd
+  obtain ⟨n,hn,h1,_⟩ := QuadraticSector.exists_fine d d hd hd
+  refine ⟨n,fun j hj => Fraction.magnitudes.lt_of_le_lt
+    (QuadraticSector.uniform_maxWidth (j+1) (Nat.succ_pos j)) (Fraction.magnitudes.lt_of_le_lt ?_ h1)⟩
+  change (1 : Int) * (n : Int) ≤ 1 * ((j + 1 : Nat) : Int)
+  omega
+
+example (area : SectorFan.AreaRules) (A : Fraction)
+    (hA : area.HasArea (sector QuadraticSector.quadraticChart (Fraction.ofInt 0) (Fraction.ofInt 1)) A) :
+    Exhaustion.VanishingDifference Fraction.magnitudes
+      (fun j => (durationDifference A (chordArea QuadraticSector.quadraticChart (qparts j))).abs) :=
+  UniformRadialSector.uniform_chord_errors_vanish area QuadraticSector.quadraticChart
+    (Fraction.ofInt 0) (Fraction.ofInt 1) (Fraction.ofInt 1) ⟨5,4,by decide⟩
+    (by unfold Fraction.le; decide) (by decide) QuadraticSector.quadratic_bounds QuadraticSector.quadratic_uniform
+    qparts qmesh A hA
+example (area : DifferenceAreaRules) (B : Nat → Fraction)
+    (hB : ∀ j, area.HasArea (between QuadraticSector.quadraticChart (qparts j)) (B j)) :
+    (∀ j, 0 ≤ (B j).num) ∧ Exhaustion.VanishingDifference Fraction.magnitudes B :=
+  UniformRadialSector.uniform_between_areas_vanish area QuadraticSector.quadraticChart
+    (Fraction.ofInt 0) (Fraction.ofInt 1) (Fraction.ofInt 1) ⟨5,4,by decide⟩
+    (by unfold Fraction.le; decide) (by decide) QuadraticSector.quadratic_bounds QuadraticSector.quadratic_uniform
+    qparts qmesh B hB
+example (T : Fraction) (parts : Nat → Partition (Fraction.ofInt 0) (Fraction.ofInt 1))
+    (u : Fraction → Point × Point) :
+    ¬ MotionSampling.RadialChart QuadraticSector.quadraticChart (Fraction.ofInt 0) (Fraction.ofInt 1)
+      T parts u :=
+  fun c => QuadraticSector.quadraticChart_not_monotone.1 c.monotone
+
+#print axioms UniformRadialSector.uniform_chord_errors_vanish
+#print axioms UniformRadialSector.uniform_between_areas_vanish
 end NewtonLimitDynamics.Polygon.HistoricalRadialSectorControls

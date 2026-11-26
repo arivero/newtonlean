@@ -7,10 +7,11 @@ proves nothing new, earns no completion credit and is imported by no library.
 `lake build` compiles it as part of the default `Verification` target.
 
 Each `example` writes out the complete type of a named theorem as it stood at
-`623afe6` and closes it with `@` and the fully qualified name, so a later
-change of statement, hypothesis or binder type fails this build. The types were
-printed from the compiled environment with fully qualified names and explicit
-numeral types, then compiled back; two statements whose printed form loses a
+`623afe6` (the three uniform-chart clients: as added for issue 3) and closes
+it with `@` and the fully qualified name, so a later change of statement,
+hypothesis or binder type fails this build. The types were printed from the
+compiled environment with fully qualified names and explicit numeral types,
+then compiled back; two statements whose printed form loses a
 structure type are written by hand and marked. The definitional checks at the
 end fix the reviewed definitions by `rfl` or `Iff.rfl`.
 
@@ -2157,6 +2158,69 @@ example :
                     ∃ (N : Nat),
                       ∀ (m : Nat), N ≤ m → (NewtonLimitDynamics.Polygon.MonotoneRectangles.gap g (parts m)).lt eps :=
   @Principia1713.LemmaIII.unequal_width_completed_enclosure_and_gap
+
+/-! Uniform-chart Proposition I clients, added 26 November 2026 (issue 3) -/
+example :
+    ∀ (area : NewtonLimitDynamics.Polygon.SectorFan.AreaRules) (a : NewtonLimitDynamics.Polygon.CentralSchedule.Field),
+      NewtonLimitDynamics.Polygon.CentralSchedule.central a →
+        ∀ (C T L B P V : NewtonLimitDynamics.Fraction)
+          (u :
+            NewtonLimitDynamics.Fraction →
+              NewtonLimitDynamics.Polygon.TimeSubdivision.Point × NewtonLimitDynamics.Polygon.TimeSubdivision.Point),
+          NewtonLimitDynamics.Polygon.MotionSampling.Conditions a C T L B P V u →
+            ∀ (g : NewtonLimitDynamics.Fraction → NewtonLimitDynamics.Fraction) (l r : NewtonLimitDynamics.Fraction)
+              (parts : Nat → NewtonLimitDynamics.Polygon.MonotoneRectangles.Partition l r)
+              (m M : NewtonLimitDynamics.Fraction),
+              NewtonLimitDynamics.Polygon.UniformMotionChart.UniformRadialChart g l r T parts u m M →
+                ∀ (A : NewtonLimitDynamics.Fraction),
+                  area.HasArea (NewtonLimitDynamics.Polygon.MotionSampling.sweptSector u T) A →
+                    A.equiv
+                      (T.mul
+                          (NewtonLimitDynamics.Polygon.CentralSchedule.momentum
+                            (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int))))).half :=
+  @DeMotu1684.NATP00090.AreaLaw.sampled_uniform_sector_area
+
+example :
+    ∀ (area : NewtonLimitDynamics.Polygon.RadialSector.DifferenceAreaRules)
+      (a : NewtonLimitDynamics.Polygon.CentralSchedule.Field),
+      NewtonLimitDynamics.Polygon.CentralSchedule.central a →
+        ∀ (C T L B P V : NewtonLimitDynamics.Fraction)
+          (u :
+            NewtonLimitDynamics.Fraction →
+              NewtonLimitDynamics.Polygon.TimeSubdivision.Point × NewtonLimitDynamics.Polygon.TimeSubdivision.Point),
+          NewtonLimitDynamics.Polygon.MotionSampling.Conditions a C T L B P V u →
+            ∀ (g : NewtonLimitDynamics.Fraction → NewtonLimitDynamics.Fraction) (l r : NewtonLimitDynamics.Fraction)
+              (parts : Nat → NewtonLimitDynamics.Polygon.MonotoneRectangles.Partition l r)
+              (m M : NewtonLimitDynamics.Fraction),
+              NewtonLimitDynamics.Polygon.UniformMotionChart.UniformRadialChart g l r T parts u m M →
+                ∀ (A : NewtonLimitDynamics.Fraction),
+                  area.HasArea (NewtonLimitDynamics.Polygon.MotionSampling.sweptSector u T) A →
+                    A.equiv
+                      (T.mul
+                          (NewtonLimitDynamics.Polygon.CentralSchedule.momentum
+                            (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int))))).half :=
+  @Principia1687.PropositionI.sampled_uniform_sector_area
+
+example :
+    ∀ (area : NewtonLimitDynamics.Polygon.RadialSector.DifferenceAreaRules)
+      (a : NewtonLimitDynamics.Polygon.CentralSchedule.Field),
+      NewtonLimitDynamics.Polygon.CentralSchedule.central a →
+        ∀ (C T L B P V : NewtonLimitDynamics.Fraction)
+          (u :
+            NewtonLimitDynamics.Fraction →
+              NewtonLimitDynamics.Polygon.TimeSubdivision.Point × NewtonLimitDynamics.Polygon.TimeSubdivision.Point),
+          NewtonLimitDynamics.Polygon.MotionSampling.Conditions a C T L B P V u →
+            ∀ (g : NewtonLimitDynamics.Fraction → NewtonLimitDynamics.Fraction) (l r : NewtonLimitDynamics.Fraction)
+              (parts : Nat → NewtonLimitDynamics.Polygon.MonotoneRectangles.Partition l r)
+              (m M : NewtonLimitDynamics.Fraction),
+              NewtonLimitDynamics.Polygon.UniformMotionChart.UniformRadialChart g l r T parts u m M →
+                ∀ (A : NewtonLimitDynamics.Fraction),
+                  area.HasArea (NewtonLimitDynamics.Polygon.MotionSampling.sweptSector u T) A →
+                    A.equiv
+                      (T.mul
+                          (NewtonLimitDynamics.Polygon.CentralSchedule.momentum
+                            (u (NewtonLimitDynamics.Fraction.ofInt (0 : Int))))).half :=
+  @Principia1713.PropositionI.sampled_uniform_sector_area
 
 /-! research.RationalTimeSlope -/
 example :

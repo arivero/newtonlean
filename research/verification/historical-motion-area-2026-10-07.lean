@@ -194,4 +194,51 @@ example (area : TriangleContent.AreaRules) (D : Nat → Fraction)
   Principia1713.PropositionI.mechanical_between_area_approximation
     area force central z T z z two o curve conditions (by decide) g z T parts chart D hD
 
+/- Uniform-chart clients (issue 3). The same satisfiable central motion, with its
+constant chart read as a bounded uniformly continuous chart `1 ≤ g ≤ 1`, instantiates
+the three new swept-sector clients; no monotonicity field is used by them. -/
+private theorem g_uniform : RationalBoundary.UniformOn (fun t => (t, g t)) z T := by
+  intro eps heps
+  have hepsR := (Fraction.positive_iff_toRat eps).mp heps
+  refine ⟨Fraction.ofRat (eps.toRat / 2),
+    (Fraction.positive_iff_toRat _).mpr (by rw [Fraction.toRat_ofRat]; grind),?_⟩
+  intro s t _ _ _ _ hd
+  have hdR := (Fraction.le_iff_toRat _ _).mp hd
+  simp only [Fraction.toRat_abs, Fraction.toRat_durationDifference, Fraction.toRat_ofRat] at hdR
+  apply (Fraction.lt_iff_toRat _ _).mpr
+  have hneg (x : Fraction) : (⟨-x.num, x.den, x.den_pos⟩ : Fraction).toRat = -x.toRat :=
+    Fraction.toRat_negF x
+  simp only [FiniteEstimates.pointDistance, PointBounds.pointNorm, pointSub, pointAdd, pointNeg,
+    Fraction.toRat_add, Fraction.toRat_abs, hneg, g, o, Fraction.toRat_ofInt]
+  generalize s.toRat = a at *
+  generalize t.toRat = b at *
+  simp only [Rat.abs] at hdR ⊢
+  split at hdR <;> split <;> split <;> grind
+
+private theorem uchart : UniformMotionChart.UniformRadialChart g z T T parts curve o o :=
+  UniformMotionChart.of_radialChart chart g_uniform
+
+example (area : SectorFan.AreaRules) (A : Fraction) (hA : area.HasArea (sweptSector curve T) A) :
+    Fraction.equiv A (Fraction.mul T (CentralSchedule.momentum (curve z))).half :=
+  DeMotu1684.NATP00090.AreaLaw.sampled_uniform_sector_area area force central
+    z T z z two o curve conditions g z T parts o o uchart A hA
+example (area : DifferenceAreaRules) (A : Fraction) (hA : area.HasArea (sweptSector curve T) A) :
+    Fraction.equiv A T.half :=
+  Fraction.equiv_trans (Principia1687.PropositionI.sampled_uniform_sector_area area force central
+    z T z z two o curve conditions g z T parts o o uchart A hA) (by decide)
+example (area : DifferenceAreaRules) (A : Fraction) (hA : area.HasArea (sweptSector curve T) A) :
+    Fraction.equiv A T.half :=
+  Fraction.equiv_trans (Principia1713.PropositionI.sampled_uniform_sector_area area force central
+    z T z z two o curve conditions g z T parts o o uchart A hA) (by decide)
+-- The assigned area of the actual swept sector exists under the difference rules, so the
+-- printed-edition clients apply to a realized premise.
+example (area : DifferenceAreaRules) :
+    Fraction.equiv T.half T.half :=
+  Fraction.equiv_trans (Principia1687.PropositionI.sampled_uniform_sector_area area force central
+    z T z z two o curve conditions g z T parts o o uchart T.half (actual_area area)) (by decide)
+
+#print axioms DeMotu1684.NATP00090.AreaLaw.sampled_uniform_sector_area
+#print axioms Principia1687.PropositionI.sampled_uniform_sector_area
+#print axioms Principia1713.PropositionI.sampled_uniform_sector_area
+
 end NewtonLimitDynamics.Polygon.HistoricalMotionAreaControls

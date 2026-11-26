@@ -4,6 +4,7 @@ import BarrowLib.Polygon.RadialSector
 import BarrowLib.Polygon.MotionSampling
 import BarrowLib.Polygon.MotionSectorCover
 import BarrowLib.Polygon.MotionCurveCover
+import BarrowLib.Polygon.UniformMotionChart
 import NewtonLimitDynamics.Historical.CompositionOfMotions
 import NewtonLimitDynamics.Historical.LemmaIII
 import ModernLib.Polygon.PathDefect
@@ -617,6 +618,77 @@ theorem mechanical_between_area_approximation
   rw [hp] at hN'
   exact hN'
 
+/-- Conditional local swept-sector law with a bounded uniformly continuous
+radial chart (issue 3). The chart need not be monotone: it supplies `m ≤ g ≤ M`
+with `0 < m`, the rational uniform modulus and the same two-way curve/graph and
+sample correspondence as `MotionSampling.RadialChart`. Slope-mesh exhaustion
+comes from the positive lower bound, and the chord errors vanish by the cap
+exhaustion of `UniformRadialSector`. The assigned rational sector area, the
+manuscript's partial area convention, the mechanical premises and the supplied
+chart remain explicit. This editorial reconstruction uses this witness's own
+finite law chain and elementary exhaustion; it uses no printed-edition theorem.
+A chart for an arbitrary trajectory and the mechanical between-region B for
+nonmonotone charts remain open. -/
+theorem sampled_uniform_sector_area (area : SectorFan.AreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → Point × Point) (d : MotionSampling.Conditions a C T L B P V u)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (m M : Fraction) (chart : UniformMotionChart.UniformRadialChart g l r T parts u m M)
+    (A : Fraction) (hA : area.HasArea (MotionSampling.sweptSector u T) A) :
+    Fraction.equiv A (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half := by
+  let K := (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half
+  let F := fun j => PolygonFanArea.fan
+    (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
+    (HarmonicDyadic.blocks j)
+  let Q := fun j => PolygonFanArea.fan
+    (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j)
+  let chord := fun j => RadialSector.chordArea g (parts j)
+  have hAradial := area.congr_set _ _ A (UniformMotionChart.charted_sector chart) hA
+  have hgeom := UniformMotionChart.chord_errors_vanish area a C L B P V d chart A hAradial
+  have hfan := MotionSampling.sampled_fan_comparison a C T L B P V u d
+  have hfinite (j : Nat) : Fraction.equiv
+      (SectorFan.areaSum
+        (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
+        (HarmonicDyadic.blocks j)) K :=
+    Fraction.equiv_trans (MotionSampling.areaSum_half_fan _ _)
+      ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (canonical_fan_law a ha T d.time_nonnegative _ j))))
+  have hchord (j : Nat) : Fraction.le (HarmonicTimeComparison.durationDifference K (chord j)).abs
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs :=
+    Fraction.le_equiv_left (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
+      (Fraction.equiv_symm (hfinite j))
+      (Fraction.equiv_symm (UniformMotionChart.sampled_chord_area chart j))))
+      (MotionSampling.areaSum_error_le_fan_error _ _ _)
+  let D := (HarmonicTimeComparison.durationDifference K A).abs
+  have hbound (j : Nat) : Fraction.le D (Fraction.add
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs
+      (HarmonicTimeComparison.durationDifference A (chord j)).abs) :=
+    Fraction.magnitudes.le_trans (MotionSampling.difference_triangle K (chord j) A)
+      (Fraction.add_le_add (hchord j)
+        (Fraction.le_of_equiv (HarmonicTimeRealization.durationDifference_abs_symm (chord j) A)))
+  have hsmall := MotionSampling.vanishing_add _ _ hfan hgeom
+  have hDsmall : Exhaustion.VanishingDifference Fraction.magnitudes (fun _ => D) := by
+    intro eps heps
+    obtain ⟨N,hN⟩ := hsmall eps heps
+    exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hbound j) (hN j hj)⟩
+  have hzeroRat := Exhaustion.rational_terminal_zero (fun _ => D.toRat) D.toRat
+    ((Fraction.nonnegative_iff_toRat _).mp (Fraction.abs_num_nonnegative _))
+    (by
+      intro eps heps
+      change 0 < eps at heps
+      obtain ⟨N,hN⟩ := hDsmall (Fraction.ofRat eps)
+        ((Fraction.positive_iff_toRat _).mpr (by simpa only [Fraction.toRat_ofRat] using heps))
+      exact ⟨N,fun j hj => by
+        have h := (Fraction.lt_iff_toRat _ _).mp (hN j hj)
+        simpa only [Fraction.toRat_ofRat] using! h⟩)
+    (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
+  have hzero : Fraction.equiv D (Fraction.ofInt 0) := (Fraction.equiv_iff_toRat _ _).mpr
+    (by simpa only [Fraction.toRat_ofInt, Rat.intCast_zero] using hzeroRat)
+  exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
+
 end DeMotu1684.NATP00090.AreaLaw
 
 /-! 1687. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -1226,6 +1298,63 @@ theorem mechanical_between_area_approximation
   rw [hp] at hN'
   exact hN'
 
+/-- Conditional local swept-sector law with a bounded uniformly continuous
+radial chart (issue 3), on this edition's route: its finite laws give the fan
+law and its Lemma I excludes a positive terminal discrepancy. The chart need not
+be monotone; it supplies `m ≤ g ≤ M` with `0 < m`, the rational uniform modulus
+and the same two-way curve/graph and sample correspondence as
+`MotionSampling.RadialChart`. The vanishing chord errors come from the shared
+cap exhaustion of `UniformRadialSector`, an editorial extension of the figure
+scope; no use of Lemma III is asserted for this alternative construction. The
+assigned rational sector area, the printed editions' difference area convention,
+the mechanical premises and the supplied chart remain explicit; the mechanical
+between-region B for nonmonotone charts remains open. -/
+theorem sampled_uniform_sector_area (area : RadialSector.DifferenceAreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (m M : Fraction) (chart : UniformMotionChart.UniformRadialChart g l r T parts u m M)
+    (A : Fraction) (hA : area.HasArea (MotionSampling.sweptSector u T) A) :
+    Fraction.equiv A (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half := by
+  let K := (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half
+  let F := fun j => PolygonFanArea.fan
+    (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1) (HarmonicDyadic.blocks j)
+  let Q := fun j => PolygonFanArea.fan (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j)
+  let chord := fun j => RadialSector.chordArea g (parts j)
+  have hAradial := area.congr_set _ _ A (UniformMotionChart.charted_sector chart) hA
+  have hgeom := UniformMotionChart.chord_errors_vanish area.toSectorAreaRules a C L B P V d chart A hAradial
+  have hfan := MotionSampling.sampled_fan_comparison a C T L B P V u d
+  have hfinite (j : Nat) : Fraction.equiv
+      (SectorFan.areaSum (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
+        (HarmonicDyadic.blocks j)) K :=
+    Fraction.equiv_trans (MotionSampling.areaSum_half_fan _ _)
+      ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (canonical_fan_law a ha T _ j))))
+  have hchord (j : Nat) : Fraction.le (HarmonicTimeComparison.durationDifference K (chord j)).abs
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs :=
+    Fraction.le_equiv_left (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
+      (Fraction.equiv_symm (hfinite j)) (Fraction.equiv_symm (UniformMotionChart.sampled_chord_area chart j))))
+      (MotionSampling.areaSum_error_le_fan_error _ _ _)
+  let D := (HarmonicTimeComparison.durationDifference K A).abs
+  have hbound (j : Nat) : Fraction.le D (Fraction.add
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs
+      (HarmonicTimeComparison.durationDifference A (chord j)).abs) :=
+    Fraction.magnitudes.le_trans (MotionSampling.difference_triangle K (chord j) A)
+      (Fraction.add_le_add (hchord j)
+        (Fraction.le_of_equiv (HarmonicTimeRealization.durationDifference_abs_symm (chord j) A)))
+  have hsmall := MotionSampling.vanishing_add _ _ hfan hgeom
+  have hDsmall : Exhaustion.VanishingDifference Fraction.magnitudes (fun _ => D) := by
+    intro eps heps
+    obtain ⟨N,hN⟩ := hsmall eps heps
+    exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hbound j) (hN j hj)⟩
+  have hzero := Principia1687.LemmaI.ultimate_difference_zero (fun _ => D) D
+    (Fraction.abs_num_nonnegative _) hDsmall (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
+  exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
+
 end Principia1687.PropositionI
 
 /-! 1713. Proposition I finite construction and conditional local rational swept-sector law; unrestricted theorem open. -/
@@ -1834,6 +1963,63 @@ theorem mechanical_between_area_approximation
     exact congrArg Prod.fst (canonical_polygon_eq_run a _ _ k)
   rw [hp] at hN'
   exact hN'
+
+/-- Conditional local swept-sector law with a bounded uniformly continuous
+radial chart (issue 3), on this edition's route: its finite laws give the fan
+law and its Lemma I excludes a positive terminal discrepancy. The chart need not
+be monotone; it supplies `m ≤ g ≤ M` with `0 < m`, the rational uniform modulus
+and the same two-way curve/graph and sample correspondence as
+`MotionSampling.RadialChart`. The vanishing chord errors come from the shared
+cap exhaustion of `UniformRadialSector`, an editorial extension of the figure
+scope; no use of Lemma III is asserted for this alternative construction. The
+assigned rational sector area, the printed editions' difference area convention,
+the mechanical premises and the supplied chart remain explicit; the mechanical
+between-region B for nonmonotone charts remains open. -/
+theorem sampled_uniform_sector_area (area : RadialSector.DifferenceAreaRules)
+    (a : CentralSchedule.Field) (ha : CentralSchedule.central a) (C T L B P V : Fraction)
+    (u : Fraction → TimeSubdivision.Point × TimeSubdivision.Point)
+    (d : MotionSampling.Conditions a C T L B P V u)
+    (g : Fraction → Fraction) (l r : Fraction)
+    (parts : Nat → MonotoneRectangles.Partition l r)
+    (m M : Fraction) (chart : UniformMotionChart.UniformRadialChart g l r T parts u m M)
+    (A : Fraction) (hA : area.HasArea (MotionSampling.sweptSector u T) A) :
+    Fraction.equiv A (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half := by
+  let K := (Fraction.mul T (CentralSchedule.momentum (u (Fraction.ofInt 0)))).half
+  let F := fun j => PolygonFanArea.fan
+    (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1) (HarmonicDyadic.blocks j)
+  let Q := fun j => PolygonFanArea.fan (fun k => (MotionSampling.samples u T j k).1) (HarmonicDyadic.blocks j)
+  let chord := fun j => RadialSector.chordArea g (parts j)
+  have hAradial := area.congr_set _ _ A (UniformMotionChart.charted_sector chart) hA
+  have hgeom := UniformMotionChart.chord_errors_vanish area.toSectorAreaRules a C L B P V d chart A hAradial
+  have hfan := MotionSampling.sampled_fan_comparison a C T L B P V u d
+  have hfinite (j : Nat) : Fraction.equiv
+      (SectorFan.areaSum (fun k => (BoundedIteration.run a (HarmonicDyadic.duration T j) (u (Fraction.ofInt 0)) k).1)
+        (HarmonicDyadic.blocks j)) K :=
+    Fraction.equiv_trans (MotionSampling.areaSum_half_fan _ _)
+      ((show Fraction.equiv (Fraction.half _) (Fraction.half _) from by
+          apply (Fraction.equiv_iff_toRat _ _).mpr
+          simp only [Fraction.toRat_half]
+          exact congrArg (fun q : Rat => q / 2) ((Fraction.equiv_iff_toRat _ _).mp (canonical_fan_law a ha T _ j))))
+  have hchord (j : Nat) : Fraction.le (HarmonicTimeComparison.durationDifference K (chord j)).abs
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs :=
+    Fraction.le_equiv_left (Fraction.abs_equiv (HarmonicTimeComparison.difference_congr
+      (Fraction.equiv_symm (hfinite j)) (Fraction.equiv_symm (UniformMotionChart.sampled_chord_area chart j))))
+      (MotionSampling.areaSum_error_le_fan_error _ _ _)
+  let D := (HarmonicTimeComparison.durationDifference K A).abs
+  have hbound (j : Nat) : Fraction.le D (Fraction.add
+      (HarmonicTimeComparison.durationDifference (F j) (Q j)).abs
+      (HarmonicTimeComparison.durationDifference A (chord j)).abs) :=
+    Fraction.magnitudes.le_trans (MotionSampling.difference_triangle K (chord j) A)
+      (Fraction.add_le_add (hchord j)
+        (Fraction.le_of_equiv (HarmonicTimeRealization.durationDifference_abs_symm (chord j) A)))
+  have hsmall := MotionSampling.vanishing_add _ _ hfan hgeom
+  have hDsmall : Exhaustion.VanishingDifference Fraction.magnitudes (fun _ => D) := by
+    intro eps heps
+    obtain ⟨N,hN⟩ := hsmall eps heps
+    exact ⟨N,fun j hj => Fraction.magnitudes.lt_of_le_lt (hbound j) (hN j hj)⟩
+  have hzero := Principia1713.LemmaI.ultimate_difference_zero (fun _ => D) D
+    (Fraction.abs_num_nonnegative _) hDsmall (fun _ _ hd => ⟨0,fun _ _ => hd⟩)
+  exact Fraction.equiv_symm (MotionSampling.equiv_of_abs_difference_zero K A hzero)
 
 end Principia1713.PropositionI
 
