@@ -93,3 +93,17 @@ Arbitrary partition independence,
 ordinary sector-union area identification and edition-local uninterrupted-force
 identification remain separate. No integral calculus, ODE theorem, measure
 theorem, or silently supplied completion closes these obligations.
+
+## Rational times and the image of a slope chart
+
+The current local client identifies the given curve and the graph in both directions, including an exact rational time for every rational slope. Smooth central dynamics alone permits a different situation. On $0\le t\le T\le1/4$ take
+$$
+x=(1+t^2)^{-1},\qquad h=t+\tfrac23 t^3+\tfrac15 t^5,\qquad q=(x,xh).
+$$
+All rational-time states are rational, $\det(q,\dot q)=x^2h'=1$, and $\ddot q=(6x-8x^2)q$ is inward since $x\ge16/17$. A rational piecewise-linear cutoff in the point norm, equal to one up to 2 and zero beyond 3, times $\min(0,6q_x-8q_x^2)q$ gives a bounded globally Lipschitz central extension. A smaller $T$ can meet the short-window bound.
+
+At $T=1/4$, slope $1/7$ lies between the two endpoint slopes. Clearing denominators in $h(a/b)=1/7$ gives $21a^5+70a^3b^2+105ab^4=15b^5$. Reduction modulo 7 forces $7\mid b$ and then reduction modulo 49 forces $7\mid a$. The [Lean certificate](verification/rational-time-slope.lean) proves this implication for all natural $a,b$. More generally the 7-adic valuation of $h(t)$ is nonnegative for 7-integral $t$ and equals $5v_7(t)$ for $v_7(t)<0$. Slopes of valuation $-1$ are omitted and are dense in each real slope interval.
+
+Every sampled chord fan including the endpoints contains the rational rectangle $[1/4,1/2]\times[T/16,T/8]$. Its slopes lie in $[T/8,T/2]$ below $h(T)$. Each bracketing chord meets a rational intermediate ray at a rational parameter and at first coordinate at least $16/17$. The rectangle's omitted rays are dense, and absent from the sector defined by exact rational-time membership. A finite union of closed squares covering this set difference contains the entire rectangle and has area at least $T/64$. Density therefore cannot replace the inverse graph premise for that set definition.
+
+For a completed figure, bisection instead brackets every slope: a time bracket of width $h_0$ has slope width at most $289h_0/256$ and ordinate width at most $h_0/2$. The real filled sector is the closure of the rational parameter image by continuity on the compact time–radius rectangle. This is a written geometric comparison. A completed-figure client and the three edition-specific proof routes are separate from the kernel-checked arithmetic. [Definitions](../BarrowLib/Polygon/MotionSampling.lean) · [Issue discussion](https://github.com/arivero/newtonlean/issues/3#issuecomment-7192778767)

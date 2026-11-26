@@ -1258,3 +1258,5 @@ constructed actual difference area yet. Keep
 area existence, general non-rational coordinates and winding/multiplicity
 separate from this local area law. See [verification](VERIFICATION.md) and
 [source/compiled-use diagrams](figures.md).
+
+The [rational-time chart counterexample](PROP_I_PATH_DEFECT.md#rational-times-and-the-image-of-a-slope-chart) distinguishes dense sampling from the exact graph-image premise in the three local clients. The divisibility obstruction is kernel-checked; the completed-sector interface remains open.

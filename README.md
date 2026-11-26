@@ -340,6 +340,8 @@ matter; a shrinking hole separates filled convergence from perimeter claims.
 New/touched proofs and controls are warning-free. No progress is credited to
 migration, relocation or cleanup; the global warning census is unchanged.
 
+Rational-time chart reassessment, 26 November 2026 (issue 3). Every historical file and witness retains its recorded percentage. The new [divisibility certificate](research/verification/rational-time-slope.lean) supplies a diagnostic for the exact-image premise. The [area comparison](research/PROP_I_PATH_DEFECT.md#rational-times-and-the-image-of-a-slope-chart) explains why a client for a larger class of motions must specify the filled figure. The existing edition-specific obligations and library declaration counts are unchanged.
+
 Coupled-polygon reassessment, 25 November 2026 (issue 2): **every file and
 witness percentage is reassessed and unchanged.** The new modern diagnostic
 [CoupledPolygons](ModernLib/Diagnostic/CoupledPolygons.lean) checks, over
