@@ -19,6 +19,11 @@ sha256sum -c docs/SHA256SUMS
 git diff HEAD --check
 ```
 
+The default build also compiles the `Verification` target (frozen statements
+and the rational-time certificate). The kernel replay, toolchain hashes and
+checker controls are described in
+[Kernel replay, frozen statements and checker controls](#kernel-replay-frozen-statements-and-checker-controls).
+
 The default build alone is insufficient. `CheckReferences.lean` inspects
 compiled project constants: it permits only propext, Classical.choice and
 Quot.sound in safe declarations, propagates anachronical use through types,
@@ -197,6 +202,109 @@ are added, with only standard Lean axioms. CheckReferences checks 6,723
 project constants and the refreshed README rows. All 1,181 scores are
 unchanged. The warning census remains 516 unused-simp, zero deprecation and
 four proposition-as-definition warnings; touched modules/controls have none.
+
+## Kernel replay, frozen statements and checker controls
+
+Added 26 November 2026 (issue 6). These checks verify existing proofs and the
+checker itself; they earn no completion credit and change no historical
+statement.
+
+**Frozen statements.** [FrozenStatements.lean](FrozenStatements.lean) writes
+out, with fully qualified names, the complete type of 160 named theorems as
+they stood at `623afe6` and closes each with `@` and the theorem name; a
+changed statement, hypothesis or binder type fails `lake build`. Coverage:
+`sampled_radial_sector_area` and `mechanical_between_area_approximation` for
+NATP00090 (`SectorFan.AreaRules`), 1687 and 1713
+(`RadialSector.DifferenceAreaRules`), each with its separate between-area
+hypothesis; NATP00089's finite equal-area and block statements; every public theorem of the 1687 and 1713 Lemma I–III sections
+(including `given_time_exhaustion` and `finite_time_before_end_exhaustion`);
+every public theorem of `CoupledPolygons`, `UniformRadialSector`,
+`QuadraticSector`, `ReciprocalPhase` and `ArealBounds`; the two lower-bound
+mesh lemmas of `MotionSampling`; and `RationalTimeSlope.common_seven`. Seven
+`rfl`/`Iff.rfl` checks fix `Vec3.cross`, `pairTerm`, `gauss`, `CapsEnclose`,
+`Reproduces`, `EnergyRelation` and `ArealBounds.start`. The types were printed
+from the compiled environment (`pp.fullNames`, `pp.numericTypes`) and compiled
+back; `QuadraticSector.exists_fine` and `CoupledPolygons.example_nonzero_cancel`
+are written by hand because their printed structure literals lose the type.
+Unused instance and lambda binder names were replaced by anonymous binders, so
+the module builds without warnings and without warning options. The
+certificate formerly at `research/verification/rational-time-slope.lean` is
+now the module [RationalTimeSlope.lean](RationalTimeSlope.lean). Both modules
+form the `Verification` default target; they import the libraries and no
+library imports them. CheckReferences and the README rows inspect only the
+NewtonLimitDynamics import closure, so their counts are unchanged.
+
+**Kernel replay.** In a clean copy of the checkout (no prior `.lake`), after
+the six builds:
+
+```sh
+/usr/bin/time -p lake env leanchecker -v ClassicsLib BarrowLib ModernLib NewtonLimitDynamics Reverse research
+```
+
+`leanchecker` replays every compiled module under each prefix with Lean
+4.34.1's own kernel; it is a second pass through the same kernel, not an
+independent kernel. Result on the tree committed with this section
+(sources of `623afe6` plus this verification layer): exit status 0, 236
+modules replayed, wall 37.27 s (user 299.25 s, sys 88.34 s). Replayed and
+compiled `.olean` counts agree under every prefix: ClassicsLib 8/8,
+BarrowLib 75/75, ModernLib 109/109, NewtonLimitDynamics 23/23, Reverse 19/19,
+research 2/2. The clean default build took 41.85 s (240 jobs). A long-lived
+checkout can hold stale `.olean` files of removed modules (here
+`.lake/build/lib/lean/NewtonLimitDynamics/Diagnostic/*`, from the 6 October
+layout); `leanchecker` then stops with `incompatible header` on the first one,
+so run the replay in a clean checkout.
+
+No independent external kernel is available locally: no Nanoda, lean4lean or
+lean4export binary is installed and there is no Rust toolchain to build one.
+Installing one is outside this task, so no second-kernel replay is recorded.
+
+**Hashes.** [LEAN-4.34.1-linux-x86_64.sha256](../docs/LEAN-4.34.1-linux-x86_64.sha256)
+records SHA-256 hashes of `bin/lean`, `bin/lake`, `bin/leanchecker` and the
+shared libraries they load (`libleanshared*.so`, `libInit_shared.so`,
+`libLake_shared.so`), relative to the toolchain directory:
+
+```sh
+(cd "$(dirname "$(dirname "$(readlink -f "$(elan which lean)")")")" &&
+  sha256sum -c "$OLDPWD/docs/LEAN-4.34.1-linux-x86_64.sha256")"
+```
+
+Recorded on Linux 7.0.0-44-generic x86_64 with elan 4.2.4 and Lean 4.34.1
+(commit 5045d0056413266e57c625dcd7c365b10e377c52):
+
+| Object | SHA-256 |
+|---|---|
+| `lean-toolchain` | `d5edba4e4b8faad9c1baeadb265716d20d03be4d1a2647dc5e35b0c0325bea7b` |
+| elan proxy `~/.elan/bin/lean` | `e0f4b30b29c565625189744847dfef5f132b6322c5e452dbebfeae780c9749e5` |
+| toolchain tree, 17,738 files: `find . -type f -print0 \| LC_ALL=C sort -z \| xargs -0 sha256sum \| sha256sum` | `a73f9239936ce77d625c3e9170c36029664ee431dcc8987ab1c0db1cc6d8c34a` |
+| replayed `.olean` files, 236 files, 72,256,896 bytes: the same path-sorted listing inside `.lake/build/lib/lean` | `3262de7d0d8211d0d9cf9f82e312028615c1ef6f64f5d54d4334d444cb72deac` |
+
+The build writes no `.olean.private` or `.olean.server` parts, and no external
+export is produced, so there are no export byte counts to record.
+
+**Checker controls.** `scripts/check_verification_controls.sh` copies the
+checkout (tracked and untracked non-ignored files plus `.lake`) into a fresh
+temporary directory for each control, applies one mutation, requires the
+mutated module to compile and requires the designated check to fail with the
+expected diagnostic. It removes the copies on exit and compares the caller's
+`git status --porcelain --untracked-files=all` before and after. Observed
+results (38.8 s in total):
+
+| Control | Mutation | Check and observed rejection |
+|---|---|---|
+| positive | none | `lake build`, `lake build NewtonLimitDynamics` and CheckReferences pass |
+| changed statement | `ArealBounds.different_polygons : True := True.intro` | module compiles; `lake build research.FrozenStatements` fails with a type mismatch at `@...different_polygons` |
+| changed definition | `ArealBounds.start` initial position `(1, 0)` → `(2, 0)` | `different_polygons` still compiles; the frozen `start = ((Fraction.ofInt 1, Fraction.ofInt 0), …)` check fails |
+| added `sorry` | proof of `different_polygons` replaced by `sorry` | build passes with a `sorry` warning; CheckReferences: `uses forbidden axiom sorryAx` |
+| fresh axiom | `axiom controlAxiom` used by a separate theorem | CheckReferences: `forbidden axiom NewtonLimitDynamics.Diagnostic.ArealBounds.controlAxiom` |
+| anachronical import | `import ModernLib.Diagnostic.ArealBounds` in `Historical/LawI.lean` | the import alone passes CheckReferences |
+| anachronical use | primary `Principia1687.Laws.controlPrimaryUse := ArealBounds.freeField_central` | CheckReferences: `anachronical dependency in primary declaration Principia1687.Laws.controlPrimaryUse`, path ending in the ModernLib definition `ArealBounds.freeField` used by the statement |
+| caller checkout | — | `git status` identical before and after |
+
+The anachronical path reaches `freeField` (a ModernLib definition in the
+statement's type) before `freeField_central`; both are ModernLib seeds, so
+either path rejects the primary declaration. These controls share the Lean
+kernel and the checker under test; they show that the checks react to these
+mutations, not that they catch every possible defect.
 
 ## Review the conclusion before accepting progress
 

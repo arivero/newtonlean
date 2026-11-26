@@ -1260,3 +1260,5 @@ separate from this local area law. See [verification](VERIFICATION.md) and
 [source/compiled-use diagrams](figures.md).
 
 The [rational-time chart counterexample](PROP_I_PATH_DEFECT.md#rational-times-and-the-image-of-a-slope-chart) distinguishes dense sampling from the exact graph-image premise in the three local clients. The divisibility obstruction is kernel-checked; the completed-sector interface remains open.
+
+Verification layer, 26 November 2026 (issue 6): the default build now compiles [frozen statements](FrozenStatements.lean) for 160 headline and diagnostic theorems and seven reviewed definitions, and the rational-time certificate as the module [RationalTimeSlope.lean](RationalTimeSlope.lean). A clean-checkout `leanchecker` replay of all 236 modules passes with Lean 4.34.1's own kernel; no independent kernel is installed. The checker controls and toolchain hashes are recorded in [verification](VERIFICATION.md#kernel-replay-frozen-statements-and-checker-controls). No historical premise or percentage changes.

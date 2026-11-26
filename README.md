@@ -340,7 +340,22 @@ matter; a shrinking hole separates filled convergence from perimeter claims.
 New/touched proofs and controls are warning-free. No progress is credited to
 migration, relocation or cleanup; the global warning census is unchanged.
 
-Rational-time chart reassessment, 26 November 2026 (issue 3). Every historical file and witness retains its recorded percentage. The new [divisibility certificate](research/verification/rational-time-slope.lean) supplies a diagnostic for the exact-image premise. The [area comparison](research/PROP_I_PATH_DEFECT.md#rational-times-and-the-image-of-a-slope-chart) explains why a client for a larger class of motions must specify the filled figure. The existing edition-specific obligations and library declaration counts are unchanged.
+Verification-layer reassessment, 26 November 2026 (issue 6): **every file
+and witness percentage is reassessed and unchanged, because this work
+verifies existing proofs and adds no mathematics.** The
+[frozen statements](research/FrozenStatements.lean) fix the complete types of
+160 headline and diagnostic theorems and seven reviewed definitions in the
+default build; `leanchecker` replays all 236 compiled modules with Lean
+4.34.1's own kernel; the toolchain hashes are recorded; and
+`scripts/check_verification_controls.sh` shows the frozen check rejecting a
+changed statement and definition and CheckReferences rejecting `sorry`, a
+fresh axiom and an anachronical use (details in
+[verification](research/VERIFICATION.md#kernel-replay-frozen-statements-and-checker-controls)).
+No independent external kernel is installed, so no second-kernel replay is
+recorded. Theorem counts, dependency sizes and the warning census are
+unchanged; the two verification modules build without warnings.
+
+Rational-time chart reassessment, 26 November 2026 (issue 3). Every historical file and witness retains its recorded percentage. The new [divisibility certificate](research/RationalTimeSlope.lean) supplies a diagnostic for the exact-image premise. The [area comparison](research/PROP_I_PATH_DEFECT.md#rational-times-and-the-image-of-a-slope-chart) explains why a client for a larger class of motions must specify the filled figure. The existing edition-specific obligations and library declaration counts are unchanged.
 
 Coupled-polygon reassessment, 25 November 2026 (issue 2): **every file and
 witness percentage is reassessed and unchanged.** The new modern diagnostic
@@ -596,9 +611,20 @@ lake env lean research/CheckReferences.lean
 lake env lean scripts/inspect_graphs.lean
 sha256sum -c docs/SHA256SUMS
 git diff HEAD --check
+scripts/check_verification_controls.sh
 ```
 
-Run the retained Lean scope harnesses described in [verification](research/VERIFICATION.md).
+In a clean checkout, replay the compiled modules with the toolchain's own
+kernel and check the recorded toolchain hashes:
+
+```sh
+lake env leanchecker -v ClassicsLib BarrowLib ModernLib NewtonLimitDynamics Reverse research
+(cd "$(dirname "$(dirname "$(readlink -f "$(elan which lean)")")")" &&
+  sha256sum -c "$OLDPWD/docs/LEAN-4.34.1-linux-x86_64.sha256")
+```
+
+The default build includes the frozen-statement module. Run the retained Lean
+scope harnesses described in [verification](research/VERIFICATION.md).
 Passing checks certify the stated Lean results without discharging supplied
 historical premises. Git retains previous tools, figures and session records;
 there are no JSON catalogs, Python bookkeeping scripts or completion plots.
